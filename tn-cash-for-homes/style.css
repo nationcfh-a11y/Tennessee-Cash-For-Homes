@@ -907,7 +907,7 @@ img { display: block; max-width: 100%; }
   font-weight: 600;
   color: var(--charcoal);
   letter-spacing: 0.01em;
-  cursor: default;
+  cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
 }
