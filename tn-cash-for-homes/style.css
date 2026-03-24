@@ -908,15 +908,22 @@ img { display: block; max-width: 100%; }
   color: var(--charcoal);
   letter-spacing: 0.01em;
   cursor: default;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.3s ease;
   text-decoration: none;
 }
 
 .city-chip--link { cursor: pointer; }
 
 .city-chip:hover {
-  border-color: var(--green-dark);
-  box-shadow: 0 4px 12px rgba(106,181,133,0.25);
+  background: #84CC9C;
+  border-color: #84CC9C;
+  color: #ffffff;
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(132,204,156,0.35);
+}
+
+.city-chip:hover svg {
+  color: #ffffff;
 }
 
 .city-chip svg {
@@ -938,19 +945,19 @@ img { display: block; max-width: 100%; }
 
 /* ── CTA BAND ── */
 .cta-band {
-  background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
+  background: #F2F2F2;
   padding: 72px 0;
   text-align: center;
 }
 
-.cta-band h2 { font-size: clamp(26px, 4vw, 42px); color: var(--white); margin-bottom: 16px; }
-.cta-band p { font-size: 18px; color: rgba(255,255,255,.85); margin-bottom: 36px; max-width: 560px; margin-left: auto; margin-right: auto; }
+.cta-band h2 { font-size: clamp(26px, 4vw, 42px); color: var(--charcoal); margin-bottom: 16px; }
+.cta-band p { font-size: 18px; color: var(--charcoal-light); margin-bottom: 36px; max-width: 560px; margin-left: auto; margin-right: auto; }
 
 .btn-white {
   display: inline-block;
   padding: 16px 40px;
-  background: var(--white);
-  color: var(--green-dark);
+  background: var(--green-dark);
+  color: var(--white);
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 17px;
@@ -960,12 +967,13 @@ img { display: block; max-width: 100%; }
 }
 
 .btn-white:hover {
+  background: var(--green);
   transform: translateY(-3px);
   box-shadow: 0 12px 36px rgba(0,0,0,0.2);
 }
 
-.cta-phone { display: block; font-size: 15px; color: rgba(255,255,255,.8); margin-top: 18px; }
-.cta-phone a { color: var(--white); font-weight: 600; text-decoration: underline; }
+.cta-phone { display: block; font-size: 15px; color: var(--charcoal-light); margin-top: 18px; }
+.cta-phone a { color: var(--charcoal); font-weight: 600; text-decoration: underline; }
 
 /* ── FOOTER ── */
 .footer {
@@ -1275,7 +1283,7 @@ img { display: block; max-width: 100%; }
 .land-section__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.70);
+  background: rgba(0, 0, 0, 0.55);
   z-index: 0;
 }
 
