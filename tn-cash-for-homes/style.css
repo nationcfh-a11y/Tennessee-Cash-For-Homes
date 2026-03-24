@@ -1528,3 +1528,197 @@ img { display: block; max-width: 100%; }
   .hiw-timeline-content { padding-bottom: 36px; }
   .hiw-timeline-title { font-size: 18px; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   LOCATION PAGES — City-Specific Templates
+═══════════════════════════════════════════════════════════ */
+
+/* ── Location Hero ── */
+.location-hero {
+  position: relative;
+  min-height: 620px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+}
+
+.location-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(61,61,61,0.82) 0%, rgba(61,61,61,0.55) 60%, rgba(61,61,61,0.35) 100%);
+  z-index: 1;
+}
+
+.location-hero .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.location-hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 48px;
+  align-items: center;
+}
+
+.location-hero__content {
+  color: var(--white);
+}
+
+.breadcrumb--light a,
+.breadcrumb--light span {
+  color: rgba(255,255,255,0.85);
+  font-size: 14px;
+}
+.breadcrumb--light a:hover { color: var(--green); }
+
+.location-hero__title {
+  font-size: clamp(28px, 4vw, 50px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+  margin: 16px 0 18px;
+}
+
+.location-hero__subtitle {
+  font-size: 18px;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  max-width: 540px;
+}
+
+.location-hero__cta-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+/* ── Market Stats Bar ── */
+.loc-stats-bar {
+  background: var(--charcoal);
+  padding: 28px 0;
+}
+
+.loc-stats-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.loc-stat {
+  text-align: center;
+  padding: 8px 48px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.loc-stat__num {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1.1;
+}
+
+.loc-stat__label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+.loc-stat-divider {
+  width: 1px;
+  height: 52px;
+  background: rgba(255,255,255,0.15);
+  flex-shrink: 0;
+}
+
+/* ── About Section ── */
+.loc-about__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.loc-about__body {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--charcoal-light);
+  margin-bottom: 20px;
+}
+
+.loc-about__content .btn-primary {
+  margin-top: 8px;
+  display: inline-block;
+}
+
+.loc-about__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.loc-trust-card {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 20px;
+}
+
+.loc-trust-icon {
+  color: var(--green-dark);
+  margin-bottom: 12px;
+}
+
+.loc-trust-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+}
+
+.loc-trust-card p {
+  font-size: 14px;
+  color: var(--charcoal-light);
+  line-height: 1.6;
+}
+
+/* ── Responsive: Location Pages ── */
+@media (max-width: 960px) {
+  .location-hero__inner {
+    grid-template-columns: 1fr;
+  }
+  .location-hero .hero__form-card {
+    max-width: 480px;
+  }
+  .loc-about__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .location-hero {
+    min-height: auto;
+    padding: 60px 0 40px;
+  }
+  .location-hero__title { font-size: 26px; }
+  .location-hero__subtitle { font-size: 16px; }
+  .location-hero__cta-row { flex-direction: column; }
+  .loc-stats-bar__inner { gap: 0; }
+  .loc-stat { padding: 12px 24px; min-width: 140px; }
+  .loc-stat-divider { display: none; }
+  .loc-about__cards { grid-template-columns: 1fr; }
+  .loc-stats-bar__inner { justify-content: flex-start; }
+}
