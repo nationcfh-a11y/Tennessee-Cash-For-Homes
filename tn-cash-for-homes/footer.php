@@ -1,17 +1,6 @@
 <!-- ── FOOTER ── -->
 <footer class="site-footer">
 
-  <!-- Pre-footer CTA -->
-  <div class="footer-cta">
-    <div class="container">
-      <h2 class="footer-cta__title">Ready to Sell Your Tennessee Home for Cash?</h2>
-      <p class="footer-cta__sub">Get a no-obligation cash offer today. No fees, no commissions, no hassle.</p>
-      <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-footer-cta">Get My Cash Offer Now</a>
-    </div>
-  </div>
-
-  <div class="footer-divider"></div>
-
   <!-- Main 3-column grid -->
   <div class="footer-main">
     <div class="container">
@@ -40,7 +29,7 @@
               </a>
             </li>
             <li>
-              <a href="https://calendly.com/tennesseecashforhomes" target="_blank" rel="noopener">
+              <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2VIuRH3HQzCumgmguAjbGQytketNA5R6TVOcjhZZhc6c7OHoVfQebQaP6Pvs3zPADwWycZKjCU" target="_blank" rel="noopener">
                 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 Book A Call
               </a>
@@ -77,9 +66,9 @@
   <div class="footer-bottom">
     <div class="container">
       <div class="footer-bottom__inner">
-        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/100%25%20Image.webp" alt="100% Satisfaction Guarantee" class="footer-bottom__img" />
+        <img src="https://nationcfh.wpcomstaging.com/wp-content/uploads/2026/03/100-Image.webp" alt="Tennessee Cash For Homes 100% Satisfaction Guarantee" class="footer-bottom__img" />
         <span class="footer-bottom__copy">&copy; 2025 Tennessee Cash For Homes</span>
-        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/Black%20Labrador%20Birddog%20Image.webp" alt="Tennessee Cash For Homes" class="footer-bottom__img" />
+        <img src="https://nationcfh.wpcomstaging.com/wp-content/uploads/2026/03/Black-Labrador-Birddog-Image.webp" alt="Tennessee Cash For Homes Mascot Black Labrador Birddog" class="footer-bottom__img" />
       </div>
     </div>
   </div>
