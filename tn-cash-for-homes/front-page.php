@@ -673,10 +673,34 @@
       <a href="<?php echo esc_url( home_url('/where-we-buy/mcminnville') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>McMinnville</span></a>
       <a href="<?php echo esc_url( home_url('/where-we-buy/old-hickory') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Old Hickory</span></a>
       <a href="<?php echo esc_url( home_url('/where-we-buy/woodbury') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Woodbury</span></a>
+      <a href="<?php echo esc_url( home_url('/where-we-buy/tennessee') ); ?>" class="city-chip city-chip--full"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Anywhere in Tennessee &mdash; We Serve All Areas</span></a>
     </div>
     <p class="areas-footnote">Don't see your city? We serve <a href="/#hero-form">all of Tennessee</a>. Contact us for your cash offer today.</p>
   </div>
 </section>
 
+
+<script>
+(function () {
+  if (!window.IntersectionObserver) return;
+  var steps = document.querySelectorAll('.steps .step');
+  if (!steps.length) return;
+
+  steps.forEach(function (step) {
+    step.classList.add('step-pre');
+  });
+
+  steps.forEach(function (step, index) {
+    var observer = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      setTimeout(function () {
+        step.classList.add('step-visible');
+      }, index * 100);
+      observer.unobserve(step);
+    }, { threshold: 0.2 });
+    observer.observe(step);
+  });
+})();
+</script>
 
 <?php get_footer(); ?>

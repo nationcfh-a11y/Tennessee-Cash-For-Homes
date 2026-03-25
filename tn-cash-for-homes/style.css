@@ -2375,3 +2375,86 @@ img { display: block; max-width: 100%; }
   .wwb-why__grid { grid-template-columns: 1fr; }
   .wwb-cta-band { padding: 64px 0; }
 }
+
+/* ════════════════════════════════════════
+   CUSTOM ADDITIONS
+════════════════════════════════════════ */
+
+/* ── Full-width Tennessee city chip ── */
+.city-chip--full {
+  grid-column: 1 / -1;
+  width: 100%;
+  justify-content: center;
+  background: rgba(132, 204, 156, 0.25);
+  border-color: rgba(132, 204, 156, 0.55);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* ── Full-width Tennessee photo card ── */
+.wwb-photo-card--full {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 280px;
+}
+
+/* ── Front-page steps: scroll-triggered fade + slide-up ── */
+.step-pre {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.step-pre.step-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── HIW Timeline: scroll-triggered fade + slide-up ── */
+.hiw-step-pre {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.hiw-step-pre.hiw-step-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── HIW Timeline: rebuild grid without separate line divs ── */
+.hiw-timeline-item {
+  grid-template-columns: 60px 1fr;
+  gap: 0 24px;
+}
+.hiw-timeline-content {
+  grid-column: 2;
+  grid-row: 1;
+  padding-bottom: 56px;
+}
+
+/* ── HIW Timeline icon: position for ::after line ── */
+.hiw-timeline-icon {
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
+/* ── Connecting line drawn downward from icon via ::after ── */
+.hiw-timeline-icon::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top;
+  width: 2px;
+  height: 400px;
+  background: var(--border);
+  transition: transform 0.5s ease;
+  z-index: 0;
+}
+.hiw-timeline-item:last-child .hiw-timeline-icon::after {
+  display: none;
+}
+.hiw-timeline-icon.line-drawn::after {
+  transform: translateX(-50%) scaleY(1);
+}

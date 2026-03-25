@@ -31,7 +31,6 @@ $cities = [
   ['name'=>'Old Hickory',    'slug'=>'old-hickory',    'image'=>'Old Hickory.webp',    'price'=>'$335,000'],
   ['name'=>'Shelbyville',    'slug'=>'shelbyville',    'image'=>'Shelbyville.webp',    'price'=>'$305,000'],
   ['name'=>'Woodbury',       'slug'=>'woodbury',       'image'=>'Woodbury.webp',       'price'=>'$270,000'],
-  ['name'=>'Chapel Hill',    'slug'=>'chapel-hill',    'image'=>'Chapel Hill.webp',    'price'=>'$339,600'],
   ['name'=>'Tennessee',      'slug'=>'tennessee',      'image'=>'Tennessee.webp',      'price'=>'$350,000'],
 ];
 
@@ -148,10 +147,11 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
     </div>
     <div class="wwb-photo-grid">
       <?php foreach ( $cities as $c ) :
-        $url = esc_url( home_url('/where-we-buy/' . $c['slug']) );
-        $img = esc_url( $img_base . rawurlencode($c['image']) );
+        $url       = esc_url( home_url('/where-we-buy/' . $c['slug']) );
+        $img       = esc_url( $img_base . rawurlencode($c['image']) );
+        $full_class = ( $c['slug'] === 'tennessee' ) ? ' wwb-photo-card--full' : '';
       ?>
-      <a href="<?php echo $url; ?>" class="wwb-photo-card wwb-fade" style="background-image:url('<?php echo $img; ?>');">
+      <a href="<?php echo $url; ?>" class="wwb-photo-card<?php echo $full_class; ?> wwb-fade" style="background-image:url('<?php echo $img; ?>');">
         <div class="wwb-photo-card__gradient"></div>
         <div class="wwb-photo-card__footer">
           <h3 class="wwb-photo-card__name"><?php echo esc_html($c['name']); ?></h3>
@@ -242,6 +242,7 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
       <a href="<?php echo esc_url( home_url('/where-we-buy/mcminnville') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>McMinnville</span></a>
       <a href="<?php echo esc_url( home_url('/where-we-buy/old-hickory') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Old Hickory</span></a>
       <a href="<?php echo esc_url( home_url('/where-we-buy/woodbury') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Woodbury</span></a>
+      <a href="<?php echo esc_url( home_url('/where-we-buy/tennessee') ); ?>" class="city-chip city-chip--full"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Anywhere in Tennessee &mdash; We Serve All Areas</span></a>
     </div>
     <p class="areas-footnote">Don&rsquo;t see your city? We serve <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>">all of Tennessee</a>. Contact us for your cash offer today.</p>
   </div>
