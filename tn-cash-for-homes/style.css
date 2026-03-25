@@ -899,8 +899,8 @@ img { display: block; max-width: 100%; }
   align-items: center;
   justify-content: center;
   gap: 7px;
-  background: #fff;
-  border: 1.5px solid #dde8e2;
+  background: rgba(132, 204, 156, 0.17);
+  border: 1.5px solid rgba(132, 204, 156, 0.35);
   border-radius: 10px;
   padding: 13px 10px;
   font-size: 13px;
@@ -915,15 +915,15 @@ img { display: block; max-width: 100%; }
 .city-chip--link { cursor: pointer; }
 
 .city-chip:hover {
-  background: #84CC9C;
+  background: #ffffff;
   border-color: #84CC9C;
-  color: #ffffff;
+  color: var(--charcoal);
   transform: scale(1.03);
-  box-shadow: 0 4px 12px rgba(132,204,156,0.35);
+  box-shadow: 0 4px 12px rgba(132,204,156,0.25);
 }
 
 .city-chip:hover svg {
-  color: #ffffff;
+  color: var(--green-dark);
 }
 
 .city-chip svg {
@@ -1887,6 +1887,48 @@ img { display: block; max-width: 100%; }
   flex-shrink: 0;
 }
 
+/* ── White stats bar (WWB page) ── */
+.wwb-stats-bar-white {
+  background: #ffffff;
+  padding: 40px 0;
+  border-bottom: 1px solid #f0f0f0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.wwb-stats-bar-white__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.wwb-stat-white {
+  flex: 1;
+  min-width: 160px;
+  text-align: center;
+  padding: 16px 24px;
+}
+.wwb-stat-white__num {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  color: var(--charcoal);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.wwb-stat-white__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green-dark);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.wwb-stat-white-divider {
+  width: 1px;
+  height: 60px;
+  background: #e5e5e5;
+  flex-shrink: 0;
+}
+
 /* ── Mission split section ── */
 .wwb-mission__inner {
   display: grid;
@@ -1991,13 +2033,11 @@ img { display: block; max-width: 100%; }
 .wwb-photo-card__hover {
   position: absolute;
   inset: 0;
-  background: rgba(106,181,133,0.82);
   opacity: 0;
-  transition: opacity .3s ease;
   border-radius: 14px;
 }
-.wwb-photo-card:hover .wwb-photo-card__hover { opacity: 1; }
-.wwb-photo-card:hover .wwb-photo-card__gradient { opacity: 0; }
+.wwb-photo-card:hover .wwb-photo-card__hover { opacity: 0; }
+.wwb-photo-card:hover .wwb-photo-card__gradient { opacity: 1; }
 .wwb-photo-card__footer {
   position: absolute;
   bottom: 0;
@@ -2006,7 +2046,7 @@ img { display: block; max-width: 100%; }
   padding: 14px 16px;
   transition: opacity .25s ease;
 }
-.wwb-photo-card:hover .wwb-photo-card__footer { opacity: 0; }
+.wwb-photo-card:hover .wwb-photo-card__footer { opacity: 1; }
 .wwb-photo-card__price {
   display: block;
   font-family: 'Poppins', sans-serif;
@@ -2036,7 +2076,7 @@ img { display: block; max-width: 100%; }
   opacity: 0;
   transition: opacity .3s ease .05s;
 }
-.wwb-photo-card:hover .wwb-photo-card__cta { opacity: 1; }
+.wwb-photo-card:hover .wwb-photo-card__cta { opacity: 0; }
 .wwb-photo-card__cta span {
   display: inline-block;
   padding: 12px 20px;
