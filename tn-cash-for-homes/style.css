@@ -145,7 +145,7 @@ img { display: block; max-width: 100%; }
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.50);
+  background: rgba(0, 0, 0, 0.60);
 }
 
 .hero__inner {
@@ -223,7 +223,7 @@ img { display: block; max-width: 100%; }
 
 /* ── PAGE HERO (inner pages) ── */
 .page-hero {
-  background: linear-gradient(135deg, rgba(30,40,30,0.92) 0%, rgba(45,65,45,0.88) 50%, rgba(30,50,35,0.92) 100%),
+  background: linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)),
               url('brand_assets/Background%20idea.jpg') center center / cover no-repeat;
   padding: 64px 0 60px;
   position: relative;
@@ -1684,7 +1684,7 @@ img { display: block; max-width: 100%; }
 .location-hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(61,61,61,0.82) 0%, rgba(61,61,61,0.55) 60%, rgba(61,61,61,0.35) 100%);
+  background: rgba(0, 0, 0, 0.60);
   z-index: 1;
 }
 
@@ -1886,7 +1886,7 @@ img { display: block; max-width: 100%; }
 .wwb-hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(15,30,20,0.72) 0%, rgba(15,30,20,0.60) 100%);
+  background: rgba(0, 0, 0, 0.60);
 }
 .wwb-hero__container { position: relative; z-index: 2; }
 .wwb-hero__inner {
