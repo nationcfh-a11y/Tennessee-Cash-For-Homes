@@ -2402,7 +2402,7 @@ img { display: block; max-width: 100%; }
 .step-pre {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 1.2s ease, transform 1.2s ease;
 }
 .step-pre.step-visible {
   opacity: 1;
@@ -2413,7 +2413,7 @@ img { display: block; max-width: 100%; }
 .hiw-step-pre {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 1.2s ease, transform 1.2s ease;
 }
 .hiw-step-pre.hiw-step-visible {
   opacity: 1;
@@ -2449,7 +2449,7 @@ img { display: block; max-width: 100%; }
   width: 2px;
   height: 400px;
   background: var(--border);
-  transition: transform 0.5s ease;
+  transition: transform 1.0s ease;
   z-index: 0;
 }
 .hiw-timeline-item:last-child .hiw-timeline-icon::after {

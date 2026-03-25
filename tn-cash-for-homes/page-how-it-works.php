@@ -188,7 +188,7 @@ get_header(); ?>
       }
 
       // Fade in this step slightly after the line starts drawing
-      var delay = index > 0 ? 250 : 0;
+      var delay = index > 0 ? 300 : 200;
       setTimeout(function () {
         item.classList.add('hiw-step-visible');
       }, delay);

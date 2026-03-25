@@ -695,9 +695,9 @@
       if (!entries[0].isIntersecting) return;
       setTimeout(function () {
         step.classList.add('step-visible');
-      }, index * 100);
+      }, 200 + index * 300);
       observer.unobserve(step);
-    }, { threshold: 0.2 });
+    }, { threshold: 0.3 });
     observer.observe(step);
   });
 })();
