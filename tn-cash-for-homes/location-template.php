@@ -374,12 +374,3 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
   </div>
 </section>
 
-<!-- ── CTA BAND ── -->
-<section class="cta-band">
-  <div class="container">
-    <h2>Ready to Sell Your <?php echo esc_html( $name ); ?> House Fast for Cash?</h2>
-    <p>Get your free, no-obligation cash offer today from Tennessee&rsquo;s 5-star rated home buyers. No repairs, no fees, no waiting.</p>
-    <a href="/#hero-form" class="btn-white">Get My Free Cash Offer Today</a>
-    <span class="cta-phone">Or call us directly: <a href="tel:+16158018126">(615) 801-8126</a></span>
-  </div>
-</section>

@@ -982,23 +982,47 @@ img { display: block; max-width: 100%; }
   color: rgba(255,255,255,0.75);
 }
 
-/* Pre-footer CTA */
-.footer-cta {
-  padding: 60px 0;
+/* Dark CTA (inside footer) */
+.footer-dark-cta {
+  padding: 72px 0;
   text-align: center;
 }
-.footer-cta__title {
+.footer-dark-cta__label {
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(24px, 3.5vw, 36px);
+  font-size: 11px;
+  font-weight: 700;
+  color: #84CC9C;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+}
+.footer-dark-cta__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(26px, 4vw, 42px);
   font-weight: 700;
   color: #ffffff;
-  margin: 0 0 12px;
+  margin: 0 0 16px;
+  line-height: 1.2;
 }
-.footer-cta__sub {
-  font-size: 16px;
-  color: rgba(255,255,255,0.7);
-  margin: 0 0 32px;
+.footer-dark-cta__sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.72);
+  margin: 0 0 36px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
 }
+.footer-dark-cta__phone {
+  margin: 20px 0 0;
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+}
+.footer-dark-cta__phone a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-weight: 600;
+}
+.footer-dark-cta__phone a:hover { color: #84CC9C; }
 .btn-footer-cta {
   display: inline-block;
   padding: 16px 40px;

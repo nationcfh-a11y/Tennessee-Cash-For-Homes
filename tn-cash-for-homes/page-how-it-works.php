@@ -169,13 +169,5 @@ get_header(); ?>
   </div>
 </section>
 
-<!-- ── CTA BAND ── -->
-<section class="cta-band">
-  <div class="container">
-    <h2>Ready to Get Your Free Cash Offer?</h2>
-    <p>Takes less than 60 seconds. No obligation. No pressure.</p>
-    <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-white">Get My Cash Offer →</a>
-  </div>
-</section>
 
 <?php get_footer(); ?>

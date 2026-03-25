@@ -1,6 +1,19 @@
 <!-- ── FOOTER ── -->
 <footer class="site-footer">
 
+  <!-- Dark CTA -->
+  <div class="footer-dark-cta">
+    <div class="container">
+      <p class="footer-dark-cta__label">GET STARTED TODAY</p>
+      <h2 class="footer-dark-cta__title">Ready to Sell Your Tennessee House Fast?</h2>
+      <p class="footer-dark-cta__sub">Get a fair cash offer from a trusted local Tennessee home buyer. No repairs, no fees, no stress. Close on your schedule.</p>
+      <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-footer-cta">Get My Free Cash Offer &rarr;</a>
+      <p class="footer-dark-cta__phone">Or call us now: <a href="tel:+16158018126">(615) 801-8126</a></p>
+    </div>
+  </div>
+
+  <div class="footer-divider"></div>
+
   <!-- Main 3-column grid -->
   <div class="footer-main">
     <div class="container">
@@ -67,7 +80,7 @@
     <div class="container">
       <div class="footer-bottom__inner">
         <img src="https://nationcfh.wpcomstaging.com/wp-content/uploads/2026/03/100-Image.webp" alt="Tennessee Cash For Homes 100% Satisfaction Guarantee" class="footer-bottom__img" />
-        <span class="footer-bottom__copy">&copy; 2025 Tennessee Cash For Homes</span>
+        <span class="footer-bottom__copy">&copy; 2026 Tennessee Cash For Homes</span>
         <img src="https://nationcfh.wpcomstaging.com/wp-content/uploads/2026/03/Black-Labrador-Birddog-Image.webp" alt="Tennessee Cash For Homes Mascot Black Labrador Birddog" class="footer-bottom__img" />
       </div>
     </div>
