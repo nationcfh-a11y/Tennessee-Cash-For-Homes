@@ -1886,92 +1886,200 @@ img { display: block; max-width: 100%; }
 }
 .wwb-result__btn { font-size: 15px; padding: 12px 22px; }
 
-/* ── City cards grid ── */
-.wwb-cards-grid {
+/* ── Mission split section ── */
+.wwb-mission__inner {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 48px;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
 }
 
-.wwb-card {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  border-radius: 14px;
-  border: 1.5px solid var(--border);
-  background: var(--white);
-  box-shadow: var(--shadow);
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
-  overflow: hidden;
-}
-.wwb-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--green);
-  background: #f6fdf9;
-}
-.wwb-card__inner { padding: 28px 26px; }
-
-.wwb-card__pin {
-  color: var(--green-dark);
-  margin-bottom: 10px;
-}
-
-.wwb-card__city {
-  font-size: 20px;
+.wwb-mission__title {
+  font-size: clamp(24px, 3.5vw, 38px);
   font-weight: 700;
-  color: var(--charcoal);
-  margin-bottom: 8px;
   line-height: 1.2;
+  color: var(--charcoal);
+  margin: 12px 0 20px;
 }
+.wwb-mission__title span { color: var(--green-dark); }
 
-.wwb-card__desc {
-  font-size: 14px;
+.wwb-mission__body {
+  font-size: 16px;
+  line-height: 1.8;
   color: var(--charcoal-light);
-  line-height: 1.6;
   margin-bottom: 16px;
 }
 
-.wwb-card__stat {
+.wwb-mission__badges {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+.wwb-mission__badge {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background: var(--bg-light);
-  border-radius: 8px;
-  padding: 10px 14px;
-  margin-bottom: 18px;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--charcoal);
 }
-.wwb-card__stat-label { font-size: 12px; color: var(--charcoal-light); text-transform: uppercase; letter-spacing: .05em; }
-.wwb-card__stat-val { font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700; color: var(--green-dark); }
+.wwb-mission__badge svg { color: var(--green-dark); flex-shrink: 0; }
 
-.wwb-card__btn {
+/* 2×2 mini photo grid */
+.wwb-mission__photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.wwb-mini-card {
+  position: relative;
   display: block;
-  text-align: center;
-  padding: 11px 16px;
-  background: var(--green);
+  height: 200px;
+  border-radius: 14px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.wwb-mini-card:hover { transform: scale(1.03); box-shadow: var(--shadow-lg); }
+.wwb-mini-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%);
+}
+.wwb-mini-card__name {
+  position: absolute;
+  bottom: 14px;
+  left: 16px;
   color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+/* ── Photo cards grid ── */
+.wwb-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.wwb-photo-card {
+  position: relative;
+  display: block;
+  height: 220px;
+  border-radius: 14px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.wwb-photo-card:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Dark gradient at bottom so city name is always readable */
+.wwb-photo-card__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.15) 55%, transparent 100%);
+  transition: opacity .3s ease;
+}
+
+/* Green overlay on hover */
+.wwb-photo-card__hover {
+  position: absolute;
+  inset: 0;
+  background: rgba(106,181,133,0.82);
+  opacity: 0;
+  transition: opacity .3s ease;
+  border-radius: 14px;
+}
+.wwb-photo-card:hover .wwb-photo-card__hover { opacity: 1; }
+.wwb-photo-card:hover .wwb-photo-card__gradient { opacity: 0; }
+
+/* City name + price — bottom-left, always visible */
+.wwb-photo-card__footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 16px;
+  transition: opacity .25s ease;
+}
+.wwb-photo-card:hover .wwb-photo-card__footer { opacity: 0; }
+
+.wwb-photo-card__price {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.wwb-photo-card__name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin: 0;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+}
+
+/* CTA button — centered, appears on hover */
+.wwb-photo-card__cta {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity .3s ease .05s;
+}
+.wwb-photo-card:hover .wwb-photo-card__cta { opacity: 1; }
+.wwb-photo-card__cta span {
+  display: inline-block;
+  padding: 12px 20px;
+  background: var(--white);
+  color: var(--green-dark);
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 13px;
   border-radius: 8px;
-  transition: background .2s;
-  letter-spacing: .01em;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
 }
-.wwb-card:hover .wwb-card__btn { background: var(--green-dark); }
 
 /* ── Why section spacing ── */
 .wwb-why .hiw-feature-cards { margin-top: 48px; }
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
-  .wwb-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .wwb-photo-grid { grid-template-columns: repeat(2, 1fr); }
+  .wwb-mission__inner { grid-template-columns: 1fr; gap: 48px; }
+  .wwb-mission__photo-grid { max-width: 480px; }
 }
 @media (max-width: 640px) {
   .wwb-hero { padding: 60px 0 52px; }
   .wwb-hero__title { font-size: 30px; }
   .wwb-hero__sub { font-size: 16px; }
   .wwb-hero__btns { flex-direction: column; align-items: center; }
-  .wwb-cards-grid { grid-template-columns: 1fr; gap: 16px; }
+  .wwb-photo-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .wwb-photo-card { height: 160px; }
+  .wwb-photo-card__name { font-size: 15px; }
+  .wwb-mission__badges { grid-template-columns: 1fr; }
   .wwb-result__inner { min-width: unset; width: 100%; }
+  .wwb-mini-card { height: 150px; }
 }

@@ -13,29 +13,29 @@ get_header(); ?>
 
 <?php
 $cities = [
-  ['name'=>'Nashville',      'slug'=>'nashville',      'desc'=>'Music City\'s booming market means we can close fast.',                  'price'=>'$480,000'],
-  ['name'=>'Murfreesboro',   'slug'=>'murfreesboro',   'desc'=>'One of Tennessee\'s fastest-growing cities.',                            'price'=>'$379,900'],
-  ['name'=>'Franklin',       'slug'=>'franklin',       'desc'=>'Historic charm meets one of Tennessee\'s hottest real estate markets.',   'price'=>'$700,000'],
-  ['name'=>'Chattanooga',    'slug'=>'chattanooga',    'desc'=>'Scenic city with a fast-growing urban core and outdoor lifestyle.',       'price'=>'$330,000'],
-  ['name'=>'Knoxville',      'slug'=>'knoxville',      'desc'=>'Gateway to the Smoky Mountains with a strong housing market.',           'price'=>'$300,000'],
-  ['name'=>'Memphis',        'slug'=>'memphis',        'desc'=>'Home of Beale Street — we make fast cash deals happen here too.',        'price'=>'$210,000'],
-  ['name'=>'Clarksville',    'slug'=>'clarksville',    'desc'=>'A growing city with a strong military community and steady demand.',     'price'=>'$299,000'],
-  ['name'=>'Spring Hill',    'slug'=>'spring-hill',    'desc'=>'Family-friendly suburb near Nashville with rapid growth.',               'price'=>'$450,000'],
-  ['name'=>'Hendersonville', 'slug'=>'hendersonville', 'desc'=>'Stunning lakeside community with strong schools and great neighbors.',   'price'=>'$430,000'],
-  ['name'=>'Columbia',       'slug'=>'columbia',       'desc'=>'Charming downtown with rich history and a thriving community.',          'price'=>'$365,000'],
-  ['name'=>'Smyrna',         'slug'=>'smyrna',         'desc'=>'Fast-growing community southeast of Nashville with great access.',       'price'=>'$349,900'],
-  ['name'=>'Gallatin',       'slug'=>'gallatin',       'desc'=>'Small-town feel with big-city access, right outside Nashville.',        'price'=>'$399,900'],
-  ['name'=>'Lebanon',        'slug'=>'lebanon',        'desc'=>'Small-town charm with convenient I-40 access close to Nashville.',       'price'=>'$389,900'],
-  ['name'=>'Antioch',        'slug'=>'antioch',        'desc'=>'A growing Nashville suburb with strong residential demand.',             'price'=>'$330,500'],
-  ['name'=>'La Vergne',      'slug'=>'la-vergne',      'desc'=>'Southeast of Nashville and growing fast with new developments.',         'price'=>'$325,000'],
-  ['name'=>'Jackson',        'slug'=>'jackson',        'desc'=>'The regional hub for West Tennessee with a diverse housing market.',     'price'=>'$215,000'],
-  ['name'=>'Crossville',     'slug'=>'crossville',     'desc'=>'Known as the Golf Capital of Tennessee with a peaceful lifestyle.',      'price'=>'$299,000'],
-  ['name'=>'McMinnville',    'slug'=>'mcminnville',    'desc'=>'A peaceful agricultural community with scenic beauty and rural charm.',  'price'=>'$275,000'],
-  ['name'=>'Old Hickory',    'slug'=>'old-hickory',    'desc'=>'Historic community with river access and proximity to Nashville.',       'price'=>'$335,000'],
-  ['name'=>'Shelbyville',    'slug'=>'shelbyville',    'desc'=>'The Walking Horse Capital of the World with farmland and rural charm.',  'price'=>'$305,000'],
-  ['name'=>'Woodbury',       'slug'=>'woodbury',       'desc'=>'Quiet small town with rolling hills and peaceful rural living.',         'price'=>'$270,000'],
-  ['name'=>'Chapel Hill',    'slug'=>'chapel-hill',    'desc'=>'Quaint rural town with Southern charm and a tight-knit community.',     'price'=>'$339,600'],
-  ['name'=>'Tennessee',      'slug'=>'tennessee',      'desc'=>'Serving the entire state — wherever you are, we can help.',             'price'=>'$350,000'],
+  ['name'=>'Nashville',      'slug'=>'nashville',      'image'=>'Nashville.webp',      'price'=>'$480,000'],
+  ['name'=>'Murfreesboro',   'slug'=>'murfreesboro',   'image'=>'Murfreesboro.webp',   'price'=>'$379,900'],
+  ['name'=>'Franklin',       'slug'=>'franklin',       'image'=>'Franklin.webp',       'price'=>'$700,000'],
+  ['name'=>'Chattanooga',    'slug'=>'chattanooga',    'image'=>'Chattanooga.webp',    'price'=>'$330,000'],
+  ['name'=>'Knoxville',      'slug'=>'knoxville',      'image'=>'Knoxville.webp',      'price'=>'$300,000'],
+  ['name'=>'Memphis',        'slug'=>'memphis',        'image'=>'Memphis.webp',        'price'=>'$210,000'],
+  ['name'=>'Clarksville',    'slug'=>'clarksville',    'image'=>'Clarksville.webp',    'price'=>'$299,000'],
+  ['name'=>'Spring Hill',    'slug'=>'spring-hill',    'image'=>'Spring Hill.webp',    'price'=>'$450,000'],
+  ['name'=>'Hendersonville', 'slug'=>'hendersonville', 'image'=>'Hendersonville.webp', 'price'=>'$430,000'],
+  ['name'=>'Columbia',       'slug'=>'columbia',       'image'=>'Columbia.webp',       'price'=>'$365,000'],
+  ['name'=>'Smyrna',         'slug'=>'smyrna',         'image'=>'Smyrna.webp',         'price'=>'$349,900'],
+  ['name'=>'Gallatin',       'slug'=>'gallatin',       'image'=>'Gallatin.webp',       'price'=>'$399,900'],
+  ['name'=>'Lebanon',        'slug'=>'lebanon',        'image'=>'Lebanon.webp',        'price'=>'$389,900'],
+  ['name'=>'Antioch',        'slug'=>'antioch',        'image'=>'Antioch.webp',        'price'=>'$330,500'],
+  ['name'=>'La Vergne',      'slug'=>'la-vergne',      'image'=>'La Vergne.webp',      'price'=>'$325,000'],
+  ['name'=>'Jackson',        'slug'=>'jackson',        'image'=>'Jackson.webp',        'price'=>'$215,000'],
+  ['name'=>'Crossville',     'slug'=>'crossville',     'image'=>'Crossville.webp',     'price'=>'$299,000'],
+  ['name'=>'McMinnville',    'slug'=>'mcminnville',    'image'=>'McMinnville.webp',    'price'=>'$275,000'],
+  ['name'=>'Old Hickory',    'slug'=>'old-hickory',    'image'=>'Old Hickory.webp',    'price'=>'$335,000'],
+  ['name'=>'Shelbyville',    'slug'=>'shelbyville',    'image'=>'Shelbyville.webp',    'price'=>'$305,000'],
+  ['name'=>'Woodbury',       'slug'=>'woodbury',       'image'=>'Woodbury.webp',       'price'=>'$270,000'],
+  ['name'=>'Chapel Hill',    'slug'=>'chapel-hill',    'image'=>'Chapel Hill.webp',    'price'=>'$339,600'],
+  ['name'=>'Tennessee',      'slug'=>'tennessee',      'image'=>'Tennessee.webp',      'price'=>'$350,000'],
 ];
 ?>
 
@@ -92,30 +92,76 @@ $cities = [
   </div>
 </section>
 
-<!-- ── CITY CARDS ── -->
-<section class="section wwb-cards-section" id="city-cards">
+<!-- ── MISSION SPLIT ── -->
+<section class="section wwb-mission" id="city-cards">
+  <div class="container">
+    <div class="wwb-mission__inner">
+      <div class="wwb-mission__text wwb-fade">
+        <p class="section__eyebrow">Who We Are</p>
+        <h2 class="wwb-mission__title">Our Mission at <span>Tennessee Cash For Homes</span></h2>
+        <p class="wwb-mission__body">At Tennessee Cash For Homes, our mission is simple: make selling your home as stress-free and straightforward as possible. We believe every homeowner deserves a fair offer, a fast closing, and a team that truly has their best interests at heart — no matter the condition of the property or the circumstances behind the sale.</p>
+        <p class="wwb-mission__body">We are a locally owned Tennessee company, not a national chain. We live in the same communities we serve, which means we understand the local market and genuinely care about the people we work with. From Nashville to Memphis to small towns across the state, we are proud to be your trusted neighbor in real estate.</p>
+        <div class="wwb-mission__badges">
+          <div class="wwb-mission__badge">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span>No repairs required</span>
+          </div>
+          <div class="wwb-mission__badge">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span>Zero agent fees or commissions</span>
+          </div>
+          <div class="wwb-mission__badge">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span>Close in as little as 7 days</span>
+          </div>
+          <div class="wwb-mission__badge">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span>Locally owned &amp; operated</span>
+          </div>
+        </div>
+        <a href="<?php echo esc_url( home_url('/#get-offer') ); ?>" class="btn-primary" style="margin-top:28px; display:inline-block;">Get My Free Cash Offer &rarr;</a>
+      </div>
+      <div class="wwb-mission__photo-grid wwb-fade">
+        <?php
+        $featured = array_slice($cities, 0, 4);
+        foreach ($featured as $f) :
+          $furl   = esc_url( home_url('/where-we-buy/' . $f['slug']) );
+          $fimg   = esc_url( get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20Pages/Where%20We%20Buy%20Images/' . rawurlencode($f['image']) );
+        ?>
+        <a href="<?php echo $furl; ?>" class="wwb-mini-card" style="background-image:url('<?php echo $fimg; ?>');">
+          <div class="wwb-mini-card__overlay"></div>
+          <span class="wwb-mini-card__name"><?php echo esc_html($f['name']); ?></span>
+        </a>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CITY PHOTO CARDS ── -->
+<section class="section section--alt wwb-cards-section">
   <div class="container">
     <div class="section__header section__header--center wwb-fade">
       <p class="section__eyebrow">All Locations</p>
       <h2 class="section__title">Cities We Serve Across Tennessee</h2>
-      <p class="section__subtitle">Click any city below to learn more about selling your house for cash in that area.</p>
+      <p class="section__subtitle">Click any city to learn more about selling your house for cash in that area.</p>
     </div>
-    <div class="wwb-cards-grid">
+    <div class="wwb-photo-grid">
       <?php foreach ( $cities as $c ) :
-        $url = esc_url( home_url( '/where-we-buy/' . $c['slug'] ) );
+        $url  = esc_url( home_url( '/where-we-buy/' . $c['slug'] ) );
+        $img  = esc_url( get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20Pages/Where%20We%20Buy%20Images/' . rawurlencode($c['image']) );
       ?>
-      <a href="<?php echo $url; ?>" class="wwb-card wwb-fade">
-        <div class="wwb-card__inner">
-          <div class="wwb-card__pin">
-            <svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-          </div>
-          <h3 class="wwb-card__city"><?php echo esc_html( $c['name'] ); ?></h3>
-          <p class="wwb-card__desc"><?php echo esc_html( $c['desc'] ); ?></p>
-          <div class="wwb-card__stat">
-            <span class="wwb-card__stat-label">Median Sale Price</span>
-            <span class="wwb-card__stat-val"><?php echo esc_html( $c['price'] ); ?></span>
-          </div>
-          <span class="wwb-card__btn">Sell My House in <?php echo esc_html( $c['name'] ); ?> &rarr;</span>
+      <a href="<?php echo $url; ?>"
+         class="wwb-photo-card wwb-fade"
+         style="background-image: url('<?php echo $img; ?>');">
+        <div class="wwb-photo-card__gradient"></div>
+        <div class="wwb-photo-card__hover"></div>
+        <div class="wwb-photo-card__footer">
+          <span class="wwb-photo-card__price"><?php echo esc_html($c['price']); ?></span>
+          <h3 class="wwb-photo-card__name"><?php echo esc_html($c['name']); ?></h3>
+        </div>
+        <div class="wwb-photo-card__cta">
+          <span>Sell My House in <?php echo esc_html($c['name']); ?> &rarr;</span>
         </div>
       </a>
       <?php endforeach; ?>
