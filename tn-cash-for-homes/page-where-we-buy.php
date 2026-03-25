@@ -50,7 +50,7 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
       <div class="wwb-hero__accent"></div>
       <p class="wwb-hero__sub">We buy homes across all of Tennessee. Whether you are in a big city or a small town, we make selling your house simple, fast, and stress-free.</p>
       <div class="wwb-hero__btns">
-        <a href="<?php echo esc_url( home_url('/#get-offer') ); ?>" class="wwb-btn-hero-primary">Get Your Free Cash Offer &rarr;</a>
+        <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="wwb-btn-hero-primary">Get Your Free Cash Offer &rarr;</a>
         <a href="#city-cards" class="wwb-btn-hero-outline">See All 23 Cities &darr;</a>
       </div>
     </div>
@@ -117,7 +117,7 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
             <span>Locally owned and operated</span>
           </div>
         </div>
-        <a href="<?php echo esc_url( home_url('/#get-offer') ); ?>" class="btn-primary" style="margin-top:32px;display:inline-block;">Get My Free Cash Offer &rarr;</a>
+        <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-primary" style="margin-top:32px;display:inline-block;">Get My Free Cash Offer &rarr;</a>
       </div>
 
       <div class="wwb-mission__photo-grid wwb-fade">
@@ -243,7 +243,7 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
       <a href="<?php echo esc_url( home_url('/where-we-buy/old-hickory') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Old Hickory</span></a>
       <a href="<?php echo esc_url( home_url('/where-we-buy/woodbury') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Woodbury</span></a>
     </div>
-    <p class="areas-footnote">Don&rsquo;t see your city? We serve <a href="<?php echo esc_url( home_url('/#get-offer') ); ?>">all of Tennessee</a>. Contact us for your cash offer today.</p>
+    <p class="areas-footnote">Don&rsquo;t see your city? We serve <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>">all of Tennessee</a>. Contact us for your cash offer today.</p>
   </div>
 </section>
 
@@ -400,7 +400,7 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
   <div class="container">
     <h2>Ready to Sell Your Tennessee House Fast for Cash?</h2>
     <p>Get your free, no-obligation cash offer today from Tennessee&rsquo;s 5-star rated home buyers. No repairs, no fees, no waiting.</p>
-    <a href="<?php echo esc_url( home_url('/#get-offer') ); ?>" class="btn-white">Get My Free Cash Offer Today</a>
+    <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-white">Get My Free Cash Offer Today</a>
     <span class="cta-phone">Or call us directly: <a href="tel:+16158018126">(615) 801-8126</a></span>
   </div>
 </section>

@@ -17,7 +17,7 @@ get_header(); ?>
       <h1 class="page-hero__title">How It Works to Sell Your House <span>As-Is for Cash</span> in Tennessee</h1>
       <p class="page-hero__subtitle">No repairs. No commissions. No stress. Here's exactly what happens when you sell your Tennessee home to us.</p>
       <div class="page-hero__cta-row">
-        <a href="<?php echo esc_url( home_url('/#get-offer') ); ?>" class="btn-primary">Get My Free Cash Offer →</a>
+        <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-primary">Get My Free Cash Offer →</a>
         <a href="tel:+16155550123" class="btn-outline">Call Us Now</a>
       </div>
     </div>
@@ -174,7 +174,7 @@ get_header(); ?>
   <div class="container">
     <h2>Ready to Get Your Free Cash Offer?</h2>
     <p>Takes less than 60 seconds. No obligation. No pressure.</p>
-    <a href="<?php echo esc_url( home_url('/#get-offer') ); ?>" class="btn-white">Get My Cash Offer →</a>
+    <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-white">Get My Cash Offer →</a>
   </div>
 </section>
 

@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <!-- ── HERO ── -->
-<section class="hero">
+<section class="hero" id="hero-form">
   <div class="container">
     <div class="hero__inner">
       <div class="hero__content">
@@ -237,7 +237,7 @@
           <span style="display:block;">Sell Fast for Cash</span>
         </h2>
         <p class="video-section__body">Hear directly from homeowners just like you who sold their Tennessee house fast, with no repairs, no fees, and no stress. See exactly what the process looks like from your first call all the way to closing day.</p>
-        <a href="#get-offer" class="btn-primary">Get My Free Cash Offer &rarr;</a>
+        <a href="/#hero-form" class="btn-primary">Get My Free Cash Offer &rarr;</a>
       </div>
       <div class="video-section__media">
         <div class="video-section__embed">
@@ -674,7 +674,7 @@
       <a href="<?php echo esc_url( home_url('/where-we-buy/old-hickory') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Old Hickory</span></a>
       <a href="<?php echo esc_url( home_url('/where-we-buy/woodbury') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Woodbury</span></a>
     </div>
-    <p class="areas-footnote">Don't see your city? We serve <a href="#get-offer">all of Tennessee</a>. Contact us for your cash offer today.</p>
+    <p class="areas-footnote">Don't see your city? We serve <a href="/#hero-form">all of Tennessee</a>. Contact us for your cash offer today.</p>
   </div>
 </section>
 
@@ -683,7 +683,7 @@
   <div class="container">
     <h2>Ready to Sell Your Tennessee House Fast for Cash?</h2>
     <p>Get your free, no-obligation cash offer today from Tennessee's 5-star rated home buyers. No repairs, no fees, no waiting.</p>
-    <a href="#get-offer" class="btn-white">Get My Free Cash Offer Today</a>
+    <a href="/#hero-form" class="btn-white">Get My Free Cash Offer Today</a>
     <span class="cta-phone">Or call us directly: <a href="tel:+16158018126">(615) 801-8126</a></span>
   </div>
 </section>

@@ -61,7 +61,7 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
           </div>
         </div>
         <div class="location-hero__cta-row">
-          <a href="#get-offer" class="btn-primary">Get My Free Cash Offer &rarr;</a>
+          <a href="/#hero-form" class="btn-primary">Get My Free Cash Offer &rarr;</a>
           <a href="tel:+16158018126" class="btn-outline">Call (615) 801-8126</a>
         </div>
       </div>
@@ -123,7 +123,7 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
         <h2 class="section__title">Sell Your <?php echo esc_html( $name ); ?> House Fast for Cash</h2>
         <p class="loc-about__body"><?php echo esc_html( $desc1 ); ?></p>
         <p class="loc-about__body"><?php echo esc_html( $desc2 ); ?></p>
-        <a href="#get-offer" class="btn-primary">Get My Free Cash Offer &rarr;</a>
+        <a href="/#hero-form" class="btn-primary">Get My Free Cash Offer &rarr;</a>
       </div>
       <div class="loc-about__cards">
         <div class="loc-trust-card">
@@ -222,7 +222,7 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
       <a href="<?php echo esc_url( home_url('/where-we-buy/old-hickory') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Old Hickory</span></a>
       <a href="<?php echo esc_url( home_url('/where-we-buy/woodbury') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Woodbury</span></a>
     </div>
-    <p class="areas-footnote">Don&rsquo;t see your city? We serve <a href="<?php echo esc_url( home_url('/#get-offer') ); ?>">all of Tennessee</a>. Contact us for your cash offer today.</p>
+    <p class="areas-footnote">Don&rsquo;t see your city? We serve <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>">all of Tennessee</a>. Contact us for your cash offer today.</p>
   </div>
 </section>
 
@@ -379,7 +379,7 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
   <div class="container">
     <h2>Ready to Sell Your <?php echo esc_html( $name ); ?> House Fast for Cash?</h2>
     <p>Get your free, no-obligation cash offer today from Tennessee&rsquo;s 5-star rated home buyers. No repairs, no fees, no waiting.</p>
-    <a href="#get-offer" class="btn-white">Get My Free Cash Offer Today</a>
+    <a href="/#hero-form" class="btn-white">Get My Free Cash Offer Today</a>
     <span class="cta-phone">Or call us directly: <a href="tel:+16158018126">(615) 801-8126</a></span>
   </div>
 </section>
