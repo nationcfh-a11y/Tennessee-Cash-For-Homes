@@ -568,36 +568,6 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
 </section>
 
 <!-- ════════════════════════════════════════════
-     CITY PHOTO CARDS
-════════════════════════════════════════════ -->
-<section class="section section--alt wwb-cards-section">
-  <div class="container">
-    <div class="section__header section__header--center wwb-fade">
-      <p class="section__eyebrow">All Locations</p>
-      <h2 class="section__title">Cities We Serve Across Tennessee</h2>
-      <p class="section__subtitle">Click any city to learn more about selling your house for cash in that area.</p>
-    </div>
-    <div class="wwb-photo-grid">
-      <?php foreach ( $cities as $c ) :
-        $url       = esc_url( home_url('/where-we-buy/' . $c['slug']) );
-        $img       = esc_url( $img_base . rawurlencode($c['image']) );
-        $full_class = ( $c['slug'] === 'tennessee' ) ? ' wwb-photo-card--full' : '';
-      ?>
-      <a href="<?php echo $url; ?>" class="wwb-photo-card<?php echo $full_class; ?> wwb-fade" style="background-image:url('<?php echo $img; ?>');">
-        <div class="wwb-photo-card__gradient"></div>
-        <div class="wwb-photo-card__footer">
-          <h3 class="wwb-photo-card__name"><?php echo esc_html($c['name']); ?></h3>
-        </div>
-        <div class="wwb-photo-card__cta">
-          <span>Sell My House in <?php echo esc_html($c['name']); ?> &rarr;</span>
-        </div>
-      </a>
-      <?php endforeach; ?>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════
      WHY CHOOSE US
 ════════════════════════════════════════════ -->
 <section class="section wwb-why">

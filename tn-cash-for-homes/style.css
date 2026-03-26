@@ -2137,95 +2137,6 @@ img { display: block; max-width: 100%; }
   text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
-/* ── Photo cards grid ── */
-.wwb-photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 48px;
-}
-.wwb-photo-card {
-  position: relative;
-  display: block;
-  height: 240px;
-  border-radius: 14px;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  text-decoration: none;
-  box-shadow: var(--shadow);
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-.wwb-photo-card:hover {
-  transform: scale(1.03);
-  box-shadow: var(--shadow-lg);
-}
-.wwb-photo-card__gradient {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.25);
-  transition: opacity .3s ease;
-}
-.wwb-photo-card__hover {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  border-radius: 14px;
-}
-.wwb-photo-card:hover .wwb-photo-card__hover { opacity: 0; }
-.wwb-photo-card:hover .wwb-photo-card__gradient { opacity: 0; }
-.wwb-photo-card__footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 14px 16px;
-  transition: opacity .25s ease;
-}
-.wwb-photo-card:hover .wwb-photo-card__footer { opacity: 1; }
-.wwb-photo-card__price {
-  display: block;
-  font-family: 'Poppins', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--green);
-  letter-spacing: .07em;
-  text-transform: uppercase;
-  margin-bottom: 3px;
-}
-.wwb-photo-card__name {
-  font-family: 'Poppins', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--white);
-  line-height: 1.2;
-  margin: 0;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.7), 0 2px 16px rgba(0,0,0,0.5);
-}
-.wwb-photo-card__cta {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  opacity: 0;
-  transition: opacity .3s ease .05s;
-}
-.wwb-photo-card:hover .wwb-photo-card__cta { opacity: 0; }
-.wwb-photo-card__cta span {
-  display: inline-block;
-  padding: 12px 20px;
-  background: var(--white);
-  color: var(--green-dark);
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 13px;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-}
-
 /* ── Why Choose Us — 4-column grid ── */
 .wwb-why__grid {
   display: grid;
@@ -2356,7 +2267,6 @@ img { display: block; max-width: 100%; }
   .wwb-why__grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 1024px) {
-  .wwb-photo-grid { grid-template-columns: repeat(2, 1fr); }
   .wwb-mission__inner { grid-template-columns: 1fr; gap: 48px; }
   .wwb-mission__photo-grid { max-width: 480px; }
 }
@@ -2367,9 +2277,6 @@ img { display: block; max-width: 100%; }
   .wwb-hero__btns { flex-direction: column; align-items: center; }
   .wwb-stats-bar__inner { flex-direction: column; gap: 4px; }
   .wwb-stat-divider { width: 60px; height: 1px; }
-  .wwb-photo-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .wwb-photo-card { height: 180px; }
-  .wwb-photo-card__name { font-size: 15px; }
   .wwb-mission__badges { grid-template-columns: 1fr; }
   .wwb-mini-card { height: 150px; }
   .wwb-why__grid { grid-template-columns: 1fr; }
@@ -2389,13 +2296,6 @@ img { display: block; max-width: 100%; }
   border-color: rgba(132, 204, 156, 0.55);
   font-weight: 700;
   letter-spacing: 0.02em;
-}
-
-/* ── Full-width Tennessee photo card ── */
-.wwb-photo-card--full {
-  grid-column: 1 / -1;
-  width: 100%;
-  height: 280px;
 }
 
 /* ── Front-page steps: scroll-triggered fade + slide-up ── */
