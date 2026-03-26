@@ -2464,29 +2464,28 @@ img { display: block; max-width: 100%; }
 ════════════════════════════════════════════ */
 .tn-map-section {
   background: #F2F2F2;
-  padding: 96px 0 88px;
+  padding: 80px 20px;
 }
 .tn-map-section .section__header {
   margin-bottom: 56px;
 }
 .tn-map-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1400px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
   padding: 0 32px;
 }
 .tn-map-svg-wrap {
   filter: drop-shadow(0 4px 28px rgba(0,0,0,0.10));
   width: 100% !important;
+  max-width: 1400px !important;
   overflow-x: auto;
 }
 .tn-map-svg-wrap svg {
   width: 100% !important;
   height: auto !important;
-  display: block;
-  /* Corrected viewBox 88.28×23.64 → natural AR ~3.73:1
-     At 1200px width that renders ~322px tall.
-     Enforce a floor so the map never shrinks below 300px. */
-  min-height: 300px;
+  min-height: 520px !important;
+  display: block !important;
 }
 .county-group {
   cursor: default;
