@@ -6,7 +6,6 @@
  *   Meta Title:       We Buy Houses in Murfreesboro | Get a Fast Cash Offer Today
  *   Meta Description: We buy houses in Murfreesboro for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.
  */
-get_header();
 
 $city = [
     'slug'          => 'murfreesboro',
@@ -25,4 +24,3 @@ $city = [
 
 include( get_template_directory() . '/location-template.php' );
 
-get_footer();

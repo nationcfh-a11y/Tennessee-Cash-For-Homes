@@ -10,6 +10,16 @@
  *   desc1, desc2, land_para
  */
 
+$meta_title = ! empty( $county['meta_title'] ) ? $county['meta_title'] : '';
+add_filter( 'pre_get_document_title', function( $title ) use ( $meta_title ) {
+    if ( ! empty( $meta_title ) ) {
+        return $meta_title;
+    }
+    return $title;
+}, 99 );
+
+get_header();
+
 $slug         = $county['slug'];
 $name         = $county['name'];
 $county_id    = $county['county_id'];
@@ -388,3 +398,5 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
   }
 }
 </style>
+
+<?php get_footer(); ?>

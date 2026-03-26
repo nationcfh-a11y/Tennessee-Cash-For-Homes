@@ -9,6 +9,16 @@
  *   desc1, desc2, land_para
  */
 
+$meta_title = ! empty( $city['meta_title'] ) ? $city['meta_title'] : '';
+add_filter( 'pre_get_document_title', function( $title ) use ( $meta_title ) {
+    if ( ! empty( $meta_title ) ) {
+        return $meta_title;
+    }
+    return $title;
+}, 99 );
+
+get_header();
+
 $slug         = $city['slug'];
 $name         = $city['name'];
 $image_url    = get_template_directory_uri()
@@ -374,3 +384,4 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
   </div>
 </section>
 
+<?php get_footer(); ?>

@@ -25,14 +25,8 @@ $county = [
     ],
 ];
 
-add_filter( 'pre_get_document_title', function() use ( $county ) {
-    return $county['meta_title'];
-}, 20 );
-
 add_action( 'wp_head', function() use ( $county ) {
     echo '<meta name="description" content="' . esc_attr( $county['meta_desc'] ) . '">' . "\n";
 } );
 
-get_header();
 include get_template_directory() . '/county-template.php';
-get_footer();
