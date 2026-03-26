@@ -2464,26 +2464,29 @@ img { display: block; max-width: 100%; }
 ════════════════════════════════════════════ */
 .tn-map-section {
   background: #F2F2F2;
-  padding: 80px 0 72px;
+  padding: 96px 0 88px;
 }
 .tn-map-section .section__header {
-  margin-bottom: 48px;
+  margin-bottom: 56px;
 }
 .tn-map-wrapper {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 32px;
 }
 .tn-map-svg-wrap {
   filter: drop-shadow(0 4px 28px rgba(0,0,0,0.10));
-  width: 100%;
+  width: 100% !important;
   overflow-x: auto;
 }
 .tn-map-svg-wrap svg {
-  width: 100%;
-  height: auto;
+  width: 100% !important;
+  height: auto !important;
   display: block;
-  min-height: 450px;
+  /* Corrected viewBox 88.28×23.64 → natural AR ~3.73:1
+     At 1200px width that renders ~322px tall.
+     Enforce a floor so the map never shrinks below 300px. */
+  min-height: 300px;
 }
 .county-group {
   cursor: default;
@@ -2540,18 +2543,19 @@ img { display: block; max-width: 100%; }
 }
 @media (max-width: 768px) {
   .tn-map-section {
-    padding: 56px 0 48px;
+    padding: 64px 0 56px;
   }
   .tn-map-wrapper {
     padding: 0 16px;
   }
   .tn-map-svg-wrap svg {
-    min-height: 350px;
+    /* At 768px width, AR 3.73 → ~206px natural — enforce 220px floor */
+    min-height: 220px;
   }
 }
 @media (max-width: 480px) {
   .tn-map-section {
-    padding: 40px 0 36px;
+    padding: 48px 0 40px;
   }
   .tn-map-wrapper {
     padding: 0;
@@ -2561,7 +2565,8 @@ img { display: block; max-width: 100%; }
     overflow-x: auto;
   }
   .tn-map-svg-wrap svg {
-    min-width: 710px;
-    min-height: 250px;
+    /* Force wider than viewport so height hits ~190px; user can scroll */
+    min-width: 700px;
+    min-height: 185px;
   }
 }
