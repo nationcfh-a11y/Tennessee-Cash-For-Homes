@@ -33,14 +33,10 @@ $county_name = isset( $county_name ) ? $county_name : '';
   width: 100%;
   height: auto;
   display: block;
+  pointer-events: none;
 }
 .county-map-hero-svg #<?php echo esc_attr( $county_id ); ?> {
   fill: #84CC9C !important;
-  animation: county-hero-pulse 2.4s ease-in-out infinite;
-}
-@keyframes county-hero-pulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.65; }
 }
 .county-map-label {
   font-size: 13px;
