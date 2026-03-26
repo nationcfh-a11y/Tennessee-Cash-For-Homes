@@ -148,7 +148,7 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
   </div>
   <div class="tn-map-wrapper">
     <div class="tn-map-svg-wrap">
-      <svg viewBox="0 2 90.4 31" xmlns="http://www.w3.org/2000/svg" aria-label="Interactive map of Tennessee counties" role="img">
+      <svg viewBox="1.52 1.66 87.88 30.92" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-label="Interactive map of Tennessee counties" role="img">
         <g class="county-group" data-county="Sullivan" data-slug="sullivan-county">
           <path class="county-path" id="sullivan" d="m 87.262059,2.2064028 -1.393,1.601 -3.011,1.906 -0.473,0.062 -0.162,-0.048 -0.51,-0.371 -0.355,-0.072 -0.614,0.194 -1.266,0.249 -0.568,0.089 0.433,-2.19 3.205,-0.478 0.513,-0.077 0.992,-0.135 2.158,-0.311 0.072,-0.302 0.979,-0.117" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Sullivan County</title></path>
           <text class="county-label" x="83.086" y="4.011" font-size="0.72" text-anchor="middle" dominant-baseline="middle" font-family="Inter,sans-serif" fill="#555555" pointer-events="none">Sullivan</text>

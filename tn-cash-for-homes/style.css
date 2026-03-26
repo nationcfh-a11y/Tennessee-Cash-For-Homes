@@ -2470,18 +2470,20 @@ img { display: block; max-width: 100%; }
   margin-bottom: 48px;
 }
 .tn-map-wrapper {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 32px;
 }
 .tn-map-svg-wrap {
   filter: drop-shadow(0 4px 28px rgba(0,0,0,0.10));
   width: 100%;
+  overflow-x: auto;
 }
 .tn-map-svg-wrap svg {
   width: 100%;
   height: auto;
   display: block;
+  min-height: 450px;
 }
 .county-group {
   cursor: default;
@@ -2543,9 +2545,23 @@ img { display: block; max-width: 100%; }
   .tn-map-wrapper {
     padding: 0 16px;
   }
+  .tn-map-svg-wrap svg {
+    min-height: 350px;
+  }
 }
 @media (max-width: 480px) {
   .tn-map-section {
     padding: 40px 0 36px;
+  }
+  .tn-map-wrapper {
+    padding: 0;
+    overflow-x: auto;
+  }
+  .tn-map-svg-wrap {
+    overflow-x: auto;
+  }
+  .tn-map-svg-wrap svg {
+    min-width: 710px;
+    min-height: 250px;
   }
 }
