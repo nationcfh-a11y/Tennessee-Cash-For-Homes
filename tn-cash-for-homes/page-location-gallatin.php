@@ -3,7 +3,7 @@
  * Template Name: Location - Gallatin
  *
  * SEO — enter in Yoast / RankMath:
- *   Meta Title:       We Buy Houses in Gallatin | Get a Fast Cash Offer Today
+ *   Meta Title:       We Buy Houses in Gallatin TN | Get a Fast Cash Offer Today
  *   Meta Description: We buy houses in Gallatin for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.
  */
 
@@ -12,7 +12,7 @@ $city = [
     'name'          => 'Gallatin',
     'image_file'    => 'Gallatin.webp',
     'h1'            => 'Sell Your House For Cash In Gallatin',
-    'meta_title'    => 'We Buy Houses in Gallatin | Get a Fast Cash Offer Today',
+    'meta_title'    => 'We Buy Houses in Gallatin TN | Get a Fast Cash Offer Today',
     'meta_desc'     => 'We buy houses in Gallatin for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.',
     'median_price'  => '$399,900',
     'homes_sold'    => '91',

@@ -3,7 +3,7 @@
  * Template Name: Location - Chattanooga
  *
  * SEO — enter in Yoast / RankMath:
- *   Meta Title:       We Buy Houses in Chattanooga | Get a Fast Cash Offer Today
+ *   Meta Title:       We Buy Houses in Chattanooga TN | Get a Fast Cash Offer Today
  *   Meta Description: We buy houses in Chattanooga for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.
  */
 
@@ -12,7 +12,7 @@ $city = [
     'name'          => 'Chattanooga',
     'image_file'    => 'Chattanooga.webp',
     'h1'            => 'Sell Your House For Cash In Chattanooga',
-    'meta_title'    => 'We Buy Houses in Chattanooga | Get a Fast Cash Offer Today',
+    'meta_title'    => 'We Buy Houses in Chattanooga TN | Get a Fast Cash Offer Today',
     'meta_desc'     => 'We buy houses in Chattanooga for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.',
     'median_price'  => '$330,000',
     'homes_sold'    => '240',

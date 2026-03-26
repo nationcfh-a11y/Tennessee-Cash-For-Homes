@@ -3,7 +3,7 @@
  * Template Name: Location - Crossville
  *
  * SEO — enter in Yoast / RankMath:
- *   Meta Title:       We Buy Houses in Crossville | Get a Fast Cash Offer Today
+ *   Meta Title:       We Buy Houses in Crossville TN | Get a Fast Cash Offer Today
  *   Meta Description: We buy houses in Crossville for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.
  */
 
@@ -12,7 +12,7 @@ $city = [
     'name'          => 'Crossville',
     'image_file'    => 'Crossville.webp',
     'h1'            => 'Sell Your House For Cash In Crossville',
-    'meta_title'    => 'We Buy Houses in Crossville | Get a Fast Cash Offer Today',
+    'meta_title'    => 'We Buy Houses in Crossville TN | Get a Fast Cash Offer Today',
     'meta_desc'     => 'We buy houses in Crossville for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.',
     'median_price'  => '$299,000',
     'homes_sold'    => '73',

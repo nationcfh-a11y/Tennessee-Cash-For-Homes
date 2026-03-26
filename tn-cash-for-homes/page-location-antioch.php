@@ -3,7 +3,7 @@
  * Template Name: Location - Antioch
  *
  * SEO — enter in Yoast / RankMath:
- *   Meta Title:       We Buy Houses in Antioch | Get a Fast Cash Offer Today
+ *   Meta Title:       We Buy Houses in Antioch TN | Get a Fast Cash Offer Today
  *   Meta Description: We buy houses in Antioch for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.
  */
 
@@ -12,7 +12,7 @@ $city = [
     'name'          => 'Antioch',
     'image_file'    => 'Antioch.webp',
     'h1'            => 'Sell Your House For Cash In Antioch',
-    'meta_title'    => 'We Buy Houses in Antioch | Get a Fast Cash Offer Today',
+    'meta_title'    => 'We Buy Houses in Antioch TN | Get a Fast Cash Offer Today',
     'meta_desc'     => 'We buy houses in Antioch for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.',
     'median_price'  => '$330,500',
     'homes_sold'    => '178',

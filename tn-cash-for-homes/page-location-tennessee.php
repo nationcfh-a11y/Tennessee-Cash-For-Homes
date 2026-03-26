@@ -3,7 +3,7 @@
  * Template Name: Location - Tennessee
  *
  * SEO — enter in Yoast / RankMath:
- *   Meta Title:       We Buy Houses in Tennessee | Get a Fast Cash Offer Today
+ *   Meta Title:       We Buy Houses in Tennessee TN | Get a Fast Cash Offer Today
  *   Meta Description: We buy houses in Tennessee for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.
  */
 
@@ -12,7 +12,7 @@ $city = [
     'name'          => 'Tennessee',
     'image_file'    => 'Tennessee.webp',
     'h1'            => 'Sell Your House For Cash In Tennessee',
-    'meta_title'    => 'We Buy Houses in Tennessee | Get a Fast Cash Offer Today',
+    'meta_title'    => 'We Buy Houses in Tennessee TN | Get a Fast Cash Offer Today',
     'meta_desc'     => 'We buy houses in Tennessee for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.',
     'median_price'  => '$350,000',
     'homes_sold'    => '4,200',

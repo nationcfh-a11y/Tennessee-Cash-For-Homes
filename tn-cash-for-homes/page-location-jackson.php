@@ -3,7 +3,7 @@
  * Template Name: Location - Jackson
  *
  * SEO — enter in Yoast / RankMath:
- *   Meta Title:       We Buy Houses in Jackson | Get a Fast Cash Offer Today
+ *   Meta Title:       We Buy Houses in Jackson TN | Get a Fast Cash Offer Today
  *   Meta Description: We buy houses in Jackson for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.
  */
 
@@ -12,7 +12,7 @@ $city = [
     'name'          => 'Jackson',
     'image_file'    => 'Jackson.webp',
     'h1'            => 'Sell Your House For Cash In Jackson',
-    'meta_title'    => 'We Buy Houses in Jackson | Get a Fast Cash Offer Today',
+    'meta_title'    => 'We Buy Houses in Jackson TN | Get a Fast Cash Offer Today',
     'meta_desc'     => 'We buy houses in Jackson for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.',
     'median_price'  => '$215,000',
     'homes_sold'    => '110',

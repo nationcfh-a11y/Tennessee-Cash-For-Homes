@@ -3,7 +3,7 @@
  * Template Name: Location - Smyrna
  *
  * SEO — enter in Yoast / RankMath:
- *   Meta Title:       We Buy Houses in Smyrna | Get a Fast Cash Offer Today
+ *   Meta Title:       We Buy Houses in Smyrna TN | Get a Fast Cash Offer Today
  *   Meta Description: We buy houses in Smyrna for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.
  */
 
@@ -12,7 +12,7 @@ $city = [
     'name'          => 'Smyrna',
     'image_file'    => 'Smyrna.webp',
     'h1'            => 'Sell Your House For Cash In Smyrna',
-    'meta_title'    => 'We Buy Houses in Smyrna | Get a Fast Cash Offer Today',
+    'meta_title'    => 'We Buy Houses in Smyrna TN | Get a Fast Cash Offer Today',
     'meta_desc'     => 'We buy houses in Smyrna for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.',
     'median_price'  => '$349,900',
     'homes_sold'    => '120',

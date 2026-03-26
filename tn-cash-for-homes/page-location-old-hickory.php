@@ -3,7 +3,7 @@
  * Template Name: Location - Old Hickory
  *
  * SEO — enter in Yoast / RankMath:
- *   Meta Title:       We Buy Houses in Old Hickory | Get a Fast Cash Offer Today
+ *   Meta Title:       We Buy Houses in Old Hickory TN | Get a Fast Cash Offer Today
  *   Meta Description: We buy houses in Old Hickory for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.
  */
 
@@ -12,7 +12,7 @@ $city = [
     'name'          => 'Old Hickory',
     'image_file'    => 'Old Hickory.webp',
     'h1'            => 'Sell Your House For Cash In Old Hickory',
-    'meta_title'    => 'We Buy Houses in Old Hickory | Get a Fast Cash Offer Today',
+    'meta_title'    => 'We Buy Houses in Old Hickory TN | Get a Fast Cash Offer Today',
     'meta_desc'     => 'We buy houses in Old Hickory for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.',
     'median_price'  => '$335,000',
     'homes_sold'    => '56',

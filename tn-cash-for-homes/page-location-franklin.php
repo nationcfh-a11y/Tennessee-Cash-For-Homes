@@ -3,7 +3,7 @@
  * Template Name: Location - Franklin
  *
  * SEO — enter in Yoast / RankMath:
- *   Meta Title:       We Buy Houses in Franklin | Get a Fast Cash Offer Today
+ *   Meta Title:       We Buy Houses in Franklin TN | Get a Fast Cash Offer Today
  *   Meta Description: We buy houses in Franklin for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.
  */
 
@@ -12,7 +12,7 @@ $city = [
     'name'          => 'Franklin',
     'image_file'    => 'Franklin.webp',
     'h1'            => 'Sell Your House For Cash In Franklin',
-    'meta_title'    => 'We Buy Houses in Franklin | Get a Fast Cash Offer Today',
+    'meta_title'    => 'We Buy Houses in Franklin TN | Get a Fast Cash Offer Today',
     'meta_desc'     => 'We buy houses in Franklin for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.',
     'median_price'  => '$700,000',
     'homes_sold'    => '129',

@@ -3,7 +3,7 @@
  * Template Name: Location - Woodbury
  *
  * SEO — enter in Yoast / RankMath:
- *   Meta Title:       We Buy Houses in Woodbury | Get a Fast Cash Offer Today
+ *   Meta Title:       We Buy Houses in Woodbury TN | Get a Fast Cash Offer Today
  *   Meta Description: We buy houses in Woodbury for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.
  */
 
@@ -12,7 +12,7 @@ $city = [
     'name'          => 'Woodbury',
     'image_file'    => 'Woodbury.webp',
     'h1'            => 'Sell Your House For Cash In Woodbury',
-    'meta_title'    => 'We Buy Houses in Woodbury | Get a Fast Cash Offer Today',
+    'meta_title'    => 'We Buy Houses in Woodbury TN | Get a Fast Cash Offer Today',
     'meta_desc'     => 'We buy houses in Woodbury for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.',
     'median_price'  => '$270,000',
     'homes_sold'    => '32',

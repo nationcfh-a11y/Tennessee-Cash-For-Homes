@@ -3,7 +3,7 @@
  * Template Name: Location - Murfreesboro
  *
  * SEO — enter in Yoast / RankMath:
- *   Meta Title:       We Buy Houses in Murfreesboro | Get a Fast Cash Offer Today
+ *   Meta Title:       We Buy Houses in Murfreesboro TN | Get a Fast Cash Offer Today
  *   Meta Description: We buy houses in Murfreesboro for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.
  */
 
@@ -12,7 +12,7 @@ $city = [
     'name'          => 'Murfreesboro',
     'image_file'    => 'Murfreesboro.webp',
     'h1'            => 'Sell Your House For Cash In Murfreesboro',
-    'meta_title'    => 'We Buy Houses in Murfreesboro | Get a Fast Cash Offer Today',
+    'meta_title'    => 'We Buy Houses in Murfreesboro TN | Get a Fast Cash Offer Today',
     'meta_desc'     => 'We buy houses in Murfreesboro for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.',
     'median_price'  => '$379,900',
     'homes_sold'    => '246',

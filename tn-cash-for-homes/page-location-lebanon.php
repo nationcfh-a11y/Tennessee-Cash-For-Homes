@@ -3,7 +3,7 @@
  * Template Name: Location - Lebanon
  *
  * SEO — enter in Yoast / RankMath:
- *   Meta Title:       We Buy Houses in Lebanon | Get a Fast Cash Offer Today
+ *   Meta Title:       We Buy Houses in Lebanon TN | Get a Fast Cash Offer Today
  *   Meta Description: We buy houses in Lebanon for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.
  */
 
@@ -12,7 +12,7 @@ $city = [
     'name'          => 'Lebanon',
     'image_file'    => 'Lebanon.webp',
     'h1'            => 'Sell Your House For Cash In Lebanon',
-    'meta_title'    => 'We Buy Houses in Lebanon | Get a Fast Cash Offer Today',
+    'meta_title'    => 'We Buy Houses in Lebanon TN | Get a Fast Cash Offer Today',
     'meta_desc'     => 'We buy houses in Lebanon for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.',
     'median_price'  => '$389,900',
     'homes_sold'    => '102',

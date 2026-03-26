@@ -3,7 +3,7 @@
  * Template Name: Location - La Vergne
  *
  * SEO — enter in Yoast / RankMath:
- *   Meta Title:       We Buy Houses in La Vergne | Get a Fast Cash Offer Today
+ *   Meta Title:       We Buy Houses in La Vergne TN | Get a Fast Cash Offer Today
  *   Meta Description: We buy houses in La Vergne for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.
  */
 
@@ -12,7 +12,7 @@ $city = [
     'name'          => 'La Vergne',
     'image_file'    => 'La Vergne.webp',
     'h1'            => 'Sell Your House For Cash In La Vergne',
-    'meta_title'    => 'We Buy Houses in La Vergne | Get a Fast Cash Offer Today',
+    'meta_title'    => 'We Buy Houses in La Vergne TN | Get a Fast Cash Offer Today',
     'meta_desc'     => 'We buy houses in La Vergne for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.',
     'median_price'  => '$325,000',
     'homes_sold'    => '79',
