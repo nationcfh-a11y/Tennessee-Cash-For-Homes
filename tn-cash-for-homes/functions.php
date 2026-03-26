@@ -111,29 +111,6 @@ add_filter( 'theme_page_templates', function( $templates, $theme, $post ) {
 }, 10, 3 );
 
 /**
- * TEMPORARY DEBUG — log the stored template value for Nashville (remove after fix confirmed)
- */
-add_action( 'wp', function() {
-    if ( is_page( 'nashville' ) ) {
-        $template = get_post_meta( get_the_ID(), '_wp_page_template', true );
-        error_log( 'Nashville template: ' . $template );
-    }
-} );
-
-/**
- * TEMPORARY MIGRATION — update stored template path from old root location to subfolder (remove after fix confirmed)
- */
-add_action( 'wp', function() {
-    $page = get_page_by_path( 'nashville' );
-    if ( $page ) {
-        $current = get_post_meta( $page->ID, '_wp_page_template', true );
-        if ( $current === 'page-location-nashville.php' ) {
-            update_post_meta( $page->ID, '_wp_page_template', 'city-pages/page-location-nashville.php' );
-        }
-    }
-} );
-
-/**
  * Load page templates from subfolders
  */
 add_filter( 'template_include', function( $template ) {
