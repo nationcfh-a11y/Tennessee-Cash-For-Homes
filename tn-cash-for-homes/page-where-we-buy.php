@@ -451,8 +451,24 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
     var svg = document.querySelector('.tn-map-svg-wrap svg');
     if (!svg) return;
 
+    /* ── Counties with pages already built ── */
+    var activeSlugs = {
+      'davidson-county':    true,
+      'rutherford-county':  true,
+      'williamson-county':  true,
+      'montgomery-county':  true,
+      'wilson-county':      true,
+      'sumner-county':      true,
+      'maury-county':       true,
+      'cheatham-county':    true,
+      'robertson-county':   true,
+      'dickson-county':     true
+    };
+
+    /* Base URL from WordPress — works on staging and live */
+    var siteUrl = '<?php echo esc_js( home_url() ); ?>';
+
     /* ── 1. Dynamically place county name labels ── */
-    // Create a label layer at SVG root level — outside the shear <g> so text stays upright
     var labelLayer = document.createElementNS('http://www.w3.org/2000/svg', 'g');
     labelLayer.setAttribute('class', 'county-labels-layer');
     svg.appendChild(labelLayer);
@@ -464,7 +480,6 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
       var cx   = bbox.x + bbox.width  / 2;
       var cy   = bbox.y + bbox.height / 2;
 
-      // Convert from path's local (sheared) coordinate space → screen → SVG root space
       var pt = svg.createSVGPoint();
       pt.x = cx;
       pt.y = cy;
@@ -489,7 +504,7 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
       labelLayer.appendChild(text);
     });
 
-    /* ── 2. Tooltip + hover (turns matching label white) ── */
+    /* ── 2. Tooltip + hover + click ── */
     var tooltip     = document.getElementById('county-tooltip');
     var tooltipName = document.getElementById('county-tooltip-name');
 
@@ -504,11 +519,15 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
     }
 
     svg.querySelectorAll('.county-group').forEach(function (g) {
-      var pathEl = g.querySelector('.county-path');
-      var label  = pathEl ? labelLayer.querySelector('[data-for="' + pathEl.id + '"]') : null;
+      var pathEl   = g.querySelector('.county-path');
+      var label    = pathEl ? labelLayer.querySelector('[data-for="' + pathEl.id + '"]') : null;
+      var slug     = g.getAttribute('data-slug');
+      var name     = g.getAttribute('data-county');
+      var isActive = slug && activeSlugs[slug];
 
       g.addEventListener('mouseenter', function (e) {
-        tooltipName.textContent = g.getAttribute('data-county') + ' County';
+        var suffix = isActive ? ' County — Click to learn more →' : ' County — Coming Soon';
+        tooltipName.textContent = name + suffix;
         tooltip.setAttribute('aria-hidden', 'false');
         positionTooltip(e);
         tooltip.classList.add('visible');
@@ -519,6 +538,11 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
         tooltip.classList.remove('visible');
         tooltip.setAttribute('aria-hidden', 'true');
         if (label) label.setAttribute('fill', '#555555');
+      });
+      g.addEventListener('click', function () {
+        if (slug) {
+          window.location.href = siteUrl + '/where-we-buy/' + slug;
+        }
       });
     });
   })();

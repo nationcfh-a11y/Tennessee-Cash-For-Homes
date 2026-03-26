@@ -2488,7 +2488,7 @@ img { display: block; max-width: 100%; }
   display: block !important;
 }
 .county-group {
-  cursor: default;
+  cursor: pointer;
 }
 .county-path {
   fill: #E8E8E8;
