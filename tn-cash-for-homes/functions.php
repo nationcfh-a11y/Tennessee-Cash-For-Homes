@@ -40,6 +40,15 @@ function tcfh_enqueue_assets() {
 add_action( 'wp_enqueue_scripts', 'tcfh_enqueue_assets' );
 
 /**
+ * Output favicon link tags in <head>.
+ */
+add_action( 'wp_head', function() {
+    echo '<link rel="icon" type="image/png" href="' . get_template_directory_uri() . '/brand_assets/Favicon.png" />' . "\n";
+    echo '<link rel="shortcut icon" type="image/png" href="' . get_template_directory_uri() . '/brand_assets/Favicon.png" />' . "\n";
+    echo '<link rel="apple-touch-icon" href="' . get_template_directory_uri() . '/brand_assets/Favicon.png" />' . "\n";
+} );
+
+/**
  * Add theme support for title tag, post thumbnails, and HTML5 markup.
  */
 function tcfh_theme_setup() {

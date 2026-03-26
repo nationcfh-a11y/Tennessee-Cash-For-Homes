@@ -3,6 +3,9 @@
 <head>
   <meta charset="<?php bloginfo( 'charset' ); ?>" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/brand_assets/Favicon.png">
+  <link rel="shortcut icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/brand_assets/Favicon.png">
+  <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/brand_assets/Favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <?php wp_head(); ?>
