@@ -2487,18 +2487,26 @@ img { display: block; max-width: 100%; }
   min-height: 520px !important;
   display: block !important;
 }
+.county-group {
+  cursor: default;
+}
 .county-path {
   fill: #E8E8E8;
   stroke: #FFFFFF;
   stroke-width: 0.12;
-  transition: fill 0.3s ease;
-  cursor: pointer;
+  transition: fill 0.3s ease, stroke 0.3s ease;
 }
 .county-label {
-  fill: #444444;
+  fill: #555555;
   transition: fill 0.3s ease;
   font-weight: 500;
-  pointer-events: none;
+}
+.county-group:hover .county-path {
+  fill: #84CC9C;
+  stroke: #5aab78;
+}
+.county-group:hover .county-label {
+  fill: #FFFFFF;
 }
 #county-tooltip {
   position: fixed;
