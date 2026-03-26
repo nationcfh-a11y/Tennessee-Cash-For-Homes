@@ -136,6 +136,172 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
 </section>
 
 <!-- ════════════════════════════════════════════
+     TENNESSEE COUNTY MAP
+════════════════════════════════════════════ -->
+<section class="section tn-map-section" id="county-map">
+  <div class="container">
+    <div class="section__header section__header--center wwb-fade">
+      <p class="section__eyebrow">Statewide Coverage</p>
+      <h2 class="section__title">We Buy Houses in Every Tennessee County</h2>
+      <p class="section__subtitle">Hover over any county to see where we buy. Click to learn more about selling your house in that area.</p>
+    </div>
+  </div>
+  <div class="tn-map-wrapper">
+    <div class="tn-map-svg-wrap">
+      <svg viewBox="0 0 960 370" xmlns="http://www.w3.org/2000/svg" aria-label="Interactive map of Tennessee counties" role="img">
+        <!-- WEST TENNESSEE -->
+        <polygon class="county-path" id="lake" data-county="Lake" data-slug="lake-county" points="74,52 118,52 118,96 74,96"><title>Lake County</title></polygon>
+        <polygon class="county-path" id="obion" data-county="Obion" data-slug="obion-county" points="125,47 177,47 177,91 125,91"><title>Obion County</title></polygon>
+        <polygon class="county-path" id="weakley" data-county="Weakley" data-slug="weakley-county" points="155,55 207,55 207,101 155,101"><title>Weakley County</title></polygon>
+        <polygon class="county-path" id="henry" data-county="Henry" data-slug="henry-county" points="199,53 251,53 251,103 199,103"><title>Henry County</title></polygon>
+        <polygon class="county-path" id="lauderdale" data-county="Lauderdale" data-slug="lauderdale-county" points="51,175 95,175 95,219 51,219"><title>Lauderdale County</title></polygon>
+        <polygon class="county-path" id="dyer" data-county="Dyer" data-slug="dyer-county" points="109,111 159,111 159,157 109,157"><title>Dyer County</title></polygon>
+        <polygon class="county-path" id="gibson" data-county="Gibson" data-slug="gibson-county" points="163,122 213,122 213,168 163,168"><title>Gibson County</title></polygon>
+        <polygon class="county-path" id="crockett" data-county="Crockett" data-slug="crockett-county" points="108,161 152,161 152,205 108,205"><title>Crockett County</title></polygon>
+        <polygon class="county-path" id="haywood" data-county="Haywood" data-slug="haywood-county" points="106,209 156,209 156,253 106,253"><title>Haywood County</title></polygon>
+        <polygon class="county-path" id="tipton" data-county="Tipton" data-slug="tipton-county" points="39,219 85,219 85,269 39,269"><title>Tipton County</title></polygon>
+        <polygon class="county-path" id="shelby" data-county="Shelby" data-slug="shelby-county" points="10,278 84,278 84,350 10,350"><title>Shelby County</title></polygon>
+        <polygon class="county-path" id="fayette" data-county="Fayette" data-slug="fayette-county" points="75,292 127,292 127,342 75,342"><title>Fayette County</title></polygon>
+        <polygon class="county-path" id="madison" data-county="Madison" data-slug="madison-county" points="139,201 191,201 191,245 139,245"><title>Madison County</title></polygon>
+        <polygon class="county-path" id="chester" data-county="Chester" data-slug="chester-county" points="165,238 209,238 209,282 165,282"><title>Chester County</title></polygon>
+        <polygon class="county-path" id="hardeman" data-county="Hardeman" data-slug="hardeman-county" points="121,282 173,282 173,332 121,332"><title>Hardeman County</title></polygon>
+        <polygon class="county-path" id="mcnairy" data-county="McNairy" data-slug="mcnairy-county" points="189,290 239,290 239,340 189,340"><title>McNairy County</title></polygon>
+        <polygon class="county-path" id="henderson" data-county="Henderson" data-slug="henderson-county" points="191,192 235,192 235,236 191,236"><title>Henderson County</title></polygon>
+        <polygon class="county-path" id="hardin" data-county="Hardin" data-slug="hardin-county" points="193,277 243,277 243,327 193,327"><title>Hardin County</title></polygon>
+        <polygon class="county-path" id="decatur" data-county="Decatur" data-slug="decatur-county" points="226,207 270,207 270,251 226,251"><title>Decatur County</title></polygon>
+        <polygon class="county-path" id="carroll" data-county="Carroll" data-slug="carroll-county" points="188,124 240,124 240,170 188,170"><title>Carroll County</title></polygon>
+        <!-- WEST-MIDDLE TENNESSEE -->
+        <polygon class="county-path" id="benton" data-county="Benton" data-slug="benton-county" points="230,105 282,105 282,151 230,151"><title>Benton County</title></polygon>
+        <polygon class="county-path" id="stewart" data-county="Stewart" data-slug="stewart-county" points="248,19 298,19 298,65 248,65"><title>Stewart County</title></polygon>
+        <polygon class="county-path" id="houston" data-county="Houston" data-slug="houston-county" points="264,60 308,60 308,104 264,104"><title>Houston County</title></polygon>
+        <polygon class="county-path" id="humphreys" data-county="Humphreys" data-slug="humphreys-county" points="252,147 298,147 298,193 252,193"><title>Humphreys County</title></polygon>
+        <polygon class="county-path" id="perry" data-county="Perry" data-slug="perry-county" points="248,201 294,201 294,245 248,245"><title>Perry County</title></polygon>
+        <polygon class="county-path" id="wayne" data-county="Wayne" data-slug="wayne-county" points="245,275 297,275 297,325 245,325"><title>Wayne County</title></polygon>
+        <polygon class="county-path" id="montgomery" data-county="Montgomery" data-slug="montgomery-county" points="291,11 353,11 353,61 291,61"><title>Montgomery County</title></polygon>
+        <polygon class="county-path" id="dickson" data-county="Dickson" data-slug="dickson-county" points="298,101 352,101 352,151 298,151"><title>Dickson County</title></polygon>
+        <polygon class="county-path" id="hickman" data-county="Hickman" data-slug="hickman-county" points="294,168 344,168 344,218 294,218"><title>Hickman County</title></polygon>
+        <polygon class="county-path" id="lewis" data-county="Lewis" data-slug="lewis-county" points="293,220 337,220 337,264 293,264"><title>Lewis County</title></polygon>
+        <polygon class="county-path" id="lawrence" data-county="Lawrence" data-slug="lawrence-county" points="296,273 348,273 348,323 296,323"><title>Lawrence County</title></polygon>
+        <!-- MIDDLE TENNESSEE -->
+        <polygon class="county-path" id="robertson" data-county="Robertson" data-slug="robertson-county" points="356,9 406,9 406,55 356,55"><title>Robertson County</title></polygon>
+        <polygon class="county-path" id="cheatham" data-county="Cheatham" data-slug="cheatham-county" points="329,59 379,59 379,105 329,105"><title>Cheatham County</title></polygon>
+        <polygon class="county-path" id="davidson" data-county="Davidson" data-slug="davidson-county" points="360,77 424,77 424,137 360,137"><title>Davidson County</title></polygon>
+        <polygon class="county-path" id="williamson" data-county="Williamson" data-slug="williamson-county" points="353,137 405,137 405,187 353,187"><title>Williamson County</title></polygon>
+        <polygon class="county-path" id="maury" data-county="Maury" data-slug="maury-county" points="334,187 388,187 388,237 334,237"><title>Maury County</title></polygon>
+        <polygon class="county-path" id="giles" data-county="Giles" data-slug="giles-county" points="338,282 390,282 390,332 338,332"><title>Giles County</title></polygon>
+        <polygon class="county-path" id="marshall" data-county="Marshall" data-slug="marshall-county" points="371,226 421,226 421,270 371,270"><title>Marshall County</title></polygon>
+        <polygon class="county-path" id="lincoln" data-county="Lincoln" data-slug="lincoln-county" points="380,296 432,296 432,346 380,346"><title>Lincoln County</title></polygon>
+        <polygon class="county-path" id="sumner" data-county="Sumner" data-slug="sumner-county" points="400,21 452,21 452,67 400,67"><title>Sumner County</title></polygon>
+        <polygon class="county-path" id="wilson" data-county="Wilson" data-slug="wilson-county" points="419,82 471,82 471,132 419,132"><title>Wilson County</title></polygon>
+        <polygon class="county-path" id="rutherford" data-county="Rutherford" data-slug="rutherford-county" points="406,154 458,154 458,204 406,204"><title>Rutherford County</title></polygon>
+        <polygon class="county-path" id="bedford" data-county="Bedford" data-slug="bedford-county" points="401,221 453,221 453,267 401,267"><title>Bedford County</title></polygon>
+        <polygon class="county-path" id="moore" data-county="Moore" data-slug="moore-county" points="422,273 458,273 458,311 422,311"><title>Moore County</title></polygon>
+        <polygon class="county-path" id="franklin" data-county="Franklin" data-slug="franklin-county" points="442,286 492,286 492,336 442,336"><title>Franklin County</title></polygon>
+        <polygon class="county-path" id="trousdale" data-county="Trousdale" data-slug="trousdale-county" points="441,41 479,41 479,77 441,77"><title>Trousdale County</title></polygon>
+        <polygon class="county-path" id="macon" data-county="Macon" data-slug="macon-county" points="455,10 499,10 499,48 455,48"><title>Macon County</title></polygon>
+        <polygon class="county-path" id="smith" data-county="Smith" data-slug="smith-county" points="462,74 508,74 508,120 462,120"><title>Smith County</title></polygon>
+        <polygon class="county-path" id="cannon" data-county="Cannon" data-slug="cannon-county" points="449,167 491,167 491,211 449,211"><title>Cannon County</title></polygon>
+        <polygon class="county-path" id="coffee" data-county="Coffee" data-slug="coffee-county" points="439,223 489,223 489,269 439,269"><title>Coffee County</title></polygon>
+        <!-- UPPER MIDDLE / PLATEAU -->
+        <polygon class="county-path" id="clay" data-county="Clay" data-slug="clay-county" points="510,11 550,11 550,47 510,47"><title>Clay County</title></polygon>
+        <polygon class="county-path" id="jackson" data-county="Jackson" data-slug="jackson-county" points="493,41 537,41 537,85 493,85"><title>Jackson County</title></polygon>
+        <polygon class="county-path" id="dekalb" data-county="DeKalb" data-slug="dekalb-county" points="476,124 524,124 524,170 476,170"><title>DeKalb County</title></polygon>
+        <polygon class="county-path" id="warren" data-county="Warren" data-slug="warren-county" points="479,195 529,195 529,241 479,241"><title>Warren County</title></polygon>
+        <polygon class="county-path" id="grundy" data-county="Grundy" data-slug="grundy-county" points="487,252 531,252 531,302 487,302"><title>Grundy County</title></polygon>
+        <polygon class="county-path" id="putnam" data-county="Putnam" data-slug="putnam-county" points="508,90 556,90 556,136 508,136"><title>Putnam County</title></polygon>
+        <polygon class="county-path" id="white" data-county="White" data-slug="white-county" points="514,135 564,135 564,181 514,181"><title>White County</title></polygon>
+        <polygon class="county-path" id="van-buren" data-county="Van Buren" data-slug="van-buren-county" points="522,186 560,186 560,230 522,230"><title>Van Buren County</title></polygon>
+        <polygon class="county-path" id="sequatchie" data-county="Sequatchie" data-slug="sequatchie-county" points="527,231 565,231 565,277 527,277"><title>Sequatchie County</title></polygon>
+        <polygon class="county-path" id="marion" data-county="Marion" data-slug="marion-county" points="498,304 548,304 548,348 498,348"><title>Marion County</title></polygon>
+        <polygon class="county-path" id="hamilton" data-county="Hamilton" data-slug="hamilton-county" points="536,300 598,300 598,352 536,352"><title>Hamilton County</title></polygon>
+        <polygon class="county-path" id="overton" data-county="Overton" data-slug="overton-county" points="536,49 584,49 584,93 536,93"><title>Overton County</title></polygon>
+        <polygon class="county-path" id="pickett" data-county="Pickett" data-slug="pickett-county" points="561,9 597,9 597,45 561,45"><title>Pickett County</title></polygon>
+        <polygon class="county-path" id="fentress" data-county="Fentress" data-slug="fentress-county" points="574,41 618,41 618,85 574,85"><title>Fentress County</title></polygon>
+        <polygon class="county-path" id="cumberland" data-county="Cumberland" data-slug="cumberland-county" points="564,133 616,133 616,183 564,183"><title>Cumberland County</title></polygon>
+        <polygon class="county-path" id="bledsoe" data-county="Bledsoe" data-slug="bledsoe-county" points="548,204 590,204 590,250 548,250"><title>Bledsoe County</title></polygon>
+        <!-- EAST MIDDLE / VALLEY -->
+        <polygon class="county-path" id="scott" data-county="Scott" data-slug="scott-county" points="620,28 668,28 668,72 620,72"><title>Scott County</title></polygon>
+        <polygon class="county-path" id="morgan" data-county="Morgan" data-slug="morgan-county" points="606,91 654,91 654,141 606,141"><title>Morgan County</title></polygon>
+        <polygon class="county-path" id="roane" data-county="Roane" data-slug="roane-county" points="619,149 667,149 667,195 619,195"><title>Roane County</title></polygon>
+        <polygon class="county-path" id="rhea" data-county="Rhea" data-slug="rhea-county" points="569,206 613,206 613,252 569,252"><title>Rhea County</title></polygon>
+        <polygon class="county-path" id="meigs" data-county="Meigs" data-slug="meigs-county" points="592,220 632,220 632,264 592,264"><title>Meigs County</title></polygon>
+        <polygon class="county-path" id="mcminn" data-county="McMinn" data-slug="mcminn-county" points="607,235 655,235 655,285 607,285"><title>McMinn County</title></polygon>
+        <polygon class="county-path" id="polk" data-county="Polk" data-slug="polk-county" points="617,307 667,307 667,353 617,353"><title>Polk County</title></polygon>
+        <polygon class="county-path" id="bradley" data-county="Bradley" data-slug="bradley-county" points="578,297 630,297 630,341 578,341"><title>Bradley County</title></polygon>
+        <polygon class="county-path" id="loudon" data-county="Loudon" data-slug="loudon-county" points="642,175 690,175 690,219 642,219"><title>Loudon County</title></polygon>
+        <polygon class="county-path" id="monroe" data-county="Monroe" data-slug="monroe-county" points="645,229 697,229 697,279 645,279"><title>Monroe County</title></polygon>
+        <polygon class="county-path" id="campbell" data-county="Campbell" data-slug="campbell-county" points="659,30 711,30 711,76 659,76"><title>Campbell County</title></polygon>
+        <polygon class="county-path" id="anderson" data-county="Anderson" data-slug="anderson-county" points="653,95 705,95 705,141 653,141"><title>Anderson County</title></polygon>
+        <polygon class="county-path" id="knox" data-county="Knox" data-slug="knox-county" points="680,118 740,118 740,172 680,172"><title>Knox County</title></polygon>
+        <polygon class="county-path" id="blount" data-county="Blount" data-slug="blount-county" points="687,189 739,189 739,235 687,235"><title>Blount County</title></polygon>
+        <!-- EAST TENNESSEE -->
+        <polygon class="county-path" id="claiborne" data-county="Claiborne" data-slug="claiborne-county" points="712,20 764,20 764,64 712,64"><title>Claiborne County</title></polygon>
+        <polygon class="county-path" id="union" data-county="Union" data-slug="union-county" points="697,56 741,56 741,100 697,100"><title>Union County</title></polygon>
+        <polygon class="county-path" id="grainger" data-county="Grainger" data-slug="grainger-county" points="730,62 774,62 774,106 730,106"><title>Grainger County</title></polygon>
+        <polygon class="county-path" id="jefferson" data-county="Jefferson" data-slug="jefferson-county" points="739,94 787,94 787,138 739,138"><title>Jefferson County</title></polygon>
+        <polygon class="county-path" id="sevier" data-county="Sevier" data-slug="sevier-county" points="727,149 777,149 777,195 727,195"><title>Sevier County</title></polygon>
+        <polygon class="county-path" id="hamblen" data-county="Hamblen" data-slug="hamblen-county" points="760,73 804,73 804,117 760,117"><title>Hamblen County</title></polygon>
+        <polygon class="county-path" id="cocke" data-county="Cocke" data-slug="cocke-county" points="774,132 824,132 824,178 774,178"><title>Cocke County</title></polygon>
+        <polygon class="county-path" id="hancock" data-county="Hancock" data-slug="hancock-county" points="765,14 805,14 805,50 765,50"><title>Hancock County</title></polygon>
+        <polygon class="county-path" id="hawkins" data-county="Hawkins" data-slug="hawkins-county" points="791,26 845,26 845,70 791,70"><title>Hawkins County</title></polygon>
+        <polygon class="county-path" id="greene" data-county="Greene" data-slug="greene-county" points="801,82 855,82 855,132 801,132"><title>Greene County</title></polygon>
+        <polygon class="county-path" id="washington" data-county="Washington" data-slug="washington-county" points="839,49 893,49 893,99 839,99"><title>Washington County</title></polygon>
+        <polygon class="county-path" id="sullivan" data-county="Sullivan" data-slug="sullivan-county" points="852,13 906,13 906,59 852,59"><title>Sullivan County</title></polygon>
+        <polygon class="county-path" id="unicoi" data-county="Unicoi" data-slug="unicoi-county" points="852,80 898,80 898,126 852,126"><title>Unicoi County</title></polygon>
+        <polygon class="county-path" id="carter" data-county="Carter" data-slug="carter-county" points="884,61 934,61 934,107 884,107"><title>Carter County</title></polygon>
+        <polygon class="county-path" id="johnson" data-county="Johnson" data-slug="johnson-county" points="916,28 958,28 958,78 916,78"><title>Johnson County</title></polygon>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Tooltip -->
+  <div id="county-tooltip" role="tooltip" aria-hidden="true">
+    <span class="county-tooltip__dot"></span>
+    <span id="county-tooltip-name"></span>
+  </div>
+
+  <script>
+  (function () {
+    var tooltip     = document.getElementById('county-tooltip');
+    var tooltipName = document.getElementById('county-tooltip-name');
+    var counties    = document.querySelectorAll('.county-path');
+
+    function positionTooltip(e) {
+      var tw = tooltip.offsetWidth;
+      var th = tooltip.offsetHeight;
+      var vw = window.innerWidth;
+      var vh = window.innerHeight;
+      var x  = e.clientX;
+      var y  = e.clientY;
+      var left = x - tw / 2;
+      var top  = y - th - 14;
+      if (left < 8)           left = 8;
+      if (left + tw > vw - 8) left = vw - tw - 8;
+      if (top < 8)            top  = y + 20;
+      if (top + th > vh - 8)  top  = y - th - 14;
+      tooltip.style.left = left + 'px';
+      tooltip.style.top  = top  + 'px';
+    }
+
+    counties.forEach(function (c) {
+      c.addEventListener('mouseenter', function (e) {
+        var name = this.getAttribute('data-county');
+        tooltipName.textContent = name + ' County';
+        tooltip.setAttribute('aria-hidden', 'false');
+        positionTooltip(e);
+        tooltip.classList.add('visible');
+      });
+      c.addEventListener('mousemove', positionTooltip);
+      c.addEventListener('mouseleave', function () {
+        tooltip.classList.remove('visible');
+        tooltip.setAttribute('aria-hidden', 'true');
+      });
+    });
+  })();
+  </script>
+</section>
+
+<!-- ════════════════════════════════════════════
      CITY PHOTO CARDS
 ════════════════════════════════════════════ -->
 <section class="section section--alt wwb-cards-section">

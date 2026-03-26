@@ -2458,3 +2458,84 @@ img { display: block; max-width: 100%; }
 .hiw-timeline-icon.line-drawn::after {
   transform: translateX(-50%) scaleY(1);
 }
+
+/* ════════════════════════════════════════════
+   TENNESSEE COUNTY MAP
+════════════════════════════════════════════ */
+.tn-map-section {
+  background: #F2F2F2;
+  padding: 80px 0 72px;
+}
+.tn-map-section .section__header {
+  margin-bottom: 48px;
+}
+.tn-map-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.tn-map-svg-wrap {
+  filter: drop-shadow(0 4px 28px rgba(0,0,0,0.10));
+  width: 100%;
+}
+.tn-map-svg-wrap svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.county-path {
+  fill: #E8E8E8;
+  stroke: #FFFFFF;
+  stroke-width: 1.5;
+  cursor: default;
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+.county-path:hover {
+  fill: #84CC9C;
+  stroke: #5aab78;
+}
+#county-tooltip {
+  position: fixed;
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 14px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 9999;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a1a;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.18s ease;
+  top: 0;
+  left: 0;
+}
+#county-tooltip.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.county-tooltip__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #84CC9C;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .tn-map-section {
+    padding: 56px 0 48px;
+  }
+  .tn-map-wrapper {
+    padding: 0 16px;
+  }
+}
+@media (max-width: 480px) {
+  .tn-map-section {
+    padding: 40px 0 36px;
+  }
+}
