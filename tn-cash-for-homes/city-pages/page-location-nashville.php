@@ -1,7 +1,8 @@
 <?php
-/**
- * Template Name: Location - Nashville
- *
+/*
+Template Name: Location - Nashville
+*/
+/*
  * SEO — enter in Yoast / RankMath:
  *   Meta Title:       We Buy Houses in Nashville | Get a Fast Cash Offer Today
  *   Meta Description: We buy houses in Nashville for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.

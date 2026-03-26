@@ -90,3 +90,38 @@ function tcfh_handle_submit_lead() {
 }
 add_action( 'wp_ajax_tcfh_submit_lead',        'tcfh_handle_submit_lead' );
 add_action( 'wp_ajax_nopriv_tcfh_submit_lead', 'tcfh_handle_submit_lead' );
+
+/**
+ * Register page templates from subfolders
+ */
+add_filter( 'theme_page_templates', function( $templates, $theme, $post ) {
+    $subdirs = [ 'city-pages', 'county-pages' ];
+    foreach ( $subdirs as $subdir ) {
+        $dir = get_template_directory() . '/' . $subdir;
+        if ( ! is_dir( $dir ) ) continue;
+        foreach ( glob( $dir . '/page-*.php' ) as $file ) {
+            $headers = get_file_data( $file, [ 'Template Name' => 'Template Name' ] );
+            if ( ! empty( $headers['Template Name'] ) ) {
+                $key = $subdir . '/' . basename( $file );
+                $templates[ $key ] = $headers['Template Name'];
+            }
+        }
+    }
+    return $templates;
+}, 10, 3 );
+
+/**
+ * Load page templates from subfolders
+ */
+add_filter( 'template_include', function( $template ) {
+    $page_template = get_post_meta( get_the_ID(), '_wp_page_template', true );
+    if ( empty( $page_template ) ) return $template;
+    $subdirs = [ 'city-pages', 'county-pages' ];
+    foreach ( $subdirs as $subdir ) {
+        if ( strpos( $page_template, $subdir . '/' ) === 0 ) {
+            $full_path = get_template_directory() . '/' . $page_template;
+            if ( file_exists( $full_path ) ) return $full_path;
+        }
+    }
+    return $template;
+} );
