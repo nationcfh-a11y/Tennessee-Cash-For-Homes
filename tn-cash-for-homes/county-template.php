@@ -83,8 +83,23 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
       <!-- RIGHT: Map + Form -->
       <div class="county-hero__map-col">
         <?php
-        $county_name = $name;
-        include get_template_directory() . '/county-map-hero.php';
+        $county_svg_path = get_template_directory() . '/brand_assets/county-svgs/' . $slug . '.svg';
+        if ( file_exists( $county_svg_path ) ) :
+        ?>
+        <div class="county-map-hero-wrap">
+          <div class="county-map-hero-svg">
+            <?php echo file_get_contents( $county_svg_path ); ?>
+          </div>
+          <div class="county-map-label">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+            <?php echo esc_html( $name ); ?>, Tennessee
+          </div>
+        </div>
+        <?php else :
+          // Fallback to old inline map if SVG file not found
+          $county_name = $name;
+          include get_template_directory() . '/county-map-hero.php';
+        endif;
         ?>
 
         <!-- LEAD FORM -->
@@ -385,6 +400,39 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
 }
 .city-link-btn:hover .city-link-btn__soon {
   background: rgba(255,255,255,0.3);
+}
+
+/* ── Map Hero SVG ── */
+.county-map-hero-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.county-map-hero-svg {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 12px;
+}
+.county-map-hero-svg svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+.county-map-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2D6A4F;
+  letter-spacing: 0.04em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 /* ── Responsive ── */

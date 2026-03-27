@@ -21,9 +21,6 @@ get_header();
 
 $slug         = $city['slug'];
 $name         = $city['name'];
-$image_url    = get_template_directory_uri()
-                . '/brand_assets/Where%20We%20Buy%20Pages/Where%20We%20Buy%20Images/'
-                . rawurlencode( $city['image_file'] );
 $h1           = $city['h1'];
 $median_price = $city['median_price'];
 $homes_sold   = $city['homes_sold'];
@@ -31,28 +28,45 @@ $avg_days     = $city['avg_days'];
 $desc1        = $city['desc1'];
 $desc2        = $city['desc2'];
 $land_para    = $city['land_para'];
+$county_slug  = ! empty( $city['county_slug'] ) ? $city['county_slug'] : '';
+
+// Determine which SVG map to display: city SVG first, fall back to county SVG
+$city_svg_path   = get_template_directory() . '/brand_assets/city-svgs/' . $slug . '.svg';
+$county_svg_path = $county_slug ? get_template_directory() . '/brand_assets/county-svgs/' . $county_slug . '.svg' : '';
+$map_svg_path    = '';
+$map_label       = $name;
+
+if ( file_exists( $city_svg_path ) ) {
+    $map_svg_path = $city_svg_path;
+    $map_label    = $name;
+} elseif ( $county_svg_path && file_exists( $county_svg_path ) ) {
+    $map_svg_path = $county_svg_path;
+    $map_label    = str_replace( '-', ' ', ucwords( str_replace( '-county', ' County', $county_slug ), '- ' ) );
+}
+$has_map = ! empty( $map_svg_path );
 
 $check18 = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>';
 $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>';
 ?>
 
 <!-- ── LOCATION HERO ── -->
-<section class="location-hero" style="background-image: url('<?php echo esc_url( $image_url ); ?>');">
-  <div class="location-hero__overlay"></div>
+<section class="county-hero">
   <div class="container">
-    <div class="location-hero__inner">
-      <div class="location-hero__content">
-        <nav class="breadcrumb breadcrumb--light">
+    <div class="county-hero__inner">
+
+      <!-- LEFT: Content + Trust -->
+      <div class="county-hero__content">
+        <nav class="breadcrumb">
           <a href="<?php echo esc_url( home_url('/') ); ?>">Home</a>
           <span>&rsaquo;</span>
           <a href="<?php echo esc_url( home_url('/where-we-buy/') ); ?>">Where We Buy</a>
           <span>&rsaquo;</span>
           <span><?php echo esc_html( $name ); ?></span>
         </nav>
-        <div class="hero__badge"><?php echo esc_html( $name ); ?> Cash Home Buyers</div>
-        <h1 class="location-hero__title"><?php echo esc_html( $h1 ); ?></h1>
-        <p class="location-hero__subtitle">No repairs. No commissions. No fees. Get a fair cash offer for your <?php echo esc_html( $name ); ?> home in as little as 24 hours. We close on your timeline.</p>
-        <div class="hero__trust">
+        <div class="hero__badge county-hero__badge"><?php echo esc_html( $name ); ?> Cash Home Buyers</div>
+        <h1 class="county-hero__title"><?php echo esc_html( $h1 ); ?></h1>
+        <p class="county-hero__subtitle">No repairs. No commissions. No fees. Get a fair cash offer for your <?php echo esc_html( $name ); ?> home in as little as 24 hours. We close on your timeline.</p>
+        <div class="hero__trust county-hero__trust">
           <div class="hero__trust-item">
             <?php echo $check18; ?>
             Zero fees or commissions
@@ -73,35 +87,50 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
             <a href='https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick' target='_blank' rel='nofollow' class='bbb-seal'><img src='https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png' style='border: 0;' alt='Tennessee Cash For Homes BBB Business Review' /></a>
           </div>
         </div>
-        <div class="location-hero__cta-row">
-          <a href="/#hero-form" class="btn-primary">Get My Free Cash Offer &rarr;</a>
+        <div class="county-hero__cta-row">
+          <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-primary">Get My Free Cash Offer &rarr;</a>
           <a href="tel:+16158018126" class="btn-outline">Call (615) 801-8126</a>
         </div>
       </div>
 
-      <!-- LEAD FORM -->
-      <div class="hero__form-card" id="get-offer">
-        <h2 class="form-card__title">Get Your Free Cash Offer</h2>
-        <p class="form-card__sub">Takes less than 60 seconds. No obligation.</p>
-        <form onsubmit="handleSubmit(event)">
-          <div class="form-group">
-            <label for="loc-address-<?php echo esc_attr( $slug ); ?>">Property Address</label>
-            <input type="text" id="loc-address-<?php echo esc_attr( $slug ); ?>" name="address" placeholder="123 Main St, <?php echo esc_attr( $name ); ?>, TN" required />
+      <!-- RIGHT: Map + Form -->
+      <div class="county-hero__map-col">
+        <?php if ( $has_map ) : ?>
+        <div class="county-map-hero-wrap">
+          <div class="county-map-hero-svg">
+            <?php echo file_get_contents( $map_svg_path ); ?>
           </div>
-          <div class="form-group">
-            <label for="loc-name-<?php echo esc_attr( $slug ); ?>">Your Name</label>
-            <input type="text" id="loc-name-<?php echo esc_attr( $slug ); ?>" name="name" placeholder="John Smith" required />
+          <div class="county-map-label">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+            <?php echo esc_html( $map_label ); ?>, Tennessee
           </div>
-          <div class="form-group">
-            <label for="loc-phone-<?php echo esc_attr( $slug ); ?>">Phone Number</label>
-            <input type="tel" id="loc-phone-<?php echo esc_attr( $slug ); ?>" name="phone" placeholder="(615) 555-0123" required />
-          </div>
-          <button type="submit" class="btn-primary btn-primary--block">Get My Cash Offer &rarr;</button>
-        </form>
-        <p class="form-disclaimer">&#128274; Your info is private and never shared.</p>
-      </div>
+        </div>
+        <?php endif; ?>
 
-    </div>
+        <!-- LEAD FORM -->
+        <div class="hero__form-card county-hero__form" id="get-offer">
+          <h2 class="form-card__title">Get Your Free Cash Offer</h2>
+          <p class="form-card__sub">Takes less than 60 seconds. No obligation.</p>
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label for="loc-address-<?php echo esc_attr( $slug ); ?>">Property Address</label>
+              <input type="text" id="loc-address-<?php echo esc_attr( $slug ); ?>" name="address" placeholder="123 Main St, <?php echo esc_attr( $name ); ?>, TN" required />
+            </div>
+            <div class="form-group">
+              <label for="loc-name-<?php echo esc_attr( $slug ); ?>">Your Name</label>
+              <input type="text" id="loc-name-<?php echo esc_attr( $slug ); ?>" name="name" placeholder="John Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="loc-phone-<?php echo esc_attr( $slug ); ?>">Phone Number</label>
+              <input type="tel" id="loc-phone-<?php echo esc_attr( $slug ); ?>" name="phone" placeholder="(615) 555-0123" required />
+            </div>
+            <button type="submit" class="btn-primary btn-primary--block">Get My Cash Offer &rarr;</button>
+          </form>
+          <p class="form-disclaimer">&#128274; Your info is private and never shared.</p>
+        </div>
+
+      </div><!-- /.county-hero__map-col -->
+    </div><!-- /.county-hero__inner -->
   </div>
 </section>
 
@@ -386,5 +415,120 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
 
   </div>
 </section>
+
+<style>
+/* ── City/Location Hero (matches county hero layout) ── */
+.county-hero {
+  background: #F2F2F2;
+  padding: 60px 0 48px;
+}
+.county-hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.county-hero__badge {
+  display: inline-block;
+  background: rgba(132, 204, 156, 0.2);
+  color: #2D6A4F;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+.county-hero__title {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+.county-hero__subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin: 0 0 20px;
+  line-height: 1.6;
+}
+.county-hero__trust {
+  margin-bottom: 24px;
+}
+.county-hero__cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.county-hero__map-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.county-hero__form {
+  margin-top: 0;
+}
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 16px;
+}
+.breadcrumb a {
+  color: #2D6A4F;
+  text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ── Map Hero SVG ── */
+.county-map-hero-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.county-map-hero-svg {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 12px;
+}
+.county-map-hero-svg svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+.county-map-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2D6A4F;
+  letter-spacing: 0.04em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .county-hero__inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .county-hero__map-col {
+    order: -1;
+  }
+  .county-hero {
+    padding: 40px 0 32px;
+  }
+}
+</style>
 
 <?php get_footer(); ?>
