@@ -265,69 +265,80 @@
   </div>
 </section>
 
-<!-- ── BENEFITS ── -->
-<section class="section section--alt" id="benefits">
+<!-- ── COMMON SITUATIONS ── -->
+<section class="common-situations" id="situations">
   <div class="container">
-    <div class="section__header">
-      <p class="section__eyebrow">Why Tennessee Homeowners Choose Us</p>
-      <h2 class="section__title">The Fastest, Easiest Way to Sell Your Tennessee House for Cash</h2>
-      <p class="section__subtitle">No agents, no repairs, no delays. Just an honest, all-cash offer from a 5-star rated local Tennessee home buyer.</p>
+    <div class="common-situations__header">
+      <p class="section__eyebrow">Whatever Your Situation</p>
+      <h2 class="common-situations__title">Common Reasons Tennessee Homeowners Sell For Cash</h2>
+      <p class="common-situations__sub">Whatever your situation we have a fast fair solution. Click your situation below to learn more.</p>
+      <div class="common-situations__divider"></div>
     </div>
-    <div class="benefits-grid">
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div class="benefit-content">
-          <h3>We Buy Houses As-Is, No Repairs Needed</h3>
-          <p>Sell your Tennessee house exactly as it is. We buy homes in any condition: fire damage, foundation issues, pre-foreclosure, inherited properties, hoarder homes. We've seen it all.</p>
-        </div>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
-        <div class="benefit-content">
-          <h3>Zero Agent Fees or Commissions</h3>
-          <p>Unlike selling with a real estate agent, we never charge commissions or closing costs. The cash offer we make is the exact amount you walk away with at closing.</p>
-        </div>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        </div>
-        <div class="benefit-content">
-          <h3>Close on Your Timeline</h3>
-          <p>Need to close in a week? Or a month? We work around your schedule. You pick the closing date that gives you the most flexibility.</p>
-        </div>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div class="benefit-content">
-          <h3>Local, 5-Star Rated Tennessee Cash Buyers</h3>
-          <p>We're a locally owned Tennessee company, not a national hedge fund. We know your neighborhoods, treat you with respect, and have earned a 5-star Google rating from real homeowners like you.</p>
-        </div>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <div class="benefit-content">
-          <h3>No Showings or Open Houses</h3>
-          <p>Skip the hassle of staging, cleaning, and hosting strangers in your home. One visit from us is all it takes to make your offer.</p>
-        </div>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        </div>
-        <div class="benefit-content">
-          <h3>Guaranteed Closing</h3>
-          <p>Cash buyers don't have financing contingencies. Once we make an offer, you can count on it. No deals falling through at the last minute.</p>
-        </div>
-      </div>
+    <div class="common-situations__grid">
+
+      <a href="<?php echo esc_url( home_url('/sell-my-house-foreclosure-tennessee') ); ?>" class="situation-card">
+        <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><line x1="9" y1="22" x2="9" y2="12"/><line x1="15" y1="22" x2="15" y2="12"/><line x1="9" y1="12" x2="15" y2="12"/></svg></div>
+        <h3 class="situation-card__title">Facing Foreclosure</h3>
+        <p class="situation-card__desc">Received foreclosure notices or falling behind on payments? We can close fast enough to stop the process.</p>
+        <span class="situation-card__link">Learn More &rarr;</span>
+      </a>
+
+      <a href="<?php echo esc_url( home_url('/sell-my-house-divorce-tennessee') ); ?>" class="situation-card">
+        <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M12 1v22"/><path d="M5 5l14 14"/><path d="M19 5L5 19"/></svg></div>
+        <h3 class="situation-card__title">Going Through Divorce</h3>
+        <p class="situation-card__desc">Need a fast fair sale without months of showings and negotiations? We make divorce home sales simple.</p>
+        <span class="situation-card__link">Learn More &rarr;</span>
+      </a>
+
+      <a href="<?php echo esc_url( home_url('/sell-inherited-house-tennessee') ); ?>" class="situation-card">
+        <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3 class="situation-card__title">Inherited a Property</h3>
+        <p class="situation-card__desc">Inherited a home you do not want to manage? We buy as-is with contents included and work with probate attorneys.</p>
+        <span class="situation-card__link">Learn More &rarr;</span>
+      </a>
+
+      <a href="<?php echo esc_url( home_url('/sell-my-house-relocating-tennessee') ); ?>" class="situation-card">
+        <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
+        <h3 class="situation-card__title">Relocating or Moving</h3>
+        <p class="situation-card__desc">Moving for work or family? Sell fast and avoid double mortgage payments or carrying costs from out of state.</p>
+        <span class="situation-card__link">Learn More &rarr;</span>
+      </a>
+
+      <a href="<?php echo esc_url( home_url('/sell-house-as-is-tennessee') ); ?>" class="situation-card">
+        <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3 class="situation-card__title">Major Repairs Needed</h3>
+        <p class="situation-card__desc">Home needs major work? We buy houses in any condition — no repairs, no contractors, no hassle.</p>
+        <span class="situation-card__link">Learn More &rarr;</span>
+      </a>
+
+      <a href="<?php echo esc_url( home_url('/sell-rental-property-tennessee') ); ?>" class="situation-card">
+        <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></div>
+        <h3 class="situation-card__title">Tired Landlord</h3>
+        <p class="situation-card__desc">Done with tenants and maintenance? We buy rental properties with tenants in place for a fast clean exit.</p>
+        <span class="situation-card__link">Learn More &rarr;</span>
+      </a>
+
+      <a href="<?php echo esc_url( home_url('/sell-house-behind-on-taxes-tennessee') ); ?>" class="situation-card">
+        <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <h3 class="situation-card__title">Behind on Taxes</h3>
+        <p class="situation-card__desc">Delinquent property taxes growing? Sell fast and pay off the tax debt at closing before it becomes a lien.</p>
+        <span class="situation-card__link">Learn More &rarr;</span>
+      </a>
+
+      <a href="<?php echo esc_url( home_url('/sell-my-house-downsizing-tennessee') ); ?>" class="situation-card">
+        <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></div>
+        <h3 class="situation-card__title">Downsizing</h3>
+        <p class="situation-card__desc">Ready for a simpler smaller life? We make downsizing easy with flexible closing dates and no repairs required.</p>
+        <span class="situation-card__link">Learn More &rarr;</span>
+      </a>
+
+      <a href="<?php echo esc_url( home_url('/sell-house-probate-tennessee') ); ?>" class="situation-card">
+        <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-6"/><path d="M9 15h6"/></svg></div>
+        <h3 class="situation-card__title">Probate Sale</h3>
+        <p class="situation-card__desc">Selling an estate through probate? We work with attorneys and close fast once the court approves the sale.</p>
+        <span class="situation-card__link">Learn More &rarr;</span>
+      </a>
+
     </div>
   </div>
 </section>
