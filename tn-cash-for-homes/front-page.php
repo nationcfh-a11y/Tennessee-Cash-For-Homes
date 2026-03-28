@@ -154,10 +154,12 @@
           requestAnimationFrame(function() {
               requestAnimationFrame(function() {
 
+                  var currentHouse = 1, currentCash = 0, currentText = 0;
+
                   ScrollTrigger.create({
                       trigger: section,
                       start: 'top top',
-                      end: '+=400',
+                      end: '+=150',
                       pin: true,
                       pinSpacing: true,
                       pinType: 'fixed',
@@ -165,22 +167,38 @@
                       scrub: true,
                       fastScrollEnd: true,
                       invalidateOnRefresh: true,
-                      onUpdate: function(self) {
-                          var p = self.progress;
-                          var imgProgress = Math.min(p / 0.7, 1);
-                          houseImg.style.opacity = String(1 - imgProgress);
-                          cashImg.style.opacity = String(imgProgress);
-                          if (headline) {
-                              var textProgress = p > 0.7 ? (p - 0.7) / 0.3 : 0;
-                              headline.style.opacity = String(textProgress);
-                          }
-                      },
                       onRefresh: function() {
+                          currentHouse = 1; currentCash = 0; currentText = 0;
                           houseImg.style.opacity = '1';
                           cashImg.style.opacity = '0';
                           if (headline) headline.style.opacity = '0';
                       }
                   });
+
+                  function lerp(a, b, t) { return a + (b - a) * t; }
+
+                  ScrollTrigger.addEventListener('refresh', function() {
+                      currentHouse = 1; currentCash = 0; currentText = 0;
+                  });
+
+                  var st = ScrollTrigger.getAll()[ScrollTrigger.getAll().length - 1];
+
+                  (function tick() {
+                      requestAnimationFrame(tick);
+                      if (!st) return;
+                      var p = st.progress;
+                      var targetHouse = 1 - Math.min(p / 0.6, 1);
+                      var targetCash = Math.min(p / 0.6, 1);
+                      var targetText = p > 0.6 ? Math.min((p - 0.6) / 0.4, 1) : 0;
+
+                      currentHouse = lerp(currentHouse, targetHouse, 0.15);
+                      currentCash = lerp(currentCash, targetCash, 0.15);
+                      currentText = lerp(currentText, targetText, 0.15);
+
+                      houseImg.style.opacity = currentHouse.toFixed(3);
+                      cashImg.style.opacity = currentCash.toFixed(3);
+                      if (headline) headline.style.opacity = currentText.toFixed(3);
+                  })();
 
               });
           });
