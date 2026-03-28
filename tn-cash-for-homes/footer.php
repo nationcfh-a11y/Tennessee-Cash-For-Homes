@@ -79,9 +79,9 @@
   <div class="footer-bottom">
     <div class="container">
       <div class="footer-bottom__inner">
-        <img src="https://nationcfh.wpcomstaging.com/wp-content/uploads/2026/03/100-Image.webp" alt="Tennessee Cash For Homes 100% Satisfaction Guarantee" class="footer-bottom__img" />
+        <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/100%25%20Image.webp" alt="Tennessee Cash For Homes 100% Satisfaction Guarantee" class="footer-bottom__img" width="1024" height="1024" loading="lazy" decoding="async" />
         <span class="footer-bottom__copy">&copy; 2026 Tennessee Cash For Homes</span>
-        <img src="https://nationcfh.wpcomstaging.com/wp-content/uploads/2026/03/Black-Labrador-Birddog-Image.webp" alt="Tennessee Cash For Homes Mascot Black Labrador Birddog" class="footer-bottom__img" />
+        <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/Black%20Labrador%20Birddog%20Image.webp" alt="Tennessee Cash For Homes Mascot Black Labrador Birddog" class="footer-bottom__img" width="1024" height="1024" loading="lazy" decoding="async" />
       </div>
     </div>
   </div>

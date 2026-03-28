@@ -30,7 +30,7 @@
             5-Star Rated on Google
           </div>
           <div class="hero__trust-item">
-            <a href='https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick' target='_blank' rel='nofollow' class='bbb-seal'><img src='https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png' style='border: 0;' alt='Tennessee Cash For Homes BBB Business Review' /></a>
+            <a href='https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick' target='_blank' rel='nofollow' class='bbb-seal'><img src='https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png' style='border: 0;' alt='Tennessee Cash For Homes BBB Business Review' width='200' height='42' loading='lazy' decoding='async' /></a>
           </div>
         </div>
       </div>
@@ -98,8 +98,8 @@
       <span class="htc-label htc-label-cash">Your Cash</span>
     </div>
     <div class="htc-image-container">
-      <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/House_Image.webp" alt="Sell your house fast for cash in Tennessee" class="htc-img htc-house-img" />
-      <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/money_image2.webp" alt="Get cash for your Tennessee home" class="htc-img htc-cash-img" />
+      <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/House_Image.webp" alt="Sell your house fast for cash in Tennessee" class="htc-img htc-house-img" width="1386" height="650" decoding="async" />
+      <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/money_image2.webp" alt="Get cash for your Tennessee home" class="htc-img htc-cash-img" width="1323" height="800" decoding="async" />
     </div>
     <div class="htc-headline-wrap">
       <p class="htc-eyebrow">No Repairs. No Fees. No Hassle.</p>
@@ -226,7 +226,7 @@
 <!-- ── DIFFERENCE ── -->
 <section class="difference-section">
   <div class="difference__img-wrap">
-    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/Company%20Photo.webp" alt="Tennessee Cash For Homes team" />
+    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/Company%20Photo.webp" alt="Tennessee Cash For Homes team" width="2000" height="1000" loading="lazy" decoding="async" />
   </div>
   <div class="difference__content-wrap">
     <div class="difference__content">
@@ -259,7 +259,7 @@
           <div class="difference__stars-icons">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <div class="difference__stars-label"><strong>5 out of 5</strong> on Google</div>
         </div>
-        <a href='https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick' target='_blank' rel='nofollow' class='bbb-seal'><img src='https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png' style='border: 0;' alt='Tennessee Cash For Homes BBB Business Review' /></a>
+        <a href='https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick' target='_blank' rel='nofollow' class='bbb-seal'><img src='https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png' style='border: 0;' alt='Tennessee Cash For Homes BBB Business Review' width='200' height='42' loading='lazy' decoding='async' /></a>
       </div>
     </div>
   </div>

@@ -31,22 +31,42 @@ function tcfh_enqueue_assets() {
     //     true  // load in footer
     // );
 
-    // Pass the AJAX URL and nonce to JavaScript for form submission
-    wp_localize_script( 'jquery', 'tcfh_ajax', array(
-        'ajax_url' => admin_url( 'admin-ajax.php' ),
-        'nonce'    => wp_create_nonce( 'tcfh_submit_lead' ),
-    ) );
 }
 add_action( 'wp_enqueue_scripts', 'tcfh_enqueue_assets' );
 
 /**
- * Output favicon link tags in <head>.
+ * Output AJAX config inline (no jQuery dependency).
  */
 add_action( 'wp_head', function() {
-    echo '<link rel="icon" type="image/png" href="' . get_template_directory_uri() . '/brand_assets/Favicon.png" />' . "\n";
-    echo '<link rel="shortcut icon" type="image/png" href="' . get_template_directory_uri() . '/brand_assets/Favicon.png" />' . "\n";
-    echo '<link rel="apple-touch-icon" href="' . get_template_directory_uri() . '/brand_assets/Favicon.png" />' . "\n";
+    echo '<script>var tcfh_ajax = ' . wp_json_encode( array(
+        'ajax_url' => admin_url( 'admin-ajax.php' ),
+        'nonce'    => wp_create_nonce( 'tcfh_submit_lead' ),
+    ) ) . ';</script>' . "\n";
 } );
+
+/**
+ * Remove jQuery on the frontend (not needed — all JS is vanilla).
+ */
+add_action( 'wp_enqueue_scripts', function() {
+    if ( ! is_admin() ) {
+        wp_deregister_script( 'jquery' );
+    }
+} );
+
+/**
+ * Remove WordPress emoji scripts and styles (not used).
+ */
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+/**
+ * Remove unnecessary WordPress head tags.
+ */
+remove_action( 'wp_head', 'wp_generator' );
+remove_action( 'wp_head', 'wlwmanifest_link' );
+remove_action( 'wp_head', 'rsd_link' );
+remove_action( 'wp_head', 'wp_shortlink_wp_head' );
+remove_action( 'wp_head', 'rest_output_link_wp_head' );
 
 /**
  * Add theme support for title tag, post thumbnails, and HTML5 markup.
