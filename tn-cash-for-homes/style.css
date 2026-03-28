@@ -2747,7 +2747,7 @@ img { display: block; max-width: 100%; }
    COMMON SITUATIONS — Homepage Grid
 ══════════════════════════════════════════════════════════ */
 .common-situations {
-    background: #F8F9FA;
+    background: #F2F2F2;
     padding: 80px 0;
 }
 .common-situations__header {
@@ -2975,7 +2975,7 @@ img { display: block; max-width: 100%; }
 
 /* ── We Understand ── */
 .sit-understand {
-    background: #F8F9FA;
+    background: #F2F2F2;
     padding: 80px 0;
 }
 .sit-understand__body {
@@ -3073,7 +3073,7 @@ img { display: block; max-width: 100%; }
 
 /* ── Situation FAQ ── */
 .sit-faq-section {
-    background: #F8F9FA;
+    background: #F2F2F2;
     padding: 80px 0;
 }
 .sit-faq-list {
