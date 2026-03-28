@@ -2537,12 +2537,12 @@ img { display: block; max-width: 100%; }
     width: 100%;
     margin: 0 auto;
     text-align: center;
-    padding: 16px 24px;
+    padding: 8px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 6px;
     height: 100%;
 }
 
@@ -2556,7 +2556,7 @@ img { display: block; max-width: 100%; }
 
 .htc-label {
     font-family: Arial, sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -2574,8 +2574,8 @@ img { display: block; max-width: 100%; }
 
 .htc-image-container {
     position: relative;
-    width: min(700px, 75vw);
-    height: min(500px, 55vh);
+    width: min(900px, 88vw);
+    height: min(620px, 68vh);
     margin: 0;
     will-change: transform;
     transform: translateZ(0);
@@ -2614,7 +2614,7 @@ img { display: block; max-width: 100%; }
 }
 
 .htc-headline {
-    font-size: 36px;
+    font-size: 28px;
     font-weight: 800;
     color: #111827;
     margin-bottom: 8px;
@@ -2622,33 +2622,33 @@ img { display: block; max-width: 100%; }
 }
 
 .htc-subtext {
-    font-size: 16px;
+    font-size: 14px;
     color: #6B7280;
     opacity: 1;
 }
 
 @media (max-width: 768px) {
     .htc-image-container {
-        width: min(550px, 85vw);
-        height: min(400px, 50vh);
-    }
-    .htc-headline {
-        font-size: 28px;
-    }
-    .htc-subtext {
-        font-size: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .htc-image-container {
-        width: 88vw;
-        height: 45vh;
+        width: min(700px, 88vw);
+        height: min(500px, 60vh);
     }
     .htc-headline {
         font-size: 24px;
     }
     .htc-subtext {
-        font-size: 16px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .htc-image-container {
+        width: 92vw;
+        height: 52vh;
+    }
+    .htc-headline {
+        font-size: 20px;
+    }
+    .htc-subtext {
+        font-size: 13px;
     }
 }
