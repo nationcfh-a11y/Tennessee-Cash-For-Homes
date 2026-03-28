@@ -5,13 +5,32 @@
   <div class="container">
     <div class="hero__inner">
       <div class="hero__content">
-        <div class="hero__badge">Tennessee's #1 Rated Cash Home Buyers</div>
         <h1 class="hero__title">
-          Sell Your House Fast For Cash!<br /><span>| We Buy Houses As-Is for Cash</span>
+          <em>Sell Your House Fast:<br />Get a Fair Cash Offer<br />in Tennessee</em>
         </h1>
         <p class="hero__subtitle">
-          No repairs. No commissions. No fees. Get a fair cash offer for your Tennessee home in as little as 24 hours. We close on your timeline.
+          Our straightforward, no-hassle process gives you a fair cash offer with zero commissions, zero repairs, and zero stress. Close on your timeline &mdash; in as little as 7 days.
         </p>
+        <div class="hero__cta-row">
+          <a href="#get-offer" class="hero__btn-primary">Get My Cash Offer</a>
+          <a href="tel:+16158558271" class="hero__btn-outline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Call Us Today
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LEAD FORM SECTION ── -->
+<section class="form-section" id="get-offer">
+  <div class="container">
+    <div class="form-section__inner">
+      <div class="form-section__text">
+        <div class="hero__badge">Tennessee's #1 Rated Cash Home Buyers</div>
+        <h2 class="form-section__title">Get Your Free Cash Offer Today</h2>
+        <p class="form-section__sub">No obligation. No fees. Just a fair cash offer in 24 hours.</p>
         <div class="hero__trust">
           <div class="hero__trust-item">
             <svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
@@ -34,9 +53,7 @@
           </div>
         </div>
       </div>
-
-      <!-- LEAD FORM -->
-      <div class="hero__form-card" id="get-offer">
+      <div class="hero__form-card">
         <h2 class="form-card__title">Get Your Free Cash Offer</h2>
         <p class="form-card__sub">Takes less than 60 seconds. No obligation.</p>
         <form id="leadForm" onsubmit="handleSubmit(event)">
