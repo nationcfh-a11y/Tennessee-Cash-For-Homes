@@ -119,6 +119,8 @@
 
 <!-- ── HOUSE TO CASH ANIMATION ── -->
 <section class="house-to-cash-section" id="house-to-cash">
+  <link rel="preload" as="image" href="<?php echo get_template_directory_uri(); ?>/brand_assets/House_Image.png">
+  <link rel="preload" as="image" href="<?php echo get_template_directory_uri(); ?>/brand_assets/money_image.png">
   <div class="htc-inner">
     <div class="htc-label-row">
       <span class="htc-label htc-label-house">Your House</span>
@@ -136,48 +138,58 @@
   </div>
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-          console.warn('GSAP or ScrollTrigger not loaded');
-          return;
-      }
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
       gsap.registerPlugin(ScrollTrigger);
-      gsap.config({ force3D: true });
+      gsap.config({ force3D: true, nullTargetWarn: false });
 
-      ScrollTrigger.config({ ignoreMobileResize: true });
-
-      var section   = document.querySelector('.house-to-cash-section');
-      var houseImg  = document.querySelector('.htc-house-img');
-      var cashImg   = document.querySelector('.htc-cash-img');
-
-      if (!section || !houseImg || !cashImg) {
-          console.warn('House to cash elements not found');
-          return;
-      }
-
-      gsap.set(cashImg,   { opacity: 0 });
-      gsap.set(houseImg,  { opacity: 1 });
-
-      var tl = gsap.timeline({
-          scrollTrigger: {
-              trigger: section,
-              start: 'top top',
-              end: '+=400',
-              scrub: 3,
-              pin: true,
-              pinSpacing: true,
-              anticipatePin: 1,
-              fastScrollEnd: true,
-              preventOverlaps: true,
-              invalidateOnRefresh: true,
-              markers: false
-          }
+      ScrollTrigger.config({
+          ignoreMobileResize: true,
+          syncInterval: 40
       });
 
-      tl.to(houseImg, { opacity: 0, duration: 1, ease: 'none', force3D: true }, 0)
-        .to(cashImg,  { opacity: 1, duration: 1, ease: 'none', force3D: true }, 0);
+      var section  = document.querySelector('.house-to-cash-section');
+      var houseImg = document.querySelector('.htc-house-img');
+      var cashImg  = document.querySelector('.htc-cash-img');
 
-      ScrollTrigger.refresh();
+      if (!section || !houseImg || !cashImg) return;
+
+      gsap.set(houseImg, { opacity: 1, force3D: true });
+      gsap.set(cashImg,  { opacity: 0, force3D: true });
+
+      function initAnimation() {
+          var tl = gsap.timeline({
+              scrollTrigger: {
+                  trigger: section,
+                  start: 'top top',
+                  end: '+=400',
+                  scrub: 2,
+                  pin: true,
+                  pinSpacing: true,
+                  pinType: 'fixed',
+                  anticipatePin: 0,
+                  fastScrollEnd: true,
+                  preventOverlaps: true,
+                  invalidateOnRefresh: true,
+                  refreshPriority: 1,
+                  onRefresh: function() {
+                      gsap.set(houseImg, { opacity: 1 });
+                      gsap.set(cashImg,  { opacity: 0 });
+                  }
+              }
+          });
+
+          tl.to(houseImg, { opacity: 0, duration: 1, ease: 'none', force3D: true }, 0)
+            .to(cashImg,  { opacity: 1, duration: 1, ease: 'none', force3D: true }, 0);
+      }
+
+      if (document.readyState === 'complete') {
+          setTimeout(initAnimation, 100);
+      } else {
+          window.addEventListener('load', function() {
+              setTimeout(initAnimation, 100);
+          });
+      }
   });
   </script>
 </section>

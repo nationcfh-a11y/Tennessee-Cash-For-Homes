@@ -2577,9 +2577,11 @@ img { display: block; max-width: 100%; }
     width: min(900px, 88vw);
     height: min(620px, 68vh);
     margin: 0;
+    isolation: isolate;
     will-change: transform;
-    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .htc-img {
@@ -2590,9 +2592,11 @@ img { display: block; max-width: 100%; }
     height: 100%;
     object-fit: contain;
     will-change: opacity;
-    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    pointer-events: none;
 }
 
 .htc-house-img {
