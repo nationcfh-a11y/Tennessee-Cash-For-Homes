@@ -2590,10 +2590,16 @@ img { display: block; max-width: 100%; }
 
 .htc-house-img {
     opacity: 1;
+    will-change: opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .htc-cash-img {
     opacity: 0;
+    will-change: opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .htc-headline {

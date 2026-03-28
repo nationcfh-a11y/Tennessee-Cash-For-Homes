@@ -135,11 +135,18 @@
     </div>
   </div>
   <script>
-  gsap.config({ force3D: true });
-
   document.addEventListener('DOMContentLoaded', function() {
-      gsap.registerPlugin(ScrollTrigger);
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+          console.warn('GSAP or ScrollTrigger not loaded');
+          return;
+      }
 
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.config({ force3D: true });
+
+      ScrollTrigger.config({ ignoreMobileResize: true });
+
+      var section   = document.querySelector('.house-to-cash-section');
       var houseImg  = document.querySelector('.htc-house-img');
       var cashImg   = document.querySelector('.htc-cash-img');
       var headline  = document.querySelector('.htc-headline');
@@ -147,28 +154,40 @@
       var labelHouse = document.querySelector('.htc-label-house');
       var labelCash  = document.querySelector('.htc-label-cash');
 
-      if (houseImg && cashImg) {
-          var tl = gsap.timeline({
-              scrollTrigger: {
-                  trigger: '.house-to-cash-section',
-                  start: 'top top',
-                  end: '+=2000',
-                  scrub: 3,
-                  pin: true,
-                  anticipatePin: 1,
-                  fastScrollEnd: true,
-                  preventOverlaps: true,
-                  invalidateOnRefresh: true
-              }
-          });
-
-          tl.to(houseImg,   { opacity: 0, duration: 1, force3D: true }, 0)
-            .to(cashImg,    { opacity: 1, duration: 1, force3D: true }, 0)
-            .to(labelHouse, { opacity: 0.3, duration: 0.5, force3D: true }, 0)
-            .to(labelCash,  { opacity: 1, color: '#84CC9C', duration: 1, force3D: true }, 0.3)
-            .to(headline,   { opacity: 1, y: 0, duration: 0.8, force3D: true }, 0.5)
-            .to(subtext,    { opacity: 1, y: 0, duration: 0.8, force3D: true }, 0.7);
+      if (!section || !houseImg || !cashImg) {
+          console.warn('House to cash elements not found');
+          return;
       }
+
+      gsap.set(cashImg,   { opacity: 0 });
+      gsap.set(houseImg,  { opacity: 1 });
+      gsap.set(headline,  { opacity: 0, y: 30 });
+      gsap.set(subtext,   { opacity: 0, y: 30 });
+
+      var tl = gsap.timeline({
+          scrollTrigger: {
+              trigger: section,
+              start: 'top top',
+              end: '+=2000',
+              scrub: 3,
+              pin: true,
+              pinSpacing: true,
+              anticipatePin: 1,
+              fastScrollEnd: true,
+              preventOverlaps: true,
+              invalidateOnRefresh: true,
+              markers: false
+          }
+      });
+
+      tl.to(houseImg,    { opacity: 0, duration: 1, ease: 'none', force3D: true }, 0)
+        .to(cashImg,     { opacity: 1, duration: 1, ease: 'none', force3D: true }, 0)
+        .to(labelHouse,  { opacity: 0.3, duration: 0.5, force3D: true }, 0)
+        .to(labelCash,   { opacity: 1, duration: 1, force3D: true }, 0)
+        .to(headline,    { opacity: 1, y: 0, duration: 0.8, force3D: true }, 0.4)
+        .to(subtext,     { opacity: 1, y: 0, duration: 0.8, force3D: true }, 0.6);
+
+      ScrollTrigger.refresh();
   });
   </script>
 </section>
