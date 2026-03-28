@@ -2532,7 +2532,7 @@ img { display: block; max-width: 100%; }
 }
 
 .htc-inner {
-    max-width: 700px;
+    max-width: 1100px;
     width: 100%;
     margin: 0 auto;
     text-align: center;
@@ -2567,9 +2567,12 @@ img { display: block; max-width: 100%; }
 
 .htc-image-container {
     position: relative;
-    width: 400px;
-    height: 300px;
+    width: min(900px, 90vw);
+    height: min(675px, 67.5vw);
     margin: 0 auto 40px;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .htc-img {
@@ -2579,6 +2582,10 @@ img { display: block; max-width: 100%; }
     width: 100%;
     height: 100%;
     object-fit: contain;
+    will-change: opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .htc-house-img {
@@ -2590,7 +2597,7 @@ img { display: block; max-width: 100%; }
 }
 
 .htc-headline {
-    font-size: 36px;
+    font-size: 48px;
     font-weight: 800;
     color: #111827;
     margin-bottom: 12px;
@@ -2599,7 +2606,7 @@ img { display: block; max-width: 100%; }
 }
 
 .htc-subtext {
-    font-size: 18px;
+    font-size: 22px;
     color: #6B7280;
     opacity: 0;
     transform: translateY(20px);
@@ -2607,23 +2614,26 @@ img { display: block; max-width: 100%; }
 
 @media (max-width: 768px) {
     .htc-image-container {
-        width: 280px;
-        height: 210px;
+        width: min(700px, 90vw);
+        height: min(525px, 67.5vw);
+    }
+    .htc-headline {
+        font-size: 32px;
+    }
+    .htc-subtext {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .htc-image-container {
+        width: 90vw;
+        height: 67.5vw;
     }
     .htc-headline {
         font-size: 26px;
     }
     .htc-subtext {
         font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .htc-image-container {
-        width: 220px;
-        height: 165px;
-    }
-    .htc-headline {
-        font-size: 22px;
     }
 }

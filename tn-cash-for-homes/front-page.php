@@ -135,6 +135,8 @@
     </div>
   </div>
   <script>
+  gsap.config({ force3D: true });
+
   document.addEventListener('DOMContentLoaded', function() {
       gsap.registerPlugin(ScrollTrigger);
 
@@ -150,19 +152,22 @@
               scrollTrigger: {
                   trigger: '.house-to-cash-section',
                   start: 'top top',
-                  end: '+=700',
-                  scrub: 1.5,
+                  end: '+=2000',
+                  scrub: 3,
                   pin: true,
-                  anticipatePin: 1
+                  anticipatePin: 1,
+                  fastScrollEnd: true,
+                  preventOverlaps: true,
+                  invalidateOnRefresh: true
               }
           });
 
-          tl.to(houseImg,   { opacity: 0, duration: 1 }, 0)
-            .to(cashImg,    { opacity: 1, duration: 1 }, 0)
-            .to(labelHouse, { opacity: 0.3, duration: 0.5 }, 0)
-            .to(labelCash,  { opacity: 1, color: '#84CC9C', duration: 1 }, 0.3)
-            .to(headline,   { opacity: 1, y: 0, duration: 0.8 }, 0.5)
-            .to(subtext,    { opacity: 1, y: 0, duration: 0.8 }, 0.7);
+          tl.to(houseImg,   { opacity: 0, duration: 1, force3D: true }, 0)
+            .to(cashImg,    { opacity: 1, duration: 1, force3D: true }, 0)
+            .to(labelHouse, { opacity: 0.3, duration: 0.5, force3D: true }, 0)
+            .to(labelCash,  { opacity: 1, color: '#84CC9C', duration: 1, force3D: true }, 0.3)
+            .to(headline,   { opacity: 1, y: 0, duration: 0.8, force3D: true }, 0.5)
+            .to(subtext,    { opacity: 1, y: 0, duration: 0.8, force3D: true }, 0.7);
       }
   });
   </script>
