@@ -117,6 +117,57 @@
   </div>
 </section>
 
+<!-- ── HOUSE TO CASH ANIMATION ── -->
+<section class="house-to-cash-section" id="house-to-cash">
+  <div class="htc-inner">
+    <div class="htc-label-row">
+      <span class="htc-label htc-label-house">Your House</span>
+      <span class="htc-arrow">&rarr;</span>
+      <span class="htc-label htc-label-cash">Your Cash</span>
+    </div>
+    <div class="htc-image-container">
+      <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/House_Image.png" alt="Sell your house fast for cash in Tennessee" class="htc-img htc-house-img" />
+      <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/money_image.png" alt="Get cash for your Tennessee home" class="htc-img htc-cash-img" />
+    </div>
+    <div class="htc-headline-wrap">
+      <h2 class="htc-headline">We Turn Your House Into Cash</h2>
+      <p class="htc-subtext">Fast, fair, and simple. No repairs. No fees. No stress.</p>
+    </div>
+  </div>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      gsap.registerPlugin(ScrollTrigger);
+
+      var houseImg  = document.querySelector('.htc-house-img');
+      var cashImg   = document.querySelector('.htc-cash-img');
+      var headline  = document.querySelector('.htc-headline');
+      var subtext   = document.querySelector('.htc-subtext');
+      var labelHouse = document.querySelector('.htc-label-house');
+      var labelCash  = document.querySelector('.htc-label-cash');
+
+      if (houseImg && cashImg) {
+          var tl = gsap.timeline({
+              scrollTrigger: {
+                  trigger: '.house-to-cash-section',
+                  start: 'top top',
+                  end: '+=700',
+                  scrub: 1.5,
+                  pin: true,
+                  anticipatePin: 1
+              }
+          });
+
+          tl.to(houseImg,   { opacity: 0, duration: 1 }, 0)
+            .to(cashImg,    { opacity: 1, duration: 1 }, 0)
+            .to(labelHouse, { opacity: 0.3, duration: 0.5 }, 0)
+            .to(labelCash,  { opacity: 1, color: '#84CC9C', duration: 1 }, 0.3)
+            .to(headline,   { opacity: 1, y: 0, duration: 0.8 }, 0.5)
+            .to(subtext,    { opacity: 1, y: 0, duration: 0.8 }, 0.7);
+      }
+  });
+  </script>
+</section>
+
 <!-- ── DIFFERENCE ── -->
 <section class="difference-section">
   <div class="difference__img-wrap">

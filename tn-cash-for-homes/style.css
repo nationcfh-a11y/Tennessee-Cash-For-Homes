@@ -2519,3 +2519,111 @@ img { display: block; max-width: 100%; }
     gap: 10px;
   }
 }
+
+/* ── HOUSE TO CASH ANIMATION SECTION ── */
+.house-to-cash-section {
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.htc-inner {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 60px 24px;
+}
+
+.htc-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.htc-label {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6B7280;
+}
+
+.htc-label-cash {
+    color: #84CC9C;
+}
+
+.htc-arrow {
+    font-size: 20px;
+    color: #84CC9C;
+}
+
+.htc-image-container {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    margin: 0 auto 40px;
+}
+
+.htc-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.htc-house-img {
+    opacity: 1;
+}
+
+.htc-cash-img {
+    opacity: 0;
+}
+
+.htc-headline {
+    font-size: 36px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 12px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.htc-subtext {
+    font-size: 18px;
+    color: #6B7280;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@media (max-width: 768px) {
+    .htc-image-container {
+        width: 280px;
+        height: 210px;
+    }
+    .htc-headline {
+        font-size: 26px;
+    }
+    .htc-subtext {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .htc-image-container {
+        width: 220px;
+        height: 165px;
+    }
+    .htc-headline {
+        font-size: 22px;
+    }
+}
