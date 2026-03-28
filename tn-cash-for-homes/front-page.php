@@ -127,7 +127,7 @@
     </div>
     <div class="htc-image-container">
       <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/House_Image.png" alt="Sell your house fast for cash in Tennessee" class="htc-img htc-house-img" />
-      <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/money_image.png" alt="Get cash for your Tennessee home" class="htc-img htc-cash-img" />
+      <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/money_image2.png" alt="Get cash for your Tennessee home" class="htc-img htc-cash-img" />
     </div>
     <h2 class="htc-headline">Get a fair cash offer in 24 hours</h2>
   </div>
