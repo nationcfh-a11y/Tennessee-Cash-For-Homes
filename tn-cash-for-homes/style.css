@@ -2597,13 +2597,29 @@ img { display: block; max-width: 100%; }
     opacity: 0;
 }
 
-.htc-headline {
-    font-size: 28px;
-    font-weight: 800;
-    color: #111827;
-    margin: 0;
+.htc-headline-wrap {
     opacity: 0;
-    will-change: opacity;
+    text-align: center;
+}
+
+.htc-eyebrow {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #84CC9C;
+    margin: 0 0 8px;
+}
+
+.htc-headline {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
 }
 
 @media (max-width: 768px) {
@@ -2612,7 +2628,10 @@ img { display: block; max-width: 100%; }
         height: min(500px, 60vh);
     }
     .htc-headline {
-        font-size: 24px;
+        font-size: 26px;
+    }
+    .htc-eyebrow {
+        font-size: 11px;
     }
 }
 
@@ -2622,6 +2641,9 @@ img { display: block; max-width: 100%; }
         height: 52vh;
     }
     .htc-headline {
-        font-size: 20px;
+        font-size: 22px;
+    }
+    .htc-eyebrow {
+        font-size: 10px;
     }
 }

@@ -89,34 +89,6 @@
   </div>
 </div>
 
-<!-- ── HOW IT WORKS ── -->
-<section class="section" id="how-it-works">
-  <div class="container">
-    <div class="section__header section__header--center">
-      <p class="section__eyebrow">Fast &amp; Simple Process</p>
-      <h2 class="section__title">How to Sell Your House Fast for Cash in Tennessee</h2>
-      <p class="section__subtitle">No showings, no open houses, no waiting around. Selling your Tennessee home for cash has never been this simple.</p>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="step__num">1</div>
-        <h3 class="step__title">Tell Us About Your Tennessee Property</h3>
-        <p class="step__body">Fill out our quick form or give us a call. Share your property address and a few basic details. It takes less than 60 seconds and there is no obligation.</p>
-      </div>
-      <div class="step">
-        <div class="step__num">2</div>
-        <h3 class="step__title">Receive Your Free Cash Offer in 24 Hours</h3>
-        <p class="step__body">We evaluate your property and send you a no-obligation, all-cash offer fast. Usually within 24 hours. No hidden fees, no lowball tactics, no pressure.</p>
-      </div>
-      <div class="step">
-        <div class="step__num">3</div>
-        <h3 class="step__title">Pick Your Closing Date &amp; Get Paid</h3>
-        <p class="step__body">Accept the offer and choose a closing date that works for you. We can close in as little as 7 days or give you more time if you need it. We handle all the paperwork and cover the closing costs.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ── HOUSE TO CASH ANIMATION ── -->
 <section class="house-to-cash-section" id="house-to-cash">
   <div class="htc-inner">
@@ -129,17 +101,20 @@
       <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/House_Image.png" alt="Sell your house fast for cash in Tennessee" class="htc-img htc-house-img" />
       <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/money_image2.png" alt="Get cash for your Tennessee home" class="htc-img htc-cash-img" />
     </div>
-    <h2 class="htc-headline">Get a fair cash offer in 24 hours</h2>
+    <div class="htc-headline-wrap">
+      <p class="htc-eyebrow">No Repairs. No Fees. No Hassle.</p>
+      <h2 class="htc-headline">Get a Fair Cash Offer in 24 Hours</h2>
+    </div>
   </div>
   <script>
   (function() {
-      var section, houseImg, cashImg, headline, pinned = false, sectionTop = 0, pinHeight = 150, scrollY = 0;
+      var section, houseImg, cashImg, headlineWrap, pinned = false, sectionTop = 0, pinHeight = 150, scrollY = 0;
 
       function init() {
           section  = document.querySelector('.house-to-cash-section');
           houseImg = document.querySelector('.htc-house-img');
           cashImg  = document.querySelector('.htc-cash-img');
-          headline = document.querySelector('.htc-headline');
+          headlineWrap = document.querySelector('.htc-headline-wrap');
           if (!section || !houseImg || !cashImg) return;
           measure();
           window.addEventListener('scroll', onScroll, { passive: true });
@@ -189,7 +164,7 @@
               var textP = p > 0.6 ? (p - 0.6) / 0.4 : 0;
               houseImg.style.opacity = (1 - imgP);
               cashImg.style.opacity = imgP;
-              if (headline) headline.style.opacity = textP;
+              if (headlineWrap) headlineWrap.style.opacity = textP;
           } else {
               if (section.style.position === 'fixed') {
                   section.style.position = '';
@@ -201,11 +176,11 @@
               if (y > end) {
                   houseImg.style.opacity = '0';
                   cashImg.style.opacity = '1';
-                  if (headline) headline.style.opacity = '1';
+                  if (headlineWrap) headlineWrap.style.opacity = '1';
               } else {
                   houseImg.style.opacity = '1';
                   cashImg.style.opacity = '0';
-                  if (headline) headline.style.opacity = '0';
+                  if (headlineWrap) headlineWrap.style.opacity = '0';
               }
               if (section._placeholder) {
                   section._placeholder.remove();
@@ -218,6 +193,34 @@
       else window.addEventListener('load', init);
   })();
   </script>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="section" id="how-it-works">
+  <div class="container">
+    <div class="section__header section__header--center">
+      <p class="section__eyebrow">Fast &amp; Simple Process</p>
+      <h2 class="section__title">How to Sell Your House Fast for Cash in Tennessee</h2>
+      <p class="section__subtitle">No showings, no open houses, no waiting around. Selling your Tennessee home for cash has never been this simple.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step__num">1</div>
+        <h3 class="step__title">Tell Us About Your Tennessee Property</h3>
+        <p class="step__body">Fill out our quick form or give us a call. Share your property address and a few basic details. It takes less than 60 seconds and there is no obligation.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">2</div>
+        <h3 class="step__title">Receive Your Free Cash Offer in 24 Hours</h3>
+        <p class="step__body">We evaluate your property and send you a no-obligation, all-cash offer fast. Usually within 24 hours. No hidden fees, no lowball tactics, no pressure.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">3</div>
+        <h3 class="step__title">Pick Your Closing Date &amp; Get Paid</h3>
+        <p class="step__body">Accept the offer and choose a closing date that works for you. We can close in as little as 7 days or give you more time if you need it. We handle all the paperwork and cover the closing costs.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ── DIFFERENCE ── -->
