@@ -128,8 +128,7 @@
       <span class="htc-label htc-label-cash">Your Cash</span>
     </div>
     <div class="htc-headline-wrap">
-      <h2 class="htc-headline">We Turn Your House Into Cash</h2>
-      <p class="htc-subtext">Fast, fair, and simple. No repairs. No fees. No stress.</p>
+      <h2 class="htc-headline">Get a fair cash offer in 24 hours</h2>
     </div>
     <div class="htc-image-container">
       <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/House_Image.png" alt="Sell your house fast for cash in Tennessee" class="htc-img htc-house-img" />
@@ -137,60 +136,51 @@
     </div>
   </div>
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  (function() {
+      window.addEventListener('load', function() {
+          if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.config({ force3D: true, nullTargetWarn: false });
+          gsap.registerPlugin(ScrollTrigger);
 
-      ScrollTrigger.config({
-          ignoreMobileResize: true,
-          syncInterval: 40
+          var section  = document.querySelector('.house-to-cash-section');
+          var houseImg = document.querySelector('.htc-house-img');
+          var cashImg  = document.querySelector('.htc-cash-img');
+
+          if (!section || !houseImg || !cashImg) return;
+
+          gsap.set([houseImg, cashImg], { force3D: true });
+          gsap.set(houseImg, { opacity: 1 });
+          gsap.set(cashImg,  { opacity: 0 });
+
+          requestAnimationFrame(function() {
+              requestAnimationFrame(function() {
+
+                  ScrollTrigger.create({
+                      trigger: section,
+                      start: 'top top',
+                      end: '+=400',
+                      pin: true,
+                      pinSpacing: true,
+                      pinType: 'fixed',
+                      anticipatePin: 0,
+                      scrub: true,
+                      fastScrollEnd: true,
+                      invalidateOnRefresh: true,
+                      onUpdate: function(self) {
+                          var progress = self.progress;
+                          gsap.set(houseImg, { opacity: 1 - progress, force3D: true });
+                          gsap.set(cashImg,  { opacity: progress,     force3D: true });
+                      },
+                      onRefresh: function() {
+                          gsap.set(houseImg, { opacity: 1 });
+                          gsap.set(cashImg,  { opacity: 0 });
+                      }
+                  });
+
+              });
+          });
       });
-
-      var section  = document.querySelector('.house-to-cash-section');
-      var houseImg = document.querySelector('.htc-house-img');
-      var cashImg  = document.querySelector('.htc-cash-img');
-
-      if (!section || !houseImg || !cashImg) return;
-
-      gsap.set(houseImg, { opacity: 1, force3D: true });
-      gsap.set(cashImg,  { opacity: 0, force3D: true });
-
-      function initAnimation() {
-          var tl = gsap.timeline({
-              scrollTrigger: {
-                  trigger: section,
-                  start: 'top top',
-                  end: '+=400',
-                  scrub: 2,
-                  pin: true,
-                  pinSpacing: true,
-                  pinType: 'fixed',
-                  anticipatePin: 0,
-                  fastScrollEnd: true,
-                  preventOverlaps: true,
-                  invalidateOnRefresh: true,
-                  refreshPriority: 1,
-                  onRefresh: function() {
-                      gsap.set(houseImg, { opacity: 1 });
-                      gsap.set(cashImg,  { opacity: 0 });
-                  }
-              }
-          });
-
-          tl.to(houseImg, { opacity: 0, duration: 1, ease: 'none', force3D: true }, 0)
-            .to(cashImg,  { opacity: 1, duration: 1, ease: 'none', force3D: true }, 0);
-      }
-
-      if (document.readyState === 'complete') {
-          setTimeout(initAnimation, 100);
-      } else {
-          window.addEventListener('load', function() {
-              setTimeout(initAnimation, 100);
-          });
-      }
-  });
+  })();
   </script>
 </section>
 
