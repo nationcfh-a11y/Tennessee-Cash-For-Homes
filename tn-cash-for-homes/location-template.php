@@ -10,12 +10,19 @@
  */
 
 $meta_title = ! empty( $city['meta_title'] ) ? $city['meta_title'] : '';
+$meta_desc  = ! empty( $city['meta_desc'] )  ? $city['meta_desc']  : '';
+
 add_filter( 'pre_get_document_title', function( $title ) use ( $meta_title ) {
     if ( ! empty( $meta_title ) ) {
         return $meta_title;
     }
     return $title;
 }, 99 );
+
+// Store meta desc for the SEO function in functions.php
+if ( $meta_desc ) {
+    update_post_meta( get_the_ID(), '_tcfh_meta_desc', $meta_desc );
+}
 
 get_header();
 

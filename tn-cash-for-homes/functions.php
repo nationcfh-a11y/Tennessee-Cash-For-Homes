@@ -121,6 +121,296 @@ add_action( 'wp_ajax_tcfh_submit_lead',        'tcfh_handle_submit_lead' );
 add_action( 'wp_ajax_nopriv_tcfh_submit_lead', 'tcfh_handle_submit_lead' );
 
 /**
+ * ── SEO: Meta description, Open Graph, Twitter Card, Canonical ──
+ */
+add_action( 'wp_head', 'tcfh_seo_meta_tags', 1 );
+function tcfh_seo_meta_tags() {
+    $site_name   = 'Tennessee Cash For Homes';
+    $default_img = get_template_directory_uri() . '/brand_assets/Company%20Photo.webp';
+    $phone       = '(615) 801-8126';
+
+    if ( is_front_page() ) {
+        $title = 'Tennessee Cash For Homes | Sell Your House Fast for Cash';
+        $desc  = 'Sell your Tennessee house fast for cash. No repairs, no fees, no commissions. Get a fair all-cash offer in 24 hours. Close in as little as 7 days. Family-owned Tennessee home buyers.';
+        $url   = home_url( '/' );
+    } elseif ( is_page() ) {
+        $title = wp_get_document_title();
+        $desc  = get_post_meta( get_the_ID(), '_tcfh_meta_desc', true );
+        if ( ! $desc ) {
+            $desc = wp_trim_words( get_the_excerpt(), 30, '...' );
+        }
+        $url = get_permalink();
+    } else {
+        $title = wp_get_document_title();
+        $desc  = get_bloginfo( 'description' );
+        $url   = get_permalink();
+    }
+
+    // Meta description
+    if ( $desc ) {
+        echo '<meta name="description" content="' . esc_attr( $desc ) . '" />' . "\n";
+    }
+
+    // Canonical
+    echo '<link rel="canonical" href="' . esc_url( $url ) . '" />' . "\n";
+
+    // Open Graph
+    echo '<meta property="og:type" content="website" />' . "\n";
+    echo '<meta property="og:site_name" content="' . esc_attr( $site_name ) . '" />' . "\n";
+    echo '<meta property="og:title" content="' . esc_attr( $title ) . '" />' . "\n";
+    if ( $desc ) {
+        echo '<meta property="og:description" content="' . esc_attr( $desc ) . '" />' . "\n";
+    }
+    echo '<meta property="og:url" content="' . esc_url( $url ) . '" />' . "\n";
+    echo '<meta property="og:image" content="' . esc_url( $default_img ) . '" />' . "\n";
+    echo '<meta property="og:image:width" content="2000" />' . "\n";
+    echo '<meta property="og:image:height" content="1000" />' . "\n";
+
+    // Twitter Card
+    echo '<meta name="twitter:card" content="summary_large_image" />' . "\n";
+    echo '<meta name="twitter:title" content="' . esc_attr( $title ) . '" />' . "\n";
+    if ( $desc ) {
+        echo '<meta name="twitter:description" content="' . esc_attr( $desc ) . '" />' . "\n";
+    }
+    echo '<meta name="twitter:image" content="' . esc_url( $default_img ) . '" />' . "\n";
+}
+
+/**
+ * ── SEO: LocalBusiness JSON-LD Schema (homepage) ──
+ */
+add_action( 'wp_head', 'tcfh_schema_localbusiness' );
+function tcfh_schema_localbusiness() {
+    if ( ! is_front_page() ) return;
+
+    $schema = array(
+        '@context'    => 'https://schema.org',
+        '@type'       => 'LocalBusiness',
+        'name'        => 'Tennessee Cash For Homes',
+        'description' => 'Family-owned Tennessee cash home buyers. We buy houses in any condition for a fair cash price. No repairs, no fees, no commissions. Close in as little as 7 days.',
+        'url'         => home_url( '/' ),
+        'telephone'   => '+1-615-801-8126',
+        'email'       => 'info@tncashforhomes.com',
+        'image'       => get_template_directory_uri() . '/brand_assets/Company%20Photo.webp',
+        'logo'        => get_template_directory_uri() . '/brand_assets/Tennessee%20Cash%20For%20Homes%20Logo.png',
+        'address'     => array(
+            '@type'           => 'PostalAddress',
+            'addressLocality' => 'Murfreesboro',
+            'addressRegion'   => 'TN',
+            'addressCountry'  => 'US',
+        ),
+        'geo' => array(
+            '@type'     => 'GeoCoordinates',
+            'latitude'  => '35.8456',
+            'longitude' => '-86.3903',
+        ),
+        'areaServed' => array(
+            '@type' => 'State',
+            'name'  => 'Tennessee',
+        ),
+        'priceRange'        => '$$',
+        'openingHoursSpecification' => array(
+            '@type'     => 'OpeningHoursSpecification',
+            'dayOfWeek' => array( 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ),
+            'opens'     => '00:00',
+            'closes'    => '23:59',
+        ),
+        'aggregateRating' => array(
+            '@type'       => 'AggregateRating',
+            'ratingValue' => '5.0',
+            'reviewCount' => '50',
+            'bestRating'  => '5',
+        ),
+        'sameAs' => array(
+            'https://www.instagram.com/tennesseecashforhomes/',
+            'https://www.facebook.com/profile.php?id=61557645432215',
+            'https://www.youtube.com/@TennesseeCashForHomes',
+            'https://www.tiktok.com/@tennesseecashforhomes',
+            'https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815',
+        ),
+    );
+
+    echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) . '</script>' . "\n";
+}
+
+/**
+ * ── SEO: FAQ Schema (homepage) ──
+ */
+add_action( 'wp_head', 'tcfh_schema_faq' );
+function tcfh_schema_faq() {
+    if ( ! is_front_page() ) return;
+
+    $faqs = array(
+        array(
+            'q' => 'Is the cash offer really free with no obligation?',
+            'a' => 'Absolutely. Our cash offers are 100% free and come with zero obligation. We\'ll present you with a number, and you decide whether to accept, decline, or take time to think. No pressure, ever.',
+        ),
+        array(
+            'q' => 'What types of homes do you buy?',
+            'a' => 'We buy all types of residential properties across Tennessee: single-family homes, condos, townhouses, duplexes, and multi-family properties. We purchase homes in any condition: move-in ready, distressed, fire-damaged, flood-damaged, or anything in between.',
+        ),
+        array(
+            'q' => 'How do you determine your offer price?',
+            'a' => 'Our offer is based on comparable sales in your area, the current condition of the property, location, and recent market trends. We aim to give you the fairest possible offer, one that reflects real value while accounting for the as-is condition of the home.',
+        ),
+        array(
+            'q' => 'Do I need to clean out the house before closing?',
+            'a' => 'No. You can take what you want and leave the rest. We handle all cleanout after closing at no cost to you. This is especially helpful for inherited properties or situations where clearing everything out just is not practical.',
+        ),
+        array(
+            'q' => 'What if I\'m behind on mortgage payments or facing foreclosure?',
+            'a' => 'We can often help in pre-foreclosure situations. Selling before a foreclosure completes can protect your credit and put cash in your pocket. Time is critical in these cases, so reach out to us as soon as possible so we can explore your options together.',
+        ),
+        array(
+            'q' => 'Which areas of Tennessee do you serve?',
+            'a' => 'We buy homes throughout Tennessee including Nashville, Memphis, Knoxville, Chattanooga, Murfreesboro, Franklin, Clarksville, Shelbyville, Smyrna, Gallatin, Columbia, Spring Hill, Lebanon, Jackson, Hendersonville, Crossville, McMinnville, Old Hickory, Woodbury and surrounding areas.',
+        ),
+    );
+
+    $entities = array();
+    foreach ( $faqs as $faq ) {
+        $entities[] = array(
+            '@type'          => 'Question',
+            'name'           => $faq['q'],
+            'acceptedAnswer' => array(
+                '@type' => 'Answer',
+                'text'  => $faq['a'],
+            ),
+        );
+    }
+
+    $schema = array(
+        '@context'   => 'https://schema.org',
+        '@type'      => 'FAQPage',
+        'mainEntity' => $entities,
+    );
+
+    echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) . '</script>' . "\n";
+}
+
+/**
+ * ── SEO: BreadcrumbList Schema (location + county pages) ──
+ */
+add_action( 'wp_head', 'tcfh_schema_breadcrumbs' );
+function tcfh_schema_breadcrumbs() {
+    if ( is_front_page() ) return;
+    if ( ! is_page() ) return;
+
+    $items   = array();
+    $items[] = array(
+        '@type'    => 'ListItem',
+        'position' => 1,
+        'name'     => 'Home',
+        'item'     => home_url( '/' ),
+    );
+
+    $template = get_post_meta( get_the_ID(), '_wp_page_template', true );
+
+    if ( $template && strpos( $template, 'city-pages/' ) === 0 ) {
+        $items[] = array(
+            '@type'    => 'ListItem',
+            'position' => 2,
+            'name'     => 'Where We Buy',
+            'item'     => home_url( '/where-we-buy/' ),
+        );
+        $items[] = array(
+            '@type'    => 'ListItem',
+            'position' => 3,
+            'name'     => get_the_title(),
+        );
+    } elseif ( $template && strpos( $template, 'county-pages/' ) === 0 ) {
+        $items[] = array(
+            '@type'    => 'ListItem',
+            'position' => 2,
+            'name'     => 'Where We Buy',
+            'item'     => home_url( '/where-we-buy/' ),
+        );
+        $items[] = array(
+            '@type'    => 'ListItem',
+            'position' => 3,
+            'name'     => get_the_title(),
+        );
+    } else {
+        $items[] = array(
+            '@type'    => 'ListItem',
+            'position' => 2,
+            'name'     => get_the_title(),
+        );
+    }
+
+    $schema = array(
+        '@context'        => 'https://schema.org',
+        '@type'           => 'BreadcrumbList',
+        'itemListElement' => $items,
+    );
+
+    echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) . '</script>' . "\n";
+}
+
+/**
+ * ── SEO: XML Sitemap ──
+ */
+add_action( 'init', 'tcfh_sitemap_rewrite' );
+function tcfh_sitemap_rewrite() {
+    add_rewrite_rule( 'sitemap\.xml$', 'index.php?tcfh_sitemap=1', 'top' );
+}
+
+add_filter( 'query_vars', function( $vars ) {
+    $vars[] = 'tcfh_sitemap';
+    return $vars;
+} );
+
+add_action( 'template_redirect', 'tcfh_render_sitemap' );
+function tcfh_render_sitemap() {
+    if ( ! get_query_var( 'tcfh_sitemap' ) ) return;
+
+    header( 'Content-Type: application/xml; charset=utf-8' );
+    echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+    echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+
+    // Homepage
+    echo '<url><loc>' . esc_url( home_url( '/' ) ) . '</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>' . "\n";
+
+    // Static pages
+    $pages = get_pages( array( 'post_status' => 'publish' ) );
+    foreach ( $pages as $page ) {
+        $url = get_permalink( $page->ID );
+        echo '<url><loc>' . esc_url( $url ) . '</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>' . "\n";
+    }
+
+    // Blog posts
+    $posts = get_posts( array( 'post_status' => 'publish', 'numberposts' => -1 ) );
+    foreach ( $posts as $post ) {
+        $url = get_permalink( $post->ID );
+        echo '<url><loc>' . esc_url( $url ) . '</loc><lastmod>' . get_the_modified_date( 'Y-m-d', $post ) . '</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>' . "\n";
+    }
+
+    echo '</urlset>';
+    exit;
+}
+
+/**
+ * ── SEO: robots.txt ──
+ */
+add_filter( 'robots_txt', function( $output, $public ) {
+    $output  = "User-agent: *\n";
+    $output .= "Allow: /\n";
+    $output .= "Disallow: /wp-admin/\n";
+    $output .= "Allow: /wp-admin/admin-ajax.php\n\n";
+    $output .= "Sitemap: " . home_url( '/sitemap.xml' ) . "\n";
+    return $output;
+}, 10, 2 );
+
+/**
+ * ── SEO: Set homepage title tag ──
+ */
+add_filter( 'pre_get_document_title', function( $title ) {
+    if ( is_front_page() ) {
+        return 'Tennessee Cash For Homes | Sell Your House Fast for Cash';
+    }
+    return $title;
+}, 99 );
+
+/**
  * Register page templates from subfolders
  */
 add_filter( 'theme_page_templates', function( $templates, $theme, $post ) {
