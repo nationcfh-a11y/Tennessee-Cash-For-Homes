@@ -98,8 +98,8 @@
       <span class="htc-label htc-label-cash">Your Cash</span>
     </div>
     <div class="htc-image-container">
-      <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/House_Image.png" alt="Sell your house fast for cash in Tennessee" class="htc-img htc-house-img" />
-      <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/money_image2.png" alt="Get cash for your Tennessee home" class="htc-img htc-cash-img" />
+      <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/House_Image.webp" alt="Sell your house fast for cash in Tennessee" class="htc-img htc-house-img" />
+      <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/money_image2.webp" alt="Get cash for your Tennessee home" class="htc-img htc-cash-img" />
     </div>
     <div class="htc-headline-wrap">
       <p class="htc-eyebrow">No Repairs. No Fees. No Hassle.</p>
@@ -226,7 +226,7 @@
 <!-- ── DIFFERENCE ── -->
 <section class="difference-section">
   <div class="difference__img-wrap">
-    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/Company%20Photo.png" alt="Tennessee Cash For Homes team" />
+    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/Company%20Photo.webp" alt="Tennessee Cash For Homes team" />
   </div>
   <div class="difference__content-wrap">
     <div class="difference__content">
