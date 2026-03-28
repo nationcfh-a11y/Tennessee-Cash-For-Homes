@@ -697,36 +697,26 @@
 </section>
 
 <!-- ── SELL YOUR LAND ── -->
-<section class="land-section">
-  <div class="land-section__overlay"></div>
+<section class="land-section" id="sell-land">
   <div class="container land-section__inner">
     <div class="land-section__content">
-      <p class="section__eyebrow land-section__eyebrow">Tennessee Land Buyers</p>
-      <h2 class="land-section__title">Sell Your Land for Cash Fast &amp; Easy</h2>
-      <p class="land-section__body">We buy vacant land, rural acreage, wooded lots, and unwanted property all across Tennessee. No commissions, no delays, and no hassle. Get a fair all-cash offer for your land in as little as 24 hours.</p>
-      <ul class="land-section__list">
-        <li>
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-          Vacant lots, acreage, and rural land
-        </li>
-        <li>
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-          Cash offer within 24 hours
-        </li>
-        <li>
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-          Zero commissions or closing costs
-        </li>
-        <li>
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-          Close on your timeline
-        </li>
-      </ul>
+      <div class="land-section__accent"></div>
+      <div class="land-section__text">
+        <span class="land-section__badge">Tennessee Land Buyers</span>
+        <h2 class="land-section__title">Sell Your Land for Cash<br>Fast &amp; Easy</h2>
+        <p class="land-section__body">We buy vacant land, rural acreage, wooded lots, and unwanted property all across Tennessee. No commissions, no delays, and no hassle.</p>
+        <ul class="land-section__list">
+          <li><span class="land-section__pill">Vacant Lots &amp; Acreage</span></li>
+          <li><span class="land-section__pill">24-Hour Cash Offers</span></li>
+          <li><span class="land-section__pill">Zero Commissions</span></li>
+          <li><span class="land-section__pill">Close on Your Timeline</span></li>
+        </ul>
+      </div>
     </div>
     <div class="land-section__form-wrap">
-      <div class="hero__form-card">
-        <h2 class="form-card__title">Get Your Land Cash Offer</h2>
-        <p class="form-card__sub">Takes less than 60 seconds. No obligation.</p>
+      <div class="land-section__form-card">
+        <h2 class="land-section__form-title">Get Your Land Cash Offer</h2>
+        <p class="land-section__form-sub">Takes less than 60 seconds. No obligation.</p>
         <form onsubmit="handleSubmit(event)">
           <div class="form-group">
             <label for="land-address">Property Address</label>

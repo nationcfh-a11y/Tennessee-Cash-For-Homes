@@ -1407,79 +1407,174 @@ img { display: block; max-width: 100%; }
 
 /* ── SELL YOUR LAND SECTION ── */
 .land-section {
-  position: relative;
-  background: url('https://nationcfh.wpcomstaging.com/wp-content/uploads/2026/03/Sell-My-Land-For-Cash-Fast-1.png') center center / cover no-repeat;
+  background: #ffffff;
   padding: 80px 0;
-  overflow: hidden;
-  width: 100vw;
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.land-section__overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 0;
+  width: 100%;
 }
 
 .land-section__inner {
-  position: relative;
-  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 420px;
   gap: 60px;
   align-items: center;
 }
 
-.land-section__eyebrow {
-  color: var(--green) !important;
+.land-section__content {
+  display: flex;
+  gap: 24px;
+}
+
+.land-section__accent {
+  width: 4px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: linear-gradient(180deg, var(--green) 0%, #5aab78 100%);
+}
+
+.land-section__text {
+  flex: 1;
+}
+
+.land-section__badge {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+  background: rgba(132, 204, 156, 0.1);
+  border: 1px solid rgba(132, 204, 156, 0.25);
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 18px;
 }
 
 .land-section__title {
-  font-size: clamp(26px, 3.5vw, 40px);
+  font-size: clamp(26px, 3.5vw, 38px);
   font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 18px;
-  line-height: 1.25;
+  color: var(--charcoal);
+  margin-bottom: 16px;
+  line-height: 1.2;
 }
 
 .land-section__body {
-  font-size: 17px;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.75;
-  margin-bottom: 28px;
+  font-size: 16px;
+  color: #6B7280;
+  line-height: 1.7;
+  margin-bottom: 24px;
 }
 
 .land-section__list {
   list-style: none;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
 }
 
 .land-section__list li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 16px;
+  display: inline-flex;
+}
+
+.land-section__pill {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
   font-weight: 500;
-  color: #ffffff;
+  color: var(--charcoal);
+  background: #F3F4F6;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #E5E7EB;
 }
 
-.land-section__list li svg {
-  flex-shrink: 0;
-  color: var(--green);
+.land-section__form-wrap {
+  width: 100%;
 }
 
-.land-section__form-wrap { width: 100%; }
+.land-section__form-card {
+  background: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 36px 30px;
+}
+
+.land-section__form-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 6px;
+}
+
+.land-section__form-sub {
+  font-size: 14px;
+  color: #6B7280;
+  margin-bottom: 22px;
+}
+
+.land-section__form-card .form-group {
+  margin-bottom: 14px;
+}
+
+.land-section__form-card label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 5px;
+}
+
+.land-section__form-card input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1px solid #D1D5DB;
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--charcoal);
+  transition: border-color 0.2s;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.land-section__form-card input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(132, 204, 156, 0.15);
+}
+
+.land-section__form-card .form-disclaimer {
+  font-size: 12px;
+  color: #9CA3AF;
+  margin-top: 12px;
+  text-align: center;
+}
 
 @media (max-width: 960px) {
   .land-section__inner {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  .land-section__form-wrap { max-width: 480px; }
+  .land-section__form-wrap {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 480px) {
+  .land-section {
+    padding: 50px 0;
+  }
+  .land-section__content {
+    gap: 16px;
+  }
+  .land-section__pill {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  .land-section__form-card {
+    padding: 28px 20px;
+  }
 }
 
 /* ══════════════════════════════════════════════════════════
