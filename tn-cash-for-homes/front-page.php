@@ -119,8 +119,6 @@
 
 <!-- ── HOUSE TO CASH ANIMATION ── -->
 <section class="house-to-cash-section" id="house-to-cash">
-  <link rel="preload" as="image" href="<?php echo get_template_directory_uri(); ?>/brand_assets/House_Image.png">
-  <link rel="preload" as="image" href="<?php echo get_template_directory_uri(); ?>/brand_assets/money_image.png">
   <div class="htc-inner">
     <div class="htc-label-row">
       <span class="htc-label htc-label-house">Your House</span>
@@ -135,74 +133,89 @@
   </div>
   <script>
   (function() {
-      window.addEventListener('load', function() {
-          if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+      var section, houseImg, cashImg, headline, pinned = false, sectionTop = 0, pinHeight = 150, scrollY = 0;
 
-          gsap.registerPlugin(ScrollTrigger);
-
-          var section  = document.querySelector('.house-to-cash-section');
-          var houseImg = document.querySelector('.htc-house-img');
-          var cashImg  = document.querySelector('.htc-cash-img');
-          var headline = document.querySelector('.htc-headline');
-
+      function init() {
+          section  = document.querySelector('.house-to-cash-section');
+          houseImg = document.querySelector('.htc-house-img');
+          cashImg  = document.querySelector('.htc-cash-img');
+          headline = document.querySelector('.htc-headline');
           if (!section || !houseImg || !cashImg) return;
+          measure();
+          window.addEventListener('scroll', onScroll, { passive: true });
+          window.addEventListener('resize', measure, { passive: true });
+          onScroll();
+      }
 
-          houseImg.style.opacity = '1';
-          cashImg.style.opacity = '0';
-          if (headline) headline.style.opacity = '0';
+      function measure() {
+          if (section.style.position === 'fixed') {
+              section.style.position = '';
+              section.style.top = '';
+              section.style.left = '';
+              section.style.width = '';
+          }
+          sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
+          section._placeholder && section._placeholder.remove();
+      }
 
-          requestAnimationFrame(function() {
-              requestAnimationFrame(function() {
+      function onScroll() {
+          scrollY = window.pageYOffset;
+          if (!pinned) requestAnimationFrame(render);
+          pinned = true;
+      }
 
-                  var currentHouse = 1, currentCash = 0, currentText = 0;
+      function render() {
+          pinned = false;
+          var start = sectionTop;
+          var end = start + pinHeight;
+          var y = scrollY;
 
-                  ScrollTrigger.create({
-                      trigger: section,
-                      start: 'top top',
-                      end: '+=150',
-                      pin: true,
-                      pinSpacing: true,
-                      pinType: 'fixed',
-                      anticipatePin: 0,
-                      scrub: true,
-                      fastScrollEnd: true,
-                      invalidateOnRefresh: true,
-                      onRefresh: function() {
-                          currentHouse = 1; currentCash = 0; currentText = 0;
-                          houseImg.style.opacity = '1';
-                          cashImg.style.opacity = '0';
-                          if (headline) headline.style.opacity = '0';
-                      }
-                  });
+          if (y >= start && y <= end) {
+              if (section.style.position !== 'fixed') {
+                  if (!section._placeholder) {
+                      var ph = document.createElement('div');
+                      ph.style.height = section.offsetHeight + pinHeight + 'px';
+                      section.parentNode.insertBefore(ph, section);
+                      section._placeholder = ph;
+                  }
+                  section.style.position = 'fixed';
+                  section.style.top = '0';
+                  section.style.left = '0';
+                  section.style.width = '100%';
+                  section.style.zIndex = '10';
+              }
+              var p = (y - start) / pinHeight;
+              var imgP = Math.min(p / 0.6, 1);
+              var textP = p > 0.6 ? (p - 0.6) / 0.4 : 0;
+              houseImg.style.opacity = (1 - imgP);
+              cashImg.style.opacity = imgP;
+              if (headline) headline.style.opacity = textP;
+          } else {
+              if (section.style.position === 'fixed') {
+                  section.style.position = '';
+                  section.style.top = '';
+                  section.style.left = '';
+                  section.style.width = '';
+                  section.style.zIndex = '';
+              }
+              if (y > end) {
+                  houseImg.style.opacity = '0';
+                  cashImg.style.opacity = '1';
+                  if (headline) headline.style.opacity = '1';
+              } else {
+                  houseImg.style.opacity = '1';
+                  cashImg.style.opacity = '0';
+                  if (headline) headline.style.opacity = '0';
+              }
+              if (section._placeholder) {
+                  section._placeholder.remove();
+                  section._placeholder = null;
+              }
+          }
+      }
 
-                  function lerp(a, b, t) { return a + (b - a) * t; }
-
-                  ScrollTrigger.addEventListener('refresh', function() {
-                      currentHouse = 1; currentCash = 0; currentText = 0;
-                  });
-
-                  var st = ScrollTrigger.getAll()[ScrollTrigger.getAll().length - 1];
-
-                  (function tick() {
-                      requestAnimationFrame(tick);
-                      if (!st) return;
-                      var p = st.progress;
-                      var targetHouse = 1 - Math.min(p / 0.6, 1);
-                      var targetCash = Math.min(p / 0.6, 1);
-                      var targetText = p > 0.6 ? Math.min((p - 0.6) / 0.4, 1) : 0;
-
-                      currentHouse = lerp(currentHouse, targetHouse, 0.15);
-                      currentCash = lerp(currentCash, targetCash, 0.15);
-                      currentText = lerp(currentText, targetText, 0.15);
-
-                      houseImg.style.opacity = currentHouse.toFixed(3);
-                      cashImg.style.opacity = currentCash.toFixed(3);
-                      if (headline) headline.style.opacity = currentText.toFixed(3);
-                  })();
-
-              });
-          });
-      });
+      if (document.readyState === 'complete') init();
+      else window.addEventListener('load', init);
   })();
   </script>
 </section>

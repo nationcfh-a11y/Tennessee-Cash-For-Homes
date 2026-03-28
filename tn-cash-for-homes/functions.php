@@ -40,16 +40,6 @@ function tcfh_enqueue_assets() {
 add_action( 'wp_enqueue_scripts', 'tcfh_enqueue_assets' );
 
 /**
- * Enqueue GSAP + ScrollTrigger on the homepage only.
- */
-add_action('wp_enqueue_scripts', function() {
-    if (is_front_page()) {
-        wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js', [], '3.12.2', true);
-        wp_enqueue_script('gsap-scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js', ['gsap'], '3.12.2', true);
-    }
-});
-
-/**
  * Output favicon link tags in <head>.
  */
 add_action( 'wp_head', function() {
