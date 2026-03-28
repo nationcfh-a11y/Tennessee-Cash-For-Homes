@@ -127,13 +127,11 @@
       <span class="htc-arrow">&rarr;</span>
       <span class="htc-label htc-label-cash">Your Cash</span>
     </div>
-    <div class="htc-headline-wrap">
-      <h2 class="htc-headline">Get a fair cash offer in 24 hours</h2>
-    </div>
     <div class="htc-image-container">
       <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/House_Image.png" alt="Sell your house fast for cash in Tennessee" class="htc-img htc-house-img" />
       <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/money_image.png" alt="Get cash for your Tennessee home" class="htc-img htc-cash-img" />
     </div>
+    <h2 class="htc-headline">Get a fair cash offer in 24 hours</h2>
   </div>
   <script>
   (function() {
@@ -145,12 +143,13 @@
           var section  = document.querySelector('.house-to-cash-section');
           var houseImg = document.querySelector('.htc-house-img');
           var cashImg  = document.querySelector('.htc-cash-img');
+          var headline = document.querySelector('.htc-headline');
 
           if (!section || !houseImg || !cashImg) return;
 
-          gsap.set([houseImg, cashImg], { force3D: true });
-          gsap.set(houseImg, { opacity: 1 });
-          gsap.set(cashImg,  { opacity: 0 });
+          houseImg.style.opacity = '1';
+          cashImg.style.opacity = '0';
+          if (headline) headline.style.opacity = '0';
 
           requestAnimationFrame(function() {
               requestAnimationFrame(function() {
@@ -167,13 +166,19 @@
                       fastScrollEnd: true,
                       invalidateOnRefresh: true,
                       onUpdate: function(self) {
-                          var progress = self.progress;
-                          gsap.set(houseImg, { opacity: 1 - progress, force3D: true });
-                          gsap.set(cashImg,  { opacity: progress,     force3D: true });
+                          var p = self.progress;
+                          var imgProgress = Math.min(p / 0.7, 1);
+                          houseImg.style.opacity = String(1 - imgProgress);
+                          cashImg.style.opacity = String(imgProgress);
+                          if (headline) {
+                              var textProgress = p > 0.7 ? (p - 0.7) / 0.3 : 0;
+                              headline.style.opacity = String(textProgress);
+                          }
                       },
                       onRefresh: function() {
-                          gsap.set(houseImg, { opacity: 1 });
-                          gsap.set(cashImg,  { opacity: 0 });
+                          houseImg.style.opacity = '1';
+                          cashImg.style.opacity = '0';
+                          if (headline) headline.style.opacity = '0';
                       }
                   });
 

@@ -2617,16 +2617,13 @@ img { display: block; max-width: 100%; }
     backface-visibility: hidden;
 }
 
-.htc-headline-wrap {
-    margin-bottom: 0;
-}
-
 .htc-headline {
     font-size: 28px;
     font-weight: 800;
     color: #111827;
-    margin-bottom: 8px;
-    opacity: 1;
+    margin: 0;
+    opacity: 0;
+    will-change: opacity;
 }
 
 @media (max-width: 768px) {
