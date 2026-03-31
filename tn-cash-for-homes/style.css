@@ -135,11 +135,11 @@ img { display: block; max-width: 100%; }
 /* ── HERO ── */
 .hero {
   background: url('brand_assets/New_Background.webp') center center / cover no-repeat;
-  padding: 140px 0 120px;
+  padding: 100px 0 80px;
   position: relative;
   overflow: hidden;
   margin: 0;
-  min-height: 560px;
+  min-height: auto;
   display: flex;
   align-items: center;
 }
@@ -166,7 +166,7 @@ img { display: block; max-width: 100%; }
 
 .hero__title {
   font-family: inherit;
-  font-size: clamp(36px, 6vw, 72px);
+  font-size: clamp(32px, 5vw, 56px);
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 20px;
@@ -257,9 +257,9 @@ img { display: block; max-width: 100%; }
   background: rgba(132, 204, 156, 0.15);
   border: 1px solid rgba(132, 204, 156, 0.4);
   color: #84CC9C;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  padding: 8px 16px;
+  padding: 5px 14px;
   border-radius: 100px;
   margin-bottom: 20px;
 }
@@ -1482,9 +1482,20 @@ img { display: block; max-width: 100%; }
 
 /* ── SELL YOUR LAND SECTION ── */
 .land-section {
-  background: #ffffff;
+  background: linear-gradient(135deg, #1a2e1a 0%, #2d3a2d 50%, #1a2e1a 100%);
   padding: 80px 0;
   width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.land-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(132,204,156,0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 50%, rgba(132,204,156,0.05) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 .land-section__inner {
@@ -1492,6 +1503,8 @@ img { display: block; max-width: 100%; }
   grid-template-columns: 1fr 420px;
   gap: 60px;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .land-section__content {
@@ -1528,14 +1541,14 @@ img { display: block; max-width: 100%; }
 .land-section__title {
   font-size: clamp(26px, 3.5vw, 38px);
   font-weight: 700;
-  color: var(--charcoal);
+  color: #ffffff;
   margin-bottom: 16px;
   line-height: 1.2;
 }
 
 .land-section__body {
   font-size: 16px;
-  color: #6B7280;
+  color: rgba(255,255,255,0.75);
   line-height: 1.7;
   margin-bottom: 24px;
 }
@@ -1557,12 +1570,12 @@ img { display: block; max-width: 100%; }
   display: inline-block;
   font-family: 'Poppins', sans-serif;
   font-size: 13px;
-  font-weight: 500;
-  color: var(--charcoal);
-  background: #F3F4F6;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(132, 204, 156, 0.15);
   padding: 8px 16px;
   border-radius: 8px;
-  border: 1px solid #E5E7EB;
+  border: 1px solid rgba(132, 204, 156, 0.35);
 }
 
 .land-section__form-wrap {
@@ -2472,7 +2485,7 @@ img { display: block; max-width: 100%; }
 .step-pre {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 1.2s ease, transform 1.2s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .step-pre.step-visible {
   opacity: 1;

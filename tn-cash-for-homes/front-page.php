@@ -735,7 +735,6 @@
           <li><span class="land-section__pill">Vacant Lots &amp; Acreage</span></li>
           <li><span class="land-section__pill">24-Hour Cash Offers</span></li>
           <li><span class="land-section__pill">Zero Commissions</span></li>
-          <li><span class="land-section__pill">Close on Your Timeline</span></li>
         </ul>
       </div>
     </div>
@@ -818,7 +817,7 @@
       if (!entries[0].isIntersecting) return;
       setTimeout(function () {
         step.classList.add('step-visible');
-      }, 200 + index * 300);
+      }, 100 + index * 150);
       observer.unobserve(step);
     }, { threshold: 0.3 });
     observer.observe(step);
