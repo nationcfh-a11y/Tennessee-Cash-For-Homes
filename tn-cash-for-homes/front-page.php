@@ -5,11 +5,19 @@
   <div class="container">
     <div class="hero__inner">
       <div class="hero__content">
+        <div class="hero__badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="#84CC9C" stroke-width="2"/>
+            <path d="M8 12l3 3 5-5" stroke="#84CC9C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Trusted Tennessee Cash Buyers
+        </div>
         <h1 class="hero__title">
-          <em>Sell Your House Fast:<br />Get a Fair Cash Offer<br />in Tennessee</em>
+          <span class="hero__title--white">Sell Your House Fast For Cash!</span>
+          <span class="hero__title--green"> | We Buy Houses As-Is for Cash</span>
         </h1>
         <p class="hero__subtitle">
-          Our straightforward, no-hassle process gives you a fair cash offer with zero commissions, zero repairs, and zero stress. Close on your timeline &mdash; in as little as 7 days.
+          No repairs. No commissions. No fees. Get a fair cash offer for your Tennessee home in as little as 24 hours. We close on your timeline.
         </p>
         <div class="hero__cta-row">
           <a href="#get-offer" class="hero__btn-primary">Get My Cash Offer</a>
@@ -41,6 +49,29 @@
           </button>
         </form>
         <p class="form-disclaimer">&#128274; Your info is private and never shared.</p>
+        <div class="hero__trust-row">
+          <span class="hero__trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="#84CC9C" stroke-width="2"/>
+              <path d="M8 12l3 3 5-5" stroke="#84CC9C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            No Agent Fees
+          </span>
+          <span class="hero__trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="#84CC9C" stroke-width="2"/>
+              <path d="M8 12l3 3 5-5" stroke="#84CC9C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Close in 7 Days
+          </span>
+          <span class="hero__trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="#84CC9C" stroke-width="2"/>
+              <path d="M8 12l3 3 5-5" stroke="#84CC9C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Any Condition
+          </span>
+        </div>
       </div>
     </div>
   </div>
