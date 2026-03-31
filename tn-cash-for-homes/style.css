@@ -170,6 +170,7 @@ img { display: block; max-width: 100%; }
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 20px;
+  max-width: 540px;
 }
 
 .hero__title--white {
@@ -1482,7 +1483,7 @@ img { display: block; max-width: 100%; }
 
 /* ── SELL YOUR LAND SECTION ── */
 .land-section {
-  background: linear-gradient(135deg, #1a2e1a 0%, #2d3a2d 50%, #1a2e1a 100%);
+  background: url('brand_assets/Tennessee_Cash_For_Land.webp') center center / cover no-repeat;
   padding: 80px 0;
   width: 100%;
   position: relative;
@@ -1493,8 +1494,7 @@ img { display: block; max-width: 100%; }
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 20% 50%, rgba(132,204,156,0.08) 0%, transparent 60%),
-              radial-gradient(ellipse at 80% 50%, rgba(132,204,156,0.05) 0%, transparent 60%);
+  background: rgba(0, 0, 0, 0.6);
   pointer-events: none;
 }
 
