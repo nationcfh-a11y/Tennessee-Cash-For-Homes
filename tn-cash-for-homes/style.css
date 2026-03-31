@@ -200,20 +200,20 @@ img { display: block; max-width: 100%; }
   align-items: center;
   justify-content: center;
   padding: 16px 36px;
-  background: #D4A03C;
-  color: var(--charcoal);
+  background: #84CC9C;
+  color: var(--white);
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 16px;
   border-radius: 6px;
   text-decoration: none;
   transition: background .2s, transform .15s;
-  border: 2px solid #D4A03C;
+  border: 2px solid #84CC9C;
 }
 
 .hero__btn-primary:hover {
-  background: #c19035;
-  border-color: #c19035;
+  background: #5aab78;
+  border-color: #5aab78;
   transform: translateY(-1px);
 }
 
