@@ -95,7 +95,15 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
         ?>
         <div class="county-map-hero-wrap">
           <div class="county-map-hero-svg">
-            <?php echo file_get_contents( $county_svg_path ); ?>
+            <?php
+            $svg_content = file_get_contents( $county_svg_path );
+            // For county pages: hide zoomed detail, show only state outline
+            if ( strpos( $svg_content, 'id="statelayer"' ) !== false ) {
+                $svg_content = str_replace( '<defs>', '<defs><style>#countylayer,#placelayer{display:none}</style>', $svg_content );
+                $svg_content = preg_replace( '/viewBox="[^"]*"/', 'viewBox="220 55 290 130"', $svg_content );
+            }
+            echo $svg_content;
+            ?>
           </div>
           <div class="county-map-label">
             <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
@@ -407,6 +415,24 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
 }
 .city-link-btn:hover .city-link-btn__soon {
   background: rgba(255,255,255,0.3);
+}
+
+/* ── Hero text overrides (light bg) ── */
+.county-hero .hero__trust-item {
+  color: #3D3D3D;
+}
+.county-hero .hero__trust-item svg {
+  color: #84CC9C;
+}
+.county-hero .btn-outline {
+  border: 2px solid #3D3D3D;
+  color: #3D3D3D;
+  background: transparent;
+}
+.county-hero .btn-outline:hover {
+  background: #3D3D3D;
+  color: #fff;
+  border-color: #3D3D3D;
 }
 
 /* ── Map Hero SVG ── */

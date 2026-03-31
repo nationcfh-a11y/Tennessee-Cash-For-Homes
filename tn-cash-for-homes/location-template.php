@@ -57,7 +57,7 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
 ?>
 
 <!-- ── LOCATION HERO ── -->
-<section class="county-hero">
+<section class="county-hero city-page">
   <div class="container">
     <div class="county-hero__inner">
 
@@ -105,7 +105,15 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
         <?php if ( $has_map ) : ?>
         <div class="county-map-hero-wrap">
           <div class="county-map-hero-svg">
-            <?php echo file_get_contents( $map_svg_path ); ?>
+            <?php
+            $svg_content = file_get_contents( $map_svg_path );
+            // For city pages: hide state outline, show only zoomed detail
+            if ( strpos( $svg_content, 'id="statelayer"' ) !== false ) {
+                $svg_content = str_replace( '<defs>', '<defs><style>#statelayer{display:none}</style>', $svg_content );
+                $svg_content = preg_replace( '/viewBox="[^"]*"/', 'viewBox="0 0 225 230"', $svg_content );
+            }
+            echo $svg_content;
+            ?>
           </div>
           <div class="county-map-label">
             <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
@@ -489,6 +497,24 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
   text-decoration: none;
 }
 .breadcrumb a:hover { text-decoration: underline; }
+
+/* ── Hero text overrides (light bg) ── */
+.county-hero .hero__trust-item {
+  color: #3D3D3D;
+}
+.county-hero .hero__trust-item svg {
+  color: #84CC9C;
+}
+.county-hero .btn-outline {
+  border: 2px solid #3D3D3D;
+  color: #3D3D3D;
+  background: transparent;
+}
+.county-hero .btn-outline:hover {
+  background: #3D3D3D;
+  color: #fff;
+  border-color: #3D3D3D;
+}
 
 /* ── Map Hero SVG ── */
 .county-map-hero-wrap {
