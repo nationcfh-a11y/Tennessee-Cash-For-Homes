@@ -474,85 +474,7 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
     /* Base URL from WordPress — works on staging and live */
     var siteUrl = '<?php echo esc_js( home_url() ); ?>';
 
-    /* ── 1. Dynamically place county name labels ── */
-    function createCountyLabels() {
-      var svgEl = document.querySelector('#tn-county-map') || document.querySelector('.tn-map-svg-wrap svg');
-      if (!svgEl) return;
-
-      // Remove ALL existing labels before creating new ones
-      var existingLabels = svgEl.querySelectorAll('.county-label, text[data-for-county]');
-      existingLabels.forEach(function(label) { label.remove(); });
-
-      // Remove existing label layer if present
-      var existingLayer = svgEl.querySelector('.county-labels-layer');
-      if (existingLayer) existingLayer.remove();
-
-      var labelLayer = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-      labelLayer.setAttribute('class', 'county-labels-layer');
-      svgEl.appendChild(labelLayer);
-
-      var svgCtmInverse = svgEl.getScreenCTM().inverse();
-
-      svgEl.querySelectorAll('.county-path').forEach(function (path) {
-        var bbox = path.getBBox();
-        if (bbox.width === 0 || bbox.height === 0) return;
-        var cx   = bbox.x + bbox.width  / 2;
-        var cy   = bbox.y + bbox.height / 2;
-
-        var pt = svgEl.createSVGPoint();
-        pt.x = cx;
-        pt.y = cy;
-        var rootPt = pt.matrixTransform(path.getCTM()).matrixTransform(svgCtmInverse);
-
-        var countyName = path.parentElement && path.parentElement.getAttribute('data-county');
-        if (!countyName) return;
-
-        var text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        text.setAttribute('x', rootPt.x);
-        text.setAttribute('y', rootPt.y);
-        text.setAttribute('text-anchor',      'middle');
-        text.setAttribute('dominant-baseline','middle');
-        text.setAttribute('font-size',        '0.72');
-        text.setAttribute('font-family',      'Inter, sans-serif');
-        text.setAttribute('font-weight',      '500');
-        text.setAttribute('fill',             '#555555');
-        text.setAttribute('pointer-events',   'none');
-        text.setAttribute('class',            'county-label');
-        text.setAttribute('data-for-county',  countyName);
-        text.setAttribute('data-for',         path.id);
-        text.textContent = countyName;
-        labelLayer.appendChild(text);
-      });
-    }
-
-    // Call on initial page load
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', createCountyLabels);
-    } else {
-      createCountyLabels();
-    }
-
-    // Handle browser back/forward cache (bfcache)
-    window.addEventListener('pageshow', function(event) {
-      if (event.persisted) {
-        createCountyLabels();
-      }
-    });
-
-    // Handle visibility change for extra safety against duplicates
-    document.addEventListener('visibilitychange', function() {
-      if (document.visibilityState === 'visible') {
-        var svgEl = document.querySelector('#tn-county-map') || document.querySelector('.tn-map-svg-wrap svg');
-        if (!svgEl) return;
-        var labels = svgEl.querySelectorAll('.county-label, text[data-for-county]');
-        var hasDuplicates = labels.length > 95;
-        if (hasDuplicates) {
-          createCountyLabels();
-        }
-      }
-    });
-
-    /* ── 2. Tooltip + hover + click ── */
+    /* ── Tooltip + hover + click ── */
     var tooltip     = document.getElementById('county-tooltip');
     var tooltipName = document.getElementById('county-tooltip-name');
 
@@ -567,24 +489,19 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
     }
 
     svg.querySelectorAll('.county-group').forEach(function (g) {
-      var pathEl   = g.querySelector('.county-path');
-      var label    = pathEl ? svg.querySelector('[data-for="' + pathEl.id + '"]') : null;
       var slug     = g.getAttribute('data-slug');
       var name     = g.getAttribute('data-county');
-      var isActive = slug && activeSlugs[slug];
 
       g.addEventListener('mouseenter', function (e) {
         tooltipName.textContent = name + ' County';
         tooltip.setAttribute('aria-hidden', 'false');
         positionTooltip(e);
         tooltip.classList.add('visible');
-        if (label) label.setAttribute('fill', '#ffffff');
       });
       g.addEventListener('mousemove', positionTooltip);
       g.addEventListener('mouseleave', function () {
         tooltip.classList.remove('visible');
         tooltip.setAttribute('aria-hidden', 'true');
-        if (label) label.setAttribute('fill', '#555555');
       });
       g.addEventListener('click', function () {
         if (slug) {

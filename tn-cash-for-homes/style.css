@@ -2579,17 +2579,9 @@ img { display: block; max-width: 100%; }
   stroke-width: 0.12;
   transition: fill 0.3s ease, stroke 0.3s ease;
 }
-.county-label {
-  fill: #555555;
-  transition: fill 0.3s ease;
-  font-weight: 500;
-}
 .county-group:hover .county-path {
   fill: #84CC9C;
   stroke: #5aab78;
-}
-.county-group:hover .county-label {
-  fill: #FFFFFF;
 }
 #county-tooltip {
   position: fixed;
