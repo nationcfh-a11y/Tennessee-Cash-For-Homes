@@ -175,6 +175,146 @@ get_header(); ?>
   </div>
 </div>
 
+<!-- ── COMPARISON TABLE ── -->
+<section class="section">
+  <div class="container">
+    <div class="section__header section__header--center">
+      <p class="section__eyebrow">See the Difference</p>
+      <h2 class="section__title">Selling to Us vs. Listing With a Real Estate Agent</h2>
+      <p class="section__subtitle">The traditional listing route works for some people. But if speed, certainty, and zero out-of-pocket costs matter to you, here's how the two options compare.</p>
+    </div>
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Tennessee Cash For Homes</th>
+            <th>Traditional Listing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Closing timeline</td>
+            <td><span class="check">&check;</span> As fast as 7 days</td>
+            <td><span class="cross">60 to 90+ days</span></td>
+          </tr>
+          <tr>
+            <td>Repairs required</td>
+            <td><span class="check">&check;</span> None, buy as-is</td>
+            <td><span class="cross">Often required</span></td>
+          </tr>
+          <tr>
+            <td>Agent commissions</td>
+            <td><span class="check">&check;</span> $0</td>
+            <td><span class="cross">5 to 6% of sale price</span></td>
+          </tr>
+          <tr>
+            <td>Closing costs</td>
+            <td><span class="check">&check;</span> We cover them</td>
+            <td><span class="cross">2 to 3% of sale price</span></td>
+          </tr>
+          <tr>
+            <td>Showings &amp; open houses</td>
+            <td><span class="check">&check;</span> None</td>
+            <td><span class="cross">Many required</span></td>
+          </tr>
+          <tr>
+            <td>Financing contingencies</td>
+            <td><span class="check">&check;</span> No, all cash</td>
+            <td><span class="cross">Deals can fall through</span></td>
+          </tr>
+          <tr>
+            <td>Certainty of sale</td>
+            <td><span class="check">&check;</span> Guaranteed</td>
+            <td><span class="cross">Not guaranteed</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="section section--alt" id="faq">
+  <div class="container">
+    <div class="section__header section__header--center">
+      <p class="section__eyebrow">Got Questions?</p>
+      <h2 class="section__title">Frequently Asked Questions About the Process</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How quickly can I get a cash offer?
+          <div class="faq-icon"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer">In most cases, we can present you with a fair cash offer within 24 to 48 hours of learning about your property. All we need is some basic information about the home and your situation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Is the cash offer really free with no obligation?
+          <div class="faq-icon"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer">Absolutely. Our cash offers are 100% free and come with zero obligation. We'll present you with a number, and you decide whether to accept, decline, or take time to think. No pressure, ever.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Do I need to make any repairs before selling?
+          <div class="faq-icon"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer">No. We buy houses in any condition across Tennessee. Whether your home needs a new roof, has foundation issues, or just needs a deep clean, we will buy it as-is. You do not need to spend a dime on repairs.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Who pays the closing costs?
+          <div class="faq-icon"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer">We do. Tennessee Cash For Homes covers all standard closing costs. The cash offer we present is the amount you walk away with at closing. No surprise deductions.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How do you determine your offer price?
+          <div class="faq-icon"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer">Our offer is based on comparable sales in your area, the current condition of the property, location, and recent market trends. We aim to give you the fairest possible offer, one that reflects real value while accounting for the as-is condition of the home.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Do I need to clean out the house before closing?
+          <div class="faq-icon"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer">No. You can take what you want and leave the rest. We handle all cleanout after closing at no cost to you. This is especially helpful for inherited properties or situations where clearing everything out just is not practical.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Can I choose my own closing date?
+          <div class="faq-icon"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer">Yes. You pick the closing date that works best for your situation. We can close in as little as 7 days if you need speed, or push it out to 30 days or more if you need extra time to plan your move.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Which areas of Tennessee do you serve?
+          <div class="faq-icon"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer">We buy homes throughout Tennessee including Nashville, Memphis, Knoxville, Chattanooga, Murfreesboro, Franklin, Clarksville, Shelbyville, Smyrna, Gallatin, Columbia, Spring Hill, Lebanon, Jackson, Hendersonville, Crossville, McMinnville, Old Hickory, Woodbury and surrounding areas. If you are not sure whether we cover your area, just reach out and we will let you know.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOTTOM CTA ── -->
+<section class="section hiw-bottom-cta">
+  <div class="container">
+    <div class="hiw-bottom-cta__inner">
+      <h2 class="hiw-bottom-cta__title">Ready to Get Your Free Cash Offer?</h2>
+      <p class="hiw-bottom-cta__sub">It takes less than 60 seconds to get started. No commitment, no pressure, just a fair cash offer from a trusted local Tennessee buyer.</p>
+      <div class="hiw-bottom-cta__buttons">
+        <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-primary">Get My Free Cash Offer &rarr;</a>
+        <a href="tel:+16158018126" class="btn-outline">Call (615) 801-8126</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script>
 (function () {

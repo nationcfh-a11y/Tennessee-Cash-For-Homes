@@ -2695,6 +2695,44 @@ img { display: block; max-width: 100%; }
   }
 }
 
+/* ── HOW IT WORKS BOTTOM CTA ── */
+.hiw-bottom-cta {
+  background: var(--charcoal);
+  padding: 72px 0;
+}
+.hiw-bottom-cta__inner {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.hiw-bottom-cta__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 0 16px;
+}
+.hiw-bottom-cta__sub {
+  font-size: 1.05rem;
+  color: #b0b0b0;
+  line-height: 1.65;
+  margin: 0 0 32px;
+}
+.hiw-bottom-cta__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.hiw-bottom-cta .btn-outline {
+  border-color: rgba(255,255,255,0.3);
+  color: var(--white);
+}
+.hiw-bottom-cta .btn-outline:hover {
+  border-color: var(--white);
+  background: rgba(255,255,255,0.08);
+}
+
 /* ── HOUSE TO CASH ANIMATION SECTION ── */
 .house-to-cash-section {
     background: #FFFFFF;
