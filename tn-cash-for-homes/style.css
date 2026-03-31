@@ -151,6 +151,10 @@ img { display: block; max-width: 100%; }
   background: rgba(0, 0, 0, 0.60);
 }
 
+.hero .container {
+  max-width: 1320px;
+}
+
 .hero__inner {
   display: grid;
   grid-template-columns: 1fr 400px;
