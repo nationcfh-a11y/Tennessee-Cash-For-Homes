@@ -453,27 +453,30 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
   text-transform: uppercase;
   padding: 6px 14px;
   border-radius: 20px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 .county-hero__title {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   font-weight: 700;
   color: #1a1a1a;
-  line-height: 1.2;
-  margin: 0 0 16px;
+  line-height: 1.15;
+  margin: 0 0 20px;
 }
 .county-hero__subtitle {
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: #555;
-  margin: 0 0 20px;
+  margin: 0 0 28px;
   line-height: 1.6;
 }
 .county-hero__trust {
-  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 32px;
 }
 .county-hero__cta-row {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 .county-hero__map-col {
