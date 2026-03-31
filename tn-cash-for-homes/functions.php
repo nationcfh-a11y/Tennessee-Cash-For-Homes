@@ -89,12 +89,33 @@ function tcfh_register_menus() {
 add_action( 'after_setup_theme', 'tcfh_register_menus' );
 
 /**
+ * Load Airtable credentials from .env file (local dev) or wp-config.php constants (production).
+ */
+function tcfh_load_env() {
+    $env_file = get_template_directory() . '/../../.env';
+    if ( ! file_exists( $env_file ) ) {
+        $env_file = ABSPATH . '.env';
+    }
+    if ( file_exists( $env_file ) ) {
+        $lines = file( $env_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
+        foreach ( $lines as $line ) {
+            $line = trim( $line );
+            if ( $line === '' || $line[0] === '#' ) continue;
+            if ( strpos( $line, '=' ) === false ) continue;
+            list( $key, $value ) = explode( '=', $line, 2 );
+            $key = trim( $key );
+            $value = trim( $value );
+            if ( ! defined( $key ) ) {
+                define( $key, $value );
+            }
+        }
+    }
+}
+tcfh_load_env();
+
+/**
  * AJAX handler for lead form submission.
- * Receives form data and forwards to your backend (Airtable, CRM, email, etc.).
- *
- * NOTE: Replace the logic inside with your actual integration.
- *       The Netlify function (/.netlify/functions/submit-lead) no longer exists
- *       in WordPress. This WP AJAX action takes its place.
+ * Sends leads to Airtable CRM.
  */
 function tcfh_handle_submit_lead() {
     check_ajax_referer( 'tcfh_submit_lead', 'nonce' );
@@ -102,18 +123,52 @@ function tcfh_handle_submit_lead() {
     $name      = sanitize_text_field( $_POST['name'] ?? '' );
     $phone     = sanitize_text_field( $_POST['phone'] ?? '' );
     $address   = sanitize_text_field( $_POST['address'] ?? '' );
-    $condition = sanitize_text_field( $_POST['condition'] ?? '' );
 
     if ( ! $name || ! $phone || ! $address ) {
         wp_send_json_error( array( 'error' => 'Please fill in all required fields.' ), 422 );
     }
 
-    // TODO: Replace this block with your real CRM/Airtable integration.
-    // Example: send an email notification until you wire up the real backend.
-    $to      = get_option( 'admin_email' );
-    $subject = 'New Cash Offer Request: ' . $name;
-    $message = "Name: $name\nPhone: $phone\nAddress: $address\nCondition: $condition";
-    wp_mail( $to, $subject, $message );
+    $api_token  = defined( 'AIRTABLE_API_TOKEN' )  ? AIRTABLE_API_TOKEN  : '';
+    $base_id    = defined( 'AIRTABLE_BASE_ID' )     ? AIRTABLE_BASE_ID    : '';
+    $table_name = defined( 'AIRTABLE_TABLE_NAME' )  ? AIRTABLE_TABLE_NAME : '';
+
+    if ( ! $api_token || ! $base_id || ! $table_name ) {
+        wp_send_json_error( array( 'error' => 'CRM configuration missing.' ), 500 );
+    }
+
+    $submitted_at = current_time( 'c' );
+
+    $response = wp_remote_post(
+        'https://api.airtable.com/v0/' . $base_id . '/' . rawurlencode( $table_name ),
+        array(
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $api_token,
+                'Content-Type'  => 'application/json',
+            ),
+            'body'    => wp_json_encode( array(
+                'records' => array(
+                    array(
+                        'fields' => array(
+                            'Lead Name'    => $name,
+                            'Phone Number' => $phone,
+                            'Address'      => $address,
+                            'Submitted At' => $submitted_at,
+                        ),
+                    ),
+                ),
+            ) ),
+            'timeout' => 15,
+        )
+    );
+
+    if ( is_wp_error( $response ) ) {
+        wp_send_json_error( array( 'error' => 'Failed to connect to CRM.' ), 500 );
+    }
+
+    $code = wp_remote_retrieve_response_code( $response );
+    if ( $code < 200 || $code >= 300 ) {
+        wp_send_json_error( array( 'error' => 'CRM rejected the submission.' ), 500 );
+    }
 
     wp_send_json_success( array( 'message' => 'Request received!' ) );
 }
