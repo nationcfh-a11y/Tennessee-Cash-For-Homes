@@ -471,6 +471,36 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
   gap: 6px;
 }
 
+/* ── Land Section Overrides ── */
+.land-section__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+.land-section__content {
+  flex-direction: column;
+  gap: 0;
+}
+.land-section__eyebrow {
+  color: var(--green);
+  margin-bottom: 12px;
+}
+.land-section__list {
+  flex-direction: column;
+  gap: 10px;
+}
+.land-section__list li {
+  color: rgba(255,255,255,0.9);
+  font-size: 15px;
+  font-weight: 500;
+  gap: 8px;
+}
+.land-section__list li svg {
+  color: var(--green);
+  flex-shrink: 0;
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .county-hero__inner {
