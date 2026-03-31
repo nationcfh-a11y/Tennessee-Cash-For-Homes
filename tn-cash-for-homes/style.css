@@ -2695,6 +2695,108 @@ img { display: block; max-width: 100%; }
   }
 }
 
+/* ── HOW IT WORKS: CLOSING DAY GRID ── */
+.hiw-closing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.hiw-closing-card {
+  text-align: center;
+  padding: 32px 24px;
+}
+.hiw-closing-num {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+.hiw-closing-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin: 0 0 10px;
+}
+.hiw-closing-body {
+  font-size: 0.95rem;
+  color: var(--charcoal-light);
+  line-height: 1.65;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .hiw-closing-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* ── HOW IT WORKS: TESTIMONIALS GRID ── */
+.hiw-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .hiw-testimonials-grid { grid-template-columns: 1fr; }
+}
+
+/* ── HOW IT WORKS: SITUATIONS GRID ── */
+.hiw-situations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.hiw-situation-card {
+  background: var(--white);
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 28px 24px;
+  text-decoration: none;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.hiw-situation-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transform: translateY(-3px);
+}
+.hiw-situation-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--green-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.hiw-situation-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin: 0 0 8px;
+}
+.hiw-situation-desc {
+  font-size: 0.9rem;
+  color: var(--charcoal-light);
+  line-height: 1.6;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .hiw-situations-grid { grid-template-columns: 1fr; }
+}
+
 /* ── HOW IT WORKS BOTTOM CTA ── */
 .hiw-bottom-cta {
   background: var(--charcoal);

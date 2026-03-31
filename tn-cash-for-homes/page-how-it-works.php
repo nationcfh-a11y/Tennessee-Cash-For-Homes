@@ -17,12 +17,39 @@ get_header(); ?>
       <h1 class="page-hero__title">How It Works to Sell Your House <span>As-Is for Cash</span> in Tennessee</h1>
       <p class="page-hero__subtitle">No repairs. No commissions. No stress. Here's exactly what happens when you sell your Tennessee home to us.</p>
       <div class="page-hero__cta-row">
-        <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-primary">Get My Free Cash Offer →</a>
-        <a href="tel:+16155550123" class="btn-outline">Call Us Now</a>
+        <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-primary">Get My Free Cash Offer &rarr;</a>
+        <a href="tel:+16158018126" class="btn-outline">Call Us Now</a>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ── PROOF BAR ── -->
+<div class="proof-bar">
+  <div class="container">
+    <div class="proof-bar__inner">
+      <div class="proof-stat">
+        <div class="proof-stat__num"><span class="count-up" data-target="1200">0</span></div>
+        <div class="proof-stat__label">Homes Purchased</div>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <div class="proof-stat__num">14 Days</div>
+        <div class="proof-stat__label">Average Close Time</div>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <div class="proof-stat__num">$0</div>
+        <div class="proof-stat__label">Agent Fees or Commissions</div>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <div class="proof-stat__num">5.0 &#9733;</div>
+        <div class="proof-stat__label">Google Rating</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ── SECTION 1: HOW IT WORKS INTRO ── -->
 <section class="section section--alt hiw-intro">
@@ -120,8 +147,37 @@ get_header(); ?>
   </div>
 </section>
 
-<!-- ── SECTION 3: WHAT MAKES OUR PROCESS DIFFERENT ── -->
-<section class="section section--alt hiw-different">
+<!-- ── WHAT TO EXPECT AT CLOSING ── -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header section__header--center">
+      <p class="section__eyebrow">Closing Day Details</p>
+      <h2 class="section__title">What to Expect on Closing Day</h2>
+      <p class="section__subtitle">Most closings take less than an hour. Here is exactly what happens once you accept our offer.</p>
+    </div>
+
+    <div class="hiw-closing-grid">
+      <div class="hiw-closing-card">
+        <div class="hiw-closing-num">1</div>
+        <h3 class="hiw-closing-title">Title Company Handles Everything</h3>
+        <p class="hiw-closing-body">A licensed Tennessee title company manages all the paperwork, title search, and legal details. You do not need to hire an attorney or do anything on your own.</p>
+      </div>
+      <div class="hiw-closing-card">
+        <div class="hiw-closing-num">2</div>
+        <h3 class="hiw-closing-title">Review &amp; Sign Documents</h3>
+        <p class="hiw-closing-body">You will review and sign the closing documents. Everything is straightforward and our team will walk you through each page so there are no surprises.</p>
+      </div>
+      <div class="hiw-closing-card">
+        <div class="hiw-closing-num">3</div>
+        <h3 class="hiw-closing-title">Get Paid Immediately</h3>
+        <p class="hiw-closing-body">Once signing is complete, you receive your cash. Funds are typically available the same day via wire transfer or certified check. The amount you were offered is the amount you receive.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT MAKES OUR PROCESS DIFFERENT ── -->
+<section class="section hiw-different">
   <div class="container">
     <div class="section__header section__header--center">
       <h2 class="section__title">What Makes Our Process Different</h2>
@@ -234,8 +290,172 @@ get_header(); ?>
   </div>
 </section>
 
+<!-- ── VIDEO SECTION ── -->
+<section class="section section--alt video-section">
+  <div class="container">
+    <div class="video-section__inner">
+      <div class="video-section__content">
+        <p class="section__eyebrow">See Us in Action</p>
+        <h2 class="video-section__title">
+          <span style="display:block;">Watch How We Help</span>
+          <span style="display:block; white-space:nowrap;" class="video-section__title--green">Tennessee Homeowners</span>
+          <span style="display:block;">Sell Fast for Cash</span>
+        </h2>
+        <p class="video-section__body">Hear directly from homeowners just like you who sold their Tennessee house fast, with no repairs, no fees, and no stress. See exactly what the process looks like from your first call all the way to closing day.</p>
+        <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-primary">Get My Free Cash Offer &rarr;</a>
+      </div>
+      <div class="video-section__media">
+        <div class="video-section__embed">
+          <iframe src="https://www.youtube.com/embed/lG64DriT_PU" title="Tennessee Cash For Homes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="section__header section__header--center">
+      <p class="section__eyebrow">5-Star Google Reviews</p>
+      <h2 class="section__title">What Tennessee Homeowners Are Saying</h2>
+      <p class="section__subtitle">Real reviews from real homeowners who sold their Tennessee houses fast for cash.</p>
+    </div>
+
+    <div class="hiw-testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-body">Such a great group to work with. They were able to give me a fair deal with no hassles. Thank you Karson for going above and beyond.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">TH</div>
+          <div>
+            <div class="testimonial-name">Trish Haberman</div>
+            <div class="testimonial-location">Tennessee</div>
+          </div>
+          <div class="testimonial-google"><svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>Google</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-body">If you need to sell a home quickly, they're professional, fair, and truly care about making things easy for the seller. Highly recommend.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">LD</div>
+          <div>
+            <div class="testimonial-name">Lisa Daniels</div>
+            <div class="testimonial-location">Tennessee</div>
+          </div>
+          <div class="testimonial-google"><svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>Google</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-body">Great experience working with these guys. The whole process went super fast and easy. Both Davis and Dowling were true to their word, which is very important when doing business.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">CP</div>
+          <div>
+            <div class="testimonial-name">Christopher Payne</div>
+            <div class="testimonial-location">Middle Tennessee</div>
+          </div>
+          <div class="testimonial-google"><svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>Google</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-body">These guys were great to work with. Walked me through the whole process step by step. I wouldn't want to sell my house to anyone else! I highly recommend!</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">LB</div>
+          <div>
+            <div class="testimonial-name">Lisa Benning</div>
+            <div class="testimonial-location">Tennessee</div>
+          </div>
+          <div class="testimonial-google"><svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>Google</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-body">They bought my father's rental portfolio! Paid cash and closed on multiple homes in less than 3 weeks. Incredibly smooth from start to finish.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DA</div>
+          <div>
+            <div class="testimonial-name">Dowling Armstrong</div>
+            <div class="testimonial-location">Tennessee</div>
+          </div>
+          <div class="testimonial-google"><svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>Google</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-body">You won't find a better group to do business with. Honest, fast, and easy!</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DH</div>
+          <div>
+            <div class="testimonial-name">Drew Holliday</div>
+            <div class="testimonial-location">Tennessee</div>
+          </div>
+          <div class="testimonial-google"><svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>Google</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMMON SITUATIONS ── -->
+<section class="section section--alt" id="situations">
+  <div class="container">
+    <div class="section__header section__header--center">
+      <p class="section__eyebrow">Whatever Your Situation</p>
+      <h2 class="section__title">This Process Works No Matter Your Situation</h2>
+      <p class="section__subtitle">Whether you are facing a tough situation or simply want a faster, easier way to sell, our process is designed to help.</p>
+    </div>
+    <div class="hiw-situations-grid">
+
+      <a href="<?php echo esc_url( home_url('/sell-my-house-foreclosure-tennessee') ); ?>" class="hiw-situation-card">
+        <div class="hiw-situation-icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><line x1="9" y1="22" x2="9" y2="12"/><line x1="15" y1="22" x2="15" y2="12"/><line x1="9" y1="12" x2="15" y2="12"/></svg></div>
+        <h3 class="hiw-situation-title">Facing Foreclosure</h3>
+        <p class="hiw-situation-desc">We can close fast enough to stop the process and protect your credit.</p>
+      </a>
+
+      <a href="<?php echo esc_url( home_url('/sell-my-house-divorce-tennessee') ); ?>" class="hiw-situation-card">
+        <div class="hiw-situation-icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M12 1v22"/><path d="M5 5l14 14"/><path d="M19 5L5 19"/></svg></div>
+        <h3 class="hiw-situation-title">Going Through Divorce</h3>
+        <p class="hiw-situation-desc">A fast fair sale without months of showings and negotiations.</p>
+      </a>
+
+      <a href="<?php echo esc_url( home_url('/sell-inherited-house-tennessee') ); ?>" class="hiw-situation-card">
+        <div class="hiw-situation-icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3 class="hiw-situation-title">Inherited a Property</h3>
+        <p class="hiw-situation-desc">We buy as-is with contents included and work with probate attorneys.</p>
+      </a>
+
+      <a href="<?php echo esc_url( home_url('/sell-my-house-relocating-tennessee') ); ?>" class="hiw-situation-card">
+        <div class="hiw-situation-icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
+        <h3 class="hiw-situation-title">Relocating or Moving</h3>
+        <p class="hiw-situation-desc">Sell fast and avoid double mortgage payments or carrying costs.</p>
+      </a>
+
+      <a href="<?php echo esc_url( home_url('/sell-house-as-is-tennessee') ); ?>" class="hiw-situation-card">
+        <div class="hiw-situation-icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3 class="hiw-situation-title">Major Repairs Needed</h3>
+        <p class="hiw-situation-desc">We buy houses in any condition. No repairs, no contractors, no hassle.</p>
+      </a>
+
+      <a href="<?php echo esc_url( home_url('/sell-rental-property-tennessee') ); ?>" class="hiw-situation-card">
+        <div class="hiw-situation-icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></div>
+        <h3 class="hiw-situation-title">Tired Landlord</h3>
+        <p class="hiw-situation-desc">We buy rental properties with tenants in place for a fast clean exit.</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
 <!-- ── FAQ ── -->
-<section class="section section--alt" id="faq">
+<section class="section" id="faq">
   <div class="container">
     <div class="section__header section__header--center">
       <p class="section__eyebrow">Got Questions?</p>
@@ -293,6 +513,13 @@ get_header(); ?>
       </div>
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFaq(this)">
+          What if my house has liens or title issues?
+          <div class="faq-icon"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer">We work with experienced title companies who can help resolve liens, judgments, and other title issues. In many cases, these can be cleared at closing using proceeds from the sale. We will walk you through the options.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
           Which areas of Tennessee do you serve?
           <div class="faq-icon"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
         </div>
@@ -317,12 +544,12 @@ get_header(); ?>
 </section>
 
 <script>
+/* Timeline scroll animation */
 (function () {
   if (!window.IntersectionObserver) return;
   var items = document.querySelectorAll('.hiw-timeline-item');
   if (!items.length) return;
 
-  // Set initial hidden state
   items.forEach(function (item) {
     item.classList.add('hiw-step-pre');
   });
@@ -331,13 +558,11 @@ get_header(); ?>
     var observer = new IntersectionObserver(function (entries) {
       if (!entries[0].isIntersecting) return;
 
-      // Draw connecting line from the PREVIOUS step's icon
       if (index > 0) {
         var prevIcon = items[index - 1].querySelector('.hiw-timeline-icon');
         if (prevIcon) prevIcon.classList.add('line-drawn');
       }
 
-      // Fade in this step slightly after the line starts drawing
       var delay = index > 0 ? 300 : 200;
       setTimeout(function () {
         item.classList.add('hiw-step-visible');
@@ -348,6 +573,40 @@ get_header(); ?>
 
     observer.observe(item);
   });
+})();
+
+/* Count-up animation for proof bar */
+(function () {
+  var countEls = document.querySelectorAll('.count-up');
+  if (!countEls.length) return;
+
+  function animateCount(el) {
+    var target = parseInt(el.dataset.target, 10);
+    var duration = 3200;
+    var start = performance.now();
+
+    function step(now) {
+      var elapsed = now - start;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target).toLocaleString() + '+';
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target.toLocaleString() + '+';
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  var countObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        animateCount(entry.target);
+        countObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  countEls.forEach(function (el) { countObserver.observe(el); });
 })();
 </script>
 
