@@ -2843,15 +2843,19 @@ img { display: block; max-width: 100%; }
 .common-situations__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 16px;
+    align-items: stretch;
 }
 .situation-card {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     background: #ffffff;
     border-left: 4px solid #84CC9C;
     border-radius: 12px;
-    padding: 28px;
+    padding: 24px 28px;
+    min-height: auto;
+    height: auto;
     text-decoration: none;
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -2862,14 +2866,14 @@ img { display: block; max-width: 100%; }
     border-color: #5aab78;
 }
 .situation-card__icon {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background: rgba(132, 204, 156, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 .situation-card__title {
     font-size: 18px;
@@ -2878,13 +2882,13 @@ img { display: block; max-width: 100%; }
     margin-bottom: 8px;
 }
 .situation-card__desc {
-    font-size: 15px;
+    font-size: 14px;
     color: #6B7280;
-    line-height: 1.6;
-    margin-bottom: 16px;
-    flex: 1;
+    line-height: 1.5;
+    margin-bottom: 12px;
 }
 .situation-card__link {
+    margin-top: auto;
     font-size: 14px;
     font-weight: 600;
     color: #84CC9C;
