@@ -180,43 +180,61 @@ get_header(); ?>
 <section class="section hiw-different">
   <div class="container">
     <div class="section__header section__header--center">
+      <p class="section__eyebrow">Why Homeowners Choose Us</p>
       <h2 class="section__title">What Makes Our Process Different</h2>
       <p class="section__subtitle">We remove every obstacle between you and a fast home sale in Tennessee.</p>
     </div>
 
-    <div class="hiw-checklist-grid">
-      <div class="hiw-check-item">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-        No repairs needed, sell as-is
+    <div class="hiw-diff-grid">
+
+      <div class="hiw-diff-card">
+        <div class="hiw-diff-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3 class="hiw-diff-title">No Repairs Needed</h3>
+        <p class="hiw-diff-body">Sell your house exactly as it is. We buy homes in any condition — damaged, outdated, or unfinished. You never lift a finger.</p>
       </div>
-      <div class="hiw-check-item">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-        No agent commissions
+
+      <div class="hiw-diff-card">
+        <div class="hiw-diff-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3 class="hiw-diff-title">Zero Commissions or Fees</h3>
+        <p class="hiw-diff-body">No agent commissions, no closing costs, no hidden deductions. The number we offer is the number you receive at closing.</p>
       </div>
-      <div class="hiw-check-item">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-        No cleaning required
+
+      <div class="hiw-diff-card">
+        <div class="hiw-diff-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h3 class="hiw-diff-title">Close on Your Schedule</h3>
+        <p class="hiw-diff-body">Need to close in 7 days? No problem. Need 30 or 60? That works too. You pick the date that fits your life.</p>
       </div>
-      <div class="hiw-check-item">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-        No appraisals required
+
+      <div class="hiw-diff-card">
+        <div class="hiw-diff-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3 class="hiw-diff-title">Local Decision Makers</h3>
+        <p class="hiw-diff-body">We are a family-owned Tennessee business. You talk directly to the people making the decisions — no call centers, no runaround.</p>
       </div>
-      <div class="hiw-check-item">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-        We pay all closing costs
+
+      <div class="hiw-diff-card">
+        <div class="hiw-diff-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3 class="hiw-diff-title">Guaranteed Sale</h3>
+        <p class="hiw-diff-body">No financing contingencies, no buyer backing out at the last minute. When we make an offer and you accept, the sale is happening.</p>
       </div>
-      <div class="hiw-check-item">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-        Flexible closing timeline
+
+      <div class="hiw-diff-card">
+        <div class="hiw-diff-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3 class="hiw-diff-title">No Pressure, Ever</h3>
+        <p class="hiw-diff-body">Our offer comes with zero obligation. Take your time, ask questions, sleep on it. We are here when you are ready — no hard sell.</p>
       </div>
-      <div class="hiw-check-item">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-        Local decision makers, fast answers
-      </div>
-      <div class="hiw-check-item">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-        No obligation cash offer
-      </div>
+
     </div>
   </div>
 </section>

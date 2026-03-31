@@ -1834,10 +1834,57 @@ img { display: block; max-width: 100%; }
   color: var(--green-dark);
 }
 
+/* ── HOW IT WORKS: DIFFERENCE CARDS ── */
+.hiw-diff-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.hiw-diff-card {
+  background: var(--white);
+  border: 1px solid #e8e8e8;
+  border-radius: 14px;
+  padding: 32px 28px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.hiw-diff-card:hover {
+  box-shadow: 0 10px 32px rgba(0,0,0,0.08);
+  transform: translateY(-4px);
+}
+.hiw-diff-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--green-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.hiw-diff-icon svg {
+  color: var(--green-dark);
+}
+.hiw-diff-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin: 0 0 10px;
+}
+.hiw-diff-body {
+  font-size: 0.93rem;
+  color: var(--charcoal-light);
+  line-height: 1.7;
+  margin: 0;
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .hiw-feature-cards { grid-template-columns: 1fr; max-width: 420px; }
   .hiw-checklist-grid { grid-template-columns: 1fr; }
+  .hiw-diff-grid { grid-template-columns: 1fr; max-width: 420px; }
 }
 
 @media (max-width: 640px) {
