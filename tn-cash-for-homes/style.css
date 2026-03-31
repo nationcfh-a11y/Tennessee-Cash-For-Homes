@@ -3208,30 +3208,3 @@ img { display: block; max-width: 100%; }
 }
 
 /* ── Situation CTA ── */
-.sit-cta {
-    background: var(--charcoal);
-    padding: 80px 0;
-}
-.sit-cta__title {
-    font-size: clamp(24px, 3vw, 36px);
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 14px;
-}
-.sit-cta__sub {
-    font-size: 17px;
-    color: rgba(255,255,255,0.75);
-    margin-bottom: 28px;
-}
-.sit-cta__btn {
-    margin-bottom: 16px;
-}
-.sit-cta__phone {
-    font-size: 15px;
-    color: rgba(255,255,255,0.6);
-}
-.sit-cta__phone a {
-    color: #84CC9C;
-    font-weight: 600;
-    text-decoration: none;
-}

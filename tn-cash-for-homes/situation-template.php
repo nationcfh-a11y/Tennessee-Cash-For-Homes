@@ -313,15 +313,7 @@ echo wp_json_encode( array(
   </div>
 </section>
 
-<!-- ── FINAL CTA ── -->
-<section class="sit-cta">
-  <div class="container" style="text-align:center;">
-    <h2 class="sit-cta__title"><?php echo esc_html( $situation_cta_headline ); ?></h2>
-    <p class="sit-cta__sub">Get a fair cash offer in 24 hours. No repairs. No fees. No stress.</p>
-    <a href="/#hero-form" class="btn-primary sit-cta__btn">Get My Free Cash Offer &rarr;</a>
-    <p class="sit-cta__phone">Or call us now: <a href="tel:+16158018126">(615) 801-8126</a></p>
-  </div>
-</section>
+
 
 <script>
 // FAQ Accordion
