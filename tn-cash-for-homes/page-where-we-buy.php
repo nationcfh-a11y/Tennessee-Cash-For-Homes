@@ -476,26 +476,30 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
 
     /* ── 1. Dynamically place county name labels ── */
     function createCountyLabels() {
-      // Remove any existing county labels before adding new ones
-      var existingLabels = svg.querySelectorAll('.county-label');
+      var svgEl = document.querySelector('#tn-county-map') || document.querySelector('.tn-map-svg-wrap svg');
+      if (!svgEl) return;
+
+      // Remove ALL existing labels before creating new ones
+      var existingLabels = svgEl.querySelectorAll('.county-label, text[data-for-county]');
       existingLabels.forEach(function(label) { label.remove(); });
 
       // Remove existing label layer if present
-      var existingLayer = svg.querySelector('.county-labels-layer');
+      var existingLayer = svgEl.querySelector('.county-labels-layer');
       if (existingLayer) existingLayer.remove();
 
       var labelLayer = document.createElementNS('http://www.w3.org/2000/svg', 'g');
       labelLayer.setAttribute('class', 'county-labels-layer');
-      svg.appendChild(labelLayer);
+      svgEl.appendChild(labelLayer);
 
-      var svgCtmInverse = svg.getScreenCTM().inverse();
+      var svgCtmInverse = svgEl.getScreenCTM().inverse();
 
-      svg.querySelectorAll('.county-path').forEach(function (path) {
+      svgEl.querySelectorAll('.county-path').forEach(function (path) {
         var bbox = path.getBBox();
+        if (bbox.width === 0 || bbox.height === 0) return;
         var cx   = bbox.x + bbox.width  / 2;
         var cy   = bbox.y + bbox.height / 2;
 
-        var pt = svg.createSVGPoint();
+        var pt = svgEl.createSVGPoint();
         pt.x = cx;
         pt.y = cy;
         var rootPt = pt.matrixTransform(path.getCTM()).matrixTransform(svgCtmInverse);
@@ -514,18 +518,37 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
         text.setAttribute('fill',             '#555555');
         text.setAttribute('pointer-events',   'none');
         text.setAttribute('class',            'county-label');
+        text.setAttribute('data-for-county',  countyName);
         text.setAttribute('data-for',         path.id);
         text.textContent = countyName;
         labelLayer.appendChild(text);
       });
     }
 
-    createCountyLabels();
+    // Call on initial page load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', createCountyLabels);
+    } else {
+      createCountyLabels();
+    }
 
-    // Re-run label creation when page is restored from bfcache
+    // Handle browser back/forward cache (bfcache)
     window.addEventListener('pageshow', function(event) {
       if (event.persisted) {
         createCountyLabels();
+      }
+    });
+
+    // Handle visibility change for extra safety against duplicates
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'visible') {
+        var svgEl = document.querySelector('#tn-county-map') || document.querySelector('.tn-map-svg-wrap svg');
+        if (!svgEl) return;
+        var labels = svgEl.querySelectorAll('.county-label, text[data-for-county]');
+        var hasDuplicates = labels.length > 95;
+        if (hasDuplicates) {
+          createCountyLabels();
+        }
       }
     });
 
