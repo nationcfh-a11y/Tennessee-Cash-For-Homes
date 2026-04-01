@@ -1350,42 +1350,50 @@ img { display: block; max-width: 100%; }
   background: #84CC9C;
 }
 
-/* Prose ordered list — dark numbered circles */
+/* Prose ordered list — numbered circles */
 .single-post__content.prose ol {
   list-style: none;
   counter-reset: step-counter;
   padding-left: 0;
   margin: 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .single-post__content.prose ol li {
   counter-increment: step-counter;
-  position: relative;
-  padding: 18px 20px 18px 64px;
-  margin-bottom: 12px;
-  background: var(--bg-light);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 20px;
+  margin-bottom: 0;
+  background: var(--white);
+  border: 1px solid var(--border);
   border-radius: 10px;
 }
 .single-post__content.prose ol li::before {
   content: counter(step-counter);
-  position: absolute;
-  left: 16px;
-  top: 16px;
-  width: 32px;
-  height: 32px;
+  flex-shrink: 0;
+  position: static;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: #1a3044;
+  background: #84CC9C;
   color: #fff;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 1px;
 }
 .single-post__content.prose ol li strong {
   display: block;
   color: var(--charcoal);
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
+  font-weight: 700;
   margin-bottom: 2px;
 }
 
@@ -1403,15 +1411,23 @@ img { display: block; max-width: 100%; }
 }
 .blog-steps__list {
   list-style: none;
-  counter-reset: blog-step;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+/* Override prose ol styles for blog-steps */
+.single-post__content.prose .blog-steps__list {
+  counter-reset: none;
+}
+.single-post__content.prose .blog-steps__list .blog-steps__item {
+  counter-increment: none;
+}
+.single-post__content.prose .blog-steps__list .blog-steps__item::before {
+  display: none;
+}
 .blog-steps__item {
-  counter-increment: blog-step;
   display: flex;
   align-items: flex-start;
   gap: 16px;
@@ -1419,17 +1435,13 @@ img { display: block; max-width: 100%; }
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 18px 20px;
-  transition: box-shadow 0.2s;
-}
-.blog-steps__item:hover {
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 .blog-steps__num {
   flex-shrink: 0;
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #1a3044;
+  background: #84CC9C;
   color: #fff;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
