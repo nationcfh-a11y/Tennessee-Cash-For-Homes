@@ -466,6 +466,19 @@ add_filter( 'pre_get_document_title', function( $title ) {
 }, 99 );
 
 /**
+ * Remove first image from single post content (featured image already shown by template).
+ */
+add_filter( 'the_content', function( $content ) {
+    if ( ! is_single() || ! in_the_loop() || ! is_main_query() ) return $content;
+    // Remove the first <figure> containing an <img>, or a standalone <img>
+    $content = preg_replace( '/<figure[^>]*>.*?<img[^>]*>.*?<\/figure>/is', '', $content, 1, $count );
+    if ( ! $count ) {
+        $content = preg_replace( '/<img[^>]*>/i', '', $content, 1 );
+    }
+    return $content;
+} );
+
+/**
  * Register page templates from subfolders
  */
 add_filter( 'theme_page_templates', function( $templates, $theme, $post ) {

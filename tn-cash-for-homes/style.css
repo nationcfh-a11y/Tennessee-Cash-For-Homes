@@ -24,7 +24,7 @@ Version: 1.0
   --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
 }
 
-html { scroll-behavior: smooth; scroll-padding-top: 80px; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 120px; margin: 0; padding: 0; }
 
 body {
   font-family: Tahoma, Geneva, Verdana, sans-serif;
@@ -1326,6 +1326,11 @@ img { display: block; max-width: 100%; }
 
 /* When prose is inside the single-post grid, remove its own max-width */
 .single-post__content.prose { max-width: none; }
+
+/* Hide Jetpack sharing & like buttons on blog posts */
+.single-post .sharedaddy,
+.single-post .sd-sharing-enabled,
+.single-post .sd-like-enabled { display: none !important; }
 
 /* Prose bullet style — orange dots */
 .single-post__content.prose ul { list-style: none; padding-left: 0; margin-left: 0; }
