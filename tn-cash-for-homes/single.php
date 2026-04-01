@@ -275,7 +275,7 @@
           <!-- Free Guide CTA -->
           <div class="sidebar-cta">
             <span class="sidebar-cta__badge">
-              <svg width="18" height="18" fill="none" stroke="#F5A623" stroke-width="2" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              <svg width="18" height="18" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
               FREE GUIDE
             </span>
             <h3 class="sidebar-cta__title">The Homeowner's Guide to Selling Fast in Tennessee</h3>
