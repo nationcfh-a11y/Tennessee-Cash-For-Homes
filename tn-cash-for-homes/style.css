@@ -1350,51 +1350,34 @@ img { display: block; max-width: 100%; }
   background: #84CC9C;
 }
 
-/* Prose ordered list — numbered circles */
+/* Prose ordered list — standard numbered list */
 .single-post__content.prose ol {
   list-style: none;
   counter-reset: step-counter;
   padding-left: 0;
   margin: 0 0 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 .single-post__content.prose ol li {
   counter-increment: step-counter;
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 18px 20px;
-  margin-bottom: 0;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  position: relative;
+  padding: 8px 0 8px 32px;
+  margin-bottom: 6px;
+  line-height: 1.6;
 }
 .single-post__content.prose ol li::before {
-  content: counter(step-counter);
-  flex-shrink: 0;
-  position: static;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #84CC9C;
-  color: #fff;
+  content: counter(step-counter) ".";
+  position: absolute;
+  left: 0;
+  top: 8px;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1px;
+  color: var(--charcoal);
 }
 .single-post__content.prose ol li strong {
-  display: block;
   color: var(--charcoal);
-  font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: 700;
-  margin-bottom: 2px;
 }
 
 /* ── Blog Post Inline How-It-Works Steps ── */
@@ -1409,25 +1392,18 @@ img { display: block; max-width: 100%; }
   color: var(--charcoal);
   margin-bottom: 16px;
 }
-.blog-steps__list {
+.blog-steps ol.blog-steps__list {
   list-style: none;
+  counter-reset: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-/* Override prose ol styles for blog-steps */
-.single-post__content.prose .blog-steps__list {
-  counter-reset: none;
-}
-.single-post__content.prose .blog-steps__list .blog-steps__item {
+.blog-steps ol.blog-steps__list li.blog-steps__item {
   counter-increment: none;
-}
-.single-post__content.prose .blog-steps__list .blog-steps__item::before {
-  display: none;
-}
-.blog-steps__item {
+  position: static;
   display: flex;
   align-items: flex-start;
   gap: 16px;
@@ -1435,6 +1411,10 @@ img { display: block; max-width: 100%; }
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 18px 20px;
+  margin-bottom: 0;
+}
+.blog-steps ol.blog-steps__list li.blog-steps__item::before {
+  display: none;
 }
 .blog-steps__num {
   flex-shrink: 0;

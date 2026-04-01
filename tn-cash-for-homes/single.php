@@ -414,7 +414,6 @@
   if (!content || !tocNav) return;
 
   const headings = content.querySelectorAll('h2');
-  if (!headings.length) return;
 
   headings.forEach(function(h, i) {
     const id = 'section-' + i;
@@ -428,15 +427,25 @@
 
   // Inject "How It Works" steps above the middle of the article
   var stepsEl = document.getElementById('blogSteps');
-  if (stepsEl && headings.length > 2) {
-    var midIndex = Math.floor(headings.length / 2) - 1;
-    if (midIndex < 1) midIndex = 1;
-    var targetH2 = headings[midIndex];
+  if (stepsEl) {
     stepsEl.style.display = '';
-    content.insertBefore(stepsEl, targetH2);
-  } else if (stepsEl && headings.length > 0) {
-    stepsEl.style.display = '';
-    content.insertBefore(stepsEl, headings[headings.length > 1 ? 1 : 0]);
+    if (headings.length >= 4) {
+      // Insert before the heading just above the midpoint
+      var midIndex = Math.floor(headings.length / 2);
+      content.insertBefore(stepsEl, headings[midIndex]);
+    } else if (headings.length >= 2) {
+      // Insert before the 2nd heading
+      content.insertBefore(stepsEl, headings[1]);
+    } else {
+      // Few or no headings — insert after roughly half the child elements
+      var children = content.children;
+      var midChild = Math.floor(children.length / 2);
+      if (midChild < children.length) {
+        content.insertBefore(stepsEl, children[midChild]);
+      } else {
+        content.appendChild(stepsEl);
+      }
+    }
   }
 
   // Inject YouTube video embed after the best heading
