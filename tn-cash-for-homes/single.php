@@ -57,7 +57,14 @@
 
         <!-- Main content -->
         <article class="single-post__content prose" id="post-content">
-          <?php the_content(); ?>
+          <?php
+            // Remove the first image from content (it duplicates the featured image)
+            $post_content = apply_filters( 'the_content', get_the_content() );
+            $post_content = preg_replace( '/<figure[^>]*>.*?<\/figure>/s', '', $post_content, 1 );
+            // Remove embedded CTA section ("Ready to Sell Your Tennessee Home?") from migrated Wix content
+            $post_content = preg_replace( '/<div[^>]*>(\s*<div[^>]*>)*\s*<h2[^>]*>\s*<strong>Ready to Sell Your Tennessee Home\?<\/strong>\s*<\/h2>.*?Get Your Free Cash Offer.*?<\/div>(\s*<\/div>)*/s', '', $post_content );
+            echo $post_content;
+          ?>
         </article>
 
         <!-- Sidebar -->
@@ -121,17 +128,6 @@
       </div>
     </div>
   </div>
-
-  <!-- ── BOTTOM CTA ── -->
-  <section class="single-post__cta">
-    <div class="container">
-      <div class="single-post__cta-box">
-        <h2>Ready to Sell Your Tennessee Home?</h2>
-        <p>Skip the hassle of listing, repairs, and waiting months. Get a fair, no-obligation cash offer within 24 hours.</p>
-        <a href="<?php echo esc_url( home_url( '/#hero-form' ) ); ?>" class="single-post__cta-btn">Get Your Free Cash Offer &rarr;</a>
-      </div>
-    </div>
-  </section>
 
 </main>
 
