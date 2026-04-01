@@ -25,7 +25,7 @@
         <li><a href="<?php echo esc_url( home_url( '/where-we-buy/' ) ); ?>" <?php if ( is_page( 'where-we-buy' ) ) echo 'class="active"'; ?>>Where We Buy</a></li>
         <li><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" <?php if ( is_page( 'about' ) ) echo 'class="active"'; ?>>About</a></li>
         <li><a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>" <?php if ( is_page( 'faq' ) ) echo 'class="active"'; ?>>FAQ</a></li>
-        <li><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" <?php if ( is_home() || is_archive() ) echo 'class="active"'; ?>>Blog</a></li>
+        <li><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" <?php if ( is_home() || is_archive() || is_single() ) echo 'class="active"'; ?>>Blog</a></li>
         <li><a href="<?php echo esc_url( home_url( '/#hero-form' ) ); ?>" class="nav__cta">Get My Cash Offer</a></li>
       </ul>
       <div class="nav__hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
