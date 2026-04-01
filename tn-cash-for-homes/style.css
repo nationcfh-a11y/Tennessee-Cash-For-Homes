@@ -2229,6 +2229,7 @@ div.related-posts,
 .hiw-timeline {
   max-width: 720px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .hiw-timeline-item {
