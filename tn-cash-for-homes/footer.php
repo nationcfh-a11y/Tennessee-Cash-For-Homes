@@ -1,7 +1,8 @@
 <!-- ── FOOTER ── -->
 <footer class="site-footer">
 
-  <!-- Dark CTA -->
+  <!-- Dark CTA (hidden on single blog posts) -->
+  <?php if ( ! is_single() ) : ?>
   <div class="footer-dark-cta">
     <div class="container">
       <p class="footer-dark-cta__label">GET STARTED TODAY</p>
@@ -11,6 +12,7 @@
       <p class="footer-dark-cta__phone">Or call us now: <a href="tel:+16158018126">(615) 801-8126</a></p>
     </div>
   </div>
+  <?php endif; ?>
 
   <div class="footer-divider"></div>
 
