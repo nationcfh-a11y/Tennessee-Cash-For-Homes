@@ -267,6 +267,41 @@
             </p>
           </div>
 
+          <!-- How It Works Steps (injected above middle by JS) -->
+          <div class="blog-steps" id="blogSteps" style="display:none;">
+            <h3 class="blog-steps__title">How It Works</h3>
+            <ol class="blog-steps__list">
+              <li class="blog-steps__item">
+                <span class="blog-steps__num">1</span>
+                <div class="blog-steps__text">
+                  <h4>Contact Us</h4>
+                  <p>Fill out our simple form or call us directly. Tell us about your property and situation.</p>
+                </div>
+              </li>
+              <li class="blog-steps__item">
+                <span class="blog-steps__num">2</span>
+                <div class="blog-steps__text">
+                  <h4>Get Your Offer</h4>
+                  <p>We'll evaluate your home and present a fair, no-obligation cash offer within 24 hours.</p>
+                </div>
+              </li>
+              <li class="blog-steps__item">
+                <span class="blog-steps__num">3</span>
+                <div class="blog-steps__text">
+                  <h4>Choose Your Closing Date</h4>
+                  <p>Accept the offer and pick a closing date that works for your schedule.</p>
+                </div>
+              </li>
+              <li class="blog-steps__item">
+                <span class="blog-steps__num">4</span>
+                <div class="blog-steps__text">
+                  <h4>Get Paid</h4>
+                  <p>Close at a local title company and walk away with cash in hand.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
           <!-- Related Posts with Thumbnails -->
           <div class="related-posts-bottom">
             <h3 class="related-posts-bottom__title">Related Posts</h3>
@@ -390,6 +425,19 @@
     link.className = 'sidebar-toc__link';
     tocNav.appendChild(link);
   });
+
+  // Inject "How It Works" steps above the middle of the article
+  var stepsEl = document.getElementById('blogSteps');
+  if (stepsEl && headings.length > 2) {
+    var midIndex = Math.floor(headings.length / 2) - 1;
+    if (midIndex < 1) midIndex = 1;
+    var targetH2 = headings[midIndex];
+    stepsEl.style.display = '';
+    content.insertBefore(stepsEl, targetH2);
+  } else if (stepsEl && headings.length > 0) {
+    stepsEl.style.display = '';
+    content.insertBefore(stepsEl, headings[headings.length > 1 ? 1 : 0]);
+  }
 
   // Inject YouTube video embed after the best heading
   var videoEl = document.getElementById('videoEmbed');
