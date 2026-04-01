@@ -267,6 +267,42 @@
             </p>
           </div>
 
+          <!-- Related Posts with Thumbnails -->
+          <div class="related-posts-bottom">
+            <h3 class="related-posts-bottom__title">Related Posts</h3>
+            <div class="related-posts-bottom__grid">
+              <?php
+              $related_bottom = new WP_Query( array(
+                'posts_per_page' => 3,
+                'post__not_in'   => array( get_the_ID() ),
+                'category__in'   => wp_get_post_categories( get_the_ID() ),
+                'orderby'        => 'rand',
+              ) );
+              if ( ! $related_bottom->have_posts() ) {
+                $related_bottom = new WP_Query( array(
+                  'posts_per_page' => 3,
+                  'post__not_in'   => array( get_the_ID() ),
+                ) );
+              }
+              while ( $related_bottom->have_posts() ) : $related_bottom->the_post();
+              ?>
+                <a href="<?php the_permalink(); ?>" class="related-posts-bottom__card">
+                  <div class="related-posts-bottom__thumb">
+                    <?php if ( has_post_thumbnail() ) : ?>
+                      <?php the_post_thumbnail( 'medium', array( 'class' => 'related-posts-bottom__img' ) ); ?>
+                    <?php else : ?>
+                      <div class="related-posts-bottom__placeholder"></div>
+                    <?php endif; ?>
+                  </div>
+                  <h4 class="related-posts-bottom__card-title"><?php the_title(); ?></h4>
+                </a>
+              <?php
+              endwhile;
+              wp_reset_postdata();
+              ?>
+            </div>
+          </div>
+
         </article>
 
         <!-- Sidebar -->
