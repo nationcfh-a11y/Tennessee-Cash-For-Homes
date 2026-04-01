@@ -69,85 +69,176 @@
           <?php
             // Map keywords in post titles to the most relevant YouTube video
             $video_map = array(
+              // ── Specific topics (most specific first) ──
+
               // Foreclosure
-              'foreclosure'       => 'IDxGsjY08N0',
+              'foreclosure'       => 'IDxGsjY08N0',  // Top 3 Things If You're Facing Foreclosure
+
               // Liens
-              'lien'              => '9HHtMiOHO6A',
-              // Foundation
-              'foundation'        => 'C8TnMxC2Qc4',
+              'lien'              => '9HHtMiOHO6A',  // Can I Sell My House With a Lien?
+
+              // Foundation / Structural (before 'damage' to prevent wrong match)
+              'foundation'        => 'C8TnMxC2Qc4',  // Selling Your House With Foundation Problems
+              'structural'        => 'C8TnMxC2Qc4',
+
               // Inherited / Probate
-              'inherit'           => 'W7_w-8opgd4',
+              'inherit'           => 'W7_w-8opgd4',  // Inherited Property: Sell, Rent, or Keep?
               'probate'           => 'W7_w-8opgd4',
+
               // Septic
-              'septic'            => 'Qb-0jFgtG-w',
-              // Inspection
-              'inspection'        => '5suLXLUtYJs',
-              'inspect'           => '5suLXLUtYJs',
+              'septic'            => 'Qb-0jFgtG-w',  // Sewer vs Septic System
+
+              // Inspection / Code violations / Unpermitted work
+              'inspection'        => '5suLXLUtYJs',  // What Happens If Your House Fails Inspection?
+              'code violation'    => '5suLXLUtYJs',
+              'unpermitted'       => '5suLXLUtYJs',
+
               // Mobile home
-              'mobile home'       => 'ygFO12fzqKQ',
+              'mobile home'       => 'ygFO12fzqKQ',  // Why Mobile Homes Are Valued DIFFERENT
               'manufactured'      => 'ygFO12fzqKQ',
-              // Land
-              'land'              => 'F11zLCR3l2M',
+
+              // Land (use specific phrases to avoid matching "landscape")
+              'sell land'         => 'F11zLCR3l2M',  // Sell Your Land for Cash
+              'buy land'          => 'F11zLCR3l2M',
+              'your land'         => 'F11zLCR3l2M',
+
               // Realtor / Agent
-              'realtor'           => '72xU0pZ4BtM',
-              'agent'             => '72xU0pZ4BtM',
-              'list with'         => '72xU0pZ4BtM',
+              'realtor'           => '72xU0pZ4BtM',  // Realtor or Cash Buyer?
+              'vs agent'          => 'LUl0b-G4QIQ',  // Sell for Cash or List With an Agent?
+              'vs. agent'         => 'LUl0b-G4QIQ',
+              'direct sale'       => 'LUl0b-G4QIQ',
+
               // MLS
-              'mls'               => 'a3c18Ini_dA',
-              // Appraisal / Value
-              'appraisal'         => '5j9Oiu4tuSs',
-              'zillow'            => 'GUpDj7ZrR6A',
+              'mls'               => 'a3c18Ini_dA',  // Top 5 Reasons Sellers Skip the MLS
+
+              // Zillow / Appraisal / Value
+              'zillow'            => 'GUpDj7ZrR6A',  // Zillow Is Lying About Your Home's Value
+              'zestimate'         => 'GUpDj7ZrR6A',
+              'appraisal'         => '5j9Oiu4tuSs',  // Is Your House Actually Worth the Appraisal Price?
               'home value'        => '5j9Oiu4tuSs',
               'home worth'        => '5j9Oiu4tuSs',
-              // As-is
-              'as-is'             => 'YgRuGOhM8zk',
+
+              // As-Is / Poor condition / Distressed / Ugly / Junk
+              'as-is'             => 'YgRuGOhM8zk',  // Sell Your House As-Is
               'as is'             => 'YgRuGOhM8zk',
-              // Market trends
+              'poor condition'    => 'YgRuGOhM8zk',
+              'distressed'        => 'YgRuGOhM8zk',
+              'ugly house'        => 'YgRuGOhM8zk',
+              'ugly home'         => 'YgRuGOhM8zk',
+              'junk removal'      => 'YgRuGOhM8zk',
+              'vacant house'      => 'YgRuGOhM8zk',
+
+              // Ice storm
+              'ice storm'         => 'sUGAiTM20SE',  // Tennessee Braces for a Historic Ice Storm
+
+              // Hazards (radon, asbestos, carbon monoxide)
+              'carbon monoxide'   => '858IzWw8IHU',  // DO NOT Make This Mistake With Old Houses
+              'radon'             => '858IzWw8IHU',
+              'asbestos'          => '858IzWw8IHU',
+
+              // Market / Interest rates / Seasonal / Cost of living
+              'interest rate'     => '74DTSxQ1uns',  // 2026 Interest Rates Could Flip the Market
+              'cost of living'    => 'b7JS8shRScE',  // Is the TN Housing Market Freezing?
               'market'            => 'b7JS8shRScE',
-              'interest rate'     => '74DTSxQ1uns',
-              // Back taxes
-              'tax'               => '_5GxlxHQ7Rs',
-              // Home improvements
-              'improvement'       => 'NNPUfezM9z0',
+              'season'            => 'b7JS8shRScE',
+
+              // Tax
+              'tax'               => '_5GxlxHQ7Rs',  // Back Taxes Destroying Your Home Sale?
+
+              // Home improvements / Renovation
+              'improvement'       => 'NNPUfezM9z0',  // Top 10 Home Improvements That Boost Value
+              'renovating'        => 'NNPUfezM9z0',
               'renovation'        => 'NNPUfezM9z0',
-              'upgrade'           => '6IrVcW45WnU',
-              'repair'            => 'NNPUfezM9z0',
-              // Nashville
-              'nashville'         => 'tuL8IzAJ5Ac',
-              // Spring Hill
-              'spring hill'       => '4Fsf797FA3w',
-              // Mortgage
-              'mortgage'          => 'c-G5-jta0xc',
-              // Bankruptcy
-              'bankruptcy'        => '9z7igZ_EXOI',
-              // Divorce
-              'divorce'           => 'lG64DriT_PU',
-              // Hoarder
-              'hoarder'           => 'YgRuGOhM8zk',
-              // Water damage / Fire damage
-              'water damage'      => '858IzWw8IHU',
+              'upgrade'           => '6IrVcW45WnU',  // Trim & Door Upgrades That Add Value
+
+              // Locations
+              'nashville'         => 'tuL8IzAJ5Ac',  // Sell House Fast in Nashville
+              'spring hill'       => '4Fsf797FA3w',  // Sell House Fast in Spring Hill
+              'clarksville'       => 'b7JS8shRScE',  // Market video (closest match)
+              'murfreesboro'      => 'sBB5PPFSazU',  // Why TN Cash For Homes Is the Best
+
+              // Mortgage / Loan
+              'mortgage'          => 'c-G5-jta0xc',  // When Do You Stop Paying Mortgage
+              'home loan'         => 'c-G5-jta0xc',
+
+              // Financial situations
+              'bankruptcy'        => '9z7igZ_EXOI',  // This Seller Waited Too Long
+              'financial hardship'=> '9z7igZ_EXOI',
+              'divorce'           => 'lG64DriT_PU',  // Do You Need to Sell Fast?
+              'relocat'           => 'lG64DriT_PU',  // matches relocate, relocating, relocation
+              'downsizing'        => 'lG64DriT_PU',
+
+              // Damage types (tenant damage before generic 'damage')
+              'tenant damage'     => 'u20Simtyhzg',  // 3 Most Important Things for Your Property
+              'tenant'            => 'u20Simtyhzg',
+              'rental property'   => 'u20Simtyhzg',
+              'hoarder'           => 'YgRuGOhM8zk',  // As-Is
+              'water damage'      => '858IzWw8IHU',  // DO NOT Make This Mistake With Old Houses
+              'fire-damaged'      => '858IzWw8IHU',
               'fire damage'       => '858IzWw8IHU',
               'damage'            => '858IzWw8IHU',
+
               // Mold / Lead
               'mold'              => '858IzWw8IHU',
               'lead paint'        => '858IzWw8IHU',
+
               // Squatters
-              'squatter'          => 'BYgds4l58_c',
-              // Lowball / Fair offer
-              'lowball'           => 'PzFyt0EbKsE',
+              'squatter'          => 'BYgds4l58_c',  // Squatters Rights in Tennessee
+
+              // Offers / Fair / Lowball
+              'lowball'           => 'PzFyt0EbKsE',  // Tired of Lowball Offers?
               'fair offer'        => 'PzFyt0EbKsE',
               'fair cash'         => 'PzFyt0EbKsE',
+
               // Walkthrough
-              'walkthrough'       => 'BOBXwRFRX6Y',
-              // How long to sell
-              'how long'          => 'knZptdwZyto',
-              // Cash offer / Cash sale (broad match - keep near bottom)
-              'cash offer'        => '1TA3YAFyHQM',
+              'walkthrough'       => 'BOBXwRFRX6Y',  // Property Walkthrough
+
+              // How long / Timeline
+              'how long'          => 'knZptdwZyto',  // How Long Does It Take to Sell?
+              'timeline'          => 'knZptdwZyto',
+
+              // Subject-to / Owner financing / Promissory
+              'subject-to'        => '6ryN8tqQ5r4',  // What's the Process to Sell for Cash?
+              'subject to'        => '6ryN8tqQ5r4',
+              'owner financing'   => '6ryN8tqQ5r4',
+              'seller financing'  => '6ryN8tqQ5r4',
+              'promissory'        => '6ryN8tqQ5r4',
+              'title transfer'    => '6ryN8tqQ5r4',
+
+              // TN Cash For Homes branding
+              'tennessee cash for homes is' => 'sBB5PPFSazU',  // Why TN Cash For Homes Is the Best
+              'we buy house'      => 'sBB5PPFSazU',
+              'we buy home'       => 'sBB5PPFSazU',
+
+              // Hidden costs / Mistakes
+              'hidden cost'       => 'Xfpv_PyfBjM',  // Top 3 Ways to Get $15,000 More
+              'mistake'           => '1TA3YAFyHQM',  // 5 Things Homeowners Get Wrong
+              'what not to say'   => '1TA3YAFyHQM',
+
+              // ── Broad matches (keep near bottom) ──
+
+              // Cash-related
+              'cash offer'        => '1TA3YAFyHQM',  // 5 Things Every Homeowner Gets Wrong
+              'cash buyer'        => 'wwLeprx8vAA',  // Top 5 Reasons to Sell For Cash
+              'cash home'         => 'wwLeprx8vAA',
               'cash sale'         => '1TA3YAFyHQM',
-              'sell for cash'     => '0ygQa20keYo',
-              'sell your house'   => 'lG64DriT_PU',
+              'for cash'          => '0ygQa20keYo',  // HOW TO SELL YOUR HOUSE FOR CASH
+
+              // Selling variations (broadest - keep at very bottom)
+              'sell your house'   => 'lG64DriT_PU',  // Do You Need to Sell Fast in TN?
               'sell my house'     => 'lG64DriT_PU',
-              'selling'           => '6ryN8tqQ5r4',
+              'sell your home'    => 'lG64DriT_PU',
+              'sell a home'       => 'lG64DriT_PU',
+              'sell a house'      => 'lG64DriT_PU',
+              'sell your property'=> 'lG64DriT_PU',
+              'sell house'        => 'lG64DriT_PU',
+              'how to sell'       => '0ygQa20keYo',  // HOW TO SELL YOUR HOUSE FOR CASH
+              'selling'           => '6ryN8tqQ5r4',  // What's the Process to Sell for Cash?
+              'home sale'         => '6ryN8tqQ5r4',
+              'property sale'     => '6ryN8tqQ5r4',
+              'homebuying'        => 'lG64DriT_PU',  // Do You Need to Sell Fast?
+              'home search'       => 'lG64DriT_PU',
+              'emotional'         => 'lG64DriT_PU',
             );
 
             $post_title = strtolower( get_the_title() );
