@@ -65,6 +65,117 @@
             $post_content = preg_replace( '/<div[^>]*>(\s*<div[^>]*>)*\s*<h2[^>]*>\s*<strong>Ready to Sell Your Tennessee Home\?<\/strong>\s*<\/h2>.*?Get Your Free Cash Offer.*?<\/div>(\s*<\/div>)*/s', '', $post_content );
             echo $post_content;
           ?>
+          <!-- YouTube Video Embed (injected by JS after relevant heading) -->
+          <?php
+            // Map keywords in post titles to the most relevant YouTube video
+            $video_map = array(
+              // Foreclosure
+              'foreclosure'       => 'IDxGsjY08N0',
+              // Liens
+              'lien'              => '9HHtMiOHO6A',
+              // Foundation
+              'foundation'        => 'C8TnMxC2Qc4',
+              // Inherited / Probate
+              'inherit'           => 'W7_w-8opgd4',
+              'probate'           => 'W7_w-8opgd4',
+              // Septic
+              'septic'            => 'Qb-0jFgtG-w',
+              // Inspection
+              'inspection'        => '5suLXLUtYJs',
+              'inspect'           => '5suLXLUtYJs',
+              // Mobile home
+              'mobile home'       => 'ygFO12fzqKQ',
+              'manufactured'      => 'ygFO12fzqKQ',
+              // Land
+              'land'              => 'F11zLCR3l2M',
+              // Realtor / Agent
+              'realtor'           => '72xU0pZ4BtM',
+              'agent'             => '72xU0pZ4BtM',
+              'list with'         => '72xU0pZ4BtM',
+              // MLS
+              'mls'               => 'a3c18Ini_dA',
+              // Appraisal / Value
+              'appraisal'         => '5j9Oiu4tuSs',
+              'zillow'            => 'GUpDj7ZrR6A',
+              'home value'        => '5j9Oiu4tuSs',
+              'home worth'        => '5j9Oiu4tuSs',
+              // As-is
+              'as-is'             => 'YgRuGOhM8zk',
+              'as is'             => 'YgRuGOhM8zk',
+              // Market trends
+              'market'            => 'b7JS8shRScE',
+              'interest rate'     => '74DTSxQ1uns',
+              // Back taxes
+              'tax'               => '_5GxlxHQ7Rs',
+              // Home improvements
+              'improvement'       => 'NNPUfezM9z0',
+              'renovation'        => 'NNPUfezM9z0',
+              'upgrade'           => '6IrVcW45WnU',
+              'repair'            => 'NNPUfezM9z0',
+              // Nashville
+              'nashville'         => 'tuL8IzAJ5Ac',
+              // Spring Hill
+              'spring hill'       => '4Fsf797FA3w',
+              // Mortgage
+              'mortgage'          => 'c-G5-jta0xc',
+              // Bankruptcy
+              'bankruptcy'        => '9z7igZ_EXOI',
+              // Divorce
+              'divorce'           => 'lG64DriT_PU',
+              // Hoarder
+              'hoarder'           => 'YgRuGOhM8zk',
+              // Water damage / Fire damage
+              'water damage'      => '858IzWw8IHU',
+              'fire damage'       => '858IzWw8IHU',
+              'damage'            => '858IzWw8IHU',
+              // Mold / Lead
+              'mold'              => '858IzWw8IHU',
+              'lead paint'        => '858IzWw8IHU',
+              // Squatters
+              'squatter'          => 'BYgds4l58_c',
+              // Lowball / Fair offer
+              'lowball'           => 'PzFyt0EbKsE',
+              'fair offer'        => 'PzFyt0EbKsE',
+              'fair cash'         => 'PzFyt0EbKsE',
+              // Walkthrough
+              'walkthrough'       => 'BOBXwRFRX6Y',
+              // How long to sell
+              'how long'          => 'knZptdwZyto',
+              // Cash offer / Cash sale (broad match - keep near bottom)
+              'cash offer'        => '1TA3YAFyHQM',
+              'cash sale'         => '1TA3YAFyHQM',
+              'sell for cash'     => '0ygQa20keYo',
+              'sell your house'   => 'lG64DriT_PU',
+              'sell my house'     => 'lG64DriT_PU',
+              'selling'           => '6ryN8tqQ5r4',
+            );
+
+            $post_title = strtolower( get_the_title() );
+            $matched_video = 'lG64DriT_PU'; // Default: "Do You Need to Sell Your House Fast for Cash in Tennessee?"
+
+            foreach ( $video_map as $keyword => $vid_id ) {
+              if ( strpos( $post_title, $keyword ) !== false ) {
+                $matched_video = $vid_id;
+                break;
+              }
+            }
+          ?>
+          <div class="video-embed" id="videoEmbed" style="display:none;">
+            <div class="video-embed__wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/<?php echo esc_attr( $matched_video ); ?>?rel=0"
+                title="Tennessee Cash For Homes – Related Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            <p class="video-embed__caption">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Watch: Learn more from Tennessee Cash For Homes on YouTube
+            </p>
+          </div>
+
         </article>
 
         <!-- Sidebar -->
@@ -152,6 +263,41 @@
     link.className = 'sidebar-toc__link';
     tocNav.appendChild(link);
   });
+
+  // Inject YouTube video embed after the best heading
+  var videoEl = document.getElementById('videoEmbed');
+  if (videoEl && headings.length > 1) {
+    var targetHeading = null;
+
+    // Try to find "Understanding Cash Offers" or similar heading
+    for (var j = 0; j < headings.length; j++) {
+      var txt = headings[j].textContent.toLowerCase();
+      if (txt.indexOf('cash offer') !== -1 || txt.indexOf('understanding') !== -1) {
+        targetHeading = headings[j];
+        break;
+      }
+    }
+
+    // Fallback: insert after the 2nd h2 heading
+    if (!targetHeading) {
+      targetHeading = headings[Math.min(1, headings.length - 1)];
+    }
+
+    // Find the next sibling section boundary (next h2 or end of content)
+    // and insert the video just before it
+    var insertBefore = targetHeading.nextElementSibling;
+    // Walk past the heading's related paragraphs/lists to find a good spot
+    while (insertBefore && insertBefore.tagName !== 'H2') {
+      insertBefore = insertBefore.nextElementSibling;
+    }
+
+    videoEl.style.display = '';
+    if (insertBefore) {
+      content.insertBefore(videoEl, insertBefore);
+    } else {
+      content.appendChild(videoEl);
+    }
+  }
 })();
 </script>
 
