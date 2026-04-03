@@ -25,10 +25,12 @@ get_header();
     </p>
 
     <!-- Calendly inline embed -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <div class="calendly-inline-widget"
          data-url="https://calendly.com/nationcfh/call-with-tennessee-cash-for-homes"
          style="min-width: 320px; height: 700px;">
     </div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
 
   </div>
 </main>

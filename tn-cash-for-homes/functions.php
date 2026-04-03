@@ -52,8 +52,6 @@ function tcfh_thank_you_template( $template ) {
     if ( get_query_var( 'tcfh_thank_you' ) ) {
         $thank_you = locate_template( 'page-thank-you.php' );
         if ( $thank_you ) {
-            wp_enqueue_style( 'calendly-widget', 'https://assets.calendly.com/assets/external/widget.css', array(), null );
-            wp_enqueue_script( 'calendly-widget', 'https://assets.calendly.com/assets/external/widget.js', array(), null, true );
             return $thank_you;
         }
     }
