@@ -35,15 +35,40 @@ function tcfh_enqueue_assets() {
 add_action( 'wp_enqueue_scripts', 'tcfh_enqueue_assets' );
 
 /**
- * Enqueue Calendly widget assets on the Thank You page only.
+ * Register /thank-you/ route so it works without a WP Page in the database.
  */
-function tcfh_enqueue_calendly() {
-    if ( is_page( 'thank-you' ) ) {
-        wp_enqueue_style( 'calendly-widget', 'https://assets.calendly.com/assets/external/widget.css', array(), null );
-        wp_enqueue_script( 'calendly-widget', 'https://assets.calendly.com/assets/external/widget.js', array(), null, true );
-    }
+function tcfh_thank_you_rewrite() {
+    add_rewrite_rule( '^thank-you/?$', 'index.php?tcfh_thank_you=1', 'top' );
 }
-add_action( 'wp_enqueue_scripts', 'tcfh_enqueue_calendly' );
+add_action( 'init', 'tcfh_thank_you_rewrite' );
+
+function tcfh_thank_you_query_var( $vars ) {
+    $vars[] = 'tcfh_thank_you';
+    return $vars;
+}
+add_filter( 'query_vars', 'tcfh_thank_you_query_var' );
+
+function tcfh_thank_you_template( $template ) {
+    if ( get_query_var( 'tcfh_thank_you' ) ) {
+        $thank_you = locate_template( 'page-thank-you.php' );
+        if ( $thank_you ) {
+            wp_enqueue_style( 'calendly-widget', 'https://assets.calendly.com/assets/external/widget.css', array(), null );
+            wp_enqueue_script( 'calendly-widget', 'https://assets.calendly.com/assets/external/widget.js', array(), null, true );
+            return $thank_you;
+        }
+    }
+    return $template;
+}
+add_filter( 'template_include', 'tcfh_thank_you_template' );
+
+/**
+ * Flush rewrite rules on theme switch so the /thank-you/ route registers.
+ */
+function tcfh_flush_rewrites() {
+    tcfh_thank_you_rewrite();
+    flush_rewrite_rules();
+}
+add_action( 'after_switch_theme', 'tcfh_flush_rewrites' );
 
 /**
  * Output AJAX config inline (no jQuery dependency).
