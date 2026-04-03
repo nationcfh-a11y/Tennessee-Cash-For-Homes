@@ -186,9 +186,7 @@
 
       if (!data.success) throw new Error(data.data?.error || 'Submission failed');
 
-      btn.textContent = '\u2714 Request Received! We\'ll call you shortly.';
-      btn.style.background = '#3d8c5e';
-      form.reset();
+      window.location.href = '/thank-you/';
     } catch (err) {
       console.error(err);
       btn.textContent = 'Something went wrong. Please call us directly.';
@@ -262,6 +260,37 @@
     function resetTimer() { clearInterval(autoTimer); startTimer(); }
 
     startTimer();
+  })();
+
+  // ── Review Expand / Collapse ──
+  (function () {
+    document.querySelectorAll('.testimonial-card').forEach(function (card) {
+      var body = card.querySelector('.testimonial-body');
+      if (!body) return;
+
+      var btn = document.createElement('button');
+      btn.className = 'testimonial-toggle hidden';
+      btn.textContent = 'View Full Review';
+      body.insertAdjacentElement('afterend', btn);
+
+      function checkClamp() {
+        card.classList.remove('expanded');
+        btn.textContent = 'View Full Review';
+        if (body.scrollHeight > body.clientHeight + 1) {
+          btn.classList.remove('hidden');
+        } else {
+          btn.classList.add('hidden');
+        }
+      }
+
+      checkClamp();
+      window.addEventListener('resize', checkClamp);
+
+      btn.addEventListener('click', function () {
+        var isExpanded = card.classList.toggle('expanded');
+        btn.textContent = isExpanded ? 'Show Less' : 'View Full Review';
+      });
+    });
   })();
 
   // ── Count-Up Animation ──
