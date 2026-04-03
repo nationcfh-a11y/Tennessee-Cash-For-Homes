@@ -6,19 +6,66 @@
 get_header(); ?>
 
 <!-- ── PAGE HERO ── -->
-<section class="page-hero">
+<section class="hero" id="hero-form">
   <div class="container">
-    <div class="page-hero__inner">
-      <nav class="breadcrumb">
-        <a href="<?php echo esc_url( home_url('/') ); ?>">Home</a>
-        <span>›</span>
-        <span>How It Works</span>
-      </nav>
-      <h1 class="page-hero__title">How It Works to Sell Your House <span>As-Is for Cash</span> in Tennessee</h1>
-      <p class="page-hero__subtitle">No repairs. No commissions. No stress. Here's exactly what happens when you sell your Tennessee home to us.</p>
-      <div class="page-hero__cta-row">
-        <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-primary">Get My Free Cash Offer &rarr;</a>
-        <a href="tel:+16158018126" class="btn-outline">Call Us Now</a>
+    <div class="hero__inner">
+      <div class="hero__content">
+        <nav class="breadcrumb">
+          <a href="<?php echo esc_url( home_url('/') ); ?>">Home</a>
+          <span>›</span>
+          <span>How It Works</span>
+        </nav>
+        <h1 class="hero__title">
+          <span class="hero__title--white">How It Works to Sell Your House</span>
+          <span class="hero__title--green"> As-Is for Cash in Tennessee</span>
+        </h1>
+        <p class="hero__subtitle">No repairs. No commissions. No stress. Here's exactly what happens when you sell your Tennessee home to us.</p>
+        <div class="hero__trust-row">
+          <span class="hero__trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="#84CC9C" stroke-width="2"/>
+              <path d="M8 12l3 3 5-5" stroke="#84CC9C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            No Agent Fees
+          </span>
+          <span class="hero__trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="#84CC9C" stroke-width="2"/>
+              <path d="M8 12l3 3 5-5" stroke="#84CC9C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Close in 7 Days
+          </span>
+          <span class="hero__trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="#84CC9C" stroke-width="2"/>
+              <path d="M8 12l3 3 5-5" stroke="#84CC9C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Any Condition
+          </span>
+        </div>
+      </div>
+
+      <div class="hero__form-card" id="get-offer">
+        <h2 class="form-card__title">Get Your Free Cash Offer</h2>
+        <p class="form-card__sub">Takes less than 60 seconds. No obligation.</p>
+        <form id="leadForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="hiw-address">Property Address</label>
+            <input type="text" id="hiw-address" name="address" placeholder="123 Main St, Nashville, TN" required />
+          </div>
+          <div class="form-group">
+            <label for="hiw-name">Your Name</label>
+            <input type="text" id="hiw-name" name="name" placeholder="John Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="hiw-phone">Phone Number</label>
+            <input type="tel" id="hiw-phone" name="phone" placeholder="(615) 555-0123" required />
+          </div>
+          <button type="submit" class="btn-primary btn-primary--block">
+            Get My Cash Offer &rarr;
+          </button>
+        </form>
+        <p class="form-disclaimer">&#128274; Your info is private and never shared.</p>
       </div>
     </div>
   </div>
