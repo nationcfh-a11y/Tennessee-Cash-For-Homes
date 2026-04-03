@@ -1,12 +1,11 @@
 <?php
-/**
+/*
  * Template Name: Thank You
- * Page slug: thank-you
  */
 get_header();
 ?>
 
-<main class="thank-you-page">
+<main class="thank-you-page" style="min-height: 60vh;">
   <div class="container" style="max-width: 800px; margin: 0 auto; padding: 80px 24px 0;">
 
     <!-- Green checkmark -->
@@ -26,8 +25,6 @@ get_header();
     </p>
 
     <!-- Calendly inline embed -->
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <div class="calendly-inline-widget"
          data-url="https://calendly.com/nationcfh/call-with-tennessee-cash-for-homes"
          style="min-width: 320px; height: 700px;">

@@ -35,6 +35,17 @@ function tcfh_enqueue_assets() {
 add_action( 'wp_enqueue_scripts', 'tcfh_enqueue_assets' );
 
 /**
+ * Enqueue Calendly widget assets on the Thank You page only.
+ */
+function tcfh_enqueue_calendly() {
+    if ( is_page( 'thank-you' ) ) {
+        wp_enqueue_style( 'calendly-widget', 'https://assets.calendly.com/assets/external/widget.css', array(), null );
+        wp_enqueue_script( 'calendly-widget', 'https://assets.calendly.com/assets/external/widget.js', array(), null, true );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'tcfh_enqueue_calendly' );
+
+/**
  * Output AJAX config inline (no jQuery dependency).
  */
 add_action( 'wp_head', function() {
