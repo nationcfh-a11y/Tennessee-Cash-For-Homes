@@ -41,7 +41,7 @@
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "47"
+      "reviewCount": "53"
     }
   }
   </script>
