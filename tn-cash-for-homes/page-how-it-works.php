@@ -742,19 +742,6 @@ get_header(); ?>
   </div>
 </section>
 
-<!-- ── BOTTOM CTA ── -->
-<section class="section hiw-bottom-cta">
-  <div class="container">
-    <div class="hiw-bottom-cta__inner">
-      <h2 class="hiw-bottom-cta__title">Ready to Get Your Free Cash Offer?</h2>
-      <p class="hiw-bottom-cta__sub">It takes less than 60 seconds to get started. No commitment, no pressure, just a fair cash offer from a trusted local Tennessee buyer.</p>
-      <div class="hiw-bottom-cta__buttons">
-        <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-primary">Get My Free Cash Offer &rarr;</a>
-        <a href="tel:+16158018126" class="btn-outline">Call (615) 801-8126</a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <script>
 /* Timeline scroll animation */
