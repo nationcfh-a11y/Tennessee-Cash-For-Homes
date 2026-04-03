@@ -150,6 +150,81 @@ img { display: block; max-width: 100%; }
   transform: translateY(-1px);
 }
 
+/* ── Resources dropdown ── */
+.nav__dropdown {
+  position: relative;
+}
+
+.nav__dropdown-toggle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--color-dark);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  transition: color var(--transition);
+}
+
+.nav__dropdown-toggle:hover { color: var(--color-primary-dark); }
+
+.nav__dropdown-toggle::after { display: none !important; }
+
+.nav__dropdown-arrow {
+  transition: transform var(--transition);
+}
+
+.nav__dropdown.open .nav__dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.nav__dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.1);
+  list-style: none;
+  padding: 8px 0;
+  min-width: 200px;
+  z-index: 1001;
+}
+
+.nav__dropdown.open .nav__dropdown-menu {
+  display: block;
+}
+
+.nav__dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  white-space: nowrap;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-dark);
+  transition: background .15s, color .15s;
+}
+
+.nav__dropdown-menu a::after { display: none !important; }
+
+.nav__dropdown-menu a:hover,
+.nav__dropdown-menu a:focus {
+  background: var(--color-bg, #f8f8f8);
+  color: var(--color-primary-dark);
+}
+
+.nav__dropdown-menu a.active {
+  color: var(--color-primary-dark);
+}
+
 .nav__hamburger {
   display: none;
   flex-direction: column;
@@ -1679,6 +1754,15 @@ img { display: block; max-width: 100%; }
     gap: 16px;
   }
   .nav__links a::after { display: none; }
+  .nav__dropdown-menu {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: 4px 0 0 16px;
+    min-width: auto;
+  }
   .nav__hamburger { display: flex; }
   .nav { position: fixed; }
   .hero { padding: 80px 0 48px; }
