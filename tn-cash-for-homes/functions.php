@@ -210,6 +210,122 @@ add_action( 'wp_ajax_tcfh_submit_lead',        'tcfh_handle_submit_lead' );
 add_action( 'wp_ajax_nopriv_tcfh_submit_lead', 'tcfh_handle_submit_lead' );
 
 /**
+ * AJAX handler for investor (buyers list) form submission.
+ */
+function tcfh_handle_submit_investor() {
+    check_ajax_referer( 'tcfh_submit_lead', 'nonce' );
+
+    $name     = sanitize_text_field( $_POST['name'] ?? '' );
+    $email    = sanitize_email( $_POST['email'] ?? '' );
+    $phone    = sanitize_text_field( $_POST['phone'] ?? '' );
+    $market   = sanitize_text_field( $_POST['market'] ?? '' );
+    $strategy = sanitize_text_field( $_POST['strategy'] ?? '' );
+    $notes    = sanitize_textarea_field( $_POST['notes'] ?? '' );
+
+    if ( ! $name || ! $email || ! $phone || ! $market || ! $strategy ) {
+        wp_send_json_error( array( 'error' => 'Please fill in all required fields.' ), 422 );
+    }
+
+    $api_token  = defined( 'AIRTABLE_API_TOKEN' ) ? AIRTABLE_API_TOKEN : '';
+    $base_id    = defined( 'AIRTABLE_BASE_ID' )    ? AIRTABLE_BASE_ID   : '';
+
+    if ( ! $api_token || ! $base_id ) {
+        wp_send_json_error( array( 'error' => 'CRM configuration missing.' ), 500 );
+    }
+
+    $response = wp_remote_post(
+        'https://api.airtable.com/v0/' . $base_id . '/' . rawurlencode( 'Investors' ),
+        array(
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $api_token,
+                'Content-Type'  => 'application/json',
+            ),
+            'body'    => wp_json_encode( array(
+                'records' => array(
+                    array(
+                        'fields' => array(
+                            'Name'             => $name,
+                            'Email'            => $email,
+                            'Phone'            => $phone,
+                            'Preferred Market' => $market,
+                            'Strategy'         => $strategy,
+                            'Notes'            => $notes,
+                            'Submitted At'     => current_time( 'c' ),
+                        ),
+                    ),
+                ),
+            ) ),
+            'timeout' => 15,
+        )
+    );
+
+    if ( is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) >= 300 ) {
+        wp_send_json_error( array( 'error' => 'CRM submission failed.' ), 500 );
+    }
+
+    wp_send_json_success( array( 'message' => 'Investor request received!' ) );
+}
+add_action( 'wp_ajax_tcfh_submit_investor',        'tcfh_handle_submit_investor' );
+add_action( 'wp_ajax_nopriv_tcfh_submit_investor', 'tcfh_handle_submit_investor' );
+
+/**
+ * AJAX handler for lender (private money) form submission.
+ */
+function tcfh_handle_submit_lender() {
+    check_ajax_referer( 'tcfh_submit_lead', 'nonce' );
+
+    $name   = sanitize_text_field( $_POST['name'] ?? '' );
+    $email  = sanitize_email( $_POST['email'] ?? '' );
+    $phone  = sanitize_text_field( $_POST['phone'] ?? '' );
+    $budget = sanitize_text_field( $_POST['budget'] ?? '' );
+    $notes  = sanitize_textarea_field( $_POST['notes'] ?? '' );
+
+    if ( ! $name || ! $email || ! $phone || ! $budget ) {
+        wp_send_json_error( array( 'error' => 'Please fill in all required fields.' ), 422 );
+    }
+
+    $api_token  = defined( 'AIRTABLE_API_TOKEN' ) ? AIRTABLE_API_TOKEN : '';
+    $base_id    = defined( 'AIRTABLE_BASE_ID' )    ? AIRTABLE_BASE_ID   : '';
+
+    if ( ! $api_token || ! $base_id ) {
+        wp_send_json_error( array( 'error' => 'CRM configuration missing.' ), 500 );
+    }
+
+    $response = wp_remote_post(
+        'https://api.airtable.com/v0/' . $base_id . '/' . rawurlencode( 'Lenders' ),
+        array(
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $api_token,
+                'Content-Type'  => 'application/json',
+            ),
+            'body'    => wp_json_encode( array(
+                'records' => array(
+                    array(
+                        'fields' => array(
+                            'Name'           => $name,
+                            'Email'          => $email,
+                            'Phone'          => $phone,
+                            'Budget'         => $budget,
+                            'Notes'          => $notes,
+                            'Submitted At'   => current_time( 'c' ),
+                        ),
+                    ),
+                ),
+            ) ),
+            'timeout' => 15,
+        )
+    );
+
+    if ( is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) >= 300 ) {
+        wp_send_json_error( array( 'error' => 'CRM submission failed.' ), 500 );
+    }
+
+    wp_send_json_success( array( 'message' => 'Lender request received!' ) );
+}
+add_action( 'wp_ajax_tcfh_submit_lender',        'tcfh_handle_submit_lender' );
+add_action( 'wp_ajax_nopriv_tcfh_submit_lender', 'tcfh_handle_submit_lender' );
+
+/**
  * ── SEO: Meta description, Open Graph, Twitter Card, Canonical ──
  */
 add_action( 'wp_head', 'tcfh_seo_meta_tags', 1 );
