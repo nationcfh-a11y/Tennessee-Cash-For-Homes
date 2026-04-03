@@ -170,29 +170,25 @@
     btn.textContent = 'Sending\u2026';
     btn.disabled = true;
 
-    try {
-      const formData = new FormData();
-      formData.append('action',    'tcfh_submit_lead');
-      formData.append('nonce',     (typeof tcfh_ajax !== 'undefined') ? tcfh_ajax.nonce : '');
-      formData.append('name',      form.name.value.trim());
-      formData.append('phone',     form.phone.value.trim());
-      formData.append('address',   form.address.value.trim());
-      const ajaxUrl = (typeof tcfh_ajax !== 'undefined')
-        ? tcfh_ajax.ajax_url
-        : '/wp-admin/admin-ajax.php';
+    const formData = new FormData();
+    formData.append('action',    'tcfh_submit_lead');
+    formData.append('nonce',     (typeof tcfh_ajax !== 'undefined') ? tcfh_ajax.nonce : '');
+    formData.append('name',      form.name.value.trim());
+    formData.append('phone',     form.phone.value.trim());
+    formData.append('address',   form.address.value.trim());
+    const ajaxUrl = (typeof tcfh_ajax !== 'undefined')
+      ? tcfh_ajax.ajax_url
+      : '/wp-admin/admin-ajax.php';
 
+    try {
       const res  = await fetch(ajaxUrl, { method: 'POST', body: formData });
       const data = await res.json();
-
-      if (!data.success) throw new Error(data.data?.error || 'Submission failed');
-
-      window.location.href = '/thank-you/';
+      if (!data.success) console.error('Lead submission error:', data.data?.error);
     } catch (err) {
-      console.error(err);
-      btn.textContent = 'Something went wrong. Please call us directly.';
-      btn.style.background = '#c0392b';
-      btn.disabled = false;
+      console.error('Lead submission failed:', err);
     }
+
+    window.location.href = '/thank-you/';
   }
 
   // Smooth nav highlight on scroll

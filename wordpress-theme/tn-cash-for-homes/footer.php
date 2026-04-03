@@ -231,38 +231,25 @@
       submitBtn.textContent = 'Sending\u2026';
       submitBtn.disabled = true;
 
+      const fd = new FormData();
+      fd.append('action', 'tcfh_submit_lead');
+      fd.append('nonce', (typeof tcfh_ajax !== 'undefined') ? tcfh_ajax.nonce : '');
+
+      // Append all form data
+      Object.keys(formData).forEach(key => fd.append(key, formData[key]));
+
+      const ajaxUrl = (typeof tcfh_ajax !== 'undefined') ? tcfh_ajax.ajax_url : '/wp-admin/admin-ajax.php';
+
       try {
-        const fd = new FormData();
-        fd.append('action', 'tcfh_submit_lead');
-        fd.append('nonce', (typeof tcfh_ajax !== 'undefined') ? tcfh_ajax.nonce : '');
-
-        // Append all form data
-        Object.keys(formData).forEach(key => fd.append(key, formData[key]));
-
-        const ajaxUrl = (typeof tcfh_ajax !== 'undefined') ? tcfh_ajax.ajax_url : '/wp-admin/admin-ajax.php';
         const res = await fetch(ajaxUrl, { method: 'POST', body: fd });
         const data = await res.json();
-
-        if (!data.success) throw new Error(data.data?.error || 'Submission failed');
-
-        // Show success
-        sessionStorage.removeItem('msfStep');
-        form.querySelectorAll('.msf-step').forEach(s => { s.classList.remove('active'); s.style.display = 'none'; });
-        const successStep = form.querySelector('[data-step="success"]');
-        successStep.style.display = 'block';
-        successStep.classList.add('active');
-
-        const firstName = name.split(' ')[0];
-        document.getElementById('msfFirstName').textContent = firstName;
-
-        // Hide progress
-        document.querySelector('.msf-progress').style.display = 'none';
+        if (!data.success) console.error('Lead submission error:', data.data?.error);
       } catch (err) {
-        console.error(err);
-        submitBtn.textContent = 'Something went wrong. Please call us at (615) 801-8126';
-        submitBtn.style.background = '#dc2626';
-        submitBtn.disabled = false;
+        console.error('Lead submission failed:', err);
       }
+
+      sessionStorage.removeItem('msfStep');
+      window.location.href = '/thank-you/';
     });
   })();
 
