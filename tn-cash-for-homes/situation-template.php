@@ -180,6 +180,11 @@ get_header();
         <div class="reviews-slide">
           <div class="testimonial-card">
             <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testimonial-body">Great company to work with, these guys actually care about you and will take care of you. Great character as well!</p>
+            <div class="testimonial-author"><div class="testimonial-avatar">NK</div><div><div class="testimonial-name">Nathan Krager</div><div class="testimonial-location">Tennessee</div></div></div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p class="testimonial-body">Such a great group to work with. They were able to give me a fair deal with no hassles. Thank you Karson for going above and beyond.</p>
             <div class="testimonial-author"><div class="testimonial-avatar">TH</div><div><div class="testimonial-name">Trish Haberman</div><div class="testimonial-location">Tennessee</div></div></div>
           </div>
@@ -187,11 +192,6 @@ get_header();
             <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p class="testimonial-body">These guys were absolutely amazing. I sold my house without having to do a single repair and they even helped me find my next place to live!</p>
             <div class="testimonial-author"><div class="testimonial-avatar">CD</div><div><div class="testimonial-name">Clayton Daniels</div><div class="testimonial-location">Tennessee</div></div></div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testimonial-body">Had a great experience with these guys. Very experienced and I would definitely work with them again!</p>
-            <div class="testimonial-author"><div class="testimonial-avatar">SS</div><div><div class="testimonial-name">Sam Skare</div><div class="testimonial-location">Tennessee</div></div></div>
           </div>
         </div>
         <div class="reviews-slide">
@@ -202,13 +202,13 @@ get_header();
           </div>
           <div class="testimonial-card">
             <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testimonial-body">Great experience working with these guys. Both Davis and Dowling were true to their word. I would work with them again any day.</p>
-            <div class="testimonial-author"><div class="testimonial-avatar">CP</div><div><div class="testimonial-name">Christopher Payne</div><div class="testimonial-location">Middle Tennessee</div></div></div>
+            <p class="testimonial-body">Nothing but a great experience start to finish. All of my questions were answered and they were quick to respond when needed.</p>
+            <div class="testimonial-author"><div class="testimonial-avatar">CI</div><div><div class="testimonial-name">Chris Iannotti</div><div class="testimonial-location">Tennessee</div></div></div>
           </div>
           <div class="testimonial-card">
             <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testimonial-body">The best to work with yet. Answered every question and very supportive! 10/10 recommend.</p>
-            <div class="testimonial-author"><div class="testimonial-avatar">KB</div><div><div class="testimonial-name">Kelsie Balfour</div><div class="testimonial-location">Tennessee</div></div></div>
+            <p class="testimonial-body">Really enjoyed working with Tennessee Cash For Homes. They helped me sell my house in Clarksville fast for cash! Highly recommend working with them.</p>
+            <div class="testimonial-author"><div class="testimonial-avatar">JP</div><div><div class="testimonial-name">John Peterson</div><div class="testimonial-location">Clarksville, TN</div></div></div>
           </div>
         </div>
       </div>
