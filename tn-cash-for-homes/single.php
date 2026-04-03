@@ -343,15 +343,15 @@
         <!-- Sidebar -->
         <aside class="single-post__sidebar">
 
-          <!-- Free Guide CTA -->
+          <!-- Cash Offer CTA -->
           <div class="sidebar-cta">
             <span class="sidebar-cta__badge">
-              <svg width="18" height="18" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-              FREE GUIDE
+              <svg width="18" height="18" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              FREE OFFER
             </span>
-            <h3 class="sidebar-cta__title">The Homeowner's Guide to Selling Fast in Tennessee</h3>
-            <p class="sidebar-cta__text">Learn the exact steps to get top dollar for your home &mdash; without the stress.</p>
-            <a href="<?php echo esc_url( home_url( '/#hero-form' ) ); ?>" class="sidebar-cta__btn">Download Free Guide &rarr;</a>
+            <h3 class="sidebar-cta__title">Get a Free Cash Offer on Your Tennessee Home</h3>
+            <p class="sidebar-cta__text">No repairs. No fees. No obligation. Find out what your home is worth in as little as 24 hours.</p>
+            <a href="<?php echo esc_url( home_url( '/#hero-form' ) ); ?>" class="sidebar-cta__btn">Get My Cash Offer &rarr;</a>
           </div>
 
           <!-- Related Articles -->
