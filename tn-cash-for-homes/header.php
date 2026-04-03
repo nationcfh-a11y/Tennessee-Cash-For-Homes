@@ -31,7 +31,7 @@
             <li role="none"><a role="menuitem" href="<?php echo esc_url( home_url( '/about/' ) ); ?>" <?php if ( is_page( 'about' ) ) echo 'class="active"'; ?>>About</a></li>
             <li role="none"><a role="menuitem" href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" <?php if ( is_home() || is_archive() || is_single() ) echo 'class="active"'; ?>>Blog</a></li>
             <li role="none"><a role="menuitem" href="<?php echo esc_url( home_url( '/facing-foreclosure/' ) ); ?>" <?php if ( is_page( 'facing-foreclosure' ) ) echo 'class="active"'; ?>>Facing Foreclosure</a></li>
-            <li role="none"><a role="menuitem" href="<?php echo esc_url( home_url( '/investors-and-lenders/' ) ); ?>" <?php if ( is_page( 'investors-and-lenders' ) ) echo 'class="active"'; ?>>Investors &amp; Lenders</a></li>
+            <li role="none"><a role="menuitem" href="<?php echo esc_url( home_url( '/investors/' ) ); ?>" <?php if ( is_page( 'investors' ) ) echo 'class="active"'; ?>>Investors &amp; Lenders</a></li>
           </ul>
         </li>
         <li><a href="<?php echo esc_url( home_url( '/#hero-form' ) ); ?>" class="nav__cta">Get My Cash Offer</a></li>
