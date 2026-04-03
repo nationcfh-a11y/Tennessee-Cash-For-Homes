@@ -3312,37 +3312,23 @@ div.related-posts,
   height: 36px;
 }
 
-/* How It Works BBB bar */
-.hiw-bbb-bar {
-  background: #f8f8f8;
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
-  padding: 20px 0;
+/* How It Works hero BBB badge */
+.hero__bbb-badge {
+  margin-top: 12px;
 }
-.hiw-bbb-bar__inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
+.hero__bbb-badge .bbb-seal img {
+  height: 38px;
+  width: auto;
+  opacity: 0.85;
+  transition: opacity 0.2s;
 }
-.hiw-bbb-bar__label {
-  font-size: 0.875rem;
-  color: #666;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+.hero__bbb-badge .bbb-seal img:hover {
+  opacity: 1;
 }
 
 @media (max-width: 640px) {
-  .hero__trust-item .bbb-seal img {
+  .hero__bbb-badge .bbb-seal img {
     height: 32px;
-  }
-  .bbb-seal img {
-    height: 36px;
-  }
-  .hiw-bbb-bar__inner {
-    flex-direction: column;
-    gap: 10px;
   }
 }
 

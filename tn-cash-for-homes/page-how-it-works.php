@@ -43,6 +43,9 @@ get_header(); ?>
             Any Condition
           </span>
         </div>
+        <div class="hero__bbb-badge">
+          <a href='https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick' target='_blank' rel='nofollow' class='bbb-seal'><img src='https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png' style='border: 0;' alt='Tennessee Cash For Homes BBB Business Review' width='200' height='42' loading='lazy' decoding='async' /></a>
+        </div>
       </div>
 
       <div class="hero__form-card" id="get-offer">
@@ -130,7 +133,7 @@ get_header(); ?>
           <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
         <h3 class="hiw-feature-title">No Pressure</h3>
-        <p class="hiw-feature-body">Our offer is yours to consider — no obligation, no deadline, no stress.</p>
+        <p class="hiw-feature-body">Our offer is yours to consider with no obligation, no deadline, and no stress.</p>
       </div>
     </div>
   </div>
@@ -239,7 +242,7 @@ get_header(); ?>
           <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
         </div>
         <h3 class="hiw-diff-title">No Repairs Needed</h3>
-        <p class="hiw-diff-body">Sell your house exactly as it is. We buy homes in any condition — damaged, outdated, or unfinished. You never lift a finger.</p>
+        <p class="hiw-diff-body">Sell your house exactly as it is. We buy homes in any condition, whether damaged, outdated, or unfinished. You never lift a finger.</p>
       </div>
 
       <div class="hiw-diff-card">
@@ -263,7 +266,7 @@ get_header(); ?>
           <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </div>
         <h3 class="hiw-diff-title">Local Decision Makers</h3>
-        <p class="hiw-diff-body">We are a family-owned Tennessee business. You talk directly to the people making the decisions — no call centers, no runaround.</p>
+        <p class="hiw-diff-body">We are a family-owned Tennessee business. You talk directly to the people making the decisions, not call centers or runarounds.</p>
       </div>
 
       <div class="hiw-diff-card">
@@ -279,22 +282,12 @@ get_header(); ?>
           <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
         <h3 class="hiw-diff-title">No Pressure, Ever</h3>
-        <p class="hiw-diff-body">Our offer comes with zero obligation. Take your time, ask questions, sleep on it. We are here when you are ready — no hard sell.</p>
+        <p class="hiw-diff-body">Our offer comes with zero obligation. Take your time, ask questions, sleep on it. We are here when you are ready. No hard sell, ever.</p>
       </div>
 
     </div>
   </div>
 </section>
-
-<!-- ── BBB TRUST BAR ── -->
-<div class="hiw-bbb-bar">
-  <div class="container">
-    <div class="hiw-bbb-bar__inner">
-      <span class="hiw-bbb-bar__label">Accredited Business</span>
-      <a href='https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick' target='_blank' rel='nofollow' class='bbb-seal'><img src='https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png' style='border: 0;' alt='Tennessee Cash For Homes BBB Business Review' width='200' height='42' loading='lazy' decoding='async' /></a>
-    </div>
-  </div>
-</div>
 
 <!-- ── COMPARISON TABLE ── -->
 <section class="section">
@@ -650,6 +643,24 @@ get_header(); ?>
         <div class="hiw-situation-icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></div>
         <h3 class="hiw-situation-title">Tired Landlord</h3>
         <p class="hiw-situation-desc">We buy rental properties with tenants in place for a fast clean exit.</p>
+      </a>
+
+      <a href="<?php echo esc_url( home_url('/sell-house-behind-on-taxes-tennessee') ); ?>" class="hiw-situation-card">
+        <div class="hiw-situation-icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
+        <h3 class="hiw-situation-title">Behind On Taxes</h3>
+        <p class="hiw-situation-desc">Owing back taxes doesn't have to mean losing your home. We can close fast and help you resolve the situation.</p>
+      </a>
+
+      <a href="<?php echo esc_url( home_url('/sell-my-house-downsizing-tennessee') ); ?>" class="hiw-situation-card">
+        <div class="hiw-situation-icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3 class="hiw-situation-title">Downsizing</h3>
+        <p class="hiw-situation-desc">Ready for a simpler life? We make it easy to sell quickly so you can move into something that fits your next chapter.</p>
+      </a>
+
+      <a href="<?php echo esc_url( home_url('/sell-house-probate-tennessee') ); ?>" class="hiw-situation-card">
+        <div class="hiw-situation-icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <h3 class="hiw-situation-title">Probate Sale</h3>
+        <p class="hiw-situation-desc">Navigating probate is stressful enough. We work with probate attorneys and buy as-is so you can settle the estate quickly.</p>
       </a>
 
     </div>
