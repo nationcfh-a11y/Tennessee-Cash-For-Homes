@@ -26,7 +26,8 @@ $ms = $ms_all[ $ms_slug ];
     </div>
     <p class="market-overview__intro"><?php echo esc_html( $ms['intro'] ); ?></p>
 
-    <div class="market-overview__grid">
+    <!-- Top row: 4 cards -->
+    <div class="market-overview__grid market-overview__grid--top">
 
       <!-- 1. Median Home Price -->
       <div class="market-card">
@@ -72,6 +73,11 @@ $ms = $ms_all[ $ms_slug ];
         <p class="market-card__context"><?php echo esc_html( $ms['ctx_foreclosure'] ); ?></p>
       </div>
 
+    </div><!-- /.market-overview__grid--top -->
+
+    <!-- Bottom row: 3 cards, centered -->
+    <div class="market-overview__grid market-overview__grid--bottom">
+
       <!-- 5. Property Tax Rate -->
       <div class="market-card">
         <div class="market-card__icon">
@@ -79,6 +85,10 @@ $ms = $ms_all[ $ms_slug ];
         </div>
         <div class="market-card__value"><?php echo esc_html( $ms['property_tax_rate'] ); ?></div>
         <div class="market-card__label">Property Tax Rate</div>
+        <div class="market-card__trend market-card__trend--<?php echo $ms['tax_vs_avg_direction'] === 'below' ? 'up' : 'down'; ?>">
+          <?php echo $ms['tax_vs_avg_direction'] === 'below' ? '&#9660;' : '&#9650;'; ?>
+          <?php echo esc_html( $ms['tax_vs_avg'] ); ?>
+        </div>
         <p class="market-card__context"><?php echo esc_html( $ms['ctx_tax'] ); ?></p>
       </div>
 
@@ -89,6 +99,10 @@ $ms = $ms_all[ $ms_slug ];
         </div>
         <div class="market-card__value"><?php echo esc_html( $ms['population'] ); ?></div>
         <div class="market-card__label">Population (<?php echo $ms['pop_growth'] === 'growing' ? 'Growing' : 'Declining'; ?>)</div>
+        <div class="market-card__trend market-card__trend--<?php echo esc_attr( $ms['pop_change_direction'] ); ?>">
+          <?php echo $ms['pop_change_direction'] === 'up' ? '&#9650;' : '&#9660;'; ?>
+          <?php echo esc_html( $ms['pop_change'] ); ?>
+        </div>
         <p class="market-card__context"><?php echo esc_html( $ms['ctx_population'] ); ?></p>
       </div>
 
@@ -99,10 +113,14 @@ $ms = $ms_all[ $ms_slug ];
         </div>
         <div class="market-card__value"><?php echo esc_html( $ms['median_income'] ); ?></div>
         <div class="market-card__label">Median Household Income</div>
+        <div class="market-card__trend market-card__trend--<?php echo esc_attr( $ms['income_change_direction'] ); ?>">
+          <?php echo $ms['income_change_direction'] === 'up' ? '&#9650;' : '&#9660;'; ?>
+          <?php echo esc_html( $ms['income_change'] ); ?>
+        </div>
         <p class="market-card__context"><?php echo esc_html( $ms['ctx_income'] ); ?></p>
       </div>
 
-    </div><!-- /.market-overview__grid -->
+    </div><!-- /.market-overview__grid--bottom -->
 
     <p class="market-overview__closing"><?php echo esc_html( $ms['closing'] ); ?></p>
 
@@ -169,8 +187,17 @@ $ms = $ms_all[ $ms_slug ];
 }
 .market-overview__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  margin-bottom: 20px;
+}
+.market-overview__grid--top {
+  grid-template-columns: repeat(4, 1fr);
+}
+.market-overview__grid--bottom {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 75%;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 40px;
 }
 .market-card {
@@ -244,13 +271,17 @@ $ms = $ms_all[ $ms_slug ];
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
-  .market-overview__grid {
+  .market-overview__grid--top,
+  .market-overview__grid--bottom {
     grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
   }
 }
 @media (max-width: 600px) {
-  .market-overview__grid {
+  .market-overview__grid--top,
+  .market-overview__grid--bottom {
     grid-template-columns: 1fr;
+    max-width: 100%;
   }
   .market-card__value {
     font-size: 1.35rem;
