@@ -50,6 +50,10 @@ $ms = $ms_all[ $ms_slug ];
         </div>
         <div class="market-card__value"><?php echo esc_html( $ms['avg_dom'] ); ?> Days</div>
         <div class="market-card__label">Avg Days on Market</div>
+        <div class="market-card__trend market-card__trend--<?php echo $ms['dom_change_direction'] === 'down' ? 'up' : 'down'; ?>">
+          <?php echo $ms['dom_change_direction'] === 'up' ? '&#9650;' : '&#9660;'; ?>
+          <?php echo esc_html( $ms['dom_change'] ); ?>
+        </div>
         <p class="market-card__context"><?php echo esc_html( $ms['ctx_dom'] ); ?></p>
       </div>
 
@@ -60,6 +64,10 @@ $ms = $ms_all[ $ms_slug ];
         </div>
         <div class="market-card__value"><?php echo esc_html( $ms['homes_sold_12mo'] ); ?></div>
         <div class="market-card__label">Homes Sold (12 Months)</div>
+        <div class="market-card__trend market-card__trend--<?php echo esc_attr( $ms['sold_change_direction'] ); ?>">
+          <?php echo $ms['sold_change_direction'] === 'up' ? '&#9650;' : '&#9660;'; ?>
+          <?php echo esc_html( $ms['sold_change'] ); ?>
+        </div>
         <p class="market-card__context"><?php echo esc_html( $ms['ctx_sold'] ); ?></p>
       </div>
 
@@ -70,6 +78,10 @@ $ms = $ms_all[ $ms_slug ];
         </div>
         <div class="market-card__value"><?php echo esc_html( $ms['foreclosure_rate'] ); ?></div>
         <div class="market-card__label">Foreclosure Rate</div>
+        <div class="market-card__trend market-card__trend--<?php echo $ms['foreclosure_vs_avg_direction'] === 'below' ? 'up' : 'down'; ?>">
+          <?php echo $ms['foreclosure_vs_avg_direction'] === 'below' ? '&#9660;' : '&#9650;'; ?>
+          <?php echo esc_html( $ms['foreclosure_vs_avg'] ); ?>
+        </div>
         <p class="market-card__context"><?php echo esc_html( $ms['ctx_foreclosure'] ); ?></p>
       </div>
 
