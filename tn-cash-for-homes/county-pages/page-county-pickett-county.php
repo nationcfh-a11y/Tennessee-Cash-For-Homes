@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Byrdstown', 'slug' => 'byrdstown', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Is it possible to sell a home quickly in Tennessee\'s smallest counties like Pickett County?', 'a' => 'Pickett County has a very small population, which makes traditional home sales extremely difficult. We buy homes directly for cash in Byrdstown and throughout Pickett County, eliminating the need to wait months or years for a buyer.'],
+        ['q' => 'Do you buy properties near Dale Hollow Lake in Pickett County?', 'a' => 'Yes. Dale Hollow Lake is Pickett County\'s biggest attraction. We buy lakefront homes, cabins, and all types of properties in the Dale Hollow area.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

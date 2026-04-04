@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Livingston', 'slug' => 'livingston', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Livingston or Hilham in Overton County?', 'a' => 'Yes. We buy homes throughout Overton County including Livingston, Hilham, and all surrounding communities. Rural properties and in-town homes are equally welcome.'],
+        ['q' => 'Can I sell a property in Overton County near Standing Stone State Park?', 'a' => 'We buy properties throughout Overton County including areas near Standing Stone State Park and Dale Hollow Lake. We purchase homes in any condition.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Selmer', 'slug' => 'selmer', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Selmer or Adamsville in McNairy County?', 'a' => 'Yes. We buy homes throughout McNairy County including Selmer, Adamsville, and Michie. We are experienced with properties in this part of Southwest Tennessee.'],
+        ['q' => 'Can I sell a property in McNairy County that is in a remote location?', 'a' => 'We buy properties in remote areas of McNairy County. Gravel roads, long driveways, and distance from town do not prevent us from making you an offer.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

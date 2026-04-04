@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Waverly', 'slug' => 'waverly', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Waverly or New Johnsonville in Humphreys County?', 'a' => 'Yes. We buy homes throughout Humphreys County including Waverly, New Johnsonville, and McEwen. We are familiar with the area and provide fair cash offers.'],
+        ['q' => 'Can I sell a flood-damaged home in Humphreys County?', 'a' => 'Humphreys County experienced devastating flooding in recent years. We buy flood-damaged homes as-is in Waverly and throughout the county. You do not need to make any repairs.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

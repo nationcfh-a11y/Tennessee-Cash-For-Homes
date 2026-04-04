@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Johnson City', 'slug' => 'johnson-city', 'has_page' => false],
         ['name' => 'Jonesborough', 'slug' => 'jonesborough', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Johnson City or Jonesborough in Washington County?', 'a' => 'Yes. We buy homes throughout Washington County including Johnson City, Jonesborough (Tennessee\'s oldest town), and all surrounding areas. We are active in the Tri-Cities market.'],
+        ['q' => 'Can I sell a historic home in Jonesborough in Washington County?', 'a' => 'We buy historic homes in Jonesborough and throughout Washington County. You do not need to worry about restoration costs or historic district regulations when selling to us.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Covington', 'slug' => 'covington', 'has_page' => false],
         ['name' => 'Munford', 'slug' => 'munford', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Covington, Munford, or Atoka in Tipton County?', 'a' => 'Yes. We buy homes throughout Tipton County including Covington, Munford, Atoka, Brighton, and Mason. We are active in the Memphis suburban market.'],
+        ['q' => 'Is Tipton County growing enough to support strong home values?', 'a' => 'Tipton County has benefited from Memphis suburban growth, particularly in Atoka and Munford. Our cash offers reflect the area\'s strong and increasing demand.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Maynardville', 'slug' => 'maynardville', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Maynardville or Luttrell in Union County?', 'a' => 'Yes. We buy homes throughout Union County including Maynardville and Luttrell. Rural properties and homes near Norris Lake are all ones we purchase.'],
+        ['q' => 'Can I sell a property near Norris Lake in Union County?', 'a' => 'We buy properties near Norris Lake and throughout Union County. Lake homes, cabins, and residential properties in any condition are welcome.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

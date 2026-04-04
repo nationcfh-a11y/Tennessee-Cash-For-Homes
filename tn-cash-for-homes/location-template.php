@@ -257,6 +257,13 @@ include get_template_directory() . '/who-we-help-section.php';
   </div>
 </section>
 
+<?php
+// ── FAQ Section
+$faq_name  = $name;
+$faq_extra = ! empty( $city['faq_extra'] ) ? $city['faq_extra'] : [];
+include get_template_directory() . '/faq-section.php';
+?>
+
 <!-- ── AREAS WE SERVE ── -->
 <section class="section section--alt">
   <div class="container">

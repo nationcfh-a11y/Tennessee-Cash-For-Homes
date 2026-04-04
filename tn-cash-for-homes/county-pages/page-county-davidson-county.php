@@ -25,6 +25,11 @@ $county = [
         ['name' => 'Antioch',     'slug' => 'antioch',     'has_page' => true],
         ['name' => 'Old Hickory', 'slug' => 'old-hickory', 'has_page' => true],
     ],
+    'faq_extra'    => [
+        ['q' => 'How does Nashville\'s competitive market in Davidson County affect your cash offers?', 'a' => 'Davidson County is one of Tennessee\'s hottest real estate markets. Our cash offers reflect current Nashville market conditions. Selling to us means you avoid months of showings, inspections, and buyer negotiations while still receiving a fair offer.'],
+        ['q' => 'Do you buy investment properties or rentals in Davidson County?', 'a' => 'Yes. We buy all types of properties in Davidson County including rental homes, multi-family units, and investment properties — whether they are occupied or vacant, performing or distressed.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

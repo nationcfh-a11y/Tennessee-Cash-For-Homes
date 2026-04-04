@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Huntingdon', 'slug' => 'huntingdon', 'has_page' => false],
         ['name' => 'McKenzie', 'slug' => 'mckenzie', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Huntingdon or McKenzie in Carroll County?', 'a' => 'Yes. We purchase homes throughout Carroll County including Huntingdon, McKenzie, Hollow Rock, and all surrounding areas. We are familiar with the local market and provide fair cash offers.'],
+        ['q' => 'Can I sell a mobile home on land in Carroll County?', 'a' => 'We buy mobile homes on owned land in Carroll County. Whether it is a single-wide or double-wide, we will evaluate the property and make you a cash offer.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

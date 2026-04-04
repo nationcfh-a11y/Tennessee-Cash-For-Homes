@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Sparta', 'slug' => 'sparta', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Sparta or Doyle in White County?', 'a' => 'Yes. We buy homes throughout White County including Sparta, Doyle, and all surrounding communities. We are familiar with the Cumberland Plateau market.'],
+        ['q' => 'Can I sell a property in White County near Burgess Falls or the Calfkiller River?', 'a' => 'We buy properties throughout White County including those near Burgess Falls State Park and along the Calfkiller River. Location and condition do not matter.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

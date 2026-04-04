@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Waynesboro', 'slug' => 'waynesboro', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Waynesboro or Clifton in Wayne County?', 'a' => 'Yes. We buy homes throughout Wayne County including Waynesboro, Clifton, and all surrounding communities along the Tennessee River. Rural and remote properties are welcome.'],
+        ['q' => 'Can I sell a hunting property or cabin in Wayne County?', 'a' => 'We buy hunting properties, cabins, and recreational land in Wayne County. Whether it is a seasonal cabin or a year-round home, we will make you a cash offer.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

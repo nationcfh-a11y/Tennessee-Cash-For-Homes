@@ -25,6 +25,11 @@ $county = [
         ['name' => 'Cowan', 'slug' => 'cowan', 'has_page' => false],
         ['name' => 'Decherd', 'slug' => 'decherd', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Winchester or Cowan in Franklin County?', 'a' => 'Yes. We buy homes throughout Franklin County including Winchester, Cowan, Decherd, and Huntland. All property conditions and types are welcome.'],
+        ['q' => 'Can I sell a property in Franklin County near Tims Ford Lake?', 'a' => 'Absolutely. Tims Ford Lake properties in Franklin County are among those we purchase. Whether it is a lakefront home or a property nearby, we will make you a cash offer.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

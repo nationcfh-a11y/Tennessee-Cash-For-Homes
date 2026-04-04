@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Erwin', 'slug' => 'erwin', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Erwin or near the Appalachian Trail in Unicoi County?', 'a' => 'Yes. We buy homes throughout Unicoi County including Erwin and areas near the Appalachian Trail and Unaka Mountains. Mountain properties in any condition are welcome.'],
+        ['q' => 'Can I sell a home in Unicoi County after a natural disaster or landslide?', 'a' => 'Unicoi County\'s mountain terrain can make properties vulnerable to flooding and landslides. We buy damaged properties as-is and handle all the complications so you do not have to.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

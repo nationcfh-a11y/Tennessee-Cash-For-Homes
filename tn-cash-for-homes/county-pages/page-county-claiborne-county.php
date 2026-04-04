@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Tazewell', 'slug' => 'tazewell', 'has_page' => false],
         ['name' => 'Harrogate', 'slug' => 'harrogate', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Tazewell or New Tazewell in Claiborne County?', 'a' => 'Yes. We buy homes throughout Claiborne County including Tazewell, New Tazewell, Cumberland Gap, and Harrogate. No matter the location or condition, we are interested in making you an offer.'],
+        ['q' => 'Can I sell an inherited property in Claiborne County that needs major repairs?', 'a' => 'We regularly buy inherited properties in Claiborne County that need significant work. You do not need to make any repairs. We buy as-is and can work with you through probate if needed.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

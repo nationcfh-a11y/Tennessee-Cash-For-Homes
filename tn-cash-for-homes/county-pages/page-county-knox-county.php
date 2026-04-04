@@ -25,6 +25,11 @@ $county = [
         ['name' => 'Farragut', 'slug' => 'farragut', 'has_page' => false],
         ['name' => 'Powell', 'slug' => 'powell', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'How does Knoxville\'s real estate market in Knox County affect your offers?', 'a' => 'Knox County and Knoxville have a strong and growing real estate market. Our cash offers are based on current market conditions and comparable sales in the area. You get a fair offer without the hassle of listing, staging, and waiting for buyers.'],
+        ['q' => 'Do you buy homes near the University of Tennessee in Knox County?', 'a' => 'Yes. We buy homes in all Knoxville neighborhoods including the UT campus area, West Knoxville, South Knoxville, Farragut, and Powell. Student housing, rental properties, and family homes are all welcome.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Loudon', 'slug' => 'loudon', 'has_page' => false],
         ['name' => 'Lenoir City', 'slug' => 'lenoir-city', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes near Tellico Lake or Fort Loudoun Lake in Loudon County?', 'a' => 'Yes. Loudon County has extensive lakefront along Tellico Lake and Fort Loudoun Lake. We buy lake homes, retirement properties, and all residential properties in Loudon, Lenoir City, and Greenback.'],
+        ['q' => 'Can I sell a retirement home in Tellico Village in Loudon County?', 'a' => 'We buy homes in Tellico Village and other Loudon County communities. Whether you are downsizing, relocating, or handling an estate, we make the process simple and fast.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

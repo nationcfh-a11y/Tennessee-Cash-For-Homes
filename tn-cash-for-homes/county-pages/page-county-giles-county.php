@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Pulaski', 'slug' => 'pulaski', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Pulaski or other towns in Giles County?', 'a' => 'Yes. We buy homes throughout Giles County including Pulaski, Lynnville, Elkton, and Minor Hill. Town or country, we purchase properties in any condition.'],
+        ['q' => 'Can I sell a historic home in Giles County?', 'a' => 'We buy historic homes in Giles County regardless of the restoration work they may need. You do not need to worry about historic preservation requirements when selling to us.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

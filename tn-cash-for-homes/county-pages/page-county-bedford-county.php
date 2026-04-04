@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Shelbyville', 'slug' => 'shelbyville', 'has_page' => true],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in the Shelbyville area of Bedford County?', 'a' => 'Absolutely. Shelbyville is the county seat and we actively purchase homes throughout Shelbyville and all of Bedford County. Whether your home is in town or on a rural lot, we will make you a fair cash offer.'],
+        ['q' => 'Can I sell a horse farm or property with acreage in Bedford County?', 'a' => 'Yes. Bedford County is known as the Walking Horse Capital of the World, and we buy all types of properties including farms, homes with acreage, and equestrian properties. We handle the complexity so you do not have to.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

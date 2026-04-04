@@ -20,6 +20,11 @@ $city = [
     'desc1'         => 'Nestled in the foothills of the Smoky Mountains, Knoxville is a beautiful city with a growing real estate market. Whether you\'re dealing with foreclosure, downsizing, or relocating, Tennessee Cash For Homes offers cash offers for homes in Knoxville that make the selling process easy. We buy homes in any condition, from older properties needing extensive repairs to newer homes in great shape. Our streamlined process allows you to sell quickly without the hassle of listing with an agent.',
     'desc2'         => 'Knoxville homeowners looking to sell quickly can rely on Tennessee Cash For Homes for a stress-free selling experience. We understand the local market and are prepared to make you an offer that allows you to sell your Knoxville home fast. Our team handles all aspects of the transaction, from the initial offer to closing, ensuring a smooth and efficient process. With no agent fees or commissions, you keep more of your money while still selling your home in a timely manner.',
     'land_para'     => 'Knoxville offers a unique blend of urban amenities and outdoor adventure, making land in and around the city highly desirable. Whether your property is near downtown, close to the Smoky Mountains, or in a growing suburban area, there\'s demand for land in Knoxville. However, selling land without the right connections can be a slow and frustrating process. Tennessee Cash For Homes provides a direct path to sell your Knoxville land for cash — fast, fair, and without agent fees or complicated paperwork.',
+    'faq_extra'    => [
+        ['q' => 'How does Knoxville\'s real estate market compare for cash home sales?', 'a' => 'Knoxville has a strong and growing real estate market with rising property values across most neighborhoods. Our cash offers reflect current Knoxville market conditions. You skip the listing hassle while still getting a competitive price.'],
+        ['q' => 'Do you buy homes near the University of Tennessee or in West Knoxville?', 'a' => 'Yes. We buy homes in all Knoxville areas including near UT campus, West Knoxville, South Knoxville, Farragut, and Powell. Student housing, investment properties, and family homes are all welcome.'],
+    ],
+
 ];
 
 include( get_template_directory() . '/location-template.php' );

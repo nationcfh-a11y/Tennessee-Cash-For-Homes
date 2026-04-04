@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Dresden', 'slug' => 'dresden', 'has_page' => false],
         ['name' => 'Martin', 'slug' => 'martin', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Martin, Dresden, or Greenfield in Weakley County?', 'a' => 'Yes. We purchase homes throughout Weakley County including Martin (home of UT Martin), Dresden, and Greenfield. Student housing and family homes are all welcome.'],
+        ['q' => 'Can I sell a property near UT Martin in Weakley County?', 'a' => 'We buy properties near the University of Tennessee at Martin campus and throughout Weakley County. Investment properties, rentals, and owner-occupied homes are all ones we purchase.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

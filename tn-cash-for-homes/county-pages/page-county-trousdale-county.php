@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Hartsville', 'slug' => 'hartsville', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Hartsville or rural Trousdale County?', 'a' => 'Yes. Trousdale County is Tennessee\'s smallest county by area but we buy homes throughout including Hartsville. Small county size does not affect our ability to make fair cash offers.'],
+        ['q' => 'Is Trousdale County close enough to Nashville for good property values?', 'a' => 'Trousdale County is within commuting distance of Nashville and has seen increasing interest from Nashville-area buyers. Our offers reflect this growing connection to the metro area.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

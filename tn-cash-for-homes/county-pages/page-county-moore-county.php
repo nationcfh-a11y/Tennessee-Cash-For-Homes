@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Lynchburg', 'slug' => 'lynchburg', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Lynchburg or rural Moore County?', 'a' => 'Yes. Moore County is Tennessee\'s smallest county and we buy homes in Lynchburg and throughout the county. Small market size does not affect our ability to make you a fair cash offer.'],
+        ['q' => 'Can I sell a property in Moore County near the Jack Daniel\'s Distillery?', 'a' => 'We buy properties throughout Moore County including Lynchburg. Whether your home is near the famous distillery or in the surrounding countryside, we are interested.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

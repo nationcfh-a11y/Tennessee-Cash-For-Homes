@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Crossville', 'slug' => 'crossville', 'has_page' => true],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy retirement or second homes in Cumberland County?', 'a' => 'Yes. Cumberland County — especially the Crossville and Fairfield Glade areas — is popular with retirees. We buy primary residences, second homes, and retirement properties throughout the county.'],
+        ['q' => 'Can I sell a home in a Crossville golf community in Cumberland County?', 'a' => 'Absolutely. We purchase homes in Crossville\'s planned communities and golf neighborhoods. HOA properties are no problem, and we handle all the details of the sale.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

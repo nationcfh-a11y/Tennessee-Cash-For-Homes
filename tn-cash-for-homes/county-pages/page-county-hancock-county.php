@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Sneedville', 'slug' => 'sneedville', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Sneedville or rural areas of Hancock County?', 'a' => 'Yes. Hancock County is one of Tennessee\'s most rural counties and we buy properties throughout including Sneedville. Distance from a major city does not affect our ability to purchase your home.'],
+        ['q' => 'Can I sell a property in Hancock County if I cannot afford to maintain it?', 'a' => 'Many homeowners in Hancock County sell to us because maintaining a property has become too costly. We buy homes as-is so you can walk away without spending another dollar on upkeep.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Lebanon',   'slug' => 'lebanon',   'has_page' => true],
         ['name' => 'Mt. Juliet', 'slug' => 'mt-juliet', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Is Wilson County part of the Nashville metro for property values?', 'a' => 'Yes. Wilson County — including Lebanon, Mt. Juliet, and Watertown — is one of Nashville\'s fastest-growing suburban counties. Our cash offers reflect strong Nashville-area demand and current market conditions.'],
+        ['q' => 'Do you buy homes in Mt. Juliet or Providence in Wilson County?', 'a' => 'We buy homes throughout Wilson County including Mt. Juliet, Lebanon, Watertown, and the Providence master-planned community. New construction and older homes are all welcome.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

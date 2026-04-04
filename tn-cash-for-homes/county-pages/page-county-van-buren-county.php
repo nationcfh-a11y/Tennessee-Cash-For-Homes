@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Spencer', 'slug' => 'spencer', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Spencer or rural Van Buren County?', 'a' => 'Yes. Van Buren County is one of Tennessee\'s least populated counties and we buy homes in Spencer and throughout the county. We specialize in helping homeowners who struggle to sell in small markets.'],
+        ['q' => 'Can I sell a property near Fall Creek Falls in Van Buren County?', 'a' => 'We buy properties near Fall Creek Falls State Park and throughout Van Buren County. Whether it is a home, cabin, or rural property, we will make you a cash offer.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Jasper', 'slug' => 'jasper', 'has_page' => false],
         ['name' => 'South Pittsburg', 'slug' => 'south-pittsburg', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Jasper, Kimball, or South Pittsburg in Marion County?', 'a' => 'Yes. We buy homes throughout Marion County including Jasper, Kimball, South Pittsburg, and Whitwell. All property conditions are welcome.'],
+        ['q' => 'Can I sell a property in Marion County near the Tennessee River Gorge?', 'a' => 'We buy properties throughout Marion County including those near the Tennessee River Gorge and Nickajack Lake. Mountain and riverside properties are all ones we purchase.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

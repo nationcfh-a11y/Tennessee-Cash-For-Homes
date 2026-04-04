@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Woodbury', 'slug' => 'woodbury', 'has_page' => true],
     ],
+    'faq_extra'    => [
+        ['q' => 'Is it hard to sell a home in a small county like Cannon County?', 'a' => 'Selling on the traditional market in a small county like Cannon County can be challenging due to limited buyer demand. That is where we come in. We buy homes directly for cash in Woodbury and throughout Cannon County, eliminating the uncertainty of waiting for a buyer.'],
+        ['q' => 'Do you buy homes with well water and septic systems in Cannon County?', 'a' => 'Yes. Many rural Cannon County homes use well water and septic systems. We buy these properties regardless of the condition of the well or septic system.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

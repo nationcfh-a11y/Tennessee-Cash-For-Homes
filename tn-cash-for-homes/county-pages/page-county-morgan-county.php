@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Wartburg', 'slug' => 'wartburg', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Wartburg or Sunbright in Morgan County?', 'a' => 'Yes. We buy homes throughout Morgan County including Wartburg, Sunbright, Oakdale, and Deer Lodge. All property types and conditions are welcome.'],
+        ['q' => 'Can I sell a home in Morgan County if the property has no city utilities?', 'a' => 'We buy homes in Morgan County with well water, septic systems, and no city utility access. Off-grid and rural properties are no problem for our team.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

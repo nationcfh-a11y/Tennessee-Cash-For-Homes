@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Dover', 'slug' => 'dover', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy properties near Land Between the Lakes in Stewart County?', 'a' => 'Yes. Stewart County borders the Land Between the Lakes National Recreation Area and we buy homes, cabins, and properties throughout the county including Dover and Indian Mound.'],
+        ['q' => 'Can I sell a seasonal property or hunting cabin in Stewart County?', 'a' => 'We buy seasonal homes, hunting cabins, and recreational properties in Stewart County. Whether used part-time or fully vacant, we will make you a cash offer.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

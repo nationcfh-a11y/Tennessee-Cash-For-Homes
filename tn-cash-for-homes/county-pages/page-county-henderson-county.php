@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Lexington', 'slug' => 'lexington', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Lexington or other towns in Henderson County?', 'a' => 'Yes. We buy homes throughout Henderson County including Lexington, Sardis, Scotts Hill, and Parker\'s Crossroads. All property types and conditions are welcome.'],
+        ['q' => 'Can I sell a home in Henderson County without a real estate agent?', 'a' => 'That is exactly what we offer. When you sell to Tennessee Cash For Homes in Henderson County, there is no agent involved. You deal directly with us, saving you thousands in commissions.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

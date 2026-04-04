@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Rogersville', 'slug' => 'rogersville', 'has_page' => false],
         ['name' => 'Church Hill', 'slug' => 'church-hill', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Rogersville or Church Hill in Hawkins County?', 'a' => 'Yes. We purchase homes throughout Hawkins County including Rogersville, Church Hill, Mount Carmel, Surgoinsville, and all surrounding areas.'],
+        ['q' => 'Can I sell a home in Hawkins County that has been damaged by water or mold?', 'a' => 'We buy homes in Hawkins County with water damage, mold issues, or any other condition. No repairs or remediation are needed on your part before selling to us.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

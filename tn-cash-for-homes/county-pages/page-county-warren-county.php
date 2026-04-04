@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'McMinnville', 'slug' => 'mcminnville', 'has_page' => true],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in McMinnville or Morrison in Warren County?', 'a' => 'Yes. We purchase homes throughout Warren County including McMinnville, Morrison, and Viola. We are familiar with the local nursery and agriculture community and buy all property types.'],
+        ['q' => 'Can I sell a property in Warren County that is near the nursery district?', 'a' => 'Warren County is known as the Nursery Capital of the World and we buy all types of properties in the area including homes near nursery operations, farms, and residential properties.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

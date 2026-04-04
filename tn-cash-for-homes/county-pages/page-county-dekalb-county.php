@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Smithville', 'slug' => 'smithville', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Smithville or near Center Hill Lake in DeKalb County?', 'a' => 'Yes. We buy homes throughout DeKalb County including Smithville and the Center Hill Lake area. Lake properties, in-town homes, and rural residences are all properties we purchase for cash.'],
+        ['q' => 'Can I sell a manufactured home in DeKalb County?', 'a' => 'We buy manufactured and mobile homes in DeKalb County when they are on owned land. Contact us with your property details and we will provide a fair cash offer.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

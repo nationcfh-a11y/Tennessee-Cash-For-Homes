@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Cookeville', 'slug' => 'cookeville', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Cookeville or near Tennessee Tech in Putnam County?', 'a' => 'Yes. We purchase homes throughout Putnam County including Cookeville, Baxter, Algood, and Monterey. Properties near Tennessee Tech, student housing, and family homes are all welcome.'],
+        ['q' => 'Can I sell a property in Putnam County that was damaged by severe weather?', 'a' => 'Putnam County has experienced severe tornado and storm events. We buy weather-damaged homes as-is with no repairs needed. We can close quickly so you can move forward.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

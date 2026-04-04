@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Huntsville', 'slug' => 'huntsville-tn', 'has_page' => false],
         ['name' => 'Oneida', 'slug' => 'oneida', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Oneida or Huntsville in Scott County?', 'a' => 'Yes. We buy homes throughout Scott County including Oneida, Huntsville, and Winfield. We are experienced with properties in the Cumberland Plateau region.'],
+        ['q' => 'Can I sell a property in Scott County near the Big South Fork?', 'a' => 'We buy properties near the Big South Fork and throughout Scott County. Mountain homes, cabins, and rural residential properties are all welcome.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Somerville', 'slug' => 'somerville', 'has_page' => false],
         ['name' => 'Oakland', 'slug' => 'oakland', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Is Fayette County part of the Memphis metro area for real estate?', 'a' => 'Yes. Fayette County sits east of Memphis and has seen significant suburban growth. We buy homes throughout Fayette County including Somerville, Oakland, and Piperton, and our offers reflect the area\'s connection to the Memphis market.'],
+        ['q' => 'Do you buy new construction or recently built homes in Fayette County?', 'a' => 'We buy homes of all ages in Fayette County, including newer construction. If you need to sell quickly for any reason, we provide cash offers on homes regardless of when they were built.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

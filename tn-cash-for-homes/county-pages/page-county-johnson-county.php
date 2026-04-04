@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Mountain City', 'slug' => 'mountain-city', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Mountain City or Appalachian areas of Johnson County?', 'a' => 'Yes. Johnson County is in Tennessee\'s far northeast corner and we buy homes throughout including Mountain City. Mountain properties, rural homes, and small-town residences are all welcome.'],
+        ['q' => 'Can I sell a cabin or mountain property in Johnson County?', 'a' => 'We buy cabins, mountain homes, and all types of residential properties in Johnson County. Whether your property is on a mountainside or in a valley, we are interested.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

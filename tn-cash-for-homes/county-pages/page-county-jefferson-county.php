@@ -25,6 +25,11 @@ $county = [
         ['name' => 'Jefferson City', 'slug' => 'jefferson-city', 'has_page' => false],
         ['name' => 'White Pine', 'slug' => 'white-pine', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Dandridge or Jefferson City in Jefferson County?', 'a' => 'Yes. We purchase homes throughout Jefferson County including Dandridge, Jefferson City, White Pine, and New Market. All conditions are welcome.'],
+        ['q' => 'Can I sell a home in Jefferson County near Douglas Lake?', 'a' => 'We buy homes and lake properties near Douglas Lake in Jefferson County. Whether it is a full-time residence or a vacation property, we will make you a cash offer.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

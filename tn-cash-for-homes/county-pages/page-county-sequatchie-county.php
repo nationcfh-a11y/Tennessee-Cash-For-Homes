@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Dunlap', 'slug' => 'dunlap', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Dunlap or the Sequatchie Valley?', 'a' => 'Yes. We buy homes throughout Sequatchie County including Dunlap and the beautiful Sequatchie Valley. Mountain and valley properties are welcome in any condition.'],
+        ['q' => 'Can I sell a home in Sequatchie County if the market is slow?', 'a' => 'The traditional market in Sequatchie County can be slower than metro areas. We buy directly for cash regardless of market conditions, giving you a fast, guaranteed sale.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

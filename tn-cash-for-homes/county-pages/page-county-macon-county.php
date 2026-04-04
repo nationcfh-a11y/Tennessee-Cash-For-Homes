@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Lafayette', 'slug' => 'lafayette', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Lafayette or rural Macon County?', 'a' => 'Yes. We buy homes throughout Macon County including Lafayette and all surrounding rural communities. We are experienced with properties in smaller Tennessee markets.'],
+        ['q' => 'Can I sell a home in Macon County if it has been vacant and neglected?', 'a' => 'We buy vacant and neglected homes in Macon County regularly. Even if the property has significant deterioration, we purchase as-is and handle all the cleanup after closing.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

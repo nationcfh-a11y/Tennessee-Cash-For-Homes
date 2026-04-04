@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Erin', 'slug' => 'erin', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Is it hard to find buyers for homes in a small county like Houston County?', 'a' => 'Houston County is Tennessee\'s smallest county by population, which can make traditional home sales challenging. We buy homes directly for cash in Erin and throughout Houston County, giving you a guaranteed sale without waiting for a buyer.'],
+        ['q' => 'Do you buy homes along the Cumberland River in Houston County?', 'a' => 'Yes. We buy properties throughout Houston County including those along the Cumberland River. Riverfront homes and rural properties are all ones we purchase.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

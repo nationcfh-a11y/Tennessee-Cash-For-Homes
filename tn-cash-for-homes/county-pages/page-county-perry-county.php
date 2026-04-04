@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Linden', 'slug' => 'linden', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Linden or rural Perry County?', 'a' => 'Yes. Perry County is one of Tennessee\'s more rural and less populated counties. We buy homes in Linden and throughout Perry County regardless of the challenges that come with a smaller market.'],
+        ['q' => 'Can I sell a property along the Buffalo River in Perry County?', 'a' => 'We buy properties along the Buffalo River and throughout Perry County. Whether it is a home, cabin, or vacant land, we will evaluate the property and make you a cash offer.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

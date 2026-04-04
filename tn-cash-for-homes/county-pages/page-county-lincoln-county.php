@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Fayetteville', 'slug' => 'fayetteville', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Fayetteville or other towns in Lincoln County?', 'a' => 'Yes. We buy homes throughout Lincoln County including Fayetteville, Petersburg, and Flintville. All property types and conditions are welcome.'],
+        ['q' => 'Can I sell a home in Lincoln County that is on a large rural lot?', 'a' => 'Absolutely. Many Lincoln County properties sit on several acres. We buy homes on large lots and do not require you to subdivide or survey the property before selling.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

@@ -20,6 +20,11 @@ $city = [
     'desc1'         => 'McMinnville, known for its agricultural roots and peaceful community, is a great place to sell your home fast. If you\'re asking yourself, "How do I sell my McMinnville home for cash?" Tennessee Cash For Homes has the answer. We offer straightforward, no-fuss cash offers that allow you to sell your McMinnville property without the typical complications. We understand the challenges of selling in smaller markets and are committed to providing the best possible service and a fair cash offer.',
     'desc2'         => 'McMinnville\'s rich agricultural heritage and scenic beauty make it a wonderful place to own a home, but if you need to sell quickly, Tennessee Cash For Homes is here to help. We offer personalized service that takes into account the unique aspects of the McMinnville market. Our cash offers are fair and based on the condition and value of your property. Whether you\'re dealing with financial difficulties, relocating, or just looking to simplify your life, we\'re ready to help you sell your McMinnville home quickly and efficiently.',
     'land_para'     => 'McMinnville\'s beautiful scenery, strong agricultural roots, and relaxed pace of life make it an appealing place for buyers seeking rural land or new home sites. Whether you own farmland, wooded acreage, or residential lots, there is growing interest from buyers looking to escape the busy suburbs. However, selling land in smaller markets like McMinnville can take time without the right buyer lined up. Tennessee Cash For Homes offers a direct, cash-based solution to sell your McMinnville land fast and without the headaches of a traditional sale.',
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes near the nursery industry area in McMinnville?', 'a' => 'Yes. McMinnville is the Nursery Capital of the World and we buy all types of properties in the area including homes near nursery operations, rural residential properties, and in-town homes.'],
+        ['q' => 'Can I sell a fixer-upper in McMinnville?', 'a' => 'Absolutely. We buy homes in McMinnville in any condition, from minor cosmetic needs to major structural issues. You do not need to invest in repairs before selling to us.'],
+    ],
+
 ];
 
 include( get_template_directory() . '/location-template.php' );

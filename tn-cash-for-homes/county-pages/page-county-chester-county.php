@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Henderson', 'slug' => 'henderson', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy properties in Henderson or other parts of Chester County?', 'a' => 'Yes. We purchase homes throughout Chester County including Henderson and all surrounding areas. Whether your home is in town or on a rural lot, we buy properties in any condition.'],
+        ['q' => 'Can I sell a house in Chester County if I live out of state?', 'a' => 'Absolutely. Many Chester County property owners live out of state and need a hassle-free sale. We handle all the details and can close remotely so you never need to travel to Tennessee.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

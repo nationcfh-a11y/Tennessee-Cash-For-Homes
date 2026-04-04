@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Decaturville', 'slug' => 'decaturville', 'has_page' => false],
         ['name' => 'Parsons', 'slug' => 'parsons', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy properties near the Tennessee River in Decatur County?', 'a' => 'Yes. Decatur County runs along the Tennessee River and we buy properties throughout the county including Decaturville, Parsons, and riverfront areas. Waterfront or rural, we purchase all types.'],
+        ['q' => 'Can I sell a home in Decatur County if I owe back taxes?', 'a' => 'We buy homes in Decatur County even if there are delinquent property taxes. We can work with you to resolve tax issues as part of the closing process.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

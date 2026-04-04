@@ -26,6 +26,11 @@ $county = [
         ['name' => 'Red Bank', 'slug' => 'red-bank', 'has_page' => false],
         ['name' => 'Soddy-Daisy', 'slug' => 'soddy-daisy', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'How does Chattanooga\'s growing market affect cash offers in Hamilton County?', 'a' => 'Chattanooga and Hamilton County are experiencing significant growth and development. Our cash offers reflect current market conditions in the area. Selling to us lets you skip the competitive listing process while still receiving a fair price.'],
+        ['q' => 'Do you buy homes on Lookout Mountain or Signal Mountain in Hamilton County?', 'a' => 'Yes. We buy homes in all Hamilton County neighborhoods including Lookout Mountain, Signal Mountain, Red Bank, East Brainerd, and downtown Chattanooga. Location and condition do not matter.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Columbia',    'slug' => 'columbia',    'has_page' => true],
         ['name' => 'Spring Hill', 'slug' => 'spring-hill', 'has_page' => true],
     ],
+    'faq_extra'    => [
+        ['q' => 'How is the real estate market in Columbia and Maury County right now?', 'a' => 'Maury County is one of Tennessee\'s fastest-growing counties, driven by major employers and Nashville spillover. Our cash offers reflect this strong market. Selling to us means you can capitalize on the growth without the hassle of listing.'],
+        ['q' => 'Do you buy homes affected by new development in Maury County?', 'a' => 'Yes. Rapid development in Maury County has created unique situations for existing homeowners. Whether your neighborhood is changing or you want to sell ahead of construction, we buy homes in any situation.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

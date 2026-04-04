@@ -20,6 +20,11 @@ $city = [
     'desc1'         => 'Woodbury is a small, tight-knit community where selling a home fast may seem challenging. However, with Tennessee Cash For Homes, you can sell your house for cash in Woodbury without the typical stress and delays of the traditional market. We provide fair, no-obligation cash offers that allow you to sell your home quickly and on your terms. Our team understands the local market and is committed to making the selling process as smooth and straightforward as possible.',
     'desc2'         => 'In the peaceful town of Woodbury, selling your home can feel like a daunting task. Tennessee Cash For Homes simplifies this process, offering cash offers that allow you to sell your Woodbury home fast without the need for repairs, staging, or agent fees. Our experienced team will guide you through the entire process, ensuring a fair and efficient transaction. Whether you\'re facing a difficult financial situation or simply want to move on quickly, we\'re here to help.',
     'land_para'     => 'Woodbury offers peaceful rural living, rolling hills, and scenic beauty, making it a popular spot for buyers seeking country homesites or recreational land. As growth expands outward from Murfreesboro and Nashville, even smaller communities like Woodbury are experiencing increased interest from land buyers. Tennessee Cash For Homes makes it simple to sell your Woodbury land for cash — we offer a direct purchase with no commissions, no agents, and no unnecessary delays.',
+    'faq_extra'    => [
+        ['q' => 'Is Woodbury too small to get a fair cash offer on my home?', 'a' => 'Not at all. While Woodbury is a small town, its location in Middle Tennessee and growing interest from Nashville commuters give it value. Our cash offers are based on fair market conditions regardless of town size.'],
+        ['q' => 'Do you buy homes with well water and septic in Woodbury?', 'a' => 'Yes. Many Woodbury and Cannon County homes use well water and septic systems. We buy these properties in any condition without requiring inspections or repairs on your part.'],
+    ],
+
 ];
 
 include( get_template_directory() . '/location-template.php' );

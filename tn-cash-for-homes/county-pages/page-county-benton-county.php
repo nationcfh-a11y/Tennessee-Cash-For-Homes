@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Camden', 'slug' => 'camden', 'has_page' => false],
         ['name' => 'Big Sandy', 'slug' => 'big-sandy', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy lakefront or vacation properties in Benton County?', 'a' => 'Yes. Benton County is home to Kentucky Lake and many seasonal or vacation properties. We buy lakefront homes, cabins, and all types of properties in Benton County regardless of condition or occupancy status.'],
+        ['q' => 'Can I sell a house in Camden or other small towns in Benton County?', 'a' => 'We buy homes throughout all of Benton County including Camden, Big Sandy, and surrounding communities. Small-town properties are no problem for us.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Tiptonville', 'slug' => 'tiptonville', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Is it possible to sell a home quickly in a rural county like Lake County?', 'a' => 'Lake County is Tennessee\'s least populated county, which makes traditional sales very difficult. We buy homes in Tiptonville and throughout Lake County for cash, giving you a guaranteed sale without the uncertainty of waiting for a local buyer.'],
+        ['q' => 'Do you buy properties near Reelfoot Lake in Lake County?', 'a' => 'Yes. Reelfoot Lake is Lake County\'s biggest draw and we buy homes, cabins, and properties throughout the Reelfoot Lake area. All conditions are welcome.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

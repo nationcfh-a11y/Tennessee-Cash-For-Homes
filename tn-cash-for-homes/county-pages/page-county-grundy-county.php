@@ -25,6 +25,11 @@ $county = [
         ['name' => 'Tracy City', 'slug' => 'tracy-city', 'has_page' => false],
         ['name' => 'Monteagle', 'slug' => 'monteagle', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes on the Cumberland Plateau in Grundy County?', 'a' => 'Yes. Grundy County sits atop the Cumberland Plateau and we buy properties throughout the county including Tracy City, Altamont, Coalmont, and Palmer. Mountain properties are no problem.'],
+        ['q' => 'Can I sell a property in Grundy County if the local market is slow?', 'a' => 'Grundy County\'s traditional market can be slow due to its rural nature. We buy directly for cash regardless of local market conditions, giving you a fast and certain sale.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

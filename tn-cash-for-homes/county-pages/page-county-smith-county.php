@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Carthage', 'slug' => 'carthage', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Carthage or South Carthage in Smith County?', 'a' => 'Yes. We buy homes throughout Smith County including Carthage, South Carthage, Gordonsville, and all surrounding areas. We buy in any condition.'],
+        ['q' => 'Can I sell a property on the Cumberland River in Smith County?', 'a' => 'We buy properties along the Cumberland River and throughout Smith County. Riverfront homes, rural properties, and in-town residences are all welcome.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Hohenwald', 'slug' => 'hohenwald', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Hohenwald or rural Lewis County?', 'a' => 'Yes. We purchase homes throughout Lewis County including Hohenwald and all surrounding rural areas. Lewis County\'s small market size is not a barrier for us.'],
+        ['q' => 'Can I sell a property in Lewis County near the Meriwether Lewis Monument?', 'a' => 'We buy homes and properties throughout Lewis County including areas near the Natchez Trace Parkway and Meriwether Lewis Monument. Location within the county does not matter.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

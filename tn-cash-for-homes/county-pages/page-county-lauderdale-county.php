@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Ripley', 'slug' => 'ripley', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Ripley or Halls in Lauderdale County?', 'a' => 'Yes. We buy homes throughout Lauderdale County including Ripley, Halls, and surrounding areas. Whether your property is in town or along the Mississippi River bluffs, we are interested.'],
+        ['q' => 'Can I sell a property in Lauderdale County if it needs major structural work?', 'a' => 'We buy homes in Lauderdale County that need major structural repairs including foundation issues, roof replacement, and more. No repair is too big — we buy completely as-is.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

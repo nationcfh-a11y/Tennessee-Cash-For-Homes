@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Morristown', 'slug' => 'morristown', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Morristown in Hamblen County?', 'a' => 'Yes. Morristown is the county seat and we actively buy homes throughout Morristown and all of Hamblen County. Whether near the lakefront or in a residential neighborhood, we purchase all types of properties.'],
+        ['q' => 'Can I sell a duplex or multi-family property in Hamblen County?', 'a' => 'We buy duplexes, triplexes, and multi-family properties in Hamblen County. Whether occupied or vacant, we will evaluate the property and make you a cash offer.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

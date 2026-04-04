@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Pikeville', 'slug' => 'pikeville', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy rural properties or homes on large lots in Bledsoe County?', 'a' => 'Yes. Bledsoe County is one of Tennessee\'s most rural counties and we are experienced in purchasing properties on large lots, unimproved land, and homes in remote areas. Distance from a major city does not affect our ability to make you an offer.'],
+        ['q' => 'Can I sell an inherited property in Bledsoe County?', 'a' => 'Absolutely. Many homeowners in Bledsoe County inherit properties they cannot maintain. We buy inherited homes in any condition and can help navigate the process even if probate is still in progress.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

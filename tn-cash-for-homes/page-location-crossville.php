@@ -20,6 +20,11 @@ $city = [
     'desc1'         => 'Crossville, with its outdoor activities and peaceful lifestyle, offers a unique real estate market. If you\'re ready to sell your house in Crossville for cash, Tennessee Cash For Homes is here to help. We offer fair cash offers that reflect the true value of your property. Our process eliminates the need for a real estate agent, which means no commissions or fees. We buy homes in any condition in Crossville, making it easy for homeowners to sell quickly and without the stress of the traditional market.',
     'desc2'         => 'Known as the Golf Capital of Tennessee, Crossville offers residents a serene lifestyle. If you need to sell your home quickly, Tennessee Cash For Homes makes it easy with a fast, fair cash offer. We understand the unique challenges that come with selling a home in smaller markets, and we\'re equipped to handle them efficiently. Our team is dedicated to providing you with the best possible service, ensuring you get a fair deal and a quick closing.',
     'land_para'     => 'Crossville\'s location on the Cumberland Plateau and its reputation as the "Golf Capital of Tennessee" make it attractive to retirees and outdoor enthusiasts alike. Landowners in Crossville can benefit from steady interest in recreational parcels, wooded acreage, and residential lots — but finding the right buyer at the right price can take time. Tennessee Cash For Homes offers a direct path to sell your Crossville land fast for cash, with no listing fees, no waiting periods, and no agent commissions.',
+    'faq_extra'    => [
+        ['q' => 'Do you buy retirement homes or properties in Crossville golf communities?', 'a' => 'Yes. Crossville is a popular retirement destination and we buy homes in Fairfield Glade, Lake Tansi, and other planned communities. HOA properties, golf course homes, and standard residences are all welcome.'],
+        ['q' => 'Can I sell a home in Crossville if I am downsizing or moving to assisted living?', 'a' => 'We frequently help Crossville homeowners who are downsizing or transitioning to assisted living. We handle everything so you can focus on your next chapter.'],
+    ],
+
 ];
 
 include( get_template_directory() . '/location-template.php' );

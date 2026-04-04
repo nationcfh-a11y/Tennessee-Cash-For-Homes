@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Lewisburg', 'slug' => 'lewisburg', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Lewisburg or Chapel Hill in Marshall County?', 'a' => 'Yes. We purchase homes throughout Marshall County including Lewisburg, Chapel Hill, Cornersville, and all surrounding areas. We are active buyers in this growing part of Middle Tennessee.'],
+        ['q' => 'Is Marshall County growing fast enough to sell my home for a good price?', 'a' => 'Marshall County has seen growth as Nashville\'s suburbs expand southward. Our cash offers reflect current market trends and the county\'s increasing desirability. You get a fair price without the wait of a traditional listing.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

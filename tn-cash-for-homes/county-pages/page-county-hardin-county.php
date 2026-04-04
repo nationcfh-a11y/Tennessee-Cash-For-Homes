@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Savannah', 'slug' => 'savannah', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy properties near Pickwick Lake or Shiloh in Hardin County?', 'a' => 'Yes. Hardin County is home to Pickwick Lake and the Shiloh National Military Park. We buy homes, lake properties, and residential land throughout the county including Savannah and Counce.'],
+        ['q' => 'Can I sell a seasonal or vacation home in Hardin County?', 'a' => 'We buy seasonal and vacation homes in Hardin County. Whether your lake house or cabin is used part-time or has been sitting empty, we will make you a cash offer.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

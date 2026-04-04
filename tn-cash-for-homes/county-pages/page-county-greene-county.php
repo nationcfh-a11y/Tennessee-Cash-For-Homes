@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Greeneville', 'slug' => 'greeneville', 'has_page' => false],
         ['name' => 'Mosheim', 'slug' => 'mosheim', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Greeneville or Tusculum in Greene County?', 'a' => 'Yes. We purchase homes throughout Greene County including Greeneville, Tusculum, Mosheim, and all surrounding areas. Whether historic downtown or rural, we buy in any condition.'],
+        ['q' => 'Can I sell a tobacco farm or agricultural property in Greene County?', 'a' => 'Greene County has a rich agricultural history and we buy all types of properties including former farms, homes with acreage, and agricultural land. We handle the details.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

@@ -25,6 +25,11 @@ $county = [
         ['name' => 'Kingsport', 'slug' => 'kingsport', 'has_page' => false],
         ['name' => 'Blountville', 'slug' => 'blountville', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Kingsport, Bristol, or Bluff City in Sullivan County?', 'a' => 'Yes. We buy homes throughout Sullivan County including Kingsport, Bristol, and Bluff City. Whether your home is in the Tri-Cities metro or a rural area, we purchase all types and conditions.'],
+        ['q' => 'Can I sell a property in Sullivan County if it is near an industrial area?', 'a' => 'We buy properties in Sullivan County regardless of proximity to industrial zones. Location does not deter us from making a fair cash offer on your home.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

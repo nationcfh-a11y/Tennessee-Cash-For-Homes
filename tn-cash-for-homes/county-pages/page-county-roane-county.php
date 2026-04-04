@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Kingston', 'slug' => 'kingston', 'has_page' => false],
         ['name' => 'Harriman', 'slug' => 'harriman', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Harriman, Kingston, or Rockwood in Roane County?', 'a' => 'Yes. We purchase homes throughout Roane County including Harriman, Kingston, Rockwood, and Oliver Springs. We buy in all conditions and close quickly.'],
+        ['q' => 'Can I sell a property in Roane County near Watts Bar Lake?', 'a' => 'We buy properties near Watts Bar Lake and throughout Roane County. Whether your home is lakefront, in a subdivision, or on rural land, we will make you a fair cash offer.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

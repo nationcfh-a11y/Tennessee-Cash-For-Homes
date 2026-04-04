@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Lawrenceburg', 'slug' => 'lawrenceburg', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Lawrenceburg in Lawrence County?', 'a' => 'Yes. Lawrenceburg is the county seat and we actively buy homes throughout Lawrenceburg and all of Lawrence County. We are familiar with the local market and provide competitive cash offers.'],
+        ['q' => 'Can I sell a property in Lawrence County if I am behind on my mortgage?', 'a' => 'We work with homeowners in Lawrence County who are behind on their mortgage or facing foreclosure. We can often close fast enough to help you avoid foreclosure and protect your credit.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

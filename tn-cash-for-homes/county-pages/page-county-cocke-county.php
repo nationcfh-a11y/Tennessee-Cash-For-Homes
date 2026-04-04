@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Newport', 'slug' => 'newport', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Newport or Parrottsville in Cocke County?', 'a' => 'Yes. We purchase homes throughout Cocke County including Newport, Parrottsville, and the surrounding areas near the Smoky Mountains. All property conditions are welcome.'],
+        ['q' => 'Can I sell a property in Cocke County that has code violations?', 'a' => 'Absolutely. We buy homes in Cocke County even if they have code violations, liens, or other legal issues. We are experienced in handling complex situations and will work through any obstacles.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

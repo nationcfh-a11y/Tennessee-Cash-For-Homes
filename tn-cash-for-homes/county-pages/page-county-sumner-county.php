@@ -25,6 +25,11 @@ $county = [
         ['name' => 'Gallatin',       'slug' => 'gallatin',       'has_page' => true],
         ['name' => 'White House',    'slug' => 'white-house',    'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Is Sumner County considered part of the Nashville metro for home values?', 'a' => 'Yes. Sumner County is one of Nashville\'s most desirable suburban counties. Our cash offers for Gallatin, Hendersonville, and surrounding areas reflect strong Nashville-area market values.'],
+        ['q' => 'Do you buy lakefront homes on Old Hickory Lake in Sumner County?', 'a' => 'We buy lakefront properties on Old Hickory Lake and throughout Sumner County. Whether your home needs dock repairs, has an aging seawall, or is in perfect condition, we are interested.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

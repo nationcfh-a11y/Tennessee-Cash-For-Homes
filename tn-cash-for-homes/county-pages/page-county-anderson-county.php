@@ -25,6 +25,11 @@ $county = [
         ['name' => 'Oak Ridge', 'slug' => 'oak-ridge', 'has_page' => false],
         ['name' => 'Norris', 'slug' => 'norris', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Can I sell an older home near Oak Ridge in Anderson County?', 'a' => 'Yes. Many homes in the Oak Ridge area were built in the 1940s and 1950s and may need significant updates. We buy older homes in Anderson County regardless of age or condition, including those with outdated electrical, plumbing, or foundation issues.'],
+        ['q' => 'Do you buy houses affected by environmental concerns in Anderson County?', 'a' => 'We understand that Anderson County has a unique history tied to the Oak Ridge National Laboratory. We evaluate every property individually and buy homes in all situations across Anderson County.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

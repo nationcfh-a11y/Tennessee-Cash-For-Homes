@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Brownsville', 'slug' => 'brownsville', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Brownsville or Stanton in Haywood County?', 'a' => 'Yes. We purchase homes throughout Haywood County including Brownsville and Stanton. We buy in any condition and close quickly for cash.'],
+        ['q' => 'Can I sell agricultural land or a farm property in Haywood County?', 'a' => 'Haywood County is largely agricultural and we buy farmland, homes on acreage, and all types of rural properties. We handle the details and close on your schedule.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

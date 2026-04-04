@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Athens', 'slug' => 'athens', 'has_page' => false],
         ['name' => 'Etowah', 'slug' => 'etowah', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Athens or Etowah in McMinn County?', 'a' => 'Yes. We purchase homes throughout McMinn County including Athens, Etowah, Niota, and Englewood. All property types and conditions are welcome.'],
+        ['q' => 'Can I sell a home near the Hiwassee River in McMinn County?', 'a' => 'We buy properties throughout McMinn County including those near the Hiwassee River. Whether your home is riverside or in town, we will make you a cash offer.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

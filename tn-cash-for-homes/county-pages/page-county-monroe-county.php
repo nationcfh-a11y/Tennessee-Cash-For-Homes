@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Madisonville', 'slug' => 'madisonville', 'has_page' => false],
         ['name' => 'Sweetwater', 'slug' => 'sweetwater', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Madisonville, Sweetwater, or Tellico Plains in Monroe County?', 'a' => 'Yes. We buy homes throughout Monroe County including Madisonville, Sweetwater, Tellico Plains, and Vonore. All property types and conditions are welcome.'],
+        ['q' => 'Can I sell a mountain property or cabin in Monroe County?', 'a' => 'Monroe County borders the Cherokee National Forest and we buy mountain cabins, homes, and properties throughout the county. Remote or hard-to-access properties are fine.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

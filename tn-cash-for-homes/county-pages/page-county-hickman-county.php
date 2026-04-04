@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Centerville', 'slug' => 'centerville', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy rural homes on acreage in Hickman County?', 'a' => 'Yes. Hickman County is one of Middle Tennessee\'s most rural counties and we regularly buy homes on large lots and acreage. Properties in Centerville, Lyles, and all unincorporated areas are welcome.'],
+        ['q' => 'Can I sell a property in Hickman County if the road access is poor?', 'a' => 'We buy properties in Hickman County regardless of road conditions, access issues, or remote locations. Our team evaluates every property on its own merits.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

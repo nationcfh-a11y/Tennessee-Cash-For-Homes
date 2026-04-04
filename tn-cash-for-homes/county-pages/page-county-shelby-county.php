@@ -26,6 +26,11 @@ $county = [
         ['name' => 'Bartlett', 'slug' => 'bartlett', 'has_page' => false],
         ['name' => 'Collierville', 'slug' => 'collierville', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'How does Memphis\'s real estate market in Shelby County affect your offers?', 'a' => 'Shelby County and Memphis have a diverse real estate market with significant variation by neighborhood. Our offers are based on comparable sales and current conditions specific to your property\'s location. We provide fair offers across all Memphis neighborhoods.'],
+        ['q' => 'Do you buy homes in distressed neighborhoods in Shelby County?', 'a' => 'Yes. We buy homes throughout all of Shelby County including neighborhoods that other buyers avoid. Whether your property is in Midtown, South Memphis, Whitehaven, Cordova, or anywhere else, we will make you an offer.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Jacksboro', 'slug' => 'jacksboro', 'has_page' => false],
         ['name' => 'La Follette', 'slug' => 'la-follette', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in La Follette or Jellico in Campbell County?', 'a' => 'Yes. We buy homes throughout Campbell County including La Follette, Jellico, Jacksboro, and Caryville. No matter where your property is located in the county, we will make you a cash offer.'],
+        ['q' => 'Can I sell a property in Campbell County that has been sitting vacant?', 'a' => 'Absolutely. Vacant properties are common in Campbell County and we buy them regularly. Even if the home has been unoccupied for years and has fallen into disrepair, we will purchase it as-is.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

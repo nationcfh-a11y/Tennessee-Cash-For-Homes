@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Dyersburg', 'slug' => 'dyersburg', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Dyersburg in Dyer County?', 'a' => 'Yes. Dyersburg is the county seat and we actively buy homes throughout Dyersburg and all of Dyer County. Whether your home is downtown or in a rural area, we will make you a cash offer.'],
+        ['q' => 'Can I sell a property in Dyer County that has flood damage?', 'a' => 'We buy homes in Dyer County that have experienced flooding from the Forked Deer River or other sources. Flood-damaged properties are purchased as-is with no repairs required.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

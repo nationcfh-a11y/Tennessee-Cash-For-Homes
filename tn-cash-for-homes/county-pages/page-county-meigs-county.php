@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Decatur', 'slug' => 'decatur', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy properties near Watts Bar Lake in Meigs County?', 'a' => 'Yes. Meigs County borders Watts Bar Lake and we buy homes, lake properties, and land throughout the county including Decatur and Ten Mile.'],
+        ['q' => 'Is it hard to sell a home in a small county like Meigs County?', 'a' => 'Traditional home sales in Meigs County can be slow due to limited buyer activity. We eliminate that challenge by buying your home directly for cash with a quick, certain closing.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

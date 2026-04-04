@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Benton', 'slug' => 'benton', 'has_page' => false],
         ['name' => 'Copperhill', 'slug' => 'copperhill', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Benton, Copperhill, or Ducktown in Polk County?', 'a' => 'Yes. We buy homes throughout Polk County including Benton, Copperhill, and Ducktown. Mountain properties and homes near the Ocoee River are all ones we purchase.'],
+        ['q' => 'Can I sell a cabin or vacation property in Polk County?', 'a' => 'We buy cabins and vacation properties in Polk County. The Ocoee River and Cherokee National Forest make this area popular for second homes, and we purchase them in any condition.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

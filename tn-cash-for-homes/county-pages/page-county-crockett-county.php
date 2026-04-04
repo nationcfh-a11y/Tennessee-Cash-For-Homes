@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Alamo', 'slug' => 'alamo', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy farm homes or properties with agricultural land in Crockett County?', 'a' => 'Yes. Crockett County has a strong agricultural heritage and we buy homes on farmland, rural residential properties, and homes in Alamo and surrounding communities.'],
+        ['q' => 'Can I sell a house in Crockett County that has been on the market for a long time?', 'a' => 'If your Crockett County home has been sitting on the market without offers, we can help. We buy homes directly regardless of how long they have been listed, and we close quickly for cash.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

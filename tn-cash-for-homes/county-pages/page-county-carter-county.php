@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Elizabethton', 'slug' => 'elizabethton', 'has_page' => false],
         ['name' => 'Watauga', 'slug' => 'watauga', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Elizabethton or the Watauga Lake area of Carter County?', 'a' => 'Yes. We buy homes throughout Carter County including Elizabethton, Hampton, and the Watauga Lake area. Mountain properties, lake homes, and in-town residences are all properties we purchase.'],
+        ['q' => 'Can I sell a fixer-upper in Carter County?', 'a' => 'Absolutely. Carter County has many older homes that need work, and we buy them all as-is. You will not need to invest in any repairs or updates before selling to us.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Jackson', 'slug' => 'jackson', 'has_page' => true],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Jackson or the greater Madison County area?', 'a' => 'Yes. Jackson is the largest city in West Tennessee and we actively buy homes throughout Madison County. Whether your home is near downtown Jackson or in the surrounding suburbs, we provide fair cash offers.'],
+        ['q' => 'Can I sell a rental property with problem tenants in Madison County?', 'a' => 'We buy rental properties in Madison County regardless of tenant situations. You do not need to evict tenants or wait for leases to end. We handle everything.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

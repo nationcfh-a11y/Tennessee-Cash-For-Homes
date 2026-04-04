@@ -25,6 +25,11 @@ $county = [
         ['name' => 'Humboldt', 'slug' => 'humboldt', 'has_page' => false],
         ['name' => 'Milan', 'slug' => 'milan', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Trenton, Humboldt, or Milan in Gibson County?', 'a' => 'Yes. We purchase homes throughout Gibson County including Trenton, Humboldt, Milan, Medina, and all surrounding communities. We are familiar with the local market and provide fair offers.'],
+        ['q' => 'Can I sell a home in Gibson County that needs a new roof?', 'a' => 'Absolutely. We buy homes in Gibson County as-is, including those needing major repairs like a new roof. You do not need to spend money on repairs before selling to us.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

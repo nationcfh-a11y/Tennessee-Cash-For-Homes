@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Gainesboro', 'slug' => 'gainesboro', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Gainesboro or rural Jackson County?', 'a' => 'Yes. We buy homes throughout Jackson County including Gainesboro and all surrounding rural areas. Low population density does not affect our interest in purchasing your property.'],
+        ['q' => 'Can I sell a property in Jackson County near Cordell Hull Lake?', 'a' => 'Absolutely. Jackson County borders Cordell Hull Lake and we buy lake area properties, homes, and land throughout the county.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

@@ -25,6 +25,11 @@ $county = [
         ['name' => 'Smyrna',       'slug' => 'smyrna',       'has_page' => true],
         ['name' => 'La Vergne',    'slug' => 'la-vergne',    'has_page' => true],
     ],
+    'faq_extra'    => [
+        ['q' => 'How does Murfreesboro\'s fast growth in Rutherford County affect your offers?', 'a' => 'Rutherford County is Tennessee\'s fastest-growing county and Murfreesboro is now one of the state\'s largest cities. Our cash offers reflect this strong market demand. You get a competitive price without the lengthy listing process.'],
+        ['q' => 'Do you buy homes near MTSU or in new Murfreesboro developments?', 'a' => 'Yes. We buy homes throughout Rutherford County including near Middle Tennessee State University, in Smyrna, La Vergne, Eagleville, and all new and established neighborhoods.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

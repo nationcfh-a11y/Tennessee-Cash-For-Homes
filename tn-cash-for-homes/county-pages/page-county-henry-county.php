@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Paris', 'slug' => 'paris', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes or lake properties near Paris Landing in Henry County?', 'a' => 'Yes. Henry County is home to Kentucky Lake and Paris Landing State Park. We buy lakefront homes, cabins, and all residential properties throughout Henry County including Paris.'],
+        ['q' => 'Can I sell a property in Henry County if it has a lien on it?', 'a' => 'We buy properties in Henry County with liens, judgments, or other encumbrances. Our team works with the title company to resolve these issues at closing.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

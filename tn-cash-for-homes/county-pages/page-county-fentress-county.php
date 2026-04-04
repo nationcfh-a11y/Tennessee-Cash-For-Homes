@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Jamestown', 'slug' => 'jamestown', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy properties near Big South Fork in Fentress County?', 'a' => 'Yes. Fentress County borders the Big South Fork National River and Recreation Area. We buy homes, cabins, and properties throughout the county including Jamestown and surrounding communities.'],
+        ['q' => 'Can I sell a remote or off-grid property in Fentress County?', 'a' => 'We buy remote and off-grid properties in Fentress County. Gravel road access, well water, or lack of utilities do not prevent us from making you a fair cash offer.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

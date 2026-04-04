@@ -25,6 +25,11 @@ $county = [
         ['name' => 'Alcoa', 'slug' => 'alcoa', 'has_page' => false],
         ['name' => 'Townsend', 'slug' => 'townsend', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes near the Great Smoky Mountains in Blount County?', 'a' => 'Yes. Blount County borders the Great Smoky Mountains National Park, and we buy homes throughout the county including Maryville, Alcoa, and Townsend. Whether it is a primary residence or a mountain getaway, we are interested.'],
+        ['q' => 'Can I sell a property in Blount County that needs major repairs after storm damage?', 'a' => 'Absolutely. Blount County properties can face weather-related damage from storms moving through the foothills. We buy storm-damaged homes as-is with no repairs needed on your part.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

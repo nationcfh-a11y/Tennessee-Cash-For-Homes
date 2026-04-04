@@ -20,6 +20,11 @@ $city = [
     'desc1'         => 'Antioch is a growing suburb of Nashville, ideal for homeowners looking for a quick sale. If you need to sell your house in Antioch fast, Tennessee Cash For Homes offers a simple solution. We provide Antioch homeowners with fair cash offers allowing you to bypass the traditional market and sell your home in a fraction of the time. We are experienced in handling all types of properties, ensuring a seamless and stress-free transaction. We\'ve helped many Antioch residents sell their homes quickly and without complications.',
     'desc2'         => 'In Antioch, take advantage of our expertise at Tennessee Cash For Homes to sell your home quickly and efficiently. We understand the pressures you might face, from financial constraints to the need for a quick relocation. Our team is equipped to handle any situation, offering you the resources and support needed to sell your Antioch home fast. With our straightforward process and commitment to transparency, you can trust us to guide you every step of the way, ensuring a quick and satisfactory sale.',
     'land_para'     => 'Antioch\'s rapid development has created a high demand for residential and commercial land within the Nashville metropolitan area. As new housing and business projects pop up across the community, landowners are finding that now is a great time to sell. However, listing land traditionally can lead to delays, low offers, and long negotiations. Tennessee Cash For Homes offers a direct and simple solution — we buy land in Antioch for cash, allowing you to skip the lengthy listing process and get straight to closing.',
+    'faq_extra'    => [
+        ['q' => 'Is Antioch a good area to sell a house for cash right now?', 'a' => 'Antioch is one of Nashville\'s most diverse and rapidly developing suburbs with strong buyer demand. Our cash offers reflect Antioch\'s growing market. You can sell quickly without waiting for the right traditional buyer.'],
+        ['q' => 'Do you buy investment or rental properties in Antioch?', 'a' => 'Yes. Antioch has a large rental market and we buy investment properties, duplexes, and single-family rentals whether they are occupied or vacant.'],
+    ],
+
 ];
 
 include( get_template_directory() . '/location-template.php' );

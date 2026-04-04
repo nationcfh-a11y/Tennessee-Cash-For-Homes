@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Cleveland', 'slug' => 'cleveland', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Cleveland, Tennessee in Bradley County?', 'a' => 'Yes. Cleveland is the largest city in Bradley County and we actively purchase homes throughout the area. Whether your home is near downtown Cleveland or in the surrounding communities, we make fair cash offers.'],
+        ['q' => 'Can I sell a rental property in Bradley County?', 'a' => 'We buy rental properties in Bradley County whether they are occupied with tenants or vacant. You do not need to wait for a lease to expire. We handle tenant situations regularly.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

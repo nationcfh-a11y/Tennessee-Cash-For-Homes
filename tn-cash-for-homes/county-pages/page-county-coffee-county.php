@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Manchester',  'slug' => 'manchester',  'has_page' => false],
         ['name' => 'Tullahoma',   'slug' => 'tullahoma',   'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Tullahoma or Manchester in Coffee County?', 'a' => 'Yes. We actively purchase homes throughout Coffee County including Tullahoma, Manchester, and surrounding communities. Whether near Arnold Air Force Base or in town, we buy in any condition.'],
+        ['q' => 'Can I sell a house in Coffee County if I am relocating for military orders?', 'a' => 'We work with military families near Arnold Air Force Base in Coffee County frequently. If you need to sell quickly due to PCS orders or deployment, we can close on your timeline — often in under two weeks.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

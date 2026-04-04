@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Clarksville', 'slug' => 'clarksville', 'has_page' => true],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes near Fort Campbell in Montgomery County?', 'a' => 'Yes. Montgomery County is home to Fort Campbell and we regularly work with military families who need to sell quickly. We buy homes in Clarksville and throughout the county and can close fast to match your PCS timeline.'],
+        ['q' => 'Is Clarksville\'s rapid growth in Montgomery County good for sellers?', 'a' => 'Clarksville is one of Tennessee\'s fastest-growing cities, which means strong property values. Our cash offers reflect Montgomery County\'s growth. You can take advantage of the market without the delays of a traditional sale.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

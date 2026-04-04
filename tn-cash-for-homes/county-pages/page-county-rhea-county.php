@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Dayton', 'slug' => 'dayton', 'has_page' => false],
         ['name' => 'Spring City', 'slug' => 'spring-city', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Dayton or Spring City in Rhea County?', 'a' => 'Yes. We buy homes throughout Rhea County including Dayton, Spring City, and Graysville. Lake properties near Watts Bar and Chickamauga Lake are also welcome.'],
+        ['q' => 'Can I sell a home in Rhea County near the lake?', 'a' => 'Rhea County has extensive lake frontage and we buy lakefront homes, nearby residences, and all property types throughout the county. Condition does not matter.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

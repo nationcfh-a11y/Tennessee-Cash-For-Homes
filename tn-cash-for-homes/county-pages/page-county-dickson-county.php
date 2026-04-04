@@ -24,6 +24,11 @@ $county = [
         ['name' => 'Dickson', 'slug' => 'dickson', 'has_page' => false],
         ['name' => 'Burns',   'slug' => 'burns',   'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Is Dickson County close enough to Nashville to get strong cash offers?', 'a' => 'Yes. Dickson County is part of the Nashville commuter belt and property values reflect its proximity to the metro area. Our cash offers account for Dickson County\'s growing demand and convenient location.'],
+        ['q' => 'Do you buy homes in Dickson, White Bluff, or Burns in Dickson County?', 'a' => 'We purchase homes throughout Dickson County including the cities of Dickson, White Bluff, Burns, and Charlotte. All conditions and situations are welcome.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Ashland City', 'slug' => 'ashland-city', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Is Cheatham County considered part of the Nashville market for home sales?', 'a' => 'Yes. Cheatham County is part of the greater Nashville metropolitan area, and many residents commute to Nashville. We buy homes throughout Cheatham County including Ashland City and Pleasant View, and our offers reflect the regional market.'],
+        ['q' => 'Do you buy homes on flood-prone land in Cheatham County?', 'a' => 'We buy properties in Cheatham County including those in flood zones or that have experienced flooding from the Cumberland River. Flood history does not prevent us from making you an offer.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {

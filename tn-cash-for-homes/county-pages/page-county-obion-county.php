@@ -23,6 +23,11 @@ $county = [
     'cities'        => [
         ['name' => 'Union City', 'slug' => 'union-city', 'has_page' => false],
     ],
+    'faq_extra'    => [
+        ['q' => 'Do you buy homes in Union City or South Fulton in Obion County?', 'a' => 'Yes. We buy homes throughout Obion County including Union City, South Fulton, and surrounding communities in Northwest Tennessee.'],
+        ['q' => 'Can I sell a farm or agricultural property in Obion County?', 'a' => 'Obion County has a strong farming heritage and we buy all types of properties including farm homes, houses on agricultural land, and rural residential properties.'],
+    ],
+
 ];
 
 add_action( 'wp_head', function() use ( $county ) {
