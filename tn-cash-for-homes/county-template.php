@@ -172,6 +172,7 @@ $ms_name = $name;
 $ms_slug = $slug;
 $ms_type = 'county';
 include get_template_directory() . '/market-stats-section.php';
+include get_template_directory() . '/who-we-help-section.php';
 ?>
 
 <!-- ── ABOUT [COUNTY] ── -->
