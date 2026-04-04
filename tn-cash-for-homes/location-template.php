@@ -171,6 +171,14 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
   </div>
 </div>
 
+<?php
+// ── Market Stats Overview (inserted between stat bar and about section)
+$ms_name = $name;
+$ms_slug = $slug;
+$ms_type = 'city';
+include get_template_directory() . '/market-stats-section.php';
+?>
+
 <!-- ── ABOUT [CITY] ── -->
 <section class="section loc-about">
   <div class="container">
