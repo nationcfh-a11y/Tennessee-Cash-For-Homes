@@ -75,29 +75,32 @@ if ( $gov_type === 'city' ) {
       <h2 class="section__title">Helpful <?php echo esc_html( $gov_name ); ?> Resources for Homeowners</h2>
       <p class="section__subtitle"><?php echo esc_html( $intro_text ); ?></p>
     </div>
-    <div class="gov-resources-grid">
-      <?php foreach ( $gov_resources as $type => $url ) :
+    <div class="gov-resources-list">
+      <?php $row_index = 0; foreach ( $gov_resources as $type => $url ) :
         if ( empty( $url ) ) continue;
         $icon  = isset( $gov_icons[ $type ] )  ? $gov_icons[ $type ]  : '';
         $label = isset( $gov_labels[ $type ] ) ? $gov_labels[ $type ] : '';
         $desc  = isset( $gov_descs[ $type ] )  ? $gov_descs[ $type ]  : '';
         $tag   = isset( $gov_tags[ $type ] )   ? $gov_tags[ $type ]   : '';
+        $row_class = ( $row_index % 2 === 1 ) ? ' gov-resource-row--alt' : '';
       ?>
-      <div class="gov-resource-card">
-        <div class="gov-resource-card__icon"><?php echo $icon; ?></div>
-        <h3 class="gov-resource-card__title">
-          <a href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $label ); ?></a>
-        </h3>
-        <p class="gov-resource-card__desc"><?php echo esc_html( $desc ); ?></p>
+      <div class="gov-resource-row<?php echo $row_class; ?>">
+        <div class="gov-resource-row__icon"><?php echo $icon; ?></div>
+        <div class="gov-resource-row__body">
+          <h3 class="gov-resource-row__title">
+            <a href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $label ); ?></a>
+          </h3>
+          <p class="gov-resource-row__desc"><?php echo esc_html( $desc ); ?></p>
+        </div>
         <?php if ( $tag ) : ?>
-        <div class="gov-resource-card__tag">
+        <div class="gov-resource-row__tag">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5a1.99 1.99 0 011.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.99 1.99 0 013 12V7a4 4 0 014-4z"/></svg>
           Helpful for: <?php echo esc_html( $tag ); ?>
         </div>
         <?php endif; ?>
-        <a href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener noreferrer" class="gov-resource-card__cta">Visit Website &rarr;</a>
+        <a href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener noreferrer" class="gov-resource-row__cta">Visit Website &rarr;</a>
       </div>
-      <?php endforeach; ?>
+      <?php $row_index++; endforeach; ?>
     </div>
   </div>
 </section>
@@ -105,56 +108,66 @@ if ( $gov_type === 'city' ) {
 <style>
 /* ── Government Resources Section ── */
 .gov-resources-section {
-  padding: 64px 0;
-  background: #F2F2F2;
+  padding: 72px 0;
+  background: #1e2a38;
 }
-.gov-resources-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+.gov-resources-section .section__eyebrow {
+  color: #84CC9C;
+}
+.gov-resources-section .section__title {
+  color: #f0f2f4;
+}
+.gov-resources-section .section__subtitle {
+  color: #a8b2be;
+}
+.gov-resources-list {
   margin-top: 40px;
 }
-.gov-resource-card {
+.gov-resource-row {
   display: flex;
-  flex-direction: column;
-  background: #fff;
-  border: 1px solid #e8e8e8;
-  border-radius: 12px;
-  padding: 28px 24px;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  align-items: center;
+  gap: 24px;
+  padding: 22px 28px;
+  border-left: 3px solid #2D6A4F;
+  transition: background 0.2s ease;
 }
-.gov-resource-card:hover {
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  transform: translateY(-2px);
+.gov-resource-row--alt {
+  background: rgba(255, 255, 255, 0.04);
 }
-.gov-resource-card__icon {
-  margin-bottom: 16px;
+.gov-resource-row:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+.gov-resource-row__icon {
+  flex-shrink: 0;
   line-height: 0;
 }
-.gov-resource-card__title {
+.gov-resource-row__body {
+  flex: 1;
+  min-width: 0;
+}
+.gov-resource-row__title {
   font-family: 'Poppins', sans-serif;
   font-size: 1.05rem;
   font-weight: 600;
-  color: #1a1a1a;
-  margin: 0 0 10px;
+  color: #f0f2f4;
+  margin: 0 0 4px;
   line-height: 1.3;
 }
-.gov-resource-card__title a {
-  color: #1a1a1a;
+.gov-resource-row__title a {
+  color: #f0f2f4;
   text-decoration: none;
   transition: color 0.2s ease;
 }
-.gov-resource-card__title a:hover {
-  color: #2D6A4F;
+.gov-resource-row__title a:hover {
+  color: #84CC9C;
 }
-.gov-resource-card__desc {
-  font-size: 0.92rem;
-  color: #5a5a5a;
-  line-height: 1.6;
-  margin: 0 0 16px;
-  flex: 1;
+.gov-resource-row__desc {
+  font-size: 0.9rem;
+  color: #a8b2be;
+  line-height: 1.5;
+  margin: 0;
 }
-.gov-resource-card__tag {
+.gov-resource-row__tag {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -164,41 +177,69 @@ if ( $gov_type === 'city' ) {
   background: rgba(132, 204, 156, 0.15);
   padding: 5px 12px;
   border-radius: 20px;
-  margin-bottom: 16px;
-  align-self: flex-start;
+  flex-shrink: 0;
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
-.gov-resource-card__tag svg {
+.gov-resource-row__tag svg {
   flex-shrink: 0;
   color: #84CC9C;
 }
-.gov-resource-card__cta {
+.gov-resource-row__cta {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #2D6A4F;
+  color: #84CC9C;
   text-decoration: none;
   letter-spacing: 0.02em;
   transition: color 0.2s ease;
-  margin-top: auto;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
-.gov-resource-card__cta:hover {
-  color: #84CC9C;
+.gov-resource-row__cta:hover {
+  color: #fff;
 }
 
-/* Tablet: 2 columns */
+/* Tablet */
 @media (max-width: 1024px) {
-  .gov-resources-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .gov-resource-row {
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    padding: 20px 24px;
+  }
+  .gov-resource-row__body {
+    flex: 1 1 calc(100% - 60px);
+  }
+  .gov-resource-row__tag {
+    order: 4;
+  }
+  .gov-resource-row__cta {
+    order: 5;
+    margin-left: auto;
   }
 }
-/* Mobile: 1 column */
+/* Mobile */
 @media (max-width: 600px) {
-  .gov-resources-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
   .gov-resources-section {
     padding: 48px 0;
+  }
+  .gov-resource-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 20px 20px;
+  }
+  .gov-resource-row__icon {
+    margin-bottom: 2px;
+  }
+  .gov-resource-row__body {
+    width: 100%;
+  }
+  .gov-resource-row__tag {
+    order: 0;
+  }
+  .gov-resource-row__cta {
+    order: 0;
+    align-self: flex-start;
   }
 }
 </style>
