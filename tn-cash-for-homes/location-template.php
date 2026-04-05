@@ -34,6 +34,7 @@ $homes_sold   = $city['homes_sold'];
 $avg_days     = $city['avg_days'];
 $desc1        = $city['desc1'];
 $desc2        = $city['desc2'];
+$desc3        = ! empty( $city['desc3'] ) ? $city['desc3'] : '';
 $land_para    = $city['land_para'];
 $county_slug  = ! empty( $city['county_slug'] ) ? $city['county_slug'] : '';
 
@@ -189,6 +190,7 @@ include get_template_directory() . '/who-we-help-section.php';
         <h2 class="section__title">Sell Your <?php echo esc_html( $name ); ?> House Fast for Cash</h2>
         <p class="loc-about__body"><?php echo esc_html( $desc1 ); ?></p>
         <p class="loc-about__body"><?php echo esc_html( $desc2 ); ?></p>
+        <?php if ( $desc3 ) : ?><p class="loc-about__body"><?php echo esc_html( $desc3 ); ?></p><?php endif; ?>
         <a href="/#hero-form" class="btn-primary">Get My Free Cash Offer &rarr;</a>
       </div>
       <div class="loc-about__cards">
@@ -262,6 +264,12 @@ include get_template_directory() . '/who-we-help-section.php';
 $faq_name  = $name;
 $faq_extra = ! empty( $city['faq_extra'] ) ? $city['faq_extra'] : [];
 include get_template_directory() . '/faq-section.php';
+
+// ── Government Resources Section
+$gov_name       = $name;
+$gov_county_key = ! empty( $city['county'] ) ? $city['county'] : '';
+$gov_type       = 'city';
+include get_template_directory() . '/gov-resources-section.php';
 ?>
 
 <!-- ── AREAS WE SERVE ── -->
