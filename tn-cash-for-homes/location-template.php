@@ -112,7 +112,12 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
             // For city pages: hide state outline, show only zoomed detail
             if ( strpos( $svg_content, 'id="statelayer"' ) !== false ) {
                 $svg_content = str_replace( '<defs>', '<defs><style>#statelayer{display:none}</style>', $svg_content );
-                $svg_content = preg_replace( '/viewBox="[^"]*"/', 'viewBox="0 0 225 230"', $svg_content );
+                // Use pre-calculated viewBox centered on this city's highlighted shape
+                require_once get_template_directory() . '/svg-viewbox-map.php';
+                $custom_vb = tcfh_get_city_viewbox( $slug );
+                if ( $custom_vb ) {
+                    $svg_content = preg_replace( '/viewBox="[^"]*"/', 'viewBox="' . $custom_vb . '"', $svg_content );
+                }
             }
             echo $svg_content;
             ?>
@@ -639,6 +644,7 @@ include get_template_directory() . '/gov-resources-section.php';
 .county-map-hero-svg svg {
   width: 100%;
   height: auto;
+  aspect-ratio: 4 / 3;
   display: block;
   pointer-events: none;
 }

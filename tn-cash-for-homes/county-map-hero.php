@@ -32,6 +32,7 @@ $county_name = isset( $county_name ) ? $county_name : '';
 .county-map-hero-svg svg {
   width: 100%;
   height: auto;
+  aspect-ratio: 4 / 3;
   display: block;
   pointer-events: none;
 }
