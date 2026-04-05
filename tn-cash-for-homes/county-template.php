@@ -37,6 +37,7 @@ $homes_sold   = $county['homes_sold'];
 $avg_days     = $county['avg_days'];
 $desc1        = $county['desc1'];
 $desc2        = $county['desc2'];
+$desc3        = ! empty( $county['desc3'] ) ? $county['desc3'] : '';
 $land_para    = $county['land_para'];
 
 $check18 = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>';
@@ -173,6 +174,7 @@ $ms_slug = $slug;
 $ms_type = 'county';
 include get_template_directory() . '/market-stats-section.php';
 include get_template_directory() . '/who-we-help-section.php';
+include get_template_directory() . '/reviews-section.php';
 ?>
 
 <!-- ── ABOUT [COUNTY] ── -->
@@ -184,6 +186,7 @@ include get_template_directory() . '/who-we-help-section.php';
         <h2 class="section__title">Sell Your <?php echo esc_html( $name ); ?> House Fast for Cash</h2>
         <p class="loc-about__body"><?php echo esc_html( $desc1 ); ?></p>
         <p class="loc-about__body"><?php echo esc_html( $desc2 ); ?></p>
+        <?php if ( $desc3 ) : ?><p class="loc-about__body"><?php echo esc_html( $desc3 ); ?></p><?php endif; ?>
         <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-primary">Get My Free Cash Offer &rarr;</a>
       </div>
       <div class="loc-about__cards">
@@ -286,6 +289,12 @@ include get_template_directory() . '/who-we-help-section.php';
 $faq_name  = $name;
 $faq_extra = ! empty( $county['faq_extra'] ) ? $county['faq_extra'] : [];
 include get_template_directory() . '/faq-section.php';
+
+// ── Government Resources Section
+$gov_name       = $name;
+$gov_county_key = str_replace( ' County', '', $name );
+$gov_type       = 'county';
+include get_template_directory() . '/gov-resources-section.php';
 ?>
 
 <!-- ── AREAS WE SERVE ── -->
