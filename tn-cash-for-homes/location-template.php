@@ -35,8 +35,9 @@ $avg_days     = $city['avg_days'];
 $desc1        = $city['desc1'];
 $desc2        = $city['desc2'];
 $desc3        = ! empty( $city['desc3'] ) ? $city['desc3'] : '';
-$land_para    = $city['land_para'];
-$county_slug  = ! empty( $city['county_slug'] ) ? $city['county_slug'] : '';
+$land_para      = $city['land_para'];
+$neighborhoods  = ! empty( $city['neighborhoods'] ) ? $city['neighborhoods'] : [];
+$county_slug    = ! empty( $city['county_slug'] ) ? $city['county_slug'] : '';
 
 // Determine which SVG map to display: city SVG first, fall back to county SVG
 $city_svg_path   = get_template_directory() . '/brand_assets/city-svgs/' . $slug . '.svg';
@@ -182,18 +183,90 @@ include get_template_directory() . '/who-we-help-section.php';
 ?>
 
 <!-- ── ABOUT [CITY] ── -->
+<?php
+$_parts = preg_split( '/(?<=[.!?])\s+/', $desc2, 3 );
+$market_insight = isset( $_parts[0] ) ? $_parts[0] : '';
+?>
 <section class="section loc-about">
   <div class="container">
-    <div class="loc-about__content">
-      <p class="section__eyebrow">We Buy Houses in <?php echo esc_html( $name ); ?></p>
-      <h2 class="section__title">Sell Your <?php echo esc_html( $name ); ?> House Fast for Cash</h2>
-      <p class="loc-about__body"><?php echo esc_html( $desc1 ); ?></p>
-      <p class="loc-about__body"><?php echo esc_html( $desc2 ); ?></p>
-      <?php if ( $desc3 ) : ?><p class="loc-about__body"><?php echo esc_html( $desc3 ); ?></p><?php endif; ?>
-      <a href="/#hero-form" class="btn-primary">Get My Free Cash Offer &rarr;</a>
+    <div class="loc-about__grid">
+
+      <!-- LEFT COLUMN -->
+      <div class="loc-about__left">
+        <p class="section__eyebrow">We Buy Houses in <?php echo esc_html( $name ); ?></p>
+        <h2 class="section__title"><?php echo esc_html( $h1 ); ?></h2>
+
+        <p class="loc-about__lead"><?php echo esc_html( $desc1 ); ?></p>
+        <p class="loc-about__body"><?php echo esc_html( $desc2 ); ?></p>
+
+        <?php if ( $desc3 ) : ?>
+        <div class="loc-about__more" id="loc-more-wrap">
+          <div class="loc-about__more-body" id="loc-more-body">
+            <p class="loc-about__body"><?php echo esc_html( $desc3 ); ?></p>
+          </div>
+          <button class="loc-about__toggle" id="loc-toggle" type="button" aria-expanded="false">
+            <span class="loc-about__toggle-text">Read more</span>
+            <svg class="loc-about__chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+        <?php endif; ?>
+
+        <?php if ( ! empty( $neighborhoods ) ) : ?>
+        <div class="loc-about__pills">
+          <?php foreach ( $neighborhoods as $_n ) : ?>
+            <span class="loc-about__pill"><?php echo esc_html( $_n ); ?></span>
+          <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="loc-about__right">
+        <div class="loc-about__insight">
+          <span class="loc-about__insight-label">Market Insight</span>
+          <p class="loc-about__insight-text"><?php echo esc_html( $market_insight ); ?></p>
+        </div>
+
+        <div class="loc-about__hero-stat">
+          <span class="loc-about__hero-stat-value"><?php echo esc_html( $median_price ); ?></span>
+          <span class="loc-about__hero-stat-label">Median Home Price</span>
+        </div>
+
+        <div class="loc-about__mini-stats">
+          <div class="loc-about__mini-card">
+            <span class="loc-about__mini-value"><?php echo esc_html( $avg_days ); ?></span>
+            <span class="loc-about__mini-label">Avg. Days on Market</span>
+          </div>
+          <div class="loc-about__mini-card">
+            <span class="loc-about__mini-value"><?php echo esc_html( $homes_sold ); ?></span>
+            <span class="loc-about__mini-label">Homes Sold (12 Mo.)</span>
+          </div>
+          <div class="loc-about__mini-card">
+            <span class="loc-about__mini-value">7</span>
+            <span class="loc-about__mini-label">Days to Close With Us</span>
+          </div>
+          <div class="loc-about__mini-card">
+            <span class="loc-about__mini-value">$0</span>
+            <span class="loc-about__mini-label">Fees &amp; Commissions</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
+<script>
+(function(){
+  var btn=document.getElementById('loc-toggle');if(!btn)return;
+  var body=document.getElementById('loc-more-body');
+  var txt=btn.querySelector('.loc-about__toggle-text');
+  btn.addEventListener('click',function(){
+    var open=body.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded',open);
+    txt.textContent=open?'Read less':'Read more';
+  });
+})();
+</script>
 
 <!-- ── TRUST CARDS ── -->
 <section class="section loc-trust-section">
