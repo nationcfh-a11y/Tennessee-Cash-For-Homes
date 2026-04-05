@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: County — Haywood County
+ * Template Name: County - Haywood County
  *
  * WordPress setup:
  *   Slug:     haywood-county  (under county-pages/ parent)
- *   Template: County — Haywood County
+ *   Template: County - Haywood County
  */
 
 $county = [

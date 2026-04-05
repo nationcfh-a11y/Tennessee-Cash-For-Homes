@@ -2613,21 +2613,121 @@ div.related-posts,
   flex-shrink: 0;
 }
 
-/* ── About Section ── */
-.loc-about__content {
-  max-width: 800px;
+/* ── About Section — Creative Redesign ── */
+.loc-about {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(165deg, #ffffff 0%, #f6faf8 40%, #edf7f1 100%);
+}
+
+/* Diagonal accent slab behind the section */
+.loc-about__bg-accent {
+  position: absolute;
+  top: -60%;
+  right: -15%;
+  width: 55%;
+  height: 220%;
+  background: linear-gradient(180deg, rgba(132,204,156,0.06) 0%, rgba(106,181,133,0.03) 100%);
+  transform: rotate(-12deg);
+  border-radius: 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.loc-about__wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.loc-about__header {
+  margin-bottom: 40px;
+}
+
+.loc-about__header .section__title {
+  font-size: 32px;
+  letter-spacing: -0.3px;
+}
+
+/* Intro paragraph — full width with green left accent */
+.loc-about__intro {
+  position: relative;
+  border-left: 4px solid var(--green);
+  padding-left: 28px;
+  margin-bottom: 48px;
+  max-width: 900px;
+}
+
+/* Large decorative quotation mark */
+.loc-about__quote-mark {
+  position: absolute;
+  top: -24px;
+  left: -8px;
+  font-size: 120px;
+  line-height: 1;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: rgba(132,204,156,0.15);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.loc-about__body--lead {
+  font-size: 19px;
+  line-height: 1.85;
+  color: var(--charcoal);
+  position: relative;
+  z-index: 1;
+}
+
+/* Stat pull-quote divider */
+.loc-about__stat-divider {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 24px 0;
+  margin-bottom: 40px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.loc-about__stat-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--green-dark);
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+
+.loc-about__stat-label {
+  font-size: 15px;
+  color: var(--charcoal-light);
+  font-weight: 500;
+}
+
+/* Two-column body copy (desc2 + desc3) */
+.loc-about__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
 }
 
 .loc-about__body {
   font-size: 17px;
-  line-height: 1.75;
+  line-height: 1.8;
   color: var(--charcoal-light);
-  margin-bottom: 24px;
+  margin-bottom: 0;
 }
 
-.loc-about__content .btn-primary {
-  margin-top: 8px;
-  display: inline-block;
+/* CTA */
+.loc-about__cta {
+  text-align: left;
+}
+
+.btn-primary--lg {
+  padding: 16px 36px;
+  font-size: 17px;
 }
 
 /* ── Trust Cards Section ── */
@@ -2677,6 +2777,18 @@ div.related-posts,
   .loc-about__cards {
     grid-template-columns: 1fr 1fr;
   }
+  .loc-about__columns {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .loc-about__header .section__title {
+    font-size: 28px;
+  }
+  .loc-about__stat-divider {
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
 }
 
 @media (max-width: 640px) {
@@ -2692,6 +2804,11 @@ div.related-posts,
   .loc-stat-divider { display: none; }
   .loc-about__cards { grid-template-columns: 1fr; }
   .loc-stats-bar__inner { justify-content: flex-start; }
+  .loc-about__body--lead { font-size: 17px; }
+  .loc-about__stat-value { font-size: 28px; }
+  .loc-about__quote-mark { font-size: 80px; top: -16px; }
+  .loc-about__intro { padding-left: 20px; }
+  .btn-primary--lg { width: 100%; text-align: center; }
 }
 
 /* ═══════════════════════════════════════════════════════════

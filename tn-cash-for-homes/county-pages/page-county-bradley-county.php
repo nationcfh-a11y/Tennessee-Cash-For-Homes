@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: County — Bradley County
+ * Template Name: County - Bradley County
  *
  * WordPress setup:
  *   Slug:     bradley-county  (under county-pages/ parent)
- *   Template: County — Bradley County
+ *   Template: County - Bradley County
  */
 
 $county = [
@@ -18,8 +18,8 @@ $county = [
     'homes_sold'    => '89',
     'avg_days'      => '74',
     'desc1'         => 'Bradley County is one of Southeast Tennessee\'s fastest-growing areas, centered around Cleveland and supported by a diverse industrial base that includes Cleveland-Cliffs, Amaero International, Snap-on, and dozens of manufacturers representing over $800 million in recent investment. Home to Lee University and the Church of God international headquarters, Cleveland blends a college-town energy with strong blue-collar roots. The county\'s location along I-75 between Knoxville and Chattanooga gives residents easy access to two major metro areas while keeping the cost of living well below either city. Bradley County home values have seen steady appreciation, with the median sitting around $230,000 to $295,000 depending on the area and property type.',
-    'desc2'         => 'Despite the growth, the Bradley County real estate market is not without its challenges for sellers. City and county officials have identified workforce housing as a pressing need, which means many existing homes — particularly older properties near downtown Cleveland or in the rural stretches toward the Ocoee — can sit on the market if they need updates or do not fit the mold that conventional buyers are looking for. If you need to sell your house in Bradley County quickly, cash home buyers in Bradley County like us provide a straightforward alternative. We purchase homes as-is with no agent commissions, no repair requests, and no appraisal contingencies, so you avoid the weeks of showings and negotiations that come with a traditional listing.',
-    'desc3'         => 'Whatever your situation — whether you are a landlord tired of managing a rental property, facing financial difficulties, relocating for a new job, or holding an inherited home you cannot maintain — Tennessee Cash For Homes buys houses throughout all of Bradley County in any condition. From the neighborhoods around Lee University to the rural communities outside Cleveland, we are ready to help.',
+    'desc2'         => 'Despite the growth, the Bradley County real estate market is not without its challenges for sellers. City and county officials have identified workforce housing as a pressing need, which means many existing homes - particularly older properties near downtown Cleveland or in the rural stretches toward the Ocoee - can sit on the market if they need updates or do not fit the mold that conventional buyers are looking for. If you need to sell your house in Bradley County quickly, cash home buyers in Bradley County like us provide a straightforward alternative. We purchase homes as-is with no agent commissions, no repair requests, and no appraisal contingencies, so you avoid the weeks of showings and negotiations that come with a traditional listing.',
+    'desc3'         => 'Whatever your situation - whether you are a landlord tired of managing a rental property, facing financial difficulties, relocating for a new job, or holding an inherited home you cannot maintain - Tennessee Cash For Homes buys houses throughout all of Bradley County in any condition. From the neighborhoods around Lee University to the rural communities outside Cleveland, we are ready to help.',
     'land_para'     => 'Bradley County offers a mix of residential lots, farmland, and wooded tracts at competitive prices. Tennessee Cash For Homes buys Bradley County land quickly with no commissions and no hidden fees.',
     'cities'        => [
         ['name' => 'Cleveland', 'slug' => 'cleveland', 'has_page' => false],

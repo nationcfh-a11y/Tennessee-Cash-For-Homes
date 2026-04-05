@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: County — Grainger County
+ * Template Name: County - Grainger County
  *
  * WordPress setup:
  *   Slug:     grainger-county  (under county-pages/ parent)
- *   Template: County — Grainger County
+ *   Template: County - Grainger County
  */
 
 $county = [

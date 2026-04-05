@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: County — Blount County
+ * Template Name: County - Blount County
  *
  * WordPress setup:
  *   Slug:     blount-county  (under county-pages/ parent)
- *   Template: County — Blount County
+ *   Template: County - Blount County
  */
 
 $county = [
@@ -17,9 +17,9 @@ $county = [
     'median_price'  => '$365,000',
     'homes_sold'    => '112',
     'avg_days'      => '72',
-    'desc1'         => 'Blount County is one of East Tennessee\'s most sought-after places to live, anchored by Maryville and Alcoa and bordered by the Great Smoky Mountains National Park to the south. The county\'s economy is powered by over 100 manufacturing plants, led by major employers like Arconic, Denso Manufacturing, and Blount Memorial Hospital. Neighborhoods range from the dense suburban feel of Maryville — where families and young professionals drive steady demand — to the Springbrook and Vose areas of Alcoa, the quiet community of Friendsville, and the gateway town of Townsend at the edge of the Smokies. Blount County home values have climbed steadily, with the average now approaching $380,000, and the market consistently favors sellers with homes moving in roughly 50 to 55 days.',
-    'desc2'         => 'Even in a strong seller\'s market, not every Blount County homeowner is in a position to list traditionally. Preparing a home for showings, managing inspections, and waiting weeks for a buyer\'s financing to clear can be stressful — especially if you are dealing with storm damage common in the foothills, a property that needs significant updates, or a situation that requires a fast closing. Cash home buyers in Blount County like us offer a direct alternative. We buy homes as-is across the county, from older ranches near downtown Maryville to mountain properties outside Townsend, and we close on your timeline without agent commissions or repair negotiations. If you want to sell your house in Blount County without the hassle of the traditional process, we are ready to make a fair offer.',
-    'desc3'         => 'No matter what has brought you to this point — relocation, divorce, financial pressure, an inherited property, or a house that simply needs more work than you want to invest — Tennessee Cash For Homes purchases homes throughout all of Blount County in any condition. From Alcoa and Louisville to Rockford and the mountain communities, we buy houses so you can move forward on your terms.',
+    'desc1'         => 'Blount County is one of East Tennessee\'s most sought-after places to live, anchored by Maryville and Alcoa and bordered by the Great Smoky Mountains National Park to the south. The county\'s economy is powered by over 100 manufacturing plants, led by major employers like Arconic, Denso Manufacturing, and Blount Memorial Hospital. Neighborhoods range from the dense suburban feel of Maryville - where families and young professionals drive steady demand - to the Springbrook and Vose areas of Alcoa, the quiet community of Friendsville, and the gateway town of Townsend at the edge of the Smokies. Blount County home values have climbed steadily, with the average now approaching $380,000, and the market consistently favors sellers with homes moving in roughly 50 to 55 days.',
+    'desc2'         => 'Even in a strong seller\'s market, not every Blount County homeowner is in a position to list traditionally. Preparing a home for showings, managing inspections, and waiting weeks for a buyer\'s financing to clear can be stressful - especially if you are dealing with storm damage common in the foothills, a property that needs significant updates, or a situation that requires a fast closing. Cash home buyers in Blount County like us offer a direct alternative. We buy homes as-is across the county, from older ranches near downtown Maryville to mountain properties outside Townsend, and we close on your timeline without agent commissions or repair negotiations. If you want to sell your house in Blount County without the hassle of the traditional process, we are ready to make a fair offer.',
+    'desc3'         => 'No matter what has brought you to this point - relocation, divorce, financial pressure, an inherited property, or a house that simply needs more work than you want to invest - Tennessee Cash For Homes purchases homes throughout all of Blount County in any condition. From Alcoa and Louisville to Rockford and the mountain communities, we buy houses so you can move forward on your terms.',
     'land_para'     => 'Blount County land is highly sought after for its mountain views and proximity to the Smokies. Tennessee Cash For Homes buys Blount County land quickly with no commissions, no surveys required, and flexible closing.',
     'cities'        => [
         ['name' => 'Maryville', 'slug' => 'maryville', 'has_page' => false],

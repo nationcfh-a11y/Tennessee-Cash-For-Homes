@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: County — Shelby County
+ * Template Name: County - Shelby County
  *
  * WordPress setup:
  *   Slug:     shelby-county  (under county-pages/ parent)
- *   Template: County — Shelby County
+ *   Template: County - Shelby County
  */
 
 $county = [
@@ -17,8 +17,8 @@ $county = [
     'median_price'  => '$245,000',
     'homes_sold'    => '585',
     'avg_days'      => '72',
-    'desc1'         => 'Shelby County is the most populous county in Tennessee, anchored by Memphis -- a city known worldwide for Beale Street blues, championship barbecue, and the global headquarters of FedEx. The county\'s neighborhoods span an enormous range, from the tree-lined estates of East Memphis and the family-friendly suburbs of Germantown, Bartlett, and Collierville to the historic character of Midtown, the revitalizing energy of the Crosstown Concourse district, and the deeply rooted communities of Whitehaven and Orange Mound. With roughly 585 homes selling each month and a median price around $245,000, the Shelby County real estate market is one of the most active and affordable metro markets in the Southeast.',
-    'desc2'         => 'That volume and diversity also mean Shelby County sellers face real challenges. Property tax rates in Memphis run about $2.58 per $100 of assessed value -- among the highest in Tennessee -- which can make holding an unwanted property expensive fast. Over 30 percent of listings countywide have had to cut their asking price, and tax sale foreclosures on delinquent properties remain a persistent issue. Older homes in South Memphis, Frayser, and Raleigh often need major repairs that eliminate most financed buyers from the picture. If you want to sell your house in Shelby County without pouring money into renovations or waiting through months of price reductions, cash home buyers in Shelby County like Tennessee Cash For Homes provide a reliable alternative -- a fair offer, no agent commissions, and a closing date you choose.',
+    'desc1'         => 'Shelby County is the most populous county in Tennessee, anchored by Memphis - a city known worldwide for Beale Street blues, championship barbecue, and the global headquarters of FedEx. The county\'s neighborhoods span an enormous range, from the tree-lined estates of East Memphis and the family-friendly suburbs of Germantown, Bartlett, and Collierville to the historic character of Midtown, the revitalizing energy of the Crosstown Concourse district, and the deeply rooted communities of Whitehaven and Orange Mound. With roughly 585 homes selling each month and a median price around $245,000, the Shelby County real estate market is one of the most active and affordable metro markets in the Southeast.',
+    'desc2'         => 'That volume and diversity also mean Shelby County sellers face real challenges. Property tax rates in Memphis run about $2.58 per $100 of assessed value - among the highest in Tennessee - which can make holding an unwanted property expensive fast. Over 30 percent of listings countywide have had to cut their asking price, and tax sale foreclosures on delinquent properties remain a persistent issue. Older homes in South Memphis, Frayser, and Raleigh often need major repairs that eliminate most financed buyers from the picture. If you want to sell your house in Shelby County without pouring money into renovations or waiting through months of price reductions, cash home buyers in Shelby County like Tennessee Cash For Homes provide a reliable alternative - a fair offer, no agent commissions, and a closing date you choose.',
     'desc3'         => 'Whether you own a bungalow in Cooper-Young, a suburban split-level in Bartlett, a rental property in Whitehaven, or a home anywhere else across Shelby County, we buy houses in any condition and any situation. Reach out today for a no-obligation cash offer and let us handle the rest.',
     'land_para'     => 'Shelby County\'s large population and ongoing suburban development keep land in high demand. Tennessee Cash For Homes buys Shelby County land quickly with no commissions, no closing costs, and a flexible timeline.',
     'cities'        => [

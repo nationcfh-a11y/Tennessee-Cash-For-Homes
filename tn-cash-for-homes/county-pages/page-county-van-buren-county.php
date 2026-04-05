@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: County — Van Buren County
+ * Template Name: County - Van Buren County
  *
  * WordPress setup:
  *   Slug:     van-buren-county  (under county-pages/ parent)
- *   Template: County — Van Buren County
+ *   Template: County - Van Buren County
  */
 
 $county = [
@@ -17,9 +17,9 @@ $county = [
     'median_price'  => '$175,000',
     'homes_sold'    => '6',
     'avg_days'      => '110',
-    'desc1'         => 'Van Buren County is a quiet Cumberland Plateau community where Spencer, the county seat with a population around 1,700, serves as the gateway to Fall Creek Falls State Park -- Tennessee\'s largest and most visited state park, drawing over one million visitors each year. The park\'s dramatic waterfalls and gorges have put this small county on the map for vacation homes, homesteads, and investment properties. Despite the tourist draw, Van Buren County maintains a genuinely low cost of living and an unhurried pace of life that appeals to retirees, remote workers, and anyone looking to trade city stress for plateau serenity.',
-    'desc2'         => 'The flip side of Van Buren County\'s small size is a real estate market with very limited activity -- only a handful of homes sell in any given month, and properties can linger on the market far longer than the state average. If you need to sell your house in Van Buren County, finding a traditional buyer willing to navigate rural financing and appraisal challenges can be a real test of patience. Cash home buyers in Van Buren County like us remove those obstacles entirely. We understand Van Buren County home values and plateau property conditions, and we provide straightforward cash offers with no agent commissions, no repair demands, and a closing timeline you control.',
-    'desc3'         => 'No matter what is driving your decision to sell -- an inherited property near Spencer, a vacation cabin you no longer use, deferred maintenance you cannot afford, or simply a desire to move on -- Tennessee Cash For Homes buys houses throughout all of Van Buren County in any condition. From homes in town to rural properties scattered across the plateau, we are here to help.',
+    'desc1'         => 'Van Buren County is a quiet Cumberland Plateau community where Spencer, the county seat with a population around 1,700, serves as the gateway to Fall Creek Falls State Park - Tennessee\'s largest and most visited state park, drawing over one million visitors each year. The park\'s dramatic waterfalls and gorges have put this small county on the map for vacation homes, homesteads, and investment properties. Despite the tourist draw, Van Buren County maintains a genuinely low cost of living and an unhurried pace of life that appeals to retirees, remote workers, and anyone looking to trade city stress for plateau serenity.',
+    'desc2'         => 'The flip side of Van Buren County\'s small size is a real estate market with very limited activity - only a handful of homes sell in any given month, and properties can linger on the market far longer than the state average. If you need to sell your house in Van Buren County, finding a traditional buyer willing to navigate rural financing and appraisal challenges can be a real test of patience. Cash home buyers in Van Buren County like us remove those obstacles entirely. We understand Van Buren County home values and plateau property conditions, and we provide straightforward cash offers with no agent commissions, no repair demands, and a closing timeline you control.',
+    'desc3'         => 'No matter what is driving your decision to sell - an inherited property near Spencer, a vacation cabin you no longer use, deferred maintenance you cannot afford, or simply a desire to move on - Tennessee Cash For Homes buys houses throughout all of Van Buren County in any condition. From homes in town to rural properties scattered across the plateau, we are here to help.',
     'land_para'     => 'Van Buren County offers scenic plateau land near Fall Creek Falls State Park at very affordable prices. Tennessee Cash For Homes buys Van Buren County land quickly with no commissions and flexible closing.',
     'cities'        => [
         ['name' => 'Spencer', 'slug' => 'spencer', 'has_page' => false],

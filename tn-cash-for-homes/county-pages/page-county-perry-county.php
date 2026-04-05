@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: County — Perry County
+ * Template Name: County - Perry County
  *
  * WordPress setup:
  *   Slug:     perry-county  (under county-pages/ parent)
- *   Template: County — Perry County
+ *   Template: County - Perry County
  */
 
 $county = [

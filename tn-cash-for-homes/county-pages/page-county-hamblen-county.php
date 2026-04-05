@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: County — Hamblen County
+ * Template Name: County - Hamblen County
  *
  * WordPress setup:
  *   Slug:     hamblen-county  (under county-pages/ parent)
- *   Template: County — Hamblen County
+ *   Template: County - Hamblen County
  */
 
 $county = [

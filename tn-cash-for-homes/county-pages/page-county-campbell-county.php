@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: County — Campbell County
+ * Template Name: County - Campbell County
  *
  * WordPress setup:
  *   Slug:     campbell-county  (under county-pages/ parent)
- *   Template: County — Campbell County
+ *   Template: County - Campbell County
  */
 
 $county = [
@@ -18,8 +18,8 @@ $county = [
     'homes_sold'    => '32',
     'avg_days'      => '95',
     'desc1'         => 'Campbell County sits in the Cumberland Mountains of East Tennessee, just off I-75, where 750 miles of Norris Lake shoreline draw boaters, fishermen, and retirees from across the region. La Follette and Jacksboro serve as the county\'s main towns, with Jellico and Caryville rounding out the community. The local economy has evolved from its coal mining heritage into a mix of tourism, light manufacturing, and services driven by the lake and the interstate corridor. Campbell County housing is among the most affordable in East Tennessee, with La Follette listings averaging around $227,000 and Jacksboro properties ranging higher depending on proximity to the lake.',
-    'desc2'         => 'Affordability is a draw, but it also means the Campbell County real estate market can move slowly for sellers. Homes here average 95 days or more on the market, and properties that need work — which is common with the county\'s older housing stock and vacant homes — face an even longer wait for a qualified buyer. Lakefront and lake-view properties attract seasonal interest, but year-round demand is limited. Cash home buyers in Campbell County like us step in where the traditional market falls short. We buy homes as-is in La Follette, Jacksboro, Caryville, Jellico, and everywhere in between, with no agent fees, no inspection requirements, and no financing delays. If you need to sell your house in Campbell County, we make a fair offer and close quickly.',
-    'desc3'         => 'No matter what your situation looks like — a vacant property that has sat empty for years, a home you inherited in the mountains, or a lakeside place you can no longer afford to maintain — Tennessee Cash For Homes buys houses throughout all of Campbell County in any condition. We are familiar with this area and ready to help you move forward.',
+    'desc2'         => 'Affordability is a draw, but it also means the Campbell County real estate market can move slowly for sellers. Homes here average 95 days or more on the market, and properties that need work - which is common with the county\'s older housing stock and vacant homes - face an even longer wait for a qualified buyer. Lakefront and lake-view properties attract seasonal interest, but year-round demand is limited. Cash home buyers in Campbell County like us step in where the traditional market falls short. We buy homes as-is in La Follette, Jacksboro, Caryville, Jellico, and everywhere in between, with no agent fees, no inspection requirements, and no financing delays. If you need to sell your house in Campbell County, we make a fair offer and close quickly.',
+    'desc3'         => 'No matter what your situation looks like - a vacant property that has sat empty for years, a home you inherited in the mountains, or a lakeside place you can no longer afford to maintain - Tennessee Cash For Homes buys houses throughout all of Campbell County in any condition. We are familiar with this area and ready to help you move forward.',
     'land_para'     => 'Campbell County offers stunning mountain and lakefront land along Norris Lake at some of the most affordable prices in East Tennessee. Tennessee Cash For Homes buys Campbell County land quickly with no commissions and flexible closing.',
     'cities'        => [
         ['name' => 'Jacksboro', 'slug' => 'jacksboro', 'has_page' => false],

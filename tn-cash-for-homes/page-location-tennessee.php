@@ -2,7 +2,7 @@
 /**
  * Template Name: Location - Tennessee
  *
- * SEO — enter in Yoast / RankMath:
+ * SEO - enter in Yoast / RankMath:
  *   Meta Title:       We Buy Houses in Tennessee TN | Get a Fast Cash Offer Today
  *   Meta Description: We buy houses in Tennessee for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.
  */

@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: County — Carter County
+ * Template Name: County - Carter County
  *
  * WordPress setup:
  *   Slug:     carter-county  (under county-pages/ parent)
- *   Template: County — Carter County
+ *   Template: County - Carter County
  */
 
 $county = [
@@ -17,9 +17,9 @@ $county = [
     'median_price'  => '$225,000',
     'homes_sold'    => '42',
     'avg_days'      => '85',
-    'desc1'         => 'Carter County is one of Northeast Tennessee\'s most distinctive communities, anchored by the city of Elizabethton along the banks of the Watauga River. With a population of over 56,000 and a cost of living well below the national average, the county draws residents who want affordable mountain living without sacrificing access to jobs -- employers like Snap-on Incorporated and the growing Tennessee College of Applied Technology campus help keep the local economy steady. From the trail communities around Roan Mountain to the established neighborhoods in Elizabethton and Hampton, Carter County home values have remained accessible even as surrounding areas have climbed, making it a popular choice for first-time buyers and retirees alike.',
-    'desc2'         => 'If you are looking to sell your house in Carter County, the traditional route can mean months of waiting. With homes averaging 85 days on market, many sellers in Elizabethton, Watauga, and the surrounding communities find themselves stuck paying property taxes, insurance, and maintenance on a house they no longer want. Older housing stock throughout the county -- many homes date back decades and need significant updates -- can make it even harder to attract financed buyers who want move-in-ready properties. As cash home buyers in Carter County, we skip the inspections, appraisals, and repair negotiations that slow down conventional sales.',
-    'desc3'         => 'No matter what situation you are facing -- whether it is an inherited property near Roan Mountain, a house in Elizabethton that needs a new roof, or a home you simply need to move on from -- Tennessee Cash For Homes buys houses throughout all of Carter County in any condition. We handle the details so you can close on your timeline and move forward with confidence.',
+    'desc1'         => 'Carter County is one of Northeast Tennessee\'s most distinctive communities, anchored by the city of Elizabethton along the banks of the Watauga River. With a population of over 56,000 and a cost of living well below the national average, the county draws residents who want affordable mountain living without sacrificing access to jobs - employers like Snap-on Incorporated and the growing Tennessee College of Applied Technology campus help keep the local economy steady. From the trail communities around Roan Mountain to the established neighborhoods in Elizabethton and Hampton, Carter County home values have remained accessible even as surrounding areas have climbed, making it a popular choice for first-time buyers and retirees alike.',
+    'desc2'         => 'If you are looking to sell your house in Carter County, the traditional route can mean months of waiting. With homes averaging 85 days on market, many sellers in Elizabethton, Watauga, and the surrounding communities find themselves stuck paying property taxes, insurance, and maintenance on a house they no longer want. Older housing stock throughout the county - many homes date back decades and need significant updates - can make it even harder to attract financed buyers who want move-in-ready properties. As cash home buyers in Carter County, we skip the inspections, appraisals, and repair negotiations that slow down conventional sales.',
+    'desc3'         => 'No matter what situation you are facing - whether it is an inherited property near Roan Mountain, a house in Elizabethton that needs a new roof, or a home you simply need to move on from - Tennessee Cash For Homes buys houses throughout all of Carter County in any condition. We handle the details so you can close on your timeline and move forward with confidence.',
     'land_para'     => 'Carter County offers beautiful mountain land with stunning views and access to the Cherokee National Forest. Tennessee Cash For Homes buys Carter County land quickly with no commissions and flexible closing.',
     'cities'        => [
         ['name' => 'Elizabethton', 'slug' => 'elizabethton', 'has_page' => false],

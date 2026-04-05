@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: County — Obion County
+ * Template Name: County - Obion County
  *
  * WordPress setup:
  *   Slug:     obion-county  (under county-pages/ parent)
- *   Template: County — Obion County
+ *   Template: County - Obion County
  */
 
 $county = [

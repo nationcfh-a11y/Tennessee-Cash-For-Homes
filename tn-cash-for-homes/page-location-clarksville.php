@@ -2,7 +2,7 @@
 /**
  * Template Name: Location - Clarksville
  *
- * SEO — enter in Yoast / RankMath:
+ * SEO - enter in Yoast / RankMath:
  *   Meta Title:       We Buy Houses in Clarksville TN | Get a Fast Cash Offer Today
  *   Meta Description: We buy houses in Clarksville for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.
  */

@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: County — Jackson County
+ * Template Name: County - Jackson County
  *
  * WordPress setup:
  *   Slug:     jackson-county  (under county-pages/ parent)
- *   Template: County — Jackson County
+ *   Template: County - Jackson County
  */
 
 $county = [

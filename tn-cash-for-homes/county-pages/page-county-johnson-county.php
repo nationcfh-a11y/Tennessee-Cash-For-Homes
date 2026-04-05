@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: County — Johnson County
+ * Template Name: County - Johnson County
  *
  * WordPress setup:
  *   Slug:     johnson-county  (under county-pages/ parent)
- *   Template: County — Johnson County
+ *   Template: County - Johnson County
  */
 
 $county = [
@@ -17,9 +17,9 @@ $county = [
     'median_price'  => '$195,000',
     'homes_sold'    => '14',
     'avg_days'      => '96',
-    'desc1'         => 'Tucked into Tennessee\'s far northeast corner where the Blue Ridge meets the Iron Mountains, Johnson County is a deeply Appalachian community with a character all its own. Mountain City, the county seat, sits at over 2,500 feet in elevation and serves as the hub for a county shaped by timber, farming, and textile heritage. Danny Herman Trucking and Parkdale Mills -- which invested $120 million expanding its Mountain City yarn facility -- anchor the local job base, while a growing tourism economy draws hikers, anglers, and leaf-peepers to the Cherokee National Forest and the Appalachian Trail corridor that passes through the county.',
+    'desc1'         => 'Tucked into Tennessee\'s far northeast corner where the Blue Ridge meets the Iron Mountains, Johnson County is a deeply Appalachian community with a character all its own. Mountain City, the county seat, sits at over 2,500 feet in elevation and serves as the hub for a county shaped by timber, farming, and textile heritage. Danny Herman Trucking and Parkdale Mills - which invested $120 million expanding its Mountain City yarn facility - anchor the local job base, while a growing tourism economy draws hikers, anglers, and leaf-peepers to the Cherokee National Forest and the Appalachian Trail corridor that passes through the county.',
     'desc2'         => 'Selling a home in the Johnson County real estate market comes with unique challenges. With only a handful of homes changing hands each month and average days on market stretching well past 90, finding a traditional buyer willing to pay a fair price can be a long and uncertain process. Many properties here are mountain cabins, older farmhouses, or modest homes that do not always appeal to lender-backed buyers who want move-in-ready condition. Cash home buyers in Johnson County like Tennessee Cash For Homes skip the appraisal contingencies and repair negotiations entirely, giving you a straightforward path to closing.',
-    'desc3'         => 'Whatever your reason for selling -- whether you have inherited a family homestead, need to relocate out of the mountains, or are carrying a vacant property you can no longer maintain -- we buy houses throughout all of Johnson County in any condition. From Mountain City to the most remote hollow in the Cherokee National Forest, Tennessee Cash For Homes is here to help with a fair cash offer and a closing date that works for you.',
+    'desc3'         => 'Whatever your reason for selling - whether you have inherited a family homestead, need to relocate out of the mountains, or are carrying a vacant property you can no longer maintain - we buy houses throughout all of Johnson County in any condition. From Mountain City to the most remote hollow in the Cherokee National Forest, Tennessee Cash For Homes is here to help with a fair cash offer and a closing date that works for you.',
     'land_para'     => 'Johnson County offers affordable mountain land with stunning views and access to the Appalachian Trail and Cherokee National Forest. Tennessee Cash For Homes buys Johnson County land quickly with no commissions and no hidden fees.',
     'cities'        => [
         ['name' => 'Mountain City', 'slug' => 'mountain-city', 'has_page' => false],

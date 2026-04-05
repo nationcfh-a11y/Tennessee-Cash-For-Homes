@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: County — Crockett County
+ * Template Name: County - Crockett County
  *
  * WordPress setup:
  *   Slug:     crockett-county  (under county-pages/ parent)
- *   Template: County — Crockett County
+ *   Template: County - Crockett County
  */
 
 $county = [
@@ -17,8 +17,8 @@ $county = [
     'median_price'  => '$138,000',
     'homes_sold'    => '10',
     'avg_days'      => '104',
-    'desc1'         => 'Crockett County is deep agricultural West Tennessee -- the second-largest cotton-producing county in the state, with tens of thousands of acres also devoted to soybeans, corn, and grain sorghum each year. The county seat of Alamo anchors a community of about 14,000 residents spread across small towns like Bells, Gadsden, Maury City, and Friendship. Employers such as Hitachi Energy USA provide manufacturing jobs alongside the farming economy, but Crockett County remains one of the most rural and affordable places to live in Tennessee. Just a short drive from Jackson, the county offers a pace of life that appeals to families who want land, space, and genuine small-town roots.',
-    'desc2'         => 'If you are trying to sell your house in Crockett County, the numbers tell the story of a challenging market. With only around 10 homes selling per month and properties averaging over 100 days on market, finding a qualified buyer through traditional channels takes real patience. The county\'s 100-percent rural classification means appraisers have limited comparable sales to work with, which frequently causes financed deals to fall through. Older farmhouses and homes in Alamo that need updates face an even steeper climb. As cash home buyers in Crockett County, we do not require appraisals or inspections -- we buy directly and close fast.',
+    'desc1'         => 'Crockett County is deep agricultural West Tennessee - the second-largest cotton-producing county in the state, with tens of thousands of acres also devoted to soybeans, corn, and grain sorghum each year. The county seat of Alamo anchors a community of about 14,000 residents spread across small towns like Bells, Gadsden, Maury City, and Friendship. Employers such as Hitachi Energy USA provide manufacturing jobs alongside the farming economy, but Crockett County remains one of the most rural and affordable places to live in Tennessee. Just a short drive from Jackson, the county offers a pace of life that appeals to families who want land, space, and genuine small-town roots.',
+    'desc2'         => 'If you are trying to sell your house in Crockett County, the numbers tell the story of a challenging market. With only around 10 homes selling per month and properties averaging over 100 days on market, finding a qualified buyer through traditional channels takes real patience. The county\'s 100-percent rural classification means appraisers have limited comparable sales to work with, which frequently causes financed deals to fall through. Older farmhouses and homes in Alamo that need updates face an even steeper climb. As cash home buyers in Crockett County, we do not require appraisals or inspections - we buy directly and close fast.',
     'desc3'         => 'Whether it is a farmhouse on acreage outside Bells, a home in Alamo that has sat on the market too long, or a property in any corner of the county, Tennessee Cash For Homes buys houses throughout all of Crockett County in any condition. We are here to offer a fair price and a simple closing, no matter your circumstances.',
     'land_para'     => 'Crockett County offers productive farmland and affordable rural lots in the heart of West Tennessee. Tennessee Cash For Homes buys Crockett County land quickly with no commissions and no hidden fees.',
     'cities'        => [
