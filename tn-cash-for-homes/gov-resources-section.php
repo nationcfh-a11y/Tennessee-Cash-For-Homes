@@ -109,16 +109,16 @@ if ( $gov_type === 'city' ) {
 /* ── Government Resources Section ── */
 .gov-resources-section {
   padding: 72px 0;
-  background: linear-gradient(135deg, #1a3a28 0%, #2d6a45 100%);
+  background: #F2F2F2;
 }
 .gov-resources-section .section__eyebrow {
-  color: #84CC9C;
+  color: #2D6A4F;
 }
 .gov-resources-section .section__title {
-  color: #f0f2f4;
+  color: #1a1a1a;
 }
 .gov-resources-section .section__subtitle {
-  color: #a8b2be;
+  color: #5a5a5a;
 }
 .gov-resources-list {
   margin-top: 40px;
@@ -132,10 +132,10 @@ if ( $gov_type === 'city' ) {
   transition: background 0.2s ease;
 }
 .gov-resource-row--alt {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(0, 0, 0, 0.03);
 }
 .gov-resource-row:hover {
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(0, 0, 0, 0.05);
 }
 .gov-resource-row__icon {
   flex-shrink: 0;
@@ -149,21 +149,21 @@ if ( $gov_type === 'city' ) {
   font-family: 'Poppins', sans-serif;
   font-size: 1.05rem;
   font-weight: 600;
-  color: #f0f2f4;
+  color: #1a1a1a;
   margin: 0 0 4px;
   line-height: 1.3;
 }
 .gov-resource-row__title a {
-  color: #f0f2f4;
+  color: #1a1a1a;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 .gov-resource-row__title a:hover {
-  color: #84CC9C;
+  color: #2D6A4F;
 }
 .gov-resource-row__desc {
   font-size: 0.9rem;
-  color: #a8b2be;
+  color: #5a5a5a;
   line-height: 1.5;
   margin: 0;
 }
@@ -188,7 +188,7 @@ if ( $gov_type === 'city' ) {
 .gov-resource-row__cta {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #84CC9C;
+  color: #2D6A4F;
   text-decoration: none;
   letter-spacing: 0.02em;
   transition: color 0.2s ease;
@@ -196,7 +196,7 @@ if ( $gov_type === 'city' ) {
   white-space: nowrap;
 }
 .gov-resource-row__cta:hover {
-  color: #fff;
+  color: #84CC9C;
 }
 
 /* Tablet */

@@ -179,43 +179,15 @@ include get_template_directory() . '/reviews-section.php';
 
 <!-- ── ABOUT [COUNTY] ── -->
 <section class="section loc-about">
-  <div class="loc-about__bg-accent"></div>
-  <div class="container loc-about__wrap">
-
-    <!-- Eyebrow + Title -->
-    <div class="loc-about__header">
+  <div class="container">
+    <div class="loc-about__content">
       <p class="section__eyebrow">We Buy Houses in <?php echo esc_html( $name ); ?></p>
       <h2 class="section__title">Sell Your <?php echo esc_html( $name ); ?> House Fast for Cash</h2>
+      <p class="loc-about__body"><?php echo esc_html( $desc1 ); ?></p>
+      <p class="loc-about__body"><?php echo esc_html( $desc2 ); ?></p>
+      <?php if ( $desc3 ) : ?><p class="loc-about__body"><?php echo esc_html( $desc3 ); ?></p><?php endif; ?>
+      <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-primary">Get My Free Cash Offer &rarr;</a>
     </div>
-
-    <!-- Intro paragraph (full-width, accent border) -->
-    <div class="loc-about__intro">
-      <span class="loc-about__quote-mark" aria-hidden="true">&ldquo;</span>
-      <p class="loc-about__body loc-about__body--lead"><?php echo esc_html( $desc1 ); ?></p>
-    </div>
-
-    <!-- Stat pull-quote divider -->
-    <div class="loc-about__stat-divider">
-      <span class="loc-about__stat-value"><?php echo esc_html( $median_price ); ?></span>
-      <span class="loc-about__stat-label">Median Home Price in <?php echo esc_html( $name ); ?></span>
-    </div>
-
-    <!-- Two-column body copy -->
-    <div class="loc-about__columns">
-      <div class="loc-about__col">
-        <p class="loc-about__body"><?php echo esc_html( $desc2 ); ?></p>
-      </div>
-      <?php if ( $desc3 ) : ?>
-      <div class="loc-about__col">
-        <p class="loc-about__body"><?php echo esc_html( $desc3 ); ?></p>
-      </div>
-      <?php endif; ?>
-    </div>
-
-    <div class="loc-about__cta">
-      <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-primary btn-primary--lg">Get My Free Cash Offer &rarr;</a>
-    </div>
-
   </div>
 </section>
 
