@@ -2614,18 +2614,15 @@ div.related-posts,
 }
 
 /* ── About Section ── */
-.loc-about__inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: start;
+.loc-about__content {
+  max-width: 800px;
 }
 
 .loc-about__body {
   font-size: 17px;
   line-height: 1.75;
   color: var(--charcoal-light);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .loc-about__content .btn-primary {
@@ -2633,9 +2630,14 @@ div.related-posts,
   display: inline-block;
 }
 
+/* ── Trust Cards Section ── */
+.loc-trust-section {
+  padding-top: 0;
+}
+
 .loc-about__cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
@@ -2672,9 +2674,8 @@ div.related-posts,
   .location-hero .hero__form-card {
     max-width: 480px;
   }
-  .loc-about__inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .loc-about__cards {
+    grid-template-columns: 1fr 1fr;
   }
 }
 

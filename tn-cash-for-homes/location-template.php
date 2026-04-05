@@ -184,36 +184,40 @@ include get_template_directory() . '/who-we-help-section.php';
 <!-- ── ABOUT [CITY] ── -->
 <section class="section loc-about">
   <div class="container">
-    <div class="loc-about__inner">
-      <div class="loc-about__content">
-        <p class="section__eyebrow">We Buy Houses in <?php echo esc_html( $name ); ?></p>
-        <h2 class="section__title">Sell Your <?php echo esc_html( $name ); ?> House Fast for Cash</h2>
-        <p class="loc-about__body"><?php echo esc_html( $desc1 ); ?></p>
-        <p class="loc-about__body"><?php echo esc_html( $desc2 ); ?></p>
-        <?php if ( $desc3 ) : ?><p class="loc-about__body"><?php echo esc_html( $desc3 ); ?></p><?php endif; ?>
-        <a href="/#hero-form" class="btn-primary">Get My Free Cash Offer &rarr;</a>
+    <div class="loc-about__content">
+      <p class="section__eyebrow">We Buy Houses in <?php echo esc_html( $name ); ?></p>
+      <h2 class="section__title">Sell Your <?php echo esc_html( $name ); ?> House Fast for Cash</h2>
+      <p class="loc-about__body"><?php echo esc_html( $desc1 ); ?></p>
+      <p class="loc-about__body"><?php echo esc_html( $desc2 ); ?></p>
+      <?php if ( $desc3 ) : ?><p class="loc-about__body"><?php echo esc_html( $desc3 ); ?></p><?php endif; ?>
+      <a href="/#hero-form" class="btn-primary">Get My Free Cash Offer &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST CARDS ── -->
+<section class="section loc-trust-section">
+  <div class="container">
+    <div class="loc-about__cards">
+      <div class="loc-trust-card">
+        <div class="loc-trust-icon"><?php echo $check20; ?></div>
+        <h3>No Repairs Needed</h3>
+        <p>We buy houses as-is in any condition. Don&rsquo;t spend a dime fixing up your home.</p>
       </div>
-      <div class="loc-about__cards">
-        <div class="loc-trust-card">
-          <div class="loc-trust-icon"><?php echo $check20; ?></div>
-          <h3>No Repairs Needed</h3>
-          <p>We buy houses as-is in any condition. Don&rsquo;t spend a dime fixing up your home.</p>
-        </div>
-        <div class="loc-trust-card">
-          <div class="loc-trust-icon"><?php echo $check20; ?></div>
-          <h3>Fast Cash Offer</h3>
-          <p>Receive a fair, no-obligation cash offer within 24&ndash;48 hours.</p>
-        </div>
-        <div class="loc-trust-card">
-          <div class="loc-trust-icon"><?php echo $check20; ?></div>
-          <h3>Close on Your Timeline</h3>
-          <p>We can close in as little as 7 days or on a date that works best for you.</p>
-        </div>
-        <div class="loc-trust-card">
-          <div class="loc-trust-icon"><?php echo $check20; ?></div>
-          <h3>Zero Fees or Commissions</h3>
-          <p>No agent fees, no closing costs, no hidden charges. What we offer is what you get.</p>
-        </div>
+      <div class="loc-trust-card">
+        <div class="loc-trust-icon"><?php echo $check20; ?></div>
+        <h3>Fast Cash Offer</h3>
+        <p>Receive a fair, no-obligation cash offer within 24&ndash;48 hours.</p>
+      </div>
+      <div class="loc-trust-card">
+        <div class="loc-trust-icon"><?php echo $check20; ?></div>
+        <h3>Close on Your Timeline</h3>
+        <p>We can close in as little as 7 days or on a date that works best for you.</p>
+      </div>
+      <div class="loc-trust-card">
+        <div class="loc-trust-icon"><?php echo $check20; ?></div>
+        <h3>Zero Fees or Commissions</h3>
+        <p>No agent fees, no closing costs, no hidden charges. What we offer is what you get.</p>
       </div>
     </div>
   </div>
