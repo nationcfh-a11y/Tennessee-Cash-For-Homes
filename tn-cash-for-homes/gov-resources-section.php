@@ -109,7 +109,7 @@ if ( $gov_type === 'city' ) {
 /* ── Government Resources Section ── */
 .gov-resources-section {
   padding: 72px 0;
-  background: #1e2a38;
+  background: linear-gradient(135deg, #1a3a28 0%, #2d6a45 100%);
 }
 .gov-resources-section .section__eyebrow {
   color: #84CC9C;
