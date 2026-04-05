@@ -379,7 +379,7 @@ include get_template_directory() . '/gov-resources-section.php';
 ?>
 
 <!-- ── AREAS WE SERVE ── -->
-<section class="section">
+<section class="section" style="background:#fff;">
   <div class="container">
     <div class="section__header section__header--center">
       <p class="section__eyebrow">Statewide Coverage</p>
