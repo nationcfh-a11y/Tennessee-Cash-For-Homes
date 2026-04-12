@@ -4816,3 +4816,570 @@ div.related-posts,
     grid-template-columns: 1fr;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   ABOUT PAGE
+═══════════════════════════════════════════════════════════ */
+
+/* ── 1. Hero ── */
+.about-hero {
+  position: relative;
+  background: url('brand_assets/Company%20Photo.webp') center center / cover no-repeat;
+  padding: 100px 0 90px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.about-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(45,45,45,0.72) 0%, rgba(35,35,35,0.82) 100%);
+  z-index: 1;
+}
+
+.about-hero__container {
+  position: relative;
+  z-index: 2;
+}
+
+.about-hero__inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.about-hero__eyebrow {
+  display: inline-block;
+  background: rgba(132,204,156,0.18);
+  color: var(--green);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+.about-hero__h1 {
+  font-size: 2.6rem;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.about-hero__sub {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.7;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ── 2. Mission Statement ── */
+.about-mission {
+  background: #FAF9F6;
+  padding: 80px 0;
+}
+
+.about-mission__quote {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  line-height: 1.6;
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 40px;
+  padding: 0;
+  border: none;
+}
+
+.about-mission__copy {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-mission__copy p {
+  font-size: 1rem;
+  color: var(--charcoal-light);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.about-mission__copy p:last-child {
+  margin-bottom: 0;
+}
+
+.about-mission__copy a {
+  color: var(--green-dark);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(106,181,133,0.3);
+  text-underline-offset: 3px;
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+
+.about-mission__copy a:hover {
+  color: var(--green);
+  text-decoration-color: var(--green);
+}
+
+/* ── 3. Who We Are ── */
+.about-who {
+  background: var(--white);
+  padding: 80px 0;
+}
+
+.about-who__h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.about-who__grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 48px;
+  align-items: start;
+}
+
+.about-who__copy p {
+  font-size: 1rem;
+  color: var(--charcoal-light);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.about-who__copy p:last-child {
+  margin-bottom: 0;
+}
+
+.about-who__copy a {
+  color: var(--green-dark);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(106,181,133,0.3);
+  text-underline-offset: 3px;
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+
+.about-who__copy a:hover {
+  color: var(--green);
+  text-decoration-color: var(--green);
+}
+
+.about-who__credentials {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-cred-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.05);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.about-cred-card:hover {
+  box-shadow: 0 8px 32px rgba(106,181,133,0.18), 0 2px 8px rgba(0,0,0,0.07);
+  transform: translateY(-3px);
+}
+
+.about-cred-card__icon {
+  display: block;
+  margin: 0 auto 4px;
+}
+
+.about-cred-card__number {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1.2;
+}
+
+.about-cred-card__label {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 4px;
+}
+
+.about-cred-card__desc {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--charcoal-light);
+  line-height: 1.5;
+}
+
+/* ── 4. Our Values ── */
+.about-values {
+  background: #EEF7F2;
+  padding: 80px 0;
+}
+
+.about-values__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.about-values__card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 36px 28px 32px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.05);
+  border: 1.5px solid var(--border);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.about-values__card:hover {
+  box-shadow: 0 8px 32px rgba(106,181,133,0.18), 0 2px 8px rgba(0,0,0,0.07);
+  transform: translateY(-3px);
+}
+
+.about-values__icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(132,204,156,0.12);
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.about-values__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--charcoal);
+}
+
+.about-values__desc {
+  font-size: 0.95rem;
+  color: var(--charcoal-light);
+  line-height: 1.7;
+}
+
+/* ── 5. Why Choose Us ── */
+.about-why {
+  background: #3D3D3D;
+  padding: 80px 0;
+}
+
+.about-why__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.about-why__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  flex-direction: column;
+}
+
+.about-why__accent {
+  width: 40px;
+  height: 4px;
+  background: var(--green);
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+.about-why__item-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.about-why__item-desc {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.6;
+}
+
+/* ── 6. Our Process ── */
+.about-process {
+  background: #FAF9F6;
+  padding: 80px 0;
+}
+
+.about-process__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.about-process__step {
+  text-align: center;
+}
+
+.about-process__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: var(--green);
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.about-process__step-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--charcoal);
+}
+
+.about-process__step-desc {
+  font-size: 0.95rem;
+  color: var(--charcoal-light);
+  line-height: 1.7;
+}
+
+.about-process__note {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--charcoal-light);
+  font-style: italic;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── 7. Badges ── */
+.about-badges {
+  background: var(--white);
+  padding: 80px 0;
+}
+
+.about-badges__row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.about-badges__badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-badges__google {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.about-badges__stars {
+  font-size: 1.6rem;
+  color: #FBBC05;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.about-badges__google-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+.about-badges__sub {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--charcoal-light);
+  line-height: 1.6;
+}
+
+/* ── 8. Service Area ── */
+.about-service {
+  background: #EEF7F2;
+  padding: 80px 0;
+}
+
+.about-service__map {
+  max-width: 720px;
+  margin: 0 auto 40px;
+}
+
+.about-service__map svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-service__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.about-service__pill {
+  display: inline-block;
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  color: var(--charcoal-light);
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.about-service__pill:hover {
+  background: var(--green);
+  color: var(--white);
+  border-color: var(--green);
+}
+
+/* ── 10. CTA ── */
+.about-cta {
+  background: #4CAF7D;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.about-cta__h2 {
+  font-size: 2rem;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.about-cta__sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.9);
+  max-width: 640px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+}
+
+.about-cta__btn {
+  display: inline-block;
+  background: var(--white);
+  color: var(--charcoal);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 14px 36px;
+  border-radius: 6px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.about-cta__btn:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.about-cta__phone {
+  margin-top: 16px;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+}
+
+.about-cta__phone a {
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,0.4);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
+}
+
+.about-cta__phone a:hover {
+  text-decoration-color: var(--white);
+}
+
+/* ── About Page Responsive ── */
+@media (max-width: 900px) {
+  .about-hero { padding: 72px 0 64px; }
+  .about-hero__h1 { font-size: 2rem; }
+
+  .about-who__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .about-who__credentials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .about-values__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-why__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .about-process__steps {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-hero { padding: 56px 0 48px; }
+  .about-hero__h1 { font-size: 1.65rem; }
+  .about-hero__sub { font-size: 1rem; }
+
+  .about-mission { padding: 56px 0; }
+  .about-mission__quote { font-size: 1.15rem; }
+
+  .about-who { padding: 56px 0; }
+  .about-who__credentials {
+    grid-template-columns: 1fr;
+  }
+
+  .about-values { padding: 56px 0; }
+
+  .about-why { padding: 56px 0; }
+  .about-why__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .about-process { padding: 56px 0; }
+
+  .about-badges { padding: 56px 0; }
+  .about-badges__row { gap: 24px; flex-direction: column; }
+
+  .about-service { padding: 56px 0; }
+
+  .about-cta { padding: 56px 0; }
+  .about-cta__h2 { font-size: 1.5rem; }
+}
