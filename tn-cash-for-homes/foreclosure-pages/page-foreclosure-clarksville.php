@@ -1,0 +1,15 @@
+<?php
+/**
+ * Template Name: Foreclosure - Clarksville
+ */
+$fc_city_name   = 'Clarksville';
+$fc_city_slug   = 'clarksville';
+$fc_county      = 'Montgomery';
+$fc_county_slug = 'montgomery-county';
+$fc_meta_title  = 'Facing Foreclosure in Clarksville TN | Tennessee Cash For Homes';
+$fc_meta_desc   = 'Clarksville foreclosure help for military families and civilians. Get a fast cash offer on your Montgomery County home today.';
+$fc_courthouse  = 'the Montgomery County Courthouse in Clarksville';
+$fc_local_desc_1 = 'Clarksville\'s close ties to Fort Campbell make it one of the most unique housing markets in Tennessee — and one where foreclosure can happen with little warning. Military families stationed at the base often purchase homes in neighborhoods like Sango, St. Bethlehem, or the subdivisions near Exit 1, only to face a PCS relocation order that forces them to move before they have built enough equity to sell traditionally. Civilian homeowners in Clarksville also feel the pressure of a rapidly growing city where property taxes and insurance costs have climbed alongside population growth. Once a notice of foreclosure is filed at the Montgomery County Courthouse in downtown Clarksville, homeowners have a limited number of days to find a resolution before the trustee sale is scheduled.';
+$fc_local_desc_2 = 'Clarksville has been one of Tennessee\'s fastest-growing cities for over a decade, fueled by affordable housing prices relative to Nashville and the steady employment provided by Fort Campbell and its surrounding support industries. But that growth has brought challenges: new construction in developments along Rossview Road and Trenton Road competes directly with resale homes, and homeowners who need to sell quickly often find their older properties sitting on the market while buyers flock to new builds with builder incentives. The local economy also depends heavily on retail, restaurants, and defense-related contractors, sectors that can be sensitive to federal budget changes and base realignment decisions. For homeowners already stretched thin, even a small income disruption can tip the balance toward missed payments.';
+$fc_local_desc_3 = 'Tennessee Cash For Homes works with Clarksville homeowners and military families who need a fast, reliable way to sell before foreclosure. We understand the Montgomery County court system and the specific foreclosure timeline that applies once a substitute trustee is appointed and the sale notice is published. Whether you are facing a PCS move and cannot wait for a traditional sale, or you have fallen behind on payments due to job loss or other hardship, we can help. Our team makes cash offers within 24 hours and can close in as few as seven days. We purchase homes in any condition throughout Clarksville and Montgomery County — from established neighborhoods near Austin Peay State University to newer subdivisions on the city\'s expanding edges — with no commissions, no repairs, and no financing contingencies.';
+include( get_template_directory() . '/foreclosure-template.php' );

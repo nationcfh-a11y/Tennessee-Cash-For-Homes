@@ -632,7 +632,7 @@ add_filter( 'the_content', function( $content ) {
  * Register page templates from subfolders
  */
 add_filter( 'theme_page_templates', function( $templates, $theme, $post ) {
-    $subdirs = [ 'city-pages', 'county-pages' ];
+    $subdirs = [ 'city-pages', 'county-pages', 'foreclosure-pages' ];
     foreach ( $subdirs as $subdir ) {
         $dir = get_template_directory() . '/' . $subdir;
         if ( ! is_dir( $dir ) ) continue;
@@ -653,7 +653,7 @@ add_filter( 'theme_page_templates', function( $templates, $theme, $post ) {
 add_filter( 'template_include', function( $template ) {
     $page_template = get_post_meta( get_the_ID(), '_wp_page_template', true );
     if ( empty( $page_template ) ) return $template;
-    $subdirs = [ 'city-pages', 'county-pages' ];
+    $subdirs = [ 'city-pages', 'county-pages', 'foreclosure-pages' ];
     foreach ( $subdirs as $subdir ) {
         if ( strpos( $page_template, $subdir . '/' ) === 0 ) {
             $full_path = get_template_directory() . '/' . $page_template;

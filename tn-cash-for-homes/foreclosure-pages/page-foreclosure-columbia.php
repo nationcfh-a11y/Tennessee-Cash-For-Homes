@@ -1,0 +1,15 @@
+<?php
+/**
+ * Template Name: Foreclosure - Columbia
+ */
+$fc_city_name   = 'Columbia';
+$fc_city_slug   = 'columbia';
+$fc_county      = 'Maury';
+$fc_county_slug = 'maury-county';
+$fc_meta_title  = 'Facing Foreclosure in Columbia TN | Tennessee Cash For Homes';
+$fc_meta_desc   = 'Facing foreclosure in Columbia TN? We buy Maury County houses for cash in any condition. Avoid the courthouse auction and get a fair offer with a fast closing.';
+$fc_courthouse  = 'the Maury County Courthouse in Columbia';
+$fc_local_desc_1 = 'Columbia is the county seat of Maury County and a city with deep historical roots, perhaps best known as the home of Mule Day and the birthplace of President James K. Polk. But beneath its small-town character, Columbia is experiencing the rapid transformation that comes with being in the path of Nashville\'s southward sprawl. Long-time residents who bought homes decades ago at modest prices now face property tax increases driven by new development and rising land values, while newer homeowners who purchased during the recent building boom may have stretched their budgets to secure a home in this growing market. When financial setbacks hit, whether from medical bills, job loss, or divorce, the foreclosure process at the Maury County Courthouse can unfold quickly and publicly in a community where word travels fast.';
+$fc_local_desc_2 = 'Columbia\'s economy has been in transition for years. The legacy of the Saturn and GM manufacturing plant, which once provided thousands of well-paying jobs, still shapes the community even as the automotive industry has evolved. Today, Columbia benefits from spillover growth driven by Spring Hill\'s expansion and new employers moving into the Maury County industrial parks along U.S. 31 and I-65. The Riverwalk Park along the Duck River has become a centerpiece of downtown revitalization, and new restaurants and shops are breathing life into the historic square. However, this growth is uneven. Older neighborhoods on the east and south sides of town have not seen the same investment, and homeowners in these areas may owe more on their mortgages than their properties are currently worth, making it nearly impossible to sell through traditional channels when foreclosure looms.';
+$fc_local_desc_3 = 'Tennessee Cash For Homes provides Columbia homeowners with a direct, no-hassle alternative to losing their home at a Maury County foreclosure auction. We buy houses throughout Columbia in any condition, from historic homes near the downtown square to ranch-style houses in neighborhoods off Trotwood Avenue and Bear Creek Pike. You do not need to invest in repairs, stage your home, or wait months for a buyer. We make a fair cash offer based on the current market, cover all closing costs, and can close in as little as two weeks. If you are a Columbia homeowner who has received a foreclosure notice or is falling behind on payments, contacting us early gives you the greatest number of options to resolve the situation on your own terms rather than on the courthouse steps.';
+include( get_template_directory() . '/foreclosure-template.php' );

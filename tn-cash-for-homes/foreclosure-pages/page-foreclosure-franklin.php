@@ -1,0 +1,15 @@
+<?php
+/**
+ * Template Name: Foreclosure - Franklin
+ */
+$fc_city_name   = 'Franklin';
+$fc_city_slug   = 'franklin';
+$fc_county      = 'Williamson';
+$fc_county_slug = 'williamson-county';
+$fc_meta_title  = 'Facing Foreclosure in Franklin TN | Tennessee Cash For Homes';
+$fc_meta_desc   = 'Facing foreclosure in Franklin? Sell your Williamson County home fast for cash — protect your equity in one of TN\'s priciest markets.';
+$fc_courthouse  = 'the Williamson County Courthouse in Franklin';
+$fc_local_desc_1 = 'Franklin sits in Williamson County, one of the wealthiest counties in Tennessee, and homeowners here face a distinct kind of foreclosure pressure. Properties in communities like Westhaven, Berry Farms, and the historic neighborhoods near downtown Franklin carry some of the highest price tags in the state, which means mortgage payments are correspondingly large. When a household income drops due to job loss, business failure, or divorce, those high monthly obligations can become unmanageable almost immediately. The perception that Franklin homeowners are immune to financial distress is simply not accurate — foreclosure filings at the Williamson County Courthouse affect families at every income level, and the stigma in an affluent community often prevents people from seeking help until the auction date is dangerously close.';
+$fc_local_desc_2 = 'Williamson County\'s economy benefits from its proximity to Nashville, top-ranked public schools, and a concentration of corporate offices along the Cool Springs corridor. Major employers in healthcare, finance, and professional services provide high-paying jobs, but those positions are not recession-proof. The area\'s median home values are among the highest in Tennessee, and property taxes reflect that. Homeowners in Franklin who need to sell quickly face a paradox: while the market is strong overall, luxury and upper-middle-market homes can sit for months waiting for the right buyer, and sellers in distress cannot afford to wait. New construction at developments like Berry Farms and along Mack Hatcher Parkway also draws buyers away from resale properties, further lengthening days on market for existing homeowners.';
+$fc_local_desc_3 = 'Tennessee Cash For Homes helps Franklin homeowners sell discreetly and quickly before a Williamson County foreclosure reaches the auction stage. We understand that privacy matters in a close-knit community, and our process is designed to be confidential from start to finish. There are no yard signs, no open houses, and no public listings. We evaluate your property, make a fair cash offer within 24 hours, and can close on your schedule — often in as little as one week. Whether you own a home in the historic district, a property in Cool Springs, or a newer build in one of Franklin\'s planned communities, we purchase in any condition with no commissions and no repair contingencies. Protecting your equity and your credit in Williamson County\'s high-value market is our priority.';
+include( get_template_directory() . '/foreclosure-template.php' );

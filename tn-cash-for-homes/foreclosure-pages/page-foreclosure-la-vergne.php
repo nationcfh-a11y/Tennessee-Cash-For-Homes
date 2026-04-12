@@ -1,0 +1,15 @@
+<?php
+/**
+ * Template Name: Foreclosure - La Vergne
+ */
+$fc_city_name   = 'La Vergne';
+$fc_city_slug   = 'la-vergne';
+$fc_county      = 'Rutherford';
+$fc_county_slug = 'rutherford-county';
+$fc_meta_title  = 'Facing Foreclosure in La Vergne TN | Tennessee Cash For Homes';
+$fc_meta_desc   = 'Avoid foreclosure on your La Vergne TN home. We provide fast cash offers for houses in any condition near Percy Priest Lake and throughout Rutherford County.';
+$fc_courthouse  = 'the Rutherford County Courthouse in Murfreesboro';
+$fc_local_desc_1 = 'La Vergne sits along the I-24 corridor between Nashville and Murfreesboro, offering some of the most affordable housing in the entire Middle Tennessee region. For many first-time buyers, La Vergne represented their best chance at homeownership, with starter homes priced well below what Nashville or even neighboring Smyrna could offer. But affordability at purchase does not always translate to long-term financial stability. Many La Vergne homeowners now face foreclosure after job losses at local warehouse and distribution facilities, unexpected repair costs on aging homes, or the compounding weight of credit card debt taken on to bridge temporary income gaps. When foreclosure notices arrive from the Rutherford County Courthouse in Murfreesboro, the reality sets in quickly.';
+$fc_local_desc_2 = 'La Vergne\'s economy is heavily influenced by the warehouse and distribution industry that has grown along the I-24 corridor and Murfreesboro Road. Companies like Amazon and other logistics firms provide employment, but these jobs often come with variable hours and limited benefits, leaving workers vulnerable to financial shocks. The proximity to Percy Priest Lake draws recreational visitors but has not translated into the kind of property value appreciation seen in nearby communities. Many La Vergne homes were built during the 1990s and early 2000s housing boom and are now reaching the age where major systems like roofs, HVAC units, and plumbing need replacement. Homeowners who cannot afford these repairs often see their property values decline even as their mortgage balances remain unchanged, creating a gap that can accelerate the path toward foreclosure.';
+$fc_local_desc_3 = 'Tennessee Cash For Homes specializes in helping La Vergne homeowners who are caught between a mortgage they cannot sustain and a home that may need work they cannot afford. We buy houses throughout La Vergne regardless of condition, from the older subdivisions near Murfreesboro Road to newer developments closer to Percy Priest Lake. You do not need to make repairs, clean out the property, or even be current on your payments for us to make a cash offer. Because Rutherford County foreclosures are processed through the courthouse in Murfreesboro, La Vergne homeowners sometimes feel disconnected from the legal process. We help you stay ahead of it by providing a clear, fast path to selling your home before the foreclosure is finalized, protecting your credit and giving you cash to start fresh.';
+include( get_template_directory() . '/foreclosure-template.php' );
