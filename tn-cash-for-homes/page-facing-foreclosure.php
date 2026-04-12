@@ -133,62 +133,92 @@ $fc_cities = [
       <p class="fc-section-subtitle">Tennessee is a <strong>non-judicial foreclosure state</strong>, meaning lenders can foreclose without going through court. Here is the typical timeline and what to expect at each stage.</p>
     </div>
 
-    <div class="fc-timeline__steps">
+    <div class="fc-process-steps">
       <!-- Step 1 -->
-      <div class="fc-timeline__step">
-        <div class="fc-timeline__num">1</div>
-        <div class="fc-timeline__body">
-          <h3>Missed Payments</h3>
-          <p>After missing one or more mortgage payments, your lender will begin contacting you by phone and mail. Most lenders wait 3 to 6 months of missed payments before formally starting the foreclosure process, though federal regulations require a 120-day delinquency period before filing.</p>
-          <p class="fc-timeline__time">Typical window: 90 to 180 days from first missed payment</p>
+      <article class="fc-process-step" data-reveal>
+        <header class="fc-process-step__head">
+          <span class="fc-process-step__num">1</span>
+          <h3 class="fc-process-step__title">Missed Payments</h3>
+        </header>
+        <p class="fc-process-step__body">After missing one or more mortgage payments, your lender will begin contacting you by phone and mail. Most lenders wait 3 to 6 months of missed payments before formally starting the foreclosure process, though federal regulations require a 120-day delinquency period before filing.</p>
+        <div class="fc-process-step__meta">
+          <span class="fc-process-pill">
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+            Typical window: 90 to 180 days from first missed payment
+          </span>
         </div>
-      </div>
+      </article>
 
       <!-- Step 2 -->
-      <div class="fc-timeline__step">
-        <div class="fc-timeline__num">2</div>
-        <div class="fc-timeline__body">
-          <h3>Notice of Default</h3>
-          <p>The lender records a formal notice that you are in default on the loan. Under Tennessee Code Annotated &sect; 35-5-101 through 35-5-111, the deed of trust gives the lender (or a trustee acting on their behalf) the power to sell the property without court involvement. Once this notice is recorded, the foreclosure clock officially starts.</p>
-          <p class="fc-timeline__time">Typical window: 30 to 60 days after default is declared</p>
+      <article class="fc-process-step" data-reveal>
+        <header class="fc-process-step__head">
+          <span class="fc-process-step__num">2</span>
+          <h3 class="fc-process-step__title">Notice of Default</h3>
+        </header>
+        <p class="fc-process-step__body">The lender records a formal notice that you are in default on the loan. Under Tennessee Code Annotated &sect; 35-5-101 through 35-5-111, the deed of trust gives the lender (or a trustee acting on their behalf) the power to sell the property without court involvement. Once this notice is recorded, the foreclosure clock officially starts.</p>
+        <div class="fc-process-step__meta">
+          <span class="fc-process-pill">
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+            Typical window: 30 to 60 days after default is declared
+          </span>
         </div>
-      </div>
+      </article>
 
-      <!-- CALLOUT BOX -->
-      <div class="fc-timeline__callout">
-        <svg width="24" height="24" fill="#84CC9C" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>At any point before the foreclosure sale date, you may be able to sell your home for cash and stop the process entirely.</p>
-      </div>
+      <!-- KEY CALLOUT -->
+      <aside class="fc-process-callout" data-reveal>
+        <div class="fc-process-callout__icon">
+          <svg width="26" height="26" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+        </div>
+        <div class="fc-process-callout__body">
+          <p class="fc-process-callout__eyebrow">Key Takeaway</p>
+          <p class="fc-process-callout__text">At any point before the foreclosure sale date, you may be able to sell your home for cash and stop the process entirely.</p>
+        </div>
+      </aside>
 
       <!-- Step 3 -->
-      <div class="fc-timeline__step">
-        <div class="fc-timeline__num">3</div>
-        <div class="fc-timeline__body">
-          <h3>Notice of Sale</h3>
-          <p>The trustee must publish a notice of the foreclosure sale in a newspaper in the county where the property is located for three consecutive weeks before the sale date. Additionally, the borrower must be sent a written notice at least 20 days before the scheduled sale. The notice includes the date, time, and location of the auction (typically the county courthouse).</p>
-          <p class="fc-timeline__time">Typical window: 21 to 30 days from publication to sale</p>
+      <article class="fc-process-step" data-reveal>
+        <header class="fc-process-step__head">
+          <span class="fc-process-step__num">3</span>
+          <h3 class="fc-process-step__title">Notice of Sale</h3>
+        </header>
+        <p class="fc-process-step__body">The trustee must publish a notice of the foreclosure sale in a newspaper in the county where the property is located for three consecutive weeks before the sale date. Additionally, the borrower must be sent a written notice at least 20 days before the scheduled sale. The notice includes the date, time, and location of the auction (typically the county courthouse).</p>
+        <div class="fc-process-step__meta">
+          <span class="fc-process-pill">
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+            Typical window: 21 to 30 days from publication to sale
+          </span>
         </div>
-      </div>
+      </article>
 
       <!-- Step 4 -->
-      <div class="fc-timeline__step">
-        <div class="fc-timeline__num">4</div>
-        <div class="fc-timeline__body">
-          <h3>Foreclosure Sale</h3>
-          <p>The property is sold at public auction, usually on the courthouse steps in the county where the property is located. The highest bidder takes ownership. In many cases the lender places the opening bid at the outstanding loan balance, and if no outside bidders appear, the lender takes possession of the home as a bank-owned or REO property.</p>
-          <p class="fc-timeline__time">This is the final deadline. Once the sale occurs, the homeowner loses all rights to the property.</p>
+      <article class="fc-process-step" data-reveal>
+        <header class="fc-process-step__head">
+          <span class="fc-process-step__num">4</span>
+          <h3 class="fc-process-step__title">Foreclosure Sale</h3>
+        </header>
+        <p class="fc-process-step__body">The property is sold at public auction, usually on the courthouse steps in the county where the property is located. The highest bidder takes ownership. In many cases the lender places the opening bid at the outstanding loan balance, and if no outside bidders appear, the lender takes possession of the home as a bank-owned or REO property.</p>
+        <div class="fc-process-step__meta">
+          <span class="fc-process-pill fc-process-pill--warning">
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+            Final deadline: once the sale occurs, the homeowner loses all rights to the property
+          </span>
         </div>
-      </div>
+      </article>
 
       <!-- Step 5 -->
-      <div class="fc-timeline__step">
-        <div class="fc-timeline__num">5</div>
-        <div class="fc-timeline__body">
-          <h3>Eviction</h3>
-          <p>If the home is sold at auction, Tennessee does not provide a statutory right of redemption for non-judicial foreclosures. The new owner can begin eviction proceedings immediately. In most cases the former homeowner must vacate the property within a matter of weeks after the sale is confirmed.</p>
-          <p class="fc-timeline__time">Tennessee is one of the faster foreclosure states. The entire process can take as little as 60 days from notice of sale to eviction.</p>
+      <article class="fc-process-step" data-reveal>
+        <header class="fc-process-step__head">
+          <span class="fc-process-step__num">5</span>
+          <h3 class="fc-process-step__title">Eviction</h3>
+        </header>
+        <p class="fc-process-step__body">If the home is sold at auction, Tennessee does not provide a statutory right of redemption for non-judicial foreclosures. The new owner can begin eviction proceedings immediately. In most cases the former homeowner must vacate the property within a matter of weeks after the sale is confirmed.</p>
+        <div class="fc-process-step__meta">
+          <span class="fc-process-pill fc-process-pill--note">
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+            Tennessee is one of the faster foreclosure states, the process can take as little as 60 days from notice of sale to eviction
+          </span>
         </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
@@ -872,96 +902,167 @@ echo wp_json_encode( [
 .fc-empathy__body p:last-child { margin-bottom: 0; }
 
 /* ══════════════════════════════════════════════
-   3. TIMELINE
+   3. TIMELINE / FORECLOSURE PROCESS
    ══════════════════════════════════════════════ */
 .fc-timeline {
   background: var(--fc-white);
   padding: 88px 0;
 }
-.fc-timeline__steps {
-  max-width: 780px;
+.fc-process-steps {
+  max-width: 820px;
   margin: 0 auto;
-  position: relative;
-}
-.fc-timeline__steps::before {
-  content: '';
-  position: absolute;
-  left: 22px;
-  top: 22px;
-  bottom: 60px;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--fc-green) 0%, rgba(132,204,156,0.25) 100%);
-}
-.fc-timeline__step {
   display: flex;
-  gap: 28px;
-  margin-bottom: 36px;
-  position: relative;
-  background: var(--fc-white);
-  padding: 6px 0;
+  flex-direction: column;
+  gap: 18px;
 }
-.fc-timeline__num {
+.fc-process-step {
+  background: var(--fc-white);
+  border: 1px solid var(--fc-border);
+  border-radius: 16px;
+  padding: 28px 30px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.fc-process-step:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--fc-shadow);
+  border-color: rgba(132,204,156,0.55);
+}
+.fc-process-step__head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.fc-process-step__num {
   flex-shrink: 0;
-  width: 46px;
-  height: 46px;
-  background: var(--fc-green);
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, var(--fc-green) 0%, #6ab585 100%);
   color: var(--fc-white);
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 0 5px var(--fc-white), 0 4px 12px rgba(132,204,156,0.35);
-  z-index: 1;
+  box-shadow: 0 6px 14px rgba(132,204,156,0.4);
+  letter-spacing: -0.01em;
 }
-.fc-timeline__body {
-  padding-top: 4px;
-  flex: 1;
-}
-.fc-timeline__body h3 {
+.fc-process-step__title {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.22rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--fc-charcoal);
-  margin: 0 0 10px;
+  margin: 0;
   letter-spacing: -0.005em;
+  line-height: 1.25;
 }
-.fc-timeline__body p {
+.fc-process-step__body {
   font-size: 0.98rem;
   color: var(--fc-text);
   line-height: 1.7;
-  margin: 0 0 8px;
+  margin: 0 0 16px;
 }
-.fc-timeline__time {
-  display: inline-block;
-  font-size: 0.85rem;
-  color: var(--fc-green-dark);
-  font-weight: 600;
-  background: var(--fc-green-tint);
-  padding: 5px 12px;
-  border-radius: 6px;
-  margin-top: 4px;
-}
-.fc-timeline__callout {
+.fc-process-step__meta {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  background: linear-gradient(135deg, var(--fc-green-tint) 0%, #e3f3ea 100%);
-  border-left: 4px solid var(--fc-green);
-  padding: 22px 28px;
-  border-radius: 0 10px 10px 0;
-  margin: 0 0 36px 28px;
-  position: relative;
+  flex-wrap: wrap;
+  gap: 8px;
 }
-.fc-timeline__callout svg { flex-shrink: 0; margin-top: 2px; }
-.fc-timeline__callout p {
-  font-size: 1rem;
+.fc-process-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
   font-weight: 600;
-  color: var(--fc-green-darker);
-  line-height: 1.55;
+  color: var(--fc-green-dark);
+  background: var(--fc-green-tint);
+  padding: 7px 14px;
+  border-radius: 999px;
+  line-height: 1.4;
+  max-width: 100%;
+}
+.fc-process-pill svg {
+  flex-shrink: 0;
+  color: currentColor;
+}
+.fc-process-pill--warning {
+  color: #92400e;
+  background: #fef3c7;
+}
+.fc-process-pill--note {
+  color: #1e40af;
+  background: #dbeafe;
+}
+
+/* Key Takeaway callout between steps */
+.fc-process-callout {
+  background: linear-gradient(135deg, var(--fc-green-dark) 0%, var(--fc-green-darker) 100%);
+  color: var(--fc-white);
+  border-radius: 16px;
+  padding: 26px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 10px 28px rgba(45,106,79,0.22);
+  margin: 2px 0;
+  position: relative;
+  overflow: hidden;
+}
+.fc-process-callout::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background: var(--fc-green);
+}
+.fc-process-callout__icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fc-green);
+}
+.fc-process-callout__body { min-width: 0; }
+.fc-process-callout__eyebrow {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--fc-green);
+  margin: 0 0 4px;
+}
+.fc-process-callout__text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.5;
   margin: 0;
+  color: var(--fc-white);
+  letter-spacing: -0.005em;
+}
+
+/* Reveal animation */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  will-change: opacity, transform;
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s cubic-bezier(.22,.61,.36,1), transform 0.7s cubic-bezier(.22,.61,.36,1);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
 }
 
 /* ══════════════════════════════════════════════
@@ -1357,15 +1458,41 @@ echo wp_json_encode( [
   .fc-option-card--highlighted { transform: none; }
   .fc-option-card--highlighted:hover { transform: translateY(-3px); }
   .fc-resources__grid { grid-template-columns: 1fr; }
-  .fc-timeline__steps::before { left: 17px; }
-  .fc-timeline__num { width: 36px; height: 36px; font-size: 1rem; }
-  .fc-timeline__callout { margin-left: 18px; padding: 18px 20px; }
+  .fc-process-step { padding: 22px 22px; }
+  .fc-process-step__head { gap: 14px; }
+  .fc-process-step__num { width: 36px; height: 36px; font-size: 0.98rem; }
+  .fc-process-step__title { font-size: 1.05rem; }
+  .fc-process-callout { padding: 22px 22px 22px 26px; gap: 16px; }
+  .fc-process-callout__icon { width: 44px; height: 44px; }
+  .fc-process-callout__text { font-size: 0.98rem; }
   .fc-form__card { padding: 26px 22px; }
   .fc-section-header { margin-bottom: 36px; }
 }
 </style>
 
 <script>
+// Scroll-reveal animation for timeline cards and callout
+(function() {
+    var els = document.querySelectorAll('.fc-timeline [data-reveal]');
+    if (!els.length) return;
+    if (!('IntersectionObserver' in window)) {
+        els.forEach(function(el){ el.classList.add('is-visible'); });
+        return;
+    }
+    var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el, i) {
+        el.style.transitionDelay = (i * 70) + 'ms';
+        obs.observe(el);
+    });
+})();
+
 // FAQ Accordion
 document.addEventListener('DOMContentLoaded', function() {
     var questions = document.querySelectorAll('.fc-faq .situation-faq-question');
