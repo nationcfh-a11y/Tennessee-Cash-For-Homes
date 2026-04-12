@@ -5,7 +5,7 @@ Template Name: Sell Your Land for Cash
 
 // SEO meta
 $meta_title = 'Sell Your Land for Cash in Tennessee | Tennessee Cash For Homes';
-$meta_description = 'We buy land in Tennessee for cash. Vacant lots, rural acreage, farm land, inherited land — any size, any condition. Get a fair cash offer in 24 hours. No fees or commissions.';
+$meta_description = 'We buy land in Tennessee for cash. Vacant lots, rural acreage, farm land, inherited land - any size, any condition. Get a fair cash offer in 24 hours. No fees or commissions.';
 
 add_filter( 'pre_get_document_title', function( $title ) use ( $meta_title ) {
     return $meta_title;
@@ -96,8 +96,8 @@ get_header();
     <h2 class="land-about__title">We Buy Tennessee Land Fast for Cash</h2>
     <div class="land-about__grid">
       <div class="land-about__copy">
-        <p>Tennessee land values have been steadily rising over the past several years, driven by population growth, new infrastructure projects, and expanding suburban development across the state. While that is great news for landowners, many still struggle to find qualified buyers willing to pay a fair price in a reasonable timeframe. Listing land on the traditional market often means months of waiting, hefty agent commissions, and uncertainty about when — or if — a deal will close.</p>
-        <p>At Tennessee Cash For Homes, we specialize in buying Tennessee land directly from owners for cash. Whether you own rural acreage in East Tennessee, a <a href="<?php echo esc_url( home_url( '/sell-your-land-1' ) ); ?>">vacant lot</a> near a growing suburb, farm land that has been in the family for generations, inherited land you no longer need, or timber land you are ready to liquidate — we make a fair, no-obligation cash offer and can close in as little as 7 days.</p>
+        <p>Tennessee land values have been steadily rising over the past several years, driven by population growth, new infrastructure projects, and expanding suburban development across the state. While that is great news for landowners, many still struggle to find qualified buyers willing to pay a fair price in a reasonable timeframe. Listing land on the traditional market often means months of waiting, hefty agent commissions, and uncertainty about when or if a deal will close.</p>
+        <p>At Tennessee Cash For Homes, we specialize in buying Tennessee land directly from owners for cash. Whether you own rural acreage in East Tennessee, a <a href="<?php echo esc_url( home_url( '/sell-your-land-1' ) ); ?>">vacant lot</a> near a growing suburb, farm land that has been in the family for generations, inherited land you no longer need, or timber land you are ready to liquidate, we make a fair, no-obligation cash offer and can close in as little as 7 days.</p>
         <p>There are no real estate agents involved, no listing fees, and no commissions deducted from your sale. We handle all the paperwork and closing costs so you can walk away with cash in hand without the headaches of a traditional land sale. Whether your property is 1 acre or 100 acres, we are ready to make you an offer.</p>
       </div>
       <div class="land-about__features">
@@ -146,7 +146,7 @@ get_header();
           <svg width="32" height="32" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
         </div>
         <h3 class="land-type-card__title">Vacant Lots</h3>
-        <p class="land-type-card__desc">Residential or commercial vacant lots in any Tennessee city or county. No improvements needed — we buy them as-is.</p>
+        <p class="land-type-card__desc">Residential or commercial vacant lots in any Tennessee city or county. No improvements needed - we buy them as-is.</p>
       </div>
       <div class="land-type-card">
         <div class="land-type-card__icon">
@@ -223,7 +223,7 @@ get_header();
       <div class="step">
         <div class="step__num">2</div>
         <h3 class="step__title">Receive Your Cash Offer</h3>
-        <p class="step__body">We research your land — including comparable sales, zoning, access, and market conditions — and make a fair, no-obligation cash offer within 24 hours. No hidden fees and no pressure.</p>
+        <p class="step__body">We research your land including comparable sales, zoning, access, and market conditions and make a fair, no-obligation cash offer within 24 hours. No hidden fees and no pressure.</p>
       </div>
       <div class="step">
         <div class="step__num">3</div>
@@ -312,10 +312,10 @@ get_header();
 <?php
 $land_faq = [
     ['q' => 'How do you determine what my land is worth?', 'a' => 'We evaluate your land based on comparable sales in the area, current market conditions, zoning, access, topography, and development potential. Our goal is to make a fair offer that reflects the true value of your Tennessee land.'],
-    ['q' => 'Do I need to clear or prepare the land before selling?', 'a' => 'No. We buy land in any condition — overgrown, wooded, landlocked, or fully cleared. You do not need to make any improvements or invest any money before selling to us.'],
+    ['q' => 'Do I need to clear or prepare the land before selling?', 'a' => 'No. We buy land in any condition including overgrown, wooded, landlocked, or fully cleared. You do not need to make any improvements or invest any money before selling to us.'],
     ['q' => 'How fast can you close on my Tennessee land?', 'a' => 'We can close in as little as 7 days in most cases. If you need more time, we will work on your schedule. You pick the closing date that works best for you.'],
     ['q' => 'Do you buy land with back taxes or liens?', 'a' => 'Yes. We regularly purchase properties with outstanding tax liens, title issues, and other encumbrances. We work through the complications so you do not have to.'],
-    ['q' => 'What types of land do you buy in Tennessee?', 'a' => 'We buy all types — vacant lots, rural acreage, farm and agricultural land, timber land, waterfront property, commercial parcels, mobile home lots, inherited land, and more. Any size, any condition, anywhere in Tennessee.'],
+    ['q' => 'What types of land do you buy in Tennessee?', 'a' => 'We buy all types including vacant lots, rural acreage, farm and agricultural land, timber land, waterfront property, commercial parcels, mobile home lots, inherited land, and more. Any size, any condition, anywhere in Tennessee.'],
     ['q' => 'Are there any fees or commissions when selling my land to you?', 'a' => 'Absolutely not. There are zero fees, zero commissions, and we cover the closing costs. The cash offer we make is the amount you receive at closing.'],
 ];
 ?>
@@ -338,14 +338,6 @@ $land_faq = [
   </div>
 </section>
 
-<!-- ── CTA ── -->
-<section class="land-cta-section">
-  <div class="container" style="text-align: center;">
-    <h2 class="land-cta__title">Ready to Sell Your Tennessee Land?</h2>
-    <p class="land-cta__sub">Get a no-obligation cash offer in 24 hours. No fees, no commissions, no hassle.</p>
-    <a href="/#hero-form" class="land-cta__btn">Get My Free Cash Offer &rarr;</a>
-  </div>
-</section>
 
 <!-- FAQ Schema -->
 <script type="application/ld+json">
