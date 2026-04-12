@@ -616,6 +616,20 @@ add_filter( 'pre_get_document_title', function( $title ) {
 }, 99 );
 
 /**
+ * Align the main WordPress query on the blog/category archives with the
+ * custom grid query in home.php (9 posts per page). Without this, WP's main
+ * query uses the admin "Blog pages show at most" setting — if that differs
+ * from 9, requests like /blog/page/N/ can 404 (falling back to index.php's
+ * "No content found") even though the grid template would happily render.
+ */
+add_action( 'pre_get_posts', function( $q ) {
+    if ( is_admin() || ! $q->is_main_query() ) return;
+    if ( $q->is_home() || $q->is_category() ) {
+        $q->set( 'posts_per_page', 9 );
+    }
+} );
+
+/**
  * Remove first image from single post content (featured image already shown by template).
  */
 add_filter( 'the_content', function( $content ) {

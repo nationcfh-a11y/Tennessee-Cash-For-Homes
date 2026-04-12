@@ -6,23 +6,35 @@
 get_header();
 
 // Pagination
-$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+$paged         = get_query_var( 'paged' ) ? (int) get_query_var( 'paged' ) : 1;
 $is_first_page = ( $paged === 1 );
 
-// Category filter tabs
+// Category filter tabs — slugs must match real WP category slugs
 $filter_categories = array(
-    'all'            => 'All',
-    'market-trends'  => 'Market Trends',
-    'home-tips'      => 'Home Tips',
-    'selling-guide'  => 'Selling Guide',
-    'education'      => 'Education',
-    'success-stories'=> 'Success Stories',
+    'all'             => 'All',
+    'market-trends'   => 'Market Trends',
+    'home-tips'       => 'Home Tips',
+    'selling-guide'   => 'Selling Guide',
+    'education'       => 'Education',
+    'success-stories' => 'Success Stories',
 );
 
-// Featured post: always the single most recent published post.
-// Loaded on every page so its ID can be excluded from the grid consistently,
-// which keeps pagination tight (no duplicate posts, no empty trailing pages).
+// Detect active category from ?category_name=<slug>. Validate against the
+// known filter slugs so a bogus value falls back to "All" instead of
+// returning an empty query.
+$active_category = '';
+if ( isset( $_GET['category_name'] ) ) {
+    $requested = sanitize_title( wp_unslash( $_GET['category_name'] ) );
+    if ( $requested && $requested !== 'all' && isset( $filter_categories[ $requested ] ) ) {
+        $active_category = $requested;
+    }
+}
+$is_all_view = ( $active_category === '' );
+
+// Featured post: always the single most recent published post. Only shown
+// on the "All" view, page 1.
 $featured_post = null;
+$show_featured = ( $is_all_view && $is_first_page );
 $featured_query = new WP_Query( array(
     'posts_per_page' => 1,
     'post_status'    => 'publish',
@@ -32,19 +44,20 @@ $featured_query = new WP_Query( array(
 if ( $featured_query->have_posts() ) {
     $featured_query->the_post();
     $featured_post = get_post();
-    if ( $is_first_page ) {
-        $f_content     = get_the_content( null, false, $featured_post );
-        $f_word_count  = str_word_count( wp_strip_all_tags( $f_content ) );
-        $f_read_time   = max( 1, ceil( $f_word_count / 200 ) );
-        $f_categories  = get_the_category( $featured_post->ID );
-        $f_cat_name    = ! empty( $f_categories ) ? $f_categories[0]->name : 'Blog';
-        $f_cat_slug    = ! empty( $f_categories ) ? $f_categories[0]->slug : '';
+    if ( $show_featured ) {
+        $f_content    = get_the_content( null, false, $featured_post );
+        $f_word_count = str_word_count( wp_strip_all_tags( $f_content ) );
+        $f_read_time  = max( 1, ceil( $f_word_count / 200 ) );
+        $f_categories = get_the_category( $featured_post->ID );
+        $f_cat_name   = ! empty( $f_categories ) ? $f_categories[0]->name : 'Blog';
+        $f_cat_slug   = ! empty( $f_categories ) ? $f_categories[0]->slug : '';
     }
 }
 wp_reset_postdata();
 
-// Grid posts query — always excludes the featured post so pagination is
-// consistent across every page and max_num_pages reflects only real content.
+// Grid query. For the "All" view, exclude the featured post from every
+// page so pagination is tight. For a category view, do not exclude —
+// pagination should reflect every post in that category.
 $grid_args = array(
     'posts_per_page' => 9,
     'post_status'    => 'publish',
@@ -53,11 +66,33 @@ $grid_args = array(
     'paged'          => $paged,
 );
 
-if ( $featured_post ) {
-    $grid_args['post__not_in'] = array( $featured_post->ID );
+if ( $is_all_view ) {
+    if ( $featured_post ) {
+        $grid_args['post__not_in'] = array( $featured_post->ID );
+    }
+} else {
+    $grid_args['category_name'] = $active_category;
 }
 
 $grid_query = new WP_Query( $grid_args );
+
+// Helper: build a URL for a given page number that preserves the active
+// category filter.
+$build_page_url = function( $n ) use ( $active_category ) {
+    $url = get_pagenum_link( $n );
+    if ( $active_category !== '' ) {
+        $url = add_query_arg( 'category_name', $active_category, $url );
+    }
+    return $url;
+};
+
+// Helper: URL for a category filter tab (resets paged to 1).
+$build_cat_url = function( $slug ) {
+    $base = get_permalink( get_option( 'page_for_posts' ) );
+    if ( ! $base ) $base = home_url( '/blog/' );
+    if ( $slug === 'all' ) return $base;
+    return add_query_arg( 'category_name', $slug, $base );
+};
 
 // Total published posts count
 $total_posts = wp_count_posts()->publish;
@@ -73,7 +108,7 @@ $total_posts = wp_count_posts()->publish;
   </div>
 </section>
 
-<?php if ( $is_first_page && $featured_post ) : ?>
+<?php if ( $show_featured && $featured_post ) : ?>
 <!-- ── FEATURED POST ── -->
 <section class="blog-featured">
   <div class="container">
@@ -115,15 +150,19 @@ $total_posts = wp_count_posts()->publish;
   <div class="container">
     <h2 class="blog-articles__heading">Latest Articles</h2>
 
-    <!-- Category Filter Tabs -->
+    <!-- Category Filter Tabs (server-side: each tab is a real link) -->
     <div class="blog-filter" role="tablist">
-      <?php foreach ( $filter_categories as $slug => $label ) : ?>
-        <button class="blog-filter__tab<?php echo $slug === 'all' ? ' blog-filter__tab--active' : ''; ?>"
-                role="tab"
-                aria-selected="<?php echo $slug === 'all' ? 'true' : 'false'; ?>"
-                data-filter="<?php echo esc_attr( $slug ); ?>">
+      <?php
+      foreach ( $filter_categories as $slug => $label ) :
+          $is_active = ( $slug === 'all' && $is_all_view ) || ( $slug !== 'all' && $slug === $active_category );
+      ?>
+        <a href="<?php echo esc_url( $build_cat_url( $slug ) ); ?>"
+           class="blog-filter__tab<?php echo $is_active ? ' blog-filter__tab--active' : ''; ?>"
+           role="tab"
+           aria-selected="<?php echo $is_active ? 'true' : 'false'; ?>"
+           data-filter="<?php echo esc_attr( $slug ); ?>">
           <?php echo esc_html( $label ); ?>
-        </button>
+        </a>
       <?php endforeach; ?>
     </div>
 
@@ -136,9 +175,8 @@ $total_posts = wp_count_posts()->publish;
           $read_time  = max( 1, ceil( $word_count / 200 ) );
           $cats       = get_the_category();
           $cat_name   = ! empty( $cats ) ? $cats[0]->name : 'Blog';
-          $cat_slug   = ! empty( $cats ) ? $cats[0]->slug : '';
         ?>
-          <a href="<?php the_permalink(); ?>" class="blog-card" data-category="<?php echo esc_attr( $cat_slug ); ?>">
+          <a href="<?php the_permalink(); ?>" class="blog-card">
             <?php if ( has_post_thumbnail() ) : ?>
               <div class="blog-card__img-wrap">
                 <?php the_post_thumbnail( 'medium_large', array( 'class' => 'blog-card__img', 'alt' => esc_attr( get_the_title() ) ) ); ?>
@@ -161,20 +199,14 @@ $total_posts = wp_count_posts()->publish;
         <?php endwhile; ?>
       </div>
 
-      <!-- No Results Message (hidden by default, shown by JS filter) -->
-      <div class="blog-no-results" id="blogNoResults" style="display: none;">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        <p>No articles found in this category on the current page. Try <strong>All</strong> to see everything.</p>
-      </div>
-
       <!-- Pagination -->
       <?php
-      $total_pages = $grid_query->max_num_pages;
+      $total_pages = (int) $grid_query->max_num_pages;
       if ( $total_pages > 1 ) :
       ?>
         <nav class="blog-pagination" aria-label="Blog pagination">
           <?php if ( $paged > 1 ) : ?>
-            <a href="<?php echo esc_url( get_pagenum_link( $paged - 1 ) ); ?>" class="blog-pagination__btn">&larr; Previous</a>
+            <a href="<?php echo esc_url( $build_page_url( $paged - 1 ) ); ?>" class="blog-pagination__btn">&larr; Previous</a>
           <?php else : ?>
             <span class="blog-pagination__btn blog-pagination__btn--disabled">&larr; Previous</span>
           <?php endif; ?>
@@ -186,7 +218,7 @@ $total_posts = wp_count_posts()->publish;
             $end   = min( $total_pages, $paged + $range );
 
             if ( $start > 1 ) {
-                echo '<a href="' . esc_url( get_pagenum_link( 1 ) ) . '" class="blog-pagination__num">1</a>';
+                echo '<a href="' . esc_url( $build_page_url( 1 ) ) . '" class="blog-pagination__num">1</a>';
                 if ( $start > 2 ) echo '<span class="blog-pagination__dots">&hellip;</span>';
             }
 
@@ -194,19 +226,19 @@ $total_posts = wp_count_posts()->publish;
                 if ( $i === $paged ) {
                     echo '<span class="blog-pagination__num blog-pagination__num--active">' . $i . '</span>';
                 } else {
-                    echo '<a href="' . esc_url( get_pagenum_link( $i ) ) . '" class="blog-pagination__num">' . $i . '</a>';
+                    echo '<a href="' . esc_url( $build_page_url( $i ) ) . '" class="blog-pagination__num">' . $i . '</a>';
                 }
             }
 
             if ( $end < $total_pages ) {
                 if ( $end < $total_pages - 1 ) echo '<span class="blog-pagination__dots">&hellip;</span>';
-                echo '<a href="' . esc_url( get_pagenum_link( $total_pages ) ) . '" class="blog-pagination__num">' . $total_pages . '</a>';
+                echo '<a href="' . esc_url( $build_page_url( $total_pages ) ) . '" class="blog-pagination__num">' . $total_pages . '</a>';
             }
             ?>
           </div>
 
           <?php if ( $paged < $total_pages ) : ?>
-            <a href="<?php echo esc_url( get_pagenum_link( $paged + 1 ) ); ?>" class="blog-pagination__btn">Next &rarr;</a>
+            <a href="<?php echo esc_url( $build_page_url( $paged + 1 ) ); ?>" class="blog-pagination__btn">Next &rarr;</a>
           <?php else : ?>
             <span class="blog-pagination__btn blog-pagination__btn--disabled">Next &rarr;</span>
           <?php endif; ?>
@@ -215,53 +247,16 @@ $total_posts = wp_count_posts()->publish;
 
     <?php else : ?>
       <div class="blog-no-results">
-        <p>No blog posts published yet. Check back soon!</p>
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <?php if ( ! $is_all_view ) : ?>
+          <p>No articles found in <strong><?php echo esc_html( $filter_categories[ $active_category ] ); ?></strong> yet. Try <a href="<?php echo esc_url( $build_cat_url( 'all' ) ); ?>"><strong>All</strong></a> to see everything.</p>
+        <?php else : ?>
+          <p>No blog posts published yet. Check back soon!</p>
+        <?php endif; ?>
       </div>
     <?php endif; ?>
     <?php wp_reset_postdata(); ?>
   </div>
 </section>
-
-<!-- ── CLIENT-SIDE CATEGORY FILTER ── -->
-<script>
-(function() {
-  var tabs  = document.querySelectorAll('.blog-filter__tab');
-  var cards = document.querySelectorAll('#blogGrid .blog-card');
-  var grid  = document.getElementById('blogGrid');
-  var noRes = document.getElementById('blogNoResults');
-
-  if (!tabs.length || !cards.length) return;
-
-  tabs.forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      var filter = this.getAttribute('data-filter');
-
-      // Update active tab
-      tabs.forEach(function(t) {
-        t.classList.remove('blog-filter__tab--active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      this.classList.add('blog-filter__tab--active');
-      this.setAttribute('aria-selected', 'true');
-
-      // Filter cards
-      var visibleCount = 0;
-      cards.forEach(function(card) {
-        if (filter === 'all' || card.getAttribute('data-category') === filter) {
-          card.style.display = '';
-          visibleCount++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-
-      // Show/hide no results
-      if (noRes) {
-        noRes.style.display = visibleCount === 0 ? 'flex' : 'none';
-      }
-    });
-  });
-})();
-</script>
 
 <?php get_footer(); ?>
