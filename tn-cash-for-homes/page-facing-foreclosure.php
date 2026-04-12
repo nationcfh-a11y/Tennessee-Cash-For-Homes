@@ -236,99 +236,117 @@ $fc_cities = [
     <div class="fc-options__grid">
 
       <!-- Option 1: Sell for Cash (highlighted) -->
-      <div class="fc-option-card fc-option-card--highlighted">
+      <article class="fc-option-card fc-option-card--highlighted">
         <div class="fc-option-card__badge">Fastest Option</div>
-        <h3 class="fc-option-card__title">Sell for Cash</h3>
-        <p class="fc-option-card__desc">Sell your home directly to a cash buyer before the foreclosure sale date.</p>
-        <div class="fc-option-card__pros">
-          <h4>Pros</h4>
-          <ul>
-            <li>Can close in as little as 7 days</li>
-            <li>Stops foreclosure immediately</li>
-            <li>Protects your credit score</li>
-            <li>No repairs, fees, or commissions</li>
-            <li>Walk away with cash in hand</li>
-          </ul>
+        <div class="fc-option-card__left">
+          <h3 class="fc-option-card__title">Sell for Cash</h3>
+          <p class="fc-option-card__desc">Sell your home directly to a cash buyer before the foreclosure sale date.</p>
         </div>
-        <div class="fc-option-card__cons">
-          <h4>Cons</h4>
-          <ul>
-            <li>Offer may be below full retail market value</li>
-            <li>Must have enough equity to cover loan payoff</li>
-          </ul>
+        <div class="fc-option-card__right">
+          <div class="fc-option-card__col fc-option-card__col--pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Can close in as little as 7 days</li>
+              <li>Stops foreclosure immediately</li>
+              <li>Protects your credit score</li>
+              <li>No repairs, fees, or commissions</li>
+              <li>Walk away with cash in hand</li>
+            </ul>
+          </div>
+          <div class="fc-option-card__col fc-option-card__col--cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Offer may be below full retail market value</li>
+              <li>Must have enough equity to cover loan payoff</li>
+            </ul>
+          </div>
         </div>
-        <a href="#fc-hero-form" class="btn-primary btn-primary--block fc-option-card__cta">Get My Cash Offer &rarr;</a>
-      </div>
+      </article>
 
       <!-- Option 2: Loan Modification -->
-      <div class="fc-option-card">
-        <h3 class="fc-option-card__title">Loan Modification</h3>
-        <p class="fc-option-card__desc">Work with your lender to restructure loan terms, lower payments, or extend the loan.</p>
-        <div class="fc-option-card__pros">
-          <h4>Pros</h4>
-          <ul>
-            <li>May keep your home</li>
-            <li>Could lower monthly payment</li>
-            <li>Less credit damage than foreclosure</li>
-          </ul>
+      <article class="fc-option-card">
+        <div class="fc-option-card__left">
+          <h3 class="fc-option-card__title">Loan Modification</h3>
+          <p class="fc-option-card__desc">Work with your lender to restructure loan terms, lower payments, or extend the loan.</p>
         </div>
-        <div class="fc-option-card__cons">
-          <h4>Cons</h4>
-          <ul>
-            <li>Lengthy application process (30 to 90 days)</li>
-            <li>Approval is not guaranteed</li>
-            <li>Foreclosure may continue during review</li>
-            <li>May extend total loan cost significantly</li>
-          </ul>
+        <div class="fc-option-card__right">
+          <div class="fc-option-card__col fc-option-card__col--pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>May keep your home</li>
+              <li>Could lower monthly payment</li>
+              <li>Less credit damage than foreclosure</li>
+            </ul>
+          </div>
+          <div class="fc-option-card__col fc-option-card__col--cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Lengthy application process (30 to 90 days)</li>
+              <li>Approval is not guaranteed</li>
+              <li>Foreclosure may continue during review</li>
+              <li>May extend total loan cost significantly</li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </article>
 
       <!-- Option 3: Deed in Lieu -->
-      <div class="fc-option-card">
-        <h3 class="fc-option-card__title">Deed in Lieu of Foreclosure</h3>
-        <p class="fc-option-card__desc">Voluntarily transfer ownership of the property to the lender to avoid foreclosure.</p>
-        <div class="fc-option-card__pros">
-          <h4>Pros</h4>
-          <ul>
-            <li>Avoids public foreclosure auction</li>
-            <li>Less credit damage than full foreclosure</li>
-            <li>May include relocation assistance</li>
-          </ul>
+      <article class="fc-option-card">
+        <div class="fc-option-card__left">
+          <h3 class="fc-option-card__title">Deed in Lieu of Foreclosure</h3>
+          <p class="fc-option-card__desc">Voluntarily transfer ownership of the property to the lender to avoid foreclosure.</p>
         </div>
-        <div class="fc-option-card__cons">
-          <h4>Cons</h4>
-          <ul>
-            <li>You lose the home and all equity</li>
-            <li>Still appears on credit report</li>
-            <li>Lender must agree to accept</li>
-            <li>May owe taxes on forgiven debt</li>
-          </ul>
+        <div class="fc-option-card__right">
+          <div class="fc-option-card__col fc-option-card__col--pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Avoids public foreclosure auction</li>
+              <li>Less credit damage than full foreclosure</li>
+              <li>May include relocation assistance</li>
+            </ul>
+          </div>
+          <div class="fc-option-card__col fc-option-card__col--cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>You lose the home and all equity</li>
+              <li>Still appears on credit report</li>
+              <li>Lender must agree to accept</li>
+              <li>May owe taxes on forgiven debt</li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </article>
 
       <!-- Option 4: Bankruptcy -->
-      <div class="fc-option-card">
-        <h3 class="fc-option-card__title">Bankruptcy</h3>
-        <p class="fc-option-card__desc">Filing Chapter 7 or Chapter 13 bankruptcy triggers an automatic stay that temporarily halts foreclosure.</p>
-        <div class="fc-option-card__pros">
-          <h4>Pros</h4>
-          <ul>
-            <li>Immediate automatic stay stops foreclosure</li>
-            <li>Chapter 13 may allow catch-up payments</li>
-            <li>Protects other assets from creditors</li>
-          </ul>
+      <article class="fc-option-card">
+        <div class="fc-option-card__left">
+          <h3 class="fc-option-card__title">Bankruptcy</h3>
+          <p class="fc-option-card__desc">Filing Chapter 7 or Chapter 13 bankruptcy triggers an automatic stay that temporarily halts foreclosure.</p>
         </div>
-        <div class="fc-option-card__cons">
-          <h4>Cons</h4>
-          <ul>
-            <li>Severe credit impact (7 to 10 years)</li>
-            <li>Expensive legal process</li>
-            <li>Chapter 7 may not save the home</li>
-            <li>Public record that affects future borrowing</li>
-          </ul>
+        <div class="fc-option-card__right">
+          <div class="fc-option-card__col fc-option-card__col--pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Immediate automatic stay stops foreclosure</li>
+              <li>Chapter 13 may allow catch-up payments</li>
+              <li>Protects other assets from creditors</li>
+            </ul>
+          </div>
+          <div class="fc-option-card__col fc-option-card__col--cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Severe credit impact (7 to 10 years)</li>
+              <li>Expensive legal process</li>
+              <li>Chapter 7 may not save the home</li>
+              <li>Public record that affects future borrowing</li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </article>
 
+    </div>
+    <div class="fc-options__cta">
+      <a href="#fc-hero-form" class="btn-primary">Get My Cash Offer &rarr;</a>
     </div>
   </div>
 </section>
@@ -1074,18 +1092,22 @@ echo wp_json_encode( [
 }
 .fc-options__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
   align-items: stretch;
+  max-width: 1120px;
+  margin: 0 auto;
 }
 .fc-option-card {
   background: var(--fc-white);
   border: 1px solid var(--fc-border);
   border-radius: var(--fc-radius);
-  padding: 28px 24px;
+  padding: 36px 40px;
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 36px;
+  align-items: start;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .fc-option-card:hover {
@@ -1095,11 +1117,10 @@ echo wp_json_encode( [
 .fc-option-card--highlighted {
   border: 2px solid var(--fc-green);
   box-shadow: 0 10px 30px rgba(132, 204, 156, 0.22);
-  transform: translateY(-6px);
   background: linear-gradient(180deg, var(--fc-white) 0%, var(--fc-green-tint) 100%);
 }
 .fc-option-card--highlighted:hover {
-  transform: translateY(-8px);
+  transform: translateY(-3px);
   box-shadow: 0 16px 40px rgba(132, 204, 156, 0.3);
 }
 .fc-option-card__badge {
@@ -1119,60 +1140,75 @@ echo wp_json_encode( [
   text-transform: uppercase;
   box-shadow: 0 4px 10px rgba(132, 204, 156, 0.4);
 }
+.fc-option-card__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 .fc-option-card__title {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.18rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--fc-charcoal);
-  margin: 8px 0 10px;
+  margin: 0 0 12px;
   letter-spacing: -0.005em;
+  line-height: 1.25;
 }
 .fc-option-card__desc {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--fc-text);
-  line-height: 1.6;
-  margin: 0 0 18px;
+  line-height: 1.65;
+  margin: 0;
 }
-.fc-option-card__pros,
-.fc-option-card__cons { margin-bottom: 14px; }
-.fc-option-card__pros h4,
-.fc-option-card__cons h4 {
+.fc-option-card__right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.fc-option-card__col h4 {
   font-family: 'Poppins', sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   margin: 0 0 10px;
 }
-.fc-option-card__pros h4 { color: var(--fc-green-dark); }
-.fc-option-card__cons h4 { color: #b91c1c; }
-.fc-option-card__pros ul,
-.fc-option-card__cons ul {
+.fc-option-card__col--pros h4 { color: var(--fc-green-dark); }
+.fc-option-card__col--cons h4 { color: #b91c1c; }
+.fc-option-card__col ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
-.fc-option-card__pros li,
-.fc-option-card__cons li {
+.fc-option-card__col li {
   font-size: 0.88rem;
   color: var(--fc-text);
-  line-height: 1.5;
-  padding: 3px 0 3px 22px;
+  line-height: 1.45;
+  padding: 0 0 0 22px;
   position: relative;
 }
-.fc-option-card__pros li::before,
-.fc-option-card__cons li::before {
+.fc-option-card__col li::before {
   position: absolute;
   left: 0;
+  top: 0;
   font-weight: 700;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 0.95rem;
+  line-height: 1.45;
 }
-.fc-option-card__pros li::before { content: '\2713'; color: var(--fc-green); }
-.fc-option-card__cons li::before { content: '\2717'; color: #b91c1c; }
-.fc-option-card__cta {
-  margin-top: auto;
-  text-align: center;
+.fc-option-card__col--pros li::before { content: '\2713'; color: var(--fc-green); }
+.fc-option-card__col--cons li::before { content: '\2717'; color: #b91c1c; }
+
+.fc-options__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+.fc-options__cta .btn-primary {
+  padding: 15px 36px;
+  font-size: 1rem;
 }
 
 /* ══════════════════════════════════════════════
@@ -1442,7 +1478,8 @@ echo wp_json_encode( [
 @media (max-width: 1024px) {
   .fc-hero__grid { grid-template-columns: 1fr; gap: 40px; }
   .fc-hero__form-wrap { max-width: 480px; }
-  .fc-options__grid { grid-template-columns: repeat(2, 1fr); }
+  .fc-options__grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .fc-option-card { grid-template-columns: 1fr; gap: 22px; padding: 30px 28px; }
   .fc-resources__grid { grid-template-columns: repeat(2, 1fr); }
   .fc-form__inner { grid-template-columns: 1fr; gap: 40px; }
   .fc-how__steps { grid-template-columns: 1fr; gap: 18px; max-width: 520px; margin-left: auto; margin-right: auto; }
@@ -1454,9 +1491,11 @@ echo wp_json_encode( [
   .fc-hero__form-card { padding: 26px 22px; }
   .fc-empathy, .fc-timeline, .fc-options,
   .fc-how, .fc-resources, .fc-form-section, .fc-faq { padding: 60px 0; }
-  .fc-options__grid { grid-template-columns: 1fr; }
-  .fc-option-card--highlighted { transform: none; }
+  .fc-options__grid { grid-template-columns: 1fr; gap: 20px; }
+  .fc-option-card { grid-template-columns: 1fr; gap: 20px; padding: 26px 22px; }
+  .fc-option-card__right { grid-template-columns: 1fr; gap: 18px; }
   .fc-option-card--highlighted:hover { transform: translateY(-3px); }
+  .fc-options__cta { margin-top: 28px; }
   .fc-resources__grid { grid-template-columns: 1fr; }
   .fc-process-step { padding: 22px 22px; }
   .fc-process-step__head { gap: 14px; }
