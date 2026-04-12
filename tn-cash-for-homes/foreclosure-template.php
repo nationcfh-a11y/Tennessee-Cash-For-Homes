@@ -26,37 +26,79 @@ $fc_desc1 = str_replace( [ '&mdash;', '—' ], ',', $fc_local_desc_1 );
 $fc_desc2 = str_replace( [ '&mdash;', '—' ], ',', $fc_local_desc_2 );
 $fc_desc3 = isset( $fc_local_desc_3 ) ? str_replace( [ '&mdash;', '—' ], ',', $fc_local_desc_3 ) : '';
 
+/* Statewide flag and derived phrases */
+$fc_is_statewide     = ! empty( $fc_is_statewide );
+$fc_state_suffix     = $fc_is_statewide ? '' : ' TN';
+$fc_location_in      = $fc_is_statewide ? 'Tennessee' : $fc_city_name . ', Tennessee';
+$fc_county_phrase    = $fc_is_statewide ? 'your county' : $fc_county . ' County';
+$fc_newspaper_phrase = $fc_is_statewide ? 'the county where the property is located' : $fc_county . ' County';
+$fc_area_phrase      = $fc_is_statewide ? 'statewide' : 'in ' . $fc_county . ' County';
+$fc_hud_serves       = $fc_is_statewide ? 'all of Tennessee' : $fc_city_name . ' and ' . $fc_county . ' County';
+
 /* ── FAQ data ── */
-$fc_faqs = [
-    [
-        'q' => 'How long does foreclosure take in ' . $fc_city_name . ', Tennessee?',
-        'a' => 'Tennessee is a non-judicial foreclosure state, so the process does not require court involvement. From the first missed payment to the foreclosure sale, the typical timeline is 4 to 6 months. Once the Notice of Sale is published in ' . $fc_county . ' County, the auction can happen in as little as 21 days. The exact timeline depends on your lender and how quickly they move through each step.',
-    ],
-    [
-        'q' => 'Can I sell my house to stop foreclosure in ' . $fc_city_name . '?',
-        'a' => 'Yes. At any point before the foreclosure sale date, you have the right to sell your ' . $fc_city_name . ' home. If the sale proceeds are enough to pay off your outstanding mortgage balance, the foreclosure stops and the lien is released. A cash sale is often the fastest way to accomplish this because there are no financing contingencies or inspection delays.',
-    ],
-    [
-        'q' => 'What happens to my credit if my ' . $fc_city_name . ' house goes to foreclosure?',
-        'a' => 'A completed foreclosure can drop your credit score by 100 to 160 points or more, and it stays on your credit report for 7 years. During that time it can make it very difficult to qualify for a new mortgage, rent an apartment, or get certain jobs. Selling your home before the foreclosure is finalized can significantly reduce this credit damage.',
-    ],
-    [
-        'q' => 'How fast can you close if I am facing foreclosure in ' . $fc_city_name . '?',
-        'a' => 'We can close in as little as 7 days in urgent foreclosure situations in ' . $fc_city_name . '. We work directly with title companies and your lender to coordinate a fast closing that meets your ' . $fc_county . ' County courthouse deadline.',
-    ],
-    [
-        'q' => 'Do you buy houses that are already in foreclosure in ' . $fc_city_name . '?',
-        'a' => 'Yes. We regularly work with ' . $fc_city_name . ' homeowners who have already received a Notice of Default or Notice of Sale. As long as the foreclosure auction has not taken place at ' . $fc_courthouse . ', we can still make a cash offer and close quickly.',
-    ],
-    [
-        'q' => 'Will I owe money after a foreclosure sale in ' . $fc_city_name . '?',
-        'a' => 'In Tennessee, lenders may pursue a deficiency judgment if the foreclosure sale price is less than what you owe on the mortgage. This means you could still owe the difference. By selling your ' . $fc_city_name . ' home for cash before the auction, you have more control over the sale price and can potentially avoid a deficiency balance.',
-    ],
-    [
-        'q' => 'What if my foreclosure sale date in ' . $fc_county . ' County has already been set?',
-        'a' => 'If a Notice of Sale has been published but the auction has not happened yet, there is still time to act. Contact us immediately. We have closed on properties just days before scheduled auction dates at ' . $fc_courthouse . '. The sooner you reach out, the more options we have.',
-    ],
-];
+if ( $fc_is_statewide ) {
+    $fc_faqs = [
+        [
+            'q' => 'How long does foreclosure take in Tennessee?',
+            'a' => 'Tennessee is a non-judicial foreclosure state, so the process does not require court involvement. From the first missed payment to the foreclosure sale, the typical timeline is 4 to 6 months. Once the Notice of Sale is published in your county, the auction can happen in as little as 21 days. The exact timeline depends on your lender and how quickly they move through each step.',
+        ],
+        [
+            'q' => 'Can I sell my house to stop foreclosure in Tennessee?',
+            'a' => 'Yes. At any point before the foreclosure sale date, you have the right to sell your Tennessee home. If the sale proceeds are enough to pay off your outstanding mortgage balance, the foreclosure stops and the lien is released. A cash sale is often the fastest way to accomplish this because there are no financing contingencies or inspection delays.',
+        ],
+        [
+            'q' => 'What happens to my credit if my Tennessee house goes to foreclosure?',
+            'a' => 'A completed foreclosure can drop your credit score by 100 to 160 points or more, and it stays on your credit report for 7 years. During that time it can make it very difficult to qualify for a new mortgage, rent an apartment, or get certain jobs. Selling your home before the foreclosure is finalized can significantly reduce this credit damage.',
+        ],
+        [
+            'q' => 'How fast can you close if I am facing foreclosure in Tennessee?',
+            'a' => 'We can close in as little as 7 days in urgent foreclosure situations anywhere in Tennessee. We work directly with title companies and your lender to coordinate a fast closing that meets your county courthouse deadline.',
+        ],
+        [
+            'q' => 'Do you buy houses that are already in foreclosure in Tennessee?',
+            'a' => 'Yes. We regularly work with Tennessee homeowners who have already received a Notice of Default or Notice of Sale. As long as the foreclosure auction has not taken place at the county courthouse where your property is located, we can still make a cash offer and close quickly.',
+        ],
+        [
+            'q' => 'Will I owe money after a foreclosure sale in Tennessee?',
+            'a' => 'In Tennessee, lenders may pursue a deficiency judgment if the foreclosure sale price is less than what you owe on the mortgage. This means you could still owe the difference. By selling your Tennessee home for cash before the auction, you have more control over the sale price and can potentially avoid a deficiency balance.',
+        ],
+        [
+            'q' => 'What if my foreclosure sale date has already been set?',
+            'a' => 'If a Notice of Sale has been published but the auction has not happened yet, there is still time to act. Contact us immediately. We have closed on properties just days before scheduled auction dates at courthouses across Tennessee. The sooner you reach out, the more options we have.',
+        ],
+    ];
+} else {
+    $fc_faqs = [
+        [
+            'q' => 'How long does foreclosure take in ' . $fc_city_name . ', Tennessee?',
+            'a' => 'Tennessee is a non-judicial foreclosure state, so the process does not require court involvement. From the first missed payment to the foreclosure sale, the typical timeline is 4 to 6 months. Once the Notice of Sale is published in ' . $fc_county . ' County, the auction can happen in as little as 21 days. The exact timeline depends on your lender and how quickly they move through each step.',
+        ],
+        [
+            'q' => 'Can I sell my house to stop foreclosure in ' . $fc_city_name . '?',
+            'a' => 'Yes. At any point before the foreclosure sale date, you have the right to sell your ' . $fc_city_name . ' home. If the sale proceeds are enough to pay off your outstanding mortgage balance, the foreclosure stops and the lien is released. A cash sale is often the fastest way to accomplish this because there are no financing contingencies or inspection delays.',
+        ],
+        [
+            'q' => 'What happens to my credit if my ' . $fc_city_name . ' house goes to foreclosure?',
+            'a' => 'A completed foreclosure can drop your credit score by 100 to 160 points or more, and it stays on your credit report for 7 years. During that time it can make it very difficult to qualify for a new mortgage, rent an apartment, or get certain jobs. Selling your home before the foreclosure is finalized can significantly reduce this credit damage.',
+        ],
+        [
+            'q' => 'How fast can you close if I am facing foreclosure in ' . $fc_city_name . '?',
+            'a' => 'We can close in as little as 7 days in urgent foreclosure situations in ' . $fc_city_name . '. We work directly with title companies and your lender to coordinate a fast closing that meets your ' . $fc_county . ' County courthouse deadline.',
+        ],
+        [
+            'q' => 'Do you buy houses that are already in foreclosure in ' . $fc_city_name . '?',
+            'a' => 'Yes. We regularly work with ' . $fc_city_name . ' homeowners who have already received a Notice of Default or Notice of Sale. As long as the foreclosure auction has not taken place at ' . $fc_courthouse . ', we can still make a cash offer and close quickly.',
+        ],
+        [
+            'q' => 'Will I owe money after a foreclosure sale in ' . $fc_city_name . '?',
+            'a' => 'In Tennessee, lenders may pursue a deficiency judgment if the foreclosure sale price is less than what you owe on the mortgage. This means you could still owe the difference. By selling your ' . $fc_city_name . ' home for cash before the auction, you have more control over the sale price and can potentially avoid a deficiency balance.',
+        ],
+        [
+            'q' => 'What if my foreclosure sale date in ' . $fc_county . ' County has already been set?',
+            'a' => 'If a Notice of Sale has been published but the auction has not happened yet, there is still time to act. Contact us immediately. We have closed on properties just days before scheduled auction dates at ' . $fc_courthouse . '. The sooner you reach out, the more options we have.',
+        ],
+    ];
+}
 ?>
 
 <!-- ══════════════════════════════════════════════
@@ -70,7 +112,7 @@ $fc_faqs = [
       <!-- LEFT: Content -->
       <div class="fc-hero__content">
         <span class="fc-hero__eyebrow"><?php echo esc_html( $fc_city_name ); ?> Foreclosure Help</span>
-        <h1 class="fc-hero__h1">Facing Foreclosure in <?php echo esc_html( $fc_city_name ); ?> TN? We Can Help.</h1>
+        <h1 class="fc-hero__h1">Facing Foreclosure in <?php echo esc_html( $fc_city_name . $fc_state_suffix ); ?>? We Can Help.</h1>
         <p class="fc-hero__sub">You have options. Tennessee Cash For Homes buys houses fast for cash to help <?php echo esc_html( $fc_city_name ); ?> homeowners stop foreclosure before it is too late.</p>
         <ul class="fc-hero__checks">
           <li><svg width="20" height="20" fill="#84CC9C" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> Stop the foreclosure process</li>
@@ -126,7 +168,7 @@ $fc_faqs = [
   <div class="container">
     <div class="fc-section-header fc-section-header--left">
       <p class="fc-section-eyebrow">Local Context</p>
-      <h2 class="fc-section-title">Foreclosure in <?php echo esc_html( $fc_city_name ); ?>, Tennessee</h2>
+      <h2 class="fc-section-title">Foreclosure in <?php echo $fc_is_statewide ? 'Tennessee' : esc_html( $fc_city_name ) . ', Tennessee'; ?></h2>
     </div>
     <div class="fc-local__body">
       <p><?php echo esc_html( $fc_desc1 ); ?></p>
@@ -146,7 +188,7 @@ $fc_faqs = [
     <div class="fc-section-header">
       <p class="fc-section-eyebrow">The Process</p>
       <h2 class="fc-section-title">Understanding the Tennessee Foreclosure Process</h2>
-      <p class="fc-section-subtitle">Tennessee is a <strong>non-judicial foreclosure state</strong>. In <?php echo esc_html( $fc_city_name ); ?>, foreclosure sales take place at <?php echo esc_html( $fc_courthouse ); ?>.</p>
+      <p class="fc-section-subtitle">Tennessee is a <strong>non-judicial foreclosure state</strong>. <?php if ( $fc_is_statewide ) : ?>Foreclosure sales take place at the county courthouse where your property is located.<?php else : ?>In <?php echo esc_html( $fc_city_name ); ?>, foreclosure sales take place at <?php echo esc_html( $fc_courthouse ); ?>.<?php endif; ?></p>
     </div>
 
     <div class="fc-timeline__steps">
@@ -170,14 +212,14 @@ $fc_faqs = [
 
       <div class="fc-timeline__callout">
         <svg width="24" height="24" fill="#84CC9C" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>At any point before the foreclosure sale date, you may be able to sell your <?php echo esc_html( $fc_city_name ); ?> home for cash and stop the process entirely.</p>
+        <p>At any point before the foreclosure sale date, you may be able to sell your <?php echo esc_html( $fc_is_statewide ? 'Tennessee' : $fc_city_name ); ?> home for cash and stop the process entirely.</p>
       </div>
 
       <div class="fc-timeline__step">
         <div class="fc-timeline__num">3</div>
         <div class="fc-timeline__body">
           <h3>Notice of Sale</h3>
-          <p>The trustee must publish a notice of the foreclosure sale in a <?php echo esc_html( $fc_county ); ?> County newspaper for three consecutive weeks before the sale date. The borrower must also receive written notice at least 20 days before the scheduled sale.</p>
+          <p>The trustee must publish a notice of the foreclosure sale in a newspaper in <?php echo esc_html( $fc_newspaper_phrase ); ?> for three consecutive weeks before the sale date. The borrower must also receive written notice at least 20 days before the scheduled sale.</p>
           <p class="fc-timeline__time">Typical window: 21 to 30 days from publication to sale</p>
         </div>
       </div>
@@ -186,7 +228,7 @@ $fc_faqs = [
         <div class="fc-timeline__num">4</div>
         <div class="fc-timeline__body">
           <h3>Foreclosure Sale</h3>
-          <p>The property is sold at public auction at <?php echo esc_html( $fc_courthouse ); ?>. The highest bidder takes ownership. If no outside bidders appear, the lender typically takes possession as an REO property.</p>
+          <p>The property is sold at public auction at <?php echo $fc_is_statewide ? 'the county courthouse' : esc_html( $fc_courthouse ); ?>. The highest bidder takes ownership. If no outside bidders appear, the lender typically takes possession as an REO property.</p>
           <p class="fc-timeline__time">This is the final deadline. Once the sale occurs, the homeowner loses all rights to the property.</p>
         </div>
       </div>
@@ -215,7 +257,7 @@ $fc_gov_resources = function_exists( 'tcfh_get_gov_resources' ) ? tcfh_get_gov_r
     <div class="fc-section-header">
       <p class="fc-section-eyebrow">Helpful Resources</p>
       <h2 class="fc-section-title">Foreclosure Resources for <?php echo esc_html( $fc_city_name ); ?> Homeowners</h2>
-      <p class="fc-section-subtitle">Free and low-cost foreclosure prevention assistance, housing counseling, and legal help available to <?php echo esc_html( $fc_city_name ); ?> residents in <?php echo esc_html( $fc_county ); ?> County.</p>
+      <p class="fc-section-subtitle"><?php if ( $fc_is_statewide ) : ?>Free and low-cost foreclosure prevention assistance, housing counseling, and legal help available to Tennessee homeowners statewide.<?php else : ?>Free and low-cost foreclosure prevention assistance, housing counseling, and legal help available to <?php echo esc_html( $fc_city_name ); ?> residents in <?php echo esc_html( $fc_county ); ?> County.<?php endif; ?></p>
     </div>
     <div class="fc-resources__grid">
       <?php if ( ! empty( $fc_gov_resources['assessor'] ) ) : ?>
@@ -259,7 +301,7 @@ $fc_gov_resources = function_exists( 'tcfh_get_gov_resources' ) ? tcfh_get_gov_r
       <a href="https://www.hud.gov/i_want_to/talk_to_a_housing_counselor" target="_blank" rel="noopener noreferrer" class="fc-resource-card">
         <div class="fc-resource-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
         <h3 class="fc-resource-card__title">HUD-Approved Housing Counselors</h3>
-        <p class="fc-resource-card__desc">Free foreclosure avoidance counseling from HUD-certified agencies serving <?php echo esc_html( $fc_city_name ); ?> and <?php echo esc_html( $fc_county ); ?> County.</p>
+        <p class="fc-resource-card__desc">Free foreclosure avoidance counseling from HUD-certified agencies serving <?php echo esc_html( $fc_hud_serves ); ?>.</p>
         <span class="fc-resource-card__tag">Free Counseling</span>
         <span class="fc-resource-card__link">Visit Website &rarr;</span>
       </a>
@@ -413,13 +455,15 @@ echo wp_json_encode( [
         <svg width="20" height="20" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         <span>Facing Foreclosure in Tennessee</span>
       </a>
+      <?php if ( ! $fc_is_statewide ) : ?>
       <a href="<?php echo esc_url( home_url( '/where-we-buy/' . $fc_county_slug ) ); ?>" class="fc-link-card">
         <svg width="20" height="20" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         <span>Sell Your House in <?php echo esc_html( $fc_county ); ?> County</span>
       </a>
+      <?php endif; ?>
       <a href="<?php echo esc_url( home_url( '/where-we-buy/' . $fc_city_slug ) ); ?>" class="fc-link-card">
         <svg width="20" height="20" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-        <span>We Buy Houses in <?php echo esc_html( $fc_city_name ); ?></span>
+        <span><?php echo $fc_is_statewide ? 'We Buy Houses Across Tennessee' : 'We Buy Houses in ' . esc_html( $fc_city_name ); ?></span>
       </a>
       <a href="<?php echo esc_url( home_url( '/sell-my-house-divorce-tennessee/' ) ); ?>" class="fc-link-card">
         <svg width="20" height="20" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
