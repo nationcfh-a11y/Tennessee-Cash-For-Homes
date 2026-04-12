@@ -7,6 +7,7 @@
   <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/brand_assets/Favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts-api.wp.com" crossorigin />
   <link rel="dns-prefetch" href="https://seal-nashville.bbb.org" />
   <?php wp_head(); ?>
 </head>
@@ -18,7 +19,10 @@
   <div class="container">
     <div class="nav__inner">
       <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nav__logo">
-        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/Tennessee%20Cash%20For%20Homes%20Logo.png" alt="Tennessee Cash For Homes" width="1024" height="1024" decoding="async" />
+        <picture>
+          <source type="image/webp" srcset="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/Tennessee%20Cash%20For%20Homes%20Logo.webp" />
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/Tennessee%20Cash%20For%20Homes%20Logo.png" alt="Tennessee Cash For Homes" width="256" height="256" decoding="async" fetchpriority="high" />
+        </picture>
       </a>
       <ul class="nav__links" id="navLinks">
         <li><a href="<?php echo esc_url( home_url( '/how-it-works/' ) ); ?>" <?php if ( is_page( 'how-it-works' ) ) echo 'class="active"'; ?>>How It Works</a></li>
@@ -42,3 +46,5 @@
     </div>
   </div>
 </nav>
+
+<main id="site-main" class="site-main">

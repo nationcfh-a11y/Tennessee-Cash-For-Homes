@@ -5,7 +5,7 @@
 get_header();
 ?>
 
-<main class="thank-you-page" style="min-height: 60vh;">
+<div class="thank-you-page" style="min-height: 60vh;">
   <div class="container" style="max-width: 800px; margin: 0 auto; padding: 80px 24px 0;">
 
     <!-- Green checkmark -->
@@ -33,6 +33,6 @@ get_header();
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
 
   </div>
-</main>
+</div>
 
 <?php get_footer(); ?>

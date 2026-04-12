@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main style="min-height: 60vh; padding: 60px 0;">
+<div class="page-default" style="min-height: 60vh; padding: 60px 0;">
   <div class="container">
     <?php if ( have_posts() ) : ?>
       <?php while ( have_posts() ) : the_post(); ?>
@@ -13,6 +13,6 @@
       <p>No content found.</p>
     <?php endif; ?>
   </div>
-</main>
+</div>
 
 <?php get_footer(); ?>

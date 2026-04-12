@@ -5,13 +5,25 @@
  */
 
 function tcfh_enqueue_assets() {
-    // Main stylesheet (style.css in theme root, also serves as WP theme header)
-    wp_enqueue_style(
-        'tcfh-style',
-        get_stylesheet_uri(),
-        array(),
-        '1.0'
-    );
+    // Main stylesheet: serve the minified build; fall back to style.css if missing.
+    // (style.css still lives alongside it as the WP theme header + source file.)
+    $min_path = get_template_directory() . '/style.min.css';
+    $min_uri  = get_template_directory_uri() . '/style.min.css';
+    if ( file_exists( $min_path ) ) {
+        wp_enqueue_style(
+            'tcfh-style',
+            $min_uri,
+            array(),
+            (string) filemtime( $min_path )
+        );
+    } else {
+        wp_enqueue_style(
+            'tcfh-style',
+            get_stylesheet_uri(),
+            array(),
+            '1.0'
+        );
+    }
 
     // Google Fonts: Poppins
     wp_enqueue_style(

@@ -13,7 +13,7 @@
   $read_time  = max( 1, ceil( $word_count / 250 ) );
 ?>
 
-<main class="single-post">
+<div class="single-post">
 
   <!-- ── HEADER ── -->
   <header class="single-post__header">
@@ -402,7 +402,7 @@
     </div>
   </div>
 
-</main>
+</div>
 
 <?php endwhile; ?>
 

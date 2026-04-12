@@ -141,8 +141,8 @@
       <span class="htc-label htc-label-cash">Your Cash</span>
     </div>
     <div class="htc-image-container">
-      <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/House_Image.webp" alt="Sell your house fast for cash in Tennessee" class="htc-img htc-house-img" width="1386" height="650" decoding="async" />
-      <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/money_image2.webp" alt="Get cash for your Tennessee home" class="htc-img htc-cash-img" width="1323" height="800" decoding="async" />
+      <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/House_Image.webp" alt="Sell your house fast for cash in Tennessee" class="htc-img htc-house-img" width="1386" height="650" loading="lazy" decoding="async" />
+      <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/money_image2.webp" alt="Get cash for your Tennessee home" class="htc-img htc-cash-img" width="1323" height="800" loading="lazy" decoding="async" />
     </div>
     <div class="htc-headline-wrap">
       <p class="htc-eyebrow">No Repairs. No Fees. No Hassle.</p>
