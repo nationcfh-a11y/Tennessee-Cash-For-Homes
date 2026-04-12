@@ -19,18 +19,20 @@ $filter_categories = array(
     'success-stories'=> 'Success Stories',
 );
 
-// Featured post (newest, page 1 only)
+// Featured post: always the single most recent published post.
+// Loaded on every page so its ID can be excluded from the grid consistently,
+// which keeps pagination tight (no duplicate posts, no empty trailing pages).
 $featured_post = null;
-if ( $is_first_page ) {
-    $featured_query = new WP_Query( array(
-        'posts_per_page' => 1,
-        'post_status'    => 'publish',
-        'orderby'        => 'date',
-        'order'          => 'DESC',
-    ) );
-    if ( $featured_query->have_posts() ) {
-        $featured_query->the_post();
-        $featured_post = get_post();
+$featured_query = new WP_Query( array(
+    'posts_per_page' => 1,
+    'post_status'    => 'publish',
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+) );
+if ( $featured_query->have_posts() ) {
+    $featured_query->the_post();
+    $featured_post = get_post();
+    if ( $is_first_page ) {
         $f_content     = get_the_content( null, false, $featured_post );
         $f_word_count  = str_word_count( wp_strip_all_tags( $f_content ) );
         $f_read_time   = max( 1, ceil( $f_word_count / 200 ) );
@@ -38,10 +40,11 @@ if ( $is_first_page ) {
         $f_cat_name    = ! empty( $f_categories ) ? $f_categories[0]->name : 'Blog';
         $f_cat_slug    = ! empty( $f_categories ) ? $f_categories[0]->slug : '';
     }
-    wp_reset_postdata();
 }
+wp_reset_postdata();
 
-// Grid posts query
+// Grid posts query — always excludes the featured post so pagination is
+// consistent across every page and max_num_pages reflects only real content.
 $grid_args = array(
     'posts_per_page' => 9,
     'post_status'    => 'publish',
@@ -50,8 +53,7 @@ $grid_args = array(
     'paged'          => $paged,
 );
 
-// Exclude featured post from grid on page 1
-if ( $is_first_page && $featured_post ) {
+if ( $featured_post ) {
     $grid_args['post__not_in'] = array( $featured_post->ID );
 }
 
