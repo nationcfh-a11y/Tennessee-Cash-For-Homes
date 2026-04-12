@@ -43,7 +43,6 @@ $fc_cities = [
     ['name' => 'McMinnville',    'slug' => 'mcminnville'],
     ['name' => 'Old Hickory',    'slug' => 'old-hickory'],
     ['name' => 'Woodbury',       'slug' => 'woodbury'],
-    ['name' => 'Chapel Hill',    'slug' => 'chapel-hill'],
 ];
 ?>
 
