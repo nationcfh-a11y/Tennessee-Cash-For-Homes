@@ -233,120 +233,117 @@ $fc_cities = [
       <h2 class="fc-section-title">Your Options When Facing Foreclosure in Tennessee</h2>
       <p class="fc-section-subtitle">Every situation is different. Here are the most common paths homeowners take when facing foreclosure, along with the pros and cons of each.</p>
     </div>
-    <div class="fc-options__grid">
-
-      <!-- Option 1: Sell for Cash (highlighted) -->
-      <article class="fc-option-card fc-option-card--highlighted">
-        <div class="fc-option-card__badge">Fastest Option</div>
-        <div class="fc-option-card__left">
-          <h3 class="fc-option-card__title">Sell for Cash</h3>
-          <p class="fc-option-card__desc">Sell your home directly to a cash buyer before the foreclosure sale date.</p>
+    <!-- Featured Banner: Sell for Cash -->
+    <article class="fc-featured">
+      <div class="fc-featured__badge">Fastest Option</div>
+      <div class="fc-featured__body">
+        <div class="fc-featured__intro">
+          <h3 class="fc-featured__title">Sell for Cash</h3>
+          <p class="fc-featured__desc">Sell your home directly to a cash buyer before the foreclosure sale date.</p>
         </div>
-        <div class="fc-option-card__right">
-          <div class="fc-option-card__col fc-option-card__col--pros">
-            <h4>Pros</h4>
-            <ul>
-              <li>Can close in as little as 7 days</li>
-              <li>Stops foreclosure immediately</li>
-              <li>Protects your credit score</li>
-              <li>No repairs, fees, or commissions</li>
-              <li>Walk away with cash in hand</li>
-            </ul>
-          </div>
-          <div class="fc-option-card__col fc-option-card__col--cons">
-            <h4>Cons</h4>
-            <ul>
-              <li>Offer may be below full retail market value</li>
-              <li>Must have enough equity to cover loan payoff</li>
-            </ul>
-          </div>
+        <ul class="fc-featured__pros">
+          <li>
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            Can close in as little as 7 days
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            Stops foreclosure immediately
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            Protects your credit score
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            No repairs, fees, or commissions
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            Walk away with cash in hand
+          </li>
+        </ul>
+        <p class="fc-featured__cons">
+          <span>Trade-offs:</span> Offer may be below full retail market value. Must have enough equity to cover loan payoff.
+        </p>
+      </div>
+      <div class="fc-featured__cta">
+        <a href="#fc-hero-form" class="btn-primary">Get My Cash Offer &rarr;</a>
+      </div>
+    </article>
+
+    <!-- Comparison cards -->
+    <div class="fc-compare">
+
+      <!-- Loan Modification -->
+      <article class="fc-compare-card">
+        <h3 class="fc-compare-card__title">Loan Modification</h3>
+        <p class="fc-compare-card__desc">Work with your lender to restructure loan terms, lower payments, or extend the loan.</p>
+        <div class="fc-compare-card__list fc-compare-card__list--pros">
+          <h4>Pros</h4>
+          <ul>
+            <li>May keep your home</li>
+            <li>Could lower monthly payment</li>
+            <li>Less credit damage than foreclosure</li>
+          </ul>
+        </div>
+        <div class="fc-compare-card__list fc-compare-card__list--cons">
+          <h4>Cons</h4>
+          <ul>
+            <li>Lengthy application process (30 to 90 days)</li>
+            <li>Approval is not guaranteed</li>
+            <li>Foreclosure may continue during review</li>
+            <li>May extend total loan cost significantly</li>
+          </ul>
         </div>
       </article>
 
-      <!-- Option 2: Loan Modification -->
-      <article class="fc-option-card">
-        <div class="fc-option-card__left">
-          <h3 class="fc-option-card__title">Loan Modification</h3>
-          <p class="fc-option-card__desc">Work with your lender to restructure loan terms, lower payments, or extend the loan.</p>
+      <!-- Deed in Lieu -->
+      <article class="fc-compare-card">
+        <h3 class="fc-compare-card__title">Deed in Lieu of Foreclosure</h3>
+        <p class="fc-compare-card__desc">Voluntarily transfer ownership of the property to the lender to avoid foreclosure.</p>
+        <div class="fc-compare-card__list fc-compare-card__list--pros">
+          <h4>Pros</h4>
+          <ul>
+            <li>Avoids public foreclosure auction</li>
+            <li>Less credit damage than full foreclosure</li>
+            <li>May include relocation assistance</li>
+          </ul>
         </div>
-        <div class="fc-option-card__right">
-          <div class="fc-option-card__col fc-option-card__col--pros">
-            <h4>Pros</h4>
-            <ul>
-              <li>May keep your home</li>
-              <li>Could lower monthly payment</li>
-              <li>Less credit damage than foreclosure</li>
-            </ul>
-          </div>
-          <div class="fc-option-card__col fc-option-card__col--cons">
-            <h4>Cons</h4>
-            <ul>
-              <li>Lengthy application process (30 to 90 days)</li>
-              <li>Approval is not guaranteed</li>
-              <li>Foreclosure may continue during review</li>
-              <li>May extend total loan cost significantly</li>
-            </ul>
-          </div>
+        <div class="fc-compare-card__list fc-compare-card__list--cons">
+          <h4>Cons</h4>
+          <ul>
+            <li>You lose the home and all equity</li>
+            <li>Still appears on credit report</li>
+            <li>Lender must agree to accept</li>
+            <li>May owe taxes on forgiven debt</li>
+          </ul>
         </div>
       </article>
 
-      <!-- Option 3: Deed in Lieu -->
-      <article class="fc-option-card">
-        <div class="fc-option-card__left">
-          <h3 class="fc-option-card__title">Deed in Lieu of Foreclosure</h3>
-          <p class="fc-option-card__desc">Voluntarily transfer ownership of the property to the lender to avoid foreclosure.</p>
+      <!-- Bankruptcy -->
+      <article class="fc-compare-card">
+        <h3 class="fc-compare-card__title">Bankruptcy</h3>
+        <p class="fc-compare-card__desc">Filing Chapter 7 or Chapter 13 bankruptcy triggers an automatic stay that temporarily halts foreclosure.</p>
+        <div class="fc-compare-card__list fc-compare-card__list--pros">
+          <h4>Pros</h4>
+          <ul>
+            <li>Immediate automatic stay stops foreclosure</li>
+            <li>Chapter 13 may allow catch-up payments</li>
+            <li>Protects other assets from creditors</li>
+          </ul>
         </div>
-        <div class="fc-option-card__right">
-          <div class="fc-option-card__col fc-option-card__col--pros">
-            <h4>Pros</h4>
-            <ul>
-              <li>Avoids public foreclosure auction</li>
-              <li>Less credit damage than full foreclosure</li>
-              <li>May include relocation assistance</li>
-            </ul>
-          </div>
-          <div class="fc-option-card__col fc-option-card__col--cons">
-            <h4>Cons</h4>
-            <ul>
-              <li>You lose the home and all equity</li>
-              <li>Still appears on credit report</li>
-              <li>Lender must agree to accept</li>
-              <li>May owe taxes on forgiven debt</li>
-            </ul>
-          </div>
+        <div class="fc-compare-card__list fc-compare-card__list--cons">
+          <h4>Cons</h4>
+          <ul>
+            <li>Severe credit impact (7 to 10 years)</li>
+            <li>Expensive legal process</li>
+            <li>Chapter 7 may not save the home</li>
+            <li>Public record that affects future borrowing</li>
+          </ul>
         </div>
       </article>
 
-      <!-- Option 4: Bankruptcy -->
-      <article class="fc-option-card">
-        <div class="fc-option-card__left">
-          <h3 class="fc-option-card__title">Bankruptcy</h3>
-          <p class="fc-option-card__desc">Filing Chapter 7 or Chapter 13 bankruptcy triggers an automatic stay that temporarily halts foreclosure.</p>
-        </div>
-        <div class="fc-option-card__right">
-          <div class="fc-option-card__col fc-option-card__col--pros">
-            <h4>Pros</h4>
-            <ul>
-              <li>Immediate automatic stay stops foreclosure</li>
-              <li>Chapter 13 may allow catch-up payments</li>
-              <li>Protects other assets from creditors</li>
-            </ul>
-          </div>
-          <div class="fc-option-card__col fc-option-card__col--cons">
-            <h4>Cons</h4>
-            <ul>
-              <li>Severe credit impact (7 to 10 years)</li>
-              <li>Expensive legal process</li>
-              <li>Chapter 7 may not save the home</li>
-              <li>Public record that affects future borrowing</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-    </div>
-    <div class="fc-options__cta">
-      <a href="#fc-hero-form" class="btn-primary">Get My Cash Offer &rarr;</a>
     </div>
   </div>
 </section>
@@ -1087,129 +1084,209 @@ echo wp_json_encode( [
    4. OPTIONS
    ══════════════════════════════════════════════ */
 .fc-options {
-  background: var(--fc-light-bg);
+  background: var(--fc-off-white);
   padding: 88px 0;
 }
-.fc-options__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
-  align-items: stretch;
-  max-width: 1120px;
-  margin: 0 auto;
-}
-.fc-option-card {
-  background: var(--fc-white);
-  border: 1px solid var(--fc-border);
-  border-radius: var(--fc-radius);
-  padding: 36px 40px;
+
+/* Featured banner (Sell for Cash) */
+.fc-featured {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 36px;
-  align-items: start;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.fc-option-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--fc-shadow);
-}
-.fc-option-card--highlighted {
-  border: 2px solid var(--fc-green);
-  box-shadow: 0 10px 30px rgba(132, 204, 156, 0.22);
-  background: linear-gradient(180deg, var(--fc-white) 0%, var(--fc-green-tint) 100%);
-}
-.fc-option-card--highlighted:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 40px rgba(132, 204, 156, 0.3);
-}
-.fc-option-card__badge {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--fc-green);
+  background: linear-gradient(135deg, #2e2e2e 0%, #1f1f1f 100%);
   color: var(--fc-white);
+  border-radius: 20px;
+  padding: 44px 48px 36px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 40px;
+  align-items: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.08);
+  max-width: 1160px;
+  margin: 0 auto 36px;
+  overflow: hidden;
+}
+.fc-featured::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(132,204,156,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.fc-featured__badge {
+  position: absolute;
+  top: 24px;
+  left: 28px;
+  background: var(--fc-green);
+  color: #0f2f1e;
   font-family: 'Poppins', sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
-  padding: 6px 18px;
+  padding: 6px 14px;
   border-radius: 999px;
-  white-space: nowrap;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  box-shadow: 0 4px 10px rgba(132, 204, 156, 0.4);
+  box-shadow: 0 4px 12px rgba(132, 204, 156, 0.35);
 }
-.fc-option-card__left {
+.fc-featured__body {
+  min-width: 0;
+  padding-top: 26px;
+  position: relative;
+  z-index: 1;
+}
+.fc-featured__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--fc-white);
+  margin: 0 0 8px;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+.fc-featured__desc {
+  font-size: 1.02rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.55;
+  margin: 0 0 22px;
+  max-width: 640px;
+}
+.fc-featured__pros {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+}
+.fc-featured__pros li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(132, 204, 156, 0.14);
+  color: var(--fc-green);
+  border: 1px solid rgba(132, 204, 156, 0.28);
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.fc-featured__pros li svg { flex-shrink: 0; color: currentColor; }
+.fc-featured__cons {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 720px;
+}
+.fc-featured__cons span {
+  font-weight: 600;
+  color: rgba(255,255,255,0.68);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.76rem;
+  margin-right: 6px;
+}
+.fc-featured__cta {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+.fc-featured__cta .btn-primary {
+  white-space: nowrap;
+  padding: 15px 28px;
+  font-size: 0.98rem;
+  box-shadow: 0 8px 20px rgba(132,204,156,0.32);
+}
+
+/* Comparison cards */
+.fc-compare {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1160px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+.fc-compare-card {
+  position: relative;
+  background: var(--fc-white);
+  border: 1px solid var(--fc-border);
+  border-radius: 14px;
+  padding: 30px 26px 26px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
-.fc-option-card__title {
+.fc-compare-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 22px;
+  right: 22px;
+  height: 3px;
+  background: var(--fc-green);
+  border-radius: 0 0 3px 3px;
+}
+.fc-compare-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--fc-shadow);
+  border-color: rgba(132,204,156,0.45);
+}
+.fc-compare-card__title {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--fc-charcoal);
-  margin: 0 0 12px;
+  margin: 0 0 8px;
   letter-spacing: -0.005em;
-  line-height: 1.25;
+  line-height: 1.3;
 }
-.fc-option-card__desc {
-  font-size: 0.95rem;
+.fc-compare-card__desc {
+  font-size: 0.9rem;
   color: var(--fc-text);
-  line-height: 1.65;
-  margin: 0;
+  line-height: 1.55;
+  margin: 0 0 18px;
 }
-.fc-option-card__right {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-}
-.fc-option-card__col h4 {
+.fc-compare-card__list { margin-bottom: 14px; }
+.fc-compare-card__list:last-child { margin-bottom: 0; }
+.fc-compare-card__list h4 {
   font-family: 'Poppins', sans-serif;
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.09em;
-  margin: 0 0 10px;
+  margin: 0 0 8px;
 }
-.fc-option-card__col--pros h4 { color: var(--fc-green-dark); }
-.fc-option-card__col--cons h4 { color: #b91c1c; }
-.fc-option-card__col ul {
+.fc-compare-card__list--pros h4 { color: var(--fc-green-dark); }
+.fc-compare-card__list--cons h4 { color: #b91c1c; }
+.fc-compare-card__list ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
-.fc-option-card__col li {
-  font-size: 0.88rem;
+.fc-compare-card__list li {
+  font-size: 0.86rem;
   color: var(--fc-text);
   line-height: 1.45;
-  padding: 0 0 0 22px;
+  padding: 0 0 0 20px;
   position: relative;
 }
-.fc-option-card__col li::before {
+.fc-compare-card__list li::before {
   position: absolute;
   left: 0;
   top: 0;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   line-height: 1.45;
 }
-.fc-option-card__col--pros li::before { content: '\2713'; color: var(--fc-green); }
-.fc-option-card__col--cons li::before { content: '\2717'; color: #b91c1c; }
-
-.fc-options__cta {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-}
-.fc-options__cta .btn-primary {
-  padding: 15px 36px;
-  font-size: 1rem;
-}
+.fc-compare-card__list--pros li::before { content: '\2713'; color: var(--fc-green); }
+.fc-compare-card__list--cons li::before { content: '\2717'; color: #b91c1c; }
 
 /* ══════════════════════════════════════════════
    5. HOW WE HELP
@@ -1478,8 +1555,10 @@ echo wp_json_encode( [
 @media (max-width: 1024px) {
   .fc-hero__grid { grid-template-columns: 1fr; gap: 40px; }
   .fc-hero__form-wrap { max-width: 480px; }
-  .fc-options__grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
-  .fc-option-card { grid-template-columns: 1fr; gap: 22px; padding: 30px 28px; }
+  .fc-featured { grid-template-columns: 1fr; gap: 24px; padding: 44px 36px 32px; }
+  .fc-featured__cta { display: flex; justify-content: flex-start; }
+  .fc-compare { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .fc-compare-card { padding: 26px 22px 22px; }
   .fc-resources__grid { grid-template-columns: repeat(2, 1fr); }
   .fc-form__inner { grid-template-columns: 1fr; gap: 40px; }
   .fc-how__steps { grid-template-columns: 1fr; gap: 18px; max-width: 520px; margin-left: auto; margin-right: auto; }
@@ -1491,11 +1570,14 @@ echo wp_json_encode( [
   .fc-hero__form-card { padding: 26px 22px; }
   .fc-empathy, .fc-timeline, .fc-options,
   .fc-how, .fc-resources, .fc-form-section, .fc-faq { padding: 60px 0; }
-  .fc-options__grid { grid-template-columns: 1fr; gap: 20px; }
-  .fc-option-card { grid-template-columns: 1fr; gap: 20px; padding: 26px 22px; }
-  .fc-option-card__right { grid-template-columns: 1fr; gap: 18px; }
-  .fc-option-card--highlighted:hover { transform: translateY(-3px); }
-  .fc-options__cta { margin-top: 28px; }
+  .fc-featured { padding: 52px 24px 28px; border-radius: 16px; }
+  .fc-featured__badge { top: 20px; left: 20px; }
+  .fc-featured__body { padding-top: 22px; }
+  .fc-featured__title { font-size: 1.45rem; }
+  .fc-featured__desc { font-size: 0.95rem; }
+  .fc-featured__pros li { font-size: 0.82rem; padding: 6px 12px; }
+  .fc-featured__cta .btn-primary { width: 100%; text-align: center; }
+  .fc-compare { grid-template-columns: 1fr; gap: 16px; }
   .fc-resources__grid { grid-template-columns: 1fr; }
   .fc-process-step { padding: 22px 22px; }
   .fc-process-step__head { gap: 14px; }
