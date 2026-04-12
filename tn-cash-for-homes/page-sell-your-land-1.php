@@ -241,38 +241,34 @@ get_header();
       <h2 class="section__title">We Help Tennessee Land Owners in Any Situation</h2>
     </div>
     <div class="land-types__grid">
-      <a href="<?php echo esc_url( home_url( '/sell-inherited-house-tennessee' ) ); ?>" class="land-sit-card">
+      <div class="land-sit-card land-sit-card--no-link">
         <div class="land-type-card__icon">
           <svg width="28" height="28" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-2 0v-2M5 21H3m2 0v-2m4-14h2m-2 4h2m4-4h2m-2 4h2"/></svg>
         </div>
         <h3 class="land-type-card__title">Inherited Land You Don't Want</h3>
         <p class="land-type-card__desc">Skip the burden of maintaining inherited land. We buy it fast so you can settle the estate.</p>
-        <span class="land-sit-card__link">Learn More &rarr;</span>
-      </a>
-      <a href="<?php echo esc_url( home_url( '/sell-my-house-behind-on-taxes-tennessee' ) ); ?>" class="land-sit-card">
+      </div>
+      <div class="land-sit-card land-sit-card--no-link">
         <div class="land-type-card__icon">
           <svg width="28" height="28" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M3 21h18l-9-16-9 16z"/></svg>
         </div>
         <h3 class="land-type-card__title">Behind on Property Taxes</h3>
         <p class="land-type-card__desc">Avoid a tax lien sale. We can pay off your back taxes at closing and put cash in your pocket.</p>
-        <span class="land-sit-card__link">Learn More &rarr;</span>
-      </a>
-      <a href="<?php echo esc_url( home_url( '/sell-my-house-divorce-tennessee' ) ); ?>" class="land-sit-card">
+      </div>
+      <div class="land-sit-card land-sit-card--no-link">
         <div class="land-type-card__icon">
           <svg width="28" height="28" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/><line x1="6" y1="2" x2="18" y2="22"/></svg>
         </div>
         <h3 class="land-type-card__title">Going Through a Divorce</h3>
         <p class="land-type-card__desc">Divide the asset cleanly. We buy the land so both parties can split the cash and move forward.</p>
-        <span class="land-sit-card__link">Learn More &rarr;</span>
-      </a>
-      <a href="<?php echo esc_url( home_url( '/sell-my-house-relocating-tennessee' ) ); ?>" class="land-sit-card">
+      </div>
+      <div class="land-sit-card land-sit-card--no-link">
         <div class="land-type-card__icon">
           <svg width="28" height="28" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
         </div>
         <h3 class="land-type-card__title">Relocating Out of State</h3>
         <p class="land-type-card__desc">Do not manage vacant land from across the country. We buy it quickly so you can focus on your move.</p>
-        <span class="land-sit-card__link">Learn More &rarr;</span>
-      </a>
+      </div>
       <div class="land-sit-card land-sit-card--no-link">
         <div class="land-type-card__icon">
           <svg width="28" height="28" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>

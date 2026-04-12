@@ -4749,6 +4749,23 @@ div.related-posts,
 }
 
 /* ── LAND SITUATION CARDS ── */
+#land-situations .land-types__grid {
+  grid-template-columns: repeat(4, 1fr);
+  align-items: stretch;
+}
+#land-situations .land-sit-card {
+  height: 100%;
+}
+@media (max-width: 900px) {
+  #land-situations .land-types__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  #land-situations .land-types__grid {
+    grid-template-columns: 1fr;
+  }
+}
 .land-sit-card {
   display: block;
   background: #FFFFFF;
