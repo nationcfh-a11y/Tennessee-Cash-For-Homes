@@ -98,15 +98,11 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
           <div class="county-map-hero-svg">
             <?php
             $svg_content = file_get_contents( $county_svg_path );
-            // For county pages: hide zoomed detail, show only state outline with highlighted county
+            // Show full TN state with the specific county highlighted in green
             if ( strpos( $svg_content, 'id="statelayer"' ) !== false ) {
-                $svg_content = str_replace( '<defs>', '<defs><style>#countylayer,#placelayer{display:none}</style>', $svg_content );
-                // Use pre-calculated viewBox centered on this county's highlighted shape
-                require_once get_template_directory() . '/svg-viewbox-map.php';
-                $custom_vb = tcfh_get_county_viewbox( $slug );
-                if ( $custom_vb ) {
-                    $svg_content = preg_replace( '/viewBox="[^"]*"/', 'viewBox="' . $custom_vb . '"', $svg_content );
-                }
+                $svg_content = str_replace( '<defs>', '<defs><style>#placelayer{display:none}#countylayer path{fill:#84CC9C !important;}</style>', $svg_content );
+                // Use full-state viewBox — no per-county zoom
+                $svg_content = preg_replace( '/viewBox="[^"]*"/', 'viewBox="0 0 502 234"', $svg_content );
             }
             echo $svg_content;
             ?>
@@ -573,7 +569,7 @@ include get_template_directory() . '/gov-resources-section.php';
 .county-map-hero-svg svg {
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: auto;
   display: block;
   pointer-events: none;
 }

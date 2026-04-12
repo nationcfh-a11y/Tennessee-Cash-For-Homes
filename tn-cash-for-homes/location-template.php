@@ -39,18 +39,19 @@ $land_para      = $city['land_para'];
 $neighborhoods  = ! empty( $city['neighborhoods'] ) ? $city['neighborhoods'] : [];
 $county_slug    = ! empty( $city['county_slug'] ) ? $city['county_slug'] : '';
 
-// Determine which SVG map to display: city SVG first, fall back to county SVG
-$city_svg_path   = get_template_directory() . '/brand_assets/city-svgs/' . $slug . '.svg';
+// Auto-derive county_slug from county name when not explicitly set
+if ( empty( $county_slug ) && ! empty( $county ) ) {
+    $county_slug = strtolower( $county ) . '-county';
+}
+
+// Always use the county SVG for consistent full-state rendering
 $county_svg_path = $county_slug ? get_template_directory() . '/brand_assets/county-svgs/' . $county_slug . '.svg' : '';
 $map_svg_path    = '';
 $map_label       = $name;
 
-if ( file_exists( $city_svg_path ) ) {
-    $map_svg_path = $city_svg_path;
-    $map_label    = $name;
-} elseif ( $county_svg_path && file_exists( $county_svg_path ) ) {
+if ( $county_svg_path && file_exists( $county_svg_path ) ) {
     $map_svg_path = $county_svg_path;
-    $map_label    = str_replace( '-', ' ', ucwords( str_replace( '-county', ' County', $county_slug ), '- ' ) );
+    $map_label    = $name;
 }
 $has_map = ! empty( $map_svg_path );
 
@@ -109,15 +110,11 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
           <div class="county-map-hero-svg">
             <?php
             $svg_content = file_get_contents( $map_svg_path );
-            // For city pages: hide state outline, show only zoomed detail
+            // Show full TN state with the parent county highlighted in green
             if ( strpos( $svg_content, 'id="statelayer"' ) !== false ) {
-                $svg_content = str_replace( '<defs>', '<defs><style>#statelayer{display:none}</style>', $svg_content );
-                // Use pre-calculated viewBox centered on this city's highlighted shape
-                require_once get_template_directory() . '/svg-viewbox-map.php';
-                $custom_vb = tcfh_get_city_viewbox( $slug );
-                if ( $custom_vb ) {
-                    $svg_content = preg_replace( '/viewBox="[^"]*"/', 'viewBox="' . $custom_vb . '"', $svg_content );
-                }
+                $svg_content = str_replace( '<defs>', '<defs><style>#placelayer{display:none}#countylayer path{fill:#84CC9C !important;}</style>', $svg_content );
+                // Use full-state viewBox — no per-county zoom
+                $svg_content = preg_replace( '/viewBox="[^"]*"/', 'viewBox="0 0 502 234"', $svg_content );
             }
             echo $svg_content;
             ?>
@@ -644,7 +641,7 @@ include get_template_directory() . '/gov-resources-section.php';
 .county-map-hero-svg svg {
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: auto;
   display: block;
   pointer-events: none;
 }
