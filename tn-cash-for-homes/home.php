@@ -16,7 +16,6 @@ $filter_categories = array(
     'home-tips'       => 'Home Tips',
     'selling-guide'   => 'Selling Guide',
     'education'       => 'Education',
-    'success-stories' => 'Success Stories',
 );
 
 // Detect active category from ?category_name=<slug>. Validate against the
