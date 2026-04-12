@@ -427,16 +427,4 @@ $cities = [
 ══════════════════════════════════════════ -->
 <?php include( get_template_directory() . '/reviews-section.php' ); ?>
 
-<!-- ══════════════════════════════════════════
-     10. CTA SECTION
-══════════════════════════════════════════ -->
-<section class="about-cta">
-  <div class="container">
-    <h2 class="about-cta__h2">Ready to Work With a Company You Can Trust?</h2>
-    <p class="about-cta__sub">Get a no-obligation cash offer within 24 hours from a family owned Tennessee business that has been doing this for over 9 years.</p>
-    <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="about-cta__btn">Get My Free Cash Offer &rarr;</a>
-    <p class="about-cta__phone">Or call us now: <a href="tel:+16158018126">(615) 801-8126</a></p>
-  </div>
-</section>
-
 <?php get_footer(); ?>
