@@ -5562,3 +5562,283 @@ div.related-posts,
   width: 26px;
 }
 .carousel-dots { gap: 0; }
+
+/* =========================================================================
+   RESPONSIVE POLISH — Mobile & Tablet
+   Scoped to ≤768px (mobile) and 769–1024px (tablet). Desktop untouched.
+   ========================================================================= */
+
+/* ---------- Global guards: no horizontal scroll, responsive media ------- */
+@media (max-width: 1024px) {
+  html, body { overflow-x: hidden; max-width: 100%; }
+  img, video, iframe, svg { max-width: 100%; height: auto; }
+  .container { width: 100%; box-sizing: border-box; }
+  *, *::before, *::after { min-width: 0; }
+}
+
+/* =====================  MOBILE (≤768px)  ================================ */
+@media (max-width: 768px) {
+
+  /* Container & base typography */
+  .container { padding-left: 20px; padding-right: 20px; }
+  body { font-size: 16px; line-height: 1.55; }
+
+  /* Section spacing — tighten everything */
+  .section,
+  .about-mission,
+  .about-who,
+  .about-team,
+  .about-values,
+  .about-why,
+  .about-process,
+  .about-badges,
+  .about-service,
+  .faq-section,
+  .market-overview,
+  .reviews-section,
+  .who-we-help,
+  .gov-resources,
+  .difference-section,
+  .land-section,
+  .land-section-2,
+  .common-situations,
+  .home-blog,
+  .blog-articles,
+  .single-post__body { padding-top: 48px; padding-bottom: 48px; }
+
+  /* Headings — sane mobile sizes */
+  h1 { font-size: 28px; line-height: 1.18; }
+  h2 { font-size: 24px; line-height: 1.22; }
+  h3 { font-size: 19px; line-height: 1.3; }
+  .section__title { font-size: 26px; line-height: 1.2; }
+  .section__subtitle { font-size: 15px; }
+  .section__eyebrow { font-size: 12px; }
+
+  /* ---------- Hero (front page, locations, situations) ---------- */
+  .hero { padding: 88px 0 36px; min-height: 0; }
+  .hero__inner { gap: 24px; }
+  .hero__title { font-size: 30px !important; line-height: 1.15; }
+  .hero__subtitle { font-size: 15px; line-height: 1.45; }
+  .hero__trust-row { gap: 10px 14px; font-size: 13px; }
+  .hero__form-card { width: 100%; max-width: 100%; padding: 20px 18px; box-sizing: border-box; }
+  .hero__cta-row { flex-direction: column; gap: 10px; width: 100%; }
+  .hero__btn-primary,
+  .hero__btn-outline { width: 100%; padding: 14px 20px; font-size: 15px; text-align: center; }
+  .form-card__title { font-size: 19px; }
+  .form-card__sub { font-size: 13px; }
+
+  /* ---------- Page hero (FAQ, About, etc.) ---------- */
+  .page-hero { padding: 92px 0 32px; }
+  .page-hero__title { font-size: 28px !important; line-height: 1.18; }
+  .page-hero__subtitle { font-size: 15px; }
+
+  /* ---------- About page ---------- */
+  .about-hero { padding: 92px 0 32px; }
+  .about-hero__h1 { font-size: 1.6rem !important; line-height: 1.2; }
+  .about-hero__sub { font-size: 15px; }
+  .about-mission__quote { font-size: 1.05rem; line-height: 1.45; }
+  .about-who__grid,
+  .about-team__grid,
+  .about-values__grid,
+  .about-why__grid,
+  .about-process__steps,
+  .about-badges__row,
+  .about-service__pills { grid-template-columns: 1fr !important; gap: 16px; }
+  .about-who__h2 { font-size: 22px; }
+
+  /* ---------- Forms ---------- */
+  form input,
+  form select,
+  form textarea,
+  .form-group input,
+  .form-group select,
+  .form-group textarea { width: 100%; box-sizing: border-box; font-size: 16px; padding: 12px 14px; }
+  .form-row,
+  .form-row--two,
+  .form-grid { display: block !important; }
+  .form-row > *,
+  .form-row--two > *,
+  .form-grid > * { width: 100%; margin-bottom: 12px; }
+
+  /* ---------- Buttons ---------- */
+  .btn-primary,
+  .btn-outline,
+  button[type="submit"] { font-size: 15px; padding: 13px 20px; min-height: 46px; }
+  .btn-primary--block { width: 100%; }
+
+  /* ---------- Grids: collapse to single column ---------- */
+  .steps,
+  .benefits-grid,
+  .common-situations__grid,
+  .who-we-help__grid,
+  .gov-resources__grid,
+  .market-overview__grid,
+  .market-overview__top,
+  .market-overview__bottom,
+  .reviews-slide,
+  .difference-section__grid,
+  .land-section__inner,
+  .blog-articles__grid,
+  .home-blog__grid,
+  .single-post__grid { grid-template-columns: 1fr !important; gap: 16px; }
+  .single-post__sidebar { position: static; margin-top: 28px; }
+
+  /* ---------- Cards ---------- */
+  .blog-card,
+  .testimonial-card,
+  .market-card,
+  .step,
+  .benefit-card,
+  .situation-card,
+  .who-we-help__card,
+  .gov-resource-card { padding: 20px 18px; }
+  .blog-card__img,
+  .blog-card__img-wrap { aspect-ratio: 16/10; }
+
+  /* ---------- Single post (blog detail) ---------- */
+  .single-post__title { font-size: 26px !important; line-height: 1.2; }
+  .single-post__excerpt { font-size: 15px; }
+  .single-post__hero-img { margin-bottom: 24px; border-radius: 10px; overflow: hidden; }
+  .single-post__hero-img img { width: 100%; height: auto; max-height: 240px; object-fit: cover; }
+  .single-post__content,
+  .single-post__content.prose { font-size: 16px; line-height: 1.6; }
+  .single-post__content h2 { font-size: 22px; margin-top: 28px; }
+  .single-post__content h3 { font-size: 18px; }
+  .single-post__meta { gap: 10px 14px; font-size: 13px; flex-wrap: wrap; }
+
+  /* ---------- FAQ ---------- */
+  .faq-item__question { padding: 14px 16px; font-size: 16px; }
+  .faq-item__answer { padding: 0 16px 14px; font-size: 15px; }
+
+  /* ---------- Reviews ---------- */
+  .testimonial-card { padding: 18px 16px; }
+  .testimonial-card__quote { font-size: 15px; line-height: 1.5; }
+
+  /* ---------- Map / county hero ---------- */
+  .county-map-hero,
+  .svg-viewbox-map { padding: 32px 0; }
+  .county-map-hero svg,
+  .svg-viewbox-map svg { width: 100%; height: auto; }
+
+  /* ---------- Footer ---------- */
+  .site-footer { padding: 32px 0 24px; }
+  .site-footer__grid { grid-template-columns: 1fr !important; gap: 24px; }
+  .site-footer__col h4 { font-size: 15px; }
+
+  /* ---------- Navigation ---------- */
+  .nav { height: 64px; }
+  .nav__inner { padding: 0 16px; }
+  .nav__logo img { max-height: 36px; width: auto; }
+  .nav__links.open { padding: 12px 16px 20px; gap: 6px; box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+  .nav__links.open a { padding: 12px 8px; font-size: 16px; }
+
+  /* ---------- Tap-target & scroll guards ---------- */
+  a, button { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+
+  /* ---------- Hero background images: cover cleanly ---------- */
+  .hero[style*="background"],
+  .page-hero[style*="background"],
+  .about-hero[style*="background"] { background-position: center center !important; background-size: cover !important; }
+}
+
+/* =====================  SMALL MOBILE (≤480px)  ========================== */
+@media (max-width: 480px) {
+  .container { padding-left: 16px; padding-right: 16px; }
+  .hero__title { font-size: 26px !important; }
+  .page-hero__title { font-size: 24px !important; }
+  .section__title { font-size: 22px; }
+  h1 { font-size: 24px; }
+  h2 { font-size: 21px; }
+  .hero { padding: 84px 0 28px; }
+  .page-hero { padding: 84px 0 24px; }
+  .section,
+  .about-mission,
+  .about-who,
+  .about-team,
+  .about-values,
+  .about-why,
+  .about-process,
+  .about-service,
+  .faq-section,
+  .market-overview,
+  .reviews-section,
+  .who-we-help,
+  .gov-resources,
+  .difference-section,
+  .land-section,
+  .common-situations,
+  .home-blog,
+  .blog-articles { padding-top: 36px; padding-bottom: 36px; }
+}
+
+/* =====================  TABLET (769px–1024px)  ========================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .container { padding-left: 28px; padding-right: 28px; }
+
+  /* Section spacing — moderate reduction */
+  .section,
+  .about-mission,
+  .about-who,
+  .about-team,
+  .about-values,
+  .about-why,
+  .about-process,
+  .about-service,
+  .faq-section,
+  .market-overview,
+  .reviews-section,
+  .who-we-help,
+  .gov-resources,
+  .difference-section,
+  .land-section,
+  .common-situations,
+  .home-blog,
+  .blog-articles { padding-top: 64px; padding-bottom: 64px; }
+
+  /* Headings */
+  .hero__title { font-size: 42px; line-height: 1.15; }
+  .page-hero__title { font-size: 38px; }
+  .about-hero__h1 { font-size: 2.1rem; }
+  .section__title { font-size: 32px; }
+
+  /* Hero — keep two-column but tighter */
+  .hero { padding: 110px 0 56px; }
+  .hero__inner { gap: 32px; }
+  .hero__form-card { max-width: 360px; padding: 22px; }
+  .page-hero { padding: 100px 0 48px; }
+  .about-hero { padding: 100px 0 48px; }
+
+  /* Two-column grids on tablet */
+  .blog-articles__grid,
+  .home-blog__grid,
+  .benefits-grid,
+  .common-situations__grid,
+  .who-we-help__grid,
+  .gov-resources__grid,
+  .market-overview__top,
+  .market-overview__bottom,
+  .about-team__grid,
+  .about-values__grid,
+  .about-why__grid,
+  .about-process__steps,
+  .reviews-slide { grid-template-columns: repeat(2, 1fr) !important; gap: 22px; }
+
+  /* About sidebar collapse */
+  .about-who__grid { grid-template-columns: 1fr !important; gap: 28px; }
+
+  /* Single post: stack sidebar below content */
+  .single-post__grid { grid-template-columns: 1fr !important; gap: 32px; }
+  .single-post__sidebar { position: static; }
+
+  /* Land/foreclosure two-column hero stays but tighter */
+  .land-section__inner { gap: 32px; }
+
+  /* Cards */
+  .blog-card__body { padding: 20px; }
+
+  /* Forms — keep block layout where applicable */
+  .hero__form-card { width: 100%; box-sizing: border-box; }
+  form input, form select, form textarea { font-size: 16px; }
+}
+
