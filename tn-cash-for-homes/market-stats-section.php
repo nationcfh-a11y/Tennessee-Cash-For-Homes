@@ -238,7 +238,7 @@ $ms = $ms_all[ $ms_slug ];
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #888;
+  color: #4B5563;
   margin-bottom: 8px;
 }
 .market-card__trend {
@@ -274,7 +274,7 @@ $ms = $ms_all[ $ms_slug ];
 }
 .market-overview__source {
   text-align: center;
-  color: #aaa;
+  color: #6B7280;
   font-size: 12px;
 }
 .market-overview__source small {

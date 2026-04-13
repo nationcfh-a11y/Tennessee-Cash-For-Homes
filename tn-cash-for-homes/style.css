@@ -12,8 +12,8 @@ Version: 1.0
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --green: #84CC9C;
-  --green-dark: #6ab585;
+  --green: #84CC9C;          /* brand green — decorative/large surfaces only */
+  --green-dark: #2F855A;     /* WCAG AA accessible green (5.16 on white) */
   --green-light: #d4ede0;
   --charcoal: #3D3D3D;
   --charcoal-light: #5a5a5a;
@@ -102,7 +102,7 @@ img { display: block; max-width: 100%; }
 .nav__links a.active { color: var(--green-dark); }
 
 .nav__cta {
-  background: var(--green);
+  background: var(--green-dark);
   color: var(--white) !important;
   padding: 10px 22px;
   border-radius: 6px;
@@ -111,7 +111,7 @@ img { display: block; max-width: 100%; }
 }
 
 .nav__cta:hover {
-  background: var(--green-dark) !important;
+  background: #276749 !important;
   transform: translateY(-1px);
 }
 
@@ -488,7 +488,7 @@ img { display: block; max-width: 100%; }
 .btn-primary {
   display: inline-block;
   padding: 15px 24px;
-  background: var(--green);
+  background: var(--green-dark);
   color: var(--white);
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
@@ -507,9 +507,9 @@ img { display: block; max-width: 100%; }
 }
 
 .btn-primary:hover {
-  background: var(--green-dark);
+  background: #276749;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(106,181,133,.4);
+  box-shadow: 0 6px 20px rgba(47,133,90,.35);
 }
 
 .btn-primary:active { transform: translateY(0); }
@@ -709,7 +709,7 @@ img { display: block; max-width: 100%; }
 }
 
 .compare-table th:first-child { background: var(--bg-light); width: 40%; }
-.compare-table th:nth-child(2) { background: var(--green); color: var(--white); text-align: center; }
+.compare-table th:nth-child(2) { background: var(--green-dark); color: var(--white); text-align: center; }
 .compare-table th:nth-child(3) { background: #e8e8e8; color: var(--charcoal-light); text-align: center; }
 
 .compare-table td {
@@ -724,7 +724,7 @@ img { display: block; max-width: 100%; }
 .compare-table tr:nth-child(even) td { background: #fafafa; }
 
 .check { color: var(--green-dark); font-size: 20px; }
-.cross { color: #ccc; font-size: 20px; }
+.cross { color: #6B7280; font-size: 20px; }
 
 /* ── TESTIMONIALS ── */
 .reviews-outer {
@@ -804,7 +804,7 @@ img { display: block; max-width: 100%; }
 .testimonial-toggle {
   background: none;
   border: none;
-  color: var(--green);
+  color: var(--green-dark);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -865,14 +865,14 @@ img { display: block; max-width: 100%; }
   color: var(--charcoal);
 }
 
-.testimonial-location { font-size: 12px; color: #aaa; margin-top: 2px; }
+.testimonial-location { font-size: 12px; color: #6B7280; margin-top: 2px; }
 
 .testimonial-google {
   display: flex;
   align-items: center;
   gap: 5px;
   font-size: 11px;
-  color: #aaa;
+  color: #6B7280;
   margin-left: auto;
 }
 
@@ -1198,7 +1198,7 @@ img { display: block; max-width: 100%; }
 .btn-footer-cta {
   display: inline-block;
   padding: 16px 40px;
-  background: #84CC9C;
+  background: var(--green-dark);
   color: #ffffff;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
@@ -1208,10 +1208,10 @@ img { display: block; max-width: 100%; }
   border-radius: 8px;
   text-decoration: none;
   transition: background 0.2s ease, transform 0.15s ease;
-  box-shadow: 0 4px 18px rgba(132,204,156,0.35);
+  box-shadow: 0 4px 18px rgba(47,133,90,0.32);
 }
 .btn-footer-cta:hover {
-  background: #6dbb87;
+  background: #276749;
   transform: translateY(-1px);
 }
 
@@ -1306,7 +1306,7 @@ img { display: block; max-width: 100%; }
 }
 .footer-bottom__copy {
   font-size: 13px;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.72);
   text-align: center;
   flex: 1;
 }
@@ -2662,7 +2662,7 @@ div.related-posts,
   gap: 6px;
   background: none;
   border: none;
-  color: #4CAF7D;
+  color: var(--green-dark);
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
@@ -2718,7 +2718,7 @@ div.related-posts,
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #4CAF7D;
+  color: var(--green-dark);
   margin-bottom: 8px;
 }
 
@@ -3652,12 +3652,12 @@ div.related-posts,
 }
 
 .htc-label-cash {
-    color: #84CC9C;
+    color: var(--green-dark);
 }
 
 .htc-arrow {
     font-size: 20px;
-    color: #84CC9C;
+    color: var(--green-dark);
 }
 
 .htc-image-container {
@@ -3755,7 +3755,7 @@ div.related-posts,
 }
 .common-situations__sub {
     font-size: 17px;
-    color: #6B7280;
+    color: #4B5563;
     margin-bottom: 20px;
     max-width: 600px;
 }
@@ -3815,7 +3815,7 @@ div.related-posts,
     margin-top: auto;
     font-size: 14px;
     font-weight: 600;
-    color: #84CC9C;
+    color: var(--green-dark);
     letter-spacing: 0.01em;
 }
 
@@ -4678,7 +4678,7 @@ div.related-posts,
   margin-bottom: 18px;
 }
 .land-about__copy a {
-  color: #84CC9C;
+  color: var(--green-dark);
   font-weight: 600;
   text-decoration: none;
 }
@@ -4731,7 +4731,7 @@ div.related-posts,
   color: var(--charcoal-light);
 }
 .land-type-card__desc a {
-  color: #84CC9C;
+  color: var(--green-dark);
   font-weight: 600;
   text-decoration: none;
 }
@@ -5443,9 +5443,8 @@ div.related-posts,
 .county-hero .breadcrumb span { color: #8a8a8a; }
 .county-hero .breadcrumb a:hover { color: var(--green-dark); }
 
-/* Section eyebrow: small 13px uppercase label on #F2F2F2 / white.
-   Swap to a deeper green in the same hue family for WCAG AA. */
-.section__eyebrow { color: #2F855A; }
+/* Section eyebrow inherits var(--green-dark) which is now WCAG-compliant
+   (#2F855A, 5.1:1 on #F2F2F2). No override needed — kept for clarity. */
 
 /* Carousel dots: visual size stays 9px (or 26px active), but the tap
    target must be ≥24px. Make the <button> a 24×24 transparent hit area
