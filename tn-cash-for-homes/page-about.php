@@ -251,6 +251,41 @@ $cities = [
 </section>
 
 <!-- ══════════════════════════════════════════
+     3b. MEET THE TEAM SECTION
+══════════════════════════════════════════ -->
+<section class="about-team">
+  <div class="container">
+    <div class="section__header section__header--center">
+      <h2 class="section__title">Meet the Team</h2>
+      <p class="section__subtitle">The family behind Tennessee Cash For Homes &mdash; experienced investors and agents who live, work, and raise their families right here in Tennessee.</p>
+    </div>
+    <div class="about-team__grid">
+      <article class="about-team__card">
+        <div class="about-team__photo-wrap">
+          <img class="about-team__photo" src="<?php echo esc_url( get_template_directory_uri() . '/brand_assets/Dowling%20Tennessee%20Cash%20For%20Homes.webp' ); ?>" alt="Dowling Armstrong, Tennessee Cash For Homes" width="320" height="320" loading="lazy" decoding="async" />
+        </div>
+        <h3 class="about-team__name">Dowling Armstrong</h3>
+        <p class="about-team__bio">With 9 years in real estate and over 1,000 transactions under his belt, Dowling has seen just about every side of the industry. From complex commercial deals to residential closings, his breadth of experience gives him a perspective most agents never develop. As a licensed real estate agent and active investor for the past 5 years, he brings both the knowledge of a seasoned professional and the instincts of someone who puts his own money on the line. When he steps away from the closing table, you&rsquo;ll find him hunting, spearfishing, or soaking up time with his wife and kids.</p>
+      </article>
+      <article class="about-team__card">
+        <div class="about-team__photo-wrap">
+          <img class="about-team__photo" src="<?php echo esc_url( get_template_directory_uri() . '/brand_assets/Davis%20Tennessee%20Cash%20For%20Homes.webp' ); ?>" alt="Davis Armstrong, Tennessee Cash For Homes" width="320" height="320" loading="lazy" decoding="async" />
+        </div>
+        <h3 class="about-team__name">Davis Armstrong</h3>
+        <p class="about-team__bio">Raised in a small town outside Valdosta, Georgia, Davis relocated to Nashville in 2010 and went on to play collegiate golf at Lipscomb University, where he earned a degree in Finance. He took that competitive mindset straight into real estate investing after graduation and hasn&rsquo;t looked back. In 6 years he has been part of over 500 transactions, with a sharp focus on the investment side of the business. He knows the numbers, he knows the market, and he knows how to get deals done. Outside of work, Davis is an avid outdoorsman with a passion for hunting deer, turkeys, and ducks.</p>
+      </article>
+      <article class="about-team__card">
+        <div class="about-team__photo-wrap">
+          <img class="about-team__photo" src="<?php echo esc_url( get_template_directory_uri() . '/brand_assets/Karson%20Tennessee%20Cash%20For%20Homes.webp' ); ?>" alt="Karson Carmichael, Founder of Tennessee Cash For Homes" width="320" height="320" loading="lazy" decoding="async" />
+        </div>
+        <h3 class="about-team__name">Karson Carmichael</h3>
+        <p class="about-team__bio">Karson founded Tennessee Cash For Homes with one goal in mind: helping families find solutions that everyone else says aren&rsquo;t possible. He relocated from Murfreesboro to Spring Hill to be closer to family, and that same sense of loyalty and community carries into every deal he works. Armed with a Bachelor&rsquo;s degree in Business Management and nearly 3 years of hands-on real estate experience, Karson brings a fresh energy and genuine care to every transaction. On weekends you&rsquo;ll find him riding his Harley, spending time with his wife Grace, or out back with his best friend, a black Labrador named Hank.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
      4. OUR VALUES SECTION
 ══════════════════════════════════════════ -->
 <section class="about-values">
