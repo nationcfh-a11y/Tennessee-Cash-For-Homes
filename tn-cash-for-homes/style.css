@@ -5314,44 +5314,52 @@ div.related-posts,
 
 /* ── 8. Service Area ── */
 .about-service {
-  background: #EEF7F2;
+  background: var(--bg-light);
   padding: 80px 0;
 }
 
-.about-service__map {
-  max-width: 720px;
-  margin: 0 auto 40px;
+.about-service__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  max-width: 1100px;
+  margin: 48px auto 0;
 }
 
-.about-service__map svg {
-  width: 100%;
-  height: auto;
-  display: block;
+.about-service__col-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--green-dark);
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
 }
 
-.about-service__pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
+.about-service__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 20px;
 }
 
-.about-service__pill {
+.about-service__link {
   display: inline-block;
-  background: var(--white);
-  border: 0.5px solid var(--border);
-  border-radius: 20px;
-  padding: 6px 14px;
-  font-size: 13px;
-  color: var(--charcoal-light);
-  white-space: nowrap;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  color: var(--charcoal);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 0.15s ease;
 }
 
-.about-service__pill:hover {
-  background: var(--green);
-  color: var(--white);
-  border-color: var(--green);
+.about-service__link:hover,
+.about-service__link:focus-visible {
+  color: var(--green-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* ── 10. CTA ── */
@@ -5642,9 +5650,12 @@ div.related-posts,
   .about-values__grid,
   .about-why__grid,
   .about-process__steps,
-  .about-badges__row,
-  .about-service__pills { grid-template-columns: 1fr !important; gap: 16px; }
+  .about-badges__row { grid-template-columns: 1fr !important; gap: 16px; }
   .about-who__h2 { font-size: 22px; }
+
+  .about-service__columns { grid-template-columns: 1fr; gap: 40px; margin-top: 32px; }
+  .about-service__list { grid-template-columns: repeat(2, 1fr); gap: 10px 16px; }
+  .about-service__col-title { font-size: 1rem; }
 
   /* ---------- Forms ---------- */
   form input,

@@ -431,22 +431,23 @@ $cities = [
       <p class="section__subtitle">From Memphis to Bristol, from Nashville to the smallest rural county, Tennessee Cash For Homes buys houses and land throughout the entire state.</p>
     </div>
 
-    <div class="about-service__map">
-      <?php
-      $map_asset_path = get_template_directory() . '/brand_assets/tennessee-all-green.svg';
-      $map_asset_uri  = get_template_directory_uri() . '/brand_assets/tennessee-all-green.svg';
-      if ( file_exists( $map_asset_path ) ) : ?>
-        <img src="<?php echo esc_url( $map_asset_uri ); ?>" alt="Tennessee service area map — Tennessee Cash For Homes buys in every county" width="502" height="234" loading="lazy" decoding="async" />
-      <?php endif; ?>
-    </div>
-
-    <div class="about-service__pills">
-      <?php foreach ( $cities as $c ) : ?>
-        <a href="<?php echo esc_url( home_url( '/where-we-buy/' . $c['slug'] ) ); ?>" class="about-service__pill"><?php echo esc_html( $c['name'] ); ?></a>
-      <?php endforeach; ?>
-      <?php foreach ( $counties as $c ) : ?>
-        <a href="<?php echo esc_url( home_url( '/where-we-buy/' . $c['slug'] ) ); ?>" class="about-service__pill"><?php echo esc_html( $c['name'] ); ?></a>
-      <?php endforeach; ?>
+    <div class="about-service__columns">
+      <div class="about-service__col">
+        <h3 class="about-service__col-title">Cities We Serve</h3>
+        <ul class="about-service__list">
+          <?php foreach ( $cities as $c ) : ?>
+            <li><a class="about-service__link" href="<?php echo esc_url( home_url( '/where-we-buy/' . $c['slug'] ) ); ?>"><?php echo esc_html( $c['name'] ); ?></a></li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+      <div class="about-service__col">
+        <h3 class="about-service__col-title">Counties We Serve</h3>
+        <ul class="about-service__list">
+          <?php foreach ( $counties as $c ) : ?>
+            <li><a class="about-service__link" href="<?php echo esc_url( home_url( '/where-we-buy/' . $c['slug'] ) ); ?>"><?php echo esc_html( $c['name'] ); ?></a></li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
