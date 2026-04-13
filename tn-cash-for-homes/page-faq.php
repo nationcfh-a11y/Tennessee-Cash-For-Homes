@@ -233,16 +233,6 @@ get_header(); ?>
   </div>
 </section>
 
-<!-- ── CTA SECTION ── -->
-<section class="cta-band">
-  <div class="container">
-    <h2>Still Have Questions?</h2>
-    <p>We are happy to talk through your situation with no pressure and no obligation.</p>
-    <a href="/#hero-form" class="btn-white">Get My Cash Offer &rarr;</a>
-    <span class="cta-phone">Or call us directly at <a href="tel:+16158018126">(615) 801-8126</a></span>
-  </div>
-</section>
-
 <!-- ── FAQ STYLES ── -->
 <style>
   .faq-section {
