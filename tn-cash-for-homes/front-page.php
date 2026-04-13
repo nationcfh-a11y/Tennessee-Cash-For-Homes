@@ -393,44 +393,44 @@
       <table class="compare-table">
         <thead>
           <tr>
-            <th></th>
-            <th>Tennessee Cash For Homes</th>
-            <th>Traditional Listing</th>
+            <th scope="col"><span class="visually-hidden">Feature</span></th>
+            <th scope="col">Tennessee Cash For Homes</th>
+            <th scope="col">Traditional Listing</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Closing timeline</td>
+            <th scope="row">Closing timeline</th>
             <td><span class="check">✔</span> As fast as 7 days</td>
             <td><span class="cross">60 to 90+ days</span></td>
           </tr>
           <tr>
-            <td>Repairs required</td>
+            <th scope="row">Repairs required</th>
             <td><span class="check">✔</span> None, buy as-is</td>
             <td><span class="cross">Often required</span></td>
           </tr>
           <tr>
-            <td>Agent commissions</td>
+            <th scope="row">Agent commissions</th>
             <td><span class="check">✔</span> $0</td>
             <td><span class="cross">5 to 6% of sale price</span></td>
           </tr>
           <tr>
-            <td>Closing costs</td>
+            <th scope="row">Closing costs</th>
             <td><span class="check">✔</span> We cover them</td>
             <td><span class="cross">2 to 3% of sale price</span></td>
           </tr>
           <tr>
-            <td>Showings &amp; open houses</td>
+            <th scope="row">Showings &amp; open houses</th>
             <td><span class="check">✔</span> None</td>
             <td><span class="cross">Many required</span></td>
           </tr>
           <tr>
-            <td>Financing contingencies</td>
+            <th scope="row">Financing contingencies</th>
             <td><span class="check">✔</span> No, all cash</td>
             <td><span class="cross">Deals can fall through</span></td>
           </tr>
           <tr>
-            <td>Certainty of sale</td>
+            <th scope="row">Certainty of sale</th>
             <td><span class="check">✔</span> Guaranteed</td>
             <td><span class="cross">Not guaranteed</span></td>
           </tr>

@@ -5400,3 +5400,84 @@ div.related-posts,
   .about-cta { padding: 56px 0; }
   .about-cta__h2 { font-size: 1.5rem; }
 }
+
+/* ──────────────────────────────────────────────────────────────
+   Accessibility fixes (WCAG AA): landmark, contrast, tap targets
+   ────────────────────────────────────────────────────────────── */
+
+/* Visually-hidden utility for screen-reader-only labels. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Compare-table: tbody <th scope="row"> must look the same as the
+   former <td> cells (td styling, not th styling). Homepage has 7 rows. */
+.compare-table tbody th {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+  font-size: 15px;
+  font-weight: 400;
+  font-family: inherit;
+  text-align: left;
+  background: transparent;
+  width: auto;
+}
+.compare-table tbody tr:nth-child(even) th { background: #fafafa; }
+
+/* Form disclaimer: 12px gray needed more contrast on white (was #999, 2.84). */
+.form-disclaimer { color: #6B6B6B; }
+
+/* Breadcrumb sitting on the light county/city hero background (#F2F2F2).
+   The base .breadcrumb uses white text for dark hero pages, which is
+   nearly invisible on the light city/county hero. Scope a dark variant. */
+.county-hero .breadcrumb,
+.county-hero .breadcrumb a { color: var(--charcoal-light); }
+.county-hero .breadcrumb span { color: #8a8a8a; }
+.county-hero .breadcrumb a:hover { color: var(--green-dark); }
+
+/* Section eyebrow: small 13px uppercase label on #F2F2F2 / white.
+   Swap to a deeper green in the same hue family for WCAG AA. */
+.section__eyebrow { color: #2F855A; }
+
+/* Carousel dots: visual size stays 9px (or 26px active), but the tap
+   target must be ≥24px. Make the <button> a 24×24 transparent hit area
+   and render the visible dot via ::before so nothing changes visually. */
+.carousel-dot {
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* Keep width transition for the active state below. */
+  transition: width 0.3s;
+}
+.carousel-dot::before {
+  content: '';
+  width: 9px;
+  height: 9px;
+  border-radius: 5px;
+  background: #ddd;
+  transition: background 0.3s, width 0.3s;
+}
+.carousel-dot.active {
+  width: 41px;            /* 26px visible dot + 2×7.5px side padding */
+  background: transparent;
+}
+.carousel-dot.active::before {
+  background: var(--green-dark);
+  width: 26px;
+}
+.carousel-dots { gap: 0; }
