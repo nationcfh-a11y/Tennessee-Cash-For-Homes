@@ -59,6 +59,28 @@ get_header();
           </div>
         </div>
       </div>
+      <div class="hero__form-card" id="get-offer">
+        <h2 class="form-card__title">Get Your Free Cash Offer</h2>
+        <p class="form-card__sub">Takes less than 60 seconds. No obligation.</p>
+        <form id="leadForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="address">Property Address</label>
+            <input type="text" id="address" name="address" placeholder="123 Main St, Nashville, TN" required />
+          </div>
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="John Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(615) 555-0123" required />
+          </div>
+          <button type="submit" class="btn-primary btn-primary--block">
+            Get My Cash Offer &rarr;
+          </button>
+        </form>
+        <p class="form-disclaimer">&#128274; Your info is private and never shared.</p>
+      </div>
     </div>
   </div>
 </section>

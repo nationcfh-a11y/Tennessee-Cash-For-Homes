@@ -4571,7 +4571,12 @@ div.related-posts,
   z-index: 1;
 }
 .land-hero__inner {
-  max-width: 720px;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
 }
 .land-hero__eyebrow {
   display: inline-block;
@@ -4793,6 +4798,15 @@ div.related-posts,
 }
 
 /* ── LAND PAGE RESPONSIVE ── */
+@media (max-width: 960px) {
+  .land-hero__inner {
+    grid-template-columns: 1fr;
+  }
+  .land-hero .hero__form-card {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
 @media (max-width: 900px) {
   .land-about__grid {
     grid-template-columns: 1fr;
