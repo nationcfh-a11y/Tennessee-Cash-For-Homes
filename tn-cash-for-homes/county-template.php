@@ -91,21 +91,13 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
       <!-- RIGHT: Map + Form -->
       <div class="county-hero__map-col">
         <?php
-        $county_svg_path = get_template_directory() . '/brand_assets/county-svgs/' . $slug . '.svg';
-        if ( file_exists( $county_svg_path ) ) :
+        $map_asset_path = get_template_directory() . '/brand_assets/tennessee-all-green.svg';
+        $map_asset_uri  = get_template_directory_uri() . '/brand_assets/tennessee-all-green.svg';
+        if ( file_exists( $map_asset_path ) ) :
         ?>
         <div class="county-map-hero-wrap">
           <div class="county-map-hero-svg">
-            <?php
-            $svg_content = file_get_contents( $county_svg_path );
-            // Show full TN state with the specific county highlighted in green
-            if ( strpos( $svg_content, 'id="statelayer"' ) !== false ) {
-                $svg_content = str_replace( '<defs>', '<defs><style>#placelayer{display:none}#countylayer path{fill:#84CC9C !important;}</style>', $svg_content );
-                // Use full-state viewBox — no per-county zoom
-                $svg_content = preg_replace( '/viewBox="[^"]*"/', 'viewBox="0 0 502 234"', $svg_content );
-            }
-            echo $svg_content;
-            ?>
+            <img src="<?php echo esc_url( $map_asset_uri ); ?>" alt="Tennessee service area map highlighting <?php echo esc_attr( $name ); ?> County" width="502" height="234" loading="lazy" decoding="async" />
           </div>
           <div class="county-map-label">
             <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>

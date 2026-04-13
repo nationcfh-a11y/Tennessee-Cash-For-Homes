@@ -433,17 +433,11 @@ $cities = [
 
     <div class="about-service__map">
       <?php
-      // Load a county SVG and show full state with all counties in green
-      $svg_path = get_template_directory() . '/brand_assets/county-svgs/davidson-county.svg';
-      if ( file_exists( $svg_path ) ) {
-          $svg_content = file_get_contents( $svg_path );
-          // Hide place layer, color all counties green
-          $svg_content = str_replace( '<defs>', '<defs><style>#placelayer{display:none}#countylayer path{fill:#84CC9C !important;stroke:#fff !important;stroke-width:0.5 !important;}#statelayer path{fill:#d4ede0 !important;}</style>', $svg_content );
-          // Force full-state viewBox
-          $svg_content = preg_replace( '/viewBox="[^"]*"/', 'viewBox="0 0 502 234"', $svg_content );
-          echo $svg_content;
-      }
-      ?>
+      $map_asset_path = get_template_directory() . '/brand_assets/tennessee-all-green.svg';
+      $map_asset_uri  = get_template_directory_uri() . '/brand_assets/tennessee-all-green.svg';
+      if ( file_exists( $map_asset_path ) ) : ?>
+        <img src="<?php echo esc_url( $map_asset_uri ); ?>" alt="Tennessee service area map — Tennessee Cash For Homes buys in every county" width="502" height="234" loading="lazy" decoding="async" />
+      <?php endif; ?>
     </div>
 
     <div class="about-service__pills">

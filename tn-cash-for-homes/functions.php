@@ -25,26 +25,46 @@ function tcfh_enqueue_assets() {
         );
     }
 
-    // Google Fonts: Poppins
-    wp_enqueue_style(
-        'tcfh-google-fonts',
-        'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap',
-        array(),
-        null
-    );
+    // Self-hosted Poppins (latin subset, weights 400/500/600/700).
+    // Cuts two third-party connections (fonts.googleapis.com + fonts.gstatic.com)
+    // and removes render-blocking external CSS.
+    $fonts_css_path = get_template_directory() . '/fonts/poppins.css';
+    $fonts_css_uri  = get_template_directory_uri() . '/fonts/poppins.css';
+    if ( file_exists( $fonts_css_path ) ) {
+        wp_enqueue_style(
+            'tcfh-poppins',
+            $fonts_css_uri,
+            array(),
+            (string) filemtime( $fonts_css_path )
+        );
+    }
 
-    // Main site JavaScript (inline in footer, no separate JS file needed)
-    // If you later extract JS to a file, enqueue it here like:
-    // wp_enqueue_script(
-    //     'tcfh-main',
-    //     get_template_directory_uri() . '/js/main.js',
-    //     array(),
-    //     '1.0',
-    //     true  // load in footer
-    // );
-
+    // Main site JavaScript — deferred external file, cached across pages.
+    $js_path = get_template_directory() . '/js/main.js';
+    $js_uri  = get_template_directory_uri() . '/js/main.js';
+    if ( file_exists( $js_path ) ) {
+        wp_enqueue_script(
+            'tcfh-main',
+            $js_uri,
+            array(),
+            (string) filemtime( $js_path ),
+            true
+        );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'tcfh_enqueue_assets' );
+
+/**
+ * Add defer to the main site script. With defer, it parses during HTML download
+ * but executes after the document is parsed — non-blocking but still before
+ * DOMContentLoaded, so inline onclick/onsubmit handlers remain safe.
+ */
+add_filter( 'script_loader_tag', function( $tag, $handle ) {
+    if ( 'tcfh-main' === $handle ) {
+        $tag = str_replace( ' src=', ' defer src=', $tag );
+    }
+    return $tag;
+}, 10, 2 );
 
 /**
  * Register /thank-you/ route so it works without a WP Page in the database.
@@ -89,6 +109,41 @@ add_action( 'wp_head', function() {
         'nonce'    => wp_create_nonce( 'tcfh_submit_lead' ),
     ) ) . ';</script>' . "\n";
 } );
+
+/**
+ * Preload the hero background image for each page template.
+ * These are referenced via CSS url(); without a preload hint the browser
+ * can't discover them until CSSOM is built, which delays LCP by ~800–1500ms.
+ */
+add_action( 'wp_head', function() {
+    $base = get_template_directory_uri() . '/brand_assets/';
+    $image = null;
+
+    if ( is_front_page() ) {
+        $image = 'New_Background.webp';
+    } elseif ( is_page( 'facing-foreclosure' ) ) {
+        $image = 'New_Background.webp';
+    } elseif ( is_page( 'sell-your-land' ) || is_page( 'sell-my-land' ) ) {
+        $image = 'Tennessee_Cash_For_Land.webp';
+    } elseif ( is_page( 'about' ) ) {
+        $image = 'Company%20Photo.webp';
+    } elseif ( is_home() || is_archive() ) {
+        $image = 'New_Background.webp';
+    } else {
+        // Foreclosure sub-pages use the shared template
+        $tpl = get_post_meta( get_the_ID(), '_wp_page_template', true );
+        if ( $tpl && strpos( $tpl, 'foreclosure-pages/' ) === 0 ) {
+            $image = 'New_Background.webp';
+        }
+    }
+
+    if ( $image ) {
+        printf(
+            '<link rel="preload" as="image" href="%s" fetchpriority="high" />' . "\n",
+            esc_url( $base . $image )
+        );
+    }
+}, 2 );
 
 /**
  * Remove jQuery on the frontend (not needed — all JS is vanilla).

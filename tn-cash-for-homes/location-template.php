@@ -37,23 +37,13 @@ $desc2        = $city['desc2'];
 $desc3        = ! empty( $city['desc3'] ) ? $city['desc3'] : '';
 $land_para      = $city['land_para'];
 $neighborhoods  = ! empty( $city['neighborhoods'] ) ? $city['neighborhoods'] : [];
-$county_slug    = ! empty( $city['county_slug'] ) ? $city['county_slug'] : '';
 
-// Auto-derive county_slug from county name when not explicitly set
-if ( empty( $county_slug ) && ! empty( $county ) ) {
-    $county_slug = strtolower( $county ) . '-county';
-}
-
-// Always use the county SVG for consistent full-state rendering
-$county_svg_path = $county_slug ? get_template_directory() . '/brand_assets/county-svgs/' . $county_slug . '.svg' : '';
-$map_svg_path    = '';
-$map_label       = $name;
-
-if ( $county_svg_path && file_exists( $county_svg_path ) ) {
-    $map_svg_path = $county_svg_path;
-    $map_label    = $name;
-}
-$has_map = ! empty( $map_svg_path );
+// Render the shared optimized Tennessee-all-green map as an external <img>.
+// A single cached asset beats inlining a per-county 700 KB–8 MB SVG on every page.
+$map_asset_path = get_template_directory() . '/brand_assets/tennessee-all-green.svg';
+$map_asset_uri  = get_template_directory_uri() . '/brand_assets/tennessee-all-green.svg';
+$map_label      = $name;
+$has_map        = file_exists( $map_asset_path );
 
 $check18 = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>';
 $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>';
@@ -108,16 +98,7 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
         <?php if ( $has_map ) : ?>
         <div class="county-map-hero-wrap">
           <div class="county-map-hero-svg">
-            <?php
-            $svg_content = file_get_contents( $map_svg_path );
-            // Show full TN state with the parent county highlighted in green
-            if ( strpos( $svg_content, 'id="statelayer"' ) !== false ) {
-                $svg_content = str_replace( '<defs>', '<defs><style>#placelayer{display:none}#countylayer path{fill:#84CC9C !important;}</style>', $svg_content );
-                // Use full-state viewBox — no per-county zoom
-                $svg_content = preg_replace( '/viewBox="[^"]*"/', 'viewBox="0 0 502 234"', $svg_content );
-            }
-            echo $svg_content;
-            ?>
+            <img src="<?php echo esc_url( $map_asset_uri ); ?>" alt="Tennessee service area map highlighting <?php echo esc_attr( $map_label ); ?>" width="502" height="234" loading="lazy" decoding="async" />
           </div>
           <div class="county-map-label">
             <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
