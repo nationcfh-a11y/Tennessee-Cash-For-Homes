@@ -601,7 +601,7 @@
         <div class="reviews-slide">
           <div class="testimonial-card">
             <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testimonial-body">I had an amazing experience with this company. My sisters and I were selling our mother's home who had passed. They made it very easy, we got a fair offer and they even allowed us to get a few of our mother's belongings we forgot after the closing. I highly recommend this company — the folks there are great to work with, unlike a lot of the scammy companies we had tried to sell to before.</p>
+            <p class="testimonial-body">I had an amazing experience with this company. My sisters and I were selling our mother's home who had passed. They made it very easy, we got a fair offer and they even allowed us to get a few of our mother's belongings we forgot after the closing. I highly recommend this company. The folks there are great to work with, unlike a lot of the scammy companies we had tried to sell to before.</p>
             <div class="testimonial-author">
               <div class="testimonial-avatar">KW</div>
               <div>
@@ -714,7 +714,7 @@
       "name": "Do I need to make repairs before selling?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Absolutely not. We buy houses in any condition — fire damage, foundation issues, outdated kitchens, hoarder homes. You do not need to fix or clean a single thing."
+        "text": "Absolutely not. We buy houses in any condition, including fire damage, foundation issues, outdated kitchens, and hoarder homes. You do not need to fix or clean a single thing."
       }
     },
     {
@@ -770,7 +770,7 @@
       "name": "Is there any obligation when I request an offer?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "None whatsoever. Our cash offer is completely free and comes with zero obligation. You can take the offer, decline it, or simply use it as information — no pressure ever."
+        "text": "None whatsoever. Our cash offer is completely free and comes with zero obligation. You can take the offer, decline it, or simply use it as information, with no pressure ever."
       }
     },
     {

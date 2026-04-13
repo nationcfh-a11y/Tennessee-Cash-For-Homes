@@ -13,7 +13,7 @@ if ( empty( $faq_name ) || ! isset( $faq_extra ) ) return;
 $faq_items = [
     [
         'q' => "How much will you pay for my house in {$faq_name}?",
-        'a' => "Every property in {$faq_name} is different, so our offers are based on the home's condition, location, and current market trends. We aim to provide a fair cash offer that reflects the true value of your property. There are no obligations — request your free offer and decide if it works for you.",
+        'a' => "Every property in {$faq_name} is different, so our offers are based on the home's condition, location, and current market trends. We aim to provide a fair cash offer that reflects the true value of your property. There are no obligations. Request your free offer and decide if it works for you.",
     ],
     [
         'q' => "How fast can you close on a house in {$faq_name}?",
@@ -21,7 +21,7 @@ $faq_items = [
     ],
     [
         'q' => "Do I need to make repairs before selling my {$faq_name} home?",
-        'a' => "Absolutely not. We buy houses in {$faq_name} in any condition — whether it needs minor cosmetic updates or major structural repairs. You do not need to spend a dime fixing up your property. We handle all of that after closing.",
+        'a' => "Absolutely not. We buy houses in {$faq_name} in any condition, whether it needs minor cosmetic updates or major structural repairs. You do not need to spend a dime fixing up your property. We handle all of that after closing.",
     ],
     [
         'q' => "Are there any fees or commissions when selling to you in {$faq_name}?",

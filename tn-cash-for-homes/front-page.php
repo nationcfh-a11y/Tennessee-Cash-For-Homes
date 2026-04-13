@@ -322,7 +322,7 @@
       <a href="<?php echo esc_url( home_url('/sell-house-as-is-tennessee') ); ?>" class="situation-card">
         <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
         <h3 class="situation-card__title">Major Repairs Needed</h3>
-        <p class="situation-card__desc">Home needs major work? We buy houses in any condition — no repairs, no contractors, no hassle.</p>
+        <p class="situation-card__desc">Home needs major work? We buy houses in any condition, with no repairs, no contractors, and no hassle.</p>
         <span class="situation-card__link">Learn More &rarr;</span>
       </a>
 
@@ -616,7 +616,7 @@
         <div class="reviews-slide">
           <div class="testimonial-card">
             <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testimonial-body">I had an amazing experience with this company. My sisters and I were selling our mother's home who had passed. They made it very easy, we got a fair offer and they even allowed us to get a few of our mother's belongings we forgot after the closing. I highly recommend this company — the folks there are great to work with, unlike a lot of the scammy companies we had tried to sell to before.</p>
+            <p class="testimonial-body">I had an amazing experience with this company. My sisters and I were selling our mother's home who had passed. They made it very easy, we got a fair offer and they even allowed us to get a few of our mother's belongings we forgot after the closing. I highly recommend this company. The folks there are great to work with, unlike a lot of the scammy companies we had tried to sell to before.</p>
             <div class="testimonial-author">
               <div class="testimonial-avatar">KW</div>
               <div>

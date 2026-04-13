@@ -113,7 +113,7 @@ function tcfh_handle_submit_lead() {
 
     // Send email notification
     $to      = get_option( 'admin_email' );
-    $subject = 'New Cash Offer Request — ' . $name;
+    $subject = 'New Cash Offer Request: ' . $name;
     $message = "=== New Lead from Multi-Step Form ===\n\n";
     $message .= "Name: $name\n";
     $message .= "Phone: $phone\n";
