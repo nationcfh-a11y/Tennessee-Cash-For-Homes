@@ -106,6 +106,33 @@ $fc_cities = [
   </div>
 </section>
 
+<!-- ── SOCIAL PROOF BAR ── -->
+<div class="proof-bar">
+  <div class="container">
+    <div class="proof-bar__inner">
+      <div class="proof-stat">
+        <div class="proof-stat__num"><span class="count-up" data-target="1200">0</span></div>
+        <div class="proof-stat__label">Homes Purchased</div>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <div class="proof-stat__num">14 Days</div>
+        <div class="proof-stat__label">Average Close Time</div>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <div class="proof-stat__num">$0</div>
+        <div class="proof-stat__label">Agent Fees or Commissions</div>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <div class="proof-stat__num">5.0 &#9733;</div>
+        <div class="proof-stat__label">Google Rating</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ══════════════════════════════════════════════
      2. EMPATHY STATEMENT
      ══════════════════════════════════════════════ -->
