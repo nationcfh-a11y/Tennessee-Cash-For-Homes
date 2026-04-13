@@ -1,0 +1,54 @@
+# BEGIN Tennessee Cash For Homes — Migration 301 Redirects
+# Wix → WordPress URL migration. Place this file at the WordPress install root
+# (NOT inside the theme folder). It is checked into the theme for source control.
+#
+# Rules are evaluated top-to-bottom. The order matters: more-specific paths
+# (e.g. /sell-your-land-1) must come before broader patterns that could shadow
+# them (e.g. /sell-your-land*).
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# ── 1. Wix legacy slug normalizations ────────────────────────────────────
+# Old Wix internal nav linked to /sell-your-land — site URL is /sell-your-land-1.
+# Anyone with the un-numbered link should land on the canonical page.
+RewriteRule ^sell-your-land/?$ /sell-your-land-1/ [R=301,L]
+RewriteRule ^sell-my-land/?$ /sell-your-land-1/ [R=301,L]
+
+# /investors-lenders is the WP template label; Wix shipped /investors. Both
+# should resolve to the canonical /investors/ page.
+RewriteRule ^investors-lenders/?$ /investors/ [R=301,L]
+RewriteRule ^investors-and-lenders/?$ /investors/ [R=301,L]
+
+# ── 2. Wix-only top-level pages with no WP equivalent ────────────────────
+RewriteRule ^blog-home/?$ /blog/ [R=301,L]
+RewriteRule ^our-solutions/?$ /how-it-works/ [R=301,L]
+RewriteRule ^more-information/?$ /about/ [R=301,L]
+
+# ── 3. Wix /items archive + 17 SEO landing pages ─────────────────────────
+# These were Wix dynamic-collection pages on foreclosure/probate/bankruptcy
+# topics. The closest WP equivalent is the foreclosure landing flow.
+RewriteRule ^items/?$ /facing-foreclosure/ [R=301,L]
+RewriteRule ^items/.+$ /facing-foreclosure/tennessee/ [R=301,L]
+
+# ── 4. Wix /post/<slug> blog posts → WP /<slug>/ (104 posts) ─────────────
+# Single regex replaces what would otherwise be 100+ explicit RedirectMatch
+# rules. The post slug is preserved 1:1 — confirmed against redirects.csv.
+RedirectMatch 301 ^/post/(.+?)/?$ /$1/
+
+</IfModule>
+# END Tennessee Cash For Homes — Migration 301 Redirects
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress

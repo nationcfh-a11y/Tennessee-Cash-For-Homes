@@ -26,7 +26,7 @@
       <ul class="nav__links" id="navLinks">
         <li><a href="<?php echo esc_url( home_url( '/how-it-works/' ) ); ?>" <?php if ( is_page( 'how-it-works' ) ) echo 'class="active"'; ?>>How It Works</a></li>
         <li><a href="<?php echo esc_url( home_url( '/where-we-buy/' ) ); ?>" <?php if ( is_page( 'where-we-buy' ) ) echo 'class="active"'; ?>>Where We Buy</a></li>
-        <li><a href="<?php echo esc_url( home_url( '/sell-your-land/' ) ); ?>" <?php if ( is_page( 'sell-your-land' ) ) echo 'class="active"'; ?>>Sell Your Land</a></li>
+        <li><a href="<?php echo esc_url( home_url( '/sell-your-land-1/' ) ); ?>" <?php if ( is_page( 'sell-your-land-1' ) ) echo 'class="active"'; ?>>Sell Your Land</a></li>
         <li class="nav__dropdown">
           <button class="nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">Resources <svg class="nav__dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <ul class="nav__dropdown-menu" role="menu">

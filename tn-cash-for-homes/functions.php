@@ -123,7 +123,7 @@ add_action( 'wp_head', function() {
         $image = 'New_Background.webp';
     } elseif ( is_page( 'facing-foreclosure' ) ) {
         $image = 'New_Background.webp';
-    } elseif ( is_page( 'sell-your-land' ) || is_page( 'sell-my-land' ) ) {
+    } elseif ( is_page( 'sell-your-land-1' ) || is_page( 'sell-your-land' ) || is_page( 'sell-my-land' ) ) {
         $image = 'Tennessee_Cash_For_Land.webp';
     } elseif ( is_page( 'about' ) ) {
         $image = 'Company%20Photo.webp';
