@@ -457,6 +457,8 @@ get_header(); ?>
 
 <!-- ── FORM SUBMISSION JS ── -->
 <script>
+  var DEBUG = false;
+
   async function handleInvestorSubmit(e) {
     e.preventDefault();
     var form = e.target;
@@ -480,9 +482,9 @@ get_header(); ?>
     try {
       var res = await fetch(ajaxUrl, { method: 'POST', body: formData });
       var data = await res.json();
-      if (!data.success) console.error('Investor form error:', data.data?.error);
+      if (!data.success && DEBUG) console.error('Investor form error:', data.data?.error);
     } catch (err) {
-      console.error('Investor form failed:', err);
+      if (DEBUG) console.error('Investor form failed:', err);
     }
 
     window.location.href = '/thank-you/';
@@ -510,9 +512,9 @@ get_header(); ?>
     try {
       var res = await fetch(ajaxUrl, { method: 'POST', body: formData });
       var data = await res.json();
-      if (!data.success) console.error('Lender form error:', data.data?.error);
+      if (!data.success && DEBUG) console.error('Lender form error:', data.data?.error);
     } catch (err) {
-      console.error('Lender form failed:', err);
+      if (DEBUG) console.error('Lender form failed:', err);
     }
 
     window.location.href = '/thank-you/';

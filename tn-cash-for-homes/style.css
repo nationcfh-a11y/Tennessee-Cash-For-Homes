@@ -5626,6 +5626,9 @@ div.related-posts,
   .hero { padding: 88px 0 36px; min-height: 0; }
   .hero__inner { gap: 24px; }
   .hero__title { font-size: 30px !important; line-height: 1.15; }
+  .location-hero__title,
+  .wwb-hero__title,
+  .blog-hero__title { font-size: 2.4rem !important; line-height: 1.18; }
   .hero__subtitle { font-size: 15px; line-height: 1.45; }
   .hero__trust-row { gap: 10px 14px; font-size: 13px; }
   .hero__form-card { width: 100%; max-width: 100%; padding: 20px 18px; box-sizing: border-box; }
@@ -5757,6 +5760,10 @@ div.related-posts,
   .container { padding-left: 16px; padding-right: 16px; }
   .hero__title { font-size: 26px !important; }
   .page-hero__title { font-size: 24px !important; }
+  .location-hero__title,
+  .wwb-hero__title,
+  .blog-hero__title { font-size: 1.9rem !important; line-height: 1.2; }
+  .about-hero__h1 { font-size: 1.5rem !important; line-height: 1.2; }
   .section__title { font-size: 22px; }
   h1 { font-size: 24px; }
   h2 { font-size: 21px; }
@@ -5780,6 +5787,14 @@ div.related-posts,
   .common-situations,
   .home-blog,
   .blog-articles { padding-top: 36px; padding-bottom: 36px; }
+}
+
+/* =====================  SMALL PHONE (≤390px)  =========================== */
+@media (max-width: 390px) {
+  .location-hero__title,
+  .wwb-hero__title,
+  .blog-hero__title { font-size: 1.7rem !important; line-height: 1.2; }
+  .about-hero__h1 { font-size: 1.4rem !important; line-height: 1.2; }
 }
 
 /* =====================  TABLET (769px–1024px)  ========================== */

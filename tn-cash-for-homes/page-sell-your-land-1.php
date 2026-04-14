@@ -189,7 +189,7 @@ get_header();
           <svg width="32" height="32" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-2 0v-2M5 21H3m2 0v-2m4-14h2m-2 4h2m4-4h2m-2 4h2"/></svg>
         </div>
         <h3 class="land-type-card__title">Inherited Land</h3>
-        <p class="land-type-card__desc">Inherited a parcel you do not need? We buy <a href="<?php echo esc_url( home_url( '/sell-inherited-house-tennessee' ) ); ?>">inherited land</a> at any stage of probate and handle the complexity for you.</p>
+        <p class="land-type-card__desc">Inherited a parcel you do not need? We buy <a href="<?php echo esc_url( home_url( '/sell-inherited-house-tennessee/' ) ); ?>">inherited land</a> at any stage of probate and handle the complexity for you.</p>
       </div>
       <div class="land-type-card">
         <div class="land-type-card__icon">

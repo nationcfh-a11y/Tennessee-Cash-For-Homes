@@ -522,7 +522,7 @@ echo wp_json_encode( [
         <svg width="20" height="20" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         <span>Behind on Property Taxes in Tennessee</span>
       </a>
-      <a href="<?php echo esc_url( home_url( '/sell-inherited-house-tennessee' ) ); ?>" class="fc-link-card">
+      <a href="<?php echo esc_url( home_url( '/sell-inherited-house-tennessee/' ) ); ?>" class="fc-link-card">
         <svg width="20" height="20" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         <span>Selling an Inherited Property in Tennessee</span>
       </a>

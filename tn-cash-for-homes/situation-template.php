@@ -290,7 +290,7 @@ echo wp_json_encode( array(
         'areaServed'=> 'Tennessee',
     ),
     'description' => $meta_description,
-    'url'         => home_url( '/' . $situation_slug ),
+    'url'         => home_url( '/' . $situation_slug . '/' ),
 ), JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT );
 ?>
 </script>

@@ -18,7 +18,7 @@ $wwh_hash = crc32( $name );
 $wwh_situations = [
     [
         'title'  => 'Facing Foreclosure',
-        'url'    => '/sell-my-house-foreclosure-tennessee',
+        'url'    => '/sell-my-house-foreclosure-tennessee/',
         'icon'   => '<svg width="28" height="28" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M3 21h18l-9-16-9 16z"/></svg>',
         'copy'   => [
             'Tennessee law allows lenders to foreclose in as little as 22 days. If you need to sell your house in %s before the auction date, we can close fast and help you avoid the lasting damage a foreclosure leaves on your credit.',
@@ -29,7 +29,7 @@ $wwh_situations = [
     ],
     [
         'title'  => 'Going Through Divorce',
-        'url'    => '/sell-my-house-divorce-tennessee',
+        'url'    => '/sell-my-house-divorce-tennessee/',
         'icon'   => '<svg width="28" height="28" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/><line x1="6" y1="2" x2="18" y2="22"/></svg>',
         'copy'   => [
             'Dividing property during a divorce in %s adds stress to an already difficult time. Selling your house for cash lets both parties split the proceeds quickly and cleanly without months of listing, showings, and negotiations.',
@@ -40,7 +40,7 @@ $wwh_situations = [
     ],
     [
         'title'  => 'Inherited a Property',
-        'url'    => '/sell-inherited-house-tennessee',
+        'url'    => '/sell-inherited-house-tennessee/',
         'icon'   => '<svg width="28" height="28" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-2 0v-2M5 21H3m2 0v-2m4-14h2m-2 4h2m4-4h2m-2 4h2"/></svg>',
         'copy'   => [
             'Inheriting a home in %s can come with unexpected costs like property taxes, insurance, and maintenance. If you would rather convert that inherited property to cash than manage it long-distance, we make the process simple with a fair offer.',
@@ -51,7 +51,7 @@ $wwh_situations = [
     ],
     [
         'title'  => 'Relocating or Moving',
-        'url'    => '/sell-my-house-relocating-tennessee',
+        'url'    => '/sell-my-house-relocating-tennessee/',
         'icon'   => '<svg width="28" height="28" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>',
         'copy'   => [
             'A job transfer or life change that requires leaving %s quickly does not give you time for a traditional listing. We buy houses on your schedule, so you can relocate without paying two mortgages or worrying about a vacant property.',
@@ -95,7 +95,7 @@ $wwh_situations = [
     ],
     [
         'title'  => 'Downsizing',
-        'url'    => '/sell-my-house-downsizing-tennessee',
+        'url'    => '/sell-my-house-downsizing-tennessee/',
         'icon'   => '<svg width="28" height="28" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1m-2 0h2"/></svg>',
         'copy'   => [
             'Many %s homeowners reach a point where their house is simply more space than they need. Selling for cash makes downsizing easy. Skip the months of listing and showings and move into your next chapter with money in the bank.',

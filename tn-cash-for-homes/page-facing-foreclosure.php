@@ -519,7 +519,7 @@ $fc_cities = [
           </div>
           <div class="form-group">
             <label for="fc-phone">Phone Number</label>
-            <input type="tel" id="fc-phone" name="phone" placeholder="(615) 555-0123" required />
+            <input type="tel" id="fc-phone" name="phone" placeholder="(615) 555-0123" required aria-required="true" />
           </div>
           <div class="form-group">
             <label for="fc-email">Email Address</label>

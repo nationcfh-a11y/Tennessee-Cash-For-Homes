@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  const DEBUG = false;
+
   // ── Mobile nav toggle ──
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('navLinks');
@@ -85,9 +87,9 @@
     try {
       const res  = await fetch(ajaxUrl, { method: 'POST', body: formData });
       const data = await res.json();
-      if (!data.success) console.error('Lead submission error:', data.data?.error);
+      if (!data.success && DEBUG) console.error('Lead submission error:', data.data?.error);
     } catch (err) {
-      console.error('Lead submission failed:', err);
+      if (DEBUG) console.error('Lead submission failed:', err);
     }
 
     window.location.href = '/thank-you/';

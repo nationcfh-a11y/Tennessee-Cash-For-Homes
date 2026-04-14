@@ -291,28 +291,28 @@
     </div>
     <div class="common-situations__grid">
 
-      <a href="<?php echo esc_url( home_url('/sell-my-house-foreclosure-tennessee') ); ?>" class="situation-card">
+      <a href="<?php echo esc_url( home_url('/sell-my-house-foreclosure-tennessee/') ); ?>" class="situation-card">
         <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><line x1="9" y1="22" x2="9" y2="12"/><line x1="15" y1="22" x2="15" y2="12"/><line x1="9" y1="12" x2="15" y2="12"/></svg></div>
         <h3 class="situation-card__title">Facing Foreclosure</h3>
         <p class="situation-card__desc">Received foreclosure notices or falling behind on payments? We can close fast enough to stop the process.</p>
         <span class="situation-card__link">Learn More &rarr;</span>
       </a>
 
-      <a href="<?php echo esc_url( home_url('/sell-my-house-divorce-tennessee') ); ?>" class="situation-card">
+      <a href="<?php echo esc_url( home_url('/sell-my-house-divorce-tennessee/') ); ?>" class="situation-card">
         <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M12 1v22"/><path d="M5 5l14 14"/><path d="M19 5L5 19"/></svg></div>
         <h3 class="situation-card__title">Going Through Divorce</h3>
         <p class="situation-card__desc">Need a fast fair sale without months of showings and negotiations? We make divorce home sales simple.</p>
         <span class="situation-card__link">Learn More &rarr;</span>
       </a>
 
-      <a href="<?php echo esc_url( home_url('/sell-inherited-house-tennessee') ); ?>" class="situation-card">
+      <a href="<?php echo esc_url( home_url('/sell-inherited-house-tennessee/') ); ?>" class="situation-card">
         <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
         <h3 class="situation-card__title">Inherited a Property</h3>
         <p class="situation-card__desc">Inherited a home you do not want to manage? We buy as-is with contents included and work with probate attorneys.</p>
         <span class="situation-card__link">Learn More &rarr;</span>
       </a>
 
-      <a href="<?php echo esc_url( home_url('/sell-my-house-relocating-tennessee') ); ?>" class="situation-card">
+      <a href="<?php echo esc_url( home_url('/sell-my-house-relocating-tennessee/') ); ?>" class="situation-card">
         <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
         <h3 class="situation-card__title">Relocating or Moving</h3>
         <p class="situation-card__desc">Moving for work or family? Sell fast and avoid double mortgage payments or carrying costs from out of state.</p>
@@ -340,7 +340,7 @@
         <span class="situation-card__link">Learn More &rarr;</span>
       </a>
 
-      <a href="<?php echo esc_url( home_url('/sell-my-house-downsizing-tennessee') ); ?>" class="situation-card">
+      <a href="<?php echo esc_url( home_url('/sell-my-house-downsizing-tennessee/') ); ?>" class="situation-card">
         <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></div>
         <h3 class="situation-card__title">Downsizing</h3>
         <p class="situation-card__desc">Ready for a simpler smaller life? We make downsizing easy with flexible closing dates and no repairs required.</p>
