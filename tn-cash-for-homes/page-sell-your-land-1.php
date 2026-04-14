@@ -224,7 +224,7 @@ get_header();
           <svg width="32" height="32" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-3-3v6m-7 4h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         </div>
         <h3 class="land-type-card__title">Land with Liens or Back Taxes</h3>
-        <p class="land-type-card__desc">Owe <a href="<?php echo esc_url( home_url( '/sell-my-house-behind-on-taxes-tennessee' ) ); ?>">back taxes</a> or have liens on your property? We work through the title issues and can still make a cash offer.</p>
+        <p class="land-type-card__desc">Owe <a href="<?php echo esc_url( home_url( '/sell-house-behind-on-taxes-tennessee/' ) ); ?>">back taxes</a> or have liens on your property? We work through the title issues and can still make a cash offer.</p>
       </div>
     </div>
   </div>

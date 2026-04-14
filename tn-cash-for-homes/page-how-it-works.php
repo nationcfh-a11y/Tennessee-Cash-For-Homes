@@ -633,19 +633,19 @@ get_header(); ?>
         <p class="hiw-situation-desc">Sell fast and avoid double mortgage payments or carrying costs.</p>
       </a>
 
-      <a href="<?php echo esc_url( home_url('/sell-house-as-is-tennessee') ); ?>" class="hiw-situation-card">
+      <a href="<?php echo esc_url( home_url('/sell-house-as-is-tennessee/') ); ?>" class="hiw-situation-card">
         <div class="hiw-situation-icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
         <h3 class="hiw-situation-title">Major Repairs Needed</h3>
         <p class="hiw-situation-desc">We buy houses in any condition. No repairs, no contractors, no hassle.</p>
       </a>
 
-      <a href="<?php echo esc_url( home_url('/sell-rental-property-tennessee') ); ?>" class="hiw-situation-card">
+      <a href="<?php echo esc_url( home_url('/sell-rental-property-tennessee/') ); ?>" class="hiw-situation-card">
         <div class="hiw-situation-icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></div>
         <h3 class="hiw-situation-title">Tired Landlord</h3>
         <p class="hiw-situation-desc">We buy rental properties with tenants in place for a fast clean exit.</p>
       </a>
 
-      <a href="<?php echo esc_url( home_url('/sell-house-behind-on-taxes-tennessee') ); ?>" class="hiw-situation-card">
+      <a href="<?php echo esc_url( home_url('/sell-house-behind-on-taxes-tennessee/') ); ?>" class="hiw-situation-card">
         <div class="hiw-situation-icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
         <h3 class="hiw-situation-title">Behind On Taxes</h3>
         <p class="hiw-situation-desc">Owing back taxes doesn't have to mean losing your home. We can close fast and help you resolve the situation.</p>
@@ -657,7 +657,7 @@ get_header(); ?>
         <p class="hiw-situation-desc">Ready for a simpler life? We make it easy to sell quickly so you can move into something that fits your next chapter.</p>
       </a>
 
-      <a href="<?php echo esc_url( home_url('/sell-house-probate-tennessee') ); ?>" class="hiw-situation-card">
+      <a href="<?php echo esc_url( home_url('/sell-house-probate-tennessee/') ); ?>" class="hiw-situation-card">
         <div class="hiw-situation-icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
         <h3 class="hiw-situation-title">Probate Sale</h3>
         <p class="hiw-situation-desc">Navigating probate is stressful enough. We work with probate attorneys and buy as-is so you can settle the estate quickly.</p>

@@ -319,21 +319,21 @@
         <span class="situation-card__link">Learn More &rarr;</span>
       </a>
 
-      <a href="<?php echo esc_url( home_url('/sell-house-as-is-tennessee') ); ?>" class="situation-card">
+      <a href="<?php echo esc_url( home_url('/sell-house-as-is-tennessee/') ); ?>" class="situation-card">
         <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
         <h3 class="situation-card__title">Major Repairs Needed</h3>
         <p class="situation-card__desc">Home needs major work? We buy houses in any condition, with no repairs, no contractors, and no hassle.</p>
         <span class="situation-card__link">Learn More &rarr;</span>
       </a>
 
-      <a href="<?php echo esc_url( home_url('/sell-rental-property-tennessee') ); ?>" class="situation-card">
+      <a href="<?php echo esc_url( home_url('/sell-rental-property-tennessee/') ); ?>" class="situation-card">
         <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></div>
         <h3 class="situation-card__title">Tired Landlord</h3>
         <p class="situation-card__desc">Done with tenants and maintenance? We buy rental properties with tenants in place for a fast clean exit.</p>
         <span class="situation-card__link">Learn More &rarr;</span>
       </a>
 
-      <a href="<?php echo esc_url( home_url('/sell-house-behind-on-taxes-tennessee') ); ?>" class="situation-card">
+      <a href="<?php echo esc_url( home_url('/sell-house-behind-on-taxes-tennessee/') ); ?>" class="situation-card">
         <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <h3 class="situation-card__title">Behind on Taxes</h3>
         <p class="situation-card__desc">Delinquent property taxes growing? Sell fast and pay off the tax debt at closing before it becomes a lien.</p>
@@ -347,7 +347,7 @@
         <span class="situation-card__link">Learn More &rarr;</span>
       </a>
 
-      <a href="<?php echo esc_url( home_url('/sell-house-probate-tennessee') ); ?>" class="situation-card">
+      <a href="<?php echo esc_url( home_url('/sell-house-probate-tennessee/') ); ?>" class="situation-card">
         <div class="situation-card__icon"><svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-6"/><path d="M9 15h6"/></svg></div>
         <h3 class="situation-card__title">Probate Sale</h3>
         <p class="situation-card__desc">Selling an estate through probate? We work with attorneys and close fast once the court approves the sale.</p>
