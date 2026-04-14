@@ -111,6 +111,28 @@ add_action( 'wp_head', function() {
 } );
 
 /**
+ * Google Analytics 4 (GA4) tracking — fires on every page site-wide via wp_head.
+ *
+ * Replace G-XXXXXXXXXX with your actual GA4 Measurement ID from Google Analytics.
+ *
+ * To find your GA4 Measurement ID go to analytics.google.com → Admin →
+ * Data Streams → select your stream → copy the Measurement ID starting with G-
+ */
+add_action( 'wp_head', function() {
+    $ga4_measurement_id = 'G-XXXXXXXXXX';
+    ?>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo esc_attr( $ga4_measurement_id ); ?>"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '<?php echo esc_js( $ga4_measurement_id ); ?>');
+    </script>
+    <?php
+}, 1 );
+
+/**
  * Preload the hero background image for each page template.
  * These are referenced via CSS url(); without a preload hint the browser
  * can't discover them until CSSOM is built, which delays LCP by ~800–1500ms.

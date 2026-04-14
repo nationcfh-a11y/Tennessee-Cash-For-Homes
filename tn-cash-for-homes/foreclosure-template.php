@@ -393,9 +393,9 @@ $fc_gov_resources = function_exists( 'tcfh_get_gov_resources' ) ? tcfh_get_gov_r
             <select id="fc-urgency" name="urgency">
               <option value="">Select one...</option>
               <option value="unknown">I don't know yet</option>
-              <option value="90+">More than 90 days</option>
-              <option value="30-90">30 to 90 days</option>
-              <option value="<30">Less than 30 days</option>
+              <option value="more-than-90">More than 90 days</option>
+              <option value="30-to-90">30 to 90 days</option>
+              <option value="less-than-30">Less than 30 days</option>
               <option value="set">Sale date already set</option>
             </select>
           </div>
