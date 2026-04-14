@@ -570,12 +570,16 @@ function tcfh_schema_localbusiness() {
         'investors',
         'investors-lenders',
         'investors-and-lenders',
+        'about',
+        'facing-foreclosure',
     );
     $interior_templates = array(
         'page-how-it-works.php',
         'page-where-we-buy.php',
         'page-sell-your-land-1.php',
         'page-investors-lenders.php',
+        'page-about.php',
+        'page-facing-foreclosure.php',
     );
 
     $is_interior = is_page( $interior_slugs )
