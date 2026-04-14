@@ -193,6 +193,22 @@ if ( $fc_is_statewide ) {
   </div>
 </section>
 
+<?php
+/* ── Market Stats (dynamic per city; statewide page falls back to the "tennessee" data key) ── */
+$ms_name = $fc_city_name;
+$ms_slug = $fc_city_slug;
+$ms_type = 'city';
+include get_template_directory() . '/market-stats-section.php';
+
+/* ── Who We Help (same 9 situations used on county and city pages) ── */
+$name    = $fc_city_name;
+$ms_type = 'city';
+include get_template_directory() . '/who-we-help-section.php';
+
+/* ── Reviews (shared partial) ── */
+get_template_part( 'reviews-section' );
+?>
+
 <!-- ══════════════════════════════════════════════
      3. FORECLOSURE TIMELINE
      ══════════════════════════════════════════════ -->

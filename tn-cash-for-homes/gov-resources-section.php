@@ -4,20 +4,21 @@
  * Include from county-template.php or location-template.php after the FAQ section.
  *
  * Required variables before include:
- *   $gov_name       — display name used in headings (e.g. "Davidson County" or "Nashville")
- *   $gov_county_key — county key used to look up resource URLs (e.g. "Davidson")
- *   $gov_type       — 'county' or 'city'
+ *   $gov_name       — display name used in headings (e.g. "Davidson County", "Nashville", "Tennessee")
+ *   $gov_county_key — county key used to look up resource URLs (e.g. "Davidson"); empty when $gov_type === 'statewide'
+ *   $gov_type       — 'county', 'city', or 'statewide' (statewide mode shows only TN-wide resources)
  */
 
-if ( empty( $gov_name ) || empty( $gov_county_key ) ) return;
+if ( empty( $gov_name ) ) return;
+if ( empty( $gov_county_key ) && $gov_type !== 'statewide' ) return;
 
-// Load the resource data
-include_once get_template_directory() . '/gov-resources-data.php';
-
-if ( ! function_exists( 'tcfh_get_gov_resources' ) ) return;
-
-$gov_resources = tcfh_get_gov_resources( $gov_county_key );
-if ( empty( $gov_resources ) ) return;
+// For county/city pages, load the county-specific resource data
+if ( $gov_type !== 'statewide' ) {
+    include_once get_template_directory() . '/gov-resources-data.php';
+    if ( ! function_exists( 'tcfh_get_gov_resources' ) ) return;
+    $gov_resources = tcfh_get_gov_resources( $gov_county_key );
+    if ( empty( $gov_resources ) ) return;
+}
 
 // Icon SVGs for each resource type
 $gov_icons = [
@@ -59,8 +60,35 @@ $gov_descs = [
     'thda'     => 'Statewide foreclosure prevention resources and housing assistance programs for Tennessee homeowners.',
 ];
 
+// Statewide mode: used on situation pages which are not county-specific.
+// Shows only Tennessee-wide resources (THDA, TN Bar Association, HUD counselors, TN Legal Aid).
+if ( $gov_type === 'statewide' ) {
+    $gov_resources = [
+        'thda'        => 'https://thda.org',
+        'hud'         => 'https://www.hud.gov/i_want_to/talk_to_a_housing_counselor',
+        'tn_bar'      => 'https://www.tba.org/page/PublicInfo',
+        'tn_legalaid' => 'https://www.tn.gov/tsc/help/tennessee-legal-aid-organizations.html',
+    ];
+    $gov_icons['hud'] = '<svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>';
+    $gov_icons['tn_bar'] = '<svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>';
+    $gov_icons['tn_legalaid'] = '<svg width="24" height="24" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>';
+    $gov_tags['hud']         = 'Foreclosure, Counseling';
+    $gov_tags['tn_bar']      = 'Legal Referrals';
+    $gov_tags['tn_legalaid'] = 'Free Legal Help';
+    $gov_labels['thda']        = 'Tennessee Housing Development Agency (THDA)';
+    $gov_labels['hud']         = 'HUD-Approved Housing Counselors';
+    $gov_labels['tn_bar']      = 'Tennessee Bar Association';
+    $gov_labels['tn_legalaid'] = 'Tennessee Legal Aid';
+    $gov_descs['thda']        = 'Statewide foreclosure prevention programs, down payment assistance, and homeowner counseling services for Tennessee residents.';
+    $gov_descs['hud']         = 'Free foreclosure avoidance and housing counseling from HUD-certified agencies serving all of Tennessee.';
+    $gov_descs['tn_bar']      = 'Free lawyer referral service and public legal information resources for Tennessee homeowners navigating divorce, probate, or foreclosure.';
+    $gov_descs['tn_legalaid'] = 'Directory of Tennessee legal aid organizations that offer free or low-cost civil legal help to income-eligible homeowners statewide.';
+}
+
 // Determine intro text based on page type
-if ( $gov_type === 'city' ) {
+if ( $gov_type === 'statewide' ) {
+    $intro_text = 'These Tennessee-wide resources can help homeowners across the state navigate foreclosure, probate, divorce, and other difficult situations. Whether you are considering selling your house or just need information, these statewide offices and programs can help.';
+} elseif ( $gov_type === 'city' ) {
     $intro_text = 'These resources are provided to help ' . $gov_name . ' homeowners navigate difficult situations like foreclosure, probate, or property taxes in ' . $gov_county_key . ' County. Whether you are considering selling your house in ' . $gov_name . ' or just need information, these ' . $gov_county_key . ' County offices can help.';
 } else {
     $intro_text = 'These resources are provided to help ' . $gov_name . ' homeowners navigate difficult situations like foreclosure, probate, or property taxes in ' . $gov_name . '. Whether you are considering selling your house in ' . $gov_name . ' or just need information, these local offices can help.';

@@ -182,58 +182,27 @@ get_header();
   </div>
 </section>
 
-<!-- ── REVIEWS ── -->
-<section class="section section--alt" id="testimonials">
-  <div class="container">
-    <div class="section__header section__header--center">
-      <p class="section__eyebrow">5-Star Google Reviews</p>
-      <h2 class="section__title">What Tennessee Homeowners Are Saying About Us</h2>
-    </div>
-    <div class="reviews-outer" id="reviewsOuter">
-      <div class="reviews-track" id="reviewsTrack">
-        <div class="reviews-slide">
-          <div class="testimonial-card">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testimonial-body">Great company to work with, these guys actually care about you and will take care of you. Great character as well!</p>
-            <div class="testimonial-author"><div class="testimonial-avatar">NK</div><div><div class="testimonial-name">Nathan Krager</div><div class="testimonial-location">Tennessee</div></div></div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testimonial-body">Such a great group to work with. They were able to give me a fair deal with no hassles. Thank you Karson for going above and beyond.</p>
-            <div class="testimonial-author"><div class="testimonial-avatar">TH</div><div><div class="testimonial-name">Trish Haberman</div><div class="testimonial-location">Tennessee</div></div></div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testimonial-body">These guys were absolutely amazing. I sold my house without having to do a single repair and they even helped me find my next place to live!</p>
-            <div class="testimonial-author"><div class="testimonial-avatar">CD</div><div><div class="testimonial-name">Clayton Daniels</div><div class="testimonial-location">Tennessee</div></div></div>
-          </div>
-        </div>
-        <div class="reviews-slide">
-          <div class="testimonial-card">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testimonial-body">If you need to sell a home quickly, they're professional, fair, and truly care about making things easy for the seller. Highly recommend.</p>
-            <div class="testimonial-author"><div class="testimonial-avatar">LD</div><div><div class="testimonial-name">Lisa Daniels</div><div class="testimonial-location">Tennessee</div></div></div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testimonial-body">Nothing but a great experience start to finish. All of my questions were answered and they were quick to respond when needed.</p>
-            <div class="testimonial-author"><div class="testimonial-avatar">CI</div><div><div class="testimonial-name">Chris Iannotti</div><div class="testimonial-location">Tennessee</div></div></div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testimonial-body">Really enjoyed working with Tennessee Cash For Homes. They helped me sell my house in Clarksville fast for cash! Highly recommend working with them.</p>
-            <div class="testimonial-author"><div class="testimonial-avatar">JP</div><div><div class="testimonial-name">John Peterson</div><div class="testimonial-location">Clarksville, TN</div></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-controls">
-      <button class="carousel-btn" id="revPrev" aria-label="Previous reviews"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
-      <div class="carousel-dots" id="revDots"></div>
-      <button class="carousel-btn" id="revNext" aria-label="Next reviews"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
-    </div>
-  </div>
-</section>
+<?php
+/* ── Market Stats (situation pages use statewide Tennessee data since they are not city-specific) ── */
+$ms_name = 'Tennessee';
+$ms_slug = 'tennessee';
+$ms_type = 'city';
+include get_template_directory() . '/market-stats-section.php';
+
+/* ── Who We Help (same 9 situations used on county, city, and foreclosure pages) ── */
+$name    = 'Tennessee';
+$ms_type = 'city';
+include get_template_directory() . '/who-we-help-section.php';
+
+/* ── Reviews (shared partial) ── */
+get_template_part( 'reviews-section' );
+
+/* ── Statewide Government Resources (THDA, TN Bar Association, HUD counselors, TN Legal Aid) ── */
+$gov_name       = 'Tennessee';
+$gov_county_key = '';
+$gov_type       = 'statewide';
+include get_template_directory() . '/gov-resources-section.php';
+?>
 
 <!-- ── FAQ ── -->
 <section class="sit-faq-section">
@@ -352,32 +321,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    // Reviews carousel for situation pages
-    var track = document.getElementById('reviewsTrack');
-    var outer = document.getElementById('reviewsOuter');
-    var dotsWrap = document.getElementById('revDots');
-    var btnPrev = document.getElementById('revPrev');
-    var btnNext = document.getElementById('revNext');
-    if (!track) return;
-    var TOTAL = track.children.length;
-    var current = 0;
-    for (var i = 0; i < TOTAL; i++) {
-        var dot = document.createElement('button');
-        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-        (function(idx) { dot.addEventListener('click', function() { goTo(idx); }); })(i);
-        dotsWrap.appendChild(dot);
-    }
-    function goTo(n) {
-        current = (n + TOTAL) % TOTAL;
-        track.style.transform = 'translateX(-' + (current * (100 / TOTAL)) + '%)';
-        dotsWrap.querySelectorAll('.carousel-dot').forEach(function(d, idx) {
-            d.classList.toggle('active', idx === current);
-        });
-    }
-    btnNext.addEventListener('click', function() { goTo(current + 1); });
-    btnPrev.addEventListener('click', function() { goTo(current - 1); });
+    // Reviews carousel is initialized globally by js/main.js (used by the shared reviews-section partial)
 });
 </script>
 
