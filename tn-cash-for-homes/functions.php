@@ -470,18 +470,29 @@ function tcfh_seo_meta_tags() {
 }
 
 /**
- * ── SEO: LocalBusiness JSON-LD Schema (homepage) ──
+ * ── SEO: Shared LocalBusiness JSON-LD builder ──
+ * Produces a consistent LocalBusiness schema object used across the site.
+ * Callers override only what differs per page (type, name, description, url, areaServed, rating).
  */
-add_action( 'wp_head', 'tcfh_schema_localbusiness' );
-function tcfh_schema_localbusiness() {
-    if ( ! is_front_page() ) return;
+function tcfh_build_localbusiness_schema( $args = array() ) {
+    $defaults = array(
+        'type'           => array( 'LocalBusiness', 'RealEstateAgent' ),
+        'name'           => 'Tennessee Cash For Homes',
+        'description'    => 'Tennessee\'s trusted cash home buyer. We buy houses fast for cash across all 95 Tennessee counties. No repairs, no fees, no commissions.',
+        'url'            => home_url( '/' ),
+        'area_served'    => 'Tennessee',
+        'price_range'    => 'Free cash offer',
+        'include_rating' => true,
+        'review_count'   => 50,
+    );
+    $a = array_merge( $defaults, $args );
 
     $schema = array(
         '@context'    => 'https://schema.org',
-        '@type'       => 'LocalBusiness',
-        'name'        => 'Tennessee Cash For Homes',
-        'description' => 'Family-owned Tennessee cash home buyers. We buy houses in any condition for a fair cash price. No repairs, no fees, no commissions. Close in as little as 7 days.',
-        'url'         => home_url( '/' ),
+        '@type'       => $a['type'],
+        'name'        => $a['name'],
+        'description' => $a['description'],
+        'url'         => $a['url'],
         'telephone'   => '+1-615-801-8126',
         'email'       => 'info@tncashforhomes.com',
         'image'       => get_template_directory_uri() . '/brand_assets/Company%20Photo.webp',
@@ -497,68 +508,198 @@ function tcfh_schema_localbusiness() {
             'latitude'  => '35.8456',
             'longitude' => '-86.3903',
         ),
-        'areaServed' => array(
-            '@type' => 'State',
-            'name'  => 'Tennessee',
-        ),
-        'priceRange'        => '$$',
+        'areaServed' => $a['area_served'],
+        'priceRange' => $a['price_range'],
         'openingHoursSpecification' => array(
             '@type'     => 'OpeningHoursSpecification',
             'dayOfWeek' => array( 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ),
             'opens'     => '00:00',
             'closes'    => '23:59',
         ),
-        'aggregateRating' => array(
-            '@type'       => 'AggregateRating',
-            'ratingValue' => '5.0',
-            'reviewCount' => '50',
-            'bestRating'  => '5',
-        ),
         'sameAs' => array(
+            'https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815',
+            'https://www.google.com/search?q=Tennessee+Cash+For+Homes',
             'https://www.instagram.com/tennesseecashforhomes/',
             'https://www.facebook.com/profile.php?id=61557645432215',
             'https://www.youtube.com/@TennesseeCashForHomes',
             'https://www.tiktok.com/@tennesseecashforhomes',
-            'https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815',
         ),
     );
 
+    if ( $a['include_rating'] ) {
+        $schema['aggregateRating'] = array(
+            '@type'       => 'AggregateRating',
+            'ratingValue' => '5.0',
+            'reviewCount' => (string) $a['review_count'],
+            'bestRating'  => '5',
+        );
+    }
+
+    return $schema;
+}
+
+function tcfh_print_jsonld( $schema ) {
     echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) . '</script>' . "\n";
 }
 
 /**
- * ── SEO: FAQ Schema (homepage) ──
+ * ── SEO: LocalBusiness JSON-LD Schema ──
+ * Homepage gets the canonical org schema (LocalBusiness + RealEstateAgent).
+ * Listed interior pages also get LocalBusiness so every major landing has it.
+ * County, city, foreclosure, and situation templates register their own
+ * context-specific wp_head callback before get_header() runs — see those files.
  */
-add_action( 'wp_head', 'tcfh_schema_faq' );
-function tcfh_schema_faq() {
-    if ( ! is_front_page() ) return;
+add_action( 'wp_head', 'tcfh_schema_localbusiness' );
+function tcfh_schema_localbusiness() {
+    if ( is_front_page() ) {
+        tcfh_print_jsonld( tcfh_build_localbusiness_schema() );
+        return;
+    }
 
-    $faqs = array(
+    if ( ! is_page() ) return;
+
+    // Slug-based match covers the common WP case where page-{slug}.php renders
+    // automatically without an assigned template. The template-slug check
+    // catches cases where the template is assigned to a page with a different slug.
+    $interior_slugs = array(
+        'how-it-works',
+        'where-we-buy',
+        'sell-your-land-1',
+        'sell-your-land',
+        'sell-my-land',
+        'investors',
+        'investors-lenders',
+        'investors-and-lenders',
+    );
+    $interior_templates = array(
+        'page-how-it-works.php',
+        'page-where-we-buy.php',
+        'page-sell-your-land-1.php',
+        'page-investors-lenders.php',
+    );
+
+    $is_interior = is_page( $interior_slugs )
+        || in_array( get_page_template_slug(), $interior_templates, true );
+
+    if ( $is_interior ) {
+        tcfh_print_jsonld( tcfh_build_localbusiness_schema( array(
+            'url'  => get_permalink(),
+            'type' => array( 'LocalBusiness', 'RealEstateAgent' ),
+        ) ) );
+    }
+}
+
+/**
+ * ── FAQ data for the dedicated /faq/ page ──
+ * Shared between the rendered accordion in page-faq.php and the FAQPage
+ * JSON-LD schema, so the two can never drift apart.
+ */
+function tcfh_get_faq_page_items() {
+    return array(
         array(
-            'q' => 'Is the cash offer really free with no obligation?',
-            'a' => 'Absolutely. Our cash offers are 100% free and come with zero obligation. We\'ll present you with a number, and you decide whether to accept, decline, or take time to think. No pressure, ever.',
+            'q' => 'How does the process work?',
+            'a' => 'It\'s simple. You contact us, we schedule a quick walkthrough or virtual assessment of your home, and we present you with a fair no-obligation cash offer within 24 hours. If you accept, we handle all the paperwork and close on your timeline as fast as 7 days.',
         ),
         array(
-            'q' => 'What types of homes do you buy?',
-            'a' => 'We buy all types of residential properties across Tennessee: single-family homes, condos, townhouses, duplexes, and multi-family properties. We purchase homes in any condition: move-in ready, distressed, fire-damaged, flood-damaged, or anything in between.',
+            'q' => 'Is there any obligation when I request an offer?',
+            'a' => 'Absolutely none. Our cash offer is completely free with zero pressure. You can take your time, ask questions, and decide what is best for you. We will never push you into a decision.',
+        ),
+        array(
+            'q' => 'Do I need to make repairs before selling?',
+            'a' => 'No. We buy homes in any condition including damaged, outdated, fire damaged, or unfinished. You do not need to lift a finger or spend a dime before closing.',
+        ),
+        array(
+            'q' => 'How fast can you close?',
+            'a' => 'We can close in as little as 7 days. If you need more time, that works too. We close on your schedule, not ours.',
+        ),
+        array(
+            'q' => 'Will I have to pay any fees or commissions?',
+            'a' => 'No agent commissions, no closing costs, no hidden fees. The number we offer is the number you walk away with.',
         ),
         array(
             'q' => 'How do you determine your offer price?',
-            'a' => 'Our offer is based on comparable sales in your area, the current condition of the property, location, and recent market trends. We aim to give you the fairest possible offer, one that reflects real value while accounting for the as-is condition of the home.',
+            'a' => 'We look at the location, condition, and market value of your home along with recent comparable sales in the area. We make fair offers that reflect the real value of your property while accounting for the repairs and updates we will need to make.',
         ),
         array(
-            'q' => 'Do I need to clean out the house before closing?',
-            'a' => 'No. You can take what you want and leave the rest. We handle all cleanout after closing at no cost to you. This is especially helpful for inherited properties or situations where clearing everything out just is not practical.',
+            'q' => 'What types of properties do you buy?',
+            'a' => 'We buy all types of properties across Tennessee including single family homes, multi-family properties, rental properties, inherited homes, vacant land, and more. Any condition, any situation.',
         ),
         array(
-            'q' => 'What if I\'m behind on mortgage payments or facing foreclosure?',
-            'a' => 'We can often help in pre-foreclosure situations. Selling before a foreclosure completes can protect your credit and put cash in your pocket. Time is critical in these cases, so reach out to us as soon as possible so we can explore your options together.',
+            'q' => 'What if I am behind on mortgage payments or facing foreclosure?',
+            'a' => 'We specialize in situations like this. We can move fast enough to stop the foreclosure process and protect your credit. Contact us as soon as possible so we have time to help.',
         ),
         array(
-            'q' => 'Which areas of Tennessee do you serve?',
-            'a' => 'We buy homes throughout Tennessee including Nashville, Memphis, Knoxville, Chattanooga, Murfreesboro, Franklin, Clarksville, Shelbyville, Smyrna, Gallatin, Columbia, Spring Hill, Lebanon, Jackson, Hendersonville, Crossville, McMinnville, Old Hickory, Woodbury and surrounding areas.',
+            'q' => 'What if I have tenants living in the property?',
+            'a' => 'No problem. We buy rental properties with tenants in place. You do not need to handle evictions or wait for leases to end.',
+        ),
+        array(
+            'q' => 'Do you buy land?',
+            'a' => 'Yes. We buy vacant land and rural properties across Tennessee. Reach out and let us know what you have.',
+        ),
+        array(
+            'q' => 'How is this different from listing with a real estate agent?',
+            'a' => 'When you list with an agent you typically wait months for a buyer, pay 5 to 6 percent in commissions, make repairs, deal with showings, and risk the buyer backing out at the last minute. With us, you get a cash offer in 24 hours, no repairs, no fees, and a guaranteed closing on your timeline.',
+        ),
+        array(
+            'q' => 'Are you local?',
+            'a' => 'Yes. We are a family-owned Tennessee business. You deal directly with local decision makers with no call centers, no out-of-state investors, and no runaround.',
+        ),
+        array(
+            'q' => 'What areas of Tennessee do you buy in?',
+            'a' => 'We buy across all of Middle Tennessee including Nashville, Clarksville, Murfreesboro, Franklin, Spring Hill, Columbia, Cookeville, and surrounding areas.',
+        ),
+        array(
+            'q' => 'What if my house needs a lot of work?',
+            'a' => 'That is actually our specialty. The more work a home needs, the harder it is to sell on the open market. We buy homes that need major repairs, full renovations, or even cleanup after a hoarding or estate situation.',
+        ),
+        array(
+            'q' => 'How do I get started?',
+            'a' => 'Just fill out the form on our website or give us a call at (615) 801-8126. We will reach out quickly to learn more about your property and get the process started.',
         ),
     );
+}
+
+/**
+ * ── SEO: FAQ Schema ──
+ * Emits FAQPage JSON-LD on the homepage (6 top-level FAQs) and on the
+ * dedicated /faq/ page (full 15-item list from tcfh_get_faq_page_items()).
+ */
+add_action( 'wp_head', 'tcfh_schema_faq' );
+function tcfh_schema_faq() {
+    $faqs = null;
+
+    if ( is_front_page() ) {
+        $faqs = array(
+            array(
+                'q' => 'Is the cash offer really free with no obligation?',
+                'a' => 'Absolutely. Our cash offers are 100% free and come with zero obligation. We\'ll present you with a number, and you decide whether to accept, decline, or take time to think. No pressure, ever.',
+            ),
+            array(
+                'q' => 'What types of homes do you buy?',
+                'a' => 'We buy all types of residential properties across Tennessee: single-family homes, condos, townhouses, duplexes, and multi-family properties. We purchase homes in any condition: move-in ready, distressed, fire-damaged, flood-damaged, or anything in between.',
+            ),
+            array(
+                'q' => 'How do you determine your offer price?',
+                'a' => 'Our offer is based on comparable sales in your area, the current condition of the property, location, and recent market trends. We aim to give you the fairest possible offer, one that reflects real value while accounting for the as-is condition of the home.',
+            ),
+            array(
+                'q' => 'Do I need to clean out the house before closing?',
+                'a' => 'No. You can take what you want and leave the rest. We handle all cleanout after closing at no cost to you. This is especially helpful for inherited properties or situations where clearing everything out just is not practical.',
+            ),
+            array(
+                'q' => 'What if I\'m behind on mortgage payments or facing foreclosure?',
+                'a' => 'We can often help in pre-foreclosure situations. Selling before a foreclosure completes can protect your credit and put cash in your pocket. Time is critical in these cases, so reach out to us as soon as possible so we can explore your options together.',
+            ),
+            array(
+                'q' => 'Which areas of Tennessee do you serve?',
+                'a' => 'We buy homes throughout Tennessee including Nashville, Memphis, Knoxville, Chattanooga, Murfreesboro, Franklin, Clarksville, Shelbyville, Smyrna, Gallatin, Columbia, Spring Hill, Lebanon, Jackson, Hendersonville, Crossville, McMinnville, Old Hickory, Woodbury and surrounding areas.',
+            ),
+        );
+    } elseif ( is_page_template( 'page-faq.php' ) || is_page( 'faq' ) ) {
+        $faqs = tcfh_get_faq_page_items();
+    }
+
+    if ( empty( $faqs ) ) return;
 
     $entities = array();
     foreach ( $faqs as $faq ) {
@@ -572,13 +713,11 @@ function tcfh_schema_faq() {
         );
     }
 
-    $schema = array(
+    tcfh_print_jsonld( array(
         '@context'   => 'https://schema.org',
         '@type'      => 'FAQPage',
         'mainEntity' => $entities,
-    );
-
-    echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) . '</script>' . "\n";
+    ) );
 }
 
 /**

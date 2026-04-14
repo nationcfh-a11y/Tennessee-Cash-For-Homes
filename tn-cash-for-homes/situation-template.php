@@ -16,6 +16,20 @@ if ( ! empty( $meta_description ) ) {
     update_post_meta( get_the_ID(), '_tcfh_meta_desc', $meta_description );
 }
 
+// LocalBusiness JSON-LD for this situation page — name reflects the situation.
+$situation_schema_name = ! empty( $situation_title ) ? $situation_title : ( ! empty( $situation_h1 ) ? $situation_h1 : 'Tennessee Cash For Homes' );
+add_action( 'wp_head', function() use ( $situation_schema_name ) {
+    if ( ! function_exists( 'tcfh_build_localbusiness_schema' ) ) return;
+    $schema = tcfh_build_localbusiness_schema( array(
+        'type'        => 'LocalBusiness',
+        'name'        => 'Tennessee Cash For Homes — ' . $situation_schema_name,
+        'description' => $situation_schema_name . '. We buy houses across Tennessee for cash. No repairs, no agents, no fees.',
+        'url'         => get_permalink(),
+        'area_served' => 'Tennessee',
+    ) );
+    tcfh_print_jsonld( $schema );
+} );
+
 get_header();
 ?>
 

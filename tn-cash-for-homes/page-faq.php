@@ -78,155 +78,24 @@ get_header(); ?>
 
       <div class="faq-accordion">
 
+        <?php
+        $faq_items = function_exists( 'tcfh_get_faq_page_items' ) ? tcfh_get_faq_page_items() : array();
+        foreach ( $faq_items as $item ) :
+          $q = $item['q'];
+          $a = $item['a'];
+          // Render the phone number as a clickable tel: link where it appears.
+          $a_html = str_replace( '(615) 801-8126', '<a href="tel:+16158018126">(615) 801-8126</a>', esc_html( $a ) );
+        ?>
         <div class="faq-item">
           <button class="faq-item__question" aria-expanded="false">
-            <span>How does the process work?</span>
+            <span><?php echo esc_html( $q ); ?></span>
             <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="faq-item__answer">
-            <p>It's simple. You contact us, we schedule a quick walkthrough or virtual assessment of your home, and we present you with a fair no-obligation cash offer within 24 hours. If you accept, we handle all the paperwork and close on your timeline as fast as 7 days.</p>
+            <p><?php echo $a_html; ?></p>
           </div>
         </div>
-
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>Is there any obligation when I request an offer?</span>
-            <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>Absolutely none. Our cash offer is completely free with zero pressure. You can take your time, ask questions, and decide what is best for you. We will never push you into a decision.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>Do I need to make repairs before selling?</span>
-            <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>No. We buy homes in any condition including damaged, outdated, fire damaged, or unfinished. You do not need to lift a finger or spend a dime before closing.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>How fast can you close?</span>
-            <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>We can close in as little as 7 days. If you need more time, that works too. We close on your schedule, not ours.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>Will I have to pay any fees or commissions?</span>
-            <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>No agent commissions, no closing costs, no hidden fees. The number we offer is the number you walk away with.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>How do you determine your offer price?</span>
-            <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>We look at the location, condition, and market value of your home along with recent comparable sales in the area. We make fair offers that reflect the real value of your property while accounting for the repairs and updates we will need to make.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>What types of properties do you buy?</span>
-            <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>We buy all types of properties across Tennessee including single family homes, multi-family properties, rental properties, inherited homes, vacant land, and more. Any condition, any situation.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>What if I am behind on mortgage payments or facing foreclosure?</span>
-            <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>We specialize in situations like this. We can move fast enough to stop the foreclosure process and protect your credit. Contact us as soon as possible so we have time to help.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>What if I have tenants living in the property?</span>
-            <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>No problem. We buy rental properties with tenants in place. You do not need to handle evictions or wait for leases to end.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>Do you buy land?</span>
-            <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>Yes. We buy vacant land and rural properties across Tennessee. Reach out and let us know what you have.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>How is this different from listing with a real estate agent?</span>
-            <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>When you list with an agent you typically wait months for a buyer, pay 5 to 6 percent in commissions, make repairs, deal with showings, and risk the buyer backing out at the last minute. With us, you get a cash offer in 24 hours, no repairs, no fees, and a guaranteed closing on your timeline.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>Are you local?</span>
-            <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>Yes. We are a family-owned Tennessee business. You deal directly with local decision makers with no call centers, no out-of-state investors, and no runaround.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>What areas of Tennessee do you buy in?</span>
-            <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>We buy across all of Middle Tennessee including Nashville, Clarksville, Murfreesboro, Franklin, Spring Hill, Columbia, Cookeville, and surrounding areas.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>What if my house needs a lot of work?</span>
-            <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>That is actually our specialty. The more work a home needs, the harder it is to sell on the open market. We buy homes that need major repairs, full renovations, or even cleanup after a hoarding or estate situation.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>How do I get started?</span>
-            <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>Just fill out the form on our website or give us a call at <a href="tel:+16158018126">(615) 801-8126</a>. We will reach out quickly to learn more about your property and get the process started.</p>
-          </div>
-        </div>
+        <?php endforeach; ?>
 
       </div>
     </div>

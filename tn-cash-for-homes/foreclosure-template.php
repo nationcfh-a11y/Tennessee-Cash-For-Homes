@@ -19,6 +19,19 @@ if ( ! empty( $fc_meta_desc ) ) {
     }, 0 );
 }
 
+// LocalBusiness JSON-LD for this foreclosure page.
+$fc_name_for_schema = ! empty( $fc_is_statewide ) ? 'Tennessee' : $fc_city_name;
+add_action( 'wp_head', function() use ( $fc_name_for_schema ) {
+    if ( ! function_exists( 'tcfh_build_localbusiness_schema' ) ) return;
+    $schema = tcfh_build_localbusiness_schema( array(
+        'type'        => 'LocalBusiness',
+        'description' => 'We buy houses in ' . $fc_name_for_schema . ' Tennessee for cash. Stop foreclosure with a fast cash offer. No repairs, no agents, no fees.',
+        'url'         => get_permalink(),
+        'area_served' => array( $fc_name_for_schema, 'Tennessee' ),
+    ) );
+    tcfh_print_jsonld( $schema );
+} );
+
 get_header();
 
 /* Remove em dashes from local descriptions if any slipped through */
