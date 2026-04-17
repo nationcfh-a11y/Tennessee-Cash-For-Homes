@@ -119,7 +119,7 @@ add_action( 'wp_head', function() {
  * Data Streams → select your stream → copy the Measurement ID starting with G-
  */
 add_action( 'wp_head', function() {
-    $ga4_measurement_id = 'G-XXXXXXXXXX';
+    $ga4_measurement_id = 'G-ZP0J78KBTE';
     ?>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo esc_attr( $ga4_measurement_id ); ?>"></script>
