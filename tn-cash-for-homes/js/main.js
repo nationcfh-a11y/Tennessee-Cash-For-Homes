@@ -89,9 +89,11 @@
     try {
       const res  = await fetch(ajaxUrl, { method: 'POST', body: formData });
       const data = await res.json();
-      if (!data.success && DEBUG) console.error('Lead submission error:', data.data?.error);
+      try { sessionStorage.setItem('tcfh_last_submit', JSON.stringify({ status: res.status, data })); } catch (_) {}
+      console.log('[TCFH] lead submission response:', res.status, data);
     } catch (err) {
-      if (DEBUG) console.error('Lead submission failed:', err);
+      try { sessionStorage.setItem('tcfh_last_submit', JSON.stringify({ error: String(err) })); } catch (_) {}
+      console.error('[TCFH] lead submission failed:', err);
     }
 
     window.location.href = '/thank-you/';
