@@ -57,6 +57,7 @@ get_header();
           <h2 class="sit-hero__form-title">Get Your Free Cash Offer</h2>
           <p class="sit-hero__form-sub">Takes less than 60 seconds. No obligation.</p>
           <form onsubmit="handleSubmit(event)">
+            <input type="hidden" name="lead_source" value="<?php echo esc_attr( $situation_title ); ?>" />
             <div class="form-group">
               <label for="sit-address">Property Address</label>
               <input type="text" id="sit-address" name="address" placeholder="123 Main St, Nashville, TN" required />

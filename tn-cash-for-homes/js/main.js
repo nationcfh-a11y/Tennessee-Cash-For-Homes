@@ -80,6 +80,8 @@
     formData.append('name',    form.name.value.trim());
     formData.append('phone',   form.phone.value.trim());
     formData.append('address', form.address.value.trim());
+    const leadSource = form.lead_source && form.lead_source.value ? form.lead_source.value.trim() : '';
+    if (leadSource) formData.append('lead_source', leadSource);
     const ajaxUrl = (typeof tcfh_ajax !== 'undefined')
       ? tcfh_ajax.ajax_url
       : '/wp-admin/admin-ajax.php';

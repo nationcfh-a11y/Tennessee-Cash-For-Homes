@@ -84,6 +84,7 @@ $fc_cities = [
           <h2 class="fc-hero__form-title">Get Your Free Cash Offer</h2>
           <p class="fc-hero__form-sub">Stop foreclosure. No obligation. Takes 60 seconds.</p>
           <form onsubmit="handleSubmit(event)">
+            <input type="hidden" name="lead_source" value="Facing Foreclosure" />
             <div class="form-group">
               <label for="hero-address">Property Address</label>
               <input type="text" id="hero-address" name="address" placeholder="123 Main St, Nashville, TN" required />
@@ -509,6 +510,7 @@ $fc_cities = [
       </div>
       <div class="fc-form__card">
         <form onsubmit="handleSubmit(event)">
+          <input type="hidden" name="lead_source" value="Facing Foreclosure" />
           <div class="form-group">
             <label for="fc-address">Property Address</label>
             <input type="text" id="fc-address" name="address" placeholder="123 Main St, Nashville, TN" required />

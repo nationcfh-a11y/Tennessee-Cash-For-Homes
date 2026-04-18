@@ -129,6 +129,7 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
           <h2 class="form-card__title">Get Your Free Cash Offer</h2>
           <p class="form-card__sub">Takes less than 60 seconds. No obligation.</p>
           <form onsubmit="handleSubmit(event)">
+            <input type="hidden" name="lead_source" value="<?php echo esc_attr( $name ); ?>" />
             <div class="form-group">
               <label for="co-address-<?php echo esc_attr( $slug ); ?>">Property Address</label>
               <input type="text" id="co-address-<?php echo esc_attr( $slug ); ?>" name="address" placeholder="123 Main St, <?php echo esc_attr( $name ); ?>, TN" required />
@@ -346,6 +347,7 @@ $market_insight = isset( $_parts[0] ) ? $_parts[0] : '';
         <h2 class="form-card__title">Get Your Land Cash Offer</h2>
         <p class="form-card__sub">Takes less than 60 seconds. No obligation.</p>
         <form onsubmit="handleSubmit(event)">
+          <input type="hidden" name="lead_source" value="<?php echo esc_attr( $name ); ?>" />
           <div class="form-group">
             <label for="land-address-<?php echo esc_attr( $slug ); ?>">Property Address</label>
             <input type="text" id="land-address-<?php echo esc_attr( $slug ); ?>" name="address" placeholder="123 Acres Rd, <?php echo esc_attr( $name ); ?>, TN" required />

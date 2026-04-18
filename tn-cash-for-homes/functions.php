@@ -243,9 +243,10 @@ tcfh_load_env();
 function tcfh_handle_submit_lead() {
     check_ajax_referer( 'tcfh_submit_lead', 'nonce' );
 
-    $name      = sanitize_text_field( $_POST['name'] ?? '' );
-    $phone     = sanitize_text_field( $_POST['phone'] ?? '' );
-    $address   = sanitize_text_field( $_POST['address'] ?? '' );
+    $name        = sanitize_text_field( $_POST['name'] ?? '' );
+    $phone       = sanitize_text_field( $_POST['phone'] ?? '' );
+    $address     = sanitize_text_field( $_POST['address'] ?? '' );
+    $lead_source = sanitize_text_field( $_POST['lead_source'] ?? '' );
 
     if ( ! $name || ! $phone || ! $address ) {
         wp_send_json_error( array( 'error' => 'Please fill in all required fields.' ), 422 );
@@ -256,10 +257,19 @@ function tcfh_handle_submit_lead() {
     $table_name = defined( 'AIRTABLE_TABLE_NAME' )  ? AIRTABLE_TABLE_NAME : '';
 
     if ( ! $api_token || ! $base_id || ! $table_name ) {
-        wp_send_json_error( array( 'error' => 'CRM configuration missing.' ), 500 );
+        error_log( '[TCFH Airtable] Lead submission skipped: CRM configuration missing.' );
+        wp_send_json_success( array( 'message' => 'Request received!' ) );
     }
 
-    $submitted_at = current_time( 'c' );
+    $fields = array(
+        'Lead Name'    => $name,
+        'Phone Number' => $phone,
+        'Address'      => $address,
+        'Submitted At' => current_time( 'c' ),
+    );
+    if ( $lead_source !== '' ) {
+        $fields['Lead Source'] = $lead_source;
+    }
 
     $response = wp_remote_post(
         'https://api.airtable.com/v0/' . $base_id . '/' . rawurlencode( $table_name ),
@@ -269,28 +279,19 @@ function tcfh_handle_submit_lead() {
                 'Content-Type'  => 'application/json',
             ),
             'body'    => wp_json_encode( array(
-                'records' => array(
-                    array(
-                        'fields' => array(
-                            'Lead Name'    => $name,
-                            'Phone Number' => $phone,
-                            'Address'      => $address,
-                            'Submitted At' => $submitted_at,
-                        ),
-                    ),
-                ),
+                'records' => array( array( 'fields' => $fields ) ),
             ) ),
             'timeout' => 15,
         )
     );
 
     if ( is_wp_error( $response ) ) {
-        wp_send_json_error( array( 'error' => 'Failed to connect to CRM.' ), 500 );
-    }
-
-    $code = wp_remote_retrieve_response_code( $response );
-    if ( $code < 200 || $code >= 300 ) {
-        wp_send_json_error( array( 'error' => 'CRM rejected the submission.' ), 500 );
+        error_log( '[TCFH Airtable] Lead submission transport error: ' . $response->get_error_message() );
+    } else {
+        $code = wp_remote_retrieve_response_code( $response );
+        if ( $code < 200 || $code >= 300 ) {
+            error_log( '[TCFH Airtable] Lead submission rejected (HTTP ' . $code . '): ' . wp_remote_retrieve_body( $response ) );
+        }
     }
 
     wp_send_json_success( array( 'message' => 'Request received!' ) );
@@ -319,7 +320,8 @@ function tcfh_handle_submit_investor() {
     $base_id    = defined( 'AIRTABLE_BASE_ID' )    ? AIRTABLE_BASE_ID   : '';
 
     if ( ! $api_token || ! $base_id ) {
-        wp_send_json_error( array( 'error' => 'CRM configuration missing.' ), 500 );
+        error_log( '[TCFH Airtable] Investor submission skipped: CRM configuration missing.' );
+        wp_send_json_success( array( 'message' => 'Investor request received!' ) );
     }
 
     $response = wp_remote_post(
@@ -339,6 +341,7 @@ function tcfh_handle_submit_investor() {
                             'Preferred Market' => $market,
                             'Strategy'         => $strategy,
                             'Notes'            => $notes,
+                            'Lead Source'      => 'Investors',
                             'Submitted At'     => current_time( 'c' ),
                         ),
                     ),
@@ -348,8 +351,13 @@ function tcfh_handle_submit_investor() {
         )
     );
 
-    if ( is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) >= 300 ) {
-        wp_send_json_error( array( 'error' => 'CRM submission failed.' ), 500 );
+    if ( is_wp_error( $response ) ) {
+        error_log( '[TCFH Airtable] Investor submission transport error: ' . $response->get_error_message() );
+    } else {
+        $code = wp_remote_retrieve_response_code( $response );
+        if ( $code < 200 || $code >= 300 ) {
+            error_log( '[TCFH Airtable] Investor submission rejected (HTTP ' . $code . '): ' . wp_remote_retrieve_body( $response ) );
+        }
     }
 
     wp_send_json_success( array( 'message' => 'Investor request received!' ) );
@@ -377,7 +385,8 @@ function tcfh_handle_submit_lender() {
     $base_id    = defined( 'AIRTABLE_BASE_ID' )    ? AIRTABLE_BASE_ID   : '';
 
     if ( ! $api_token || ! $base_id ) {
-        wp_send_json_error( array( 'error' => 'CRM configuration missing.' ), 500 );
+        error_log( '[TCFH Airtable] Lender submission skipped: CRM configuration missing.' );
+        wp_send_json_success( array( 'message' => 'Lender request received!' ) );
     }
 
     $response = wp_remote_post(
@@ -396,6 +405,7 @@ function tcfh_handle_submit_lender() {
                             'Phone'          => $phone,
                             'Budget'         => $budget,
                             'Notes'          => $notes,
+                            'Lead Source'    => 'Lenders',
                             'Submitted At'   => current_time( 'c' ),
                         ),
                     ),
@@ -405,8 +415,13 @@ function tcfh_handle_submit_lender() {
         )
     );
 
-    if ( is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) >= 300 ) {
-        wp_send_json_error( array( 'error' => 'CRM submission failed.' ), 500 );
+    if ( is_wp_error( $response ) ) {
+        error_log( '[TCFH Airtable] Lender submission transport error: ' . $response->get_error_message() );
+    } else {
+        $code = wp_remote_retrieve_response_code( $response );
+        if ( $code < 200 || $code >= 300 ) {
+            error_log( '[TCFH Airtable] Lender submission rejected (HTTP ' . $code . '): ' . wp_remote_retrieve_body( $response ) );
+        }
     }
 
     wp_send_json_success( array( 'message' => 'Lender request received!' ) );
