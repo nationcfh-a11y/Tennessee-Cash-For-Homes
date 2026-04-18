@@ -421,7 +421,7 @@ include get_template_directory() . '/gov-resources-section.php';
 /* ── County Hero ── */
 .county-hero {
   background: #F2F2F2;
-  padding: 60px 0 48px;
+  padding: 120px 0 80px;
 }
 .county-hero__inner {
   display: grid;
@@ -631,7 +631,7 @@ include get_template_directory() . '/gov-resources-section.php';
     order: -1;
   }
   .county-hero {
-    padding: 40px 0 32px;
+    padding: 92px 0 56px;
   }
 }
 </style>

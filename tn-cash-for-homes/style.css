@@ -206,7 +206,7 @@ img { display: block; max-width: 100%; }
 /* ── HERO ── */
 .hero {
   background: url('brand_assets/New_Background.webp') center center / cover no-repeat;
-  padding: 100px 0 80px;
+  padding: 120px 0 80px;
   position: relative;
   overflow: hidden;
   margin: 0;
@@ -359,7 +359,7 @@ img { display: block; max-width: 100%; }
 .page-hero {
   background: linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)),
               url('brand_assets/Background%20idea.jpg') center center / cover no-repeat;
-  padding: 64px 0 60px;
+  padding: 120px 0 80px;
   position: relative;
   margin: 0;
 }
@@ -1998,7 +1998,7 @@ div.related-posts,
   }
   .nav__hamburger { display: flex; }
   .nav { position: fixed; }
-  .hero { padding: 100px 0 80px; min-height: 440px; }
+  .hero { padding: 120px 0 80px; min-height: auto; }
   .hero__cta-row { flex-direction: column; align-items: stretch; }
   .hero__btn-primary, .hero__btn-outline { text-align: center; }
   .benefits-grid { grid-template-columns: 1fr; }
@@ -2886,7 +2886,7 @@ div.related-posts,
   position: relative;
   background-size: cover;
   background-position: center;
-  padding: 130px 0 120px;
+  padding: 120px 0 80px;
   text-align: center;
   overflow: hidden;
 }
@@ -3278,7 +3278,7 @@ div.related-posts,
   .wwb-mission__photo-grid { max-width: 480px; }
 }
 @media (max-width: 640px) {
-  .wwb-hero { padding: 80px 0 72px; }
+  .wwb-hero { padding: 92px 0 56px; }
   .wwb-hero__title { font-size: 36px; }
   .wwb-hero__sub { font-size: 16px; }
   .wwb-hero__btns { flex-direction: column; align-items: center; }
@@ -3840,7 +3840,7 @@ div.related-posts,
 /* ── Hero ── */
 .sit-hero {
     background: #ffffff;
-    padding: 100px 0;
+    padding: 120px 0 80px;
 }
 .sit-hero__inner {
     display: grid;
@@ -3952,7 +3952,7 @@ div.related-posts,
 }
 
 @media (max-width: 960px) {
-    .sit-hero { padding: 60px 0; }
+    .sit-hero { padding: 120px 0 80px; }
     .sit-hero__inner {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -4139,7 +4139,7 @@ div.related-posts,
 .blog-hero {
   position: relative;
   background: url('brand_assets/New_Background.webp') center/cover no-repeat;
-  padding: 100px 0 80px;
+  padding: 120px 0 80px;
   text-align: center;
   overflow: hidden;
 }
@@ -4496,7 +4496,7 @@ div.related-posts,
 
 @media (max-width: 640px) {
   .blog-hero {
-    padding: 72px 0 56px;
+    padding: 92px 0 56px;
   }
   .blog-hero__title {
     font-size: 32px;
@@ -4557,7 +4557,7 @@ div.related-posts,
 .land-hero {
   background: url('brand_assets/Tennessee_Cash_For_Land.webp') center center / cover no-repeat;
   position: relative;
-  padding: 120px 0 100px;
+  padding: 120px 0 80px;
   overflow: hidden;
 }
 .land-hero::before {
@@ -4820,7 +4820,7 @@ div.related-posts,
 }
 @media (max-width: 600px) {
   .land-hero {
-    padding: 80px 0 60px;
+    padding: 92px 0 56px;
   }
   .land-hero__checks {
     flex-direction: column;
@@ -4856,7 +4856,7 @@ div.related-posts,
 .about-hero {
   position: relative;
   background: url('brand_assets/Company%20Photo.webp') center center / cover no-repeat;
-  padding: 100px 0 90px;
+  padding: 120px 0 80px;
   text-align: center;
   overflow: hidden;
 }
@@ -5421,7 +5421,7 @@ div.related-posts,
 
 /* ── About Page Responsive ── */
 @media (max-width: 900px) {
-  .about-hero { padding: 72px 0 64px; }
+  .about-hero { padding: 92px 0 56px; }
   .about-hero__h1 { font-size: 2rem; }
 
   .about-who__grid {
@@ -5457,7 +5457,7 @@ div.related-posts,
 }
 
 @media (max-width: 600px) {
-  .about-hero { padding: 56px 0 48px; }
+  .about-hero { padding: 92px 0 56px; }
   .about-hero__h1 { font-size: 1.65rem; }
   .about-hero__sub { font-size: 1rem; }
 
@@ -5623,7 +5623,11 @@ div.related-posts,
   .section__eyebrow { font-size: 12px; }
 
   /* ---------- Hero (front page, locations, situations) ---------- */
-  .hero { padding: 88px 0 36px; min-height: 0; }
+  .hero { padding: 92px 0 56px; min-height: 0; }
+  .sit-hero,
+  .wwb-hero,
+  .blog-hero,
+  .land-hero { padding: 92px 0 56px; }
   .hero__inner { gap: 24px; }
   .hero__title { font-size: 30px !important; line-height: 1.15; }
   .location-hero__title,
@@ -5639,12 +5643,12 @@ div.related-posts,
   .form-card__sub { font-size: 13px; }
 
   /* ---------- Page hero (FAQ, About, etc.) ---------- */
-  .page-hero { padding: 92px 0 32px; }
+  .page-hero { padding: 92px 0 56px; }
   .page-hero__title { font-size: 28px !important; line-height: 1.18; }
   .page-hero__subtitle { font-size: 15px; }
 
   /* ---------- About page ---------- */
-  .about-hero { padding: 92px 0 32px; }
+  .about-hero { padding: 92px 0 56px; }
   .about-hero__h1 { font-size: 1.6rem !important; line-height: 1.2; }
   .about-hero__sub { font-size: 15px; }
   .about-mission__quote { font-size: 1.05rem; line-height: 1.45; }
@@ -5767,8 +5771,8 @@ div.related-posts,
   .section__title { font-size: 22px; }
   h1 { font-size: 24px; }
   h2 { font-size: 21px; }
-  .hero { padding: 84px 0 28px; }
-  .page-hero { padding: 84px 0 24px; }
+  .hero { padding: 92px 0 56px; }
+  .page-hero { padding: 92px 0 56px; }
   .section,
   .about-mission,
   .about-who,
@@ -5829,11 +5833,11 @@ div.related-posts,
   .section__title { font-size: 32px; }
 
   /* Hero — keep two-column but tighter */
-  .hero { padding: 110px 0 56px; }
+  .hero { padding: 120px 0 80px; }
   .hero__inner { gap: 32px; }
   .hero__form-card { max-width: 360px; padding: 22px; }
-  .page-hero { padding: 100px 0 48px; }
-  .about-hero { padding: 100px 0 48px; }
+  .page-hero { padding: 120px 0 80px; }
+  .about-hero { padding: 120px 0 80px; }
 
   /* Two-column grids on tablet */
   .blog-articles__grid,
