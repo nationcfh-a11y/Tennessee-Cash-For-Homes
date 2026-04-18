@@ -256,9 +256,16 @@ function tcfh_handle_submit_lead() {
     $base_id    = defined( 'AIRTABLE_BASE_ID' )    ? AIRTABLE_BASE_ID   : '';
     $table_name = 'CRM';
 
+    $debug = array(
+        'token_set'   => $api_token !== '',
+        'base_set'    => $base_id !== '',
+        'table'       => $table_name,
+        'lead_source' => $lead_source,
+    );
+
     if ( ! $api_token || ! $base_id ) {
         error_log( '[TCFH Airtable] Lead submission skipped: CRM configuration missing.' );
-        wp_send_json_success( array( 'message' => 'Request received!' ) );
+        wp_send_json_success( array( 'message' => 'Request received!', 'debug' => $debug ) );
     }
 
     $fields = array(
@@ -286,15 +293,17 @@ function tcfh_handle_submit_lead() {
     );
 
     if ( is_wp_error( $response ) ) {
+        $debug['transport_error'] = $response->get_error_message();
         error_log( '[TCFH Airtable] Lead submission transport error: ' . $response->get_error_message() );
     } else {
-        $code = wp_remote_retrieve_response_code( $response );
-        if ( $code < 200 || $code >= 300 ) {
-            error_log( '[TCFH Airtable] Lead submission rejected (HTTP ' . $code . '): ' . wp_remote_retrieve_body( $response ) );
+        $debug['code'] = wp_remote_retrieve_response_code( $response );
+        $debug['body'] = substr( wp_remote_retrieve_body( $response ), 0, 600 );
+        if ( $debug['code'] < 200 || $debug['code'] >= 300 ) {
+            error_log( '[TCFH Airtable] Lead submission rejected (HTTP ' . $debug['code'] . '): ' . $debug['body'] );
         }
     }
 
-    wp_send_json_success( array( 'message' => 'Request received!' ) );
+    wp_send_json_success( array( 'message' => 'Request received!', 'debug' => $debug ) );
 }
 add_action( 'wp_ajax_tcfh_submit_lead',        'tcfh_handle_submit_lead' );
 add_action( 'wp_ajax_nopriv_tcfh_submit_lead', 'tcfh_handle_submit_lead' );
