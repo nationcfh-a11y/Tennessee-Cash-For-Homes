@@ -252,11 +252,11 @@ function tcfh_handle_submit_lead() {
         wp_send_json_error( array( 'error' => 'Please fill in all required fields.' ), 422 );
     }
 
-    $api_token  = defined( 'AIRTABLE_API_TOKEN' )  ? AIRTABLE_API_TOKEN  : '';
-    $base_id    = defined( 'AIRTABLE_BASE_ID' )     ? AIRTABLE_BASE_ID    : '';
-    $table_name = defined( 'AIRTABLE_TABLE_NAME' )  ? AIRTABLE_TABLE_NAME : '';
+    $api_token  = defined( 'AIRTABLE_API_TOKEN' ) ? AIRTABLE_API_TOKEN : '';
+    $base_id    = defined( 'AIRTABLE_BASE_ID' )    ? AIRTABLE_BASE_ID   : '';
+    $table_name = 'CRM';
 
-    if ( ! $api_token || ! $base_id || ! $table_name ) {
+    if ( ! $api_token || ! $base_id ) {
         error_log( '[TCFH Airtable] Lead submission skipped: CRM configuration missing.' );
         wp_send_json_success( array( 'message' => 'Request received!' ) );
     }
