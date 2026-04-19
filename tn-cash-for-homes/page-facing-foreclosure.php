@@ -74,7 +74,7 @@ $fc_cities = [
             <span class="fc-hero__stars-icons">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
             <span class="fc-hero__stars-label"><strong>5.0</strong> on Google</span>
           </div>
-          <a href="https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick" target="_blank" rel="nofollow noopener" class="bbb-seal"><img src="https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png" alt="Tennessee Cash For Homes BBB A+ Rating" width="200" height="42" loading="lazy" decoding="async" /></a>
+          <a href="https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick" target="_blank" rel="nofollow noopener noreferrer" class="bbb-seal"><img src="https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png" alt="Tennessee Cash For Homes BBB A+ Rating" width="200" height="42" loading="lazy" decoding="async" /></a>
         </div>
       </div>
 
@@ -296,7 +296,7 @@ $fc_cities = [
         </p>
       </div>
       <div class="fc-featured__cta">
-        <a href="#fc-hero-form" class="btn-primary">Get My Cash Offer &rarr;</a>
+        <a href="#fc-form" class="btn-primary">Get My Cash Offer &rarr;</a>
       </div>
     </article>
 
@@ -558,7 +558,7 @@ $fc_cities = [
     </div>
     <div class="cities-grid">
       <?php foreach ( $fc_cities as $c ) : ?>
-      <a href="<?php echo esc_url( home_url( '/facing-foreclosure/' . $c['slug'] ) ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span><?php echo esc_html( $c['name'] ); ?></span></a>
+      <a href="<?php echo esc_url( home_url( '/facing-foreclosure/' . $c['slug'] . '/' ) ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span><?php echo esc_html( $c['name'] ); ?></span></a>
       <?php endforeach; ?>
       <a href="<?php echo esc_url( home_url( '/facing-foreclosure/' ) ); ?>" class="city-chip city-chip--full"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Anywhere in Tennessee, We Serve All Areas</span></a>
     </div>

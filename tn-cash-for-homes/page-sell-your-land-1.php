@@ -45,14 +45,14 @@ get_header();
           </li>
         </ul>
         <div class="land-hero__cta-row">
-          <a href="/#hero-form" class="hero__btn-primary">Get My Free Cash Offer &rarr;</a>
+          <a href="#get-offer" class="hero__btn-primary">Get My Free Cash Offer &rarr;</a>
           <a href="tel:+16158018126" class="hero__btn-outline">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
             Call (615) 801-8126
           </a>
         </div>
         <div class="land-hero__trust-row">
-          <a href='https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick' target='_blank' rel='nofollow' class='bbb-seal'><img src='https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png' style='border: 0;' alt='Tennessee Cash For Homes BBB Business Review' width='200' height='42' loading='lazy' decoding='async' /></a>
+          <a href='https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick' target='_blank' rel='nofollow noopener noreferrer' class='bbb-seal'><img src='https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png' style='border: 0;' alt='Tennessee Cash For Homes BBB Business Review' width='200' height='42' loading='lazy' decoding='async' /></a>
           <div class="land-hero__stars">
             <div class="land-hero__stars-icons">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <div class="land-hero__stars-label"><strong>5.0</strong> Google Rating</div>
@@ -120,7 +120,7 @@ get_header();
     <div class="land-about__grid">
       <div class="land-about__copy">
         <p>Tennessee land values have been steadily rising over the past several years, driven by population growth, new infrastructure projects, and expanding suburban development across the state. While that is great news for landowners, many still struggle to find qualified buyers willing to pay a fair price in a reasonable timeframe. Listing land on the traditional market often means months of waiting, hefty agent commissions, and uncertainty about when or if a deal will close.</p>
-        <p>At Tennessee Cash For Homes, we specialize in buying Tennessee land directly from owners for cash. Whether you own rural acreage in East Tennessee, a <a href="<?php echo esc_url( home_url( '/sell-your-land-1' ) ); ?>">vacant lot</a> near a growing suburb, farm land that has been in the family for generations, inherited land you no longer need, or timber land you are ready to liquidate, we make a fair, no-obligation cash offer and can close in as little as 7 days.</p>
+        <p>At Tennessee Cash For Homes, we specialize in buying Tennessee land directly from owners for cash. Whether you own rural acreage in East Tennessee, a <a href="<?php echo esc_url( home_url( '/sell-your-land-1/' ) ); ?>">vacant lot</a> near a growing suburb, farm land that has been in the family for generations, inherited land you no longer need, or timber land you are ready to liquidate, we make a fair, no-obligation cash offer and can close in as little as 7 days.</p>
         <p>There are no real estate agents involved, no listing fees, and no commissions deducted from your sale. We handle all the paperwork and closing costs so you can walk away with cash in hand without the headaches of a traditional land sale. Whether your property is 1 acre or 100 acres, we are ready to make you an offer.</p>
       </div>
       <div class="land-about__features">

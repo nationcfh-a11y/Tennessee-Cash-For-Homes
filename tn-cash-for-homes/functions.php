@@ -105,8 +105,9 @@ add_action( 'after_switch_theme', 'tcfh_flush_rewrites' );
  */
 add_action( 'wp_head', function() {
     echo '<script>var tcfh_ajax = ' . wp_json_encode( array(
-        'ajax_url' => admin_url( 'admin-ajax.php' ),
-        'nonce'    => wp_create_nonce( 'tcfh_submit_lead' ),
+        'ajax_url'      => admin_url( 'admin-ajax.php' ),
+        'nonce'         => wp_create_nonce( 'tcfh_submit_lead' ),
+        'thank_you_url' => home_url( '/thank-you/' ),
     ) ) . ';</script>' . "\n";
 } );
 

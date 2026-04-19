@@ -406,7 +406,7 @@ $cities = [
       <p class="section__subtitle">Our A+ Better Business Bureau accreditation and 5-Star Google rating are not just badges &mdash; they are the result of 9 years of treating Tennessee homeowners with fairness and respect.</p>
     </div>
     <div class="about-badges__row">
-      <a href="https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick" target="_blank" rel="nofollow" class="about-badges__badge">
+      <a href="https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick" target="_blank" rel="nofollow noopener noreferrer" class="about-badges__badge">
         <img src="https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png" alt="Tennessee Cash For Homes BBB Business Review" width="200" height="42" loading="lazy" decoding="async" />
       </a>
       <div class="about-badges__badge about-badges__google">
@@ -436,7 +436,7 @@ $cities = [
         <h3 class="about-service__col-title">Cities We Serve</h3>
         <ul class="about-service__list">
           <?php foreach ( $cities as $c ) : ?>
-            <li><a class="about-service__link" href="<?php echo esc_url( home_url( '/where-we-buy/' . $c['slug'] ) ); ?>"><?php echo esc_html( $c['name'] ); ?></a></li>
+            <li><a class="about-service__link" href="<?php echo esc_url( home_url( '/where-we-buy/' . $c['slug'] . '/' ) ); ?>"><?php echo esc_html( $c['name'] ); ?></a></li>
           <?php endforeach; ?>
         </ul>
       </div>
@@ -444,7 +444,7 @@ $cities = [
         <h3 class="about-service__col-title">Counties We Serve</h3>
         <ul class="about-service__list">
           <?php foreach ( $counties as $c ) : ?>
-            <li><a class="about-service__link" href="<?php echo esc_url( home_url( '/where-we-buy/' . $c['slug'] ) ); ?>"><?php echo esc_html( $c['name'] ); ?></a></li>
+            <li><a class="about-service__link" href="<?php echo esc_url( home_url( '/where-we-buy/' . $c['slug'] . '/' ) ); ?>"><?php echo esc_html( $c['name'] ); ?></a></li>
           <?php endforeach; ?>
         </ul>
       </div>

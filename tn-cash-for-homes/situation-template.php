@@ -49,7 +49,7 @@ get_header();
           </li>
           <?php endforeach; ?>
         </ul>
-        <a href="/#hero-form" class="btn-primary">Get My Free Cash Offer &rarr;</a>
+        <a href="<?php echo esc_url( home_url( '/#hero-form' ) ); ?>" class="btn-primary">Get My Free Cash Offer &rarr;</a>
         <p class="sit-hero__phone">Or call us now: <a href="tel:+16158018126">(615) 801-8126</a></p>
       </div>
       <div class="sit-hero__form-wrap">
@@ -177,7 +177,7 @@ get_header();
           <div class="difference__stars-icons">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <div class="difference__stars-label"><strong>5 out of 5</strong> on Google</div>
         </div>
-        <a href='https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick' target='_blank' rel='nofollow' class='bbb-seal'><img src='https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png' style='border: 0;' alt='Tennessee Cash For Homes BBB Business Review' width='200' height='42' loading='lazy' decoding='async' /></a>
+        <a href='https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick' target='_blank' rel='nofollow noopener noreferrer' class='bbb-seal'><img src='https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png' style='border: 0;' alt='Tennessee Cash For Homes BBB Business Review' width='200' height='42' loading='lazy' decoding='async' /></a>
       </div>
     </div>
   </div>
@@ -284,12 +284,12 @@ echo wp_json_encode( array(
       foreach ( $cities as $c ):
           $slug = strtolower( str_replace( ' ', '-', $c ) );
       ?>
-      <a href="<?php echo esc_url( home_url( '/where-we-buy/' . $slug ) ); ?>" class="city-chip">
+      <a href="<?php echo esc_url( home_url( '/where-we-buy/' . $slug . '/' ) ); ?>" class="city-chip">
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
         <span><?php echo esc_html( $c ); ?></span>
       </a>
       <?php endforeach; ?>
-      <a href="<?php echo esc_url( home_url( '/where-we-buy/tennessee' ) ); ?>" class="city-chip city-chip--full">
+      <a href="<?php echo esc_url( home_url( '/where-we-buy/tennessee/' ) ); ?>" class="city-chip city-chip--full">
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
         <span>Anywhere in Tennessee &mdash; We Serve All Areas</span>
       </a>

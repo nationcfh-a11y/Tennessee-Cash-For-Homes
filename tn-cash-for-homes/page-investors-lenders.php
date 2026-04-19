@@ -477,7 +477,7 @@ get_header(); ?>
       if (DEBUG) console.error('Investor form failed:', err);
     }
 
-    window.location.href = '/thank-you/';
+    window.location.href = <?php echo wp_json_encode( home_url( '/thank-you/' ) ); ?>;
   }
 
   async function handleLenderSubmit(e) {
@@ -507,7 +507,7 @@ get_header(); ?>
       if (DEBUG) console.error('Lender form failed:', err);
     }
 
-    window.location.href = '/thank-you/';
+    window.location.href = <?php echo wp_json_encode( home_url( '/thank-you/' ) ); ?>;
   }
 </script>
 

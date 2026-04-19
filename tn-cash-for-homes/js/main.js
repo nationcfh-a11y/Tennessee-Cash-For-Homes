@@ -96,7 +96,9 @@
       console.error('[TCFH] lead submission failed:', err);
     }
 
-    window.location.href = '/thank-you/';
+    window.location.href = (typeof tcfh_ajax !== 'undefined' && tcfh_ajax.thank_you_url)
+      ? tcfh_ajax.thank_you_url
+      : '/thank-you/';
   };
 
   // ── Smooth nav highlight on scroll ──

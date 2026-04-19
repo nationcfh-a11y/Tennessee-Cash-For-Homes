@@ -142,7 +142,7 @@ if ( $fc_is_statewide ) {
             <span class="fc-hero__stars-icons">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
             <span class="fc-hero__stars-label"><strong>5.0</strong> on Google</span>
           </div>
-          <a href="https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick" target="_blank" rel="nofollow noopener" class="bbb-seal"><img src="https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png" alt="Tennessee Cash For Homes BBB A+ Rating" width="200" height="42" loading="lazy" decoding="async" /></a>
+          <a href="https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick" target="_blank" rel="nofollow noopener noreferrer" class="bbb-seal"><img src="https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png" alt="Tennessee Cash For Homes BBB A+ Rating" width="200" height="42" loading="lazy" decoding="async" /></a>
         </div>
       </div>
 
@@ -491,7 +491,7 @@ echo wp_json_encode( [
     '@type'       => 'LocalBusiness',
     'name'        => 'Tennessee Cash For Homes',
     'description' => 'Tennessee Cash For Homes helps ' . $fc_city_name . ' homeowners facing foreclosure by buying houses fast for cash.',
-    'url'         => home_url( '/facing-foreclosure/' . $fc_city_slug ),
+    'url'         => home_url( '/facing-foreclosure/' . $fc_city_slug . '/' ),
     'telephone'   => '+1-615-801-8126',
     'email'       => 'info@tncashforhomes.com',
     'address'     => [
@@ -518,17 +518,17 @@ echo wp_json_encode( [
       <h2 class="fc-section-title">Keep Exploring</h2>
     </div>
     <div class="fc-links__grid">
-      <a href="<?php echo esc_url( home_url( '/facing-foreclosure/tennessee' ) ); ?>" class="fc-link-card">
+      <a href="<?php echo esc_url( home_url( '/facing-foreclosure/tennessee/' ) ); ?>" class="fc-link-card">
         <svg width="20" height="20" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         <span>Facing Foreclosure in Tennessee</span>
       </a>
       <?php if ( ! $fc_is_statewide ) : ?>
-      <a href="<?php echo esc_url( home_url( '/where-we-buy/' . $fc_county_slug ) ); ?>" class="fc-link-card">
+      <a href="<?php echo esc_url( home_url( '/where-we-buy/' . $fc_county_slug . '/' ) ); ?>" class="fc-link-card">
         <svg width="20" height="20" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         <span>Sell Your House in <?php echo esc_html( $fc_county ); ?> County</span>
       </a>
       <?php endif; ?>
-      <a href="<?php echo esc_url( home_url( '/where-we-buy/' . $fc_city_slug ) ); ?>" class="fc-link-card">
+      <a href="<?php echo esc_url( home_url( '/where-we-buy/' . $fc_city_slug . '/' ) ); ?>" class="fc-link-card">
         <svg width="20" height="20" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         <span><?php echo $fc_is_statewide ? 'We Buy Houses Across Tennessee' : 'We Buy Houses in ' . esc_html( $fc_city_name ); ?></span>
       </a>
