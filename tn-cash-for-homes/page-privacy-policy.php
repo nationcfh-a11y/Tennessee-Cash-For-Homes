@@ -139,7 +139,7 @@ get_header();
           <li><strong>Tennessee Cash For Homes</strong></li>
           <li>Email: <a href="mailto:info@tncashforhomes.com">info@tncashforhomes.com</a></li>
           <li>Phone: <a href="tel:+16158018126">(615) 801-8126</a></li>
-          <li>Website: <a href="<?php echo esc_url( home_url( '/' ) ); ?>">tncashforhomes.com</a></li>
+          <li>Website: <a href="https://tennesseecashforhomes.com/">tennesseecashforhomes.com</a></li>
         </ul>
 
       </div>
