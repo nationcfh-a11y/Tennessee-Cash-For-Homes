@@ -275,16 +275,6 @@ get_header(); ?>
   </div>
 </section>
 
-<!-- ── CTA STRIP ── -->
-<section class="cta-band" id="contact">
-  <div class="container">
-    <h2>Ready to Talk?</h2>
-    <p>Reach out directly and let us know how you want to work together.</p>
-    <a href="#investors" class="btn-primary">Get In Touch &rarr;</a>
-    <span class="cta-phone">Or call us at <a href="tel:+16158018126">(615) 801-8126</a></span>
-  </div>
-</section>
-
 <!-- ── PAGE STYLES ── -->
 <style>
   /* Hero center variant */
