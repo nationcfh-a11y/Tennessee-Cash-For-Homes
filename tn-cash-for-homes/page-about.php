@@ -196,6 +196,8 @@ $cities = [
   </div>
 </section>
 
+<?php get_template_part('stats-strip'); ?>
+
 <!-- ══════════════════════════════════════════
      2. MISSION STATEMENT SECTION
 ══════════════════════════════════════════ -->

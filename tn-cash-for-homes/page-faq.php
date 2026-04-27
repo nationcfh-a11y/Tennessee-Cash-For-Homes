@@ -72,6 +72,8 @@ get_header(); ?>
   </div>
 </section>
 
+<?php get_template_part('stats-strip'); ?>
+
 <!-- ── FAQ ACCORDION ── -->
 <section class="section faq-section">
   <div class="container">
