@@ -2569,50 +2569,6 @@ div.related-posts,
   margin-top: 28px;
 }
 
-/* ── Market Stats Bar ── */
-.loc-stats-bar {
-  background: var(--charcoal);
-  padding: 28px 0;
-}
-
-.loc-stats-bar__inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  flex-wrap: wrap;
-}
-
-.loc-stat {
-  text-align: center;
-  padding: 8px 48px;
-  flex: 1;
-  min-width: 180px;
-}
-
-.loc-stat__num {
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(22px, 3vw, 32px);
-  font-weight: 700;
-  color: var(--green);
-  line-height: 1.1;
-}
-
-.loc-stat__label {
-  font-size: 13px;
-  color: rgba(255,255,255,0.75);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-top: 4px;
-}
-
-.loc-stat-divider {
-  width: 1px;
-  height: 52px;
-  background: rgba(255,255,255,0.15);
-  flex-shrink: 0;
-}
-
 /* ── About Section — Split Layout ── */
 .loc-about {
   background: var(--white);
@@ -2854,11 +2810,7 @@ div.related-posts,
   .location-hero__title { font-size: 26px; }
   .location-hero__subtitle { font-size: 16px; }
   .location-hero__cta-row { flex-direction: column; }
-  .loc-stats-bar__inner { gap: 0; }
-  .loc-stat { padding: 12px 24px; min-width: 140px; }
-  .loc-stat-divider { display: none; }
   .loc-about__cards { grid-template-columns: 1fr; }
-  .loc-stats-bar__inner { justify-content: flex-start; }
   .loc-about__lead { font-size: 16px; }
   .loc-about__hero-stat-value { font-size: 32px; }
   .loc-about__right {
@@ -2977,99 +2929,6 @@ div.related-posts,
   border-color: var(--white);
   background: rgba(255,255,255,0.12);
   transform: translateY(-2px);
-}
-
-/* ── Stats bar ── */
-.wwb-stats-bar {
-  background: linear-gradient(135deg, #1a3a28 0%, #2d6a45 100%);
-  padding: 40px 0;
-}
-.wwb-stats-bar__inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  flex-wrap: wrap;
-}
-.wwb-stat {
-  flex: 1;
-  min-width: 160px;
-  text-align: center;
-  padding: 16px 24px;
-}
-.wwb-stat__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  background: rgba(255,255,255,0.12);
-  border-radius: 50%;
-  margin: 0 auto 12px;
-  color: var(--green);
-}
-.wwb-stat__num {
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(28px, 4vw, 42px);
-  font-weight: 800;
-  color: var(--white);
-  line-height: 1;
-  margin-bottom: 6px;
-}
-.wwb-stat__label {
-  font-size: 13px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.7);
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-.wwb-stat-divider {
-  width: 1px;
-  height: 70px;
-  background: rgba(255,255,255,0.18);
-  flex-shrink: 0;
-}
-
-/* ── White stats bar (WWB page) ── */
-.wwb-stats-bar-white {
-  background: #ffffff;
-  padding: 40px 0;
-  border-bottom: 1px solid #f0f0f0;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-}
-.wwb-stats-bar-white__inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  flex-wrap: wrap;
-}
-.wwb-stat-white {
-  flex: 1;
-  min-width: 160px;
-  text-align: center;
-  padding: 16px 24px;
-}
-.wwb-stat-white__num {
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 800;
-  color: var(--charcoal);
-  line-height: 1;
-  margin-bottom: 6px;
-}
-.wwb-stat-white__label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--green-dark);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-.wwb-stat-white-divider {
-  width: 1px;
-  height: 60px;
-  background: #e5e5e5;
-  flex-shrink: 0;
 }
 
 /* ── Mission split section ── */
@@ -3282,8 +3141,6 @@ div.related-posts,
   .wwb-hero__title { font-size: 36px; }
   .wwb-hero__sub { font-size: 16px; }
   .wwb-hero__btns { flex-direction: column; align-items: center; }
-  .wwb-stats-bar__inner { flex-direction: column; gap: 4px; }
-  .wwb-stat-divider { width: 60px; height: 1px; }
   .wwb-mission__badges { grid-template-columns: 1fr; }
   .wwb-mini-card { height: 150px; }
   .wwb-why__grid { grid-template-columns: 1fr; }

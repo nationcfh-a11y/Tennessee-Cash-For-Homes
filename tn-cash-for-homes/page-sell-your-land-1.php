@@ -86,32 +86,7 @@ get_header();
   </div>
 </section>
 
-<!-- ── STATS STRIP ── -->
-<div class="proof-bar" style="background: var(--charcoal); border-bottom: none;">
-  <div class="container">
-    <div class="proof-bar__inner">
-      <div class="proof-stat">
-        <div class="proof-stat__num" style="color: #84CC9C;">24 Hours</div>
-        <div class="proof-stat__label" style="color: rgba(255,255,255,0.7);">Cash offer timeline</div>
-      </div>
-      <div class="proof-divider" style="background: rgba(255,255,255,0.15);"></div>
-      <div class="proof-stat">
-        <div class="proof-stat__num" style="color: #84CC9C;">$0</div>
-        <div class="proof-stat__label" style="color: rgba(255,255,255,0.7);">Fees or commissions</div>
-      </div>
-      <div class="proof-divider" style="background: rgba(255,255,255,0.15);"></div>
-      <div class="proof-stat">
-        <div class="proof-stat__num" style="color: #84CC9C;">7 Days</div>
-        <div class="proof-stat__label" style="color: rgba(255,255,255,0.7);">To close</div>
-      </div>
-      <div class="proof-divider" style="background: rgba(255,255,255,0.15);"></div>
-      <div class="proof-stat">
-        <div class="proof-stat__num" style="color: #84CC9C;">Any Size</div>
-        <div class="proof-stat__label" style="color: rgba(255,255,255,0.7);">Lot or acreage</div>
-      </div>
-    </div>
-  </div>
-</div>
+<?php get_template_part('stats-strip'); ?>
 
 <!-- ── ABOUT / WHY SELL YOUR LAND TO US ── -->
 <section class="land-about">

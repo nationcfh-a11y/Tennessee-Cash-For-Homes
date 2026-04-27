@@ -56,41 +56,7 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════
-     STATS BAR (white)
-════════════════════════════════════════════ -->
-<div class="wwb-stats-bar-white">
-  <div class="container">
-    <div class="wwb-stats-bar-white__inner">
-
-      <div class="wwb-stat-white wwb-fade">
-        <div class="wwb-stat-white__num">1,200+</div>
-        <div class="wwb-stat-white__label">Homes Purchased</div>
-      </div>
-
-      <div class="wwb-stat-white-divider"></div>
-
-      <div class="wwb-stat-white wwb-fade">
-        <div class="wwb-stat-white__num">23</div>
-        <div class="wwb-stat-white__label">Cities Served</div>
-      </div>
-
-      <div class="wwb-stat-white-divider"></div>
-
-      <div class="wwb-stat-white wwb-fade">
-        <div class="wwb-stat-white__num">5.0 &#9733;</div>
-        <div class="wwb-stat-white__label">Google Rated</div>
-      </div>
-
-      <div class="wwb-stat-white-divider"></div>
-
-      <div class="wwb-stat-white wwb-fade">
-        <a href='https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick' target='_blank' rel='nofollow noopener noreferrer' class='bbb-seal'><img src='https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png' style='border: 0;' alt='Tennessee Cash For Homes BBB Business Review' width='200' height='42' loading='lazy' decoding='async' /></a>
-      </div>
-
-    </div>
-  </div>
-</div>
+<?php get_template_part('stats-strip'); ?>
 
 <!-- ════════════════════════════════════════════
      MISSION SPLIT

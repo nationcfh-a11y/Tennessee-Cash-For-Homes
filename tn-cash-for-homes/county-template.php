@@ -152,27 +152,7 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
   </div>
 </section>
 
-<!-- ── MARKET STATS BAR ── -->
-<div class="loc-stats-bar">
-  <div class="container">
-    <div class="loc-stats-bar__inner">
-      <div class="loc-stat">
-        <div class="loc-stat__num"><?php echo esc_html( $median_price ); ?></div>
-        <div class="loc-stat__label">Median Sale Price</div>
-      </div>
-      <div class="loc-stat-divider"></div>
-      <div class="loc-stat">
-        <div class="loc-stat__num"><?php echo esc_html( $homes_sold ); ?></div>
-        <div class="loc-stat__label">Homes Sold</div>
-      </div>
-      <div class="loc-stat-divider"></div>
-      <div class="loc-stat">
-        <div class="loc-stat__num"><?php echo esc_html( $avg_days ); ?> Days</div>
-        <div class="loc-stat__label">Avg Days on Market</div>
-      </div>
-    </div>
-  </div>
-</div>
+<?php get_template_part('stats-strip'); ?>
 
 <?php
 // ── Market Stats Overview (inserted between stat bar and about section)
