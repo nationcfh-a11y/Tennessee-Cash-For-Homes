@@ -6,6 +6,7 @@ get_header(); ?>
 
 <!-- ── PAGE HERO ── -->
 <section class="hero" id="hero-top">
+  <div class="hero__overlay"></div>
   <div class="container">
     <div class="hero__inner hero__inner--center">
       <div class="hero__content hero__content--center">

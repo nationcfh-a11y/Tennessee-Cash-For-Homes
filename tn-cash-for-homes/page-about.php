@@ -186,7 +186,7 @@ $cities = [
      1. HERO SECTION
 ══════════════════════════════════════════ -->
 <section class="about-hero">
-  <div class="about-hero__overlay"></div>
+  <div class="hero__overlay"></div>
   <div class="container about-hero__container">
     <div class="about-hero__inner">
       <span class="about-hero__eyebrow">ABOUT US</span>

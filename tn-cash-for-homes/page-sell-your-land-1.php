@@ -20,6 +20,7 @@ get_header();
 
 <!-- ── HERO ── -->
 <section class="land-hero">
+  <div class="hero__overlay"></div>
   <div class="container">
     <div class="land-hero__inner">
       <div class="land-hero__content">

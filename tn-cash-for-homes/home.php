@@ -99,7 +99,7 @@ $total_posts = wp_count_posts()->publish;
 
 <!-- ── BLOG HERO ── -->
 <section class="blog-hero">
-  <div class="blog-hero__overlay"></div>
+  <div class="hero__overlay"></div>
   <div class="container blog-hero__content">
     <span class="blog-hero__eyebrow">Tennessee Cash For Homes</span>
     <h1 class="blog-hero__title">Insights &amp; Resources</h1>

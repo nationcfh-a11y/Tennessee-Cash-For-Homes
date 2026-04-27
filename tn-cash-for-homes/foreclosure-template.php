@@ -118,7 +118,7 @@ if ( $fc_is_statewide ) {
      1. HERO SECTION (with form)
      ══════════════════════════════════════════════ -->
 <section class="fc-hero">
-  <div class="fc-hero__overlay"></div>
+  <div class="hero__overlay"></div>
   <div class="container">
     <div class="fc-hero__grid">
 
@@ -613,11 +613,6 @@ echo wp_json_encode( [
   position: relative;
   background: url('<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/New_Background.webp') center/cover no-repeat;
   padding: 120px 0 80px;
-}
-.fc-hero__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.62) 100%);
 }
 .fc-hero__grid {
   position: relative;

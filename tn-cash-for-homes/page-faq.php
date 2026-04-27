@@ -7,6 +7,7 @@ get_header(); ?>
 
 <!-- ── PAGE HERO ── -->
 <section class="hero" id="hero-form">
+  <div class="hero__overlay"></div>
   <div class="container">
     <div class="hero__inner">
       <div class="hero__content">

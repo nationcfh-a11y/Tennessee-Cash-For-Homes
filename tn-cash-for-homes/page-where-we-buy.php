@@ -41,7 +41,7 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
      HERO
 ════════════════════════════════════════════ -->
 <section class="wwb-hero" style="background: url('https://nationcfh.wpcomstaging.com/wp-content/uploads/2026/03/Where-we-buy-background-image.webp') center center / cover no-repeat;">
-  <div class="wwb-hero__overlay"></div>
+  <div class="hero__overlay"></div>
   <div class="container wwb-hero__container">
     <div class="wwb-hero__inner wwb-animate-hero">
       <p class="wwb-hero__eyebrow">Tennessee Cash Home Buyers</p>
