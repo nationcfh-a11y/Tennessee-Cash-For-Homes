@@ -101,29 +101,8 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
         </div>
       </div>
 
-      <!-- RIGHT: Map + Form -->
+      <!-- RIGHT: Form -->
       <div class="county-hero__map-col">
-        <?php
-        $map_asset_path = get_template_directory() . '/brand_assets/tennessee-all-green.svg';
-        $map_asset_uri  = get_template_directory_uri() . '/brand_assets/tennessee-all-green.svg';
-        if ( file_exists( $map_asset_path ) ) :
-        ?>
-        <div class="county-map-hero-wrap">
-          <div class="county-map-hero-svg">
-            <img src="<?php echo esc_url( $map_asset_uri ); ?>" alt="Tennessee service area map highlighting <?php echo esc_attr( $name ); ?> County" width="502" height="234" loading="lazy" decoding="async" />
-          </div>
-          <div class="county-map-label">
-            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-            <?php echo esc_html( $name ); ?>, Tennessee
-          </div>
-        </div>
-        <?php else :
-          // Fallback to old inline map if SVG file not found
-          $county_name = $name;
-          include get_template_directory() . '/county-map-hero.php';
-        endif;
-        ?>
-
         <!-- LEAD FORM -->
         <div class="hero__form-card county-hero__form" id="get-offer">
           <h2 class="form-card__title">Get Your Free Cash Offer</h2>
@@ -289,18 +268,21 @@ $market_insight = isset( $_parts[0] ) ? $_parts[0] : '';
     </div>
     <div class="county-cities-grid">
       <?php foreach ( $cities as $city ) :
-        $city_url = home_url( '/where-we-buy/' . $city['slug'] . '/' );
         $coming_soon = empty( $city['has_page'] );
+        $city_url    = home_url( '/where-we-buy/' . $city['slug'] . '/' );
       ?>
-      <a
-        href="<?php echo esc_url( $city_url ); ?>"
-        class="city-link-btn<?php echo $coming_soon ? ' city-link-btn--coming-soon' : ''; ?>"
-        <?php echo $coming_soon ? 'data-coming-soon="true"' : ''; ?>
-      >
+      <?php if ( $coming_soon ) : ?>
+      <span class="city-link-btn city-link-btn--coming-soon" data-coming-soon="true" aria-disabled="true">
         <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
         <?php echo esc_html( $city['name'] ); ?>
-        <?php if ( $coming_soon ) : ?><span class="city-link-btn__soon">Soon</span><?php endif; ?>
+        <span class="city-link-btn__soon">Soon</span>
+      </span>
+      <?php else : ?>
+      <a href="<?php echo esc_url( $city_url ); ?>" class="city-link-btn">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+        <?php echo esc_html( $city['name'] ); ?>
       </a>
+      <?php endif; ?>
       <?php endforeach; ?>
     </div>
   </div>
@@ -405,7 +387,7 @@ include get_template_directory() . '/gov-resources-section.php';
 }
 .county-hero__inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 460px;
   gap: 48px;
   align-items: start;
 }
@@ -498,11 +480,12 @@ include get_template_directory() . '/gov-resources-section.php';
   border-color: #ccc;
   background: rgba(0,0,0,0.04);
   color: #999;
+  cursor: default;
 }
 .city-link-btn--coming-soon:hover {
-  background: #aaa;
-  border-color: #aaa;
-  color: #fff;
+  background: rgba(0,0,0,0.04);
+  border-color: #ccc;
+  color: #999;
 }
 .city-link-btn__soon {
   font-size: 10px;
@@ -537,40 +520,6 @@ include get_template_directory() . '/gov-resources-section.php';
   border-color: #3D3D3D;
 }
 
-/* ── Map Hero SVG ── */
-.county-map-hero-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-.county-map-hero-svg {
-  width: 100%;
-  max-width: 460px;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  padding: 12px;
-}
-.county-map-hero-svg svg {
-  width: 100%;
-  height: auto;
-  aspect-ratio: auto;
-  display: block;
-  pointer-events: none;
-}
-.county-map-label {
-  font-size: 13px;
-  font-weight: 600;
-  color: #2D6A4F;
-  letter-spacing: 0.04em;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
 /* ── Land Section Overrides ── */
 .land-section__overlay {
   position: absolute;
@@ -602,14 +551,15 @@ include get_template_directory() . '/gov-resources-section.php';
 }
 
 /* ── Responsive ── */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .county-hero__inner {
     grid-template-columns: 1fr;
     gap: 32px;
+    max-width: 720px;
+    margin: 0 auto;
   }
-  .county-hero__map-col {
-    order: -1;
-  }
+}
+@media (max-width: 768px) {
   .county-hero {
     padding: 92px 0 56px;
   }

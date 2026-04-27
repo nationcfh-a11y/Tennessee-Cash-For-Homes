@@ -5566,12 +5566,6 @@ div.related-posts,
   .testimonial-card { padding: 18px 16px; }
   .testimonial-card__quote { font-size: 15px; line-height: 1.5; }
 
-  /* ---------- Map / county hero ---------- */
-  .county-map-hero,
-  .svg-viewbox-map { padding: 32px 0; }
-  .county-map-hero svg,
-  .svg-viewbox-map svg { width: 100%; height: auto; }
-
   /* ---------- Footer ---------- */
   .site-footer { padding: 32px 0 24px; }
   .site-footer__grid { grid-template-columns: 1fr !important; gap: 24px; }
