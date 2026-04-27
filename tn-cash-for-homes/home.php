@@ -97,16 +97,6 @@ $build_cat_url = function( $slug ) {
 $total_posts = wp_count_posts()->publish;
 ?>
 
-<!-- ── BLOG HERO ── -->
-<section class="blog-hero">
-  <div class="hero__overlay"></div>
-  <div class="container blog-hero__content">
-    <span class="blog-hero__eyebrow">Tennessee Cash For Homes</span>
-    <h1 class="blog-hero__title">Insights &amp; Resources</h1>
-    <p class="blog-hero__subtitle">Expert guidance on selling your Tennessee home fast &mdash; market trends, tips, and real stories from homeowners like you.</p>
-  </div>
-</section>
-
 <?php if ( $show_featured && $featured_post ) : ?>
 <!-- ── FEATURED POST ── -->
 <section class="blog-featured">
