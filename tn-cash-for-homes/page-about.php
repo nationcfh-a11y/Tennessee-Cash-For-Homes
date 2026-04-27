@@ -202,7 +202,7 @@ $cities = [
 <section class="about-mission">
   <div class="container">
     <blockquote class="about-mission__quote">
-      &ldquo;We started this company because we believe every Tennessee homeowner deserves a fair, honest, and stress-free way to sell their home &mdash; regardless of their situation.&rdquo;
+      &ldquo;We started this company because we believe every Tennessee homeowner deserves a fair, honest, and stress-free way to sell their home, regardless of their situation.&rdquo;
     </blockquote>
     <div class="about-mission__copy">
       <p>Tennessee Cash For Homes is locally owned and operated right here in Tennessee. We are not a franchise, a call center, or a faceless corporation. We are a family that has built deep roots in the Tennessee community, and we are proud to serve the homeowners who live here.</p>
@@ -223,23 +223,18 @@ $cities = [
         <p>We are a <strong>Christian based company</strong> whose values of honesty, fairness, and compassion are at the core of every offer we make. We do not believe in high-pressure tactics or lowball offers. We believe in treating people the way we would want to be treated, and that starts with a fair cash offer and a transparent process from start to finish.</p>
         <p>As a <strong>locally owned Tennessee business</strong>, we understand the Tennessee real estate market, the communities, and the real situations homeowners face. Whether you are <a href="<?php echo esc_url( home_url('/facing-foreclosure/') ); ?>">facing foreclosure</a>, dealing with an inherited property, going through a divorce, or simply need to sell your house fast, we have seen it all and we know how to help.</p>
       </div>
-      <div class="about-who__credentials">
-        <div class="about-cred-card">
-          <span class="about-cred-card__number">9+</span>
-          <span class="about-cred-card__label">Years</span>
-          <span class="about-cred-card__desc">In the Tennessee real estate market</span>
-        </div>
-        <div class="about-cred-card">
+      <div class="about-who__credentials" style="align-self:stretch;height:100%;justify-content:space-between;">
+        <div class="about-cred-card" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
           <span class="about-cred-card__number">5-Star</span>
           <span class="about-cred-card__label">Rated</span>
           <span class="about-cred-card__desc">On Google Reviews</span>
         </div>
-        <div class="about-cred-card">
+        <div class="about-cred-card" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
           <span class="about-cred-card__number">A+</span>
           <span class="about-cred-card__label">Rating</span>
           <span class="about-cred-card__desc">Accredited by the Better Business Bureau</span>
         </div>
-        <div class="about-cred-card">
+        <div class="about-cred-card" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
           <svg class="about-cred-card__icon" width="28" height="28" fill="none" stroke="var(--green)" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           <span class="about-cred-card__number">Family</span>
           <span class="about-cred-card__label">Owned</span>
@@ -257,7 +252,7 @@ $cities = [
   <div class="container">
     <div class="section__header section__header--center">
       <h2 class="section__title">Meet the Team</h2>
-      <p class="section__subtitle">The family behind Tennessee Cash For Homes &mdash; experienced investors and agents who live, work, and raise their families right here in Tennessee.</p>
+      <p class="section__subtitle">The family behind Tennessee Cash For Homes: experienced investors and agents who live, work, and raise their families right here in Tennessee.</p>
     </div>
     <div class="about-team__grid">
       <article class="about-team__card">
@@ -286,41 +281,7 @@ $cities = [
 </section>
 
 <!-- ══════════════════════════════════════════
-     4. OUR VALUES SECTION
-══════════════════════════════════════════ -->
-<section class="about-values">
-  <div class="container">
-    <div class="section__header section__header--center">
-      <h2 class="section__title">What We Stand For</h2>
-    </div>
-    <div class="about-values__grid">
-      <div class="about-values__card">
-        <div class="about-values__icon">
-          <svg width="32" height="32" fill="none" stroke="var(--green)" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-        </div>
-        <h3 class="about-values__title">Faith</h3>
-        <p class="about-values__desc">As a Christian based company, our faith guides every decision we make. We treat every homeowner the way we would want to be treated &mdash; with honesty, compassion, and respect.</p>
-      </div>
-      <div class="about-values__card">
-        <div class="about-values__icon">
-          <svg width="32" height="32" fill="none" stroke="var(--green)" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h3 class="about-values__title">Integrity</h3>
-        <p class="about-values__desc">We never pressure, mislead, or lowball. Our offers are fair, our process is transparent, and we mean what we say. If we make you an offer, we honor it.</p>
-      </div>
-      <div class="about-values__card">
-        <div class="about-values__icon">
-          <svg width="32" height="32" fill="none" stroke="var(--green)" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
-        <h3 class="about-values__title">Family</h3>
-        <p class="about-values__desc">We are a family business serving Tennessee families. We understand that selling a home is one of the biggest decisions you will ever make, and we take that responsibility seriously.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════
-     5. WHY CHOOSE US SECTION
+     4. WHY CHOOSE US SECTION
 ══════════════════════════════════════════ -->
 <section class="about-why">
   <div class="container">
@@ -403,7 +364,7 @@ $cities = [
   <div class="container">
     <div class="section__header section__header--center">
       <h2 class="section__title">Independently Verified and Trusted</h2>
-      <p class="section__subtitle">Our A+ Better Business Bureau accreditation and 5-Star Google rating are not just badges &mdash; they are the result of 9 years of treating Tennessee homeowners with fairness and respect.</p>
+      <p class="section__subtitle">Our A+ Better Business Bureau accreditation and 5-Star Google rating are not just badges. They are the result of 9 years of treating Tennessee homeowners with fairness and respect.</p>
     </div>
     <div class="about-badges__row">
       <a href="https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick" target="_blank" rel="nofollow noopener noreferrer" class="about-badges__badge">
@@ -431,23 +392,9 @@ $cities = [
       <p class="section__subtitle">From Memphis to Bristol, from Nashville to the smallest rural county, Tennessee Cash For Homes buys houses and land throughout the entire state.</p>
     </div>
 
-    <div class="about-service__columns">
-      <div class="about-service__col">
-        <h3 class="about-service__col-title">Cities We Serve</h3>
-        <ul class="about-service__list">
-          <?php foreach ( $cities as $c ) : ?>
-            <li><a class="about-service__link" href="<?php echo esc_url( home_url( '/where-we-buy/' . $c['slug'] . '/' ) ); ?>"><?php echo esc_html( $c['name'] ); ?></a></li>
-          <?php endforeach; ?>
-        </ul>
-      </div>
-      <div class="about-service__col">
-        <h3 class="about-service__col-title">Counties We Serve</h3>
-        <ul class="about-service__list">
-          <?php foreach ( $counties as $c ) : ?>
-            <li><a class="about-service__link" href="<?php echo esc_url( home_url( '/where-we-buy/' . $c['slug'] . '/' ) ); ?>"><?php echo esc_html( $c['name'] ); ?></a></li>
-          <?php endforeach; ?>
-        </ul>
-      </div>
+    <div style="text-align:center;max-width:720px;margin:32px auto 0;">
+      <p style="font-size:1.125rem;color:var(--charcoal);line-height:1.6;margin-bottom:32px;">We buy houses and land in every city and county across the great state of Tennessee.</p>
+      <a class="btn-primary" href="<?php echo esc_url( home_url( '/where-we-buy/' ) ); ?>">View All Areas We Serve &rarr;</a>
     </div>
   </div>
 </section>
