@@ -1383,7 +1383,7 @@ echo wp_json_encode( [
    6. RESOURCES
    ══════════════════════════════════════════════ */
 .fc-resources {
-  background: var(--fc-white);
+  background: var(--fc-light-bg);
   padding: 88px 0;
 }
 .fc-resources__grid {
@@ -1549,7 +1549,7 @@ echo wp_json_encode( [
    9. FAQ
    ══════════════════════════════════════════════ */
 .fc-faq {
-  background: var(--fc-off-white);
+  background: var(--fc-white);
   padding: 88px 0;
 }
 
