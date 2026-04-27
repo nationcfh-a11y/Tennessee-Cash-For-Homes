@@ -213,6 +213,21 @@ function tcfh_register_menus() {
 add_action( 'after_setup_theme', 'tcfh_register_menus' );
 
 /**
+ * Force the Investors and Lenders menu item to point at /investors/ regardless
+ * of what is saved in the WordPress menu settings, so legacy /investors-lenders/
+ * links get corrected on the way out.
+ */
+function tcfh_fix_investors_menu_url( $items ) {
+    foreach ( $items as $item ) {
+        if ( ! empty( $item->url ) && false !== strpos( $item->url, '/investors-lenders' ) ) {
+            $item->url = home_url( '/investors/' );
+        }
+    }
+    return $items;
+}
+add_filter( 'wp_nav_menu_objects', 'tcfh_fix_investors_menu_url' );
+
+/**
  * Load Airtable credentials from .env file (local dev) or wp-config.php constants (production).
  */
 function tcfh_load_env() {
