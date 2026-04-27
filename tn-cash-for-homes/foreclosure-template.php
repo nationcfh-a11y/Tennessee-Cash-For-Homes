@@ -618,8 +618,8 @@ echo wp_json_encode( [
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 56px;
+  grid-template-columns: 1fr 400px;
+  gap: 60px;
   align-items: center;
 }
 .fc-hero__eyebrow {
@@ -715,7 +715,7 @@ echo wp_json_encode( [
 .fc-hero__form-card {
   background: var(--fc-white);
   border-radius: 16px;
-  padding: 32px 30px;
+  padding: 36px 32px;
   box-shadow: var(--fc-shadow-lg);
 }
 .fc-hero__form-title {
