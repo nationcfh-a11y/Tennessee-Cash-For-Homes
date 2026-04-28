@@ -957,9 +957,9 @@ echo wp_json_encode( [
 }
 .fc-local__columns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 38fr 62fr;
   gap: 40px;
-  align-items: stretch;
+  align-items: center;
 }
 .fc-local__col { display: flex; flex-direction: column; }
 .fc-local__intro {
