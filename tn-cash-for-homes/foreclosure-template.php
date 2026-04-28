@@ -178,18 +178,123 @@ if ( $fc_is_statewide ) {
 <!-- ══════════════════════════════════════════════
      2. LOCAL CONTEXT
      ══════════════════════════════════════════════ -->
+<?php
+/* Region label by county for the meta line. */
+$fc_region_map = [
+    'Davidson'   => 'Nashville Metro',
+    'Williamson' => 'Nashville Metro',
+    'Rutherford' => 'Nashville Metro',
+    'Sumner'     => 'Nashville Metro',
+    'Wilson'     => 'Nashville Metro',
+    'Maury'      => 'Nashville Metro',
+    'Marshall'   => 'South Central Tennessee',
+    'Bedford'    => 'South Central Tennessee',
+    'Cannon'     => 'Middle Tennessee',
+    'Warren'     => 'Upper Cumberland',
+    'Cumberland' => 'Upper Cumberland',
+    'Hamilton'   => 'Chattanooga Metro',
+    'Knox'       => 'Knoxville Metro',
+    'Montgomery' => 'Clarksville Metro',
+    'Madison'    => 'West Tennessee',
+    'Shelby'     => 'Memphis Metro',
+];
+$fc_region = $fc_is_statewide
+    ? 'Statewide'
+    : ( isset( $fc_region_map[ $fc_county ] ) ? $fc_region_map[ $fc_county ] : 'Tennessee' );
+
+/* Neighborhood / area pills extracted from the existing local copy. */
+$fc_pills_map = [
+    'antioch'        => [ 'Hickory Hollow', 'Global Mall', 'Bell Road', 'I-24 Corridor' ],
+    'chapel-hill'    => [ 'Henry Horton State Park', 'Highway 31A', 'Marshall County' ],
+    'chattanooga'    => [ 'Riverview', 'East Chattanooga', 'Highland Park', 'North Shore', 'Southside', 'Lookout Mountain', 'Signal Mountain' ],
+    'clarksville'    => [ 'Sango', 'St. Bethlehem', 'Exit 1', 'Fort Campbell' ],
+    'columbia'       => [ 'Downtown Columbia', 'Maury County Square', 'Mule Day District' ],
+    'crossville'     => [ 'Fairfield Glade', 'Lake Tansi', 'Main Street', 'Cumberland Plateau' ],
+    'franklin'       => [ 'Westhaven', 'Berry Farms', 'Downtown Franklin' ],
+    'gallatin'       => [ 'Old Hickory Lake', 'Downtown Square', 'Indian Lake' ],
+    'hendersonville' => [ 'Old Hickory Lake', 'Johnny Cash Parkway', 'Indian Lake', 'New Shackle Island Road' ],
+    'jackson'        => [ 'North Jackson', 'Old Hickory Mall', 'Union University' ],
+    'knoxville'      => [ 'Fort Sanders', 'Old City', 'South Knoxville', 'Farragut', 'Oak Ridge Corridor' ],
+    'la-vergne'      => [ 'I-24 Corridor', 'Smyrna Border', 'Murfreesboro Pike' ],
+    'lebanon'        => [ 'Providence', 'South Hartmann Drive', 'I-40 Corridor', 'Cumberland University' ],
+    'mcminnville'    => [ 'Town Square', 'Sparta Street', 'Morrison Street' ],
+    'memphis'        => [ 'Whitehaven', 'Graceland', 'Midtown', 'Poplar Avenue', 'Raleigh', 'Frayser' ],
+    'murfreesboro'   => [ 'Blackman', 'Medical Center Parkway', 'Smyrna Corridor' ],
+    'nashville'      => [ 'East Nashville', 'Germantown', 'Madison', 'Antioch', 'The Nations' ],
+    'old-hickory'    => [ 'Old Hickory Boulevard', 'Old Hickory Lake', 'DuPont Village' ],
+    'shelbyville'    => [ 'Public Square', 'Bedford County Courthouse', 'Walking Horse District' ],
+    'smyrna'         => [ 'Sam Ridley Parkway', 'Smyrna Town Centre', 'Almaville Road', 'Enon Springs Road' ],
+    'spring-hill'    => [ 'GM Spring Hill', 'Port Royal Road', 'Maury County' ],
+    'tennessee'      => [ 'Middle Tennessee', 'East Tennessee', 'West Tennessee' ],
+    'woodbury'       => [ 'Main Street', 'Arts Center of Cannon County', 'Cannon County Square' ],
+];
+$fc_pills = isset( $fc_pills_map[ $fc_city_slug ] ) ? $fc_pills_map[ $fc_city_slug ] : [];
+
+/* Pull quote — last sentence of desc1, which consistently carries the foreclosure-timing kicker. */
+$fc_pq_sentences = preg_split( '/(?<=[\.!\?])\s+/', trim( $fc_desc1 ) );
+$fc_pull_quote = trim( end( $fc_pq_sentences ) );
+
+/* Median home price for this city (pulled from the same market-stats data file). */
+$fc_median_price = '';
+$fc_ms_file = get_template_directory() . '/market-stats-data.php';
+if ( file_exists( $fc_ms_file ) ) {
+    $fc_ms_all = include $fc_ms_file;
+    if ( isset( $fc_ms_all[ $fc_city_slug ]['median_price'] ) ) {
+        $fc_median_price = $fc_ms_all[ $fc_city_slug ]['median_price'];
+    }
+}
+?>
 <section class="fc-local">
   <div class="container">
-    <div class="fc-section-header fc-section-header--left">
+    <header class="fc-local__header">
       <p class="fc-section-eyebrow">Local Context</p>
       <h2 class="fc-section-title">Foreclosure in <?php echo $fc_is_statewide ? 'Tennessee' : esc_html( $fc_city_name ) . ', Tennessee'; ?></h2>
+      <p class="fc-local__meta"><?php
+        if ( $fc_is_statewide ) {
+            echo 'Tennessee &middot; Statewide &middot; Non-Judicial Foreclosure State';
+        } else {
+            echo esc_html( $fc_city_name ) . ' &middot; ' . esc_html( $fc_county ) . ' County &middot; ' . esc_html( $fc_region );
+        }
+      ?></p>
+    </header>
+
+    <blockquote class="fc-local__pullquote">
+      <span class="fc-local__pullquote-mark" aria-hidden="true">&ldquo;</span>
+      <p><?php echo esc_html( $fc_pull_quote ); ?></p>
+    </blockquote>
+
+    <div class="fc-local__stats">
+      <div class="fc-local__stat">
+        <div class="fc-local__stat-value">21 Days</div>
+        <div class="fc-local__stat-label"><?php echo $fc_is_statewide ? 'From Notice to Sale (Tennessee Minimum)' : 'From Notice to Sale in ' . esc_html( $fc_county ) . ' County'; ?></div>
+      </div>
+      <div class="fc-local__stat">
+        <div class="fc-local__stat-value"><?php echo $fc_median_price ? esc_html( $fc_median_price ) : '&mdash;'; ?></div>
+        <div class="fc-local__stat-label">Median Home Price in <?php echo $fc_is_statewide ? 'Tennessee' : esc_html( $fc_city_name ); ?></div>
+      </div>
+      <div class="fc-local__stat">
+        <div class="fc-local__stat-value">7 Days</div>
+        <div class="fc-local__stat-label">We Can Close</div>
+      </div>
     </div>
-    <div class="fc-local__body">
-      <p><?php echo esc_html( $fc_desc1 ); ?></p>
-      <p><?php echo esc_html( $fc_desc2 ); ?></p>
-      <?php if ( ! empty( $fc_desc3 ) ) : ?>
-      <p><?php echo esc_html( $fc_desc3 ); ?></p>
-      <?php endif; ?>
+
+    <div class="fc-local__columns">
+      <div class="fc-local__col fc-local__col--left">
+        <p class="fc-local__intro"><?php echo esc_html( $fc_desc1 ); ?></p>
+        <?php if ( ! empty( $fc_pills ) ) : ?>
+        <ul class="fc-local__pills">
+          <?php foreach ( $fc_pills as $pill ) : ?>
+          <li><?php echo esc_html( $pill ); ?></li>
+          <?php endforeach; ?>
+        </ul>
+        <?php endif; ?>
+      </div>
+      <div class="fc-local__col fc-local__col--right">
+        <p><?php echo esc_html( $fc_desc2 ); ?></p>
+        <?php if ( ! empty( $fc_desc3 ) ) : ?>
+        <p><?php echo esc_html( $fc_desc3 ); ?></p>
+        <?php endif; ?>
+      </div>
     </div>
   </div>
 </section>
@@ -777,14 +882,121 @@ echo wp_json_encode( [
   background: var(--fc-off-white);
   padding: 88px 0;
 }
-.fc-local__body { max-width: 780px; }
-.fc-local__body p {
+.fc-local__header { margin: 0 0 28px; }
+.fc-local__header .fc-section-title { margin-bottom: 10px; }
+.fc-local__meta {
+  font-size: 0.95rem;
+  color: var(--fc-text-muted);
+  margin: 0;
+}
+.fc-local__pullquote {
+  position: relative;
+  margin: 0 0 36px;
+  padding: 30px 32px 30px 32px;
+  background: var(--fc-light-bg);
+  border-left: 3px solid #4CAF7D;
+  border-radius: 0 14px 14px 0;
+  overflow: hidden;
+}
+.fc-local__pullquote-mark {
+  position: absolute;
+  top: -34px;
+  left: 18px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 9rem;
+  line-height: 1;
+  color: #4CAF7D;
+  opacity: 0.12;
+  pointer-events: none;
+  user-select: none;
+}
+.fc-local__pullquote p {
+  position: relative;
+  z-index: 1;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--fc-charcoal);
+  line-height: 1.7;
+  margin: 0;
+}
+.fc-local__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 0 0 44px;
+}
+.fc-local__stat {
+  background: var(--fc-white);
+  border: 1px solid var(--fc-border);
+  border-radius: 12px;
+  padding: 28px 24px;
+  text-align: center;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.fc-local__stat:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
+}
+.fc-local__stat-value {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--fc-green-dark);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+.fc-local__stat-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--fc-text-muted);
+  line-height: 1.45;
+}
+.fc-local__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: stretch;
+}
+.fc-local__col { display: flex; flex-direction: column; }
+.fc-local__intro {
   font-size: 1.05rem;
   color: var(--fc-text);
   line-height: 1.8;
-  margin: 0 0 22px;
+  margin: 0 0 20px;
+  padding: 4px 0 4px 22px;
+  border-left: 4px solid var(--fc-green);
 }
-.fc-local__body p:last-child { margin-bottom: 0; }
+.fc-local__pills {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.fc-local__pills li {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--fc-green-dark);
+  background: var(--fc-green-tint);
+  padding: 6px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+}
+.fc-local__col--right p {
+  font-size: 1.05rem;
+  color: var(--fc-text);
+  line-height: 1.8;
+  margin: 0 0 20px;
+}
+.fc-local__col--right p:last-child { margin-bottom: 0; }
 
 /* ── TIMELINE / FORECLOSURE PROCESS ── */
 .fc-timeline {
@@ -1142,6 +1354,10 @@ echo wp_json_encode( [
   .fc-form__inner { grid-template-columns: 1fr; gap: 40px; }
   .fc-links__grid { grid-template-columns: repeat(2, 1fr); }
 }
+@media (max-width: 900px) {
+  .fc-local__stats { grid-template-columns: repeat(2, 1fr); }
+  .fc-local__columns { grid-template-columns: 1fr; gap: 28px; }
+}
 @media (max-width: 768px) {
   .fc-hero { padding: 92px 0 56px; }
   .fc-hero__checks { grid-template-columns: 1fr; gap: 10px; }
@@ -1160,6 +1376,13 @@ echo wp_json_encode( [
   .fc-process-callout__text { font-size: 0.98rem; }
   .fc-form__card { padding: 26px 22px; }
   .fc-section-header { margin-bottom: 36px; }
+  .fc-local__pullquote { padding: 26px 22px; }
+  .fc-local__pullquote-mark { font-size: 7rem; top: -24px; left: 12px; }
+  .fc-local__stat { padding: 22px 18px; }
+  .fc-local__stat-value { font-size: 1.55rem; }
+}
+@media (max-width: 560px) {
+  .fc-local__stats { grid-template-columns: 1fr; }
 }
 </style>
 
