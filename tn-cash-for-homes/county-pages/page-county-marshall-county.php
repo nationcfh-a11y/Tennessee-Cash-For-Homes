@@ -23,6 +23,7 @@ $county = [
     'land_para'     => 'Marshall County offers peaceful rural living with rolling farmland and residential lots at affordable prices. As Nashville\'s growth spreads southward land in Marshall County is becoming increasingly attractive to buyers and developers. Tennessee Cash For Homes buys Marshall County land quickly with no commissions and no hidden fees.',
     'cities'        => [
         ['name' => 'Lewisburg', 'slug' => 'lewisburg', 'has_page' => true],
+        ['name' => 'Chapel Hill', 'slug' => 'chapel-hill', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Lewisburg or Chapel Hill in Marshall County?', 'a' => 'Yes. We purchase homes throughout Marshall County including Lewisburg, Chapel Hill, Cornersville, and all surrounding areas. We are active buyers in this growing part of Middle Tennessee.'],
