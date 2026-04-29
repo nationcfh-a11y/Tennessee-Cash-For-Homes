@@ -350,7 +350,7 @@ include get_template_directory() . '/gov-resources-section.php';
 <style>
 /* ── City/Location Hero (matches county hero layout) ── */
 .county-hero {
-  background: #F2F2F2;
+  background: #FFFFFF;
   padding: 120px 0 80px;
 }
 .county-hero__inner {
