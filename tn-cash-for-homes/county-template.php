@@ -140,6 +140,41 @@ $ms_slug = $slug;
 $ms_type = 'county';
 include get_template_directory() . '/market-stats-section.php';
 include get_template_directory() . '/who-we-help-section.php';
+?>
+
+<!-- ── CITIES WE BUY IN ── -->
+<?php if ( ! empty( $cities ) ) : ?>
+<section class="section county-cities-section" style="background:#FFFFFF;">
+  <div class="container">
+    <div class="section__header section__header--center">
+      <p class="section__eyebrow"><?php echo esc_html( $name ); ?></p>
+      <h2 class="section__title">Cities We Buy Houses In</h2>
+      <p class="section__subtitle">We purchase homes throughout <?php echo esc_html( $name ); ?>. Click your city to learn more.</p>
+    </div>
+    <div class="county-cities-grid">
+      <?php foreach ( $cities as $city ) :
+        $coming_soon = empty( $city['has_page'] );
+        $city_url    = home_url( '/where-we-buy/' . $city['slug'] . '/' );
+      ?>
+      <?php if ( $coming_soon ) : ?>
+      <span class="city-link-btn city-link-btn--coming-soon" data-coming-soon="true" aria-disabled="true">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+        <?php echo esc_html( $city['name'] ); ?>
+        <span class="city-link-btn__soon">Soon</span>
+      </span>
+      <?php else : ?>
+      <a href="<?php echo esc_url( $city_url ); ?>" class="city-link-btn">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+        <?php echo esc_html( $city['name'] ); ?>
+      </a>
+      <?php endif; ?>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+<?php endif; ?>
+
+<?php
 include get_template_directory() . '/reviews-section.php';
 ?>
 
@@ -256,38 +291,6 @@ $market_insight = isset( $_parts[0] ) ? $_parts[0] : '';
     </div>
   </div>
 </section>
-
-<!-- ── CITIES WE BUY IN ── -->
-<?php if ( ! empty( $cities ) ) : ?>
-<section class="section section--alt county-cities-section">
-  <div class="container">
-    <div class="section__header section__header--center">
-      <p class="section__eyebrow"><?php echo esc_html( $name ); ?></p>
-      <h2 class="section__title">Cities We Buy Houses In</h2>
-      <p class="section__subtitle">We purchase homes throughout <?php echo esc_html( $name ); ?>. Click your city to learn more.</p>
-    </div>
-    <div class="county-cities-grid">
-      <?php foreach ( $cities as $city ) :
-        $coming_soon = empty( $city['has_page'] );
-        $city_url    = home_url( '/where-we-buy/' . $city['slug'] . '/' );
-      ?>
-      <?php if ( $coming_soon ) : ?>
-      <span class="city-link-btn city-link-btn--coming-soon" data-coming-soon="true" aria-disabled="true">
-        <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-        <?php echo esc_html( $city['name'] ); ?>
-        <span class="city-link-btn__soon">Soon</span>
-      </span>
-      <?php else : ?>
-      <a href="<?php echo esc_url( $city_url ); ?>" class="city-link-btn">
-        <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-        <?php echo esc_html( $city['name'] ); ?>
-      </a>
-      <?php endif; ?>
-      <?php endforeach; ?>
-    </div>
-  </div>
-</section>
-<?php endif; ?>
 
 <!-- ── SELL YOUR LAND ── -->
 <section class="land-section">
