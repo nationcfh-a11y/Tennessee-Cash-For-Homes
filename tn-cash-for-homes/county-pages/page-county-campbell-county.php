@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'No matter what your situation looks like - a vacant property that has sat empty for years, a home you inherited in the mountains, or a lakeside place you can no longer afford to maintain - Tennessee Cash For Homes buys houses throughout all of Campbell County in any condition. We are familiar with this area and ready to help you move forward.',
     'land_para'     => 'Campbell County offers stunning mountain and lakefront land along Norris Lake at some of the most affordable prices in East Tennessee. Tennessee Cash For Homes buys Campbell County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Jacksboro', 'slug' => 'jacksboro', 'has_page' => false],
+        ['name' => 'Jacksboro', 'slug' => 'jacksboro', 'has_page' => true],
         ['name' => 'La Follette', 'slug' => 'la-follette', 'has_page' => false],
     ],
     'faq_extra'    => [

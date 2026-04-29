@@ -23,7 +23,7 @@ $county = [
     'land_para'     => 'Wilson County\'s location along I-40 and its expanding communities make it a hotspot for residential and commercial growth. Tennessee Cash For Homes buys Wilson County land quickly with no commissions and no hidden fees.',
     'cities'        => [
         ['name' => 'Lebanon',   'slug' => 'lebanon',   'has_page' => true],
-        ['name' => 'Mt. Juliet', 'slug' => 'mt-juliet', 'has_page' => false],
+        ['name' => 'Mt. Juliet', 'slug' => 'mt-juliet', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Is Wilson County part of the Nashville metro for property values?', 'a' => 'Yes. Wilson County - including Lebanon, Mt. Juliet, and Watertown - is one of Nashville\'s fastest-growing suburban counties. Our cash offers reflect strong Nashville-area demand and current market conditions.'],

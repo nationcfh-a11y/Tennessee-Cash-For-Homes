@@ -24,7 +24,7 @@ $county = [
     'cities'        => [
         ['name' => 'Sevierville', 'slug' => 'sevierville', 'has_page' => false],
         ['name' => 'Pigeon Forge', 'slug' => 'pigeon-forge', 'has_page' => false],
-        ['name' => 'Gatlinburg', 'slug' => 'gatlinburg', 'has_page' => false],
+        ['name' => 'Gatlinburg', 'slug' => 'gatlinburg', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy vacation rental properties or cabins in Sevier County?', 'a' => 'Yes. Sevier County is Tennessee\'s tourism capital, home to Gatlinburg, Pigeon Forge, and Sevierville. We buy vacation rentals, cabins, short-term rental properties, and all residential properties throughout the county.'],

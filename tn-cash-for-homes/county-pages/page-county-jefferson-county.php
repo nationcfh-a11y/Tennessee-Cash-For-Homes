@@ -22,8 +22,8 @@ $county = [
     'desc3'         => 'No matter what situation brought you here - relocation, an inherited property, financial pressure, or simply wanting a fresh start - we buy houses throughout all of Jefferson County in any condition. From Dandridge and Jefferson City to White Pine and every rural road in between, Tennessee Cash For Homes is ready to make you a fair, no-obligation cash offer today.',
     'land_para'     => 'Jefferson County offers lakefront land on Douglas Lake, mountain view properties, and growing residential development. Tennessee Cash For Homes buys Jefferson County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Dandridge', 'slug' => 'dandridge', 'has_page' => false],
-        ['name' => 'Jefferson City', 'slug' => 'jefferson-city', 'has_page' => false],
+        ['name' => 'Dandridge', 'slug' => 'dandridge', 'has_page' => true],
+        ['name' => 'Jefferson City', 'slug' => 'jefferson-city', 'has_page' => true],
         ['name' => 'White Pine', 'slug' => 'white-pine', 'has_page' => false],
     ],
     'faq_extra'    => [

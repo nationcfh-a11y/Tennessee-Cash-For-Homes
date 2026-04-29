@@ -24,7 +24,7 @@ $county = [
     'cities'        => [
         ['name' => 'Hendersonville', 'slug' => 'hendersonville', 'has_page' => true],
         ['name' => 'Gallatin',       'slug' => 'gallatin',       'has_page' => true],
-        ['name' => 'White House',    'slug' => 'white-house',    'has_page' => false],
+        ['name' => 'White House',    'slug' => 'white-house',    'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Is Sumner County considered part of the Nashville metro for home values?', 'a' => 'Yes. Sumner County is one of Nashville\'s most desirable suburban counties. Our cash offers for Gallatin, Hendersonville, and surrounding areas reflect strong Nashville-area market values.'],

@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'No matter what situation has brought you here, whether it is an inherited family property in Grand Junction, a home behind on taxes in Middleton, or a house in Bolivar that needs more work than you can take on, we are ready to help. We buy houses throughout all of Hardeman County in any condition, and our goal is to make the process as straightforward and stress-free as possible for you.',
     'land_para'     => 'Hardeman County offers affordable farmland, wooded tracts, and rural residential lots in West Tennessee. Tennessee Cash For Homes buys Hardeman County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Bolivar', 'slug' => 'bolivar', 'has_page' => false],
+        ['name' => 'Bolivar', 'slug' => 'bolivar', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Bolivar or surrounding areas in Hardeman County?', 'a' => 'Yes. We buy homes throughout Hardeman County including Bolivar, Middleton, Grand Junction, and all rural areas. We are experienced with properties in this part of West Tennessee.'],

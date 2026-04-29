@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether your property is a historic home in Brownsville, a farmhouse on acreage near Nutbush, or a house in Stanton that has seen better days, we buy houses throughout all of Haywood County in any condition. No matter your situation, from inherited property to financial hardship to simply being ready to move on, our team is here to make the sale simple and fast.',
     'land_para'     => 'Haywood County offers fertile farmland and affordable residential lots in the West Tennessee Delta region. Tennessee Cash For Homes buys Haywood County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Brownsville', 'slug' => 'brownsville', 'has_page' => false],
+        ['name' => 'Brownsville', 'slug' => 'brownsville', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Brownsville or Stanton in Haywood County?', 'a' => 'Yes. We purchase homes throughout Haywood County including Brownsville and Stanton. We buy in any condition and close quickly for cash.'],

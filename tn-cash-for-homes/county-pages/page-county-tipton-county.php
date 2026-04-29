@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'No matter what your situation looks like - whether you are navigating an inherited property, dealing with a home that needs work, going through a divorce, or simply want a fresh start - Tennessee Cash For Homes buys houses throughout all of Tipton County in any condition. From older homes along the Covington square to newer builds in Munford and everything in between, we are here to help.',
     'land_para'     => 'Tipton County\'s suburban growth from Memphis has made land increasingly valuable for residential development. Tennessee Cash For Homes buys Tipton County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Covington', 'slug' => 'covington', 'has_page' => false],
+        ['name' => 'Covington', 'slug' => 'covington', 'has_page' => true],
         ['name' => 'Munford', 'slug' => 'munford', 'has_page' => false],
     ],
     'faq_extra'    => [

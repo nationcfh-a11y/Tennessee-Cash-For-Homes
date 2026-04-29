@@ -23,7 +23,7 @@ $county = [
     'land_para'     => 'Hawkins County offers lakefront land on Cherokee Lake, rolling farmland, and affordable mountain tracts. Tennessee Cash For Homes buys Hawkins County land quickly with no commissions and no hidden fees.',
     'cities'        => [
         ['name' => 'Rogersville', 'slug' => 'rogersville', 'has_page' => false],
-        ['name' => 'Church Hill', 'slug' => 'church-hill', 'has_page' => false],
+        ['name' => 'Church Hill', 'slug' => 'church-hill', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Rogersville or Church Hill in Hawkins County?', 'a' => 'Yes. We purchase homes throughout Hawkins County including Rogersville, Church Hill, Mount Carmel, Surgoinsville, and all surrounding areas.'],

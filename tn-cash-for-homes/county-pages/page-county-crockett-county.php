@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether it is a farmhouse on acreage outside Bells, a home in Alamo that has sat on the market too long, or a property in any corner of the county, Tennessee Cash For Homes buys houses throughout all of Crockett County in any condition. We are here to offer a fair price and a simple closing, no matter your circumstances.',
     'land_para'     => 'Crockett County offers productive farmland and affordable rural lots in the heart of West Tennessee. Tennessee Cash For Homes buys Crockett County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Alamo', 'slug' => 'alamo', 'has_page' => false],
+        ['name' => 'Alamo', 'slug' => 'alamo', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy farm homes or properties with agricultural land in Crockett County?', 'a' => 'Yes. Crockett County has a strong agricultural heritage and we buy homes on farmland, rural residential properties, and homes in Alamo and surrounding communities.'],

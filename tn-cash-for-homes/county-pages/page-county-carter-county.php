@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'No matter what situation you are facing - whether it is an inherited property near Roan Mountain, a house in Elizabethton that needs a new roof, or a home you simply need to move on from - Tennessee Cash For Homes buys houses throughout all of Carter County in any condition. We handle the details so you can close on your timeline and move forward with confidence.',
     'land_para'     => 'Carter County offers beautiful mountain land with stunning views and access to the Cherokee National Forest. Tennessee Cash For Homes buys Carter County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Elizabethton', 'slug' => 'elizabethton', 'has_page' => false],
+        ['name' => 'Elizabethton', 'slug' => 'elizabethton', 'has_page' => true],
         ['name' => 'Watauga', 'slug' => 'watauga', 'has_page' => false],
     ],
     'faq_extra'    => [

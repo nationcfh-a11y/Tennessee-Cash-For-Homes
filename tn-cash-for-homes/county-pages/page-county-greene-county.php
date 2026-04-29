@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether you own a historic property in downtown Greeneville, a former tobacco farm with acreage, or a home near Tusculum that needs more work than you can manage, Tennessee Cash For Homes buys houses throughout all of Greene County in any condition. We are here to give you a fair offer and a clear path forward, regardless of your circumstances.',
     'land_para'     => 'Greene County offers a mix of fertile valley farmland and scenic mountain tracts in the foothills of the Appalachians. Tennessee Cash For Homes buys Greene County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Greeneville', 'slug' => 'greeneville', 'has_page' => false],
+        ['name' => 'Greeneville', 'slug' => 'greeneville', 'has_page' => true],
         ['name' => 'Mosheim', 'slug' => 'mosheim', 'has_page' => false],
     ],
     'faq_extra'    => [

@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether you own a cabin near Dale Hollow Lake, a home in Celina, or a rural property anywhere in the county, Tennessee Cash For Homes buys houses throughout all of Clay County in any condition. No matter your situation, we provide a fair cash offer and handle everything from paperwork to closing.',
     'land_para'     => 'Clay County offers affordable lakefront and rural land along Dale Hollow Lake, one of Tennessee\'s most pristine bodies of water. Tennessee Cash For Homes buys Clay County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Celina', 'slug' => 'celina', 'has_page' => false],
+        ['name' => 'Celina', 'slug' => 'celina', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Is it difficult to sell a home in a rural county like Clay County?', 'a' => 'Selling on the open market in Clay County can be slow due to low population density and limited buyer demand. We eliminate that problem by buying your home directly for cash. No waiting, no showings, no uncertainty.'],

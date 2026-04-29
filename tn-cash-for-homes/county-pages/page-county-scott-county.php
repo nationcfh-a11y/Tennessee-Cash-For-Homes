@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'From a cabin near the Big South Fork to a family home in Oneida or Huntsville, we buy houses throughout all of Scott County in any condition. Whether you are dealing with an inherited property, deferred maintenance, or simply want a fast and certain sale, we are here to help with a fair cash offer on your timeline.',
     'land_para'     => 'Scott County offers affordable mountain land near the Big South Fork with wooded tracts and scenic acreage. Tennessee Cash For Homes buys Scott County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Huntsville', 'slug' => 'huntsville-tn', 'has_page' => false],
+        ['name' => 'Huntsville', 'slug' => 'huntsville', 'has_page' => true],
         ['name' => 'Oneida', 'slug' => 'oneida', 'has_page' => false],
     ],
     'faq_extra'    => [

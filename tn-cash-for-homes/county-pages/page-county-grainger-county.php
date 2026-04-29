@@ -23,7 +23,7 @@ $county = [
     'land_para'     => 'Grainger County offers lakefront land on Cherokee Lake and affordable rural acreage with mountain views. Tennessee Cash For Homes buys Grainger County land quickly with no commissions and flexible closing.',
     'cities'        => [
         ['name' => 'Rutledge', 'slug' => 'rutledge', 'has_page' => false],
-        ['name' => 'Bean Station', 'slug' => 'bean-station', 'has_page' => false],
+        ['name' => 'Bean Station', 'slug' => 'bean-station', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy properties near Cherokee Lake in Grainger County?', 'a' => 'Yes. Grainger County borders Cherokee Lake and we buy homes and lake properties throughout the county including Rutledge, Bean Station, and Washburn.'],

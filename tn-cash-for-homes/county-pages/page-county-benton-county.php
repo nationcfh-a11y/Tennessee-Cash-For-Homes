@@ -22,8 +22,8 @@ $county = [
     'desc3'         => 'Whether you own a lakefront cabin that needs repairs, a family home in Camden you have inherited, or a property in Big Sandy you can no longer maintain, Tennessee Cash For Homes purchases houses throughout all of Benton County in any condition. Your situation does not matter to us - what matters is giving you a straightforward path to selling your home.',
     'land_para'     => 'Benton County offers affordable rural land with excellent access to Kentucky Lake and the Tennessee River. Tennessee Cash For Homes buys Benton County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Camden', 'slug' => 'camden', 'has_page' => false],
-        ['name' => 'Big Sandy', 'slug' => 'big-sandy', 'has_page' => false],
+        ['name' => 'Camden', 'slug' => 'camden', 'has_page' => true],
+        ['name' => 'Big Sandy', 'slug' => 'big-sandy', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy lakefront or vacation properties in Benton County?', 'a' => 'Yes. Benton County is home to Kentucky Lake and many seasonal or vacation properties. We buy lakefront homes, cabins, and all types of properties in Benton County regardless of condition or occupancy status.'],

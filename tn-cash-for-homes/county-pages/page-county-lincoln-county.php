@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'No matter what your situation looks like - a family home in Fayetteville you have outgrown, an inherited property in Petersburg, a vacant house that needs more repair than you can afford, or any other reason - we buy houses throughout all of Lincoln County in any condition. From the town square to the farthest corners of the county, Tennessee Cash For Homes is here to make the process simple with a fair cash offer and a closing date on your terms.',
     'land_para'     => 'Lincoln County offers beautiful rolling farmland and rural residential tracts in the heart of Southern Middle Tennessee. Tennessee Cash For Homes buys Lincoln County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Fayetteville', 'slug' => 'fayetteville', 'has_page' => false],
+        ['name' => 'Fayetteville', 'slug' => 'fayetteville', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Fayetteville or other towns in Lincoln County?', 'a' => 'Yes. We buy homes throughout Lincoln County including Fayetteville, Petersburg, and Flintville. All property types and conditions are welcome.'],

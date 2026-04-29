@@ -23,7 +23,7 @@ $county = [
     'land_para'     => 'Gibson County offers some of West Tennessee\'s most productive farmland along with affordable residential lots. Tennessee Cash For Homes buys Gibson County land quickly with no commissions and flexible closing.',
     'cities'        => [
         ['name' => 'Trenton', 'slug' => 'trenton', 'has_page' => false],
-        ['name' => 'Humboldt', 'slug' => 'humboldt', 'has_page' => false],
+        ['name' => 'Humboldt', 'slug' => 'humboldt', 'has_page' => true],
         ['name' => 'Milan', 'slug' => 'milan', 'has_page' => false],
     ],
     'faq_extra'    => [

@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Your reason for selling does not change our willingness to buy. Whether you are managing a family estate in Huntingdon, leaving a rental property in McKenzie behind, or holding a piece of land in Hollow Rock you no longer need, Tennessee Cash For Homes purchases houses throughout all of Carroll County in any condition. We keep the process straightforward so you can move on.',
     'land_para'     => 'Carroll County offers productive farmland and rural residential lots at very affordable prices. Tennessee Cash For Homes buys Carroll County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Huntingdon', 'slug' => 'huntingdon', 'has_page' => false],
+        ['name' => 'Huntingdon', 'slug' => 'huntingdon', 'has_page' => true],
         ['name' => 'McKenzie', 'slug' => 'mckenzie', 'has_page' => false],
     ],
     'faq_extra'    => [

@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether it is a riverfront home in Carthage, a property near the manufacturers in Gordonsville, or a rural homestead anywhere else in Smith County, we buy houses in any condition and any situation. Contact us for a no-obligation cash offer and move forward on your terms.',
     'land_para'     => 'Smith County offers beautiful rural land along the Cumberland River including farmland, wooded tracts, and residential lots. Tennessee Cash For Homes buys Smith County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Carthage', 'slug' => 'carthage', 'has_page' => false],
+        ['name' => 'Carthage', 'slug' => 'carthage', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Carthage or South Carthage in Smith County?', 'a' => 'Yes. We buy homes throughout Smith County including Carthage, South Carthage, Gordonsville, and all surrounding areas. We buy in any condition.'],

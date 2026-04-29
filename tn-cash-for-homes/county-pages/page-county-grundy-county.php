@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'From a mountaintop cabin outside Tracy City to a home in Monteagle near the interstate to a property in Palmer you have not visited in years, Tennessee Cash For Homes buys houses throughout all of Grundy County in any condition. We understand the local market and we are not deterred by the challenges that come with plateau living. Whatever your situation, we are ready to help.',
     'land_para'     => 'Grundy County offers unique plateau land with stunning overlooks, wooded tracts, and affordable mountain acreage. Tennessee Cash For Homes buys Grundy County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Altamont', 'slug' => 'altamont', 'has_page' => false],
+        ['name' => 'Altamont', 'slug' => 'altamont', 'has_page' => true],
         ['name' => 'Tracy City', 'slug' => 'tracy-city', 'has_page' => false],
         ['name' => 'Monteagle', 'slug' => 'monteagle', 'has_page' => false],
     ],

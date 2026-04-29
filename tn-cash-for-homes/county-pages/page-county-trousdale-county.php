@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whatever your circumstances - an inherited home in Hartsville, a property that needs significant repairs, financial pressure, or a life change that requires a fast sale - Tennessee Cash For Homes purchases houses throughout all of Trousdale County in any condition. We work with homeowners across the county, from homes near the town square to properties on the rural outskirts.',
     'land_para'     => 'Trousdale County offers affordable rural land and residential lots northeast of Nashville. As the greater Nashville area continues to grow land in Trousdale County is becoming increasingly valuable. Tennessee Cash For Homes buys Trousdale County land quickly with no commissions.',
     'cities'        => [
-        ['name' => 'Hartsville', 'slug' => 'hartsville', 'has_page' => false],
+        ['name' => 'Hartsville', 'slug' => 'hartsville', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Hartsville or rural Trousdale County?', 'a' => 'Yes. Trousdale County is Tennessee\'s smallest county by area but we buy homes throughout including Hartsville. Small county size does not affect our ability to make fair cash offers.'],

@@ -22,8 +22,8 @@ $county = [
     'desc3'         => 'Life changes do not always come with a convenient timeline. Whether you are behind on payments, managing a property you inherited in Athens, dealing with a difficult tenant situation, or simply need to relocate quickly, we buy houses throughout all of McMinn County. From Etowah cottages to countryside properties off Highway 30, we make fair cash offers on homes in any condition.',
     'land_para'     => 'McMinn County offers a mix of farmland, residential lots, and commercial properties along the I-75 corridor. Tennessee Cash For Homes buys McMinn County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Athens', 'slug' => 'athens', 'has_page' => false],
-        ['name' => 'Etowah', 'slug' => 'etowah', 'has_page' => false],
+        ['name' => 'Athens', 'slug' => 'athens', 'has_page' => true],
+        ['name' => 'Etowah', 'slug' => 'etowah', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Athens or Etowah in McMinn County?', 'a' => 'Yes. We purchase homes throughout McMinn County including Athens, Etowah, Niota, and Englewood. All property types and conditions are welcome.'],

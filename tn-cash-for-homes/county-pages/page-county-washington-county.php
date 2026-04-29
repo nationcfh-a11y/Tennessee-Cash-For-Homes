@@ -22,8 +22,8 @@ $county = [
     'desc3'         => 'Whatever your situation - whether you have inherited a property in Jonesborough, own a rental near the ETSU campus that has become more trouble than it is worth, or need to relocate quickly for work - Tennessee Cash For Homes buys houses throughout all of Washington County in any condition. From historic homes on Jonesborough\'s Main Street to subdivisions across Johnson City, we are ready to help.',
     'land_para'     => 'Washington County\'s growing population and strong economy have made land increasingly desirable. Tennessee Cash For Homes buys Washington County land quickly with no commissions, no surveys required, and flexible closing.',
     'cities'        => [
-        ['name' => 'Johnson City', 'slug' => 'johnson-city', 'has_page' => false],
-        ['name' => 'Jonesborough', 'slug' => 'jonesborough', 'has_page' => false],
+        ['name' => 'Johnson City', 'slug' => 'johnson-city', 'has_page' => true],
+        ['name' => 'Jonesborough', 'slug' => 'jonesborough', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Johnson City or Jonesborough in Washington County?', 'a' => 'Yes. We buy homes throughout Washington County including Johnson City, Jonesborough (Tennessee\'s oldest town), and all surrounding areas. We are active in the Tri-Cities market.'],

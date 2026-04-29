@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Regardless of what is driving your decision, whether it is a job relocation, a divorce, an inherited property in Cookeville, or a home that took damage in a tornado, we buy houses throughout all of Putnam County in any condition. From subdivisions off South Willow to rural acreage outside Baxter, Tennessee Cash For Homes is here to provide a fair cash offer and a closing process that works on your timeline.',
     'land_para'     => 'Putnam County\'s rapid growth has increased demand for land across the county. Tennessee Cash For Homes buys Putnam County land quickly with no commissions, no surveys required, and flexible closing.',
     'cities'        => [
-        ['name' => 'Cookeville', 'slug' => 'cookeville', 'has_page' => false],
+        ['name' => 'Cookeville', 'slug' => 'cookeville', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Cookeville or near Tennessee Tech in Putnam County?', 'a' => 'Yes. We purchase homes throughout Putnam County including Cookeville, Baxter, Algood, and Monterey. Properties near Tennessee Tech, student housing, and family homes are all welcome.'],

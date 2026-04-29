@@ -23,7 +23,7 @@ $county = [
     'land_para'     => 'Roane County offers lakefront land on Watts Bar Lake, riverfront properties, and affordable residential lots. Tennessee Cash For Homes buys Roane County land quickly with no commissions and flexible closing.',
     'cities'        => [
         ['name' => 'Kingston', 'slug' => 'kingston', 'has_page' => false],
-        ['name' => 'Harriman', 'slug' => 'harriman', 'has_page' => false],
+        ['name' => 'Harriman', 'slug' => 'harriman', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Harriman, Kingston, or Rockwood in Roane County?', 'a' => 'Yes. We purchase homes throughout Roane County including Harriman, Kingston, Rockwood, and Oliver Springs. We buy in all conditions and close quickly.'],

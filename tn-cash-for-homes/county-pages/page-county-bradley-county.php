@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whatever your situation - whether you are a landlord tired of managing a rental property, facing financial difficulties, relocating for a new job, or holding an inherited home you cannot maintain - Tennessee Cash For Homes buys houses throughout all of Bradley County in any condition. From the neighborhoods around Lee University to the rural communities outside Cleveland, we are ready to help.',
     'land_para'     => 'Bradley County offers a mix of residential lots, farmland, and wooded tracts at competitive prices. Tennessee Cash For Homes buys Bradley County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Cleveland', 'slug' => 'cleveland', 'has_page' => false],
+        ['name' => 'Cleveland', 'slug' => 'cleveland', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Cleveland, Tennessee in Bradley County?', 'a' => 'Yes. Cleveland is the largest city in Bradley County and we actively purchase homes throughout the area. Whether your home is near downtown Cleveland or in the surrounding communities, we make fair cash offers.'],

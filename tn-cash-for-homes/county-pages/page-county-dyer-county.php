@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether you own a home in downtown Dyersburg, a property near the Forked Deer River, or a house in Newbern or anywhere else in the county, Tennessee Cash For Homes buys houses throughout all of Dyer County in any condition. We are here to provide a straightforward cash offer and close on whatever timeline works best for you.',
     'land_para'     => 'Dyer County offers productive farmland and affordable residential lots in the heart of Northwest Tennessee. Tennessee Cash For Homes buys Dyer County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Dyersburg', 'slug' => 'dyersburg', 'has_page' => false],
+        ['name' => 'Dyersburg', 'slug' => 'dyersburg', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Dyersburg in Dyer County?', 'a' => 'Yes. Dyersburg is the county seat and we actively buy homes throughout Dyersburg and all of Dyer County. Whether your home is downtown or in a rural area, we will make you a cash offer.'],

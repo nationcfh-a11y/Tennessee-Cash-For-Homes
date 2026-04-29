@@ -23,7 +23,7 @@ $county = [
     'land_para'     => 'Blount County land is highly sought after for its mountain views and proximity to the Smokies. Tennessee Cash For Homes buys Blount County land quickly with no commissions, no surveys required, and flexible closing.',
     'cities'        => [
         ['name' => 'Maryville', 'slug' => 'maryville', 'has_page' => false],
-        ['name' => 'Alcoa', 'slug' => 'alcoa', 'has_page' => false],
+        ['name' => 'Alcoa', 'slug' => 'alcoa', 'has_page' => true],
         ['name' => 'Townsend', 'slug' => 'townsend', 'has_page' => false],
     ],
     'faq_extra'    => [

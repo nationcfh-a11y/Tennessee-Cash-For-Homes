@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether you own a home in Centerville, a cabin near the Duck River, a farmhouse in Lyles, or a property on a gravel road deep in the county, we buy houses throughout all of Hickman County in any condition. Whatever your circumstances, from an inherited property to a home that needs more work than it is worth investing in, we are here to provide a fair cash offer and a closing process that works on your terms.',
     'land_para'     => 'Hickman County offers beautiful rural land including wooded tracts, farmland, and residential lots at affordable prices. Tennessee Cash For Homes buys Hickman County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Centerville', 'slug' => 'centerville', 'has_page' => false],
+        ['name' => 'Centerville', 'slug' => 'centerville', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy rural homes on acreage in Hickman County?', 'a' => 'Yes. Hickman County is one of Middle Tennessee\'s most rural counties and we regularly buy homes on large lots and acreage. Properties in Centerville, Lyles, and all unincorporated areas are welcome.'],

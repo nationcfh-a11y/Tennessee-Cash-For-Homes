@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether you own a property near Freed-Hardeman\'s campus, a farmhouse on the outskirts of Henderson, or a home anywhere else in the county, Tennessee Cash For Homes buys houses throughout all of Chester County in any condition. We are here to give you a straightforward path to selling, no matter your situation.',
     'land_para'     => 'Chester County offers affordable farmland and rural residential lots in a quiet West Tennessee setting. Tennessee Cash For Homes buys Chester County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Henderson', 'slug' => 'henderson', 'has_page' => false],
+        ['name' => 'Henderson', 'slug' => 'henderson', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy properties in Henderson or other parts of Chester County?', 'a' => 'Yes. We purchase homes throughout Chester County including Henderson and all surrounding areas. Whether your home is in town or on a rural lot, we buy properties in any condition.'],

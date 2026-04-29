@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whatever your circumstances - an inherited home in Kingston Springs, a flood-affected property along the Cumberland, or a house in Pleasant View you simply need to sell - Tennessee Cash For Homes buys houses throughout all of Cheatham County in any condition. We work on your timeline and handle every detail from offer to closing.',
     'land_para'     => 'Cheatham County offers peaceful rural living and affordable land options that attract buyers seeking space outside Nashville. Tennessee Cash For Homes buys Cheatham County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Ashland City', 'slug' => 'ashland-city', 'has_page' => false],
+        ['name' => 'Ashland City', 'slug' => 'ashland-city', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Is Cheatham County considered part of the Nashville market for home sales?', 'a' => 'Yes. Cheatham County is part of the greater Nashville metropolitan area, and many residents commute to Nashville. We buy homes throughout Cheatham County including Ashland City and Pleasant View, and our offers reflect the regional market.'],

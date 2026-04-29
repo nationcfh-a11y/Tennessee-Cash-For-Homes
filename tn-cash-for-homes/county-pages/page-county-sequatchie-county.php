@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether your property is a valley farmhouse outside Dunlap, a mountain home on the plateau, or a residence anywhere else in Sequatchie County, we buy houses in any condition and any situation. Reach out for a no-obligation cash offer and close whenever you are ready.',
     'land_para'     => 'Sequatchie County offers scenic valley and mountain land at affordable prices in a quiet Tennessee setting. Tennessee Cash For Homes buys Sequatchie County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Dunlap', 'slug' => 'dunlap', 'has_page' => false],
+        ['name' => 'Dunlap', 'slug' => 'dunlap', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Dunlap or the Sequatchie Valley?', 'a' => 'Yes. We buy homes throughout Sequatchie County including Dunlap and the beautiful Sequatchie Valley. Mountain and valley properties are welcome in any condition.'],

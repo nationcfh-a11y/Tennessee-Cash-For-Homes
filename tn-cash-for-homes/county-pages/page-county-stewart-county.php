@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether you own a lakefront cabin on Lake Barkley, a historic home in Dover, a hunting property near Indian Mound, or a house anywhere else in Stewart County, we buy in any condition and any situation. Get in touch for a fair, no-obligation cash offer and close on whatever timeline works for you.',
     'land_para'     => 'Stewart County offers exceptional waterfront and rural land along the Cumberland River and Lake Barkley. Tennessee Cash For Homes buys Stewart County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Dover', 'slug' => 'dover', 'has_page' => false],
+        ['name' => 'Dover', 'slug' => 'dover', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy properties near Land Between the Lakes in Stewart County?', 'a' => 'Yes. Stewart County borders the Land Between the Lakes National Recreation Area and we buy homes, cabins, and properties throughout the county including Dover and Indian Mound.'],

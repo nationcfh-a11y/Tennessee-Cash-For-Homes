@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whatever your reason for selling - whether you have inherited a family property in Decatur, own a lake cabin near Ten Mile that you no longer use, or need to sell quickly due to financial pressures - we buy houses throughout all of Meigs County in any condition. Our team understands rural East Tennessee properties and will give you a fair, no-obligation cash offer.',
     'land_para'     => 'Meigs County offers unique lakefront land surrounded by the Tennessee River on multiple sides. Tennessee Cash For Homes buys Meigs County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Decatur', 'slug' => 'decatur', 'has_page' => false],
+        ['name' => 'Decatur', 'slug' => 'decatur', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy properties near Watts Bar Lake in Meigs County?', 'a' => 'Yes. Meigs County borders Watts Bar Lake and we buy homes, lake properties, and land throughout the county including Decatur and Ten Mile.'],

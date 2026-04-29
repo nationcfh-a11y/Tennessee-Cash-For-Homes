@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Regardless of your situation - whether it is an inherited cabin near the Nolichucky, a home in Erwin that needs foundation work, or a property you simply want to sell without delay - Tennessee Cash For Homes buys houses throughout all of Unicoi County in any condition. Mountain homes, river properties, in-town residences, and everything in between are all welcome.',
     'land_para'     => 'Unicoi County offers affordable mountain land with river access and stunning views of the Unaka Mountains. Tennessee Cash For Homes buys Unicoi County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Erwin', 'slug' => 'erwin', 'has_page' => false],
+        ['name' => 'Erwin', 'slug' => 'erwin', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Erwin or near the Appalachian Trail in Unicoi County?', 'a' => 'Yes. We buy homes throughout Unicoi County including Erwin and areas near the Appalachian Trail and Unaka Mountains. Mountain properties in any condition are welcome.'],

@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'No matter what your situation looks like, whether you own a lakefront cabin on Dale Hollow that needs updating, a family home in Byrdstown you have inherited, or a vacant property you are tired of maintaining from a distance, we buy houses throughout all of Pickett County in any condition. Tennessee Cash For Homes works with sellers across Tennessee\'s smallest communities, and we understand the unique challenges that come with a rural market.',
     'land_para'     => 'Pickett County offers affordable lakefront land on Dale Hollow Lake and scenic rural acreage. Tennessee Cash For Homes buys Pickett County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Byrdstown', 'slug' => 'byrdstown', 'has_page' => false],
+        ['name' => 'Byrdstown', 'slug' => 'byrdstown', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Is it possible to sell a home quickly in Tennessee\'s smallest counties like Pickett County?', 'a' => 'Pickett County has a very small population, which makes traditional home sales extremely difficult. We buy homes directly for cash in Byrdstown and throughout Pickett County, eliminating the need to wait months or years for a buyer.'],

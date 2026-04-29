@@ -23,7 +23,7 @@ $county = [
     'land_para'     => 'Knox County\'s growing population and strong economy have driven land values up across the county. Tennessee Cash For Homes buys Knox County land quickly with no commissions, no closing costs, and a flexible timeline.',
     'cities'        => [
         ['name' => 'Knoxville', 'slug' => 'knoxville', 'has_page' => true],
-        ['name' => 'Farragut', 'slug' => 'farragut', 'has_page' => false],
+        ['name' => 'Farragut', 'slug' => 'farragut', 'has_page' => true],
         ['name' => 'Powell', 'slug' => 'powell', 'has_page' => false],
     ],
     'faq_extra'    => [

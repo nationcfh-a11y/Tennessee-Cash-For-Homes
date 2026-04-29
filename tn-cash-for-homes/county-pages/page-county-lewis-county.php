@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Regardless of why you need to sell - an inherited property you cannot manage from out of town, a home that has been sitting vacant, financial pressure, or any other life circumstance - we buy houses throughout all of Lewis County in any condition. From Hohenwald to Summertown and the rural stretches along the Natchez Trace, Tennessee Cash For Homes is ready to provide a fair cash offer with zero obligation.',
     'land_para'     => 'Lewis County offers peaceful rural land including farmland, wooded acreage, and undeveloped lots at very competitive prices. Tennessee Cash For Homes buys Lewis County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Hohenwald', 'slug' => 'hohenwald', 'has_page' => false],
+        ['name' => 'Hohenwald', 'slug' => 'hohenwald', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Hohenwald or rural Lewis County?', 'a' => 'Yes. We purchase homes throughout Lewis County including Hohenwald and all surrounding rural areas. Lewis County\'s small market size is not a barrier for us.'],

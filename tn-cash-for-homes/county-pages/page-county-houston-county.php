@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether you own a home in Erin, a property along the Cumberland River, or a house on a quiet back road anywhere in Houston County, we buy houses throughout the entire county in any condition. From inherited properties and vacant homes to houses with foundation issues or outdated systems, no situation is too complicated for our team. We are here to give you a simple, honest path to selling your home.',
     'land_para'     => 'Houston County offers affordable rural land along the Cumberland River including wooded tracts and residential lots. Tennessee Cash For Homes buys Houston County land quickly with no commissions and no surveys required.',
     'cities'        => [
-        ['name' => 'Erin', 'slug' => 'erin', 'has_page' => false],
+        ['name' => 'Erin', 'slug' => 'erin', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Is it hard to find buyers for homes in a small county like Houston County?', 'a' => 'Houston County is Tennessee\'s smallest county by population, which can make traditional home sales challenging. We buy homes directly for cash in Erin and throughout Houston County, giving you a guaranteed sale without waiting for a buyer.'],

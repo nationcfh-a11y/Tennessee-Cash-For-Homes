@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'From homes along the Cumberland River in Gainesboro to lakefront properties near Granville, farmsteads in Whitleyville, or houses on remote tracts anywhere in the county, we buy houses throughout all of Jackson County in any condition. Whether you are managing an inherited property, facing financial pressure, or simply ready for a change, our team will work with you to make the sale as simple and fair as possible.',
     'land_para'     => 'Jackson County offers affordable rural land along the Cumberland River and Cordell Hull Lake. Tennessee Cash For Homes buys Jackson County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Gainesboro', 'slug' => 'gainesboro', 'has_page' => false],
+        ['name' => 'Gainesboro', 'slug' => 'gainesboro', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Gainesboro or rural Jackson County?', 'a' => 'Yes. We buy homes throughout Jackson County including Gainesboro and all surrounding rural areas. Low population density does not affect our interest in purchasing your property.'],

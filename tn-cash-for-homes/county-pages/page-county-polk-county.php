@@ -22,8 +22,8 @@ $county = [
     'desc3'         => 'Whatever has brought you to this decision, whether it is a seasonal cabin you no longer visit, a home in Benton that needs foundation work, or a property in Ducktown you inherited and do not want to manage, we buy houses throughout all of Polk County in any condition. Tennessee Cash For Homes serves sellers across East Tennessee\'s mountain communities and we are committed to making every transaction fair and straightforward.',
     'land_para'     => 'Polk County offers mountain land near the Cherokee National Forest and Ocoee River at affordable prices. Tennessee Cash For Homes buys Polk County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Benton', 'slug' => 'benton', 'has_page' => false],
-        ['name' => 'Copperhill', 'slug' => 'copperhill', 'has_page' => false],
+        ['name' => 'Benton', 'slug' => 'benton', 'has_page' => true],
+        ['name' => 'Copperhill', 'slug' => 'copperhill', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Benton, Copperhill, or Ducktown in Polk County?', 'a' => 'Yes. We buy homes throughout Polk County including Benton, Copperhill, and Ducktown. Mountain properties and homes near the Ocoee River are all ones we purchase.'],

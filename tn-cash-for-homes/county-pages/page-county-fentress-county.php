@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether you own a cabin near the Big South Fork, a family home in Jamestown, or a wooded tract with a house that has sat vacant for years, Tennessee Cash For Homes buys properties throughout all of Fentress County in any condition. Your situation does not need to be perfect for us to help. We are here to make the process simple and certain.',
     'land_para'     => 'Fentress County offers affordable mountain land near the Big South Fork National Recreation Area. Tennessee Cash For Homes buys Fentress County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Jamestown', 'slug' => 'jamestown', 'has_page' => false],
+        ['name' => 'Jamestown', 'slug' => 'jamestown', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy properties near Big South Fork in Fentress County?', 'a' => 'Yes. Fentress County borders the Big South Fork National River and Recreation Area. We buy homes, cabins, and properties throughout the county including Jamestown and surrounding communities.'],

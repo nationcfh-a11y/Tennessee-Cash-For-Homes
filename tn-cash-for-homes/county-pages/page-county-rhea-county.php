@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whatever your reason for selling, whether you have a lakefront home on Watts Bar that needs updating, a rental property in Dayton you want to offload, or a family house in Spring City you inherited, we buy houses throughout all of Rhea County in any condition. Tennessee Cash For Homes is here to give you a fair cash offer and a process that respects your time.',
     'land_para'     => 'Rhea County offers lakefront land on Watts Bar Lake and affordable rural acreage in a growing market. Tennessee Cash For Homes buys Rhea County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Dayton', 'slug' => 'dayton', 'has_page' => false],
+        ['name' => 'Dayton', 'slug' => 'dayton', 'has_page' => true],
         ['name' => 'Spring City', 'slug' => 'spring-city', 'has_page' => false],
     ],
     'faq_extra'    => [

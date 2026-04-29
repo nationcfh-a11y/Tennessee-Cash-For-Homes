@@ -23,9 +23,9 @@ $county = [
     'land_para'     => 'Shelby County\'s large population and ongoing suburban development keep land in high demand. Tennessee Cash For Homes buys Shelby County land quickly with no commissions, no closing costs, and a flexible timeline.',
     'cities'        => [
         ['name' => 'Memphis', 'slug' => 'memphis', 'has_page' => true],
-        ['name' => 'Germantown', 'slug' => 'germantown', 'has_page' => false],
-        ['name' => 'Bartlett', 'slug' => 'bartlett', 'has_page' => false],
-        ['name' => 'Collierville', 'slug' => 'collierville', 'has_page' => false],
+        ['name' => 'Germantown', 'slug' => 'germantown', 'has_page' => true],
+        ['name' => 'Bartlett', 'slug' => 'bartlett', 'has_page' => true],
+        ['name' => 'Collierville', 'slug' => 'collierville', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'How does Memphis\'s real estate market in Shelby County affect your offers?', 'a' => 'Shelby County and Memphis have a diverse real estate market with significant variation by neighborhood. Our offers are based on comparable sales and current conditions specific to your property\'s location. We provide fair offers across all Memphis neighborhoods.'],

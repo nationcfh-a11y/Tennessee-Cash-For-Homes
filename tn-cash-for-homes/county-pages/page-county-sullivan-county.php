@@ -22,9 +22,9 @@ $county = [
     'desc3'         => 'Whether you own a craftsman in Kingsport\'s historic neighborhoods, a home along the Bristol commercial corridor, a property in Bluff City or Blountville, or a house anywhere else in Sullivan County, we buy in any condition. Whatever your reason for selling, reach out for a no-obligation cash offer and pick the closing date that works best for you.',
     'land_para'     => 'Sullivan County offers diverse land options from residential lots in growing suburbs to rural mountain acreage. Tennessee Cash For Homes buys Sullivan County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Bristol', 'slug' => 'bristol', 'has_page' => false],
-        ['name' => 'Kingsport', 'slug' => 'kingsport', 'has_page' => false],
-        ['name' => 'Blountville', 'slug' => 'blountville', 'has_page' => false],
+        ['name' => 'Bristol', 'slug' => 'bristol', 'has_page' => true],
+        ['name' => 'Kingsport', 'slug' => 'kingsport', 'has_page' => true],
+        ['name' => 'Blountville', 'slug' => 'blountville', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Kingsport, Bristol, or Bluff City in Sullivan County?', 'a' => 'Yes. We buy homes throughout Sullivan County including Kingsport, Bristol, and Bluff City. Whether your home is in the Tri-Cities metro or a rural area, we purchase all types and conditions.'],

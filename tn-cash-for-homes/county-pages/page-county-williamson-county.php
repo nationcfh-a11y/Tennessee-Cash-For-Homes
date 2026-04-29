@@ -24,7 +24,7 @@ $county = [
     'cities'        => [
         ['name' => 'Franklin',    'slug' => 'franklin',    'has_page' => true],
         ['name' => 'Spring Hill', 'slug' => 'spring-hill', 'has_page' => true],
-        ['name' => 'Brentwood',   'slug' => 'brentwood',   'has_page' => false],
+        ['name' => 'Brentwood',   'slug' => 'brentwood',   'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Is now a good time to sell my Williamson County home given the market growth?', 'a' => 'Williamson County is one of Tennessee\'s most expensive and fastest-growing counties. Property values in Franklin, Brentwood, and Spring Hill remain strong. Selling to us for cash means you can take advantage of current values without months of showings and negotiations.'],
