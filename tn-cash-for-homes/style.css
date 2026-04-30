@@ -1062,7 +1062,7 @@ img { display: block; max-width: 100%; }
 /* ── AREAS / CITY CHIPS ── */
 .cities-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 14px;
   margin-bottom: 32px;
 }
@@ -1970,7 +1970,7 @@ div.related-posts,
   .difference__img-wrap { height: 400px; }
   .difference__content-wrap { padding: 48px 32px; }
   .blog-grid { grid-template-columns: repeat(2, 1fr); }
-  .cities-grid { grid-template-columns: repeat(4, 1fr); }
+  .cities-grid { grid-template-columns: repeat(3, 1fr); }
   .reviews-slide { grid-template-columns: repeat(2, 1fr); }
 }
 
