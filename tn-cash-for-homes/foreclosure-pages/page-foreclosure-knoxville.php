@@ -4,6 +4,7 @@
  */
 $fc_city_name   = 'Knoxville';
 $fc_city_slug   = 'knoxville';
+$fc_wwb_slug    = 'tennessee';
 $fc_county      = 'Knox';
 $fc_county_slug = 'tennessee';
 $fc_meta_title  = 'Facing Foreclosure in Knoxville TN | Tennessee Cash For Homes';

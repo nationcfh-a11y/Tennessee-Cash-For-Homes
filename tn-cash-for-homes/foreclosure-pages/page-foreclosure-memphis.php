@@ -4,6 +4,7 @@
  */
 $fc_city_name   = 'Memphis';
 $fc_city_slug   = 'memphis';
+$fc_wwb_slug    = 'tennessee';
 $fc_county      = 'Shelby';
 $fc_county_slug = 'tennessee';
 $fc_meta_title  = 'Facing Foreclosure in Memphis TN | Tennessee Cash For Homes';

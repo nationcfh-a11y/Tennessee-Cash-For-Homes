@@ -633,7 +633,7 @@ echo wp_json_encode( [
         <span>Sell Your House in <?php echo esc_html( $fc_county ); ?> County</span>
       </a>
       <?php endif; ?>
-      <a href="<?php echo esc_url( home_url( '/where-we-buy/' . $fc_city_slug . '/' ) ); ?>" class="fc-link-card">
+      <a href="<?php echo esc_url( home_url( '/where-we-buy/' . ( isset( $fc_wwb_slug ) ? $fc_wwb_slug : $fc_city_slug ) . '/' ) ); ?>" class="fc-link-card">
         <svg width="20" height="20" fill="none" stroke="#84CC9C" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         <span><?php echo $fc_is_statewide ? 'We Buy Houses Across Tennessee' : 'We Buy Houses in ' . esc_html( $fc_city_name ); ?></span>
       </a>

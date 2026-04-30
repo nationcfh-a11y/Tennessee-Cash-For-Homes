@@ -4,6 +4,7 @@
  */
 $fc_city_name   = 'Chapel Hill';
 $fc_city_slug   = 'chapel-hill';
+$fc_wwb_slug    = 'tennessee';
 $fc_county      = 'Marshall';
 $fc_county_slug = 'tennessee';
 $fc_meta_title  = 'Facing Foreclosure in Chapel Hill TN | Tennessee Cash For Homes';

@@ -4,6 +4,7 @@
  */
 $fc_city_name   = 'Antioch';
 $fc_city_slug   = 'antioch';
+$fc_wwb_slug    = 'tennessee';
 $fc_county      = 'Davidson';
 $fc_county_slug = 'davidson-county';
 $fc_meta_title  = 'Facing Foreclosure in Antioch TN | Tennessee Cash For Homes';

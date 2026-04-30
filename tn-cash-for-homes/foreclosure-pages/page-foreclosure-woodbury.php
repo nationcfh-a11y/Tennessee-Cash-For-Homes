@@ -4,6 +4,7 @@
  */
 $fc_city_name   = 'Woodbury';
 $fc_city_slug   = 'woodbury';
+$fc_wwb_slug    = 'tennessee';
 $fc_county      = 'Cannon';
 $fc_county_slug = 'tennessee';
 $fc_meta_title  = 'Facing Foreclosure in Woodbury TN | Tennessee Cash For Homes';

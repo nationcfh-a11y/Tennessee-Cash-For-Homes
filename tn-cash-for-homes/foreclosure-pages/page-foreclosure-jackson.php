@@ -4,6 +4,7 @@
  */
 $fc_city_name   = 'Jackson';
 $fc_city_slug   = 'jackson';
+$fc_wwb_slug    = 'tennessee';
 $fc_county      = 'Madison';
 $fc_county_slug = 'tennessee';
 $fc_meta_title  = 'Facing Foreclosure in Jackson TN | Tennessee Cash For Homes';

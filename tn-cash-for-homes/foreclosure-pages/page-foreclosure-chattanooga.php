@@ -4,6 +4,7 @@
  */
 $fc_city_name   = 'Chattanooga';
 $fc_city_slug   = 'chattanooga';
+$fc_wwb_slug    = 'tennessee';
 $fc_county      = 'Hamilton';
 $fc_county_slug = 'tennessee';
 $fc_meta_title  = 'Facing Foreclosure in Chattanooga TN | Tennessee Cash For Homes';

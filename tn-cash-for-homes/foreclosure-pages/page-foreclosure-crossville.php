@@ -4,6 +4,7 @@
  */
 $fc_city_name   = 'Crossville';
 $fc_city_slug   = 'crossville';
+$fc_wwb_slug    = 'tennessee';
 $fc_county      = 'Cumberland';
 $fc_county_slug = 'tennessee';
 $fc_meta_title  = 'Facing Foreclosure in Crossville TN | Tennessee Cash For Homes';

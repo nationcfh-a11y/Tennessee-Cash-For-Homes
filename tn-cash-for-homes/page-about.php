@@ -86,6 +86,12 @@ $cities = [
     ['name'=>'Lebanon','slug'=>'lebanon'],
     ['name'=>'La Vergne','slug'=>'la-vergne'],
     ['name'=>'Shelbyville','slug'=>'shelbyville'],
+    ['name'=>'Brentwood','slug'=>'brentwood'],
+    ['name'=>'Mt. Juliet','slug'=>'mt-juliet'],
+    ['name'=>'Dickson','slug'=>'dickson'],
+    ['name'=>'Tullahoma','slug'=>'tullahoma'],
+    ['name'=>'Cookeville','slug'=>'cookeville'],
+    ['name'=>'Springfield','slug'=>'springfield'],
 ];
 ?>
 

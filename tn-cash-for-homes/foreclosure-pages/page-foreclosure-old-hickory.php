@@ -4,6 +4,7 @@
  */
 $fc_city_name   = 'Old Hickory';
 $fc_city_slug   = 'old-hickory';
+$fc_wwb_slug    = 'tennessee';
 $fc_county      = 'Davidson';
 $fc_county_slug = 'davidson-county';
 $fc_meta_title  = 'Facing Foreclosure in Old Hickory TN | Tennessee Cash For Homes';

@@ -22,6 +22,12 @@ $cities = [
   ['name'=>'Lebanon',        'slug'=>'lebanon',        'image'=>'Lebanon.webp',        'price'=>'$389,900'],
   ['name'=>'La Vergne',      'slug'=>'la-vergne',      'image'=>'La Vergne.webp',      'price'=>'$325,000'],
   ['name'=>'Shelbyville',    'slug'=>'shelbyville',    'image'=>'Shelbyville.webp',    'price'=>'$305,000'],
+  ['name'=>'Brentwood',      'slug'=>'brentwood',      'image'=>'Brentwood.webp',      'price'=>'$1,200,000'],
+  ['name'=>'Mt. Juliet',     'slug'=>'mt-juliet',      'image'=>'Mt Juliet.webp',      'price'=>'$485,000'],
+  ['name'=>'Dickson',        'slug'=>'dickson',        'image'=>'Dickson.webp',        'price'=>'$310,000'],
+  ['name'=>'Tullahoma',      'slug'=>'tullahoma',      'image'=>'Tullahoma.webp',      'price'=>'$285,000'],
+  ['name'=>'Cookeville',     'slug'=>'cookeville',     'image'=>'Cookeville.webp',     'price'=>'$325,000'],
+  ['name'=>'Springfield',    'slug'=>'springfield',    'image'=>'Springfield.webp',    'price'=>'$340,000'],
   ['name'=>'Tennessee',      'slug'=>'tennessee',      'image'=>'Tennessee.webp',      'price'=>'$350,000'],
 ];
 
@@ -542,6 +548,12 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
       <a href="<?php echo esc_url( home_url('/where-we-buy/spring-hill/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Spring Hill</span></a>
       <a href="<?php echo esc_url( home_url('/where-we-buy/lebanon/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Lebanon</span></a>
       <a href="<?php echo esc_url( home_url('/where-we-buy/hendersonville/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Hendersonville</span></a>
+      <a href="<?php echo esc_url( home_url('/where-we-buy/brentwood/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Brentwood</span></a>
+      <a href="<?php echo esc_url( home_url('/where-we-buy/mt-juliet/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Mt. Juliet</span></a>
+      <a href="<?php echo esc_url( home_url('/where-we-buy/dickson/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Dickson</span></a>
+      <a href="<?php echo esc_url( home_url('/where-we-buy/tullahoma/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Tullahoma</span></a>
+      <a href="<?php echo esc_url( home_url('/where-we-buy/cookeville/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Cookeville</span></a>
+      <a href="<?php echo esc_url( home_url('/where-we-buy/springfield/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Springfield</span></a>
       <a href="<?php echo esc_url( home_url('/where-we-buy/tennessee/') ); ?>" class="city-chip city-chip--full"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Anywhere in Tennessee &mdash; We Serve All Areas</span></a>
     </div>
     <p class="areas-footnote">Don&rsquo;t see your city? We serve <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>">all of Tennessee</a>. Contact us for your cash offer today.</p>

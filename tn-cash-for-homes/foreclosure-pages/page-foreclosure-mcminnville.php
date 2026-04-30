@@ -4,6 +4,7 @@
  */
 $fc_city_name   = 'McMinnville';
 $fc_city_slug   = 'mcminnville';
+$fc_wwb_slug    = 'tennessee';
 $fc_county      = 'Warren';
 $fc_county_slug = 'tennessee';
 $fc_meta_title  = 'Facing Foreclosure in McMinnville TN | Tennessee Cash For Homes';
