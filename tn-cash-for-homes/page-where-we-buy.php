@@ -215,23 +215,23 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
         <g class="county-group" data-county="Stewart" data-slug="stewart-county">
           <path class="county-path" id="stewart" d="m 27.363059,9.0254027 0.541,-0.062 0.806,3.4559983 -1.329,0.212 -0.141,0.127 -0.184,0.13 -0.279,0.139 -0.222,0.069 -0.201,0.036 -0.303,0.017 -0.203,-0.013 -1.117,-0.19 -0.099,-0.086 -0.799,-1.707999 -0.37,-2.3299992 0.601,-0.036 1.676,0.032 -0.004,0.3969999 1.627,-0.19" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Stewart County</title></path>
         </g>
-        <g class="county-group" data-county="Montgomery" data-slug="montgomery-county">
-          <path class="county-path" id="montgomery" d="m 33.280059,8.4174028 0.172,2.4249992 -1.546,1.883999 -2.348,0.044 -0.848,-0.351 -0.806,-3.4559983 3.119,-0.3249999 2.257,-0.221" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Montgomery County</title></path>
+        <g class="county-group county-group--active" data-county="Montgomery" data-slug="montgomery-county">
+          <path class="county-path" id="montgomery" d="m 33.280059,8.4174028 0.172,2.4249992 -1.546,1.883999 -2.348,0.044 -0.848,-0.351 -0.806,-3.4559983 3.119,-0.3249999 2.257,-0.221" fill="#84CC9C" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Montgomery County</title></path>
         </g>
-        <g class="county-group" data-county="Robertson" data-slug="robertson-county">
-          <path class="county-path" id="robertson" d="m 36.867059,7.9894028 2.056,0 -0.266,0.685 -0.568,1.7029992 -0.229,0.506 -0.595,0.248 -1.601,0.445 -2.212,-0.734 -0.172,-2.4249992 0.554,-0.064 3.033,-0.364" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Robertson County</title></path>
+        <g class="county-group county-group--active" data-county="Robertson" data-slug="robertson-county">
+          <path class="county-path" id="robertson" d="m 36.867059,7.9894028 2.056,0 -0.266,0.685 -0.568,1.7029992 -0.229,0.506 -0.595,0.248 -1.601,0.445 -2.212,-0.734 -0.172,-2.4249992 0.554,-0.064 3.033,-0.364" fill="#84CC9C" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Robertson County</title></path>
         </g>
         <g class="county-group" data-county="Cheatham" data-slug="cheatham-county">
           <path class="county-path" id="cheatham" d="m 33.452059,10.842402 2.212,0.734 -1.032,4.502999 -1.328,0.067 0.08,-1.843 -0.144,-0.483 -0.208,-0.152 0.28,-0.433 0.018,-0.347 -0.032,-0.073 -0.238,-0.089 -0.533,-0.068 -0.621,0.068 1.546,-1.883999 z m -0.077,2.121999 -0.05,0.063 0.13,-0.058 -0.03,-0.027 -0.018,0.036 -0.032,-0.014" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Cheatham County</title></path>
         </g>
-        <g class="county-group" data-county="Dickson" data-slug="dickson-county">
-          <path class="county-path" id="dickson" d="m 29.558059,12.770401 2.348,-0.044 0.621,-0.068 0.533,0.068 0.238,0.089 0.032,0.073 -0.018,0.347 -0.28,0.433 0.208,0.152 0.144,0.483 -0.08,1.843 -0.118,1.195 -3.448,-0.131 -0.545,-2.361 0.365,-2.079" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Dickson County</title></path>
+        <g class="county-group county-group--active" data-county="Dickson" data-slug="dickson-county">
+          <path class="county-path" id="dickson" d="m 29.558059,12.770401 2.348,-0.044 0.621,-0.068 0.533,0.068 0.238,0.089 0.032,0.073 -0.018,0.347 -0.28,0.433 0.208,0.152 0.144,0.483 -0.08,1.843 -0.118,1.195 -3.448,-0.131 -0.545,-2.361 0.365,-2.079" fill="#84CC9C" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Dickson County</title></path>
         </g>
-        <g class="county-group" data-county="Williamson" data-slug="williamson-county">
-          <path class="county-path" id="williamson" d="m 33.304059,16.146401 1.328,-0.067 0.207,0.716 0.136,-0.018 0.937,-0.914 1.484,0.076 1.82,0.707 -0.365,3.404 -0.986,0.139 -4.662,-1.432 -0.017,-1.416 0.118,-1.195" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Williamson County</title></path>
+        <g class="county-group county-group--active" data-county="Williamson" data-slug="williamson-county">
+          <path class="county-path" id="williamson" d="m 33.304059,16.146401 1.328,-0.067 0.207,0.716 0.136,-0.018 0.937,-0.914 1.484,0.076 1.82,0.707 -0.365,3.404 -0.986,0.139 -4.662,-1.432 -0.017,-1.416 0.118,-1.195" fill="#84CC9C" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Williamson County</title></path>
         </g>
-        <g class="county-group" data-county="Maury" data-slug="maury-county">
-          <path class="county-path" id="maury" d="m 33.203059,18.757401 4.662,1.432 -1.498,3.921 -2.573,0.033 -0.929,-0.064 0.123,-0.194 0.031,-0.153 0.035,-0.468 -0.26,-0.523 -0.285,-0.23 -0.252,-0.046 -0.157,-0.14 -0.036,-0.162 -0.01,-0.266 0.096,-0.548 1.053,-2.592" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Maury County</title></path>
+        <g class="county-group county-group--active" data-county="Maury" data-slug="maury-county">
+          <path class="county-path" id="maury" d="m 33.203059,18.757401 4.662,1.432 -1.498,3.921 -2.573,0.033 -0.929,-0.064 0.123,-0.194 0.031,-0.153 0.035,-0.468 -0.26,-0.523 -0.285,-0.23 -0.252,-0.046 -0.157,-0.14 -0.036,-0.162 -0.01,-0.266 0.096,-0.548 1.053,-2.592" fill="#84CC9C" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Maury County</title></path>
         </g>
         <g class="county-group" data-county="Marshall" data-slug="marshall-county">
           <path class="county-path" id="marshall" d="m 37.865059,20.189401 0.986,-0.139 0.514,0.265 -0.009,2.534 0.032,0.46 0.103,0.261 0.506,0.847 0.156,0.019 0.036,-0.015 -2.253,1.543 -1.569,-1.854 1.498,-3.921" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Marshall County</title></path>
@@ -245,26 +245,26 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
         <g class="county-group" data-county="Moore" data-slug="moore-county">
           <path class="county-path" id="moore" d="m 43.682059,23.447401 0.063,1.025 -0.315,2.721 -2.456,-2.717 2.708,-1.029" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Moore County</title></path>
         </g>
-        <g class="county-group" data-county="Bedford" data-slug="bedford-county">
-          <path class="county-path" id="bedford" d="m 43.520059,20.600401 0.162,2.847 -2.708,1.029 -0.785,-0.055 -0.036,0.015 -0.156,-0.019 -0.506,-0.847 -0.103,-0.261 -0.032,-0.46 0.009,-2.534 0.013,-0.211 0.15,-0.027 0.82,-0.015 2.569,0.29 0.603,0.248" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Bedford County</title></path>
+        <g class="county-group county-group--active" data-county="Bedford" data-slug="bedford-county">
+          <path class="county-path" id="bedford" d="m 43.520059,20.600401 0.162,2.847 -2.708,1.029 -0.785,-0.055 -0.036,0.015 -0.156,-0.019 -0.506,-0.847 -0.103,-0.261 -0.032,-0.46 0.009,-2.534 0.013,-0.211 0.15,-0.027 0.82,-0.015 2.569,0.29 0.603,0.248" fill="#84CC9C" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Bedford County</title></path>
         </g>
-        <g class="county-group" data-county="Rutherford" data-slug="rutherford-county">
-          <path class="county-path" id="rutherford" d="m 40.114059,14.826401 0.45,0.302 1.65,0.996 0.171,0.067 0.685,0.167 0.968,-0.022 -0.219,3.295 -0.299,0.969 -0.603,-0.248 -2.569,-0.29 -0.82,0.015 -0.15,0.027 -0.013,0.211 -0.514,-0.265 0.365,-3.404 0.898,-1.82" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Rutherford County</title></path>
+        <g class="county-group county-group--active" data-county="Rutherford" data-slug="rutherford-county">
+          <path class="county-path" id="rutherford" d="m 40.114059,14.826401 0.45,0.302 1.65,0.996 0.171,0.067 0.685,0.167 0.968,-0.022 -0.219,3.295 -0.299,0.969 -0.603,-0.248 -2.569,-0.29 -0.82,0.015 -0.15,0.027 -0.013,0.211 -0.514,-0.265 0.365,-3.404 0.898,-1.82" fill="#84CC9C" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Rutherford County</title></path>
         </g>
-        <g class="county-group" data-county="Davidson" data-slug="davidson-county">
-          <path class="county-path" id="davidson" d="m 35.664059,11.576402 1.601,-0.445 1.851,1.908999 0.998,1.786 -0.898,1.82 -1.82,-0.707 -1.484,-0.076 -0.937,0.914 -0.136,0.018 -0.207,-0.716 1.032,-4.502999" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Davidson County</title></path>
+        <g class="county-group county-group--active" data-county="Davidson" data-slug="davidson-county">
+          <path class="county-path" id="davidson" d="m 35.664059,11.576402 1.601,-0.445 1.851,1.908999 0.998,1.786 -0.898,1.82 -1.82,-0.707 -1.484,-0.076 -0.937,0.914 -0.136,0.018 -0.207,-0.716 1.032,-4.502999" fill="#84CC9C" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Davidson County</title></path>
         </g>
-        <g class="county-group" data-county="Sumner" data-slug="sumner-county">
-          <path class="county-path" id="sumner" d="m 40.465059,7.6104028 2.127,-0.076 -0.04,1.9909999 -0.374,1.8699993 -0.127,0.47 -0.355,-0.045 -0.141,-0.133 -0.026,-0.197 -0.055,-0.085 -0.112,-0.063 -0.055,0.005 -0.842,0.378 -1.051,0.729999 -0.298,0.585 -1.851,-1.908999 0.595,-0.248 0.229,-0.506 0.568,-1.7029992 0.266,-0.685 1.542,-0.379" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Sumner County</title></path>
+        <g class="county-group county-group--active" data-county="Sumner" data-slug="sumner-county">
+          <path class="county-path" id="sumner" d="m 40.465059,7.6104028 2.127,-0.076 -0.04,1.9909999 -0.374,1.8699993 -0.127,0.47 -0.355,-0.045 -0.141,-0.133 -0.026,-0.197 -0.055,-0.085 -0.112,-0.063 -0.055,0.005 -0.842,0.378 -1.051,0.729999 -0.298,0.585 -1.851,-1.908999 0.595,-0.248 0.229,-0.506 0.568,-1.7029992 0.266,-0.685 1.542,-0.379" fill="#84CC9C" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Sumner County</title></path>
         </g>
-        <g class="county-group" data-county="Wilson" data-slug="wilson-county">
-          <path class="county-path" id="wilson" d="m 43.750059,11.905401 1.073,2.628 0.635,1.569 -1.42,0.234 -0.968,0.022 -0.685,-0.167 -0.171,-0.067 -1.65,-0.996 -0.45,-0.302 -0.998,-1.786 0.298,-0.585 1.051,-0.729999 0.842,-0.378 0.055,-0.005 0.112,0.063 0.055,0.085 0.026,0.197 0.141,0.133 0.355,0.045 0.127,-0.47 1.572,0.509999" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Wilson County</title></path>
+        <g class="county-group county-group--active" data-county="Wilson" data-slug="wilson-county">
+          <path class="county-path" id="wilson" d="m 43.750059,11.905401 1.073,2.628 0.635,1.569 -1.42,0.234 -0.968,0.022 -0.685,-0.167 -0.171,-0.067 -1.65,-0.996 -0.45,-0.302 -0.998,-1.786 0.298,-0.585 1.051,-0.729999 0.842,-0.378 0.055,-0.005 0.112,0.063 0.055,0.085 0.026,0.197 0.141,0.133 0.355,0.045 0.127,-0.47 1.572,0.509999" fill="#84CC9C" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Wilson County</title></path>
         </g>
         <g class="county-group" data-county="Cannon" data-slug="cannon-county">
           <path class="county-path" id="cannon" d="m 45.458059,16.102401 1.501,1.424 -0.784,2.429 -2.356,-0.324 0.219,-3.295 1.42,-0.234" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Cannon County</title></path>
         </g>
-        <g class="county-group" data-county="Coffee" data-slug="coffee-county">
-          <path class="county-path" id="coffee" d="m 46.175059,19.955401 1.308,1.636 -0.033,0.023 -0.022,0.068 0.036,0.96 0.122,0.648 0.166,0.149 -0.072,0.418 -0.197,0.696 -0.059,0.117 -1.351,-0.572 -1.277,-0.118 -0.947,0.333 -0.099,0.104 -0.005,0.055 -0.063,-1.025 -0.162,-2.847 0.299,-0.969 2.356,0.324" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Coffee County</title></path>
+        <g class="county-group county-group--active" data-county="Coffee" data-slug="coffee-county">
+          <path class="county-path" id="coffee" d="m 46.175059,19.955401 1.308,1.636 -0.033,0.023 -0.022,0.068 0.036,0.96 0.122,0.648 0.166,0.149 -0.072,0.418 -0.197,0.696 -0.059,0.117 -1.351,-0.572 -1.277,-0.118 -0.947,0.333 -0.099,0.104 -0.005,0.055 -0.063,-1.025 -0.162,-2.847 0.299,-0.969 2.356,0.324" fill="#84CC9C" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Coffee County</title></path>
         </g>
         <g class="county-group" data-county="Franklin" data-slug="franklin-county">
           <path class="county-path" id="franklin" d="m 43.745059,24.472401 0.005,-0.055 0.099,-0.104 0.947,-0.333 1.277,0.118 1.351,0.572 0.514,0.798 0.419,3.024 -4.675,0.455 -0.079,0.004 -0.173,-1.758 0.315,-2.721" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Franklin County</title></path>
@@ -290,8 +290,8 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
         <g class="county-group" data-county="DeKalb" data-slug="dekalb-county">
           <path class="county-path" id="dekalb" d="m 47.356059,13.668401 1.839,1.324 -0.126,2.417 -2.11,0.117 -1.501,-1.424 -0.635,-1.569 2.533,-0.865" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>DeKalb County</title></path>
         </g>
-        <g class="county-group" data-county="Putnam" data-slug="putnam-county">
-          <path class="county-path" id="putnam" d="m 47.491059,12.267401 1.501,0.107 0.65,-0.198 0.319,-0.154 0.068,-0.098 0.297,-0.509999 0,-0.298 0.87,0.767 2.335,0.829999 0.879,0 0.207,0.057 -0.482,0.564 -0.861,0.019 -0.103,0.076 -0.006,1.591 -0.549,-0.504 -0.158,-0.123 -0.509,-0.193 -1.438,-0.225 -0.383,0.094 -0.148,0.073 -0.551,0.486 -0.185,0.193 -0.045,0.095 -0.004,0.076 -1.839,-1.324 0.135,-1.401" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Putnam County</title></path>
+        <g class="county-group county-group--active" data-county="Putnam" data-slug="putnam-county">
+          <path class="county-path" id="putnam" d="m 47.491059,12.267401 1.501,0.107 0.65,-0.198 0.319,-0.154 0.068,-0.098 0.297,-0.509999 0,-0.298 0.87,0.767 2.335,0.829999 0.879,0 0.207,0.057 -0.482,0.564 -0.861,0.019 -0.103,0.076 -0.006,1.591 -0.549,-0.504 -0.158,-0.123 -0.509,-0.193 -1.438,-0.225 -0.383,0.094 -0.148,0.073 -0.551,0.486 -0.185,0.193 -0.045,0.095 -0.004,0.076 -1.839,-1.324 0.135,-1.401" fill="#84CC9C" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Putnam County</title></path>
         </g>
         <g class="county-group" data-county="Trousdale" data-slug="trousdale-county">
           <path class="county-path" id="trousdale" d="m 45.193059,10.053402 -1.443,1.851999 -1.572,-0.509999 0.374,-1.8699993 2.641,0.5279993" fill="#E8E8E8" stroke="#FFFFFF" stroke-width="0.12" stroke-linejoin="round"><title>Trousdale County</title></path>
@@ -429,12 +429,14 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
       'rutherford-county':  true,
       'williamson-county':  true,
       'montgomery-county':  true,
+      'maury-county':       true,
       'wilson-county':      true,
       'sumner-county':      true,
-      'maury-county':       true,
-      'cheatham-county':    true,
-      'robertson-county':   true,
-      'dickson-county':     true
+      'bedford-county':     true,
+      'dickson-county':     true,
+      'coffee-county':      true,
+      'putnam-county':      true,
+      'robertson-county':   true
     };
 
     /* Base URL from WordPress — works on staging and live */
@@ -470,8 +472,10 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
         tooltip.setAttribute('aria-hidden', 'true');
       });
       g.addEventListener('click', function () {
-        if (slug) {
+        if (slug && activeSlugs[slug]) {
           window.location.href = siteUrl + '/where-we-buy/' + slug + '/';
+        } else {
+          window.location.href = siteUrl + '/where-we-buy/tennessee/';
         }
       });
     });

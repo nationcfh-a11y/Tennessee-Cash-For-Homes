@@ -3260,6 +3260,13 @@ div.related-posts,
   fill: #84CC9C;
   stroke: #5aab78;
 }
+.county-group--active .county-path {
+  fill: #84CC9C;
+}
+.county-group--active:hover .county-path {
+  fill: #5aab78;
+  stroke: #3d8a5a;
+}
 #county-tooltip {
   position: fixed;
   background: #fff;
