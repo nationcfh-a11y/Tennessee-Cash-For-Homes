@@ -23,7 +23,7 @@ $county = [
     'land_para'     => 'Tipton County\'s suburban growth from Memphis has made land increasingly valuable for residential development. Tennessee Cash For Homes buys Tipton County land quickly with no commissions and no hidden fees.',
     'cities'        => [
         ['name' => 'Covington', 'slug' => 'covington', 'has_page' => true],
-        ['name' => 'Munford', 'slug' => 'munford', 'has_page' => false],
+        ['name' => 'Munford', 'slug' => 'munford', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Covington, Munford, or Atoka in Tipton County?', 'a' => 'Yes. We buy homes throughout Tipton County including Covington, Munford, Atoka, Brighton, and Mason. We are active in the Memphis suburban market.'],

@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Regardless of your circumstances, whether you are settling an estate, relocating for work, or simply ready to move on from a property you no longer need, we buy houses throughout all of Overton County in any condition. From older homes near the Livingston square to lakeside cabins and rural farmhouses, Tennessee Cash For Homes makes selling straightforward and fair.',
     'land_para'     => 'Overton County offers affordable rural land with rolling hills, farmland, and proximity to Center Hill Lake. Tennessee Cash For Homes buys Overton County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Livingston', 'slug' => 'livingston', 'has_page' => false],
+        ['name' => 'Livingston', 'slug' => 'livingston', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Livingston or Hilham in Overton County?', 'a' => 'Yes. We buy homes throughout Overton County including Livingston, Hilham, and all surrounding communities. Rural properties and in-town homes are equally welcome.'],

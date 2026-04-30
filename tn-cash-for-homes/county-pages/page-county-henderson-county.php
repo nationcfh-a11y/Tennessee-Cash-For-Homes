@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'From bungalows in downtown Lexington to homes on acreage near Parker\'s Crossroads, farmhouses along the Beech River, or properties anywhere in between, we buy houses throughout all of Henderson County in any condition. Whatever is motivating your sale, whether it is a life change, an inherited property, tax concerns, or a home that needs more work than you can manage, we will treat you fairly and move at whatever pace works best for you.',
     'land_para'     => 'Henderson County offers affordable farmland, wooded tracts, and lakefront properties near Natchez Trace State Park. Tennessee Cash For Homes buys Henderson County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Lexington', 'slug' => 'lexington', 'has_page' => false],
+        ['name' => 'Lexington', 'slug' => 'lexington', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Lexington or other towns in Henderson County?', 'a' => 'Yes. We buy homes throughout Henderson County including Lexington, Sardis, Scotts Hill, and Parker\'s Crossroads. All property types and conditions are welcome.'],

@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'No matter what situation brought you here - an inherited family home, a property with deferred maintenance, tax troubles, or simply a desire to move on - we purchase homes throughout all of McNairy County. From houses on Selmer\'s tree-lined streets to rural properties on gravel roads outside Stantonville, every home gets a fair, honest cash offer from our team.',
     'land_para'     => 'McNairy County offers affordable farmland and rural residential tracts near the Mississippi border. Tennessee Cash For Homes buys McNairy County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Selmer', 'slug' => 'selmer', 'has_page' => false],
+        ['name' => 'Selmer', 'slug' => 'selmer', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Selmer or Adamsville in McNairy County?', 'a' => 'Yes. We buy homes throughout McNairy County including Selmer, Adamsville, and Michie. We are experienced with properties in this part of Southwest Tennessee.'],

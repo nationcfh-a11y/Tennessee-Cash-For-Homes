@@ -24,7 +24,7 @@ $county = [
     'cities'        => [
         ['name' => 'Dandridge', 'slug' => 'dandridge', 'has_page' => true],
         ['name' => 'Jefferson City', 'slug' => 'jefferson-city', 'has_page' => true],
-        ['name' => 'White Pine', 'slug' => 'white-pine', 'has_page' => false],
+        ['name' => 'White Pine', 'slug' => 'white-pine', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Dandridge or Jefferson City in Jefferson County?', 'a' => 'Yes. We purchase homes throughout Jefferson County including Dandridge, Jefferson City, White Pine, and New Market. All conditions are welcome.'],

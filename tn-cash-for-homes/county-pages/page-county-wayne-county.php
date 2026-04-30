@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'No matter what has brought you to this point - an inherited property in Waynesboro, a cabin along the Buffalo River, a home in Clifton or Collinwood that you no longer need, or a house that has fallen into disrepair - Tennessee Cash For Homes buys houses throughout all of Wayne County in any condition. Rural properties, in-town homes, and everything in between are all welcome.',
     'land_para'     => 'Wayne County offers affordable rural land along the Buffalo River and Natchez Trace Parkway. Tennessee Cash For Homes buys Wayne County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Waynesboro', 'slug' => 'waynesboro', 'has_page' => false],
+        ['name' => 'Waynesboro', 'slug' => 'waynesboro', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Waynesboro or Clifton in Wayne County?', 'a' => 'Yes. We buy homes throughout Wayne County including Waynesboro, Clifton, and all surrounding communities along the Tennessee River. Rural and remote properties are welcome.'],

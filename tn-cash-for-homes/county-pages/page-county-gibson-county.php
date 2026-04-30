@@ -22,9 +22,9 @@ $county = [
     'desc3'         => 'Whether you have a farmhouse outside Medina, a duplex in Humboldt, or a home in Milan that has been sitting vacant, Tennessee Cash For Homes buys houses throughout all of Gibson County in any condition. Your circumstances do not change our willingness to help. Reach out and let us show you how simple selling can be.',
     'land_para'     => 'Gibson County offers some of West Tennessee\'s most productive farmland along with affordable residential lots. Tennessee Cash For Homes buys Gibson County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Trenton', 'slug' => 'trenton', 'has_page' => false],
+        ['name' => 'Trenton', 'slug' => 'trenton', 'has_page' => true],
         ['name' => 'Humboldt', 'slug' => 'humboldt', 'has_page' => true],
-        ['name' => 'Milan', 'slug' => 'milan', 'has_page' => false],
+        ['name' => 'Milan', 'slug' => 'milan', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Trenton, Humboldt, or Milan in Gibson County?', 'a' => 'Yes. We purchase homes throughout Gibson County including Trenton, Humboldt, Milan, Medina, and all surrounding communities. We are familiar with the local market and provide fair offers.'],

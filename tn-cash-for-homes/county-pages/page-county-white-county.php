@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'No matter what your circumstances are - an inherited property near Sparta, a home along the Calfkiller River that needs work, a lakeside cabin you have outgrown, or a financial situation that requires a quick resolution - Tennessee Cash For Homes buys houses throughout all of White County in any condition. Properties in town, near the state parks, and across the rural plateau are all ones we purchase.',
     'land_para'     => 'White County offers lakefront land near Center Hill Lake, farmland, and scenic rural acreage at affordable prices. Tennessee Cash For Homes buys White County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Sparta', 'slug' => 'sparta', 'has_page' => false],
+        ['name' => 'Sparta', 'slug' => 'sparta', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Sparta or Doyle in White County?', 'a' => 'Yes. We buy homes throughout White County including Sparta, Doyle, and all surrounding communities. We are familiar with the Cumberland Plateau market.'],

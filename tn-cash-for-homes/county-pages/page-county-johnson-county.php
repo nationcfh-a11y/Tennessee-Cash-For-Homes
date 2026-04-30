@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whatever your reason for selling - whether you have inherited a family homestead, need to relocate out of the mountains, or are carrying a vacant property you can no longer maintain - we buy houses throughout all of Johnson County in any condition. From Mountain City to the most remote hollow in the Cherokee National Forest, Tennessee Cash For Homes is here to help with a fair cash offer and a closing date that works for you.',
     'land_para'     => 'Johnson County offers affordable mountain land with stunning views and access to the Appalachian Trail and Cherokee National Forest. Tennessee Cash For Homes buys Johnson County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Mountain City', 'slug' => 'mountain-city', 'has_page' => false],
+        ['name' => 'Mountain City', 'slug' => 'mountain-city', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Mountain City or Appalachian areas of Johnson County?', 'a' => 'Yes. Johnson County is in Tennessee\'s far northeast corner and we buy homes throughout including Mountain City. Mountain properties, rural homes, and small-town residences are all welcome.'],

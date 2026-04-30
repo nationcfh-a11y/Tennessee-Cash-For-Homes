@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whatever has brought you to the decision to sell - an inherited property, a home that needs costly updates, financial changes, or a desire to downsize - Tennessee Cash For Homes buys houses throughout all of Union County in any condition. From lakeside cabins in Sharps Chapel to family homes in Maynardville and Luttrell, we are ready to make you an offer.',
     'land_para'     => 'Union County offers lakefront land on Norris Lake and affordable rural acreage near Knoxville. Tennessee Cash For Homes buys Union County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Maynardville', 'slug' => 'maynardville', 'has_page' => false],
+        ['name' => 'Maynardville', 'slug' => 'maynardville', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Maynardville or Luttrell in Union County?', 'a' => 'Yes. We buy homes throughout Union County including Maynardville and Luttrell. Rural properties and homes near Norris Lake are all ones we purchase.'],

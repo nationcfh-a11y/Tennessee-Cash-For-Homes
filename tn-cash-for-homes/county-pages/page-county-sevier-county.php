@@ -22,8 +22,8 @@ $county = [
     'desc3'         => 'From a chalet in Gatlinburg to a ranch home in Sevierville to a multi-unit cabin resort in Pigeon Forge, we buy properties throughout all of Sevier County in any condition. Whatever your situation, reach out for a fair, no-obligation cash offer and choose a closing date that works for you.',
     'land_para'     => 'Sevier County mountain land is highly sought after for cabin development and tourism investment. Tennessee Cash For Homes buys Sevier County land quickly with no commissions, no surveys required, and flexible closing.',
     'cities'        => [
-        ['name' => 'Sevierville', 'slug' => 'sevierville', 'has_page' => false],
-        ['name' => 'Pigeon Forge', 'slug' => 'pigeon-forge', 'has_page' => false],
+        ['name' => 'Sevierville', 'slug' => 'sevierville', 'has_page' => true],
+        ['name' => 'Pigeon Forge', 'slug' => 'pigeon-forge', 'has_page' => true],
         ['name' => 'Gatlinburg', 'slug' => 'gatlinburg', 'has_page' => true],
     ],
     'faq_extra'    => [

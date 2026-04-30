@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether your home was affected by flooding in Waverly, you have a property near the Tennessee River in New Johnsonville, or you own a house in McEwen that simply needs to be sold, we buy houses throughout all of Humphreys County in any condition. Flood damage, fire damage, vacancy, liens, or just years of wear, none of it changes our willingness to make you a fair cash offer and close on your timeline.',
     'land_para'     => 'Humphreys County offers waterfront and rural land along the Tennessee River at competitive prices. Tennessee Cash For Homes buys Humphreys County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Waverly', 'slug' => 'waverly', 'has_page' => false],
+        ['name' => 'Waverly', 'slug' => 'waverly', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Waverly or New Johnsonville in Humphreys County?', 'a' => 'Yes. We buy homes throughout Humphreys County including Waverly, New Johnsonville, and McEwen. We are familiar with the area and provide fair cash offers.'],

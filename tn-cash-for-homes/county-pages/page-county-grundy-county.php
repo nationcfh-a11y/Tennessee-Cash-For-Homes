@@ -23,8 +23,8 @@ $county = [
     'land_para'     => 'Grundy County offers unique plateau land with stunning overlooks, wooded tracts, and affordable mountain acreage. Tennessee Cash For Homes buys Grundy County land quickly with no commissions and flexible closing.',
     'cities'        => [
         ['name' => 'Altamont', 'slug' => 'altamont', 'has_page' => true],
-        ['name' => 'Tracy City', 'slug' => 'tracy-city', 'has_page' => false],
-        ['name' => 'Monteagle', 'slug' => 'monteagle', 'has_page' => false],
+        ['name' => 'Tracy City', 'slug' => 'tracy-city', 'has_page' => true],
+        ['name' => 'Monteagle', 'slug' => 'monteagle', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes on the Cumberland Plateau in Grundy County?', 'a' => 'Yes. Grundy County sits atop the Cumberland Plateau and we buy properties throughout the county including Tracy City, Altamont, Coalmont, and Palmer. Mountain properties are no problem.'],

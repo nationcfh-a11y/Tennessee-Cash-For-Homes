@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether it is a family home in Sneedville, a mountain property up a gravel road, or a house you inherited and cannot maintain from a distance, Tennessee Cash For Homes buys houses throughout all of Hancock County in any condition. We understand this area and we do not let location or condition stand in the way of making a deal. Your situation is welcome here.',
     'land_para'     => 'Hancock County offers some of the most affordable mountain land in Tennessee with wooded tracts and scenic acreage. Tennessee Cash For Homes buys Hancock County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Sneedville', 'slug' => 'sneedville', 'has_page' => false],
+        ['name' => 'Sneedville', 'slug' => 'sneedville', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Sneedville or rural areas of Hancock County?', 'a' => 'Yes. Hancock County is one of Tennessee\'s most rural counties and we buy properties throughout including Sneedville. Distance from a major city does not affect our ability to purchase your home.'],

@@ -23,7 +23,7 @@ $county = [
     'land_para'     => 'Weakley County offers affordable farmland and residential lots in a growing Northwest Tennessee community. Tennessee Cash For Homes buys Weakley County land quickly with no commissions and flexible closing.',
     'cities'        => [
         ['name' => 'Dresden', 'slug' => 'dresden', 'has_page' => true],
-        ['name' => 'Martin', 'slug' => 'martin', 'has_page' => false],
+        ['name' => 'Martin', 'slug' => 'martin', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Martin, Dresden, or Greenfield in Weakley County?', 'a' => 'Yes. We purchase homes throughout Weakley County including Martin (home of UT Martin), Dresden, and Greenfield. Student housing and family homes are all welcome.'],

@@ -22,8 +22,8 @@ $county = [
     'desc3'         => 'No matter what your situation looks like, whether it is a dated ranch home off Highway 196, a property near the Shelby County line that needs foundation work, or a family home in Oakland you have outgrown, Tennessee Cash For Homes purchases houses throughout all of Fayette County in any condition. We handle the details so you can move forward on your terms.',
     'land_para'     => 'Fayette County\'s proximity to Memphis has made land increasingly valuable as development pushes eastward. Tennessee Cash For Homes buys Fayette County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Somerville', 'slug' => 'somerville', 'has_page' => false],
-        ['name' => 'Oakland', 'slug' => 'oakland', 'has_page' => false],
+        ['name' => 'Somerville', 'slug' => 'somerville', 'has_page' => true],
+        ['name' => 'Oakland', 'slug' => 'oakland', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Is Fayette County part of the Memphis metro area for real estate?', 'a' => 'Yes. Fayette County sits east of Memphis and has seen significant suburban growth. We buy homes throughout Fayette County including Somerville, Oakland, and Piperton, and our offers reflect the area\'s connection to the Memphis market.'],

@@ -24,7 +24,7 @@ $county = [
     'cities'        => [
         ['name' => 'Knoxville', 'slug' => 'knoxville', 'has_page' => true],
         ['name' => 'Farragut', 'slug' => 'farragut', 'has_page' => true],
-        ['name' => 'Powell', 'slug' => 'powell', 'has_page' => false],
+        ['name' => 'Powell', 'slug' => 'powell', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'How does Knoxville\'s real estate market in Knox County affect your offers?', 'a' => 'Knox County and Knoxville have a strong and growing real estate market. Our cash offers are based on current market conditions and comparable sales in the area. You get a fair offer without the hassle of listing, staging, and waiting for buyers.'],

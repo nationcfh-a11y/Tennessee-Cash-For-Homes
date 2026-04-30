@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whatever has brought you to this decision - whether you are managing a loved one\'s estate, facing mortgage difficulties, relocating for work, or simply ready to move on from a property that has become a burden - we buy houses throughout all of Lawrence County in any condition. From the neighborhoods around the Lawrenceburg square to the farmland near Ethridge and every community in between, Tennessee Cash For Homes is here with a fair cash offer and a flexible closing date.',
     'land_para'     => 'Lawrence County offers rural farmland, wooded acreage, and residential lots at competitive prices. Tennessee Cash For Homes buys Lawrence County land quickly with no commissions, no surveys required, and a flexible closing timeline.',
     'cities'        => [
-        ['name' => 'Lawrenceburg', 'slug' => 'lawrenceburg', 'has_page' => false],
+        ['name' => 'Lawrenceburg', 'slug' => 'lawrenceburg', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Lawrenceburg in Lawrence County?', 'a' => 'Yes. Lawrenceburg is the county seat and we actively buy homes throughout Lawrenceburg and all of Lawrence County. We are familiar with the local market and provide competitive cash offers.'],

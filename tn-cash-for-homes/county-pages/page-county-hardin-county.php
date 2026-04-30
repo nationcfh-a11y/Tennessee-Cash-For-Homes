@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether you own a riverfront property in Savannah, a cabin near Pickwick Dam, or a family home anywhere in Hardin County, we buy houses throughout the entire county in any condition. Inherited properties, homes with deferred maintenance, or places you simply need to move on from, our team handles it all with a fair cash offer and a simple process.',
     'land_para'     => 'Hardin County offers beautiful riverfront land along the Tennessee River, Pickwick Lake access, and affordable rural acreage. Tennessee Cash For Homes buys Hardin County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Savannah', 'slug' => 'savannah', 'has_page' => false],
+        ['name' => 'Savannah', 'slug' => 'savannah', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy properties near Pickwick Lake or Shiloh in Hardin County?', 'a' => 'Yes. Hardin County is home to Pickwick Lake and the Shiloh National Military Park. We buy homes, lake properties, and residential land throughout the county including Savannah and Counce.'],

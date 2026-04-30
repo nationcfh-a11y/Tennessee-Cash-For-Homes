@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whatever your situation may be, whether you have inherited a family property in Linden, own a cabin along the Buffalo River that you no longer use, or are dealing with a home that needs more work than you can take on, we buy houses throughout all of Perry County in any condition. Tennessee Cash For Homes understands the unique challenges of selling in a small rural market and we are here to make the process simple.',
     'land_para'     => 'Perry County offers exceptional rural land along the Buffalo River corridor including wooded tracts, river access properties, and farmland. Tennessee Cash For Homes buys Perry County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Linden', 'slug' => 'linden', 'has_page' => false],
+        ['name' => 'Linden', 'slug' => 'linden', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Linden or rural Perry County?', 'a' => 'Yes. Perry County is one of Tennessee\'s more rural and less populated counties. We buy homes in Linden and throughout Perry County regardless of the challenges that come with a smaller market.'],

@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'From a cottage in Cowan to a split-level near Decherd to a lakeside property you no longer use, Tennessee Cash For Homes buys houses throughout all of Franklin County in any condition. Whatever has brought you to the decision to sell, we are here to make it as simple and stress-free as possible.',
     'land_para'     => 'Franklin County offers diverse land from valley farmland to mountain tracts near the Cumberland Plateau. Tennessee Cash For Homes buys Franklin County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Winchester', 'slug' => 'winchester', 'has_page' => false],
+        ['name' => 'Winchester', 'slug' => 'winchester', 'has_page' => true],
         ['name' => 'Cowan', 'slug' => 'cowan', 'has_page' => true],
         ['name' => 'Decherd', 'slug' => 'decherd', 'has_page' => true],
     ],

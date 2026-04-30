@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether you have inherited a family home near the Lynchburg square, own a rural property outside town that needs significant work, or are ready to downsize from acreage you no longer maintain, we buy houses throughout all of Moore County. Every situation is different, and we approach each one with a fair offer and zero pressure to accept.',
     'land_para'     => 'Moore County offers scenic rural land and small acreage tracts in one of Tennessee\'s most iconic communities. Tennessee Cash For Homes buys Moore County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Lynchburg', 'slug' => 'lynchburg', 'has_page' => false],
+        ['name' => 'Lynchburg', 'slug' => 'lynchburg', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Lynchburg or rural Moore County?', 'a' => 'Yes. Moore County is Tennessee\'s smallest county and we buy homes in Lynchburg and throughout the county. Small market size does not affect our ability to make you a fair cash offer.'],

@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whatever your situation - an inherited family home in Tiptonville, a fishing cabin near Reelfoot Lake you no longer use, or a property that has sat vacant and needs extensive repairs - we buy houses throughout all of Lake County in any condition. Tennessee Cash For Homes understands the unique challenges of selling in a small rural market, and we are here to make the process simple with a fair cash offer and a closing timeline that fits your needs.',
     'land_para'     => 'Lake County offers unique lakefront and farmland near Reelfoot Lake at extremely affordable prices. Tennessee Cash For Homes buys Lake County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Tiptonville', 'slug' => 'tiptonville', 'has_page' => false],
+        ['name' => 'Tiptonville', 'slug' => 'tiptonville', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Is it possible to sell a home quickly in a rural county like Lake County?', 'a' => 'Lake County is Tennessee\'s least populated county, which makes traditional sales very difficult. We buy homes in Tiptonville and throughout Lake County for cash, giving you a guaranteed sale without the uncertainty of waiting for a local buyer.'],

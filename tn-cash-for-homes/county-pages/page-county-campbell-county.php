@@ -23,7 +23,7 @@ $county = [
     'land_para'     => 'Campbell County offers stunning mountain and lakefront land along Norris Lake at some of the most affordable prices in East Tennessee. Tennessee Cash For Homes buys Campbell County land quickly with no commissions and flexible closing.',
     'cities'        => [
         ['name' => 'Jacksboro', 'slug' => 'jacksboro', 'has_page' => true],
-        ['name' => 'La Follette', 'slug' => 'la-follette', 'has_page' => false],
+        ['name' => 'La Follette', 'slug' => 'la-follette', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in La Follette or Jellico in Campbell County?', 'a' => 'Yes. We buy homes throughout Campbell County including La Follette, Jellico, Jacksboro, and Caryville. No matter where your property is located in the county, we will make you a cash offer.'],

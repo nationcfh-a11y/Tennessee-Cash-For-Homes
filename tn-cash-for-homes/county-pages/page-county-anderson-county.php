@@ -23,8 +23,8 @@ $county = [
     'land_para'     => 'Anderson County offers diverse land opportunities from wooded mountain tracts to lakefront properties along Norris Lake and Melton Hill Lake. Tennessee Cash For Homes buys Anderson County land quickly with no commissions and flexible closing.',
     'cities'        => [
         ['name' => 'Clinton', 'slug' => 'clinton', 'has_page' => true],
-        ['name' => 'Oak Ridge', 'slug' => 'oak-ridge', 'has_page' => false],
-        ['name' => 'Norris', 'slug' => 'norris', 'has_page' => false],
+        ['name' => 'Oak Ridge', 'slug' => 'oak-ridge', 'has_page' => true],
+        ['name' => 'Norris', 'slug' => 'norris', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Can I sell an older home near Oak Ridge in Anderson County?', 'a' => 'Yes. Many homes in the Oak Ridge area were built in the 1940s and 1950s and may need significant updates. We buy older homes in Anderson County regardless of age or condition, including those with outdated electrical, plumbing, or foundation issues.'],

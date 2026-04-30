@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'From a fixer-upper in Newport to a mountain cabin near the Smokies, Tennessee Cash For Homes buys houses throughout all of Cocke County in any condition. Whether you are behind on payments, managing an inherited property, or simply ready to move on, we are here to make the process simple and stress-free.',
     'land_para'     => 'Cocke County offers mountain land with river access and Smoky Mountain views at affordable prices. Tennessee Cash For Homes buys Cocke County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Newport', 'slug' => 'newport', 'has_page' => false],
+        ['name' => 'Newport', 'slug' => 'newport', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Newport or Parrottsville in Cocke County?', 'a' => 'Yes. We purchase homes throughout Cocke County including Newport, Parrottsville, and the surrounding areas near the Smoky Mountains. All property conditions are welcome.'],

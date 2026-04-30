@@ -23,7 +23,7 @@ $county = [
     'land_para'     => 'Rhea County offers lakefront land on Watts Bar Lake and affordable rural acreage in a growing market. Tennessee Cash For Homes buys Rhea County land quickly with no commissions and no hidden fees.',
     'cities'        => [
         ['name' => 'Dayton', 'slug' => 'dayton', 'has_page' => true],
-        ['name' => 'Spring City', 'slug' => 'spring-city', 'has_page' => false],
+        ['name' => 'Spring City', 'slug' => 'spring-city', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Dayton or Spring City in Rhea County?', 'a' => 'Yes. We buy homes throughout Rhea County including Dayton, Spring City, and Graysville. Lake properties near Watts Bar and Chickamauga Lake are also welcome.'],

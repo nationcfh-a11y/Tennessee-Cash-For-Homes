@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'No matter what is driving your decision to sell - job loss, divorce, an inherited home you cannot maintain from a distance, or simply the desire to move on - we buy houses throughout all of Lauderdale County in any condition. From the neighborhoods of Ripley to the community of Halls and every rural road along the Mississippi River corridor, Tennessee Cash For Homes will make you a fair, no-obligation cash offer.',
     'land_para'     => 'Lauderdale County offers fertile farmland and affordable rural lots along the Mississippi River corridor. Tennessee Cash For Homes buys Lauderdale County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Ripley', 'slug' => 'ripley', 'has_page' => false],
+        ['name' => 'Ripley', 'slug' => 'ripley', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Ripley or Halls in Lauderdale County?', 'a' => 'Yes. We buy homes throughout Lauderdale County including Ripley, Halls, and surrounding areas. Whether your property is in town or along the Mississippi River bluffs, we are interested.'],

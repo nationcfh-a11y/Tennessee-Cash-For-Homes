@@ -22,8 +22,8 @@ $county = [
     'desc3'         => 'Whatever has brought you to this point - whether you are a retiree looking to downsize from Tellico Village, handling a family estate in Greenback, managing a rental property in Lenoir City that has run its course, or dealing with any other life change - we buy houses throughout all of Loudon County in any condition. Tennessee Cash For Homes is here to give you a straightforward cash offer with no obligation and no hassle.',
     'land_para'     => 'Loudon County offers desirable lakefront land on Tellico Lake and Fort Loudoun Lake along with growing residential development areas. Tennessee Cash For Homes buys Loudon County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Loudon', 'slug' => 'loudon', 'has_page' => false],
-        ['name' => 'Lenoir City', 'slug' => 'lenoir-city', 'has_page' => false],
+        ['name' => 'Loudon', 'slug' => 'loudon', 'has_page' => true],
+        ['name' => 'Lenoir City', 'slug' => 'lenoir-city', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes near Tellico Lake or Fort Loudoun Lake in Loudon County?', 'a' => 'Yes. Loudon County has extensive lakefront along Tellico Lake and Fort Loudoun Lake. We buy lake homes, retirement properties, and all residential properties in Loudon, Lenoir City, and Greenback.'],

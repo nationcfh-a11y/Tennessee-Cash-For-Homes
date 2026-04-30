@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'No matter what your reason for selling - an inherited property you cannot maintain, a vacant home that has fallen into disrepair, a financial situation that requires a fast resolution, or simply the desire to move on - we buy houses throughout all of Macon County in any condition. From Lafayette to the farmland along the Kentucky border and every community in between, Tennessee Cash For Homes will provide a fair, no-obligation cash offer on your timeline.',
     'land_para'     => 'Macon County offers affordable farmland and rural residential lots in the Upper Cumberland region. Tennessee Cash For Homes buys Macon County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Lafayette', 'slug' => 'lafayette', 'has_page' => false],
+        ['name' => 'Lafayette', 'slug' => 'lafayette', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Lafayette or rural Macon County?', 'a' => 'Yes. We buy homes throughout Macon County including Lafayette and all surrounding rural communities. We are experienced with properties in smaller Tennessee markets.'],

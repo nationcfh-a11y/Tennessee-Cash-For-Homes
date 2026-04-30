@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'From a historic home near the Pulaski square to a rural property along Elkton Pike to a manufactured home outside Minor Hill, Tennessee Cash For Homes buys houses throughout all of Giles County in any condition. Whatever situation has brought you here, we are ready to make you a fair cash offer and handle the rest.',
     'land_para'     => 'Giles County offers beautiful rolling farmland and rural residential tracts in Southern Middle Tennessee. Tennessee Cash For Homes buys Giles County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Pulaski', 'slug' => 'pulaski', 'has_page' => false],
+        ['name' => 'Pulaski', 'slug' => 'pulaski', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Pulaski or other towns in Giles County?', 'a' => 'Yes. We buy homes throughout Giles County including Pulaski, Lynnville, Elkton, and Minor Hill. Town or country, we purchase properties in any condition.'],

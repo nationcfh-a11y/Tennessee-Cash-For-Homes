@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether you own a lake house on Center Hill, a historic home in Smithville, or a rural property in any corner of the county, Tennessee Cash For Homes buys houses throughout all of DeKalb County in any condition. We handle the paperwork and close on your timeline - your situation does not change our willingness to make a fair offer.',
     'land_para'     => 'DeKalb County offers exceptional waterfront and rural land around Center Hill Lake including residential lots and wooded tracts. Tennessee Cash For Homes buys DeKalb County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Smithville', 'slug' => 'smithville', 'has_page' => false],
+        ['name' => 'Smithville', 'slug' => 'smithville', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Smithville or near Center Hill Lake in DeKalb County?', 'a' => 'Yes. We buy homes throughout DeKalb County including Smithville and the Center Hill Lake area. Lake properties, in-town homes, and rural residences are all properties we purchase for cash.'],

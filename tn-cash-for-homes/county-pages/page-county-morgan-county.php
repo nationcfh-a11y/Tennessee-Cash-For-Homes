@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whatever has brought you to the decision to sell - an inherited property in Wartburg, a cabin near Frozen Head you no longer visit, financial pressures, or a home that has simply become more than you can maintain - we buy houses throughout all of Morgan County in any condition. Off-grid homes, properties on gravel roads, and houses that need significant repairs are all ones we purchase. You will get a fair cash offer with no strings attached.',
     'land_para'     => 'Morgan County offers affordable mountain land near the Obed River and Frozen Head State Park. Tennessee Cash For Homes buys Morgan County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Wartburg', 'slug' => 'wartburg', 'has_page' => false],
+        ['name' => 'Wartburg', 'slug' => 'wartburg', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Wartburg or Sunbright in Morgan County?', 'a' => 'Yes. We buy homes throughout Morgan County including Wartburg, Sunbright, Oakdale, and Deer Lodge. All property types and conditions are welcome.'],

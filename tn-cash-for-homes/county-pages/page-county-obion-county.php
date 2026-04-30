@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'No matter what has brought you to this point, whether it is a job transfer, a house you inherited in Union City, or a property that needs more repairs than it is worth, we buy houses throughout all of Obion County in any condition. From homes in the North Side neighborhoods to rural properties outside South Fulton, Tennessee Cash For Homes is ready to make the process simple and stress-free.',
     'land_para'     => 'Obion County offers productive farmland and affordable residential lots in Northwest Tennessee. Tennessee Cash For Homes buys Obion County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Union City', 'slug' => 'union-city', 'has_page' => false],
+        ['name' => 'Union City', 'slug' => 'union-city', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Union City or South Fulton in Obion County?', 'a' => 'Yes. We buy homes throughout Obion County including Union City, South Fulton, and surrounding communities in Northwest Tennessee.'],

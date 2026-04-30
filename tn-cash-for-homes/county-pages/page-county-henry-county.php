@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'From waterfront properties near Paris Landing to homes in the neighborhoods of Paris, rural houses outside Puryear, or cabins tucked along the lakeshore, we buy houses throughout all of Henry County in any condition. Regardless of whether you are dealing with an inherited lake house, a property with a lien, or a home you simply need to move on from, our team provides a fair cash offer and a process designed to be as easy as possible.',
     'land_para'     => 'Henry County offers sought after lakefront land on Kentucky Lake along with affordable farmland and rural acreage. Tennessee Cash For Homes buys Henry County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Paris', 'slug' => 'paris', 'has_page' => false],
+        ['name' => 'Paris', 'slug' => 'paris', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes or lake properties near Paris Landing in Henry County?', 'a' => 'Yes. Henry County is home to Kentucky Lake and Paris Landing State Park. We buy lakefront homes, cabins, and all residential properties throughout Henry County including Paris.'],

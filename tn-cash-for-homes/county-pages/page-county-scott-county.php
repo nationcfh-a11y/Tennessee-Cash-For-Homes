@@ -23,7 +23,7 @@ $county = [
     'land_para'     => 'Scott County offers affordable mountain land near the Big South Fork with wooded tracts and scenic acreage. Tennessee Cash For Homes buys Scott County land quickly with no commissions and no hidden fees.',
     'cities'        => [
         ['name' => 'Huntsville', 'slug' => 'huntsville', 'has_page' => true],
-        ['name' => 'Oneida', 'slug' => 'oneida', 'has_page' => false],
+        ['name' => 'Oneida', 'slug' => 'oneida', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Oneida or Huntsville in Scott County?', 'a' => 'Yes. We buy homes throughout Scott County including Oneida, Huntsville, and Winfield. We are experienced with properties in the Cumberland Plateau region.'],

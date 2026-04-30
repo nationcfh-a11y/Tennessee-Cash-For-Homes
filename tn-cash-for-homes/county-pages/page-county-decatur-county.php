@@ -23,7 +23,7 @@ $county = [
     'land_para'     => 'Decatur County offers affordable rural land along the Tennessee River including riverfront tracts, farmland, and wooded acreage. Tennessee Cash For Homes buys Decatur County land quickly with no commissions and no hidden fees.',
     'cities'        => [
         ['name' => 'Decaturville', 'slug' => 'decaturville', 'has_page' => true],
-        ['name' => 'Parsons', 'slug' => 'parsons', 'has_page' => false],
+        ['name' => 'Parsons', 'slug' => 'parsons', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy properties near the Tennessee River in Decatur County?', 'a' => 'Yes. Decatur County runs along the Tennessee River and we buy properties throughout the county including Decaturville, Parsons, and riverfront areas. Waterfront or rural, we purchase all types.'],

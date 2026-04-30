@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'No matter what your situation involves, whether you are downsizing from a lakefront home on Watts Bar, managing a property in Kingston from out of state, or dealing with a house in Rockwood that needs more work than you want to take on, we buy houses throughout all of Roane County in any condition. Tennessee Cash For Homes provides fair cash offers and a straightforward process that lets you move forward on your own terms.',
     'land_para'     => 'Roane County offers lakefront land on Watts Bar Lake, riverfront properties, and affordable residential lots. Tennessee Cash For Homes buys Roane County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Kingston', 'slug' => 'kingston', 'has_page' => false],
+        ['name' => 'Kingston', 'slug' => 'kingston', 'has_page' => true],
         ['name' => 'Harriman', 'slug' => 'harriman', 'has_page' => true],
     ],
     'faq_extra'    => [

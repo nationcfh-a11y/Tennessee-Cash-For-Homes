@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Regardless of your circumstances - whether you are managing an inherited property in Pikeville, dealing with a home that has fallen into disrepair, or simply ready to move on from a property in the Sequatchie Valley - Tennessee Cash For Homes buys houses throughout all of Bledsoe County in any condition. We are here to make the process as simple as possible.',
     'land_para'     => 'Bledsoe County offers scenic mountain and valley land at some of the most affordable prices in Tennessee. Tennessee Cash For Homes buys Bledsoe County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Pikeville', 'slug' => 'pikeville', 'has_page' => false],
+        ['name' => 'Pikeville', 'slug' => 'pikeville', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy rural properties or homes on large lots in Bledsoe County?', 'a' => 'Yes. Bledsoe County is one of Tennessee\'s most rural counties and we are experienced in purchasing properties on large lots, unimproved land, and homes in remote areas. Distance from a major city does not affect our ability to make you an offer.'],

@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'From a family home in New Tazewell to a mountain property near Cumberland Gap, Tennessee Cash For Homes buys houses throughout all of Claiborne County in any condition. Whether you are dealing with an inherited estate, a property with deferred maintenance, or any other situation, we will work with you to close on your schedule.',
     'land_para'     => 'Claiborne County offers affordable mountain land near the Cumberland Gap with wooded tracts and rural acreage. Tennessee Cash For Homes buys Claiborne County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Tazewell', 'slug' => 'tazewell', 'has_page' => false],
+        ['name' => 'Tazewell', 'slug' => 'tazewell', 'has_page' => true],
         ['name' => 'Harrogate', 'slug' => 'harrogate', 'has_page' => true],
     ],
     'faq_extra'    => [

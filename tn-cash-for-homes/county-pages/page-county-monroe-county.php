@@ -22,8 +22,8 @@ $county = [
     'desc3'         => 'We buy houses throughout all of Monroe County regardless of your situation or the property\'s condition. Whether you own a lakefront home on Tellico that needs a new dock, a family house in Madisonville you inherited, or a mountain retreat in Tellico Plains you are ready to let go of, we will make you a fair cash offer with zero obligation. Every property and every situation gets our full attention.',
     'land_para'     => 'Monroe County offers lakefront land on Tellico Lake, mountain tracts near the Cherokee National Forest, and rural farmland. Tennessee Cash For Homes buys Monroe County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Madisonville', 'slug' => 'madisonville', 'has_page' => false],
-        ['name' => 'Sweetwater', 'slug' => 'sweetwater', 'has_page' => false],
+        ['name' => 'Madisonville', 'slug' => 'madisonville', 'has_page' => true],
+        ['name' => 'Sweetwater', 'slug' => 'sweetwater', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Madisonville, Sweetwater, or Tellico Plains in Monroe County?', 'a' => 'Yes. We buy homes throughout Monroe County including Madisonville, Sweetwater, Tellico Plains, and Vonore. All property types and conditions are welcome.'],

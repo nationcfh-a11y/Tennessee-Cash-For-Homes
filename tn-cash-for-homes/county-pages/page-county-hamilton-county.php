@@ -23,9 +23,9 @@ $county = [
     'land_para'     => 'Hamilton County\'s growing economy and desirable location have made land increasingly valuable. Tennessee Cash For Homes buys Hamilton County land quickly with no commissions, no closing costs, and a flexible timeline.',
     'cities'        => [
         ['name' => 'Chattanooga', 'slug' => 'chattanooga', 'has_page' => true],
-        ['name' => 'Signal Mountain', 'slug' => 'signal-mountain', 'has_page' => false],
-        ['name' => 'Red Bank', 'slug' => 'red-bank', 'has_page' => false],
-        ['name' => 'Soddy-Daisy', 'slug' => 'soddy-daisy', 'has_page' => false],
+        ['name' => 'Signal Mountain', 'slug' => 'signal-mountain', 'has_page' => true],
+        ['name' => 'Red Bank', 'slug' => 'red-bank', 'has_page' => true],
+        ['name' => 'Soddy-Daisy', 'slug' => 'soddy-daisy', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'How does Chattanooga\'s growing market affect cash offers in Hamilton County?', 'a' => 'Chattanooga and Hamilton County are experiencing significant growth and development. Our cash offers reflect current market conditions in the area. Selling to us lets you skip the competitive listing process while still receiving a fair price.'],

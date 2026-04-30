@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether it is a lakefront cabin on Cherokee, a farmhouse near Washburn, or a home in Rutledge you inherited and do not plan to keep, Tennessee Cash For Homes buys houses throughout all of Grainger County in any condition. Your property does not need to be updated or move-in ready. We handle the details and close when you are ready.',
     'land_para'     => 'Grainger County offers lakefront land on Cherokee Lake and affordable rural acreage with mountain views. Tennessee Cash For Homes buys Grainger County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Rutledge', 'slug' => 'rutledge', 'has_page' => false],
+        ['name' => 'Rutledge', 'slug' => 'rutledge', 'has_page' => true],
         ['name' => 'Bean Station', 'slug' => 'bean-station', 'has_page' => true],
     ],
     'faq_extra'    => [

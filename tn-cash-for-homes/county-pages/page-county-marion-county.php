@@ -23,7 +23,7 @@ $county = [
     'land_para'     => 'Marion County offers scenic river and mountain land including lakefront properties on Nickajack Lake. Tennessee Cash For Homes buys Marion County land quickly with no commissions and flexible closing.',
     'cities'        => [
         ['name' => 'Jasper', 'slug' => 'jasper', 'has_page' => true],
-        ['name' => 'South Pittsburg', 'slug' => 'south-pittsburg', 'has_page' => false],
+        ['name' => 'South Pittsburg', 'slug' => 'south-pittsburg', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Jasper, Kimball, or South Pittsburg in Marion County?', 'a' => 'Yes. We buy homes throughout Marion County including Jasper, Kimball, South Pittsburg, and Whitwell. All property conditions are welcome.'],

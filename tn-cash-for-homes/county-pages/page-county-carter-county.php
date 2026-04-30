@@ -23,7 +23,7 @@ $county = [
     'land_para'     => 'Carter County offers beautiful mountain land with stunning views and access to the Cherokee National Forest. Tennessee Cash For Homes buys Carter County land quickly with no commissions and flexible closing.',
     'cities'        => [
         ['name' => 'Elizabethton', 'slug' => 'elizabethton', 'has_page' => true],
-        ['name' => 'Watauga', 'slug' => 'watauga', 'has_page' => false],
+        ['name' => 'Watauga', 'slug' => 'watauga', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Elizabethton or the Watauga Lake area of Carter County?', 'a' => 'Yes. We buy homes throughout Carter County including Elizabethton, Hampton, and the Watauga Lake area. Mountain properties, lake homes, and in-town residences are all properties we purchase.'],

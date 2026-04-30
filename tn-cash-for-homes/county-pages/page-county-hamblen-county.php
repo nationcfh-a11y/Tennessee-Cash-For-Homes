@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether you have a ranch home near Cherokee Lake, a duplex off Andrew Johnson Highway, or a property in Morristown that has been sitting vacant, Tennessee Cash For Homes buys houses throughout all of Hamblen County in any condition. We work with homeowners in every situation, and our goal is to make your sale as simple as possible.',
     'land_para'     => 'Hamblen County offers affordable residential and commercial land in a growing East Tennessee market. Tennessee Cash For Homes buys Hamblen County land quickly with no commissions and no hidden fees.',
     'cities'        => [
-        ['name' => 'Morristown', 'slug' => 'morristown', 'has_page' => false],
+        ['name' => 'Morristown', 'slug' => 'morristown', 'has_page' => true],
     ],
     'faq_extra'    => [
         ['q' => 'Do you buy homes in Morristown in Hamblen County?', 'a' => 'Yes. Morristown is the county seat and we actively buy homes throughout Morristown and all of Hamblen County. Whether near the lakefront or in a residential neighborhood, we purchase all types of properties.'],
