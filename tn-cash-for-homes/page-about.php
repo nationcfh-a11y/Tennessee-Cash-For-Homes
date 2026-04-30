@@ -77,9 +77,6 @@ $cities = [
     ['name'=>'Nashville','slug'=>'nashville'],
     ['name'=>'Murfreesboro','slug'=>'murfreesboro'],
     ['name'=>'Franklin','slug'=>'franklin'],
-    ['name'=>'Chattanooga','slug'=>'chattanooga'],
-    ['name'=>'Knoxville','slug'=>'knoxville'],
-    ['name'=>'Memphis','slug'=>'memphis'],
     ['name'=>'Clarksville','slug'=>'clarksville'],
     ['name'=>'Spring Hill','slug'=>'spring-hill'],
     ['name'=>'Hendersonville','slug'=>'hendersonville'],
@@ -87,15 +84,8 @@ $cities = [
     ['name'=>'Smyrna','slug'=>'smyrna'],
     ['name'=>'Gallatin','slug'=>'gallatin'],
     ['name'=>'Lebanon','slug'=>'lebanon'],
-    ['name'=>'Antioch','slug'=>'antioch'],
     ['name'=>'La Vergne','slug'=>'la-vergne'],
-    ['name'=>'Jackson','slug'=>'jackson'],
-    ['name'=>'Crossville','slug'=>'crossville'],
-    ['name'=>'McMinnville','slug'=>'mcminnville'],
-    ['name'=>'Old Hickory','slug'=>'old-hickory'],
     ['name'=>'Shelbyville','slug'=>'shelbyville'],
-    ['name'=>'Woodbury','slug'=>'woodbury'],
-    ['name'=>'Chapel Hill','slug'=>'chapel-hill'],
 ];
 ?>
 

@@ -23,7 +23,7 @@ $county = [
     'land_para'     => 'Robertson County\'s proximity to Nashville and its expanding suburban communities make land increasingly valuable. Tennessee Cash For Homes buys Robertson County land quickly with no commissions and no surveys required.',
     'cities'        => [
         ['name' => 'Springfield', 'slug' => 'springfield',  'has_page' => true],
-        ['name' => 'White House', 'slug' => 'white-house',  'has_page' => true],
+        ['name' => 'White House', 'slug' => 'white-house',  'has_page' => false],
     ],
     'faq_extra'    => [
         ['q' => 'Is Robertson County part of the Nashville market for home values?', 'a' => 'Yes. Robertson County is part of the Nashville metropolitan area and has seen significant growth. Our cash offers reflect Nashville-area market conditions for Springfield, Greenbrier, White House, and all of Robertson County.'],

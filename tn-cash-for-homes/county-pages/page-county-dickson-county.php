@@ -23,7 +23,7 @@ $county = [
     'land_para'     => 'Dickson County offers rural land and residential lots at competitive prices. As Nashville\'s growth spreads westward land in Dickson County is becoming increasingly valuable. Tennessee Cash For Homes buys land quickly with no commissions.',
     'cities'        => [
         ['name' => 'Dickson', 'slug' => 'dickson', 'has_page' => true],
-        ['name' => 'Burns',   'slug' => 'burns',   'has_page' => true],
+        ['name' => 'Burns',   'slug' => 'burns',   'has_page' => false],
     ],
     'faq_extra'    => [
         ['q' => 'Is Dickson County close enough to Nashville to get strong cash offers?', 'a' => 'Yes. Dickson County is part of the Nashville commuter belt and property values reflect its proximity to the metro area. Our cash offers account for Dickson County\'s growing demand and convenient location.'],

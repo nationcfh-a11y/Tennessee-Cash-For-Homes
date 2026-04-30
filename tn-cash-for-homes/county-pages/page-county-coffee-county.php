@@ -22,7 +22,7 @@ $county = [
     'desc3'         => 'Whether you own a home near Arnold Air Force Base in Tullahoma, a property in Manchester, or a house anywhere else in the county, Tennessee Cash For Homes buys houses throughout all of Coffee County in any condition. Your situation does not change our offer - we are here to help you move forward on your schedule.',
     'land_para'     => 'Coffee County offers rural farmland, residential lots, and wooded acreage at competitive prices. Tennessee Cash For Homes buys Coffee County land quickly with no commissions and flexible closing.',
     'cities'        => [
-        ['name' => 'Manchester',  'slug' => 'manchester',  'has_page' => true],
+        ['name' => 'Manchester',  'slug' => 'manchester',  'has_page' => false],
         ['name' => 'Tullahoma',   'slug' => 'tullahoma',   'has_page' => true],
     ],
     'faq_extra'    => [

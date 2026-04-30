@@ -23,8 +23,8 @@ $county = [
     'land_para'     => 'Nashville and Davidson County booming economy and population growth have made land ownership more valuable than ever. Zoning changes, development pressures, and property taxes are causing many owners to cash out. Tennessee Cash For Homes buys land in Davidson County quickly with no commissions, no closing costs, and a flexible timeline.',
     'cities'        => [
         ['name' => 'Nashville',   'slug' => 'nashville',   'has_page' => true],
-        ['name' => 'Antioch',     'slug' => 'antioch',     'has_page' => true],
-        ['name' => 'Old Hickory', 'slug' => 'old-hickory', 'has_page' => true],
+        ['name' => 'Antioch',     'slug' => 'antioch',     'has_page' => false],
+        ['name' => 'Old Hickory', 'slug' => 'old-hickory', 'has_page' => false],
     ],
     'faq_extra'    => [
         ['q' => 'How does Nashville\'s competitive market in Davidson County affect your cash offers?', 'a' => 'Davidson County is one of Tennessee\'s hottest real estate markets. Our cash offers reflect current Nashville market conditions. Selling to us means you avoid months of showings, inspections, and buyer negotiations while still receiving a fair offer.'],
