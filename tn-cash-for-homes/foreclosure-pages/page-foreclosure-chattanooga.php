@@ -5,7 +5,7 @@
 $fc_city_name   = 'Chattanooga';
 $fc_city_slug   = 'chattanooga';
 $fc_county      = 'Hamilton';
-$fc_county_slug = 'hamilton-county';
+$fc_county_slug = 'tennessee';
 $fc_meta_title  = 'Facing Foreclosure in Chattanooga TN | Tennessee Cash For Homes';
 $fc_meta_desc   = 'Stop foreclosure in Chattanooga. We buy Hamilton County homes as-is for cash, close in days and keep your credit intact.';
 $fc_courthouse  = 'the Hamilton County Courthouse in Chattanooga';

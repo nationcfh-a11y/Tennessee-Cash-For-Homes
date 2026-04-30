@@ -5,7 +5,7 @@
 $fc_city_name   = 'Knoxville';
 $fc_city_slug   = 'knoxville';
 $fc_county      = 'Knox';
-$fc_county_slug = 'knox-county';
+$fc_county_slug = 'tennessee';
 $fc_meta_title  = 'Facing Foreclosure in Knoxville TN | Tennessee Cash For Homes';
 $fc_meta_desc   = 'Facing foreclosure in Knoxville? Get a fast cash offer on your Knox County home. We close quickly, no fees, no repairs needed.';
 $fc_courthouse  = 'the Knox County Courthouse in Knoxville';

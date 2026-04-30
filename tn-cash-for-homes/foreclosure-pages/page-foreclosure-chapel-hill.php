@@ -5,7 +5,7 @@
 $fc_city_name   = 'Chapel Hill';
 $fc_city_slug   = 'chapel-hill';
 $fc_county      = 'Marshall';
-$fc_county_slug = 'marshall-county';
+$fc_county_slug = 'tennessee';
 $fc_meta_title  = 'Facing Foreclosure in Chapel Hill TN | Tennessee Cash For Homes';
 $fc_meta_desc   = 'Stop foreclosure on your Chapel Hill home. We buy houses fast in Marshall County, get a cash offer and close before your sale date.';
 $fc_courthouse  = 'the Marshall County Courthouse in Lewisburg';

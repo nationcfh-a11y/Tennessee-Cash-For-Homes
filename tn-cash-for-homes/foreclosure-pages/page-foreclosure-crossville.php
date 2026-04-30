@@ -5,7 +5,7 @@
 $fc_city_name   = 'Crossville';
 $fc_city_slug   = 'crossville';
 $fc_county      = 'Cumberland';
-$fc_county_slug = 'cumberland-county';
+$fc_county_slug = 'tennessee';
 $fc_meta_title  = 'Facing Foreclosure in Crossville TN | Tennessee Cash For Homes';
 $fc_meta_desc   = 'Stop foreclosure on your Crossville home. We buy houses fast in Cumberland County, get a cash offer and close before your sale date.';
 $fc_courthouse  = 'the Cumberland County Courthouse in Crossville';

@@ -5,7 +5,7 @@
 $fc_city_name   = 'Memphis';
 $fc_city_slug   = 'memphis';
 $fc_county      = 'Shelby';
-$fc_county_slug = 'shelby-county';
+$fc_county_slug = 'tennessee';
 $fc_meta_title  = 'Facing Foreclosure in Memphis TN | Tennessee Cash For Homes';
 $fc_meta_desc   = 'Memphis has high foreclosure rates. We buy Shelby County homes for cash fast, avoid the courthouse auction and protect your equity.';
 $fc_courthouse  = 'the Shelby County Courthouse in Memphis';

@@ -5,7 +5,7 @@
 $fc_city_name   = 'McMinnville';
 $fc_city_slug   = 'mcminnville';
 $fc_county      = 'Warren';
-$fc_county_slug = 'warren-county';
+$fc_county_slug = 'tennessee';
 $fc_meta_title  = 'Facing Foreclosure in McMinnville TN | Tennessee Cash For Homes';
 $fc_meta_desc   = 'Facing foreclosure in McMinnville? We buy houses fast in Warren County, get a fair cash offer and close before your auction date.';
 $fc_courthouse  = 'the Warren County Courthouse in McMinnville';

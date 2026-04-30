@@ -5,7 +5,7 @@
 $fc_city_name   = 'Woodbury';
 $fc_city_slug   = 'woodbury';
 $fc_county      = 'Cannon';
-$fc_county_slug = 'cannon-county';
+$fc_county_slug = 'tennessee';
 $fc_meta_title  = 'Facing Foreclosure in Woodbury TN | Tennessee Cash For Homes';
 $fc_meta_desc   = 'Facing foreclosure in Woodbury? We buy houses fast in Cannon County, get a fair cash offer and close before your auction date.';
 $fc_courthouse  = 'the Cannon County Courthouse in Woodbury';

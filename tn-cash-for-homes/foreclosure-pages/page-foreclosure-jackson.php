@@ -5,7 +5,7 @@
 $fc_city_name   = 'Jackson';
 $fc_city_slug   = 'jackson';
 $fc_county      = 'Madison';
-$fc_county_slug = 'madison-county';
+$fc_county_slug = 'tennessee';
 $fc_meta_title  = 'Facing Foreclosure in Jackson TN | Tennessee Cash For Homes';
 $fc_meta_desc   = 'Stop foreclosure on your Jackson home. We buy houses fast in Madison County, get a fair cash offer and close before your sale date.';
 $fc_courthouse  = 'the Madison County Courthouse in Jackson';
