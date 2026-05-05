@@ -634,22 +634,25 @@
     height: auto !important;
   }
 
-  /* Make the logo anchor a flex row so the ::after sits next to the image */
+  /* Make the logo anchor a flex row so the wordmark span sits next to image */
   .nav__logo {
     display: inline-flex !important;
     align-items: center !important;
     gap: 10px !important;
     text-decoration: none;
   }
-  /* Wordmark — sits between the logo image and the hamburger */
-  .nav__logo::after {
-    content: "Tennessee Cash For Homes";
-    color: #84CC9C;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.15;
-    white-space: nowrap;              /* never wrap to two lines */
+  /* Wordmark — real DOM span injected from header.php (the previous ::after
+     approach didn't render reliably). Inline default is display:none, so
+     desktop is fully unaffected. We force it visible on mobile here. */
+  .nav__logo .nav__logo-text {
+    display: inline-flex !important;
+    align-items: center;
+    color: #84CC9C !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;   /* never wrap to two lines */
     letter-spacing: -0.01em;
   }
 }
@@ -659,21 +662,21 @@
   .nav__logo {
     gap: 8px !important;
   }
-  .nav__logo::after {
-    font-size: 12.5px;
+  .nav__logo .nav__logo-text {
+    font-size: 12.5px !important;
   }
 }
 @media (max-width: 360px) {
   .nav__logo {
     gap: 6px !important;
   }
-  .nav__logo::after {
-    font-size: 11.5px;
+  .nav__logo .nav__logo-text {
+    font-size: 11.5px !important;
   }
 }
 @media (max-width: 330px) {
-  .nav__logo::after {
-    font-size: 10.5px;
+  .nav__logo .nav__logo-text {
+    font-size: 10.5px !important;
   }
 }
 
@@ -725,15 +728,18 @@
     align-items: center !important;
     width: 100% !important;
     max-width: 100% !important;
-    gap: 8px !important;
+    gap: 6px !important;
     margin-top: 14px !important;
     overflow: visible !important;
     text-align: center;
   }
-  /* Hide SVG check icons everywhere on mobile — biggest space hog */
+  /* RESTORED — green circle SVG checkmarks before each item */
   .hero .hero__trust-row .hero__trust-item svg,
   div.hero__trust-row span.hero__trust-item svg {
-    display: none !important;
+    display: inline-block !important;
+    width: 11px !important;
+    height: 11px !important;
+    flex-shrink: 0 !important;
   }
   .hero .hero__trust-row .hero__trust-item,
   div.hero__trust-row span.hero__trust-item {
@@ -743,38 +749,53 @@
     max-width: none !important;
     margin: 0 !important;
     padding: 0 !important;
-    gap: 0 !important;
+    gap: 4px !important;             /* icon-to-text spacing */
     color: #FFFFFF !important;
     font-weight: 700 !important;
-    font-size: 13px !important;     /* bumped +2px */
+    font-size: 11.5px !important;    /* max that fits on one line at 375px with icons */
     line-height: 1.2 !important;
     white-space: nowrap !important;  /* never break a label */
     text-align: center !important;
     justify-content: center !important;
     align-items: center !important;
+    letter-spacing: -0.01em !important;
   }
 }
 @media (max-width: 480px) {
   .hero .hero__trust-row,
   div.hero__trust-row {
-    gap: 6px !important;
+    gap: 5px !important;
   }
   .hero .hero__trust-row .hero__trust-item,
   div.hero__trust-row span.hero__trust-item {
-    font-size: 12px !important;     /* bumped +2px */
+    font-size: 11.5px !important;
+    gap: 3px !important;
+  }
+  .hero .hero__trust-row .hero__trust-item svg,
+  div.hero__trust-row span.hero__trust-item svg {
+    width: 10px !important;
+    height: 10px !important;
   }
 }
 @media (max-width: 380px) {
   .hero .hero__trust-row .hero__trust-item,
   div.hero__trust-row span.hero__trust-item {
-    font-size: 11.5px !important;   /* bumped +2px */
-    letter-spacing: -0.01em !important;
+    font-size: 11px !important;
   }
 }
 @media (max-width: 340px) {
+  .hero .hero__trust-row,
+  div.hero__trust-row {
+    gap: 4px !important;
+  }
   .hero .hero__trust-row .hero__trust-item,
   div.hero__trust-row span.hero__trust-item {
-    font-size: 11px !important;     /* bumped +2px */
+    font-size: 10px !important;
+  }
+  .hero .hero__trust-row .hero__trust-item svg,
+  div.hero__trust-row span.hero__trust-item svg {
+    width: 9px !important;
+    height: 9px !important;
   }
 }
 
