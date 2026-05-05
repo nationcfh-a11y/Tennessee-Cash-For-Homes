@@ -241,4 +241,32 @@
       diffObserver.observe(item);
     });
   })();
+
+  // ── Back-to-top button (mobile) ──
+  // Shows after the user scrolls 300px from the top, smooth-scrolls to 0
+  // when tapped. CSS handles the fade transitions and desktop hiding.
+  (function () {
+    const btn = document.querySelector('.back-to-top');
+    if (!btn) return;
+    const SHOW_AFTER = 300;
+    let ticking = false;
+
+    function update() {
+      ticking = false;
+      if (window.scrollY > SHOW_AFTER) btn.classList.add('is-visible');
+      else btn.classList.remove('is-visible');
+    }
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    update(); // set initial state on load
+  })();
 })();

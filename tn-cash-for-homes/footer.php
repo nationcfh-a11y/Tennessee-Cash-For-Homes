@@ -92,6 +92,16 @@
 
 </footer>
 
+<!-- Floating back-to-top button (mobile only — hidden on desktop via CSS).
+     The inline style="display:none" keeps it invisible on desktop without
+     any flicker; mobile CSS overrides it. JS in js/main.js toggles the
+     .is-visible class once the user scrolls past 300px. -->
+<button type="button" class="back-to-top" aria-label="Back to top" style="display:none;">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <polyline points="18 15 12 9 6 15"/>
+  </svg>
+</button>
+
 <?php wp_footer(); ?>
 </body>
 </html>
