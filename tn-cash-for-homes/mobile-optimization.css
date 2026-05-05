@@ -256,30 +256,150 @@
 
 
 /* =========================================================================
-   6. COMPARE TABLE — readable on phones
+   6. COMPARE TABLE — feature-card layout on phones
    --------------------------------------------------------------------
-   The 3-column compare-table (selling-with-us / agent / cash buyer)
-   has no mobile rule today. At 375px it crushes text. We let the
-   container scroll horizontally and shrink type so cells stay legible.
+   On desktop this is a 3-column comparison table. On mobile we flip
+   it to a column of feature cards. Each <tr> becomes a card that
+   answers one question (e.g. "Closing timeline") with the TCFH answer
+   stacked above the traditional answer, so the eye does a tiny
+   vertical compare-and-contrast inside each card. No horizontal scroll.
+   --------------------------------------------------------------------
+   Desktop is fully untouched: every rule below lives inside the
+   max-width: 768px media query.
    ========================================================================= */
 @media (max-width: 768px) {
-  .compare-table-wrap,
-  .compare-section {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+
+  /* Wrapper: drop any horizontal-scroll behavior from earlier rounds */
+  .compare-wrap {
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
-  .compare-table {
-    min-width: 520px;                /* enough to keep columns readable */
-    font-size: 14px;
+
+  /* Hide the column headers — each card shows its own labels */
+  .compare-table thead {
+    display: none;
   }
+
+  /* Reshape the table elements into block flow */
+  .compare-table,
+  .compare-table tbody,
+  .compare-table tr,
   .compare-table th,
   .compare-table td {
-    padding: 10px 10px !important;
-    font-size: 13px;
-    line-height: 1.4;
+    display: block;
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
   }
-  .compare-table th:first-child {
-    width: auto !important;
+
+  /* Each row becomes a card */
+  .compare-table tr {
+    background: #fff !important;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  /* Suppress the desktop alternating-row background on mobile */
+  .compare-table tr:nth-child(even) td,
+  .compare-table tr:nth-child(even) th {
+    background: transparent !important;
+  }
+
+  /* Row label (the feature name) becomes the card title */
+  .compare-table tbody th[scope="row"] {
+    background: transparent !important;
+    color: var(--charcoal) !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    padding: 0 0 12px !important;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 12px;
+  }
+
+  /* Each value cell: flex row with a circled icon + brand-label + value */
+  .compare-table tbody td {
+    background: transparent !important;
+    text-align: left !important;
+    padding: 8px 0 !important;
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--charcoal);
+    position: relative;
+    padding-left: 36px !important;   /* room for the leading icon */
+  }
+  .compare-table tbody td + td {
+    margin-top: 4px;
+    padding-top: 10px !important;
+  }
+
+  /* TCFH cell (1st td in the row) */
+  .compare-table tbody td:nth-of-type(1) {
+    color: var(--charcoal);
+    font-weight: 600;
+  }
+  .compare-table tbody td:nth-of-type(1)::before {
+    content: "Tennessee Cash For Homes";
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    margin-bottom: 2px;
+  }
+  /* Green check badge */
+  .compare-table tbody td:nth-of-type(1)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--green-dark)
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>")
+      center / 14px no-repeat;
+  }
+
+  /* Traditional Listing cell (2nd td in the row) */
+  .compare-table tbody td:nth-of-type(2) {
+    color: var(--charcoal-light);
+  }
+  .compare-table tbody td:nth-of-type(2)::before {
+    content: "Traditional Listing";
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    margin-bottom: 2px;
+  }
+  /* Neutral X badge */
+  .compare-table tbody td:nth-of-type(2)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #e6e6e6
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23777' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>")
+      center / 12px no-repeat;
+  }
+
+  /* Hide the desktop ✔/✕ inline marks — our circled badges replace them */
+  .compare-table tbody .check,
+  .compare-table tbody .cross {
+    display: none !important;
   }
 }
 
@@ -482,5 +602,225 @@
   select:focus-visible {
     outline: 2px solid var(--green-dark);
     outline-offset: 2px;
+  }
+}
+
+
+/* =========================================================================
+   ▼▼▼ ROUND 2 — Homepage-specific tweaks (2026-05-05) ▼▼▼
+   All rules below are inside max-width: 768px / 480px media queries.
+   Desktop is untouched.
+   ========================================================================= */
+
+
+/* -------------------------------------------------------------------------
+   R2.1  LOGO SIZE — match the visible weight of the hamburger control
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .nav__logo img {
+    max-height: 44px !important;     /* was 36px — sized to the hamburger tap area */
+    height: 44px;
+    width: auto;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   R2.2  HERO TOP SPACING — pull hero content up under the nav
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .hero,
+  .page-hero,
+  .fc-hero,
+  .about-hero,
+  .wwb-hero,
+  .sit-hero,
+  .blog-hero,
+  .land-hero,
+  .county-hero,
+  .location-hero {
+    padding-top: 32px !important;    /* was 92px */
+    padding-bottom: 40px !important; /* tighten the bottom too */
+  }
+  /* The .hero on the front page has its own gap above the form card; trim it */
+  .hero__inner {
+    gap: 18px !important;
+  }
+  .hero__badge {
+    margin-bottom: 12px !important;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   R2.3  HERO TRUST ROW — force all three items onto a single line at
+   every mobile size, including 320px. Type is small at the narrowest
+   phones (by design — user explicitly asked for one line over readability).
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .hero__trust-row {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: center;
+    align-items: center;
+    gap: 8px !important;
+    margin-top: 16px;
+    width: 100%;
+  }
+  .hero__trust-row .hero__trust-item {
+    flex: 0 1 auto;
+    gap: 4px;                        /* icon-to-text spacing */
+    font-size: 11.5px;
+    font-weight: 700;
+    white-space: nowrap;             /* never split a label across lines */
+    line-height: 1.2;
+  }
+  .hero__trust-row .hero__trust-item svg {
+    width: 11px;
+    height: 11px;
+    flex-shrink: 0;
+  }
+}
+/* Smallest phones (≤375px iPhone SE etc.): drop the SVG check icons so
+   the three labels can fit in one line at ~10.5px without wrapping. */
+@media (max-width: 375px) {
+  .hero__trust-row .hero__trust-item svg {
+    display: none;
+  }
+  .hero__trust-row .hero__trust-item {
+    font-size: 10.5px;
+  }
+  .hero__trust-row {
+    gap: 10px !important;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   R2.4  ACCOLADES / PROOF BAR — center every stat on its own line
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .proof-bar__inner {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 14px !important;
+    text-align: center;
+  }
+  .proof-stat {
+    width: 100%;
+    text-align: center;
+  }
+  .proof-stat__num,
+  .proof-stat__label {
+    text-align: center;
+    width: 100%;
+  }
+  /* The vertical dividers between stats become awkward when stacked; hide them */
+  .proof-divider {
+    display: none !important;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   R2.5  GAP AFTER STEP 3 ("pick your own closing date and get paid")
+   The next section (.house-to-cash-section) sits below #how-it-works.
+   Trim the seam from both sides.
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  #how-it-works {
+    padding-bottom: 24px !important;
+  }
+  #how-it-works .steps {
+    gap: 18px !important;
+  }
+  .house-to-cash-section {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+  .htc-headline-wrap {
+    margin-top: 12px !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   R2.6  GAP ABOVE THE TEAM PHOTO (.difference-section)
+   The headline "Get a Fair Cash Offer in 24 Hours" sits inside
+   .house-to-cash-section. The team photo below it is the first child
+   of .difference-section. Pull the difference section up.
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .difference-section {
+    padding-top: 20px !important;
+  }
+  .difference__img-wrap {
+    margin-top: 0 !important;
+  }
+  .difference__img-wrap img {
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+  .difference__content-wrap {
+    padding-top: 8px !important;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   R2.7  COMPARE TABLE — full redesign now lives in section 6 above
+   (stacked feature cards). The previous horizontal-scroll fade hint
+   has been removed because there is no longer any scroll to hint at.
+   ------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------
+   R2.8  FOOTER BOTTOM BAR
+   - Shrink the Black Labrador image (it shares a class with the 100%
+     image, so we target it via :last-of-type)
+   - Stack the copyright and Privacy Policy onto two centered lines.
+     Pure-CSS approach: zero out the original span's font-size so the
+     literal "·" middot text node disappears, then render the copyright
+     line via ::before and force the link to its own block.
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .footer-bottom__inner {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px !important;
+    text-align: center;
+  }
+
+  /* Both seal images get smaller; the Black Lab gets smaller still. */
+  .footer-bottom__img {
+    height: 96px !important;
+    width: auto !important;
+  }
+  .footer-bottom__inner img.footer-bottom__img:last-of-type {
+    height: 72px !important;          /* the Black Labrador image */
+  }
+
+  /* Copyright + Privacy Policy on two centered lines */
+  .footer-bottom__copy {
+    font-size: 0 !important;          /* hide the original text node + middot */
+    line-height: 1.5;
+    text-align: center;
+    flex: 0 0 auto;
+  }
+  .footer-bottom__copy::before {
+    content: "© 2026 Tennessee Cash For Homes";
+    display: block;
+    font-size: 13px;
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 4px;
+  }
+  .footer-bottom__copy .footer-bottom__link {
+    display: block !important;
+    font-size: 13px !important;
+    color: rgba(255,255,255,0.72);
+    text-decoration: underline;
   }
 }
