@@ -641,29 +641,34 @@
     gap: 10px !important;
     text-decoration: none;
   }
-  /* Wordmark — real DOM span injected from header.php (the previous ::after
-     approach didn't render reliably). Inline default is display:none, so
-     desktop is fully unaffected. We force it visible on mobile here. */
+  /* Wordmark — real DOM span injected from header.php. Inline default is
+     display:none so desktop is fully unaffected. We force it visible on
+     mobile. inline-block (not inline-flex) so the whitespace between child
+     spans renders as visible word-spacing. Each child span has its own
+     inline `style="color:..."` to override the parent's color per word. */
   .nav__logo .nav__logo-text {
-    display: inline-flex !important;
-    align-items: center;
-    color: #84CC9C !important;
+    display: inline-block !important;
+    vertical-align: middle;
     font-family: 'Poppins', sans-serif !important;
     font-weight: 700 !important;
-    font-size: 14px !important;
+    font-size: 28px !important;        /* doubled from 14px */
     line-height: 1.15 !important;
-    white-space: nowrap !important;   /* never wrap to two lines */
+    white-space: nowrap !important;    /* never wrap to two lines */
     letter-spacing: -0.01em;
+  }
+  /* Each colored word stays on the same baseline */
+  .nav__logo .nav__logo-text > span {
+    display: inline;
   }
 }
 
-/* Smaller phones — shrink the wordmark so logo + text + hamburger all fit */
+/* Smaller phones — shrink the wordmark proportionally (also doubled) */
 @media (max-width: 400px) {
   .nav__logo {
     gap: 8px !important;
   }
   .nav__logo .nav__logo-text {
-    font-size: 12.5px !important;
+    font-size: 25px !important;        /* doubled from 12.5px */
   }
 }
 @media (max-width: 360px) {
@@ -671,12 +676,12 @@
     gap: 6px !important;
   }
   .nav__logo .nav__logo-text {
-    font-size: 11.5px !important;
+    font-size: 23px !important;        /* doubled from 11.5px */
   }
 }
 @media (max-width: 330px) {
   .nav__logo .nav__logo-text {
-    font-size: 10.5px !important;
+    font-size: 21px !important;        /* doubled from 10.5px */
   }
 }
 

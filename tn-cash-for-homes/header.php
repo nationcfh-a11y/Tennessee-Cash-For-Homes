@@ -22,7 +22,7 @@
           <source type="image/webp" srcset="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/Tennessee%20Cash%20For%20Homes%20Logo.webp" />
           <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/Tennessee%20Cash%20For%20Homes%20Logo.png" alt="Tennessee Cash For Homes" width="256" height="256" decoding="async" fetchpriority="high" />
         </picture>
-        <span class="nav__logo-text" style="display:none;">Tennessee Cash For Homes</span>
+        <span class="nav__logo-text" style="display:none;"><span style="color: #000000;">Tennessee</span> <span style="color: #84CC9C;">Cash</span> <span style="color: #000000;">For</span> <span style="color: #000000;">Homes</span></span>
       </a>
       <ul class="nav__links" id="navLinks">
         <li><a href="<?php echo esc_url( home_url( '/how-it-works/' ) ); ?>" <?php if ( is_page( 'how-it-works' ) ) echo 'class="active"'; ?>>How It Works</a></li>
