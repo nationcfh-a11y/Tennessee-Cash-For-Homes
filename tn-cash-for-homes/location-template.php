@@ -95,7 +95,7 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
         </div>
         <div class="county-hero__cta-row">
           <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-primary">Get My Free Cash Offer &rarr;</a>
-          <a href="tel:+16158018126" class="btn-outline">Call (615) 801-8126</a>
+          <a href="tel:+16158018126" class="btn-outline">Call Us Today - (615) 801-8126</a>
         </div>
       </div>
 
