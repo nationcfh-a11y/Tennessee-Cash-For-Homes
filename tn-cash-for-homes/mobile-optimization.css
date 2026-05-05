@@ -1056,37 +1056,20 @@
     margin-bottom: 0 !important;
   }
 
-  /* House-to-cash transition section.
-     ROOT CAUSE of the blank space: style.css:3477 sets this section to
-     height: 100vh / max-height: 100vh — always one full viewport tall.
-     Combined with flex centering, it pushes the "YOUR HOUSE → YOUR CASH"
-     label down with empty space above it. We unlock the height on mobile
-     so the section sizes to its content instead. */
+  /* House-to-cash transition: tighter padding so it doesn't feel like a
+     standalone heavy section */
   .house-to-cash-section {
-    height: auto !important;
-    max-height: none !important;
-    min-height: 0 !important;
-    padding-top: 18px !important;
-    padding-bottom: 18px !important;
-  }
-  .htc-inner {
-    height: auto !important;
-    padding: 0 16px !important;
-    gap: 6px !important;
-  }
-  /* Halve the image container height — at 60vh the box was much taller
-     than the image's aspect ratio (2.13:1), creating internal letterbox
-     space between the "YOUR HOUSE → YOUR CASH" label and the actual
-     image (Area 2). Halving brings it close to the image's natural shape. */
-  .htc-image-container {
-    height: min(220px, 30vh) !important;
-    margin: 0 !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
   }
   .htc-headline-wrap {
-    margin-top: 8px !important;
+    margin-top: 10px !important;
   }
   .htc-headline {
     margin-bottom: 0 !important;
+  }
+  .htc-image-container {
+    margin: 6px 0 !important;
   }
 
   /* Difference section (team photo + text): minimal seam from above */
@@ -1170,11 +1153,6 @@
 }
 
 @media (max-width: 480px) {
-  /* Halve the htc-image-container at ≤480 too (style.css:3589 sets 52vh) */
-  .htc-image-container {
-    height: 26vh !important;
-  }
-
   /* Slightly tighter on small phones — overrides the ≤480 rule at
      style.css:5611. 28px keeps a comfortable breathing room. */
   .section,
