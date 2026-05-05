@@ -614,13 +614,20 @@
 
 
 /* -------------------------------------------------------------------------
-   R2.1  LOGO SIZE — match the visible weight of the hamburger control
+   R2.1  LOGO SIZE — bigger logo per user feedback
    ------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   .nav__logo img {
-    max-height: 44px !important;     /* was 36px — sized to the hamburger tap area */
-    height: 44px;
+    max-height: 56px !important;     /* bumped from 44px per user request */
+    height: 56px;
     width: auto;
+  }
+  /* Nav row is 64px tall on mobile (style.css:5582). 56px logo fits with 4px
+     above/below — but ensure the nav row can grow if needed. */
+  .nav,
+  .nav__inner {
+    min-height: 64px;
+    height: auto !important;
   }
 }
 
@@ -653,73 +660,113 @@
 
 
 /* -------------------------------------------------------------------------
-   R2.3  HERO TRUST ROW — force all three items onto a single line at
-   every mobile size, including 320px. Type is small at the narrowest
-   phones (by design — user explicitly asked for one line over readability).
+   R2.3  HERO TRUST ROW — force all three items onto ONE line at every
+   mobile size, no exceptions. We drop the SVG check icons on every
+   phone size so the three labels always fit. Type is small by design —
+   user explicitly chose one-line over readability.
    ------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   .hero__trust-row {
     display: flex !important;
     flex-wrap: nowrap !important;
-    justify-content: center;
-    align-items: center;
-    gap: 8px !important;
-    margin-top: 16px;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 14px !important;
+    margin-top: 14px;
     width: 100%;
+    overflow: visible;
+  }
+  /* Drop the SVG checkmarks on mobile entirely — they were the main reason
+     the row couldn't fit on one line at narrow widths */
+  .hero__trust-row .hero__trust-item svg {
+    display: none !important;
   }
   .hero__trust-row .hero__trust-item {
     flex: 0 1 auto;
-    gap: 4px;                        /* icon-to-text spacing */
-    font-size: 11.5px;
-    font-weight: 700;
-    white-space: nowrap;             /* never split a label across lines */
-    line-height: 1.2;
-  }
-  .hero__trust-row .hero__trust-item svg {
-    width: 11px;
-    height: 11px;
-    flex-shrink: 0;
+    gap: 0 !important;
+    padding: 0 !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;  /* never split a label across lines */
+    line-height: 1.2 !important;
+    color: #FFFFFF;
+    min-width: 0;
   }
 }
-/* Smallest phones (≤375px iPhone SE etc.): drop the SVG check icons so
-   the three labels can fit in one line at ~10.5px without wrapping. */
-@media (max-width: 375px) {
-  .hero__trust-row .hero__trust-item svg {
-    display: none;
-  }
-  .hero__trust-row .hero__trust-item {
-    font-size: 10.5px;
-  }
+@media (max-width: 480px) {
   .hero__trust-row {
     gap: 10px !important;
+  }
+  .hero__trust-row .hero__trust-item {
+    font-size: 11px !important;
+  }
+}
+@media (max-width: 360px) {
+  .hero__trust-row {
+    gap: 8px !important;
+  }
+  .hero__trust-row .hero__trust-item {
+    font-size: 10px !important;
+    letter-spacing: -0.01em;
   }
 }
 
 
 /* -------------------------------------------------------------------------
-   R2.4  ACCOLADES / PROOF BAR — center every stat on its own line
+   R2.4  ACCOLADES / PROOF BAR — 2x2 grid on mobile
+   Row 1: 1,200+ Homes Purchased | 14 Days Average Close Time
+   Row 2: $0 Agent Fees          | 5.0 Google Rating
+   The HTML order is: stat / divider / stat / divider / stat / divider /
+   stat. We hide the dividers and lay out the four stats as a CSS grid.
    ------------------------------------------------------------------------- */
 @media (max-width: 768px) {
+  .proof-bar {
+    padding: 16px 0 !important;
+  }
   .proof-bar__inner {
-    flex-direction: column !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
     align-items: center !important;
-    justify-content: center !important;
-    gap: 14px !important;
+    justify-items: center !important;
+    gap: 18px 12px !important;
     text-align: center;
+    flex-wrap: initial;              /* override the flex-wrap rule from base CSS */
   }
   .proof-stat {
     width: 100%;
+    max-width: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-  .proof-stat__num,
+  .proof-stat__num {
+    text-align: center;
+    width: 100%;
+    font-size: 22px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
   .proof-stat__label {
     text-align: center;
     width: 100%;
+    font-size: 12.5px;
+    line-height: 1.3;
+    max-width: 160px;
+    margin: 0 auto;
   }
-  /* The vertical dividers between stats become awkward when stacked; hide them */
+  /* Vertical dividers don't belong in a 2x2 grid layout */
   .proof-divider {
     display: none !important;
   }
+}
+@media (max-width: 360px) {
+  .proof-bar__inner {
+    gap: 14px 8px !important;
+  }
+  .proof-stat__num { font-size: 20px; }
+  .proof-stat__label { font-size: 11.5px; }
 }
 
 
@@ -803,7 +850,8 @@
     height: 72px !important;          /* the Black Labrador image */
   }
 
-  /* Copyright + Privacy Policy on two centered lines */
+  /* Copyright + Privacy Policy on two centered lines (kept from R2 — see
+     R3.5 below, which restructures this into a horizontal layout). */
   .footer-bottom__copy {
     font-size: 0 !important;          /* hide the original text node + middot */
     line-height: 1.5;
@@ -822,5 +870,312 @@
     font-size: 13px !important;
     color: rgba(255,255,255,0.72);
     text-decoration: underline;
+  }
+}
+
+
+/* =========================================================================
+   ▼▼▼ ROUND 3 — Density pass + footer restructure (2026-05-05) ▼▼▼
+   ========================================================================= */
+
+
+/* -------------------------------------------------------------------------
+   R3.4  REDUCE DEAD SPACE THROUGHOUT THE HOMEPAGE
+   The base CSS sets .section / .about-* / .market-overview / etc. to
+   48px top+bottom on mobile. That's still a lot of empty space between
+   sections. Tighten everything to ~28px on phones, ~22px on small phones.
+   Also tighten section header bottom margins and heading top/bottom margins.
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+  /* Override the 48px section padding from style.css:5436-5456 */
+  .section,
+  .about-mission,
+  .about-who,
+  .about-team,
+  .about-values,
+  .about-why,
+  .about-process,
+  .about-badges,
+  .about-service,
+  .faq-section,
+  .market-overview,
+  .reviews-section,
+  .who-we-help,
+  .gov-resources,
+  .difference-section,
+  .land-section,
+  .land-section-2,
+  .common-situations,
+  .home-blog,
+  .blog-articles,
+  .single-post__body,
+  .video-section,
+  .tn-map-section,
+  .cta-band {
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+  }
+
+  /* Section headers: less air below the eyebrow → title → subtitle stack */
+  .section__header,
+  .common-situations__header,
+  .about-who__header,
+  .market-overview__header,
+  .reviews-section__header,
+  .who-we-help__header,
+  .gov-resources__header,
+  .home-blog__header,
+  .blog-articles__header,
+  .faq-section__header {
+    margin-bottom: 18px !important;
+  }
+  .section__eyebrow {
+    margin-bottom: 6px !important;
+  }
+  .section__title,
+  .common-situations__title,
+  h1, h2, h3 {
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+  }
+  .section__subtitle,
+  .common-situations__sub {
+    margin-bottom: 0 !important;
+  }
+  .common-situations__divider {
+    margin: 12px auto !important;
+  }
+
+  /* "How it works" steps: tighter step-to-step spacing */
+  .steps {
+    gap: 14px !important;
+  }
+  .step {
+    padding: 16px 14px !important;
+  }
+  .step__title {
+    margin-bottom: 6px !important;
+  }
+  .step__body {
+    margin-bottom: 0 !important;
+  }
+
+  /* House-to-cash transition: tighter padding so it doesn't feel like a
+     standalone heavy section */
+  .house-to-cash-section {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+  .htc-headline-wrap {
+    margin-top: 10px !important;
+  }
+  .htc-headline {
+    margin-bottom: 0 !important;
+  }
+  .htc-image-container {
+    margin: 6px 0 !important;
+  }
+
+  /* Difference section (team photo + text): minimal seam from above */
+  .difference-section {
+    padding-top: 12px !important;
+    padding-bottom: 28px !important;
+  }
+  .difference__img-wrap img {
+    margin-bottom: 12px !important;
+  }
+  .difference__intro {
+    margin-bottom: 14px !important;
+  }
+  .difference__list {
+    margin-bottom: 14px !important;
+  }
+  .difference__list li {
+    margin-bottom: 6px !important;
+  }
+  .difference__trust-row {
+    margin-top: 14px !important;
+    gap: 14px !important;
+  }
+
+  /* FAQ: tighten question-to-question spacing */
+  .faq-list {
+    gap: 8px !important;
+  }
+  .faq-item {
+    margin-bottom: 6px !important;
+  }
+
+  /* Reviews: tighter card spacing inside the carousel */
+  .reviews-carousel,
+  .reviews-slide {
+    margin-bottom: 12px !important;
+  }
+
+  /* Areas/cities section */
+  .cities-grid {
+    margin-bottom: 16px !important;
+  }
+  .areas-footnote {
+    margin-top: 12px !important;
+  }
+
+  /* CTA band: less vertical air */
+  .cta-band {
+    padding: 28px 0 !important;
+  }
+  .cta-band p {
+    margin-bottom: 18px !important;
+  }
+  .cta-band h2 {
+    margin-bottom: 10px !important;
+  }
+
+  /* Footer dark CTA: tighter */
+  .footer-dark-cta {
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+  }
+  .footer-dark-cta__title {
+    margin-bottom: 10px !important;
+  }
+  .footer-dark-cta__sub {
+    margin-bottom: 18px !important;
+  }
+  .footer-dark-cta__phone {
+    margin-top: 12px !important;
+  }
+
+  /* Footer main grid */
+  .footer-main {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+  .footer-main__grid {
+    gap: 22px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Even tighter on small phones — override the ≤480 rule at style.css:5611 */
+  .section,
+  .about-mission,
+  .about-who,
+  .about-team,
+  .about-values,
+  .about-why,
+  .about-process,
+  .about-service,
+  .faq-section,
+  .market-overview,
+  .reviews-section,
+  .who-we-help,
+  .gov-resources,
+  .difference-section,
+  .land-section,
+  .common-situations,
+  .home-blog,
+  .blog-articles,
+  .video-section,
+  .tn-map-section,
+  .cta-band {
+    padding-top: 22px !important;
+    padding-bottom: 22px !important;
+  }
+  .section__header,
+  .common-situations__header {
+    margin-bottom: 14px !important;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   R3.5  FOOTER BOTTOM BAR — restructure into:
+   [Gold Seal]  © 2026 Tennessee Cash For Homes  [Black Lab]
+                       Privacy Policy
+
+   - Three items on row 1, vertically centered with each other
+   - Privacy Policy on row 2, centered horizontally
+   The Privacy Policy <a> lives inside the copyright span, so we make
+   the span a flex column whose ::before renders the copyright text and
+   whose anchor child sits below it. Because the span is the middle
+   item of a flex row, the anchor inside it appears visually below the
+   copyright (and roughly centered in the row).
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Override the column-stack layout from R2.8 */
+  .footer-bottom {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+  .footer-bottom__inner {
+    display: flex !important;
+    flex-direction: row !important;     /* horizontal row */
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    text-align: center;
+  }
+
+  /* Image sizes on the row layout */
+  .footer-bottom__img {
+    height: 64px !important;            /* gold seal */
+    width: auto !important;
+    flex: 0 0 auto;
+  }
+  .footer-bottom__inner img.footer-bottom__img:last-of-type {
+    height: 56px !important;            /* black labrador, slightly smaller */
+  }
+
+  /* Middle column: copyright text on row 1, Privacy Policy below */
+  .footer-bottom__copy {
+    font-size: 0 !important;            /* hide raw text node + middot */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 1 1 auto;
+    min-width: 0;
+    line-height: 1.4;
+    text-align: center;
+  }
+  .footer-bottom__copy::before {
+    content: "© 2026 Tennessee Cash For Homes";
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 4px;
+    white-space: nowrap;
+  }
+  .footer-bottom__copy .footer-bottom__link {
+    display: block !important;
+    font-size: 12px !important;
+    color: rgba(255,255,255,0.72) !important;
+    text-decoration: underline;
+    margin: 0 !important;
+  }
+}
+
+/* On the smallest phones, allow the copyright text to wrap if it doesn't
+   fit on one line (rare given the labels are short, but a safety net) */
+@media (max-width: 360px) {
+  .footer-bottom__inner {
+    gap: 6px !important;
+  }
+  .footer-bottom__img {
+    height: 52px !important;
+  }
+  .footer-bottom__inner img.footer-bottom__img:last-of-type {
+    height: 46px !important;
+  }
+  .footer-bottom__copy::before {
+    font-size: 11px;
+    white-space: normal;                /* allow wrap on tiny screens */
+  }
+  .footer-bottom__copy .footer-bottom__link {
+    font-size: 11px !important;
   }
 }
