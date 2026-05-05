@@ -1335,3 +1335,223 @@
     display: none !important;
   }
 }
+
+
+/* =========================================================================
+   ▼▼▼ ROUND 5 — Site-wide mobile audit fixes (2026-05-05) ▼▼▼
+   Findings from a 28-page mobile audit at 375px width.
+   ========================================================================= */
+
+
+/* -------------------------------------------------------------------------
+   R5.1  INVESTORS PAGE HERO — overflow fix
+   The /investors/ hero uses .hero__inner--center / .hero__content--center
+   with a long centered headline ("Work With Tennessee Cash For Homes") and
+   3 longer trust-row labels ("Off-Market Deals", "Win-Win Partnerships",
+   "Fast, Transparent Deals"). At 375px the h1 and trust row push 14px past
+   the viewport edge, clipping "Cash" off the right. Constrain children to
+   the container, allow word-break on the headline, and let this hero's
+   trust row wrap (the homepage no-wrap rule is per-row, this is a different
+   row with longer labels).
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .hero__inner--center,
+  .hero__content--center {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+  .hero__content--center > * {
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+  .hero__content--center .hero__title,
+  .hero__content--center .hero__subtitle {
+    word-break: break-word;
+    overflow-wrap: anywhere;     /* let long phrases wrap inside the column */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* The investors hero trust row has 3 *longer* labels (~20 chars each).
+     Override the no-wrap rule from R2.3 ONLY for this centered hero — let
+     the items wrap to a second line so they never get clipped. */
+  .hero__content--center .hero__trust-row,
+  .hero__inner--center .hero__trust-row {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px 14px !important;
+  }
+  .hero__content--center .hero__trust-item,
+  .hero__inner--center .hero__trust-item {
+    flex: 0 0 auto !important;     /* shrink to content, don't force equal slots */
+    white-space: normal !important; /* allow inside wrap if a single item is long */
+    font-size: 12px !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   R5.2  REVIEWS CAROUSEL — guarantee no horizontal overflow
+   #reviewsTrack is a flex track sized to N×slide-width and translated
+   horizontally by JS. Its parent already clips, but ensure the parent
+   has overflow-x: hidden on mobile as a hard belt-and-suspenders.
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .reviews-carousel,
+  .reviews-section .reviews-carousel,
+  .reviews-track-wrap {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   R5.3  TAP TARGETS — bump the smaller-than-44px hits found in the audit
+   These are inline links/buttons with line-height 1 and no padding. Add
+   vertical padding (or display:inline-block) only where it does not
+   disturb surrounding flow.
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+  /* Privacy Policy in the footer-bottom row — was 71×17 across 28 pages */
+  .footer-bottom__link {
+    display: inline-block !important;
+    padding: 8px 4px !important;
+    min-height: 36px;
+    line-height: 1.3;
+  }
+
+  /* Testimonial "View Full Review" toggle — was 309×15 across 21 pages */
+  .testimonial-toggle {
+    padding: 10px 0 !important;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Reviews carousel dots — base button is 24×24 (style.css:5383). The
+     visible 9px dot is rendered via ::before, so we can grow the button's
+     hit area to 40×40 without enlarging the visible dot. Active state
+     keeps its widened 41×24 form (already >40 tall enough → bump height
+     to 40 for that one too). */
+  .carousel-dot {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .carousel-dot.active {
+    width: 56px !important;   /* preserves the active widening (41 + 15) */
+    height: 40px !important;
+  }
+
+  /* Government resource "Visit Website →" — was 114×22 (15 pages) */
+  .gov-resource-row__cta {
+    display: inline-block !important;
+    padding: 8px 12px !important;
+    min-height: 40px;
+    line-height: 1.4;
+  }
+
+  /* Phone number anchors that aren't styled as buttons — anywhere they
+     appear inline in text like "Or call us now: (615) 801-8126" */
+  a[href^="tel:"] {
+    padding: 4px 2px;
+    display: inline-block;
+  }
+
+  /* Breadcrumb "Home" — was 39×20 (10 pages). Add vertical padding to
+     enlarge tap area without negative margin (which would collide with
+     the › separators). The breadcrumb row gains a few px of height. */
+  .breadcrumb a {
+    display: inline-block;
+    padding: 6px 4px;
+    line-height: 1.4;
+  }
+  .breadcrumb {
+    line-height: 1.6;
+  }
+
+  /* "Read more" location-about toggle — was 102×18 (6 pages) */
+  .loc-about__toggle {
+    padding: 10px 14px !important;
+    min-height: 40px;
+    line-height: 1.3;
+  }
+
+  /* Single post — "← Back to Blog" anchor */
+  .single-post__back {
+    display: inline-block;
+    padding: 8px 4px;
+    min-height: 40px;
+    line-height: 1.4;
+  }
+
+  /* Sidebar TOC links — already wrap to 2 lines (32px); just ensure each
+     line gets its own comfortable touch row. */
+  .sidebar-toc__link {
+    padding: 6px 4px;
+    line-height: 1.5;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   R5.4  TEXT TOO SMALL TO READ — bump anything under 12px to a comfortable
+   minimum. The hero trust-row at 11px is a USER-INTENDED layout choice
+   (R2.3 — must fit 3 items on one line at 375px) and is intentionally NOT
+   bumped here.
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* "GET STARTED TODAY" eyebrow above the dark CTA — 27 pages. Slight bump
+     keeps it visually compact while improving legibility. */
+  .footer-dark-cta__label {
+    font-size: 12px !important;
+    letter-spacing: 0.08em;
+  }
+
+  /* "Market Insight" insight-card label on city/county pages — 7 pages */
+  .loc-about__insight-label {
+    font-size: 12px !important;
+  }
+
+  /* "No Repairs. No Fees. No Hassle." house-to-cash eyebrow — 2 pages */
+  .htc-eyebrow {
+    font-size: 12px !important;
+    letter-spacing: 0.06em;
+  }
+
+  /* "Soon" badge on city link buttons */
+  .city-link-btn__soon {
+    font-size: 11.5px !important;
+  }
+
+  /* Foreclosure callout eyebrow — "Key Takeaway" */
+  .fc-process-callout__eyebrow {
+    font-size: 12px !important;
+  }
+
+  /* Pros/Cons subheadings on situation pages */
+  .pros-cons h4,
+  .pros-cons-section h4 {
+    font-size: 14px !important;
+  }
+
+  /* Sidebar CTA "FREE OFFER" badge on blog posts */
+  .sidebar-cta__badge {
+    font-size: 12px !important;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   R5.5  h6 minimum size — on the contact page the placeholder template
+   ships an h6 at 10.7px ("Send a Mail"). Force a readable minimum.
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  h6 {
+    font-size: 13px !important;
+  }
+}
