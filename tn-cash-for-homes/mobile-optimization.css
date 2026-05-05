@@ -660,54 +660,75 @@
 
 
 /* -------------------------------------------------------------------------
-   R2.3  HERO TRUST ROW — force all three items onto ONE line at every
-   mobile size, no exceptions. We drop the SVG check icons on every
-   phone size so the three labels always fit. Type is small by design —
-   user explicitly chose one-line over readability.
+   R2.3  HERO TRUST ROW — force three items onto ONE row, no exceptions.
+   Markup: <div class="hero__trust-row">
+             <span class="hero__trust-item"><svg/> No Agent Fees</span>
+             <span class="hero__trust-item"><svg/> Close in 7 Days</span>
+             <span class="hero__trust-item"><svg/> Any Condition</span>
+           </div>
+   Maximum-specificity overrides + !important so nothing in the cascade
+   can re-flow this to multiple lines.
    ------------------------------------------------------------------------- */
 @media (max-width: 768px) {
-  .hero__trust-row {
+  .hero .hero__trust-row,
+  div.hero__trust-row {
     display: flex !important;
+    flex-direction: row !important;
     flex-wrap: nowrap !important;
-    justify-content: center !important;
+    justify-content: space-between !important;
     align-items: center !important;
-    gap: 14px !important;
-    margin-top: 14px;
-    width: 100%;
-    overflow: visible;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 8px !important;
+    margin-top: 14px !important;
+    overflow: visible !important;
+    text-align: center;
   }
-  /* Drop the SVG checkmarks on mobile entirely — they were the main reason
-     the row couldn't fit on one line at narrow widths */
-  .hero__trust-row .hero__trust-item svg {
+  /* Hide SVG check icons everywhere on mobile — biggest space hog */
+  .hero .hero__trust-row .hero__trust-item svg,
+  div.hero__trust-row span.hero__trust-item svg {
     display: none !important;
   }
-  .hero__trust-row .hero__trust-item {
-    flex: 0 1 auto;
-    gap: 0 !important;
+  .hero .hero__trust-row .hero__trust-item,
+  div.hero__trust-row span.hero__trust-item {
+    display: inline-flex !important;
+    flex: 1 1 0 !important;          /* equal width slots, allow shrink */
+    min-width: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
     padding: 0 !important;
-    font-size: 12px !important;
+    gap: 0 !important;
+    color: #FFFFFF !important;
     font-weight: 700 !important;
-    white-space: nowrap !important;  /* never split a label across lines */
+    font-size: 11px !important;
     line-height: 1.2 !important;
-    color: #FFFFFF;
-    min-width: 0;
+    white-space: nowrap !important;  /* never break a label */
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 }
 @media (max-width: 480px) {
-  .hero__trust-row {
-    gap: 10px !important;
+  .hero .hero__trust-row,
+  div.hero__trust-row {
+    gap: 6px !important;
   }
-  .hero__trust-row .hero__trust-item {
-    font-size: 11px !important;
+  .hero .hero__trust-row .hero__trust-item,
+  div.hero__trust-row span.hero__trust-item {
+    font-size: 10px !important;
   }
 }
-@media (max-width: 360px) {
-  .hero__trust-row {
-    gap: 8px !important;
+@media (max-width: 380px) {
+  .hero .hero__trust-row .hero__trust-item,
+  div.hero__trust-row span.hero__trust-item {
+    font-size: 9.5px !important;
+    letter-spacing: -0.01em !important;
   }
-  .hero__trust-row .hero__trust-item {
-    font-size: 10px !important;
-    letter-spacing: -0.01em;
+}
+@media (max-width: 340px) {
+  .hero .hero__trust-row .hero__trust-item,
+  div.hero__trust-row span.hero__trust-item {
+    font-size: 9px !important;
   }
 }
 
@@ -888,7 +909,9 @@
    ------------------------------------------------------------------------- */
 @media (max-width: 768px) {
 
-  /* Override the 48px section padding from style.css:5436-5456 */
+  /* Override the 48px section padding from style.css:5436-5456.
+     36px is the user-approved breathing room — feels spacious without
+     creating large empty seams between sections. */
   .section,
   .about-mission,
   .about-who,
@@ -913,8 +936,8 @@
   .video-section,
   .tn-map-section,
   .cta-band {
-    padding-top: 28px !important;
-    padding-bottom: 28px !important;
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
   }
 
   /* Section headers: less air below the eyebrow → title → subtitle stack */
@@ -1058,7 +1081,8 @@
 }
 
 @media (max-width: 480px) {
-  /* Even tighter on small phones — override the ≤480 rule at style.css:5611 */
+  /* Slightly tighter on small phones — overrides the ≤480 rule at
+     style.css:5611. 28px keeps a comfortable breathing room. */
   .section,
   .about-mission,
   .about-who,
@@ -1080,8 +1104,8 @@
   .video-section,
   .tn-map-section,
   .cta-band {
-    padding-top: 22px !important;
-    padding-bottom: 22px !important;
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
   }
   .section__header,
   .common-situations__header {
