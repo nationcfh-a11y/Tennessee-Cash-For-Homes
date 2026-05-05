@@ -1,0 +1,486 @@
+/*
+ * Tennessee Cash For Homes — Mobile Optimization Layer
+ *
+ * Loaded AFTER style.min.css, so every rule here overrides where needed.
+ * Every rule is wrapped in a max-width media query — desktop is untouched.
+ *
+ * Breakpoints used:
+ *   ≤1024px : tablet safety guards (very light)
+ *   ≤768px  : phones (primary mobile fixes)
+ *   ≤480px  : small phones
+ *   ≤390px  : extra-small phones (iPhone SE, etc.)
+ */
+
+
+/* =========================================================================
+   1. GLOBAL SAFETY: prevent runaway horizontal scroll on every page
+   ========================================================================= */
+@media (max-width: 1024px) {
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  /* Anything that injects fixed pixel widths must not exceed viewport */
+  img, video, iframe, picture, svg, canvas, embed, object {
+    max-width: 100%;
+    height: auto;
+  }
+  /* Tables: allow horizontal scroll on their wrapper rather than overflowing */
+  table {
+    max-width: 100%;
+  }
+}
+
+
+/* =========================================================================
+   2. HERO MIN-HEIGHT FIX — the largest mobile issue
+   --------------------------------------------------------------------
+   The "hero unification" block in style.css forces every hero to
+   1000px on phones / 960px below 480px. On a 375px-wide phone this
+   creates 2–3 viewports of empty space below the form because the
+   flex-centering pushes content to the middle of a 1000px column.
+   On mobile we want the hero to be content-height + breathing room.
+   ========================================================================= */
+@media (max-width: 768px) {
+  .hero,
+  .fc-hero,
+  .page-hero,
+  .about-hero,
+  .wwb-hero,
+  .sit-hero,
+  .blog-hero,
+  .land-hero,
+  .county-hero,
+  .location-hero {
+    min-height: 0 !important;
+    justify-content: flex-start !important;
+  }
+}
+@media (max-width: 480px) {
+  .hero,
+  .fc-hero,
+  .page-hero,
+  .about-hero,
+  .wwb-hero,
+  .sit-hero,
+  .blog-hero,
+  .land-hero,
+  .county-hero,
+  .location-hero {
+    min-height: 0 !important;
+  }
+}
+
+
+/* =========================================================================
+   3. NAVIGATION — tap targets, mobile menu polish
+   ========================================================================= */
+@media (max-width: 768px) {
+  /* Hamburger: enlarge tap area to the WCAG-recommended 44×44 */
+  .nav__hamburger {
+    padding: 12px;
+    margin-right: -8px;            /* keep visual position; just expand hitbox */
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Mobile dropdown menu: when nav is open, stack everything cleanly */
+  .nav__links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease, padding 0.25s ease;
+  }
+  .nav__links.open {
+    max-height: 80vh;
+    padding: 8px 16px 16px;
+    overflow-y: auto;
+  }
+  .nav__links a,
+  .nav__dropdown-toggle {
+    display: block;
+    padding: 14px 8px;
+    font-size: 16px;
+    min-height: 44px;
+    width: 100%;
+    text-align: left;
+  }
+
+  /* Resources dropdown: on mobile, render flat (no floating panel) */
+  .nav__dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 4px 0 8px 16px !important;
+    min-width: 0 !important;
+    background: transparent !important;
+  }
+  .nav__dropdown-menu a {
+    padding: 12px 8px !important;
+    font-size: 15px;
+    white-space: normal;            /* allow wrap on phones */
+  }
+
+  /* CTA button in nav: comfortable tap target */
+  .nav__cta {
+    padding: 12px 22px !important;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+/* =========================================================================
+   4. INTERACTIVE TENNESSEE COUNTY MAP — usable on phones
+   --------------------------------------------------------------------
+   Existing rules force min-width: 700px below 480px, which makes the
+   map wider than the viewport and traps users in horizontal scroll.
+   That conflicts with the goal of "usable on mobile." Better: let the
+   map shrink to fit, raise tap-target tolerance, and reposition the
+   tooltip so it never overflows offscreen.
+   ========================================================================= */
+@media (max-width: 768px) {
+  .tn-map-svg-wrap {
+    overflow-x: visible !important;
+  }
+  .tn-map-svg-wrap svg {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    min-width: 0 !important;        /* override the 700px push at desktop */
+    touch-action: manipulation;     /* faster taps, no double-tap zoom delay */
+  }
+  /* Slight stroke increase so county outlines remain visible when shrunk */
+  .county-path {
+    stroke-width: 0.18 !important;
+  }
+  /* Tooltip sized & positioned for touch — keep it readable, off-finger */
+  #county-tooltip {
+    font-size: 14px;
+    padding: 10px 16px;
+    max-width: calc(100vw - 24px);
+    white-space: normal;
+    text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  .tn-map-svg-wrap svg {
+    /* Override the 700px overflow trap from style.css line 3327 */
+    min-width: 0 !important;
+    min-height: 0 !important;
+  }
+  .tn-map-wrapper {
+    overflow-x: visible !important;
+    padding: 0 12px !important;
+  }
+  .tn-map-svg-wrap {
+    overflow-x: visible !important;
+  }
+}
+
+
+/* =========================================================================
+   5. COUNTY / FORECLOSURE / LOCATION HERO LAYOUT
+   --------------------------------------------------------------------
+   These specialized heroes use 2-column grids that aren't all covered
+   by the existing mobile CSS. Force single-column stacking and tighten
+   spacing so the form is always reachable in one swipe.
+   ========================================================================= */
+@media (max-width: 768px) {
+  .fc-hero__grid,
+  .county-hero__inner,
+  .location-hero__inner,
+  .wwb-hero__inner,
+  .land-hero__inner,
+  .land-section__inner {
+    display: block !important;       /* override grid 2-col layouts */
+  }
+  .fc-hero__content,
+  .county-hero__content,
+  .location-hero__content,
+  .wwb-hero__content,
+  .land-hero__content {
+    margin-bottom: 24px;
+  }
+  /* Map column on county hero — let it sit flush below text on phones */
+  .county-hero__map-col {
+    margin-top: 16px;
+  }
+  /* Foreclosure-specific hero typography */
+  .fc-hero__h1 {
+    font-size: 28px !important;
+    line-height: 1.2;
+  }
+  .fc-hero__sub {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .fc-hero__checks li {
+    font-size: 15px;
+  }
+  .fc-hero__ctas {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .fc-hero__call,
+  .fc-hero__form-card .btn-primary {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+@media (max-width: 480px) {
+  .fc-hero__h1 {
+    font-size: 25px !important;
+  }
+  .county-hero__title {
+    font-size: 26px !important;
+    line-height: 1.18;
+  }
+}
+
+
+/* =========================================================================
+   6. COMPARE TABLE — readable on phones
+   --------------------------------------------------------------------
+   The 3-column compare-table (selling-with-us / agent / cash buyer)
+   has no mobile rule today. At 375px it crushes text. We let the
+   container scroll horizontally and shrink type so cells stay legible.
+   ========================================================================= */
+@media (max-width: 768px) {
+  .compare-table-wrap,
+  .compare-section {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .compare-table {
+    min-width: 520px;                /* enough to keep columns readable */
+    font-size: 14px;
+  }
+  .compare-table th,
+  .compare-table td {
+    padding: 10px 10px !important;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .compare-table th:first-child {
+    width: auto !important;
+  }
+}
+
+
+/* =========================================================================
+   7. CITY CHIP GRIDS — readable on small screens
+   --------------------------------------------------------------------
+   .cities-grid is already 2-col at ≤480px (line 2011). On the smallest
+   phones the chips become very narrow. Tighten padding so labels fit.
+   ========================================================================= */
+@media (max-width: 390px) {
+  .cities-grid {
+    gap: 10px;
+  }
+  .city-chip {
+    padding: 11px 6px;
+    font-size: 12.5px;
+    gap: 5px;
+  }
+  .city-chip svg {
+    width: 11px;
+    height: 11px;
+  }
+}
+
+
+/* =========================================================================
+   8. CTAS / BUTTONS — comfortable tap targets everywhere
+   --------------------------------------------------------------------
+   Existing rules cover .btn-primary, .btn-outline, button[type=submit].
+   These extend the same treatment to less common variants and ensure
+   adjacent buttons stack cleanly.
+   ========================================================================= */
+@media (max-width: 768px) {
+  .btn-white,
+  .btn-footer-cta,
+  .hero__btn-primary,
+  .hero__btn-outline,
+  .page-hero__cta-row a,
+  .cta-band a {
+    min-height: 46px;
+    padding: 13px 22px;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cta-band {
+    padding: 48px 0 !important;
+  }
+  .cta-band p {
+    font-size: 15px;
+  }
+  .page-hero__cta-row,
+  .hero__cta-row,
+  .fc-hero__ctas,
+  .land-hero__cta-row {
+    width: 100%;
+  }
+  .page-hero__cta-row > a,
+  .land-hero__cta-row > a {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Tap feedback so users feel button presses on touch */
+  a.btn-primary:active,
+  a.btn-outline:active,
+  a.btn-white:active,
+  button[type="submit"]:active,
+  .nav__cta:active,
+  .city-chip:active {
+    transform: translateY(1px);
+    opacity: 0.92;
+  }
+}
+
+
+/* =========================================================================
+   9. FORMS — final polish (most rules already covered upstream)
+   --------------------------------------------------------------------
+   Existing CSS already sets inputs to 100% width / 16px font / 12-14px
+   padding. We just add label spacing, ensure card-style forms fit, and
+   prevent the "How It Works" form from getting squished.
+   ========================================================================= */
+@media (max-width: 768px) {
+  .form-group {
+    margin-bottom: 14px;
+  }
+  .form-group label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    display: block;
+  }
+  /* All form-card variants use the same padding rules */
+  .hero__form-card,
+  .fc-hero__form-card,
+  .land-section__form-wrap,
+  .form-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    padding: 22px 18px !important;
+  }
+  /* iOS prevents zoom-on-focus when input font-size ≥16px */
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="number"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+
+/* =========================================================================
+   10. PROOF / STATS STRIP — keep stats visible without overflow
+   ========================================================================= */
+@media (max-width: 768px) {
+  .proof-bar {
+    padding: 18px 0 !important;
+  }
+  .proof-bar__inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px 22px !important;
+    text-align: center;
+  }
+  .proof-bar__item {
+    flex: 0 0 auto;
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================================================
+   11. CONTAINER & TYPOGRAPHY — small-screen polish
+   ========================================================================= */
+@media (max-width: 390px) {
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  body {
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  h1 { font-size: 22px; }
+  h2 { font-size: 19px; }
+  h3 { font-size: 17px; }
+  .section__title { font-size: 20px; }
+}
+
+
+/* =========================================================================
+   12. IMAGES — guarantee no image breaks the layout
+   --------------------------------------------------------------------
+   This is the safety net for any inline-styled or background images
+   that slipped past the global rule above.
+   ========================================================================= */
+@media (max-width: 768px) {
+  .single-post img,
+  .prose img,
+  .page-content img,
+  .blog-card__img,
+  .testimonial-card img,
+  .market-card img,
+  .gov-resource-card img,
+  .who-we-help__card img {
+    max-width: 100%;
+    height: auto;
+  }
+  /* Hero background images: keep focal point centered, shrink-cropped */
+  .hero,
+  .page-hero,
+  .fc-hero,
+  .county-hero,
+  .location-hero,
+  .wwb-hero {
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+}
+
+
+/* =========================================================================
+   13. ACCESSIBILITY — improve touch interaction across the board
+   ========================================================================= */
+@media (max-width: 768px) {
+  a, button, [role="button"], .city-chip, .county-group {
+    -webkit-tap-highlight-color: rgba(132, 204, 156, 0.18);
+    touch-action: manipulation;
+  }
+  /* Improve focus-visible rings on touch devices */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--green-dark);
+    outline-offset: 2px;
+  }
+}

@@ -25,6 +25,19 @@ function tcfh_enqueue_assets() {
         );
     }
 
+    // Mobile-only overrides. Loaded after the main stylesheet so its
+    // media-query rules win without touching desktop styles.
+    $mobile_path = get_template_directory() . '/mobile-optimization.css';
+    $mobile_uri  = get_template_directory_uri() . '/mobile-optimization.css';
+    if ( file_exists( $mobile_path ) ) {
+        wp_enqueue_style(
+            'tcfh-mobile',
+            $mobile_uri,
+            array( 'tcfh-style' ),
+            (string) filemtime( $mobile_path )
+        );
+    }
+
     // Self-hosted Poppins (latin subset, weights 400/500/600/700).
     // Cuts two third-party connections (fonts.googleapis.com + fonts.gstatic.com)
     // and removes render-blocking external CSS.
