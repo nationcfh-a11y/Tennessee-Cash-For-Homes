@@ -614,7 +614,11 @@
 
 
 /* -------------------------------------------------------------------------
-   R2.1  LOGO SIZE — bigger logo per user feedback
+   R2.1  LOGO + COMPANY NAME — bigger logo, plus the "Tennessee Cash For
+   Homes" wordmark injected via ::after on the .nav__logo anchor. The
+   markup is <a class="nav__logo"><picture><img/></picture></a>, so we
+   make the anchor an inline-flex container; the <picture> sits as the
+   first flex item and the ::after-generated text sits beside it.
    ------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   .nav__logo img {
@@ -628,6 +632,48 @@
   .nav__inner {
     min-height: 64px;
     height: auto !important;
+  }
+
+  /* Make the logo anchor a flex row so the ::after sits next to the image */
+  .nav__logo {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    text-decoration: none;
+  }
+  /* Wordmark — sits between the logo image and the hamburger */
+  .nav__logo::after {
+    content: "Tennessee Cash For Homes";
+    color: #84CC9C;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.15;
+    white-space: nowrap;              /* never wrap to two lines */
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Smaller phones — shrink the wordmark so logo + text + hamburger all fit */
+@media (max-width: 400px) {
+  .nav__logo {
+    gap: 8px !important;
+  }
+  .nav__logo::after {
+    font-size: 12.5px;
+  }
+}
+@media (max-width: 360px) {
+  .nav__logo {
+    gap: 6px !important;
+  }
+  .nav__logo::after {
+    font-size: 11.5px;
+  }
+}
+@media (max-width: 330px) {
+  .nav__logo::after {
+    font-size: 10.5px;
   }
 }
 
