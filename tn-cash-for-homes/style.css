@@ -3158,34 +3158,27 @@ div.related-posts,
   letter-spacing: 0.02em;
 }
 
-/* ── Facing Foreclosure city grid (scoped, doesn't affect homepage/other pages) ── */
+/* ── Facing Foreclosure city grid (scoped, doesn't affect homepage/other pages) ──
+   Flex layout with justify-content: center so any partial last row
+   (e.g. 3 orphan chips) centers under the full rows above. */
 .cities-grid--fc {
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 14px;
   margin-bottom: 0;
 }
 
+.cities-grid--fc .city-chip {
+  flex: 0 0 calc((100% - 70px) / 6);
+}
+
 @media (max-width: 1023px) {
-  .cities-grid--fc { grid-template-columns: repeat(3, 1fr); }
+  .cities-grid--fc .city-chip { flex: 0 0 calc((100% - 28px) / 3); }
 }
 
 @media (max-width: 480px) {
-  .cities-grid--fc { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* Center the lonely orphan when last chip starts a new row */
-.cities-grid--fc .city-chip:last-child:nth-child(4n+1) {
-  grid-column: 1 / -1;
-  justify-self: center;
-  width: calc(25% - 11px);
-}
-
-@media (max-width: 1023px) {
-  .cities-grid--fc .city-chip:last-child:nth-child(3n+1) {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: calc(33.333% - 10px);
-  }
+  .cities-grid--fc .city-chip { flex: 0 0 calc((100% - 14px) / 2); }
 }
 
 @media (max-width: 480px) {
