@@ -20,7 +20,7 @@ get_header();
 
 <!-- ── HERO ── -->
 <section class="hero" id="hero-form" style="background: url('<?php echo get_template_directory_uri(); ?>/brand_assets/Tennessee_Cash_For_Land.webp') center center / cover no-repeat;">
-  <div class="hero__overlay" style="background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.40) 100%);"></div>
+  <div class="hero__overlay"></div>
   <div class="container">
     <div class="hero__inner">
       <div class="hero__content">
