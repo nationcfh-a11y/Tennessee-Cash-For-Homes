@@ -389,12 +389,11 @@ include get_template_directory() . '/gov-resources-section.php';
   display: grid;
   grid-template-columns: 1fr 460px;
   gap: 48px;
-  align-items: stretch;
+  align-items: end;
 }
 .county-hero__content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .county-hero__badge {
   display: inline-block;
