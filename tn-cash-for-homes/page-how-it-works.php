@@ -44,8 +44,9 @@ get_header(); ?>
             Any Condition
           </span>
         </div>
-        <div class="hero__bbb-badge">
-          <a href='https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick' target='_blank' rel='nofollow noopener noreferrer' class='bbb-seal'><img src='https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png' style='border: 0;' alt='Tennessee Cash For Homes BBB Business Review' width='200' height='42' loading='lazy' decoding='async' /></a>
+        <div class="hero__cta-row">
+          <a href="#get-offer" class="btn-primary">Get My Free Cash Offer &rarr;</a>
+          <a href="tel:+16158018126" class="btn-outline">Call Us Today - (615) 801-8126</a>
         </div>
       </div>
 

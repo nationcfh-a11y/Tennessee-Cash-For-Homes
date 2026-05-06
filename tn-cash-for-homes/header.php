@@ -38,7 +38,7 @@
             <li role="none"><a role="menuitem" href="<?php echo esc_url( home_url( '/investors/' ) ); ?>" <?php if ( is_page( array( 'investors-lenders', 'investors' ) ) ) echo 'class="active"'; ?>>Investors &amp; Lenders</a></li>
           </ul>
         </li>
-        <li><a href="<?php echo esc_url( home_url( '/#hero-form' ) ); ?>" class="nav__cta">Get My Cash Offer</a></li>
+        <li class="nav__cta-item"><a href="tel:+16158018126" class="nav__cta">(615) 801-8126</a></li>
       </ul>
       <div class="nav__hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
         <span></span><span></span><span></span>

@@ -424,8 +424,14 @@ include get_template_directory() . '/gov-resources-section.php';
 }
 .county-hero__cta-row {
   display: flex;
+  flex-direction: row;
+  align-items: center;
   gap: 16px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+}
+.county-hero__cta-row .btn-primary,
+.county-hero__cta-row .btn-outline {
+  white-space: nowrap;
 }
 .county-hero__map-col {
   display: flex;
@@ -562,6 +568,10 @@ include get_template_directory() . '/gov-resources-section.php';
 @media (max-width: 768px) {
   .county-hero {
     padding: 92px 0 56px;
+  }
+  .county-hero__cta-row {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
 </style>
