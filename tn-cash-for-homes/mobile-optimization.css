@@ -133,13 +133,9 @@
     white-space: normal;            /* allow wrap on phones */
   }
 
-  /* CTA button in nav: comfortable tap target */
-  .nav__cta {
-    padding: 12px 22px !important;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  /* CTA button hidden on mobile — hero already has a Call Us Today phone CTA */
+  .nav__cta-item {
+    display: none !important;
   }
 }
 
