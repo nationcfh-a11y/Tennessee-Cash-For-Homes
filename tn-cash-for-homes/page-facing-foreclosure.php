@@ -531,11 +531,13 @@ $fc_cities = [
       <h2 class="section__title">Facing Foreclosure? We Help Homeowners Across Tennessee</h2>
       <p class="section__subtitle">Select your city below to find local foreclosure resources and get help specific to your area.</p>
     </div>
-    <div class="cities-grid">
+    <div class="cities-grid cities-grid--fc">
       <?php foreach ( $fc_cities as $c ) : ?>
       <a href="<?php echo esc_url( home_url( '/facing-foreclosure/' . $c['slug'] . '/' ) ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span><?php echo esc_html( $c['name'] ); ?></span></a>
       <?php endforeach; ?>
-      <a href="<?php echo esc_url( home_url( '/facing-foreclosure/' ) ); ?>" class="city-chip city-chip--full"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Anywhere in Tennessee, We Serve All Areas</span></a>
+    </div>
+    <div class="cities-cta-wrap">
+      <a href="<?php echo esc_url( home_url( '/facing-foreclosure/' ) ); ?>" class="city-chip city-chip--full"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Anywhere in Tennessee &mdash; We Serve All Areas</span></a>
     </div>
     <p class="areas-footnote">Don't see your city? We serve <a href="#fc-form">all of Tennessee</a>. Contact us for your cash offer today.</p>
   </div>

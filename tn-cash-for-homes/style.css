@@ -3158,6 +3158,86 @@ div.related-posts,
   letter-spacing: 0.02em;
 }
 
+/* ── Facing Foreclosure city grid (scoped, doesn't affect homepage/other pages) ── */
+.cities-grid--fc {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 1023px) {
+  .cities-grid--fc { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .cities-grid--fc { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Center the lonely orphan when last chip starts a new row */
+.cities-grid--fc .city-chip:last-child:nth-child(4n+1) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc(25% - 11px);
+}
+
+@media (max-width: 1023px) {
+  .cities-grid--fc .city-chip:last-child:nth-child(3n+1) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(33.333% - 10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .cities-grid--fc .city-chip:last-child:nth-child(2n+1) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 7px);
+  }
+}
+
+/* ── Full-width "Anywhere in Tennessee" CTA below the grid (scoped) ── */
+.cities-cta-wrap {
+  margin-top: 20px;
+  margin-bottom: 32px;
+}
+
+.cities-cta-wrap .city-chip--full {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  background: var(--green-dark);
+  border: 1.5px solid var(--green-dark);
+  color: #ffffff;
+  padding: 18px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(47, 133, 90, 0.22);
+  transition: all 0.25s ease;
+}
+
+.cities-cta-wrap .city-chip--full svg {
+  color: #ffffff;
+  width: 18px;
+  height: 18px;
+}
+
+.cities-cta-wrap .city-chip--full:hover {
+  background: #246a48;
+  border-color: #246a48;
+  color: #ffffff;
+  box-shadow: 0 8px 22px rgba(47, 133, 90, 0.35);
+  transform: translateY(-2px);
+}
+
+.cities-cta-wrap .city-chip--full:hover svg {
+  color: #ffffff;
+}
+
 /* ── Front-page steps: scroll-triggered fade + slide-up ── */
 .step-pre {
   opacity: 0;
