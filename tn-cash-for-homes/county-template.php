@@ -389,7 +389,11 @@ include get_template_directory() . '/gov-resources-section.php';
   display: grid;
   grid-template-columns: 1fr 460px;
   gap: 48px;
-  align-items: start;
+  align-items: stretch;
+}
+.county-hero__content {
+  display: flex;
+  flex-direction: column;
 }
 .county-hero__badge {
   display: inline-block;
@@ -428,6 +432,7 @@ include get_template_directory() . '/gov-resources-section.php';
   align-items: center;
   gap: 16px;
   flex-wrap: nowrap;
+  margin-top: auto;
 }
 .county-hero__cta-row .btn-primary,
 .county-hero__cta-row .btn-outline {
