@@ -5,22 +5,31 @@
  */
 get_header(); ?>
 
-<!-- ── PAGE HERO ── -->
+<!-- ── HERO ── -->
 <section class="hero" id="hero-form">
-  <div class="hero__overlay"></div>
+  <div class="hero__overlay" style="background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.40) 100%);"></div>
   <div class="container">
     <div class="hero__inner">
       <div class="hero__content">
-        <nav class="breadcrumb">
-          <a href="<?php echo esc_url( home_url('/') ); ?>">Home</a>
-          <span>›</span>
-          <span>How It Works</span>
-        </nav>
+        <div class="hero__badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="#84CC9C" stroke-width="2"/>
+            <path d="M8 12l3 3 5-5" stroke="#84CC9C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Trusted Tennessee Cash Buyers
+        </div>
         <h1 class="hero__title">
           <span class="hero__title--white">How It Works to Sell Your House</span>
           <span class="hero__title--green"> As-Is for Cash in Tennessee</span>
         </h1>
         <p class="hero__subtitle">No repairs. No commissions. No stress. Here's exactly what happens when you sell your Tennessee home to us.</p>
+        <div class="hero__cta-row">
+          <a href="#get-offer" class="hero__btn-primary">Get My Cash Offer</a>
+          <a href="tel:+16158018126" class="hero__btn-outline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Call Us Today - (615) 801-8126
+          </a>
+        </div>
         <div class="hero__trust-row">
           <span class="hero__trust-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -43,10 +52,6 @@ get_header(); ?>
             </svg>
             Any Condition
           </span>
-        </div>
-        <div class="hero__cta-row">
-          <a href="#get-offer" class="btn-primary">Get My Free Cash Offer &rarr;</a>
-          <a href="tel:+16158018126" class="btn-outline">Call Us Today - (615) 801-8126</a>
         </div>
       </div>
 
