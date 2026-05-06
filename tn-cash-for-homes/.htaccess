@@ -20,9 +20,10 @@ RewriteRule ^investors-lenders/?$ /investors/ [R=301,L]
 RewriteRule ^investors-and-lenders/?$ /investors/ [R=301,L]
 
 # ── 2. Wix-only top-level pages with no WP equivalent ────────────────────
-RewriteRule ^blog-home/?$ /blog/ [R=301,L]
 RewriteRule ^our-solutions/?$ /how-it-works/ [R=301,L]
 RewriteRule ^more-information/?$ /about/ [R=301,L]
+RewriteRule ^privacy-policy-ppc/?$ /privacy-policy/ [R=301,L]
+RewriteRule ^terms-of-service-ppc/?$ /privacy-policy/ [R=301,L]
 
 # ── 3. Wix /items archive + 17 SEO landing pages ─────────────────────────
 # These were Wix dynamic-collection pages on foreclosure/probate/bankruptcy

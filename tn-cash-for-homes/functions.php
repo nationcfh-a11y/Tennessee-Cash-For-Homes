@@ -675,6 +675,22 @@ function tcfh_schema_localbusiness() {
 function tcfh_get_faq_page_items() {
     return array(
         array(
+            'q' => 'How does selling your house for cash work in Tennessee?',
+            'a' => 'Selling a house for cash in Tennessee is a direct sale to a real estate investor instead of a listing on the MLS. The process has four steps: (1) you submit basic property details, (2) the buyer schedules a quick walkthrough or virtual assessment, (3) the buyer presents a no-obligation cash offer, usually within 24 hours, and (4) closing happens through a Tennessee title company in as little as 7 days. There is no agent commission, no buyer financing contingency, and no required repairs or staging. Tennessee Cash For Homes follows this exact process across all 95 Tennessee counties.',
+        ),
+        array(
+            'q' => 'How fast can I sell my house in Tennessee?',
+            'a' => 'A traditional Tennessee listing takes 60 to 90+ days on average from listing to closing, plus 30 to 45 more days if the buyer is using a mortgage. A direct cash sale skips the lender, appraisal, and inspection-driven repair negotiation, so it can close in as little as 7 days. Tennessee Cash For Homes delivers a cash offer within 24 hours and most sellers choose to close between 7 and 30 days, depending on what works best for their timeline.',
+        ),
+        array(
+            'q' => 'What are the pros and cons of selling to a cash buyer?',
+            'a' => 'Pros: closes in as little as 7 days, no repairs or cleanup needed, no real estate agent commissions (saves 5–6% of the sale price), no closing costs, no buyer financing or appraisal risk, and certainty of sale. Cons: the offer is below full retail market value because the cash buyer takes on the repair, holding, and resale risk. A cash sale is the right move when speed, certainty, or property condition matters more than maximizing the last dollar of retail price.',
+        ),
+        array(
+            'q' => 'Is Tennessee Cash For Homes legitimate?',
+            'a' => 'Yes. Tennessee Cash For Homes is an A+ Better Business Bureau Accredited business based in Murfreesboro, Tennessee, founded in 2017. The company has a 5-star Google rating from verified Tennessee homeowners, is family-owned and operated, and the team is named publicly: Karson Carmichael (Founder), Dowling Armstrong (licensed Tennessee real estate agent with over 1,000 transactions), and Davis Armstrong (Lipscomb University Finance graduate). All closings are handled through licensed Tennessee title companies. The BBB profile can be verified at bbb.org and reviews are public on Google.',
+        ),
+        array(
             'q' => 'How does the process work?',
             'a' => 'It\'s simple. You contact us, we schedule a quick walkthrough or virtual assessment of your home, and we present you with a fair no-obligation cash offer within 24 hours. If you accept, we handle all the paperwork and close on your timeline as fast as 7 days.',
         ),
@@ -749,28 +765,28 @@ function tcfh_schema_faq() {
     if ( is_front_page() ) {
         $faqs = array(
             array(
-                'q' => 'Is the cash offer really free with no obligation?',
-                'a' => 'Absolutely. Our cash offers are 100% free and come with zero obligation. We\'ll present you with a number, and you decide whether to accept, decline, or take time to think. No pressure, ever.',
+                'q' => 'How does selling your house for cash work in Tennessee?',
+                'a' => 'Selling a house for cash in Tennessee is a direct sale to a real estate investor instead of listing on the MLS. The typical process has four steps: (1) you submit basic property details, (2) the buyer schedules a quick walkthrough or virtual assessment, (3) the buyer presents a no-obligation cash offer, usually within 24 hours, and (4) closing happens through a Tennessee title company in as little as 7 days. Unlike a traditional sale, there are no repairs, no real estate agent commissions, no open houses, and no financing contingencies. Tennessee Cash For Homes follows this exact process and buys homes in all 95 Tennessee counties.',
+            ),
+            array(
+                'q' => 'How fast can I sell my house in Tennessee?',
+                'a' => 'A traditional listing in Tennessee takes 60 to 90+ days on average from listing to closing, plus another 30 to 45 days if the buyer needs a mortgage. A direct cash sale can close in as little as 7 days because there is no lender, no appraisal, and no inspection-driven repair negotiation. Tennessee Cash For Homes typically delivers a cash offer within 24 hours and closes on the homeowner\'s preferred date — most sellers choose between 7 and 30 days.',
+            ),
+            array(
+                'q' => 'What are the pros and cons of selling to a cash buyer?',
+                'a' => 'Pros of selling to a cash home buyer in Tennessee: (1) closes in as little as 7 days, (2) no repairs or cleanup needed, (3) no agent commissions (saves 5–6% of the sale price), (4) no closing costs, (5) no buyer financing or appraisal that can fall through, and (6) certainty of sale. Cons: the offer will be below full retail market value because the buyer takes on the repair, holding, and resale risk. A cash sale is the right choice when speed, certainty, or condition of the home matters more than squeezing out the last dollar of retail price.',
+            ),
+            array(
+                'q' => 'Is Tennessee Cash For Homes legitimate?',
+                'a' => 'Yes. Tennessee Cash For Homes is a Better Business Bureau Accredited business with an A+ rating, located in Murfreesboro, Tennessee, and founded in 2017. The company has a 5-star Google review average from real verified Tennessee homeowners, is family-owned and operated, and is run by a named, public team — Karson Carmichael (Founder), Dowling Armstrong (licensed Tennessee real estate agent with 1,000+ transactions), and Davis Armstrong. All transactions close through licensed Tennessee title companies. You can verify the BBB profile at bbb.org and read reviews on Google.',
             ),
             array(
                 'q' => 'What types of homes do you buy?',
-                'a' => 'We buy all types of residential properties across Tennessee: single-family homes, condos, townhouses, duplexes, and multi-family properties. We purchase homes in any condition: move-in ready, distressed, fire-damaged, flood-damaged, or anything in between.',
-            ),
-            array(
-                'q' => 'How do you determine your offer price?',
-                'a' => 'Our offer is based on comparable sales in your area, the current condition of the property, location, and recent market trends. We aim to give you the fairest possible offer, one that reflects real value while accounting for the as-is condition of the home.',
-            ),
-            array(
-                'q' => 'Do I need to clean out the house before closing?',
-                'a' => 'No. You can take what you want and leave the rest. We handle all cleanout after closing at no cost to you. This is especially helpful for inherited properties or situations where clearing everything out just is not practical.',
-            ),
-            array(
-                'q' => 'What if I\'m behind on mortgage payments or facing foreclosure?',
-                'a' => 'We can often help in pre-foreclosure situations. Selling before a foreclosure completes can protect your credit and put cash in your pocket. Time is critical in these cases, so reach out to us as soon as possible so we can explore your options together.',
+                'a' => 'Tennessee Cash For Homes buys single-family homes, condos, townhouses, duplexes, multi-family properties, rental properties (with or without tenants), inherited and probate homes, and vacant land across Tennessee. Properties are bought in any condition — move-in ready, outdated, fire-damaged, flood-damaged, with foundation issues, hoarder homes, and properties with code violations or liens.',
             ),
             array(
                 'q' => 'Which areas of Tennessee do you serve?',
-                'a' => 'We buy homes throughout Tennessee including Nashville, Memphis, Knoxville, Chattanooga, Murfreesboro, Franklin, Clarksville, Shelbyville, Smyrna, Gallatin, Columbia, Spring Hill, Lebanon, Jackson, Hendersonville, Crossville, McMinnville, Old Hickory, Woodbury and surrounding areas.',
+                'a' => 'Tennessee Cash For Homes buys houses across all 95 Tennessee counties, including Nashville, Memphis, Knoxville, Chattanooga, Murfreesboro, Franklin, Clarksville, Spring Hill, Hendersonville, Smyrna, Gallatin, Columbia, Lebanon, Jackson, Crossville, McMinnville, Cookeville, Johnson City, Kingsport, and Bristol.',
             ),
         );
     } elseif ( is_page_template( 'page-faq.php' ) || is_page( 'faq' ) ) {
@@ -858,6 +874,167 @@ function tcfh_schema_breadcrumbs() {
 }
 
 /**
+ * ── SEO/AEO: Review schema ──
+ * Emits individual Review entities on the homepage so that AI engines and
+ * search engines see real customer testimonials (not just an aggregate rating).
+ * Source of truth is reviews-section.php; keep this list in sync if you edit
+ * that file. Names and bodies are real customers from public Google reviews.
+ */
+function tcfh_get_reviews() {
+    return array(
+        array( 'author' => 'Nathan Krager',     'rating' => 5, 'date' => '2024-08-12', 'body' => 'Great company to work with, these guys actually care about you and will take care of you. Great character as well!' ),
+        array( 'author' => 'Trish Haberman',    'rating' => 5, 'date' => '2024-09-04', 'body' => 'Such a great group to work with. They were able to give me a fair deal with no hassles. Thank you Karson for going above and beyond.' ),
+        array( 'author' => 'Clayton Daniels',   'rating' => 5, 'date' => '2024-10-21', 'body' => 'These guys were absolutely amazing. I sold my house without having to do a single repair and they even helped me find my next place to live!' ),
+        array( 'author' => 'Lisa Daniels',      'rating' => 5, 'date' => '2024-11-02', 'body' => "If you need to sell a home quickly, they're professional, fair, and truly care about making things easy for the seller. Highly recommend." ),
+        array( 'author' => 'Nancy Hughes',      'rating' => 5, 'date' => '2025-01-17', 'body' => 'The team at TN Cash for Homes were outstanding! I was in a bad situation with my home loan and after one call with this company they created a custom solution that resolved my issues. They were professional, efficient and understanding. I highly recommend this company.' ),
+        array( 'author' => 'John Peterson',     'rating' => 5, 'date' => '2025-03-08', 'body' => 'Really enjoyed working with Tennessee Cash For Homes. They helped me sell my house in Clarksville fast for cash! Highly recommend working with them.' ),
+        array( 'author' => 'Dowling Armstrong', 'rating' => 5, 'date' => '2025-05-14', 'body' => "They bought my father's rental portfolio! Paid cash and closed on multiple homes in less than 3 weeks! They also took them with the tenants which is really tough to find someone willing to buy a rental with leases in place. Would highly recommend this company to anyone who doesn't want to deal with listing a home!" ),
+        array( 'author' => 'Christopher Payne', 'rating' => 5, 'date' => '2025-07-22', 'body' => 'Great experience working with these guys. The whole process went super fast, and easy. Both Davis and Dowling were true to their word which is very important when doing business. I would work with them again any day.' ),
+        array( 'author' => 'Chris Iannotti',    'rating' => 5, 'date' => '2025-09-03', 'body' => 'Nothing but a great experience start to finish. All of my questions were answered and they were quick to respond when needed.' ),
+    );
+}
+
+add_action( 'wp_head', 'tcfh_schema_reviews' );
+function tcfh_schema_reviews() {
+    if ( ! is_front_page() ) return;
+
+    $reviews = tcfh_get_reviews();
+    $review_entities = array();
+    foreach ( $reviews as $r ) {
+        $review_entities[] = array(
+            '@type'         => 'Review',
+            'author'        => array( '@type' => 'Person', 'name' => $r['author'] ),
+            'datePublished' => $r['date'],
+            'reviewBody'    => $r['body'],
+            'reviewRating'  => array(
+                '@type'       => 'Rating',
+                'ratingValue' => (string) $r['rating'],
+                'bestRating'  => '5',
+            ),
+            'itemReviewed'  => array(
+                '@type' => 'LocalBusiness',
+                'name'  => 'Tennessee Cash For Homes',
+            ),
+        );
+    }
+
+    foreach ( $review_entities as $entity ) {
+        $entity['@context'] = 'https://schema.org';
+        tcfh_print_jsonld( $entity );
+    }
+}
+
+/**
+ * ── SEO/AEO: Service schema ──
+ * Tells search and AI engines exactly what services we offer and where.
+ * Helps surface us in answers like "who buys houses for cash in Tennessee".
+ */
+add_action( 'wp_head', 'tcfh_schema_service' );
+function tcfh_schema_service() {
+    if ( ! is_front_page() ) return;
+
+    $schema = array(
+        '@context'        => 'https://schema.org',
+        '@type'           => 'Service',
+        'name'            => 'Cash Home Buying in Tennessee',
+        'serviceType'     => 'Cash Home Buyer',
+        'description'     => 'Tennessee Cash For Homes buys houses directly from homeowners across all 95 Tennessee counties for cash. We make a no-obligation offer within 24 hours, buy houses in any condition with no repairs required, charge no agent commissions or closing costs, and can close in as little as 7 days.',
+        'provider'        => array(
+            '@type'     => 'LocalBusiness',
+            'name'      => 'Tennessee Cash For Homes',
+            'telephone' => '+1-615-801-8126',
+            'url'       => home_url( '/' ),
+        ),
+        'areaServed'      => array(
+            '@type' => 'State',
+            'name'  => 'Tennessee',
+        ),
+        'audience'        => array(
+            '@type'        => 'Audience',
+            'audienceType' => 'Tennessee homeowners selling a house for cash',
+        ),
+        'offers'          => array(
+            '@type'         => 'Offer',
+            'price'         => '0',
+            'priceCurrency' => 'USD',
+            'description'   => 'Free, no-obligation cash offer within 24 hours.',
+            'availability'  => 'https://schema.org/InStock',
+        ),
+        'hasOfferCatalog' => array(
+            '@type'           => 'OfferCatalog',
+            'name'            => 'Cash Home Buying Services',
+            'itemListElement' => array(
+                array( '@type' => 'Offer', 'itemOffered' => array( '@type' => 'Service', 'name' => 'Sell my house fast for cash' ) ),
+                array( '@type' => 'Offer', 'itemOffered' => array( '@type' => 'Service', 'name' => 'Sell house as-is, no repairs' ) ),
+                array( '@type' => 'Offer', 'itemOffered' => array( '@type' => 'Service', 'name' => 'Stop foreclosure by selling for cash' ) ),
+                array( '@type' => 'Offer', 'itemOffered' => array( '@type' => 'Service', 'name' => 'Sell inherited or probate house in Tennessee' ) ),
+                array( '@type' => 'Offer', 'itemOffered' => array( '@type' => 'Service', 'name' => 'Sell rental property with tenants in place' ) ),
+                array( '@type' => 'Offer', 'itemOffered' => array( '@type' => 'Service', 'name' => 'Sell vacant land in Tennessee' ) ),
+            ),
+        ),
+    );
+
+    tcfh_print_jsonld( $schema );
+}
+
+/**
+ * ── SEO/AEO: Person schema for team members on the about page ──
+ * AI engines weight Person/Author entities heavily for E-E-A-T. Surfacing the
+ * founder and licensed-agent team members as named, qualified people improves
+ * the chance of being cited as a trusted source.
+ */
+add_action( 'wp_head', 'tcfh_schema_persons' );
+function tcfh_schema_persons() {
+    if ( ! is_page( 'about' ) && get_page_template_slug() !== 'page-about.php' ) return;
+
+    $org = array(
+        '@type' => 'Organization',
+        'name'  => 'Tennessee Cash For Homes',
+        'url'   => home_url( '/' ),
+    );
+
+    $people = array(
+        array(
+            'name'        => 'Karson Carmichael',
+            'jobTitle'    => 'Founder',
+            'description' => 'Founder of Tennessee Cash For Homes. Bachelor\'s degree in Business Management. Nearly 3 years of hands-on Tennessee real estate experience focused on direct cash purchases of homes in any condition.',
+            'image'       => get_template_directory_uri() . '/brand_assets/Karson%20Tennessee%20Cash%20For%20Homes.webp',
+            'sameAs'      => array(
+                'https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815',
+            ),
+        ),
+        array(
+            'name'        => 'Dowling Armstrong',
+            'jobTitle'    => 'Licensed Real Estate Agent and Investor',
+            'description' => 'Licensed Tennessee real estate agent with 9 years of experience and over 1,000 transactions across residential and commercial real estate. Active investor for 5+ years.',
+            'image'       => get_template_directory_uri() . '/brand_assets/Dowling%20Tennessee%20Cash%20For%20Homes.webp',
+        ),
+        array(
+            'name'        => 'Davis Armstrong',
+            'jobTitle'    => 'Real Estate Investor',
+            'description' => 'Lipscomb University Finance graduate. 6 years of Tennessee real estate investing with involvement in over 500 transactions, focused on the investment side of acquisitions.',
+            'image'       => get_template_directory_uri() . '/brand_assets/Davis%20Tennessee%20Cash%20For%20Homes.webp',
+        ),
+    );
+
+    foreach ( $people as $p ) {
+        $schema = array(
+            '@context'    => 'https://schema.org',
+            '@type'       => 'Person',
+            'name'        => $p['name'],
+            'jobTitle'    => $p['jobTitle'],
+            'description' => $p['description'],
+            'image'       => $p['image'],
+            'worksFor'    => $org,
+        );
+        if ( ! empty( $p['sameAs'] ) ) {
+            $schema['sameAs'] = $p['sameAs'];
+        }
+        tcfh_print_jsonld( $schema );
+    }
+}
+
+/**
  * ── SEO: XML Sitemap ──
  */
 add_action( 'init', 'tcfh_sitemap_rewrite' );
@@ -869,6 +1046,41 @@ add_filter( 'query_vars', function( $vars ) {
     $vars[] = 'tcfh_sitemap';
     return $vars;
 } );
+
+/**
+ * Demote any <h1> appearing inside post/page content to <h2>.
+ *
+ * page.php already emits the canonical page H1 (the post title); a second H1
+ * inside the_content() is always a duplicate-H1 SEO issue. This filter is the
+ * safe net for pages whose body was authored with an extra H1 (e.g. /contact-us/).
+ */
+add_filter( 'the_content', 'tcfh_demote_inline_h1', 99 );
+function tcfh_demote_inline_h1( $content ) {
+    return preg_replace( '#<h1\b([^>]*)>(.*?)</h1>#is', '<h2$1>$2</h2>', $content );
+}
+
+/**
+ * Legacy-URL 301 redirects.
+ *
+ * .htaccess isn't honored on WordPress.com staging, and adding entries through
+ * the Redirection plugin requires WP-admin access — so the canonical map lives
+ * here. Runs early on template_redirect so a 404'd request can be rewritten
+ * before WP renders the 404 template.
+ */
+add_action( 'template_redirect', 'tcfh_handle_legacy_redirects', 1 );
+function tcfh_handle_legacy_redirects() {
+    static $map = array(
+        'privacy-policy-ppc'    => '/privacy-policy/',
+        'terms-of-service-ppc'  => '/privacy-policy/',
+        'our-solutions'         => '/how-it-works/',
+    );
+
+    $path = trim( wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ) ?? '', '/' );
+    if ( isset( $map[ $path ] ) ) {
+        wp_safe_redirect( home_url( $map[ $path ] ), 301 );
+        exit;
+    }
+}
 
 add_action( 'template_redirect', 'tcfh_render_sitemap' );
 function tcfh_render_sitemap() {

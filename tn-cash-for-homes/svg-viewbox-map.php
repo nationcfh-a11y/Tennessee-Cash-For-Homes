@@ -193,7 +193,7 @@ function tcfh_get_city_viewbox( $slug ) {
         'mount-carmel' => '256.36 54.71 239.53 58.58',
         'mount-pleasant' => '235.48 75.04 261.40 63.93',
         'mountain-city' => '229.80 81.81 267.35 65.38',
-        'mt-juliet' => '240.63 69.20 256.01 62.61',
+        'mount-juliet' => '240.63 69.20 256.01 62.61',
         'munford' => '270.53 44.03 224.68 54.95',
         'murfreesboro' => '229.77 81.81 267.38 65.39',
         'new-johnsonville' => '227.86 84.06 269.38 65.88',
