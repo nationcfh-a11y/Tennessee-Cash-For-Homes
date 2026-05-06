@@ -19,47 +19,57 @@ get_header();
 ?>
 
 <!-- ── HERO ── -->
-<section class="land-hero">
-  <div class="hero__overlay"></div>
+<section class="hero" id="hero-form" style="background: url('<?php echo get_template_directory_uri(); ?>/brand_assets/Tennessee_Cash_For_Land.webp') center center / cover no-repeat;">
+  <div class="hero__overlay" style="background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.40) 100%);"></div>
   <div class="container">
-    <div class="land-hero__inner">
-      <div class="land-hero__content">
-        <span class="land-hero__eyebrow">TENNESSEE LAND BUYERS</span>
-        <h1 class="land-hero__h1">Sell Your Land in Tennessee for Cash</h1>
-        <p class="land-hero__sub">No commissions. No fees. No hassle. Get a fair cash offer for your Tennessee land in as little as 24 hours.</p>
-        <ul class="land-hero__checks">
-          <li>
-            <svg width="20" height="20" fill="#4CAF7D" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-            Vacant lots and acreage
-          </li>
-          <li>
-            <svg width="20" height="20" fill="#4CAF7D" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-            Rural and farm land
-          </li>
-          <li>
-            <svg width="20" height="20" fill="#4CAF7D" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-            Any size any condition
-          </li>
-          <li>
-            <svg width="20" height="20" fill="#4CAF7D" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-            Close on your timeline
-          </li>
-        </ul>
-        <div class="land-hero__cta-row">
-          <a href="#get-offer" class="hero__btn-primary">Get My Free Cash Offer &rarr;</a>
+    <div class="hero__inner">
+      <div class="hero__content">
+        <div class="hero__badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="#84CC9C" stroke-width="2"/>
+            <path d="M8 12l3 3 5-5" stroke="#84CC9C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Trusted Tennessee Land Buyers
+        </div>
+        <h1 class="hero__title">
+          <span class="hero__title--white">Sell Your Land in Tennessee</span>
+          <span class="hero__title--green"> for Cash</span>
+        </h1>
+        <p class="hero__subtitle">
+          No commissions. No fees. No hassle. Get a fair cash offer for your Tennessee land in as little as 24 hours.
+        </p>
+        <div class="hero__cta-row">
+          <a href="#get-offer" class="hero__btn-primary">Get My Cash Offer</a>
           <a href="tel:+16158018126" class="hero__btn-outline">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
             Call Us Today - (615) 801-8126
           </a>
         </div>
-        <div class="land-hero__trust-row">
-          <a href='https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick' target='_blank' rel='nofollow noopener noreferrer' class='bbb-seal'><img src='https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png' style='border: 0;' alt='Tennessee Cash For Homes BBB Business Review' width='200' height='42' loading='lazy' decoding='async' /></a>
-          <div class="land-hero__stars">
-            <div class="land-hero__stars-icons">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="land-hero__stars-label"><strong>5.0</strong> Google Rating</div>
-          </div>
+        <div class="hero__trust-row">
+          <span class="hero__trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="#84CC9C" stroke-width="2"/>
+              <path d="M8 12l3 3 5-5" stroke="#84CC9C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            No Agent Fees
+          </span>
+          <span class="hero__trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="#84CC9C" stroke-width="2"/>
+              <path d="M8 12l3 3 5-5" stroke="#84CC9C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Close in 7 Days
+          </span>
+          <span class="hero__trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="#84CC9C" stroke-width="2"/>
+              <path d="M8 12l3 3 5-5" stroke="#84CC9C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Any Condition
+          </span>
         </div>
       </div>
+
       <div class="hero__form-card" id="get-offer">
         <h2 class="form-card__title">Get Your Free Cash Offer</h2>
         <p class="form-card__sub">Takes less than 60 seconds. No obligation.</p>
