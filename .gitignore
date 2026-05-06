@@ -1,3 +1,7 @@
 .env
 .DS_Store
 node_modules/
+gsc-dashboard/client_secret*.json
+gsc-dashboard/token.json
+gsc-dashboard/venv/
+gsc-dashboard/data/
