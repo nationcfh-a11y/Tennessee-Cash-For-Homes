@@ -414,6 +414,61 @@
         </tbody>
       </table>
     </div>
+
+    <!-- Mobile-only comparison table (hidden on desktop via mobile-optimization.css) -->
+    <div class="compare-mobile-wrap" aria-hidden="false">
+      <table class="compare-mobile">
+        <thead>
+          <tr>
+            <th scope="col" class="compare-mobile__corner"><span class="visually-hidden">Feature</span></th>
+            <th scope="col" class="compare-mobile__brand-head">Tennessee Cash For Homes</th>
+            <th scope="col" class="compare-mobile__trad-head">Traditional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Commissions</th>
+            <td class="compare-mobile__brand">$0</td>
+            <td class="compare-mobile__trad">5–6%</td>
+          </tr>
+          <tr>
+            <th scope="row">Repair Costs</th>
+            <td class="compare-mobile__brand">$0</td>
+            <td class="compare-mobile__trad">Varies</td>
+          </tr>
+          <tr>
+            <th scope="row">Closing Costs</th>
+            <td class="compare-mobile__brand">We Cover Them</td>
+            <td class="compare-mobile__trad">2–3%</td>
+          </tr>
+          <tr>
+            <th scope="row">Avg. Days to Close</th>
+            <td class="compare-mobile__brand">7 Days</td>
+            <td class="compare-mobile__trad">60–90 Days</td>
+          </tr>
+          <tr>
+            <th scope="row">Showings</th>
+            <td class="compare-mobile__brand">None</td>
+            <td class="compare-mobile__trad">Multiple</td>
+          </tr>
+          <tr>
+            <th scope="row">As-Is Sale</th>
+            <td class="compare-mobile__brand">Yes</td>
+            <td class="compare-mobile__trad">No</td>
+          </tr>
+          <tr>
+            <th scope="row">Certainty of Sale</th>
+            <td class="compare-mobile__brand">Guaranteed</td>
+            <td class="compare-mobile__trad">Not Guaranteed</td>
+          </tr>
+          <tr>
+            <th scope="row">Financing Contingencies</th>
+            <td class="compare-mobile__brand">None</td>
+            <td class="compare-mobile__trad">Common</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 

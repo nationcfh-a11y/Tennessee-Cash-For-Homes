@@ -252,150 +252,123 @@
 
 
 /* =========================================================================
-   6. COMPARE TABLE — feature-card layout on phones
+   6. COMPARE TABLE — clean side-by-side comparison on phones
    --------------------------------------------------------------------
-   On desktop this is a 3-column comparison table. On mobile we flip
-   it to a column of feature cards. Each <tr> becomes a card that
-   answers one question (e.g. "Closing timeline") with the TCFH answer
-   stacked above the traditional answer, so the eye does a tiny
-   vertical compare-and-contrast inside each card. No horizontal scroll.
-   --------------------------------------------------------------------
-   Desktop is fully untouched: every rule below lives inside the
-   max-width: 768px media query.
+   On desktop, the original .compare-table renders as a 3-column
+   comparison table (untouched here). On mobile, we hide the desktop
+   table entirely and show a separate, mobile-only table
+   (.compare-mobile) declared in front-page.php with simplified labels.
+   The mobile layout is a true 3-column grid: row label · TCFH · Traditional.
    ========================================================================= */
+
+/* Mobile-only element: hidden by default so it never shows on desktop. */
+.compare-mobile-wrap {
+  display: none;
+}
+
 @media (max-width: 768px) {
-
-  /* Wrapper: drop any horizontal-scroll behavior from earlier rounds */
+  /* Swap visibility on phones: hide desktop table, show mobile table. */
   .compare-wrap {
-    overflow: visible !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    display: none !important;
   }
-
-  /* Hide the column headers — each card shows its own labels */
-  .compare-table thead {
-    display: none;
-  }
-
-  /* Reshape the table elements into block flow */
-  .compare-table,
-  .compare-table tbody,
-  .compare-table tr,
-  .compare-table th,
-  .compare-table td {
+  .compare-mobile-wrap {
     display: block;
-    width: 100% !important;
-    min-width: 0 !important;
-    box-sizing: border-box;
-  }
-
-  /* Each row becomes a card */
-  .compare-table tr {
-    background: #fff !important;
-    border: 1px solid var(--border);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
     border-radius: 14px;
-    padding: 16px 18px;
-    margin-bottom: 14px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  }
-  /* Suppress the desktop alternating-row background on mobile */
-  .compare-table tr:nth-child(even) td,
-  .compare-table tr:nth-child(even) th {
-    background: transparent !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border);
+    background: #fff;
   }
 
-  /* Row label (the feature name) becomes the card title */
-  .compare-table tbody th[scope="row"] {
-    background: transparent !important;
-    color: var(--charcoal) !important;
+  .compare-mobile {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
     font-family: 'Poppins', sans-serif;
-    font-size: 15px !important;
-    font-weight: 700 !important;
-    text-align: left !important;
-    padding: 0 0 12px !important;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 12px;
   }
 
-  /* Each value cell: flex row with a circled icon + brand-label + value */
-  .compare-table tbody td {
-    background: transparent !important;
-    text-align: left !important;
-    padding: 8px 0 !important;
+  /* ── Column headers ─────────────────────────────────────────────── */
+  .compare-mobile thead th {
+    font-family: 'Poppins', sans-serif;
     font-size: 14px;
-    line-height: 1.45;
-    color: var(--charcoal);
-    position: relative;
-    padding-left: 36px !important;   /* room for the leading icon */
-  }
-  .compare-table tbody td + td {
-    margin-top: 4px;
-    padding-top: 10px !important;
-  }
-
-  /* TCFH cell (1st td in the row) */
-  .compare-table tbody td:nth-of-type(1) {
-    color: var(--charcoal);
-    font-weight: 600;
-  }
-  .compare-table tbody td:nth-of-type(1)::before {
-    content: "Tennessee Cash For Homes";
-    display: block;
-    font-family: 'Poppins', sans-serif;
-    font-size: 11px;
     font-weight: 700;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    color: var(--green-dark);
-    margin-bottom: 2px;
+    text-align: center;
+    padding: 14px 8px;
+    line-height: 1.25;
+    vertical-align: middle;
   }
-  /* Green check badge */
-  .compare-table tbody td:nth-of-type(1)::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 10px;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: var(--green-dark)
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>")
-      center / 14px no-repeat;
+  .compare-mobile__corner {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+  }
+  .compare-mobile__brand-head {
+    background: var(--green-dark);
+    color: #fff;
+    border-bottom: 2px solid var(--green-dark);
+  }
+  .compare-mobile__trad-head {
+    background: #f2f2f2;
+    color: var(--charcoal);
+    border-bottom: 1px solid var(--border);
   }
 
-  /* Traditional Listing cell (2nd td in the row) */
-  .compare-table tbody td:nth-of-type(2) {
+  /* ── Body rows ──────────────────────────────────────────────────── */
+  .compare-mobile tbody th[scope="row"] {
+    background: #fff;
+    color: var(--charcoal);
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: left;
+    padding: 14px 10px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    border-bottom: 1px solid var(--border);
+    width: 36%;
+  }
+  .compare-mobile tbody td {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    padding: 14px 8px;
+    line-height: 1.3;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* TCFH (brand) column — light brand-green fill with dark text */
+  .compare-mobile tbody td.compare-mobile__brand {
+    background: var(--green);
+    color: var(--charcoal);
+    font-weight: 700;
+  }
+
+  /* Traditional column — light gray fill with muted text */
+  .compare-mobile tbody td.compare-mobile__trad {
+    background: #f7f7f7;
     color: var(--charcoal-light);
   }
-  .compare-table tbody td:nth-of-type(2)::before {
-    content: "Traditional Listing";
-    display: block;
-    font-family: 'Poppins', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    color: #8a8a8a;
-    margin-bottom: 2px;
-  }
-  /* Neutral X badge */
-  .compare-table tbody td:nth-of-type(2)::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 12px;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: #e6e6e6
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23777' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>")
-      center / 12px no-repeat;
+
+  /* Alternating-row tint on the row-label column for readability */
+  .compare-mobile tbody tr:nth-child(even) th[scope="row"] {
+    background: #fafafa;
   }
 
-  /* Hide the desktop ✔/✕ inline marks — our circled badges replace them */
-  .compare-table tbody .check,
-  .compare-table tbody .cross {
-    display: none !important;
+  /* Strip the bottom border from the last row for a clean edge */
+  .compare-mobile tbody tr:last-child th,
+  .compare-mobile tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* Tighten layout on the smallest phones */
+  @media (max-width: 380px) {
+    .compare-mobile thead th { font-size: 12.5px; padding: 12px 6px; }
+    .compare-mobile tbody th[scope="row"] { font-size: 12px; padding: 12px 8px; }
+    .compare-mobile tbody td { font-size: 13.5px; padding: 12px 6px; }
   }
 }
 
