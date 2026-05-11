@@ -261,13 +261,10 @@
    The mobile layout is a true 3-column grid: row label · TCFH · Traditional.
    ========================================================================= */
 
-/* Mobile-only element: hidden by default so it never shows on desktop. */
-.compare-mobile-wrap {
-  display: none;
-}
-
 @media (max-width: 768px) {
-  /* Swap visibility on phones: hide desktop table, show mobile table. */
+  /* Swap visibility on phones: hide desktop table, show mobile table.
+     .compare-mobile-wrap is hidden by default in style.css; the rule below
+     reveals it only on mobile, paired with hiding the desktop table. */
   .compare-wrap {
     display: none !important;
   }

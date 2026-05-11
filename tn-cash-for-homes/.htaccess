@@ -39,6 +39,45 @@ RedirectMatch 301 ^/post/(.+?)/?$ /$1/
 </IfModule>
 # END Tennessee Cash For Homes — Migration 301 Redirects
 
+# BEGIN Tennessee Cash For Homes — Static Asset Caching
+# Long-lived cache headers for fingerprinted/versioned static assets.
+# WordPress appends ?ver=<filemtime> to enqueued CSS/JS so a cache hit is
+# safe — any change bumps the query string and forces a re-fetch.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # Images: 1 year (most browsers cap CDN cache at this length)
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png  "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif  "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon  "access plus 1 year"
+  # Fonts: 1 year (self-hosted Poppins woff2)
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff  "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+  # CSS and JS: 1 year (versioned via WP ?ver= query string)
+  ExpiresByType text/css        "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  # HTML: short, to keep dynamic WP pages fresh
+  ExpiresByType text/html "access plus 0 seconds"
+  # Default fallback
+  ExpiresDefault "access plus 1 month"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Mark static assets immutable so revalidation requests are skipped.
+  <FilesMatch "\.(webp|png|jpe?g|gif|svg|ico|woff2?|css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # HTML stays revalidated.
+  <FilesMatch "\.(html|htm|php)$">
+    Header set Cache-Control "no-cache, must-revalidate, max-age=0"
+  </FilesMatch>
+</IfModule>
+# END Tennessee Cash For Homes — Static Asset Caching
+
 # BEGIN WordPress
 # The directives (lines) between "BEGIN WordPress" and "END WordPress" are
 # dynamically generated, and should only be modified via WordPress filters.

@@ -699,6 +699,11 @@ img { display: block; max-width: 100%; }
   border: 1.5px solid var(--border);
 }
 
+/* Mobile-only comparison table is hidden by default; revealed in
+   mobile-optimization.css at ≤768px. Declared here so the mobile stylesheet
+   can be loaded with a media-query gate (non-render-blocking on desktop). */
+.compare-mobile-wrap { display: none; }
+
 .compare-table { width: 100%; border-collapse: collapse; }
 
 .compare-table th {
@@ -5840,6 +5845,31 @@ div.related-posts,
   .land-hero,
   .county-hero {
     min-height: 960px;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   MOBILE-OPTIMIZED HERO BACKGROUNDS
+   Serves narrower webp variants when the viewport is ≤800px wide so we
+   are not shipping a 1375px image to a 400px phone screen.
+   Variants live in /brand_assets/<name>-800w.webp.
+   ────────────────────────────────────────────────────────────────────── */
+@media (max-width: 800px) {
+  .hero,
+  .blog-hero {
+    background-image: url('brand_assets/New_Background-800w.webp');
+  }
+  .land-section,
+  .land-hero {
+    background-image: url('brand_assets/Tennessee_Cash_For_Land-800w.webp');
+  }
+  .about-hero {
+    background-image: url('brand_assets/Company%20Photo-800w.webp');
+  }
+  /* .wwb-hero gets its background via an inline style attribute in
+     page-where-we-buy.php, so use !important to win the cascade. */
+  .wwb-hero {
+    background-image: url('brand_assets/Where%20we%20buy%20background%20image-800w.webp') !important;
   }
 }
 

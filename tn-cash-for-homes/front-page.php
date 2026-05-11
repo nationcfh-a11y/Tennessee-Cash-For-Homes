@@ -129,6 +129,7 @@
   <script>
   (function() {
       var section, houseImg, cashImg, headlineWrap, pinned = false, sectionTop = 0, pinHeight = 150, scrollY = 0;
+      var resizeRaf = 0;
 
       function init() {
           section  = document.querySelector('.house-to-cash-section');
@@ -138,8 +139,18 @@
           if (!section || !houseImg || !cashImg) return;
           measure();
           window.addEventListener('scroll', onScroll, { passive: true });
-          window.addEventListener('resize', measure, { passive: true });
+          window.addEventListener('resize', onResize, { passive: true });
           onScroll();
+      }
+
+      // Coalesce resize events to one rAF tick so we don't getBoundingClientRect
+      // on every event (each call would force a synchronous layout).
+      function onResize() {
+          if (resizeRaf) return;
+          resizeRaf = requestAnimationFrame(function () {
+              resizeRaf = 0;
+              measure();
+          });
       }
 
       function measure() {

@@ -166,31 +166,54 @@
   })();
 
   // ── Review Expand / Collapse ──
-  document.querySelectorAll('.testimonial-card').forEach(function (card) {
-    const body = card.querySelector('.testimonial-body');
-    if (!body) return;
+  // Performance: layout reads (scrollHeight/clientHeight) are batched after
+  // writes inside a single rAF tick. Resize handlers are coalesced with rAF
+  // so a continuous resize fires checkClamp once per frame, not per event.
+  (function () {
+    const cards = document.querySelectorAll('.testimonial-card');
+    if (!cards.length) return;
 
-    const btn = document.createElement('button');
-    btn.className = 'testimonial-toggle hidden';
-    btn.textContent = 'View Full Review';
-    body.insertAdjacentElement('afterend', btn);
-
-    function checkClamp() {
-      card.classList.remove('expanded');
+    const entries = [];
+    cards.forEach(function (card) {
+      const body = card.querySelector('.testimonial-body');
+      if (!body) return;
+      const btn = document.createElement('button');
+      btn.className = 'testimonial-toggle hidden';
       btn.textContent = 'View Full Review';
-      if (body.scrollHeight > body.clientHeight + 1) {
-        btn.classList.remove('hidden');
-      } else {
-        btn.classList.add('hidden');
-      }
-    }
-    checkClamp();
-    window.addEventListener('resize', checkClamp);
-    btn.addEventListener('click', function () {
-      const isExpanded = card.classList.toggle('expanded');
-      btn.textContent = isExpanded ? 'Show Less' : 'View Full Review';
+      body.insertAdjacentElement('afterend', btn);
+      btn.addEventListener('click', function () {
+        const isExpanded = card.classList.toggle('expanded');
+        btn.textContent = isExpanded ? 'Show Less' : 'View Full Review';
+      });
+      entries.push({ card: card, body: body, btn: btn });
     });
-  });
+
+    function runCheck() {
+      // Write phase: reset every card to the un-expanded state.
+      entries.forEach(function (e) {
+        e.card.classList.remove('expanded');
+        e.btn.textContent = 'View Full Review';
+      });
+      // Read phase: now do all layout reads together (one synchronous reflow).
+      const overflow = entries.map(function (e) {
+        return e.body.scrollHeight > e.body.clientHeight + 1;
+      });
+      // Write phase: toggle button visibility based on the reads.
+      entries.forEach(function (e, i) {
+        e.btn.classList.toggle('hidden', !overflow[i]);
+      });
+    }
+
+    let scheduled = false;
+    function scheduleCheck() {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(function () { scheduled = false; runCheck(); });
+    }
+
+    runCheck();
+    window.addEventListener('resize', scheduleCheck, { passive: true });
+  })();
 
   // ── Count-Up Animation ──
   (function () {

@@ -26,7 +26,10 @@ function tcfh_enqueue_assets() {
     }
 
     // Mobile-only overrides. Loaded after the main stylesheet so its
-    // media-query rules win without touching desktop styles.
+    // media-query rules win without touching desktop styles. The media
+    // attribute below tells the browser this CSS is only needed at
+    // ≤1024px — desktop browsers download it without render-blocking,
+    // saving ~10ms LCP on desktop.
     $mobile_path = get_template_directory() . '/mobile-optimization.css';
     $mobile_uri  = get_template_directory_uri() . '/mobile-optimization.css';
     if ( file_exists( $mobile_path ) ) {
@@ -34,7 +37,8 @@ function tcfh_enqueue_assets() {
             'tcfh-mobile',
             $mobile_uri,
             array( 'tcfh-style' ),
-            (string) filemtime( $mobile_path )
+            (string) filemtime( $mobile_path ),
+            '(max-width: 1024px)'
         );
     }
 
@@ -153,30 +157,38 @@ add_action( 'wp_head', function() {
  */
 add_action( 'wp_head', function() {
     $base = get_template_directory_uri() . '/brand_assets/';
-    $image = null;
+    // [desktop_filename, mobile_filename]
+    $images = null;
 
     if ( is_front_page() ) {
-        $image = 'New_Background.webp';
+        $images = array( 'New_Background.webp', 'New_Background-800w.webp' );
     } elseif ( is_page( 'facing-foreclosure' ) ) {
-        $image = 'New_Background.webp';
+        $images = array( 'New_Background.webp', 'New_Background-800w.webp' );
     } elseif ( is_page( 'sell-your-land-1' ) || is_page( 'sell-your-land' ) || is_page( 'sell-my-land' ) ) {
-        $image = 'Tennessee_Cash_For_Land.webp';
+        $images = array( 'Tennessee_Cash_For_Land.webp', 'Tennessee_Cash_For_Land-800w.webp' );
     } elseif ( is_page( 'about' ) ) {
-        $image = 'Company%20Photo.webp';
+        $images = array( 'Company%20Photo.webp', 'Company%20Photo-800w.webp' );
+    } elseif ( is_page( 'where-we-buy' ) ) {
+        $images = array( 'Where%20we%20buy%20background%20image.webp', 'Where%20we%20buy%20background%20image-800w.webp' );
     } elseif ( is_home() || is_archive() ) {
-        $image = 'New_Background.webp';
+        $images = array( 'New_Background.webp', 'New_Background-800w.webp' );
     } else {
-        // Foreclosure sub-pages use the shared template
         $tpl = get_post_meta( get_the_ID(), '_wp_page_template', true );
         if ( $tpl && strpos( $tpl, 'foreclosure-pages/' ) === 0 ) {
-            $image = 'New_Background.webp';
+            $images = array( 'New_Background.webp', 'New_Background-800w.webp' );
         }
     }
 
-    if ( $image ) {
+    if ( $images ) {
+        // Media-aware preloads: browsers only download the variant that matches.
+        // Matches the 800px breakpoint used in the CSS background overrides.
         printf(
-            '<link rel="preload" as="image" href="%s" fetchpriority="high" />' . "\n",
-            esc_url( $base . $image )
+            '<link rel="preload" as="image" href="%s" media="(min-width: 801px)" fetchpriority="high" />' . "\n",
+            esc_url( $base . $images[0] )
+        );
+        printf(
+            '<link rel="preload" as="image" href="%s" media="(max-width: 800px)" fetchpriority="high" />' . "\n",
+            esc_url( $base . $images[1] )
         );
     }
 }, 2 );

@@ -7,6 +7,9 @@
   <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/brand_assets/Favicon.png" />
   <link rel="preload" href="<?php echo esc_url( get_template_directory_uri() ); ?>/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="<?php echo esc_url( get_template_directory_uri() ); ?>/fonts/poppins-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <link rel="preconnect" href="https://seal-nashville.bbb.org" crossorigin />
   <link rel="dns-prefetch" href="https://seal-nashville.bbb.org" />
   <?php wp_head(); ?>
 </head>
