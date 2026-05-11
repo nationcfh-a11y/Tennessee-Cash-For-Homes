@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://nationcfh.wpcomstaging.com/",
+    "label": "homepage",
+    "status": 200,
+    "total_kb": 6319,
+    "requests": 38,
+    "ttfb_ms": 171,
+    "domLoaded_ms": 1204,
+    "load_ms": 5103,
+    "fcp_ms": 1072,
+    "lcp_ms": null
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/where-we-buy/nashville/",
+    "label": "nashville",
+    "status": 200,
+    "total_kb": 1936,
+    "requests": 19,
+    "ttfb_ms": 349,
+    "domLoaded_ms": 714,
+    "load_ms": 1456,
+    "fcp_ms": 696,
+    "lcp_ms": null
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/where-we-buy/franklin/",
+    "label": "franklin",
+    "status": 200,
+    "total_kb": 1936,
+    "requests": 19,
+    "ttfb_ms": 334,
+    "domLoaded_ms": 694,
+    "load_ms": 853,
+    "fcp_ms": 596,
+    "lcp_ms": null
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/where-we-buy/murfreesboro/",
+    "label": "murfreesboro",
+    "status": 200,
+    "total_kb": 1937,
+    "requests": 19,
+    "ttfb_ms": 398,
+    "domLoaded_ms": 738,
+    "load_ms": 896,
+    "fcp_ms": 660,
+    "lcp_ms": null
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/where-we-buy/clarksville/",
+    "label": "clarksville",
+    "status": 200,
+    "total_kb": 1936,
+    "requests": 19,
+    "ttfb_ms": 365,
+    "domLoaded_ms": 691,
+    "load_ms": 843,
+    "fcp_ms": 612,
+    "lcp_ms": null
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/where-we-buy/columbia/",
+    "label": "columbia",
+    "status": 200,
+    "total_kb": 1936,
+    "requests": 19,
+    "ttfb_ms": 318,
+    "domLoaded_ms": 654,
+    "load_ms": 810,
+    "fcp_ms": 580,
+    "lcp_ms": null
+  }
+]

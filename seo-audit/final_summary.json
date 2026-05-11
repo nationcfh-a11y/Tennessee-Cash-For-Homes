@@ -1,0 +1,22 @@
+{
+  "robots_txt": "BLOCKED (Disallow: /)",
+  "sitemap_count": 182,
+  "crawled_ok": 207,
+  "non_2xx": 11,
+  "redirect_tests": 107,
+  "redirect_final_4xx": 3,
+  "redirect_chains": 0,
+  "redirect_loops": 0,
+  "broken_internal_links": 426,
+  "links_to_redirects": 392,
+  "duplicate_titles": 1,
+  "duplicate_h1s": 5,
+  "multi_h1_pages": 4,
+  "missing_canonical": 0,
+  "non_self_canonical": 14,
+  "missing_alt_total": 0,
+  "pages_with_missing_alt": 0,
+  "thin_pages": 0,
+  "placeholder_pages": 0,
+  "unique_image_urls": 350
+}

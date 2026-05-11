@@ -1,0 +1,12 @@
+{
+  "https://www.tennesseecashforhomes.com/": {
+    "mobile": {
+      "error": "quota_exhausted_or_blocked"
+    }
+  },
+  "https://nationcfh.wpcomstaging.com/": {
+    "mobile": {
+      "error": "quota_exhausted_or_blocked"
+    }
+  }
+}

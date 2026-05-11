@@ -1,0 +1,1648 @@
+[
+  {
+    "url": "https://nationcfh.wpcomstaging.com/",
+    "label": "homepage",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "Tennessee Cash For Homes | Sell Your House Fast for Cash",
+      "h1": "Sell Your House Fast For Cash! | We Buy Houses As-Is for Cash",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 121,
+            "h": 18,
+            "text": "all of Tennessee"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "span.hero__trust-item",
+            "fs": "11.0",
+            "text": "No Agent Fees"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/homepage.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/where-we-buy/",
+    "label": "where-we-buy",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "Where We Buy - Tennessee Cash For Homes",
+      "h1": "Where We Buy\nHouses in Tennessee",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 121,
+            "h": 18,
+            "text": "all of Tennessee"
+          },
+          {
+            "sel": "button.testimonial-toggle",
+            "w": 309,
+            "h": 15,
+            "text": "View Full Review"
+          },
+          {
+            "sel": "button.carousel-dot.active",
+            "w": 41,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button.carousel-dot",
+            "w": 24,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/where-we-buy.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/where-we-buy/tennessee/",
+    "label": "where-we-buy-tn",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "We Buy Houses in Tennessee TN | Get a Fast Cash Offer Today",
+      "h1": "Sell Your House For Cash In Tennessee",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 39,
+            "h": 20,
+            "text": "Home"
+          },
+          {
+            "sel": "button.testimonial-toggle",
+            "w": 309,
+            "h": 15,
+            "text": "View Full Review"
+          },
+          {
+            "sel": "button.carousel-dot.active",
+            "w": 41,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button.carousel-dot",
+            "w": 24,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "span.loc-about__insight-label",
+            "fs": "11.0",
+            "text": "Market Insight"
+          },
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/where-we-buy-tn.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/where-we-buy/nashville/",
+    "label": "city-nashville",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "We Buy Houses in Nashville TN | Get a Fast Cash Offer Today",
+      "h1": "Sell Your House For Cash In Nashville, TN",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 39,
+            "h": 20,
+            "text": "Home"
+          },
+          {
+            "sel": "button#loc-toggle.loc-about__toggle",
+            "w": 102,
+            "h": 18,
+            "text": "Read more"
+          },
+          {
+            "sel": "button.testimonial-toggle",
+            "w": 309,
+            "h": 15,
+            "text": "View Full Review"
+          },
+          {
+            "sel": "button.carousel-dot.active",
+            "w": 41,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button.carousel-dot",
+            "w": 24,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "a.gov-resource-row__cta",
+            "w": 114,
+            "h": 22,
+            "text": "Visit Website →"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "span.loc-about__insight-label",
+            "fs": "11.0",
+            "text": "Market Insight"
+          },
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/city-nashville.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/where-we-buy/franklin/",
+    "label": "city-franklin",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "We Buy Houses in Franklin TN | Get a Fast Cash Offer Today",
+      "h1": "Sell Your House For Cash In Franklin, TN",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 39,
+            "h": 20,
+            "text": "Home"
+          },
+          {
+            "sel": "button#loc-toggle.loc-about__toggle",
+            "w": 102,
+            "h": 18,
+            "text": "Read more"
+          },
+          {
+            "sel": "button.testimonial-toggle",
+            "w": 309,
+            "h": 15,
+            "text": "View Full Review"
+          },
+          {
+            "sel": "button.carousel-dot.active",
+            "w": 41,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button.carousel-dot",
+            "w": 24,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "a.gov-resource-row__cta",
+            "w": 114,
+            "h": 22,
+            "text": "Visit Website →"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "span.loc-about__insight-label",
+            "fs": "11.0",
+            "text": "Market Insight"
+          },
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/city-franklin.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/where-we-buy/columbia/",
+    "label": "city-columbia",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "We Buy Houses in Columbia TN | Get a Fast Cash Offer Today",
+      "h1": "Sell Your House For Cash In Columbia, TN",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 39,
+            "h": 20,
+            "text": "Home"
+          },
+          {
+            "sel": "button#loc-toggle.loc-about__toggle",
+            "w": 102,
+            "h": 18,
+            "text": "Read more"
+          },
+          {
+            "sel": "button.testimonial-toggle",
+            "w": 309,
+            "h": 15,
+            "text": "View Full Review"
+          },
+          {
+            "sel": "button.carousel-dot.active",
+            "w": 41,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button.carousel-dot",
+            "w": 24,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "a.gov-resource-row__cta",
+            "w": 114,
+            "h": 22,
+            "text": "Visit Website →"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "span.loc-about__insight-label",
+            "fs": "11.0",
+            "text": "Market Insight"
+          },
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/city-columbia.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/where-we-buy/davidson-county/",
+    "label": "county-davidson",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "We Buy Houses in Davidson County TN | Fast Cash Offers",
+      "h1": "Sell Your House Fast For Cash in Davidson County",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 39,
+            "h": 20,
+            "text": "Home"
+          },
+          {
+            "sel": "button.testimonial-toggle",
+            "w": 309,
+            "h": 15,
+            "text": "View Full Review"
+          },
+          {
+            "sel": "button.carousel-dot.active",
+            "w": 41,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button.carousel-dot",
+            "w": 24,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button#loc-toggle.loc-about__toggle",
+            "w": 102,
+            "h": 18,
+            "text": "Read more"
+          },
+          {
+            "sel": "a.gov-resource-row__cta",
+            "w": 114,
+            "h": 22,
+            "text": "Visit Website →"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "span.city-link-btn__soon",
+            "fs": "10.0",
+            "text": "Soon"
+          },
+          {
+            "sel": "span.loc-about__insight-label",
+            "fs": "11.0",
+            "text": "Market Insight"
+          },
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/county-davidson.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/where-we-buy/williamson-county/",
+    "label": "county-williamson",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "We Buy Houses in Williamson County TN | Fast Cash Offers",
+      "h1": "Sell Your House Fast For Cash in Williamson County",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 39,
+            "h": 20,
+            "text": "Home"
+          },
+          {
+            "sel": "button.testimonial-toggle",
+            "w": 309,
+            "h": 15,
+            "text": "View Full Review"
+          },
+          {
+            "sel": "button.carousel-dot.active",
+            "w": 41,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button.carousel-dot",
+            "w": 24,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button#loc-toggle.loc-about__toggle",
+            "w": 102,
+            "h": 18,
+            "text": "Read more"
+          },
+          {
+            "sel": "a.gov-resource-row__cta",
+            "w": 114,
+            "h": 22,
+            "text": "Visit Website →"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "span.loc-about__insight-label",
+            "fs": "11.0",
+            "text": "Market Insight"
+          },
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/county-williamson.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/how-it-works/",
+    "label": "how-it-works",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "How It Works - Tennessee Cash For Homes",
+      "h1": "How It Works to Sell Your House As-Is for Cash in Tennessee",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 39,
+            "h": 20,
+            "text": "Home"
+          },
+          {
+            "sel": "a.bbb-seal",
+            "w": 152,
+            "h": 32,
+            "text": ""
+          },
+          {
+            "sel": "button.testimonial-toggle",
+            "w": 309,
+            "h": 15,
+            "text": "View Full Review"
+          },
+          {
+            "sel": "button.carousel-dot.active",
+            "w": 41,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button.carousel-dot",
+            "w": 24,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "span.hero__trust-item",
+            "fs": "11.0",
+            "text": "No Agent Fees"
+          },
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/how-it-works.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/about/",
+    "label": "about",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "About Tennessee Cash For Homes | Family Owned Tennessee Cash Home Buyers",
+      "h1": "A Tennessee Company Built on Trust, Faith, and Family",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 208,
+            "h": 19,
+            "text": "cash home buying companies"
+          },
+          {
+            "sel": "button.testimonial-toggle",
+            "w": 309,
+            "h": 15,
+            "text": "View Full Review"
+          },
+          {
+            "sel": "button.carousel-dot.active",
+            "w": 41,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button.carousel-dot",
+            "w": 24,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/about.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/contact-us/",
+    "label": "contact",
+    "errors": [
+      "HTTP 404"
+    ],
+    "stats": {}
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/faq/",
+    "label": "faq",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "FAQ - Tennessee Cash For Homes",
+      "h1": "Frequently Asked Questions",
+      "issues": {
+        "overflow": [],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 39,
+            "h": 20,
+            "text": "Home"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "span.hero__trust-item",
+            "fs": "11.0",
+            "text": "No Agent Fees"
+          },
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/faq.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/sell-my-land-for-cash-fast/",
+    "label": "sell-land",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "Tennessee Cash For Homes | Sell Your House Fast for Cash",
+      "h1": "Sell Your House Fast For Cash! | We Buy Houses As-Is for Cash",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 121,
+            "h": 18,
+            "text": "all of Tennessee"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "span.hero__trust-item",
+            "fs": "11.0",
+            "text": "No Agent Fees"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/sell-land.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/facing-foreclosure/",
+    "label": "facing-foreclosure",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "Facing Foreclosure in Tennessee? We Can Help | Tennessee Cash For Homes",
+      "h1": "Facing Foreclosure in Tennessee? We Can Help.",
+      "issues": {
+        "overflow": [],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 121,
+            "h": 18,
+            "text": "all of Tennessee"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "p.fc-process-callout__eyebrow",
+            "fs": "11.5",
+            "text": "Key Takeaway"
+          },
+          {
+            "sel": "h4",
+            "fs": "11.8",
+            "text": "Pros"
+          },
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/facing-foreclosure.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/facing-foreclosure/nashville/",
+    "label": "fc-nashville",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "Facing Foreclosure in Nashville TN | Tennessee Cash For Homes",
+      "h1": "Facing Foreclosure in Nashville TN? We Can Help.",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a.fc-hero__call",
+            "w": 347,
+            "h": 36,
+            "text": "Call Us Today - (615) 801-8126"
+          },
+          {
+            "sel": "a",
+            "w": 116,
+            "h": 30,
+            "text": "(615) 801-8126"
+          }
+        ],
+        "smallText": [],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/fc-nashville.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/sell-inherited-house-tennessee/",
+    "label": "sit-inherited",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "Sell Inherited House Tennessee | Fast Cash Sale | Tennessee Cash For Homes",
+      "h1": "Sell Your Inherited House Fast For Cash in Tennessee",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 120,
+            "h": 18,
+            "text": "(615) 801-8126"
+          },
+          {
+            "sel": "button.testimonial-toggle",
+            "w": 309,
+            "h": 15,
+            "text": "View Full Review"
+          },
+          {
+            "sel": "button.carousel-dot.active",
+            "w": 41,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button.carousel-dot",
+            "w": 24,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "a.gov-resource-row__cta",
+            "w": 114,
+            "h": 22,
+            "text": "Visit Website →"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/sit-inherited.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/sell-my-house-divorce-tennessee/",
+    "label": "sit-divorce",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "Sell House During Divorce Tennessee | Fast Cash Sale | Tennessee Cash For Homes",
+      "h1": "Sell Your House Fast During Divorce in Tennessee",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 120,
+            "h": 18,
+            "text": "(615) 801-8126"
+          },
+          {
+            "sel": "button.testimonial-toggle",
+            "w": 309,
+            "h": 15,
+            "text": "View Full Review"
+          },
+          {
+            "sel": "button.carousel-dot.active",
+            "w": 41,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button.carousel-dot",
+            "w": 24,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "a.gov-resource-row__cta",
+            "w": 114,
+            "h": 22,
+            "text": "Visit Website →"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/sit-divorce.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/sell-my-house-relocating-tennessee/",
+    "label": "sit-relocating",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "Sell House Fast When Relocating Tennessee | Tennessee Cash For Homes",
+      "h1": "Sell Your House Fast When Relocating From Tennessee",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 120,
+            "h": 18,
+            "text": "(615) 801-8126"
+          },
+          {
+            "sel": "button.testimonial-toggle",
+            "w": 309,
+            "h": 15,
+            "text": "View Full Review"
+          },
+          {
+            "sel": "button.carousel-dot.active",
+            "w": 41,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button.carousel-dot",
+            "w": 24,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "a.gov-resource-row__cta",
+            "w": 114,
+            "h": 22,
+            "text": "Visit Website →"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/sit-relocating.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/sell-my-house-foreclosure-tennessee/",
+    "label": "sit-foreclosure",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "Sell My House Before Foreclosure in Tennessee | Tennessee Cash For Homes",
+      "h1": "Sell Your House Fast Before Foreclosure in Tennessee",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 120,
+            "h": 18,
+            "text": "(615) 801-8126"
+          },
+          {
+            "sel": "button.testimonial-toggle",
+            "w": 309,
+            "h": 15,
+            "text": "View Full Review"
+          },
+          {
+            "sel": "button.carousel-dot.active",
+            "w": 41,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button.carousel-dot",
+            "w": 24,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "a.gov-resource-row__cta",
+            "w": 114,
+            "h": 22,
+            "text": "Visit Website →"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/sit-foreclosure.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/sell-house-probate-tennessee/",
+    "label": "sit-probate",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "Sell Probate Property Tennessee | Fast Cash Sale | Tennessee Cash For Homes",
+      "h1": "Sell a Probate Property Fast For Cash in Tennessee",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 120,
+            "h": 18,
+            "text": "(615) 801-8126"
+          },
+          {
+            "sel": "button.testimonial-toggle",
+            "w": 309,
+            "h": 15,
+            "text": "View Full Review"
+          },
+          {
+            "sel": "button.carousel-dot.active",
+            "w": 41,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button.carousel-dot",
+            "w": 24,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "a.gov-resource-row__cta",
+            "w": 114,
+            "h": 22,
+            "text": "Visit Website →"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/sit-probate.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/sell-house-as-is-tennessee/",
+    "label": "sit-asis",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "Sell House As-Is Tennessee | Any Condition Cash Buyer | Tennessee Cash For Homes",
+      "h1": "Sell Your House As-Is For Cash in Tennessee: No Repairs Needed",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 120,
+            "h": 18,
+            "text": "(615) 801-8126"
+          },
+          {
+            "sel": "button.testimonial-toggle",
+            "w": 309,
+            "h": 15,
+            "text": "View Full Review"
+          },
+          {
+            "sel": "button.carousel-dot.active",
+            "w": 41,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button.carousel-dot",
+            "w": 24,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "a.gov-resource-row__cta",
+            "w": 114,
+            "h": 22,
+            "text": "Visit Website →"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/sit-asis.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/sell-rental-property-tennessee/",
+    "label": "sit-landlord",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "Sell Rental Property Tennessee | Tenant Occupied Cash Buyer | Tennessee Cash For Homes",
+      "h1": "Sell Your Tennessee Rental Property Fast: Tenant or Vacant",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 120,
+            "h": 18,
+            "text": "(615) 801-8126"
+          },
+          {
+            "sel": "button.testimonial-toggle",
+            "w": 309,
+            "h": 15,
+            "text": "View Full Review"
+          },
+          {
+            "sel": "button.carousel-dot.active",
+            "w": 41,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button.carousel-dot",
+            "w": 24,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "a.gov-resource-row__cta",
+            "w": 114,
+            "h": 22,
+            "text": "Visit Website →"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/sit-landlord.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/sell-house-behind-on-taxes-tennessee/",
+    "label": "sit-taxes",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "Sell House Behind on Property Taxes Tennessee | Tennessee Cash For Homes",
+      "h1": "Sell Your Tennessee House Fast if You Are Behind on Property Taxes",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 120,
+            "h": 18,
+            "text": "(615) 801-8126"
+          },
+          {
+            "sel": "button.testimonial-toggle",
+            "w": 309,
+            "h": 15,
+            "text": "View Full Review"
+          },
+          {
+            "sel": "button.carousel-dot.active",
+            "w": 41,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button.carousel-dot",
+            "w": 24,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "a.gov-resource-row__cta",
+            "w": 114,
+            "h": 22,
+            "text": "Visit Website →"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/sit-taxes.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/sell-my-house-downsizing-tennessee/",
+    "label": "sit-downsizing",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "Sell House When Downsizing Tennessee | Fast Cash Sale | Tennessee Cash For Homes",
+      "h1": "Sell Your Tennessee Home Fast For Cash When Downsizing",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div#reviewsTrack.reviews-track",
+            "width": 1735
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 120,
+            "h": 18,
+            "text": "(615) 801-8126"
+          },
+          {
+            "sel": "button.testimonial-toggle",
+            "w": 309,
+            "h": 15,
+            "text": "View Full Review"
+          },
+          {
+            "sel": "button.carousel-dot.active",
+            "w": 41,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "button.carousel-dot",
+            "w": 24,
+            "h": 24,
+            "text": ""
+          },
+          {
+            "sel": "a.gov-resource-row__cta",
+            "w": 114,
+            "h": 22,
+            "text": "Visit Website →"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/sit-downsizing.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/investors/",
+    "label": "investors",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "Investors And Lenders - Tennessee Cash For Homes",
+      "h1": "Work With Tennessee Cash For Homes",
+      "issues": {
+        "overflow": [
+          {
+            "sel": "div.hero__content.hero__content--center",
+            "width": 389
+          },
+          {
+            "sel": "nav.breadcrumb",
+            "width": 389
+          },
+          {
+            "sel": "h1.hero__title",
+            "width": 389
+          },
+          {
+            "sel": "p.hero__subtitle",
+            "width": 389
+          },
+          {
+            "sel": "div.hero__trust-row",
+            "width": 389
+          }
+        ],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 39,
+            "h": 20,
+            "text": "Home"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "span.hero__trust-item",
+            "fs": "11.0",
+            "text": "Off-Market Deals"
+          },
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": [
+          {
+            "sel": "div.hero__content.hero__content--center",
+            "right": 403,
+            "width": 389
+          }
+        ]
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/investors.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/2026/01/24/zillow-is-lying-about-your-home-s-value-the-zestimate-does-not-determine-your-home-s-value/",
+    "label": "blog-post",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "Zillow Is Lying About Your Home’s Value The Zestimate Does Not Determine Your Home’s Value - Tennessee Cash For Homes",
+      "h1": "Zillow Is Lying About Your Home’s Value The Zestimate Does Not Determine Your Home’s Value",
+      "issues": {
+        "overflow": [],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 219,
+            "h": 19,
+            "text": "Tennessee Cash For Homes"
+          },
+          {
+            "sel": "a.sidebar-toc__link",
+            "w": 297,
+            "h": 33,
+            "text": "Why the Zestimate Can Be Inaccurate"
+          }
+        ],
+        "smallText": [],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/blog-post.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/privacy-policy/",
+    "label": "privacy",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "Privacy Policy | Tennessee Cash For Homes",
+      "h1": "Privacy Policy",
+      "issues": {
+        "overflow": [],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 81,
+            "h": 18,
+            "text": "Introduction"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/privacy.png"
+  },
+  {
+    "url": "https://nationcfh.wpcomstaging.com/thank-you/",
+    "label": "thank-you",
+    "errors": [],
+    "stats": {
+      "vw": 375,
+      "docW": 375,
+      "horizontalScroll": false,
+      "title": "Thank You - Tennessee Cash For Homes",
+      "h1": "Thank you!",
+      "issues": {
+        "overflow": [],
+        "smallTap": [
+          {
+            "sel": "a",
+            "w": 112,
+            "h": 17,
+            "text": "(615) 801-8126"
+          },
+          {
+            "sel": "a.footer-bottom__link",
+            "w": 71,
+            "h": 17,
+            "text": "Privacy Policy"
+          }
+        ],
+        "smallText": [
+          {
+            "sel": "p.footer-dark-cta__label",
+            "fs": "11.0",
+            "text": "GET STARTED TODAY"
+          }
+        ],
+        "offscreen": []
+      }
+    },
+    "screenshot": "/Users/karsoncarmichael/Claude Code Website Creator/mobile-audit/shots/thank-you.png"
+  }
+]
