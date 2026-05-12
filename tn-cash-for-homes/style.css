@@ -217,6 +217,11 @@ img { display: block; max-width: 100%; }
   position: relative;
   overflow: hidden;
   margin: 0;
+  /* Reserve the 16:9-ish hero box during HTML parsing so the page does
+     not shift when <img class="hero__bg"> swaps in. The unified
+     min-height rule near the end of this file enforces a floor at each
+     breakpoint, so the larger of (aspect-ratio box, min-height) wins. */
+  aspect-ratio: 1375 / 686;
   min-height: auto;
   display: flex;
   align-items: center;
