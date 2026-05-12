@@ -245,8 +245,29 @@
           }
       }
 
-      if (document.readyState === 'complete') init();
-      else window.addEventListener('load', init);
+      // Gate the scroll-pinning init behind IntersectionObserver so the
+      // listeners and measure() (which forces getBoundingClientRect →
+      // synchronous layout) don't run on initial paint. Falls back to the
+      // old load-time init if IO isn't supported.
+      function deferredInit() {
+          var section = document.querySelector('.house-to-cash-section');
+          if (!section || !('IntersectionObserver' in window)) {
+              if (document.readyState === 'complete') init();
+              else window.addEventListener('load', init);
+              return;
+          }
+          var io = new IntersectionObserver(function (entries) {
+              if (!entries[0].isIntersecting) return;
+              io.disconnect();
+              init();
+          }, { rootMargin: '600px 0px 600px 0px' });
+          io.observe(section);
+      }
+      if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', deferredInit);
+      } else {
+          deferredInit();
+      }
   })();
   </script>
 </section>
