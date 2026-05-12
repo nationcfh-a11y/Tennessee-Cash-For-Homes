@@ -155,6 +155,39 @@ function tcfh_thank_you_template( $template ) {
 add_filter( 'template_include', 'tcfh_thank_you_template' );
 
 /**
+ * /thank-you/ is a virtual route (no WP page in the DB), so Rank Math has
+ * nothing to attach SEO meta to and falls back to the blog title — which
+ * is why the tab was showing "Blog Home - Tennessee Cash For Homes".
+ * Force the correct title and noindex the page so it stays out of Google.
+ */
+function tcfh_is_thank_you() {
+    return (bool) get_query_var( 'tcfh_thank_you' );
+}
+
+function tcfh_thank_you_title( $title ) {
+    if ( tcfh_is_thank_you() ) {
+        return 'Thank You | Tennessee Cash For Homes';
+    }
+    return $title;
+}
+add_filter( 'pre_get_document_title', 'tcfh_thank_you_title', 100 );
+add_filter( 'rank_math/frontend/title', 'tcfh_thank_you_title', 100 );
+
+function tcfh_thank_you_robots( $robots ) {
+    if ( tcfh_is_thank_you() ) {
+        return array( 'noindex' => 'noindex', 'nofollow' => 'nofollow' );
+    }
+    return $robots;
+}
+add_filter( 'wp_robots', 'tcfh_thank_you_robots', 100 );
+add_filter( 'rank_math/frontend/robots', function( $robots ) {
+    if ( tcfh_is_thank_you() ) {
+        return array( 'index' => 'noindex', 'follow' => 'nofollow' );
+    }
+    return $robots;
+}, 100 );
+
+/**
  * Flush rewrite rules on theme switch so the /thank-you/ route registers.
  */
 function tcfh_flush_rewrites() {
