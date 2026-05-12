@@ -118,8 +118,24 @@
       <span class="htc-label htc-label-cash">Your Cash</span>
     </div>
     <div class="htc-image-container">
-      <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/House_Image.webp" alt="Sell your house fast for cash in Tennessee" class="htc-img htc-house-img" width="1386" height="650" loading="lazy" decoding="async" />
-      <img src="<?php echo get_template_directory_uri(); ?>/brand_assets/money_image2.webp" alt="Get cash for your Tennessee home" class="htc-img htc-cash-img" width="1323" height="800" loading="lazy" decoding="async" />
+      <img
+        src="<?php echo get_template_directory_uri(); ?>/brand_assets/House_Image.webp"
+        srcset="<?php echo get_template_directory_uri(); ?>/brand_assets/House_Image-550w.webp 550w,
+                <?php echo get_template_directory_uri(); ?>/brand_assets/House_Image-800w.webp 800w,
+                <?php echo get_template_directory_uri(); ?>/brand_assets/House_Image.webp 1100w"
+        sizes="(max-width: 550px) 88vw, (max-width: 900px) 800px, 900px"
+        alt="Sell your house fast for cash in Tennessee"
+        class="htc-img htc-house-img"
+        width="1100" height="516" loading="lazy" decoding="async" />
+      <img
+        src="<?php echo get_template_directory_uri(); ?>/brand_assets/money_image2.webp"
+        srcset="<?php echo get_template_directory_uri(); ?>/brand_assets/money_image2-550w.webp 550w,
+                <?php echo get_template_directory_uri(); ?>/brand_assets/money_image2-800w.webp 800w,
+                <?php echo get_template_directory_uri(); ?>/brand_assets/money_image2.webp 1100w"
+        sizes="(max-width: 550px) 88vw, (max-width: 900px) 800px, 900px"
+        alt="Get cash for your Tennessee home"
+        class="htc-img htc-cash-img"
+        width="1100" height="665" loading="lazy" decoding="async" />
     </div>
     <div class="htc-headline-wrap">
       <p class="htc-eyebrow">No Repairs. No Fees. No Hassle.</p>
@@ -229,7 +245,13 @@
 <!-- ── DIFFERENCE ── -->
 <section class="difference-section">
   <div class="difference__img-wrap">
-    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/Company%20Photo.webp" alt="Tennessee Cash For Homes team" width="2000" height="1000" loading="lazy" decoding="async" />
+    <img
+      src="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/Company%20Photo.webp"
+      srcset="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/Company%20Photo-800w.webp 800w,
+              <?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/Company%20Photo.webp 2000w"
+      sizes="(max-width: 768px) 100vw, 50vw"
+      alt="Tennessee Cash For Homes team"
+      width="2000" height="1000" loading="lazy" decoding="async" />
   </div>
   <div class="difference__content-wrap">
     <div class="difference__content">

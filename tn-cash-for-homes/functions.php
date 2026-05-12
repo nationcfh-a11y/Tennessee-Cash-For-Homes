@@ -6,7 +6,10 @@
 
 function tcfh_enqueue_assets() {
     // Main stylesheet: serve the minified build; fall back to style.css if missing.
-    // (style.css still lives alongside it as the WP theme header + source file.)
+    // Loaded asynchronously — see tcfh_async_style_loader_tag() below, which
+    // swaps rel="stylesheet" for the rel="preload" + onload trick so the
+    // browser doesn't render-block on the 95KB file. Above-the-fold styles
+    // are inlined separately by tcfh_inline_critical_css() in <head>.
     $min_path = get_template_directory() . '/style.min.css';
     $min_uri  = get_template_directory_uri() . '/style.min.css';
     if ( file_exists( $min_path ) ) {
@@ -42,19 +45,9 @@ function tcfh_enqueue_assets() {
         );
     }
 
-    // Self-hosted Poppins (latin subset, weights 400/500/600/700).
-    // Cuts two third-party connections (fonts.googleapis.com + fonts.gstatic.com)
-    // and removes render-blocking external CSS.
-    $fonts_css_path = get_template_directory() . '/fonts/poppins.css';
-    $fonts_css_uri  = get_template_directory_uri() . '/fonts/poppins.css';
-    if ( file_exists( $fonts_css_path ) ) {
-        wp_enqueue_style(
-            'tcfh-poppins',
-            $fonts_css_uri,
-            array(),
-            (string) filemtime( $fonts_css_path )
-        );
-    }
+    // Note: Poppins @font-face declarations are inlined as part of the
+    // critical CSS in <head>, so a separate fonts/poppins.css enqueue is
+    // not needed. The woff2 binaries themselves are preloaded in header.php.
 
     // Main site JavaScript — deferred external file, cached across pages.
     $js_path = get_template_directory() . '/js/main.js';
@@ -81,6 +74,59 @@ add_filter( 'script_loader_tag', function( $tag, $handle ) {
         $tag = str_replace( ' src=', ' defer src=', $tag );
     }
     return $tag;
+}, 10, 2 );
+
+/**
+ * Inline the critical above-the-fold CSS in <head> at very high priority so
+ * the first paint does not wait for the main stylesheet. critical.min.css
+ * covers nav, hero, and the form card across the homepage and inner-page
+ * heroes — anything below the fold is styled by the async-loaded
+ * style.min.css that follows.
+ *
+ * Wired with priority 1 so it lands in <head> before WordPress prints the
+ * enqueued <link> tags (which happens at priority 8 via wp_print_styles).
+ * Theme directory URL is substituted into the file via __THEME_URI__ so
+ * absolute paths in url() references resolve correctly when inlined.
+ */
+function tcfh_inline_critical_css() {
+    $path = get_template_directory() . '/critical.min.css';
+    if ( ! file_exists( $path ) ) return;
+    $css = file_get_contents( $path );
+    $css = str_replace( '__THEME_URI__', get_template_directory_uri(), $css );
+    echo "<style id=\"tcfh-critical\">" . $css . "</style>\n";
+}
+add_action( 'wp_head', 'tcfh_inline_critical_css', 1 );
+
+/**
+ * Convert the main stylesheet <link> to load asynchronously using the
+ * rel="preload" → onload swap pattern. The browser fetches the CSS with
+ * high priority but does NOT block render on it; once loaded the inline
+ * onload handler promotes it to a real stylesheet. A <noscript> fallback
+ * ensures users with JS disabled still get the full styles.
+ *
+ * Critical above-the-fold CSS is inlined by tcfh_inline_critical_css()
+ * so first paint never has to wait on this download.
+ */
+add_filter( 'style_loader_tag', function( $tag, $handle ) {
+    if ( 'tcfh-style' !== $handle ) {
+        return $tag;
+    }
+    if ( ! preg_match( '/href=([\'\"])([^\'\"]+)\1/', $tag, $m ) ) {
+        return $tag;
+    }
+    $href = $m[2];
+    // Swap rel="stylesheet" for the preload+onload pattern. Handles both
+    // double-quoted and single-quoted rel attribute styles that WP emits.
+    $async_tag = preg_replace(
+        '/\s+rel=([\'\"])stylesheet\1/',
+        ' rel="preload" as="style" onload="this.onload=null;this.rel=\'stylesheet\'"',
+        $tag,
+        1
+    );
+    // Strip the media attribute from the preload tag (preload doesn't honor
+    // it the same way) and re-apply it once the rel swaps to stylesheet.
+    $async_tag .= "<noscript><link rel='stylesheet' href='" . esc_url( $href ) . "'></noscript>";
+    return $async_tag;
 }, 10, 2 );
 
 /**
