@@ -98,6 +98,20 @@ function tcfh_inline_critical_css() {
 add_action( 'wp_head', 'tcfh_inline_critical_css', 1 );
 
 /**
+ * Preconnect hints for the YouTube facade on the homepage only.
+ * Saves the TCP+TLS handshake when the visitor taps Play, so the iframe
+ * starts streaming faster. Gated on is_front_page() so other pages do
+ * not pay the cost of two extra connections they will never use.
+ */
+add_action( 'wp_head', function() {
+    if ( ! is_front_page() ) {
+        return;
+    }
+    echo '<link rel="preconnect" href="https://www.youtube.com" crossorigin />' . "\n";
+    echo '<link rel="preconnect" href="https://i.ytimg.com" crossorigin />' . "\n";
+}, 3 );
+
+/**
  * Convert the main stylesheet <link> to load asynchronously using the
  * rel="preload" → onload swap pattern. The browser fetches the CSS with
  * high priority but does NOT block render on it; once loaded the inline

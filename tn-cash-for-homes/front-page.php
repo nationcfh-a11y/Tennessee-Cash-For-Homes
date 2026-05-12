@@ -384,7 +384,36 @@
       </div>
       <div class="video-section__media">
         <div class="video-section__embed">
-          <iframe src="https://www.youtube.com/embed/lG64DriT_PU" title="Tennessee Cash For Homes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <!-- Click-to-play YouTube facade. Shows the maxres thumbnail until
+               the user taps Play, then swaps in the real iframe with
+               autoplay=1. Eliminates ~500KB of YouTube JS/CSS from the
+               initial page load and removes the TBT spike PSI flagged. -->
+          <button type="button" id="yt-facade-lG64DriT_PU" class="yt-facade" aria-label="Play video: Tennessee Cash For Homes" style="position:absolute;top:0;left:0;width:100%;height:100%;padding:0;border:0;margin:0;background:#000;cursor:pointer;display:block;overflow:hidden;">
+            <img src="https://i.ytimg.com/vi/lG64DriT_PU/maxresdefault.jpg" alt="Tennessee Cash For Homes" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;border:0;" />
+            <span aria-hidden="true" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:68px;height:48px;pointer-events:none;">
+              <svg viewBox="0 0 68 48" width="68" height="48" xmlns="http://www.w3.org/2000/svg">
+                <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,0.13,34,0,34,0S12.21,0.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"/>
+                <path d="M45,24L27,14v20" fill="#fff"/>
+              </svg>
+            </span>
+          </button>
+          <script>
+          (function () {
+            var btn = document.getElementById('yt-facade-lG64DriT_PU');
+            if (!btn) return;
+            btn.addEventListener('click', function () {
+              var i = document.createElement('iframe');
+              i.src = 'https://www.youtube.com/embed/lG64DriT_PU?autoplay=1';
+              i.title = 'Tennessee Cash For Homes';
+              i.frameBorder = '0';
+              i.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+              i.allowFullscreen = true;
+              i.setAttribute('allowfullscreen', '');
+              i.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;display:block;';
+              btn.parentNode.replaceChild(i, btn);
+            });
+          })();
+          </script>
         </div>
       </div>
     </div>
