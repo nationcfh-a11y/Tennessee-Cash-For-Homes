@@ -2,6 +2,15 @@
 
 <!-- ── HERO ── -->
 <section class="hero" id="hero-form">
+  <img
+    class="hero__bg"
+    src="<?php echo get_template_directory_uri(); ?>/brand_assets/New_Background.webp"
+    srcset="<?php echo get_template_directory_uri(); ?>/brand_assets/New_Background-800w.webp 800w,
+            <?php echo get_template_directory_uri(); ?>/brand_assets/New_Background.webp 1375w"
+    sizes="100vw"
+    alt=""
+    width="1375" height="686"
+    fetchpriority="high" loading="eager" decoding="async" />
   <div class="hero__overlay" style="background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.40) 100%);"></div>
   <div class="container">
     <div class="hero__inner">
