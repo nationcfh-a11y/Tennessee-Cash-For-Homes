@@ -54,14 +54,7 @@ img{display:block;max-width:100%}
 
 /* ── Hero (homepage + shared) ── */
 .hero__overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.62) 100%);pointer-events:none}
-/* aspect-ratio + min-height reserve the hero box before <img class="hero__bg">
-   loads, eliminating CLS. min-height values mirror the unified hero heights
-   from style.css so the section never grows/shrinks when the async stylesheet
-   arrives. */
-.hero{padding:120px 0 80px;position:relative;overflow:hidden;margin:0;aspect-ratio:1375/686;min-height:700px;display:flex;flex-direction:column;justify-content:center;align-items:center}
-@media (min-width:769px) and (max-width:1024px){.hero{min-height:1100px}}
-@media (max-width:768px){.hero{min-height:1000px}}
-@media (max-width:480px){.hero{min-height:960px}}
+.hero{padding:120px 0 80px;position:relative;overflow:hidden;margin:0;min-height:auto;display:flex;align-items:center}
 body:not(.home) .hero{background:url('__THEME_URI__/brand_assets/New_Background.webp') center center/cover no-repeat}
 .hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;pointer-events:none}
 .hero .container{max-width:1320px}
