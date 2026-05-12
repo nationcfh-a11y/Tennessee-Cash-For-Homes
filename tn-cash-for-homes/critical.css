@@ -54,9 +54,7 @@ img{display:block;max-width:100%}
 
 /* ── Hero (homepage + shared) ── */
 .hero__overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.62) 100%);pointer-events:none}
-.hero{padding:120px 0 80px;position:relative;overflow:hidden;margin:0;min-height:auto;display:flex;align-items:center}
-body:not(.home) .hero{background:url('__THEME_URI__/brand_assets/New_Background.webp') center center/cover no-repeat}
-.hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;pointer-events:none}
+.hero{background:url('__THEME_URI__/brand_assets/New_Background.webp') center center/cover no-repeat;padding:120px 0 80px;position:relative;overflow:hidden;margin:0;min-height:auto;display:flex;align-items:center}
 .hero .container{max-width:1320px}
 .hero__inner{display:grid;grid-template-columns:1fr 400px;gap:60px;align-items:center;position:relative;z-index:2}
 .hero__badge{display:inline-flex;align-items:center;gap:8px;background:rgba(132,204,156,.15);border:1px solid rgba(132,204,156,.4);color:#84CC9C;font-size:13px;font-weight:600;padding:5px 14px;border-radius:100px;margin-bottom:20px}
@@ -107,7 +105,7 @@ body:not(.home) .hero{background:url('__THEME_URI__/brand_assets/New_Background.
   .nav__hamburger{display:flex;padding:12px;margin-right:-8px;min-width:44px;min-height:44px;align-items:center;justify-content:center}
 }
 @media (max-width:800px){
-  body:not(.home) .hero{background-image:url('__THEME_URI__/brand_assets/New_Background-800w.webp')}
+  .hero{background-image:url('__THEME_URI__/brand_assets/New_Background-800w.webp')}
 }
 @media (max-width:640px){
   .hero{padding:120px 0 80px;min-height:auto}
