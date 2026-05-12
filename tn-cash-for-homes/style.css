@@ -222,6 +222,13 @@ img { display: block; max-width: 100%; }
   align-items: center;
 }
 
+/* Non-homepage heroes (How It Works, FAQ, Investors & Lenders) still rely on
+   a CSS background. The homepage uses <img class="hero__bg"> for LCP and
+   suppresses this rule via body.home. */
+body:not(.home) .hero {
+  background: url('brand_assets/New_Background.webp') center center / cover no-repeat;
+}
+
 /* Hero background as a real <img> so the preload scanner can discover it
    without waiting for CSSOM. Stretched to fill the section behind the
    overlay; .hero__inner already has z-index: 2 to sit above both layers. */
@@ -5868,6 +5875,7 @@ div.related-posts,
    Variants live in /brand_assets/<name>-800w.webp.
    ────────────────────────────────────────────────────────────────────── */
 @media (max-width: 800px) {
+  body:not(.home) .hero,
   .blog-hero {
     background-image: url('brand_assets/New_Background-800w.webp');
   }
