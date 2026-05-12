@@ -3,22 +3,6 @@
 
   const DEBUG = false;
 
-  // Defer non-critical setup until the related section approaches the
-  // viewport. Used to keep below-the-fold init work off the main thread
-  // during initial paint — important for mobile TBT/LCP. Falls back to
-  // running init immediately if IntersectionObserver isn't supported.
-  function whenNear(selector, init) {
-    const el = typeof selector === 'string' ? document.querySelector(selector) : selector;
-    if (!el) return;
-    if (!('IntersectionObserver' in window)) { init(el); return; }
-    const io = new IntersectionObserver(function (entries) {
-      if (!entries[0].isIntersecting) return;
-      io.disconnect();
-      init(el);
-    }, { rootMargin: '400px 0px 400px 0px' });
-    io.observe(el);
-  }
-
   // ── Mobile nav toggle ──
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('navLinks');
@@ -134,10 +118,7 @@
   }
 
   // ── Reviews Carousel ──
-  // Initialized lazily once the section approaches the viewport — keeps
-  // dot creation, listener wiring, and the auto-advance setInterval off the
-  // critical path so they don't add to mobile TBT during initial paint.
-  whenNear('#reviewsOuter', function () {
+  (function () {
     const track    = document.getElementById('reviewsTrack');
     const outer    = document.getElementById('reviewsOuter');
     const dotsWrap = document.getElementById('revDots');
@@ -182,17 +163,13 @@
     function startTimer() { autoTimer = setInterval(next, 5000); }
     function resetTimer() { clearInterval(autoTimer); startTimer(); }
     startTimer();
-  });
+  })();
 
   // ── Review Expand / Collapse ──
-  // Lazy-initialized once the testimonials approach the viewport. The
-  // initial runCheck() reads scrollHeight/clientHeight across every card,
-  // which forces a synchronous layout — gating behind whenNear keeps that
-  // off the main thread during initial paint.
-  // Performance: layout reads are batched after writes inside one rAF tick.
-  // Resize handlers are coalesced with rAF so a continuous resize fires
-  // runCheck once per frame, not per event.
-  whenNear('.testimonial-card', function () {
+  // Performance: layout reads (scrollHeight/clientHeight) are batched after
+  // writes inside a single rAF tick. Resize handlers are coalesced with rAF
+  // so a continuous resize fires checkClamp once per frame, not per event.
+  (function () {
     const cards = document.querySelectorAll('.testimonial-card');
     if (!cards.length) return;
 
@@ -236,7 +213,7 @@
 
     runCheck();
     window.addEventListener('resize', scheduleCheck, { passive: true });
-  });
+  })();
 
   // ── Count-Up Animation ──
   (function () {
