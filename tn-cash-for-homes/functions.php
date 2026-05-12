@@ -245,17 +245,28 @@ add_action( 'wp_head', function() {
 
 /**
  * Preload the hero background image for each page template.
- * These are referenced via CSS url(); without a preload hint the browser
- * can't discover them until CSSOM is built, which delays LCP by ~800–1500ms.
+ * Most pages reference the hero via CSS url(); without a preload hint the
+ * browser can't discover them until CSSOM is built, which delays LCP by
+ * ~800–1500ms. The homepage uses a real <img class="hero__bg" srcset> so its
+ * preload uses imagesrcset/imagesizes to match the responsive request exactly
+ * (including high-DPR mobile, which media-aware preloads can't represent).
  */
 add_action( 'wp_head', function() {
     $base = get_template_directory_uri() . '/brand_assets/';
+
+    if ( is_front_page() ) {
+        printf(
+            '<link rel="preload" as="image" imagesrcset="%s 800w, %s 1375w" imagesizes="100vw" fetchpriority="high" />' . "\n",
+            esc_url( $base . 'New_Background-800w.webp' ),
+            esc_url( $base . 'New_Background.webp' )
+        );
+        return;
+    }
+
     // [desktop_filename, mobile_filename]
     $images = null;
 
-    if ( is_front_page() ) {
-        $images = array( 'New_Background.webp', 'New_Background-800w.webp' );
-    } elseif ( is_page( 'facing-foreclosure' ) ) {
+    if ( is_page( 'facing-foreclosure' ) ) {
         $images = array( 'New_Background.webp', 'New_Background-800w.webp' );
     } elseif ( is_page( 'sell-your-land-1' ) || is_page( 'sell-your-land' ) || is_page( 'sell-my-land' ) ) {
         $images = array( 'Tennessee_Cash_For_Land.webp', 'Tennessee_Cash_For_Land-800w.webp' );
