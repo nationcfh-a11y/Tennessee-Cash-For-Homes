@@ -129,16 +129,17 @@ add_filter( 'style_loader_tag', function( $tag, $handle ) {
         return $tag;
     }
     $href = $m[2];
-    // Swap rel="stylesheet" for the preload+onload pattern. Handles both
-    // double-quoted and single-quoted rel attribute styles that WP emits.
+    // Swap rel="stylesheet" for the preload+onload pattern. fetchpriority="low"
+    // keeps this 16KB-gzipped preload from competing with the hero LCP image
+    // for early bandwidth on mobile — the critical CSS already styled the
+    // above-the-fold layout, so this fetch can slide in after LCP without
+    // any visual impact. Handles both double- and single-quoted rel styles.
     $async_tag = preg_replace(
         '/\s+rel=([\'\"])stylesheet\1/',
-        ' rel="preload" as="style" onload="this.onload=null;this.rel=\'stylesheet\'"',
+        ' rel="preload" as="style" fetchpriority="low" onload="this.onload=null;this.rel=\'stylesheet\'"',
         $tag,
         1
     );
-    // Strip the media attribute from the preload tag (preload doesn't honor
-    // it the same way) and re-apply it once the rel swaps to stylesheet.
     $async_tag .= "<noscript><link rel='stylesheet' href='" . esc_url( $href ) . "'></noscript>";
     return $async_tag;
 }, 10, 2 );
