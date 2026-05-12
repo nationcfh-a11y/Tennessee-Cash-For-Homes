@@ -56,6 +56,20 @@ function tcfh_thank_you_template( $template ) {
 add_filter( 'template_include', 'tcfh_thank_you_template' );
 
 /**
+ * Set a proper <title> on the virtual /thank-you/ route. Without this,
+ * Rank Math has no page to attach SEO meta to and falls back to the blog
+ * title, which collides with /blog-home/.
+ */
+function tcfh_thank_you_title( $title ) {
+    if ( get_query_var( 'tcfh_thank_you' ) ) {
+        return 'Thank You — We\'ve Received Your Request | Tennessee Cash For Homes';
+    }
+    return $title;
+}
+add_filter( 'pre_get_document_title', 'tcfh_thank_you_title', 100 );
+add_filter( 'rank_math/frontend/title', 'tcfh_thank_you_title', 100 );
+
+/**
  * Flush rewrite rules on theme switch so the /thank-you/ route registers.
  */
 function tcfh_flush_rewrites() {
@@ -111,10 +125,12 @@ function tcfh_handle_submit_lead() {
         wp_send_json_error( array( 'error' => 'Please fill in all required fields.' ), 422 );
     }
 
-    // Send email notification
-    $to      = get_option( 'admin_email' );
-    $subject = 'New Cash Offer Request: ' . $name;
-    $message = "=== New Lead from Multi-Step Form ===\n\n";
+    // Send email notification — sent first so it always goes out regardless of
+    // any downstream forwarding (Airtable, Zapier, etc.) succeeding or failing.
+    $to      = 'karson@tncashforhomes.com';
+    $subject = '[New Lead] ' . $name . ' — ' . $address;
+
+    $message  = "=== New Lead from Multi-Step Form ===\n\n";
     $message .= "Name: $name\n";
     $message .= "Phone: $phone\n";
     $message .= "Email: $email\n";
@@ -132,9 +148,27 @@ function tcfh_handle_submit_lead() {
     $message .= "Situation: $situation\n";
     $message .= "Timeline: $timeline\n";
     $message .= "HOA: $hoa\n";
-    $message .= "Occupied: $occupied\n";
+    $message .= "Occupied: $occupied\n\n";
+    $message .= "Submitted: " . current_time( 'Y-m-d H:i:s' ) . " (site time)\n";
 
-    wp_mail( $to, $subject, $message );
+    // Use the site's own domain for From so the message passes SPF/DMARC.
+    $site_domain = wp_parse_url( home_url(), PHP_URL_HOST );
+    $site_domain = preg_replace( '/^www\./i', '', $site_domain );
+    $from_email  = 'leads@' . $site_domain;
+
+    $headers = array(
+        'From: TN Cash For Homes Leads <' . $from_email . '>',
+        'Content-Type: text/plain; charset=UTF-8',
+    );
+    if ( $email && is_email( $email ) ) {
+        $headers[] = 'Reply-To: ' . $name . ' <' . $email . '>';
+    }
+
+    $sent = wp_mail( $to, $subject, $message, $headers );
+
+    if ( ! $sent ) {
+        error_log( '[tcfh] wp_mail failed for lead: ' . $name . ' / ' . $phone . ' / ' . $address );
+    }
 
     wp_send_json_success( array( 'message' => 'Request received!' ) );
 }
