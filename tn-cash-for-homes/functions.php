@@ -405,7 +405,9 @@ if ( ! defined( 'AIRTABLE_BASE_ID' ) ) {
 
 /**
  * AJAX handler for lead form submission.
- * Sends leads to Airtable CRM.
+ * Stores the lead locally, emails a notification, then attempts an Airtable
+ * sync. Failed syncs are queued for cron retry. See the lead-pipeline section
+ * at the bottom of this file for the full helper stack.
  */
 function tcfh_handle_submit_lead() {
     check_ajax_referer( 'tcfh_submit_lead', 'nonce' );
@@ -419,58 +421,28 @@ function tcfh_handle_submit_lead() {
         wp_send_json_error( array( 'error' => 'Please fill in all required fields.' ), 422 );
     }
 
-    $api_token  = defined( 'AIRTABLE_API_TOKEN' ) ? AIRTABLE_API_TOKEN : '';
-    $base_id    = defined( 'AIRTABLE_BASE_ID' )    ? AIRTABLE_BASE_ID   : '';
-    $table_name = 'CRM';
-
-    $debug = array(
-        'token_set'   => $api_token !== '',
-        'base_set'    => $base_id !== '',
-        'table'       => $table_name,
+    $row = array(
+        'lead_type'   => 'lead',
+        'name'        => $name,
+        'phone'       => $phone,
+        'email'       => '',
+        'address'     => $address,
         'lead_source' => $lead_source,
+        'payload'     => array(
+            'Lead Name'    => $name,
+            'Phone Number' => $phone,
+            'Address'      => $address,
+            'Lead Source'  => $lead_source,
+        ),
     );
 
-    if ( ! $api_token || ! $base_id ) {
-        error_log( '[TCFH Airtable] Lead submission skipped: CRM configuration missing.' );
-        wp_send_json_success( array( 'message' => 'Request received!', 'debug' => $debug ) );
-    }
+    $result = tcfh_lead_save_and_sync( $row, 'CRM' );
 
-    $fields = array(
-        'Lead Name'    => $name,
-        'Phone Number' => $phone,
-        'Address'      => $address,
-        'Submitted At' => current_time( 'c' ),
-    );
-    if ( $lead_source !== '' ) {
-        $fields['Lead Source'] = $lead_source;
-    }
-
-    $response = wp_remote_post(
-        'https://api.airtable.com/v0/' . $base_id . '/' . rawurlencode( $table_name ),
-        array(
-            'headers' => array(
-                'Authorization' => 'Bearer ' . $api_token,
-                'Content-Type'  => 'application/json',
-            ),
-            'body'    => wp_json_encode( array(
-                'records' => array( array( 'fields' => $fields ) ),
-            ) ),
-            'timeout' => 15,
-        )
-    );
-
-    if ( is_wp_error( $response ) ) {
-        $debug['transport_error'] = $response->get_error_message();
-        error_log( '[TCFH Airtable] Lead submission transport error: ' . $response->get_error_message() );
-    } else {
-        $debug['code'] = wp_remote_retrieve_response_code( $response );
-        $debug['body'] = substr( wp_remote_retrieve_body( $response ), 0, 600 );
-        if ( $debug['code'] < 200 || $debug['code'] >= 300 ) {
-            error_log( '[TCFH Airtable] Lead submission rejected (HTTP ' . $debug['code'] . '): ' . $debug['body'] );
-        }
-    }
-
-    wp_send_json_success( array( 'message' => 'Request received!', 'debug' => $debug ) );
+    wp_send_json_success( array(
+        'message' => 'Request received!',
+        'row_id'  => $result['row_id'],
+        'synced'  => $result['synced'],
+    ) );
 }
 add_action( 'wp_ajax_tcfh_submit_lead',        'tcfh_handle_submit_lead' );
 add_action( 'wp_ajax_nopriv_tcfh_submit_lead', 'tcfh_handle_submit_lead' );
@@ -492,51 +464,31 @@ function tcfh_handle_submit_investor() {
         wp_send_json_error( array( 'error' => 'Please fill in all required fields.' ), 422 );
     }
 
-    $api_token  = defined( 'AIRTABLE_API_TOKEN' ) ? AIRTABLE_API_TOKEN : '';
-    $base_id    = defined( 'AIRTABLE_BASE_ID' )    ? AIRTABLE_BASE_ID   : '';
-
-    if ( ! $api_token || ! $base_id ) {
-        error_log( '[TCFH Airtable] Investor submission skipped: CRM configuration missing.' );
-        wp_send_json_success( array( 'message' => 'Investor request received!' ) );
-    }
-
-    $response = wp_remote_post(
-        'https://api.airtable.com/v0/' . $base_id . '/' . rawurlencode( 'Investors' ),
-        array(
-            'headers' => array(
-                'Authorization' => 'Bearer ' . $api_token,
-                'Content-Type'  => 'application/json',
-            ),
-            'body'    => wp_json_encode( array(
-                'records' => array(
-                    array(
-                        'fields' => array(
-                            'Name'             => $name,
-                            'Email'            => $email,
-                            'Phone'            => $phone,
-                            'Preferred Market' => $market,
-                            'Strategy'         => $strategy,
-                            'Notes'            => $notes,
-                            'Lead Source'      => 'Investors',
-                            'Submitted At'     => current_time( 'c' ),
-                        ),
-                    ),
-                ),
-            ) ),
-            'timeout' => 15,
-        )
+    $row = array(
+        'lead_type'   => 'investor',
+        'name'        => $name,
+        'phone'       => $phone,
+        'email'       => $email,
+        'address'     => '',
+        'lead_source' => 'Investors',
+        'payload'     => array(
+            'Name'             => $name,
+            'Email'            => $email,
+            'Phone'            => $phone,
+            'Preferred Market' => $market,
+            'Strategy'         => $strategy,
+            'Notes'            => $notes,
+            'Lead Source'      => 'Investors',
+        ),
     );
 
-    if ( is_wp_error( $response ) ) {
-        error_log( '[TCFH Airtable] Investor submission transport error: ' . $response->get_error_message() );
-    } else {
-        $code = wp_remote_retrieve_response_code( $response );
-        if ( $code < 200 || $code >= 300 ) {
-            error_log( '[TCFH Airtable] Investor submission rejected (HTTP ' . $code . '): ' . wp_remote_retrieve_body( $response ) );
-        }
-    }
+    $result = tcfh_lead_save_and_sync( $row, 'Investors' );
 
-    wp_send_json_success( array( 'message' => 'Investor request received!' ) );
+    wp_send_json_success( array(
+        'message' => 'Investor request received!',
+        'row_id'  => $result['row_id'],
+        'synced'  => $result['synced'],
+    ) );
 }
 add_action( 'wp_ajax_tcfh_submit_investor',        'tcfh_handle_submit_investor' );
 add_action( 'wp_ajax_nopriv_tcfh_submit_investor', 'tcfh_handle_submit_investor' );
@@ -557,50 +509,30 @@ function tcfh_handle_submit_lender() {
         wp_send_json_error( array( 'error' => 'Please fill in all required fields.' ), 422 );
     }
 
-    $api_token  = defined( 'AIRTABLE_API_TOKEN' ) ? AIRTABLE_API_TOKEN : '';
-    $base_id    = defined( 'AIRTABLE_BASE_ID' )    ? AIRTABLE_BASE_ID   : '';
-
-    if ( ! $api_token || ! $base_id ) {
-        error_log( '[TCFH Airtable] Lender submission skipped: CRM configuration missing.' );
-        wp_send_json_success( array( 'message' => 'Lender request received!' ) );
-    }
-
-    $response = wp_remote_post(
-        'https://api.airtable.com/v0/' . $base_id . '/' . rawurlencode( 'Lenders' ),
-        array(
-            'headers' => array(
-                'Authorization' => 'Bearer ' . $api_token,
-                'Content-Type'  => 'application/json',
-            ),
-            'body'    => wp_json_encode( array(
-                'records' => array(
-                    array(
-                        'fields' => array(
-                            'Name'           => $name,
-                            'Email'          => $email,
-                            'Phone'          => $phone,
-                            'Budget'         => $budget,
-                            'Notes'          => $notes,
-                            'Lead Source'    => 'Lenders',
-                            'Submitted At'   => current_time( 'c' ),
-                        ),
-                    ),
-                ),
-            ) ),
-            'timeout' => 15,
-        )
+    $row = array(
+        'lead_type'   => 'lender',
+        'name'        => $name,
+        'phone'       => $phone,
+        'email'       => $email,
+        'address'     => '',
+        'lead_source' => 'Lenders',
+        'payload'     => array(
+            'Name'        => $name,
+            'Email'       => $email,
+            'Phone'       => $phone,
+            'Budget'      => $budget,
+            'Notes'       => $notes,
+            'Lead Source' => 'Lenders',
+        ),
     );
 
-    if ( is_wp_error( $response ) ) {
-        error_log( '[TCFH Airtable] Lender submission transport error: ' . $response->get_error_message() );
-    } else {
-        $code = wp_remote_retrieve_response_code( $response );
-        if ( $code < 200 || $code >= 300 ) {
-            error_log( '[TCFH Airtable] Lender submission rejected (HTTP ' . $code . '): ' . wp_remote_retrieve_body( $response ) );
-        }
-    }
+    $result = tcfh_lead_save_and_sync( $row, 'Lenders' );
 
-    wp_send_json_success( array( 'message' => 'Lender request received!' ) );
+    wp_send_json_success( array(
+        'message' => 'Lender request received!',
+        'row_id'  => $result['row_id'],
+        'synced'  => $result['synced'],
+    ) );
 }
 add_action( 'wp_ajax_tcfh_submit_lender',        'tcfh_handle_submit_lender' );
 add_action( 'wp_ajax_nopriv_tcfh_submit_lender', 'tcfh_handle_submit_lender' );
@@ -1311,3 +1243,631 @@ add_filter( 'template_include', function( $template ) {
     }
     return $template;
 } );
+
+/* ────────────────────────────────────────────────────────────────────────
+ * LEAD CAPTURE PIPELINE
+ *
+ * Reliability stack for the three lead-capture forms (CRM / Investors /
+ * Lenders). Every submission lands in a local table first, fires an email
+ * notification, then attempts a live Airtable sync. Failed syncs are queued
+ * for cron retry so a transient Airtable issue can never drop a lead.
+ *
+ *   tcfh_lead_save_and_sync()    — entry point used by the AJAX handlers
+ *   tcfh_lead_insert_row()       — local DB write (source of truth)
+ *   tcfh_lead_send_email()       — wp_mail notification
+ *   tcfh_lead_airtable_post()    — single Airtable POST attempt
+ *   tcfh_lead_do_retry()         — wp-cron retry handler
+ *
+ * Admin dashboard lives at WP Admin → Leads. Background crons handle the
+ * weekly summary and the daily failure-threshold alert.
+ * ──────────────────────────────────────────────────────────────────────── */
+
+define( 'TCFH_LEAD_DB_VERSION',          '1' );
+define( 'TCFH_LEAD_ALERT_EMAIL',         'karson@tncashforhomes.com' );
+define( 'TCFH_LEAD_AIRTABLE_TIMEOUT',    10 ); // synchronous attempt
+define( 'TCFH_LEAD_RETRY_TIMEOUT',       30 ); // cron retries
+define( 'TCFH_LEAD_MAX_ATTEMPTS',        4 );  // 1 sync + 3 cron retries
+define( 'TCFH_LEAD_FAILURE_THRESHOLD',   3 );  // alert when daily failures ≥ this
+
+/**
+ * Returns the leads table name with the WP prefix.
+ */
+function tcfh_leads_table() {
+    global $wpdb;
+    return $wpdb->prefix . 'tcfh_leads';
+}
+
+/**
+ * Installs or upgrades the leads table. Idempotent.
+ */
+function tcfh_leads_install() {
+    $installed = get_option( 'tcfh_leads_db_version' );
+    if ( $installed === TCFH_LEAD_DB_VERSION ) {
+        return;
+    }
+
+    global $wpdb;
+    $table   = tcfh_leads_table();
+    $charset = $wpdb->get_charset_collate();
+
+    $sql = "CREATE TABLE {$table} (
+        id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+        submitted_at DATETIME NOT NULL,
+        lead_type VARCHAR(20) NOT NULL DEFAULT 'lead',
+        name VARCHAR(190) NOT NULL DEFAULT '',
+        phone VARCHAR(40) NOT NULL DEFAULT '',
+        email VARCHAR(190) NOT NULL DEFAULT '',
+        address VARCHAR(255) NOT NULL DEFAULT '',
+        lead_source VARCHAR(190) NOT NULL DEFAULT '',
+        payload LONGTEXT NULL,
+        airtable_id VARCHAR(40) NOT NULL DEFAULT '',
+        sync_status VARCHAR(20) NOT NULL DEFAULT 'pending',
+        attempts SMALLINT UNSIGNED NOT NULL DEFAULT 0,
+        last_error TEXT NULL,
+        last_attempt_at DATETIME NULL,
+        PRIMARY KEY  (id),
+        KEY sync_status (sync_status),
+        KEY submitted_at (submitted_at),
+        KEY lead_type (lead_type)
+    ) {$charset};";
+
+    require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+    dbDelta( $sql );
+
+    update_option( 'tcfh_leads_db_version', TCFH_LEAD_DB_VERSION );
+}
+add_action( 'after_setup_theme', 'tcfh_leads_install' );
+
+/**
+ * Ensures the recurring crons are scheduled. Runs once per request and is a
+ * no-op when the events are already on the schedule.
+ */
+function tcfh_leads_ensure_cron() {
+    if ( ! wp_next_scheduled( 'tcfh_weekly_summary' ) ) {
+        wp_schedule_event( strtotime( 'next monday 8:00am' ), 'weekly', 'tcfh_weekly_summary' );
+    }
+    if ( ! wp_next_scheduled( 'tcfh_daily_failure_check' ) ) {
+        wp_schedule_event( time() + 3600, 'daily', 'tcfh_daily_failure_check' );
+    }
+}
+add_action( 'init', 'tcfh_leads_ensure_cron' );
+
+/**
+ * Primary entry point — called by the three submit handlers.
+ *
+ * @param array  $row             Row data (lead_type, name, phone, email,
+ *                                address, lead_source, payload).
+ * @param string $airtable_table  Airtable table name (CRM | Investors | Lenders).
+ * @return array { row_id: int, synced: bool }
+ */
+function tcfh_lead_save_and_sync( array $row, $airtable_table ) {
+    $row_id = tcfh_lead_insert_row( $row );
+
+    if ( ! $row_id ) {
+        // DB insert failed — extremely rare, but still alert because the lead
+        // is at risk of being lost. The email below is our fallback.
+        error_log( '[TCFH Lead] Local DB insert failed: ' . print_r( $row, true ) );
+    }
+
+    // Always email before touching Airtable so a slow/broken Airtable can never
+    // suppress the notification.
+    tcfh_lead_send_email( $row, $row_id, 'pending' );
+
+    $api_token = defined( 'AIRTABLE_API_TOKEN' ) ? AIRTABLE_API_TOKEN : '';
+    $base_id   = defined( 'AIRTABLE_BASE_ID' )    ? AIRTABLE_BASE_ID   : '';
+
+    if ( ! $api_token || ! $base_id ) {
+        error_log( '[TCFH Lead] Airtable config missing — lead saved locally only (row ' . $row_id . ').' );
+        if ( $row_id ) {
+            tcfh_lead_update_status( $row_id, array(
+                'sync_status'     => 'failed',
+                'attempts'        => 1,
+                'last_error'      => 'Airtable config missing on host',
+                'last_attempt_at' => current_time( 'mysql' ),
+            ) );
+            wp_schedule_single_event( time() + 300, 'tcfh_lead_retry_sync', array( $row_id ) );
+        }
+        return array( 'row_id' => $row_id, 'synced' => false );
+    }
+
+    $synced = tcfh_lead_airtable_post(
+        $row_id,
+        $airtable_table,
+        $row['payload'],
+        TCFH_LEAD_AIRTABLE_TIMEOUT,
+        1 // attempt number
+    );
+
+    if ( ! $synced && $row_id ) {
+        wp_schedule_single_event( time() + 300, 'tcfh_lead_retry_sync', array( $row_id ) );
+    }
+
+    return array( 'row_id' => $row_id, 'synced' => $synced );
+}
+
+/**
+ * Inserts a row into the leads table. Returns the new ID or 0 on failure.
+ */
+function tcfh_lead_insert_row( array $row ) {
+    global $wpdb;
+    $now = current_time( 'mysql' );
+
+    $payload_json = isset( $row['payload'] ) ? wp_json_encode( $row['payload'] ) : '';
+
+    $ok = $wpdb->insert(
+        tcfh_leads_table(),
+        array(
+            'submitted_at' => $now,
+            'lead_type'    => $row['lead_type'] ?? 'lead',
+            'name'         => $row['name'] ?? '',
+            'phone'        => $row['phone'] ?? '',
+            'email'        => $row['email'] ?? '',
+            'address'      => $row['address'] ?? '',
+            'lead_source'  => $row['lead_source'] ?? '',
+            'payload'      => $payload_json,
+            'sync_status'  => 'pending',
+            'attempts'     => 0,
+        ),
+        array( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d' )
+    );
+
+    return $ok ? (int) $wpdb->insert_id : 0;
+}
+
+/**
+ * Updates an existing row with sync state changes.
+ */
+function tcfh_lead_update_status( $row_id, array $fields ) {
+    if ( ! $row_id ) return false;
+    global $wpdb;
+    return $wpdb->update( tcfh_leads_table(), $fields, array( 'id' => (int) $row_id ) );
+}
+
+/**
+ * Sends an Airtable POST. Updates the DB row with the outcome. Returns bool.
+ */
+function tcfh_lead_airtable_post( $row_id, $airtable_table, array $fields, $timeout, $attempt_number ) {
+    $api_token = defined( 'AIRTABLE_API_TOKEN' ) ? AIRTABLE_API_TOKEN : '';
+    $base_id   = defined( 'AIRTABLE_BASE_ID' )    ? AIRTABLE_BASE_ID   : '';
+
+    if ( ! $api_token || ! $base_id ) {
+        tcfh_lead_update_status( $row_id, array(
+            'sync_status'     => 'failed',
+            'attempts'        => $attempt_number,
+            'last_error'      => 'Airtable config missing',
+            'last_attempt_at' => current_time( 'mysql' ),
+        ) );
+        return false;
+    }
+
+    // Stamp a 'Submitted At' value if not already in the payload, so retried
+    // syncs preserve the original submission time.
+    if ( empty( $fields['Submitted At'] ) ) {
+        $fields['Submitted At'] = current_time( 'c' );
+    }
+
+    $response = wp_remote_post(
+        'https://api.airtable.com/v0/' . $base_id . '/' . rawurlencode( $airtable_table ),
+        array(
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $api_token,
+                'Content-Type'  => 'application/json',
+            ),
+            'body'    => wp_json_encode( array(
+                'records' => array( array( 'fields' => $fields ) ),
+            ) ),
+            'timeout' => (int) $timeout,
+        )
+    );
+
+    if ( is_wp_error( $response ) ) {
+        $err = $response->get_error_message();
+        error_log( '[TCFH Airtable] Transport error (row ' . $row_id . ', attempt ' . $attempt_number . '): ' . $err );
+        tcfh_lead_update_status( $row_id, array(
+            'sync_status'     => 'failed',
+            'attempts'        => $attempt_number,
+            'last_error'      => substr( 'Transport: ' . $err, 0, 1000 ),
+            'last_attempt_at' => current_time( 'mysql' ),
+        ) );
+        return false;
+    }
+
+    $code = wp_remote_retrieve_response_code( $response );
+    $body = wp_remote_retrieve_body( $response );
+
+    if ( $code >= 200 && $code < 300 ) {
+        $decoded = json_decode( $body, true );
+        $rec_id  = '';
+        if ( is_array( $decoded ) && ! empty( $decoded['records'][0]['id'] ) ) {
+            $rec_id = $decoded['records'][0]['id'];
+        }
+        tcfh_lead_update_status( $row_id, array(
+            'sync_status'     => 'success',
+            'attempts'        => $attempt_number,
+            'airtable_id'     => $rec_id,
+            'last_error'      => '',
+            'last_attempt_at' => current_time( 'mysql' ),
+        ) );
+        return true;
+    }
+
+    error_log( '[TCFH Airtable] HTTP ' . $code . ' (row ' . $row_id . ', attempt ' . $attempt_number . '): ' . substr( $body, 0, 600 ) );
+    tcfh_lead_update_status( $row_id, array(
+        'sync_status'     => 'failed',
+        'attempts'        => $attempt_number,
+        'last_error'      => substr( 'HTTP ' . $code . ': ' . $body, 0, 1000 ),
+        'last_attempt_at' => current_time( 'mysql' ),
+    ) );
+    return false;
+}
+
+/**
+ * Sends a notification email for a single submission. Fires before the
+ * Airtable attempt so a broken sync can never suppress the notification.
+ */
+function tcfh_lead_send_email( array $row, $row_id, $sync_status ) {
+    $name        = $row['name'] ?? '';
+    $phone       = $row['phone'] ?? '';
+    $email       = $row['email'] ?? '';
+    $address     = $row['address'] ?? '';
+    $lead_source = $row['lead_source'] ?? '';
+    $lead_type   = $row['lead_type'] ?? 'lead';
+
+    switch ( $lead_type ) {
+        case 'investor':
+            $subject = 'New Investor — ' . ( $name ?: 'no name' );
+            break;
+        case 'lender':
+            $subject = 'New Lender — ' . ( $name ?: 'no name' );
+            break;
+        default:
+            $subject = 'New Lead — ' . ( $address ?: 'no address' );
+    }
+
+    $body_lines = array(
+        'Lead type:     ' . $lead_type,
+        'Name:          ' . $name,
+        'Phone:         ' . $phone,
+    );
+    if ( $email )       $body_lines[] = 'Email:         ' . $email;
+    if ( $address )     $body_lines[] = 'Address:       ' . $address;
+    if ( $lead_source ) $body_lines[] = 'Lead source:   ' . $lead_source;
+    $body_lines[] = 'Submitted:     ' . current_time( 'Y-m-d H:i:s T' );
+    $body_lines[] = 'Local row ID:  ' . ( $row_id ?: '(insert failed)' );
+    $body_lines[] = 'Airtable:      ' . $sync_status;
+
+    if ( ! empty( $row['payload'] ) && is_array( $row['payload'] ) ) {
+        $extras = array();
+        foreach ( $row['payload'] as $k => $v ) {
+            if ( in_array( $k, array( 'Lead Name', 'Name', 'Phone Number', 'Phone', 'Email', 'Address', 'Lead Source' ), true ) ) continue;
+            if ( is_scalar( $v ) && $v !== '' ) $extras[] = $k . ': ' . $v;
+        }
+        if ( $extras ) {
+            $body_lines[] = '';
+            $body_lines[] = 'Additional fields:';
+            $body_lines = array_merge( $body_lines, $extras );
+        }
+    }
+
+    $body_lines[] = '';
+    $body_lines[] = 'View / retry in WP Admin → Leads.';
+
+    $to = apply_filters( 'tcfh_lead_alert_email', TCFH_LEAD_ALERT_EMAIL );
+
+    $sent = wp_mail( $to, $subject, implode( "\n", $body_lines ) );
+    if ( ! $sent ) {
+        error_log( '[TCFH Lead] Notification email failed for row ' . $row_id );
+    }
+}
+
+/**
+ * WP-Cron callback. Retries Airtable sync for a single row.
+ */
+function tcfh_lead_do_retry( $row_id ) {
+    global $wpdb;
+    $row_id = (int) $row_id;
+    if ( ! $row_id ) return;
+
+    $row = $wpdb->get_row( $wpdb->prepare( 'SELECT * FROM ' . tcfh_leads_table() . ' WHERE id = %d', $row_id ), ARRAY_A );
+    if ( ! $row ) return;
+    if ( $row['sync_status'] === 'success' ) return;
+    if ( (int) $row['attempts'] >= TCFH_LEAD_MAX_ATTEMPTS ) return;
+
+    $payload = json_decode( $row['payload'], true );
+    if ( ! is_array( $payload ) ) $payload = array();
+
+    $airtable_table = tcfh_lead_table_for_type( $row['lead_type'] );
+    $attempt_no     = (int) $row['attempts'] + 1;
+
+    $ok = tcfh_lead_airtable_post( $row_id, $airtable_table, $payload, TCFH_LEAD_RETRY_TIMEOUT, $attempt_no );
+
+    if ( $ok ) return;
+
+    // Schedule next retry with backoff: 15m, 30m, 60m for attempts 3, 4, 5.
+    $next_delays = array( 900, 1800, 3600 );
+    if ( $attempt_no < TCFH_LEAD_MAX_ATTEMPTS ) {
+        $idx   = min( $attempt_no - 1, count( $next_delays ) - 1 );
+        $delay = $next_delays[ $idx ];
+        wp_schedule_single_event( time() + $delay, 'tcfh_lead_retry_sync', array( $row_id ) );
+    } else {
+        // Final failure — alert.
+        $subject = '[ACTION NEEDED] Lead sync to Airtable exhausted retries — row ' . $row_id;
+        $body    = "A lead submission could not be synced to Airtable after " . TCFH_LEAD_MAX_ATTEMPTS . " attempts.\n\n"
+                 . "Row ID: {$row_id}\n"
+                 . "Name:   {$row['name']}\n"
+                 . "Phone:  {$row['phone']}\n"
+                 . "Email:  {$row['email']}\n"
+                 . "Addr:   {$row['address']}\n"
+                 . "Source: {$row['lead_source']}\n"
+                 . "Last error: {$row['last_error']}\n\n"
+                 . "Open WP Admin → Leads and click 'Retry Sync' once the underlying issue is resolved.";
+        wp_mail( apply_filters( 'tcfh_lead_alert_email', TCFH_LEAD_ALERT_EMAIL ), $subject, $body );
+    }
+}
+add_action( 'tcfh_lead_retry_sync', 'tcfh_lead_do_retry', 10, 1 );
+
+/**
+ * Map a stored lead_type to the Airtable table name.
+ */
+function tcfh_lead_table_for_type( $lead_type ) {
+    switch ( $lead_type ) {
+        case 'investor': return 'Investors';
+        case 'lender':   return 'Lenders';
+        default:         return 'CRM';
+    }
+}
+
+/* ── Weekly summary ───────────────────────────────────────────────────── */
+
+function tcfh_weekly_summary_send() {
+    global $wpdb;
+    $table = tcfh_leads_table();
+    $since = gmdate( 'Y-m-d H:i:s', time() - WEEK_IN_SECONDS );
+
+    $total   = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$table} WHERE submitted_at >= %s", $since ) );
+    $success = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$table} WHERE submitted_at >= %s AND sync_status = 'success'", $since ) );
+    $failed  = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$table} WHERE submitted_at >= %s AND sync_status = 'failed'", $since ) );
+    $pending = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$table} WHERE submitted_at >= %s AND sync_status = 'pending'", $since ) );
+
+    $subject = 'Weekly lead summary — ' . $total . ' leads, ' . $failed . ' failed';
+    $body    = "Lead activity for the past 7 days:\n\n"
+             . "Total received:     {$total}\n"
+             . "Synced to Airtable: {$success}\n"
+             . "Failed (need attn): {$failed}\n"
+             . "Still pending:      {$pending}\n\n";
+
+    if ( $failed > 0 ) {
+        $rows = $wpdb->get_results( $wpdb->prepare(
+            "SELECT id, submitted_at, name, address, last_error FROM {$table}
+              WHERE submitted_at >= %s AND sync_status = 'failed'
+              ORDER BY submitted_at DESC LIMIT 25",
+            $since
+        ), ARRAY_A );
+        $body .= "Failed submissions:\n";
+        foreach ( $rows as $r ) {
+            $body .= "  #{$r['id']}  {$r['submitted_at']}  {$r['name']}  {$r['address']}\n"
+                  .  "         {$r['last_error']}\n";
+        }
+        $body .= "\nReview at WP Admin → Leads.\n";
+    }
+
+    wp_mail( apply_filters( 'tcfh_lead_alert_email', TCFH_LEAD_ALERT_EMAIL ), $subject, $body );
+}
+add_action( 'tcfh_weekly_summary', 'tcfh_weekly_summary_send' );
+
+/* ── Daily failure-threshold alert ─────────────────────────────────────── */
+
+function tcfh_daily_failure_check_run() {
+    global $wpdb;
+    $table = tcfh_leads_table();
+    $since = gmdate( 'Y-m-d H:i:s', time() - DAY_IN_SECONDS );
+
+    $failed = (int) $wpdb->get_var( $wpdb->prepare(
+        "SELECT COUNT(*) FROM {$table}
+          WHERE submitted_at >= %s
+            AND sync_status = 'failed'
+            AND attempts >= %d",
+        $since,
+        TCFH_LEAD_MAX_ATTEMPTS
+    ) );
+
+    if ( $failed < TCFH_LEAD_FAILURE_THRESHOLD ) {
+        return;
+    }
+
+    // Throttle: at most one alert per 12 hours so a sustained outage doesn't
+    // hammer the inbox.
+    $last = (int) get_option( 'tcfh_last_failure_alert', 0 );
+    if ( $last && time() - $last < 12 * HOUR_IN_SECONDS ) {
+        return;
+    }
+    update_option( 'tcfh_last_failure_alert', time(), false );
+
+    $subject = '[ALERT] ' . $failed . ' Airtable sync failures in the last 24h';
+    $body    = "{$failed} lead(s) have failed to sync to Airtable in the past 24 hours "
+             . "(after exhausting all " . TCFH_LEAD_MAX_ATTEMPTS . " retry attempts).\n\n"
+             . "Review and retry from WP Admin → Leads.\n";
+
+    wp_mail( apply_filters( 'tcfh_lead_alert_email', TCFH_LEAD_ALERT_EMAIL ), $subject, $body );
+}
+add_action( 'tcfh_daily_failure_check', 'tcfh_daily_failure_check_run' );
+
+/* ── Admin: WP Admin → Leads ──────────────────────────────────────────── */
+
+function tcfh_leads_admin_menu() {
+    add_menu_page(
+        'Leads',
+        'Leads',
+        'manage_options',
+        'tcfh-leads',
+        'tcfh_leads_admin_page',
+        'dashicons-list-view',
+        26
+    );
+}
+add_action( 'admin_menu', 'tcfh_leads_admin_menu' );
+
+/**
+ * Handles "Retry Sync" button submissions before page render.
+ */
+function tcfh_leads_admin_handle_actions() {
+    if ( ! isset( $_GET['page'] ) || $_GET['page'] !== 'tcfh-leads' ) return;
+    if ( ! current_user_can( 'manage_options' ) ) return;
+
+    if ( isset( $_POST['tcfh_action'] ) && $_POST['tcfh_action'] === 'retry' ) {
+        check_admin_referer( 'tcfh_leads_retry' );
+        $row_id = isset( $_POST['row_id'] ) ? (int) $_POST['row_id'] : 0;
+        if ( $row_id ) {
+            global $wpdb;
+            // Reset attempts counter and status so the cron handler will run
+            // a fresh round.
+            $wpdb->update(
+                tcfh_leads_table(),
+                array( 'sync_status' => 'pending', 'attempts' => 0, 'last_error' => '' ),
+                array( 'id' => $row_id )
+            );
+            // Kick off an immediate retry.
+            wp_schedule_single_event( time() + 5, 'tcfh_lead_retry_sync', array( $row_id ) );
+            // Also try once synchronously for instant feedback.
+            $row = $wpdb->get_row( $wpdb->prepare( 'SELECT * FROM ' . tcfh_leads_table() . ' WHERE id = %d', $row_id ), ARRAY_A );
+            if ( $row ) {
+                $payload = json_decode( $row['payload'], true );
+                if ( ! is_array( $payload ) ) $payload = array();
+                tcfh_lead_airtable_post( $row_id, tcfh_lead_table_for_type( $row['lead_type'] ), $payload, TCFH_LEAD_RETRY_TIMEOUT, 1 );
+            }
+            wp_safe_redirect( add_query_arg( array( 'page' => 'tcfh-leads', 'tcfh_msg' => 'retried' ), admin_url( 'admin.php' ) ) );
+            exit;
+        }
+    }
+
+    if ( isset( $_POST['tcfh_action'] ) && $_POST['tcfh_action'] === 'export' ) {
+        check_admin_referer( 'tcfh_leads_export' );
+        tcfh_leads_admin_export_csv();
+        exit;
+    }
+}
+add_action( 'admin_init', 'tcfh_leads_admin_handle_actions' );
+
+function tcfh_leads_admin_export_csv() {
+    global $wpdb;
+    $rows = $wpdb->get_results( 'SELECT * FROM ' . tcfh_leads_table() . ' ORDER BY submitted_at DESC', ARRAY_A );
+
+    nocache_headers();
+    header( 'Content-Type: text/csv; charset=utf-8' );
+    header( 'Content-Disposition: attachment; filename=tcfh-leads-' . gmdate( 'Y-m-d' ) . '.csv' );
+
+    $out = fopen( 'php://output', 'w' );
+    fputcsv( $out, array( 'id', 'submitted_at', 'lead_type', 'name', 'phone', 'email', 'address', 'lead_source', 'airtable_id', 'sync_status', 'attempts', 'last_error', 'last_attempt_at' ) );
+    foreach ( $rows as $r ) {
+        fputcsv( $out, array(
+            $r['id'], $r['submitted_at'], $r['lead_type'], $r['name'], $r['phone'], $r['email'],
+            $r['address'], $r['lead_source'], $r['airtable_id'], $r['sync_status'], $r['attempts'],
+            $r['last_error'], $r['last_attempt_at'],
+        ) );
+    }
+    fclose( $out );
+}
+
+function tcfh_leads_admin_page() {
+    if ( ! current_user_can( 'manage_options' ) ) return;
+    global $wpdb;
+    $table = tcfh_leads_table();
+
+    $filter = isset( $_GET['status'] ) ? sanitize_key( $_GET['status'] ) : '';
+    $where  = '';
+    if ( in_array( $filter, array( 'pending', 'success', 'failed' ), true ) ) {
+        $where = $wpdb->prepare( 'WHERE sync_status = %s', $filter );
+    }
+
+    $total    = (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$table}" );
+    $n_succ   = (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$table} WHERE sync_status='success'" );
+    $n_fail   = (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$table} WHERE sync_status='failed'" );
+    $n_pend   = (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$table} WHERE sync_status='pending'" );
+
+    $rows = $wpdb->get_results( "SELECT * FROM {$table} {$where} ORDER BY submitted_at DESC LIMIT 200", ARRAY_A );
+    $msg  = isset( $_GET['tcfh_msg'] ) ? sanitize_key( $_GET['tcfh_msg'] ) : '';
+
+    ?>
+    <div class="wrap">
+      <h1>Leads</h1>
+      <?php if ( $msg === 'retried' ): ?>
+        <div class="notice notice-success is-dismissible"><p>Retry queued. Refresh in a few seconds to see the updated status.</p></div>
+      <?php endif; ?>
+
+      <p>
+        <strong>Total:</strong> <?php echo $total; ?> &nbsp;|&nbsp;
+        <strong>Synced:</strong> <?php echo $n_succ; ?> &nbsp;|&nbsp;
+        <strong>Pending:</strong> <?php echo $n_pend; ?> &nbsp;|&nbsp;
+        <strong style="color:#b32d2e;">Failed:</strong> <?php echo $n_fail; ?>
+      </p>
+
+      <p>
+        Filter:
+        <a href="<?php echo esc_url( admin_url( 'admin.php?page=tcfh-leads' ) ); ?>">All</a> |
+        <a href="<?php echo esc_url( admin_url( 'admin.php?page=tcfh-leads&status=pending' ) ); ?>">Pending</a> |
+        <a href="<?php echo esc_url( admin_url( 'admin.php?page=tcfh-leads&status=success' ) ); ?>">Synced</a> |
+        <a href="<?php echo esc_url( admin_url( 'admin.php?page=tcfh-leads&status=failed' ) ); ?>">Failed</a>
+
+        &nbsp;&nbsp;
+        <form method="post" style="display:inline;">
+          <?php wp_nonce_field( 'tcfh_leads_export' ); ?>
+          <input type="hidden" name="tcfh_action" value="export" />
+          <button class="button">Export CSV</button>
+        </form>
+      </p>
+
+      <table class="widefat striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Submitted</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Source</th>
+            <th>Status</th>
+            <th>Attempts</th>
+            <th>Last error</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        <?php if ( ! $rows ): ?>
+          <tr><td colspan="12">No submissions yet.</td></tr>
+        <?php else: foreach ( $rows as $r ):
+          $status_color = $r['sync_status'] === 'success' ? '#1a7e2a' : ( $r['sync_status'] === 'failed' ? '#b32d2e' : '#8a6d00' );
+        ?>
+          <tr>
+            <td><?php echo (int) $r['id']; ?></td>
+            <td><?php echo esc_html( $r['submitted_at'] ); ?></td>
+            <td><?php echo esc_html( $r['lead_type'] ); ?></td>
+            <td><?php echo esc_html( $r['name'] ); ?></td>
+            <td><?php echo esc_html( $r['phone'] ); ?></td>
+            <td><?php echo esc_html( $r['email'] ); ?></td>
+            <td><?php echo esc_html( $r['address'] ); ?></td>
+            <td><?php echo esc_html( $r['lead_source'] ); ?></td>
+            <td><span style="color:<?php echo $status_color; ?>;font-weight:600;"><?php echo esc_html( $r['sync_status'] ); ?></span></td>
+            <td><?php echo (int) $r['attempts']; ?></td>
+            <td style="max-width:280px;font-size:11px;color:#666;"><?php echo esc_html( $r['last_error'] ); ?></td>
+            <td>
+              <?php if ( $r['sync_status'] !== 'success' ): ?>
+                <form method="post" style="margin:0;">
+                  <?php wp_nonce_field( 'tcfh_leads_retry' ); ?>
+                  <input type="hidden" name="tcfh_action" value="retry" />
+                  <input type="hidden" name="row_id" value="<?php echo (int) $r['id']; ?>" />
+                  <button class="button button-small">Retry Sync</button>
+                </form>
+              <?php else: ?>
+                <span style="color:#888;">—</span>
+              <?php endif; ?>
+            </td>
+          </tr>
+        <?php endforeach; endif; ?>
+        </tbody>
+      </table>
+      <p style="color:#666;font-size:12px;">Showing the most recent 200 rows. Use Export CSV for the full history.</p>
+    </div>
+    <?php
+}
