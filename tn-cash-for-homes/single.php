@@ -21,6 +21,11 @@
       <a href="<?php echo esc_url( home_url( '/blog-home/' ) ); ?>" class="single-post__back">&larr; Back to Blog</a>
       <span class="single-post__cat"><?php echo esc_html( strtoupper( $cat_name ) ); ?></span>
       <h1 class="single-post__title"><?php the_title(); ?></h1>
+      <?php if ( get_the_modified_time('U') > get_the_time('U') + 86400 ) : ?>
+        <p class="last-updated">Last updated: <?php echo esc_html( get_the_modified_date('F j, Y') ); ?></p>
+      <?php else : ?>
+        <p class="last-updated">Published: <?php echo esc_html( get_the_date('F j, Y') ); ?></p>
+      <?php endif; ?>
       <?php if ( has_excerpt() ) : ?>
         <p class="single-post__excerpt"><?php echo esc_html( get_the_excerpt() ); ?></p>
       <?php endif; ?>
@@ -300,6 +305,22 @@
                 </div>
               </li>
             </ol>
+          </div>
+
+          <!-- ── AUTHOR BIO ── -->
+          <div class="author-bio">
+            <a href="<?php echo esc_url( home_url('/about/') ); ?>" class="author-bio__photo-link">
+              <img class="author-bio__photo"
+                   src="<?php echo esc_url( get_template_directory_uri() . '/brand_assets/Karson%20Tennessee%20Cash%20For%20Homes.webp' ); ?>"
+                   alt="Karson Carmichael, Founder of Tennessee Cash For Homes"
+                   width="120" height="120" loading="lazy" decoding="async" />
+            </a>
+            <div class="author-bio__body">
+              <p class="author-bio__name"><a href="<?php echo esc_url( home_url('/about/') ); ?>">Karson Carmichael</a></p>
+              <p class="author-bio__title">Founder, Tennessee Cash For Homes</p>
+              <p class="author-bio__text">Karson Carmichael is the founder of Tennessee Cash For Homes. Since 2017 he has helped 1,200+ Middle Tennessee homeowners sell their houses for cash with no repairs, no fees, and no hassle.</p>
+              <p class="author-bio__link"><a href="<?php echo esc_url( home_url('/about/') ); ?>">More about Karson &rarr;</a></p>
+            </div>
           </div>
 
           <!-- Related Posts with Thumbnails -->

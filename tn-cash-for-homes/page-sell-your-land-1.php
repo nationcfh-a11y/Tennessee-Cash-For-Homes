@@ -373,7 +373,7 @@ echo wp_json_encode( array(
     'name'        => 'Tennessee Cash For Homes',
     'description' => $meta_description,
     'url'         => home_url( '/sell-your-land-1' ),
-    'telephone'   => '+16158018126',
+    'telephone'   => '+1-615-801-8126',
     'email'       => 'info@tncashforhomes.com',
     'address'     => array(
         '@type'           => 'PostalAddress',
@@ -408,7 +408,7 @@ echo wp_json_encode( array(
     'provider'    => array(
         '@type'     => 'RealEstateAgent',
         'name'      => 'Tennessee Cash For Homes',
-        'telephone' => '+16158018126',
+        'telephone' => '+1-615-801-8126',
         'url'       => home_url( '/' ),
         'areaServed'=> 'Tennessee',
     ),

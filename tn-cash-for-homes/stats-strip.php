@@ -10,7 +10,7 @@
   <div class="container">
     <div class="proof-bar__inner">
       <div class="proof-stat">
-        <div class="proof-stat__num"><span class="count-up" data-target="1200">0</span></div>
+        <div class="proof-stat__num"><span class="count-up" data-target="1200">1,200+</span></div>
         <div class="proof-stat__label">Homes Purchased</div>
       </div>
       <div class="proof-divider"></div>
@@ -28,6 +28,9 @@
         <div class="proof-stat__num">5.0 &#9733;</div>
         <div class="proof-stat__label">Google Rating</div>
       </div>
+    </div>
+    <div class="credential-line">
+      Founded 2017 &middot; 1,200+ Homes Purchased &middot; 5.0 Google Rating &middot; A+ BBB Accredited
     </div>
   </div>
 </div>

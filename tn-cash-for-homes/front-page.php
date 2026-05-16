@@ -79,6 +79,16 @@
   </div>
 </section>
 
+<!-- ── QUICK ANSWER (GEO) ── -->
+<div class="quick-answer__band">
+  <div class="container">
+    <div class="quick-answer" itemprop="description">
+      <div class="quick-answer__label">Quick Answer</div>
+      Tennessee Cash For Homes is a Middle Tennessee cash home buyer that has purchased 1,200+ homes since 2017. We provide fair cash offers within 24 hours and close in as little as 7 days with no agent fees, no repairs required, and no commissions.
+    </div>
+  </div>
+</div>
+
 <?php get_template_part('stats-strip'); ?>
 
 <!-- ── HOW IT WORKS ── -->
@@ -287,6 +297,53 @@
         <a href='https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick' target='_blank' rel='nofollow noopener noreferrer' class='bbb-seal'><img src='https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png' style='border: 0;' alt='Tennessee Cash For Homes BBB Business Review' width='200' height='42' loading='lazy' decoding='async' /></a>
       </div>
     </div>
+  </div>
+</section>
+
+<?php get_template_part('comparison-table'); ?>
+
+<!-- ── WHERE WE BUY (cities grid) ── -->
+<section class="cities-grid-section">
+  <div class="container">
+    <div class="section__header section__header--center">
+      <p class="section__eyebrow">Local Coverage</p>
+      <h2 class="section__title">Where We Buy Houses in Middle Tennessee</h2>
+      <p class="section__subtitle">Tennessee Cash For Homes buys houses across Middle Tennessee. Click your city to get a local cash offer.</p>
+    </div>
+    <ul class="cities-grid">
+      <?php
+      $cities = array(
+        'nashville'      => 'Nashville',
+        'murfreesboro'   => 'Murfreesboro',
+        'franklin'       => 'Franklin',
+        'clarksville'    => 'Clarksville',
+        'spring-hill'    => 'Spring Hill',
+        'columbia'       => 'Columbia',
+        'lebanon'        => 'Lebanon',
+        'smyrna'         => 'Smyrna',
+        'la-vergne'      => 'La Vergne',
+        'hendersonville' => 'Hendersonville',
+        'gallatin'       => 'Gallatin',
+        'shelbyville'    => 'Shelbyville',
+        'brentwood'      => 'Brentwood',
+        'mt-juliet'      => 'Mount Juliet',
+        'dickson'        => 'Dickson',
+        'tullahoma'      => 'Tullahoma',
+        'cookeville'     => 'Cookeville',
+        'springfield'    => 'Springfield',
+      );
+      foreach ( $cities as $slug => $name ) :
+      ?>
+        <li class="cities-grid__item">
+          <a href="<?php echo esc_url( home_url( '/where-we-buy/' . $slug . '/' ) ); ?>" class="cities-grid__link">
+            <?php echo esc_html( $name ); ?> <span class="cities-grid__state">TN</span>
+          </a>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+    <p class="cities-grid__all">
+      <a href="<?php echo esc_url( home_url( '/where-we-buy/' ) ); ?>">View all locations &rarr;</a>
+    </p>
   </div>
 </section>
 
@@ -887,5 +944,42 @@
   });
 })();
 </script>
+
+<!-- ── LATEST FROM BLOG ── -->
+<section class="latest-blog-strip">
+  <div class="container">
+    <div class="section__header section__header--center">
+      <p class="section__eyebrow">Knowledge Center</p>
+      <h2 class="section__title">Latest From Our Blog</h2>
+    </div>
+    <div class="latest-blog__grid">
+      <?php
+      $latest = new WP_Query( array(
+        'posts_per_page' => 6,
+        'post_status'    => 'publish',
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+      ) );
+      if ( $latest->have_posts() ) :
+        while ( $latest->have_posts() ) : $latest->the_post();
+      ?>
+        <a href="<?php the_permalink(); ?>" class="latest-blog__card">
+          <?php if ( has_post_thumbnail() ) : ?>
+            <div class="latest-blog__thumb"><?php the_post_thumbnail( 'medium', array( 'class' => 'latest-blog__img', 'loading' => 'lazy' ) ); ?></div>
+          <?php endif; ?>
+          <h3 class="latest-blog__title"><?php the_title(); ?></h3>
+          <p class="latest-blog__date"><?php echo esc_html( get_the_date( 'F j, Y' ) ); ?></p>
+        </a>
+      <?php
+        endwhile;
+        wp_reset_postdata();
+      endif;
+      ?>
+    </div>
+    <p class="latest-blog__all">
+      <a href="<?php echo esc_url( home_url( '/blog-home/' ) ); ?>">See all blog posts &rarr;</a>
+    </p>
+  </div>
+</section>
 
 <?php get_footer(); ?>

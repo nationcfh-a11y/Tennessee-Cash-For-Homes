@@ -618,6 +618,7 @@ function tcfh_build_localbusiness_schema( $args = array() ) {
         'url'         => $a['url'],
         'telephone'   => '+1-615-801-8126',
         'email'       => 'info@tncashforhomes.com',
+        'foundingDate'=> '2017',
         'image'       => get_template_directory_uri() . '/brand_assets/Company%20Photo.webp',
         'logo'        => get_template_directory_uri() . '/brand_assets/Tennessee%20Cash%20For%20Homes%20Logo.png',
         'address'     => array(

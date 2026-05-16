@@ -180,6 +180,8 @@ get_header(); ?>
   </div>
 </section>
 
+<?php get_template_part('comparison-table'); ?>
+
 <!-- ── WHAT TO EXPECT AT CLOSING ── -->
 <section class="section section--alt">
   <div class="container">
@@ -791,6 +793,49 @@ get_header(); ?>
 
   countEls.forEach(function (el) { countObserver.observe(el); });
 })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Sell Your House Fast for Cash in Tennessee",
+  "description": "A simple 4-step process to sell your Tennessee home for cash with no repairs, no commissions, and no fees.",
+  "totalTime": "P7D",
+  "estimatedCost": { "@type": "MonetaryAmount", "currency": "USD", "value": "0" },
+  "supply": [],
+  "tool": [],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Contact Us",
+      "text": "Call us at (615) 801-8126 or fill out our online form with your property address. We will respond within 24 hours.",
+      "url": "https://tennesseecashforhomes.com/how-it-works/#step-1"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Get Your Cash Offer",
+      "text": "We will review your property and present you with a fair no-obligation cash offer within 24 hours. No repairs or cleaning required.",
+      "url": "https://tennesseecashforhomes.com/how-it-works/#step-2"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Choose Your Closing Date",
+      "text": "Accept the offer and pick a closing date that works for you. We can close in as little as 7 days or on your timeline.",
+      "url": "https://tennesseecashforhomes.com/how-it-works/#step-3"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Get Paid",
+      "text": "We handle all the paperwork and cover the closing costs. You walk away with cash in hand on your chosen closing date.",
+      "url": "https://tennesseecashforhomes.com/how-it-works/#step-4"
+    }
+  ]
+}
 </script>
 
 <?php get_footer(); ?>
