@@ -71,7 +71,6 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
         </nav>
         <div class="hero__badge county-hero__badge"><?php echo esc_html( $name ); ?> Cash Home Buyers</div>
         <h1 class="county-hero__title"><?php echo esc_html( $h1 ); ?></h1>
-        <p class="last-updated last-updated--hero">Last updated: <?php echo esc_html( get_the_modified_date('F j, Y') ); ?></p>
         <p class="county-hero__subtitle">No repairs. No commissions. No fees. Get a fair cash offer for your <?php echo esc_html( $name ); ?> home in as little as 24 hours. We close on your timeline.</p>
         <div class="hero__trust county-hero__trust">
           <div class="hero__trust-item">
@@ -129,24 +128,6 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
     </div><!-- /.county-hero__inner -->
   </div>
 </section>
-
-<!-- ── QUICK ANSWER (GEO) ── -->
-<?php
-$qa_is_state = ( $name === 'Tennessee' );
-$qa_county   = ! empty( $city['county'] ) ? $city['county'] : '';
-?>
-<div class="quick-answer__band">
-  <div class="container">
-    <div class="quick-answer" itemprop="description">
-      <div class="quick-answer__label">Quick Answer</div>
-      <?php if ( $qa_is_state ) : ?>
-        Tennessee Cash For Homes buys houses for cash across all 95 Tennessee counties. We are a local Middle Tennessee company with 1,200+ homes purchased since 2017, a 5.0 Google rating, and an A+ BBB accreditation. We provide cash offers within 24 hours and close in as little as 7 days with no repairs, no agent fees, and no commissions.
-      <?php else : ?>
-        Tennessee Cash For Homes buys houses for cash in <?php echo esc_html( $name ); ?> TN<?php if ( $qa_county ) : ?> (<?php echo esc_html( $qa_county ); ?> County)<?php endif; ?>. We are a local Middle Tennessee company with 1,200+ homes purchased since 2017, a 5.0 Google rating, and an A+ BBB accreditation. We provide cash offers within 24 hours and close in as little as 7 days with no repairs, no agent fees, and no commissions.
-      <?php endif; ?>
-    </div>
-  </div>
-</div>
 
 <?php get_template_part('stats-strip'); ?>
 

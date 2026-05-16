@@ -40,7 +40,6 @@ get_header();
       <div class="sit-hero__content">
         <span class="sit-hero__badge">Tennessee Cash For Homes</span>
         <h1 class="sit-hero__h1"><?php echo esc_html( $situation_h1 ); ?></h1>
-        <p class="last-updated last-updated--hero">Last updated: <?php echo esc_html( get_the_modified_date('F j, Y') ); ?></p>
         <p class="sit-hero__sub"><?php echo esc_html( $situation_subheadline ); ?></p>
         <ul class="sit-hero__checks">
           <?php foreach ( array_slice( $situation_bullets, 0, 3 ) as $b ): ?>

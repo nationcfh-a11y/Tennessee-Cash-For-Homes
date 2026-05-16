@@ -29,8 +29,5 @@
         <div class="proof-stat__label">Google Rating</div>
       </div>
     </div>
-    <div class="credential-line">
-      Founded 2017 &middot; 1,200+ Homes Purchased &middot; 5.0 Google Rating &middot; A+ BBB Accredited
-    </div>
   </div>
 </div>

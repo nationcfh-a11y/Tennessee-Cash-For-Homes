@@ -180,8 +180,6 @@ get_header(); ?>
   </div>
 </section>
 
-<?php get_template_part('comparison-table'); ?>
-
 <!-- ── WHAT TO EXPECT AT CLOSING ── -->
 <section class="section section--alt">
   <div class="container">
