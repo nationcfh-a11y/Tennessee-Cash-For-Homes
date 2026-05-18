@@ -213,14 +213,65 @@ add_action( 'after_switch_theme', 'tcfh_flush_rewrites' );
 
 /**
  * Output AJAX config inline (no jQuery dependency).
+ *
+ * The nonce baked into HTML can go stale two ways: (1) full-page caches
+ * (Cloudflare APO / WP Rocket / host page cache) serve the same nonce to
+ * every visitor, which fails for guests; (2) mobile tabs left open for >24h
+ * outlive the nonce TTL. The JS layer therefore refreshes the nonce via
+ * `nonce_url` immediately before each submit instead of trusting the cached
+ * value. This `nonce` field stays as a best-effort warm value for the first
+ * submit on an uncached request.
  */
 add_action( 'wp_head', function() {
     echo '<script>var tcfh_ajax = ' . wp_json_encode( array(
         'ajax_url'      => admin_url( 'admin-ajax.php' ),
         'nonce'         => wp_create_nonce( 'tcfh_submit_lead' ),
+        'nonce_url'     => home_url( '/?tcfh_nonce=1' ),
+        'beacon_url'    => home_url( '/?tcfh_beacon=1' ),
         'thank_you_url' => home_url( '/thank-you/' ),
     ) ) . ';</script>' . "\n";
 } );
+
+/**
+ * Fresh-nonce endpoint. Sends a no-store nonce response that bypasses any
+ * page cache (the only cacheable bits live behind admin-ajax.php / wp_head,
+ * neither of which honor query-string variants reliably). Called by the JS
+ * submit pipeline right before each POST so the nonce check can't be defeated
+ * by a stale cached nonce.
+ */
+add_action( 'init', function() {
+    if ( ! isset( $_GET['tcfh_nonce'] ) ) return;
+    nocache_headers();
+    header( 'Content-Type: application/json; charset=utf-8' );
+    header( 'X-Robots-Tag: noindex' );
+    echo wp_json_encode( array(
+        'nonce' => wp_create_nonce( 'tcfh_submit_lead' ),
+        'ts'    => time(),
+    ) );
+    exit;
+}, 1 );
+
+/**
+ * Beacon endpoint — last-resort capture for submissions that fail every
+ * other path. The JS layer fires `navigator.sendBeacon()` with the raw form
+ * payload right before redirecting; if PHP receives a beacon but no matching
+ * row exists in wp_tcfh_leads, that's a dropped submission we can rescue by
+ * hand. We intentionally do NOT check_ajax_referer here — the whole point of
+ * the beacon is to catch nonce failures.
+ */
+add_action( 'init', function() {
+    if ( ! isset( $_GET['tcfh_beacon'] ) ) return;
+    if ( $_SERVER['REQUEST_METHOD'] !== 'POST' ) {
+        status_header( 405 );
+        exit;
+    }
+    if ( function_exists( 'tcfh_dropped_log_record' ) ) {
+        tcfh_dropped_log_record( 'beacon', $_POST );
+    }
+    nocache_headers();
+    status_header( 204 );
+    exit;
+}, 1 );
 
 /**
  * Google Analytics 4 (GA4) tracking — fires on every page site-wide via wp_head.
@@ -410,7 +461,14 @@ if ( ! defined( 'AIRTABLE_BASE_ID' ) ) {
  * at the bottom of this file for the full helper stack.
  */
 function tcfh_handle_submit_lead() {
-    check_ajax_referer( 'tcfh_submit_lead', 'nonce' );
+    // Soft nonce check: on failure, log the attempt and return a JSON error
+    // with a recoverable code so the client can fetch a fresh nonce and retry.
+    // The default check_ajax_referer() wp_die('-1') response would otherwise
+    // crash the JSON parse on the client and look identical to a network drop.
+    if ( ! check_ajax_referer( 'tcfh_submit_lead', 'nonce', false ) ) {
+        tcfh_dropped_log_record( 'nonce_fail', $_POST );
+        wp_send_json_error( array( 'error' => 'Session expired. Please try again.', 'code' => 'nonce_expired' ), 403 );
+    }
 
     $name        = sanitize_text_field( $_POST['name'] ?? '' );
     $phone       = sanitize_text_field( $_POST['phone'] ?? '' );
@@ -418,7 +476,8 @@ function tcfh_handle_submit_lead() {
     $lead_source = sanitize_text_field( $_POST['lead_source'] ?? '' );
 
     if ( ! $name || ! $phone || ! $address ) {
-        wp_send_json_error( array( 'error' => 'Please fill in all required fields.' ), 422 );
+        tcfh_dropped_log_record( 'validation_fail', $_POST );
+        wp_send_json_error( array( 'error' => 'Please fill in all required fields.', 'code' => 'validation' ), 422 );
     }
 
     $row = array(
@@ -451,7 +510,10 @@ add_action( 'wp_ajax_nopriv_tcfh_submit_lead', 'tcfh_handle_submit_lead' );
  * AJAX handler for investor (buyers list) form submission.
  */
 function tcfh_handle_submit_investor() {
-    check_ajax_referer( 'tcfh_submit_lead', 'nonce' );
+    if ( ! check_ajax_referer( 'tcfh_submit_lead', 'nonce', false ) ) {
+        tcfh_dropped_log_record( 'nonce_fail', $_POST );
+        wp_send_json_error( array( 'error' => 'Session expired. Please try again.', 'code' => 'nonce_expired' ), 403 );
+    }
 
     $name     = sanitize_text_field( $_POST['name'] ?? '' );
     $email    = sanitize_email( $_POST['email'] ?? '' );
@@ -461,7 +523,8 @@ function tcfh_handle_submit_investor() {
     $notes    = sanitize_textarea_field( $_POST['notes'] ?? '' );
 
     if ( ! $name || ! $email || ! $phone || ! $market || ! $strategy ) {
-        wp_send_json_error( array( 'error' => 'Please fill in all required fields.' ), 422 );
+        tcfh_dropped_log_record( 'validation_fail', $_POST );
+        wp_send_json_error( array( 'error' => 'Please fill in all required fields.', 'code' => 'validation' ), 422 );
     }
 
     $row = array(
@@ -497,7 +560,10 @@ add_action( 'wp_ajax_nopriv_tcfh_submit_investor', 'tcfh_handle_submit_investor'
  * AJAX handler for lender (private money) form submission.
  */
 function tcfh_handle_submit_lender() {
-    check_ajax_referer( 'tcfh_submit_lead', 'nonce' );
+    if ( ! check_ajax_referer( 'tcfh_submit_lead', 'nonce', false ) ) {
+        tcfh_dropped_log_record( 'nonce_fail', $_POST );
+        wp_send_json_error( array( 'error' => 'Session expired. Please try again.', 'code' => 'nonce_expired' ), 403 );
+    }
 
     $name   = sanitize_text_field( $_POST['name'] ?? '' );
     $email  = sanitize_email( $_POST['email'] ?? '' );
@@ -506,7 +572,8 @@ function tcfh_handle_submit_lender() {
     $notes  = sanitize_textarea_field( $_POST['notes'] ?? '' );
 
     if ( ! $name || ! $email || ! $phone || ! $budget ) {
-        wp_send_json_error( array( 'error' => 'Please fill in all required fields.' ), 422 );
+        tcfh_dropped_log_record( 'validation_fail', $_POST );
+        wp_send_json_error( array( 'error' => 'Please fill in all required fields.', 'code' => 'validation' ), 422 );
     }
 
     $row = array(
@@ -1348,6 +1415,11 @@ function tcfh_lead_save_and_sync( array $row, $airtable_table ) {
         // DB insert failed — extremely rare, but still alert because the lead
         // is at risk of being lost. The email below is our fallback.
         error_log( '[TCFH Lead] Local DB insert failed: ' . print_r( $row, true ) );
+    } else {
+        // Secondary "paper trail" email — fires only on confirmed DB success,
+        // independent of Airtable and clearly tagged so it can be filtered
+        // separately from the primary lead alert below.
+        tcfh_lead_send_db_confirm_email( $row, $row_id );
     }
 
     // Always email before touching Airtable so a slow/broken Airtable can never
@@ -1500,6 +1572,50 @@ function tcfh_lead_airtable_post( $row_id, $airtable_table, array $fields, $time
         'last_attempt_at' => current_time( 'mysql' ),
     ) );
     return false;
+}
+
+/**
+ * Secondary "paper trail" email — fires the instant a row lands in the local
+ * DB, before any Airtable work. Independent of Airtable by construction, and
+ * tagged "[DB-CONFIRM #N]" in the subject so it's trivially filterable in the
+ * inbox vs. the primary lead alert that follows. The goal is real-time proof
+ * that the lead exists in our database, no matter what happens downstream.
+ */
+function tcfh_lead_send_db_confirm_email( array $row, $row_id ) {
+    $name        = $row['name'] ?? '';
+    $phone       = $row['phone'] ?? '';
+    $email       = $row['email'] ?? '';
+    $address     = $row['address'] ?? '';
+    $lead_source = $row['lead_source'] ?? '';
+    $lead_type   = $row['lead_type'] ?? 'lead';
+
+    $label = ( $address ?: $name ?: 'lead' );
+    $subject = sprintf( '[DB-CONFIRM #%d] %s — %s', (int) $row_id, ucfirst( $lead_type ), $label );
+
+    $body_lines = array(
+        'A lead has been written to the local database. This email is your',
+        'independent paper trail — sent the moment the row hits wp_tcfh_leads,',
+        'before any Airtable sync is attempted.',
+        '',
+        'Row ID:        ' . (int) $row_id,
+        'Lead type:     ' . $lead_type,
+        'Name:          ' . $name,
+        'Phone:         ' . $phone,
+    );
+    if ( $email )       $body_lines[] = 'Email:         ' . $email;
+    if ( $address )     $body_lines[] = 'Address:       ' . $address;
+    if ( $lead_source ) $body_lines[] = 'Lead source:   ' . $lead_source;
+    $body_lines[] = 'Submitted:     ' . current_time( 'Y-m-d H:i:s T' );
+    $body_lines[] = '';
+    $body_lines[] = 'A separate "New Lead" email with the formatted summary will follow.';
+    $body_lines[] = 'View in WP Admin → Leads.';
+
+    $to = apply_filters( 'tcfh_lead_alert_email', TCFH_LEAD_ALERT_EMAIL );
+
+    $sent = wp_mail( $to, $subject, implode( "\n", $body_lines ) );
+    if ( ! $sent ) {
+        error_log( '[TCFH Lead] DB-confirm email failed for row ' . $row_id );
+    }
 }
 
 /**
@@ -1869,6 +1985,161 @@ function tcfh_leads_admin_page() {
         </tbody>
       </table>
       <p style="color:#666;font-size:12px;">Showing the most recent 200 rows. Use Export CSV for the full history.</p>
+
+      <?php tcfh_dropped_admin_render(); ?>
     </div>
     <?php
+}
+
+/* ────────────────────────────────────────────────────────────────────────
+ * DROPPED SUBMISSION LOG
+ *
+ * Records every submission attempt that *didn't* reach the leads table:
+ *   nonce_fail      — stale or missing nonce (cached HTML, expired session)
+ *   validation_fail — missing required field (autofill races, weird inputs)
+ *   beacon          — last-resort sendBeacon from the client after a
+ *                     fetch() failure; the row in wp_tcfh_leads will be
+ *                     absent if the original request never reached PHP.
+ *
+ * Rendered at the bottom of WP Admin → Leads so dropped attempts are
+ * visible right next to successful ones — no more silent loss.
+ * ──────────────────────────────────────────────────────────────────────── */
+
+define( 'TCFH_DROPPED_DB_VERSION', '1' );
+
+function tcfh_dropped_table() {
+    global $wpdb;
+    return $wpdb->prefix . 'tcfh_dropped';
+}
+
+function tcfh_dropped_install() {
+    $installed = get_option( 'tcfh_dropped_db_version' );
+    if ( $installed === TCFH_DROPPED_DB_VERSION ) return;
+
+    global $wpdb;
+    $table   = tcfh_dropped_table();
+    $charset = $wpdb->get_charset_collate();
+
+    $sql = "CREATE TABLE {$table} (
+        id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+        recorded_at DATETIME NOT NULL,
+        reason VARCHAR(40) NOT NULL DEFAULT '',
+        ip VARCHAR(64) NOT NULL DEFAULT '',
+        user_agent VARCHAR(255) NOT NULL DEFAULT '',
+        referer VARCHAR(255) NOT NULL DEFAULT '',
+        payload LONGTEXT NULL,
+        PRIMARY KEY  (id),
+        KEY recorded_at (recorded_at),
+        KEY reason (reason)
+    ) {$charset};";
+
+    require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+    dbDelta( $sql );
+
+    update_option( 'tcfh_dropped_db_version', TCFH_DROPPED_DB_VERSION );
+}
+add_action( 'after_setup_theme', 'tcfh_dropped_install' );
+
+/**
+ * Records a dropped submission attempt. Best-effort; never throws.
+ */
+function tcfh_dropped_log_record( $reason, $raw_post ) {
+    global $wpdb;
+
+    // Strip the nonce + action so we don't store auth bits.
+    $payload = is_array( $raw_post ) ? $raw_post : array();
+    unset( $payload['nonce'], $payload['action'], $payload['_wp_http_referer'] );
+
+    // Sanitize every scalar value.
+    $clean = array();
+    foreach ( $payload as $k => $v ) {
+        $key = sanitize_key( $k );
+        if ( is_scalar( $v ) ) {
+            $clean[ $key ] = sanitize_text_field( (string) $v );
+        }
+    }
+
+    $ip  = isset( $_SERVER['REMOTE_ADDR'] ) ? substr( (string) $_SERVER['REMOTE_ADDR'], 0, 64 ) : '';
+    $ua  = isset( $_SERVER['HTTP_USER_AGENT'] ) ? substr( (string) $_SERVER['HTTP_USER_AGENT'], 0, 255 ) : '';
+    $ref = isset( $_SERVER['HTTP_REFERER'] ) ? substr( (string) $_SERVER['HTTP_REFERER'], 0, 255 ) : '';
+
+    $wpdb->insert(
+        tcfh_dropped_table(),
+        array(
+            'recorded_at' => current_time( 'mysql' ),
+            'reason'      => substr( (string) $reason, 0, 40 ),
+            'ip'          => $ip,
+            'user_agent'  => $ua,
+            'referer'     => $ref,
+            'payload'     => wp_json_encode( $clean ),
+        ),
+        array( '%s', '%s', '%s', '%s', '%s', '%s' )
+    );
+
+    // For beacons specifically: email the owner so dropped leads turn up in
+    // the inbox even when nobody is checking the admin dashboard. Deduped
+    // by payload hash for 24h so a stuck localStorage replay can't flood
+    // the inbox with the same lead over and over.
+    if ( $reason === 'beacon' ) {
+        $name    = $clean['name']    ?? '';
+        $phone   = $clean['phone']   ?? '';
+        $email   = $clean['email']   ?? '';
+        $address = $clean['address'] ?? '';
+
+        $dedup_key = 'tcfh_rescue_' . md5( $name . '|' . $phone . '|' . $email . '|' . $address );
+        if ( ! get_transient( $dedup_key ) ) {
+            set_transient( $dedup_key, 1, DAY_IN_SECONDS );
+
+            $subject = '[RESCUE] Dropped lead via beacon — ' . ( $address ?: $name ?: 'no address' );
+            $body    = "A lead submission failed every primary path and reached us only via the sendBeacon fallback. "
+                     . "The visitor is gone — follow up by hand.\n\n"
+                     . "Name:    {$name}\n"
+                     . "Phone:   {$phone}\n"
+                     . "Email:   {$email}\n"
+                     . "Address: {$address}\n"
+                     . "UA:      {$ua}\n"
+                     . "Page:    {$ref}\n\n"
+                     . "Full row: WP Admin → Leads (Dropped submissions section).";
+            wp_mail( apply_filters( 'tcfh_lead_alert_email', TCFH_LEAD_ALERT_EMAIL ), $subject, $body );
+        }
+    }
+}
+
+/**
+ * Renders the dropped-submission table under the main Leads view.
+ */
+function tcfh_dropped_admin_render() {
+    global $wpdb;
+    $table = tcfh_dropped_table();
+
+    $rows = $wpdb->get_results( "SELECT * FROM {$table} ORDER BY recorded_at DESC LIMIT 50", ARRAY_A );
+
+    echo '<h2 style="margin-top:30px;">Dropped submissions</h2>';
+    echo '<p style="color:#666;">Submissions that never reached the leads table. Beacon entries are likely real leads — follow up by hand.</p>';
+
+    if ( ! $rows ) {
+        echo '<p><em>None — your submit pipeline is currently clean.</em></p>';
+        return;
+    }
+
+    echo '<table class="widefat striped"><thead><tr>'
+       . '<th>When</th><th>Reason</th><th>Name</th><th>Phone</th><th>Email</th>'
+       . '<th>Address</th><th>Page</th><th>Device</th>'
+       . '</tr></thead><tbody>';
+    foreach ( $rows as $r ) {
+        $payload = json_decode( (string) $r['payload'], true );
+        $payload = is_array( $payload ) ? $payload : array();
+        $reason_color = $r['reason'] === 'beacon' ? '#b32d2e' : '#8a6d00';
+        echo '<tr>'
+           . '<td>' . esc_html( $r['recorded_at'] ) . '</td>'
+           . '<td><span style="color:' . esc_attr( $reason_color ) . ';font-weight:600;">' . esc_html( $r['reason'] ) . '</span></td>'
+           . '<td>' . esc_html( $payload['name']    ?? '' ) . '</td>'
+           . '<td>' . esc_html( $payload['phone']   ?? '' ) . '</td>'
+           . '<td>' . esc_html( $payload['email']   ?? '' ) . '</td>'
+           . '<td>' . esc_html( $payload['address'] ?? '' ) . '</td>'
+           . '<td style="max-width:240px;font-size:11px;color:#666;word-break:break-all;">' . esc_html( $r['referer'] ) . '</td>'
+           . '<td style="max-width:240px;font-size:11px;color:#666;">' . esc_html( $r['user_agent'] ) . '</td>'
+           . '</tr>';
+    }
+    echo '</tbody></table>';
 }

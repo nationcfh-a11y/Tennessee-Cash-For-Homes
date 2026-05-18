@@ -65,41 +65,197 @@
     }
   };
 
-  // ── Lead form submit → WordPress AJAX (referenced inline via onsubmit) ──
+  // ── Lead form submit pipeline ─────────────────────────────────────────
+  //
+  // Reliability stack, layered from most-likely to least-likely path:
+  //   1. Refresh the nonce from /?tcfh_nonce=1 (defeats stale cached HTML)
+  //   2. POST via fetch() with keepalive:true (survives page unload on iOS)
+  //   3. Validate the JSON response is { success: true } before redirecting
+  //   4. On failure: retry once with a fresh nonce
+  //   5. On second failure: fire navigator.sendBeacon() to the rescue endpoint
+  //      so the server records the attempt even if every other path failed
+  //   6. Stash payload in localStorage and replay on the next pageview
+  //   7. Only redirect to /thank-you/ once *something* has confirmed receipt
+  //
+  // The old code redirected to /thank-you/ no matter what — silent loss.
+  // This code shows an inline error and keeps the form visible if every
+  // path fails, so the visitor knows to retry.
+
+  const TCFH = window.tcfh = window.tcfh || {};
+
+  const STASH_KEY     = 'tcfh_pending_submissions';
+  const NONCE_TTL_MS  = 10 * 60 * 1000;
+  let   cachedNonce   = null;
+  let   cachedNonceAt = 0;
+
+  function ajaxConfig() {
+    return (typeof tcfh_ajax !== 'undefined') ? tcfh_ajax : {};
+  }
+
+  async function getFreshNonce(forceRefresh) {
+    const cfg = ajaxConfig();
+    const now = Date.now();
+    if (!forceRefresh && cachedNonce && (now - cachedNonceAt) < NONCE_TTL_MS) {
+      return cachedNonce;
+    }
+    if (!cfg.nonce_url) {
+      return cfg.nonce || '';
+    }
+    try {
+      const res = await fetch(cfg.nonce_url, { credentials: 'same-origin', cache: 'no-store' });
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.nonce) {
+          cachedNonce   = data.nonce;
+          cachedNonceAt = now;
+          return cachedNonce;
+        }
+      }
+    } catch (_) { /* fall through to baked-in nonce */ }
+    return cfg.nonce || '';
+  }
+
+  function buildFormData(action, fields, nonce) {
+    const fd = new FormData();
+    fd.append('action', action);
+    fd.append('nonce',  nonce || '');
+    Object.keys(fields).forEach(function (k) {
+      if (fields[k] != null && fields[k] !== '') fd.append(k, fields[k]);
+    });
+    return fd;
+  }
+
+  // sendBeacon is the only API guaranteed to complete during page unload,
+  // so it's our rescue path for fetches the browser kills mid-flight.
+  function fireBeacon(fields) {
+    const cfg = ajaxConfig();
+    if (!cfg.beacon_url) return;
+    try {
+      const fd = new FormData();
+      Object.keys(fields).forEach(function (k) {
+        if (fields[k] != null && fields[k] !== '') fd.append(k, fields[k]);
+      });
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(cfg.beacon_url, fd);
+      } else {
+        fetch(cfg.beacon_url, { method: 'POST', body: fd, keepalive: true, credentials: 'same-origin' });
+      }
+    } catch (_) { /* best-effort */ }
+  }
+
+  function stashPending(action, fields) {
+    try {
+      const list = JSON.parse(localStorage.getItem(STASH_KEY) || '[]');
+      list.push({ action: action, fields: fields, ts: Date.now() });
+      while (list.length > 10) list.shift();
+      localStorage.setItem(STASH_KEY, JSON.stringify(list));
+    } catch (_) {}
+  }
+
+  function clearPending() {
+    try { localStorage.removeItem(STASH_KEY); } catch (_) {}
+  }
+
+  function readPending() {
+    try { return JSON.parse(localStorage.getItem(STASH_KEY) || '[]'); }
+    catch (_) { return []; }
+  }
+
+  async function postOnce(action, fields, nonce) {
+    const cfg = ajaxConfig();
+    const url = cfg.ajax_url || '/wp-admin/admin-ajax.php';
+    try {
+      const res  = await fetch(url, {
+        method: 'POST',
+        body: buildFormData(action, fields, nonce),
+        credentials: 'same-origin',
+        keepalive: true,
+      });
+      let data = null;
+      try { data = await res.json(); } catch (_) { /* non-JSON body */ }
+      return { ok: res.ok && data && data.success === true, status: res.status, data: data, networkError: false };
+    } catch (err) {
+      return { ok: false, status: 0, data: null, networkError: true, error: String(err) };
+    }
+  }
+
+  TCFH.submit = async function (action, fields) {
+    let nonce  = await getFreshNonce(false);
+    let result = await postOnce(action, fields, nonce);
+
+    const code = result.data && result.data.data && result.data.data.code;
+    if (!result.ok && (result.networkError || result.status === 403 || code === 'nonce_expired')) {
+      nonce  = await getFreshNonce(true);
+      result = await postOnce(action, fields, nonce);
+    }
+
+    if (result.ok) return { ok: true };
+
+    fireBeacon(Object.assign({ action: action }, fields));
+    stashPending(action, fields);
+    return { ok: false, result: result };
+  };
+
   window.handleSubmit = async function (e) {
     e.preventDefault();
     const form = e.target;
     const btn  = form.querySelector('.btn-primary');
+    const originalLabel = btn ? btn.textContent : '';
 
-    btn.textContent = 'Sending\u2026';
-    btn.disabled = true;
+    if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
 
-    const formData = new FormData();
-    formData.append('action',  'tcfh_submit_lead');
-    formData.append('nonce',   (typeof tcfh_ajax !== 'undefined') ? tcfh_ajax.nonce : '');
-    formData.append('name',    form.name.value.trim());
-    formData.append('phone',   form.phone.value.trim());
-    formData.append('address', form.address.value.trim());
+    const fields = {
+      name:    (form.name    && form.name.value    || '').trim(),
+      phone:   (form.phone   && form.phone.value   || '').trim(),
+      address: (form.address && form.address.value || '').trim(),
+    };
     const leadSource = form.lead_source && form.lead_source.value ? form.lead_source.value.trim() : '';
-    if (leadSource) formData.append('lead_source', leadSource);
-    const ajaxUrl = (typeof tcfh_ajax !== 'undefined')
-      ? tcfh_ajax.ajax_url
-      : '/wp-admin/admin-ajax.php';
+    if (leadSource) fields.lead_source = leadSource;
 
-    try {
-      const res  = await fetch(ajaxUrl, { method: 'POST', body: formData });
-      const data = await res.json();
-      try { sessionStorage.setItem('tcfh_last_submit', JSON.stringify({ status: res.status, data })); } catch (_) {}
-      console.log('[TCFH] lead submission response:', res.status, data);
-    } catch (err) {
-      try { sessionStorage.setItem('tcfh_last_submit', JSON.stringify({ error: String(err) })); } catch (_) {}
-      console.error('[TCFH] lead submission failed:', err);
+    const outcome = await TCFH.submit('tcfh_submit_lead', fields);
+
+    if (outcome.ok) {
+      window.location.href = (ajaxConfig().thank_you_url) || '/thank-you/';
+      return;
     }
 
-    window.location.href = (typeof tcfh_ajax !== 'undefined' && tcfh_ajax.thank_you_url)
-      ? tcfh_ajax.thank_you_url
-      : '/thank-you/';
+    showInlineError(form, btn, originalLabel,
+      'We couldn’t confirm your submission. Please check your connection and tap Send again — your information has been saved on this device and will retry automatically.');
   };
+
+  function showInlineError(form, btn, originalLabel, message) {
+    if (btn) { btn.textContent = originalLabel || 'Send'; btn.disabled = false; }
+    let note = form.querySelector('.tcfh-submit-error');
+    if (!note) {
+      note = document.createElement('div');
+      note.className = 'tcfh-submit-error';
+      note.setAttribute('role', 'alert');
+      note.style.cssText = 'margin-top:12px;padding:10px 12px;border:1px solid #c44;background:#fff5f5;color:#8a1a1a;border-radius:6px;font-size:14px;line-height:1.4;';
+      form.appendChild(note);
+    }
+    note.textContent = message;
+  }
+
+  // ── Replay any submissions stashed during a previous failed attempt ──
+  // Runs once per pageload. Each pending row is retried via the same
+  // hardened path; on confirmed success it is dropped from the stash.
+  // Anything that still fails stays for the next pageview to try again.
+  (async function replayPending() {
+    if (typeof tcfh_ajax === 'undefined') return;
+    const pending = readPending();
+    if (!pending.length) return;
+    const survivors = [];
+    for (let i = 0; i < pending.length; i++) {
+      const item = pending[i];
+      if (Date.now() - (item.ts || 0) > 7 * 24 * 60 * 60 * 1000) continue;
+      const r = await TCFH.submit(item.action, item.fields);
+      if (!r.ok) survivors.push(item);
+    }
+    try {
+      if (survivors.length) localStorage.setItem(STASH_KEY, JSON.stringify(survivors));
+      else clearPending();
+    } catch (_) {}
+  })();
 
   // ── Smooth nav highlight on scroll ──
   const sections   = document.querySelectorAll('section[id]');

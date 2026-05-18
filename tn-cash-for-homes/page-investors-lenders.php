@@ -447,68 +447,81 @@ get_header(); ?>
 </style>
 
 <!-- ── FORM SUBMISSION JS ── -->
+<!--
+  Investor and lender forms delegate to window.tcfh.submit (defined in
+  js/main.js), which handles fresh-nonce fetch, keepalive POST, retry on
+  nonce expiry, sendBeacon fallback, and localStorage replay. Field
+  extraction stays local because the two field sets differ.
+-->
 <script>
-  var DEBUG = false;
+  var THANK_YOU_URL = <?php echo wp_json_encode( home_url( '/thank-you/' ) ); ?>;
+
+  function tcfhShowError(form, btn, originalLabel, message) {
+    if (btn) { btn.textContent = originalLabel || 'Send'; btn.disabled = false; }
+    var note = form.querySelector('.tcfh-submit-error');
+    if (!note) {
+      note = document.createElement('div');
+      note.className = 'tcfh-submit-error';
+      note.setAttribute('role', 'alert');
+      note.style.cssText = 'margin-top:12px;padding:10px 12px;border:1px solid #c44;background:#fff5f5;color:#8a1a1a;border-radius:6px;font-size:14px;line-height:1.4;';
+      form.appendChild(note);
+    }
+    note.textContent = message;
+  }
 
   async function handleInvestorSubmit(e) {
     e.preventDefault();
     var form = e.target;
     var btn = form.querySelector('.btn-primary');
+    var originalLabel = btn ? btn.textContent : '';
+    if (btn) { btn.textContent = 'Sending\u2026'; btn.disabled = true; }
 
-    btn.textContent = 'Sending\u2026';
-    btn.disabled = true;
+    var fields = {
+      name:     form.name.value.trim(),
+      email:    form.email.value.trim(),
+      phone:    form.phone.value.trim(),
+      market:   form.market.value.trim(),
+      strategy: form.strategy.value,
+      notes:    form.notes.value.trim(),
+    };
 
-    var formData = new FormData();
-    formData.append('action', 'tcfh_submit_investor');
-    formData.append('nonce', (typeof tcfh_ajax !== 'undefined') ? tcfh_ajax.nonce : '');
-    formData.append('name', form.name.value.trim());
-    formData.append('email', form.email.value.trim());
-    formData.append('phone', form.phone.value.trim());
-    formData.append('market', form.market.value.trim());
-    formData.append('strategy', form.strategy.value);
-    formData.append('notes', form.notes.value.trim());
-
-    var ajaxUrl = (typeof tcfh_ajax !== 'undefined') ? tcfh_ajax.ajax_url : '/wp-admin/admin-ajax.php';
-
-    try {
-      var res = await fetch(ajaxUrl, { method: 'POST', body: formData });
-      var data = await res.json();
-      if (!data.success && DEBUG) console.error('Investor form error:', data.data?.error);
-    } catch (err) {
-      if (DEBUG) console.error('Investor form failed:', err);
+    if (!window.tcfh || !window.tcfh.submit) {
+      tcfhShowError(form, btn, originalLabel,
+        'We couldn\u2019t reach our server. Please refresh the page and try again.');
+      return;
     }
 
-    window.location.href = <?php echo wp_json_encode( home_url( '/thank-you/' ) ); ?>;
+    var outcome = await window.tcfh.submit('tcfh_submit_investor', fields);
+    if (outcome.ok) { window.location.href = THANK_YOU_URL; return; }
+    tcfhShowError(form, btn, originalLabel,
+      'We couldn\u2019t confirm your submission. Tap Send again \u2014 your information has been saved on this device and will retry automatically.');
   }
 
   async function handleLenderSubmit(e) {
     e.preventDefault();
     var form = e.target;
     var btn = form.querySelector('.btn-primary');
+    var originalLabel = btn ? btn.textContent : '';
+    if (btn) { btn.textContent = 'Sending\u2026'; btn.disabled = true; }
 
-    btn.textContent = 'Sending\u2026';
-    btn.disabled = true;
+    var fields = {
+      name:   form.name.value.trim(),
+      email:  form.email.value.trim(),
+      phone:  form.phone.value.trim(),
+      budget: form.budget.value,
+      notes:  form.notes.value.trim(),
+    };
 
-    var formData = new FormData();
-    formData.append('action', 'tcfh_submit_lender');
-    formData.append('nonce', (typeof tcfh_ajax !== 'undefined') ? tcfh_ajax.nonce : '');
-    formData.append('name', form.name.value.trim());
-    formData.append('email', form.email.value.trim());
-    formData.append('phone', form.phone.value.trim());
-    formData.append('budget', form.budget.value);
-    formData.append('notes', form.notes.value.trim());
-
-    var ajaxUrl = (typeof tcfh_ajax !== 'undefined') ? tcfh_ajax.ajax_url : '/wp-admin/admin-ajax.php';
-
-    try {
-      var res = await fetch(ajaxUrl, { method: 'POST', body: formData });
-      var data = await res.json();
-      if (!data.success && DEBUG) console.error('Lender form error:', data.data?.error);
-    } catch (err) {
-      if (DEBUG) console.error('Lender form failed:', err);
+    if (!window.tcfh || !window.tcfh.submit) {
+      tcfhShowError(form, btn, originalLabel,
+        'We couldn\u2019t reach our server. Please refresh the page and try again.');
+      return;
     }
 
-    window.location.href = <?php echo wp_json_encode( home_url( '/thank-you/' ) ); ?>;
+    var outcome = await window.tcfh.submit('tcfh_submit_lender', fields);
+    if (outcome.ok) { window.location.href = THANK_YOU_URL; return; }
+    tcfhShowError(form, btn, originalLabel,
+      'We couldn\u2019t confirm your submission. Tap Send again \u2014 your information has been saved on this device and will retry automatically.');
   }
 </script>
 
