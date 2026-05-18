@@ -2143,3 +2143,10 @@ function tcfh_dropped_admin_render() {
     }
     echo '</tbody></table>';
 }
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * Daily/monthly/yearly stats email reports.
+ * GA4 + Google Ads + Search Console → HTML email on WP-Cron.
+ * Admin UI: Settings → Daily Reports.
+ * ────────────────────────────────────────────────────────────────────────── */
+require_once get_template_directory() . '/reports.php';
