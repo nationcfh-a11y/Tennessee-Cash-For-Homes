@@ -118,8 +118,6 @@ $total_posts = wp_count_posts()->publish;
         <h2 class="blog-featured__title"><?php echo esc_html( get_the_title( $featured_post->ID ) ); ?></h2>
         <p class="blog-featured__excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt( $featured_post->ID ), 40, '...' ) ); ?></p>
         <div class="blog-featured__meta">
-          <span class="blog-featured__author"><?php echo esc_html( get_the_author_meta( 'display_name', $featured_post->post_author ) ); ?></span>
-          <span class="blog-featured__sep">&middot;</span>
           <time datetime="<?php echo esc_attr( get_the_date( 'c', $featured_post ) ); ?>"><?php echo esc_html( get_the_date( 'M j, Y', $featured_post ) ); ?></time>
           <span class="blog-featured__sep">&middot;</span>
           <span><?php echo esc_html( $f_read_time ); ?> min read</span>
@@ -180,7 +178,7 @@ $total_posts = wp_count_posts()->publish;
               <h3 class="blog-card__title"><?php the_title(); ?></h3>
               <p class="blog-card__excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt(), 20, '...' ) ); ?></p>
               <div class="blog-card__meta">
-                <span><?php echo esc_html( get_the_author() ); ?> &middot; <?php echo esc_html( get_the_date( 'M j, Y' ) ); ?> &middot; <?php echo esc_html( $read_time ); ?> min</span>
+                <span><?php echo esc_html( get_the_date( 'M j, Y' ) ); ?> &middot; <?php echo esc_html( $read_time ); ?> min read</span>
                 <span class="blog-card__read-more">Read &rarr;</span>
               </div>
             </div>
