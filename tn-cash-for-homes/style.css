@@ -4239,6 +4239,18 @@ div.related-posts,
   gap: 12px;
 }
 
+.blog-featured__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.blog-featured__footer .blog-featured__meta {
+  margin-bottom: 0;
+}
+
 /* ── Articles Section ── */
 .blog-articles {
   background: #F9F8F6;

@@ -117,15 +117,17 @@ $total_posts = wp_count_posts()->publish;
         <?php endif; ?>
         <h2 class="blog-featured__title"><?php echo esc_html( get_the_title( $featured_post->ID ) ); ?></h2>
         <p class="blog-featured__excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt( $featured_post->ID ), 40, '...' ) ); ?></p>
-        <div class="blog-featured__meta">
-          <time datetime="<?php echo esc_attr( get_the_date( 'c', $featured_post ) ); ?>"><?php echo esc_html( get_the_date( 'M j, Y', $featured_post ) ); ?></time>
-          <span class="blog-featured__sep">&middot;</span>
-          <span><?php echo esc_html( $f_read_time ); ?> min read</span>
+        <div class="blog-featured__footer">
+          <div class="blog-featured__meta">
+            <time datetime="<?php echo esc_attr( get_the_date( 'c', $featured_post ) ); ?>"><?php echo esc_html( get_the_date( 'M j, Y', $featured_post ) ); ?></time>
+            <span class="blog-featured__sep">&middot;</span>
+            <span><?php echo esc_html( $f_read_time ); ?> min read</span>
+          </div>
+          <span class="blog-featured__link">
+            Read Article
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </span>
         </div>
-        <span class="blog-featured__link">
-          Read Article
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-        </span>
       </div>
     </a>
   </div>
