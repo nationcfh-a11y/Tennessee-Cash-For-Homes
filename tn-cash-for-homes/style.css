@@ -4469,15 +4469,28 @@ div.related-posts,
   }
   .blog-pagination {
     gap: 4px;
+    flex-wrap: nowrap;
   }
   .blog-pagination__btn {
-    padding: 8px 14px;
-    font-size: 13px;
+    padding: 7px 10px;
+    font-size: 12px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .blog-pagination__numbers {
+    flex-shrink: 1;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .blog-pagination__numbers::-webkit-scrollbar {
+    display: none;
   }
   .blog-pagination__num {
-    width: 36px;
-    height: 36px;
-    font-size: 13px;
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+    flex-shrink: 0;
   }
 }
 
