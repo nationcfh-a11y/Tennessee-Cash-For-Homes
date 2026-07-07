@@ -18,6 +18,74 @@
 
   <div class="footer-divider"></div>
 
+  <!-- Sitewide nav hub (cities / counties / key pages) -->
+  <style>
+    .footer-nav { padding: 40px 0 8px; }
+    .footer-nav__grid { display: grid; grid-template-columns: 1.5fr 1.5fr 1fr; gap: 40px; align-items: start; }
+    .footer-nav__col-title { font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 14px; letter-spacing: 0.01em; }
+    .footer-nav__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px; }
+    .footer-nav__col--explore .footer-nav__list { grid-template-columns: 1fr; }
+    .footer-nav__list a { font-size: 14px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color .15s ease; }
+    .footer-nav__list a:hover { color: #ffffff; }
+    @media (max-width: 768px) { .footer-nav__grid { grid-template-columns: 1fr; gap: 28px; } }
+  </style>
+  <div class="footer-nav">
+    <div class="container">
+      <div class="footer-nav__grid">
+
+        <div class="footer-nav__col">
+          <p class="footer-nav__col-title">Cities We Buy Houses In</p>
+          <ul class="footer-nav__list">
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/nashville/') ); ?>">Nashville</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/murfreesboro/') ); ?>">Murfreesboro</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/clarksville/') ); ?>">Clarksville</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/franklin/') ); ?>">Franklin</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/smyrna/') ); ?>">Smyrna</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/hendersonville/') ); ?>">Hendersonville</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/gallatin/') ); ?>">Gallatin</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/lebanon/') ); ?>">Lebanon</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/spring-hill/') ); ?>">Spring Hill</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/columbia/') ); ?>">Columbia</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav__col">
+          <p class="footer-nav__col-title">Counties We Serve</p>
+          <ul class="footer-nav__list">
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/davidson-county/') ); ?>">Davidson County</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/rutherford-county/') ); ?>">Rutherford County</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/williamson-county/') ); ?>">Williamson County</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/montgomery-county/') ); ?>">Montgomery County</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/sumner-county/') ); ?>">Sumner County</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/wilson-county/') ); ?>">Wilson County</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/maury-county/') ); ?>">Maury County</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/robertson-county/') ); ?>">Robertson County</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/dickson-county/') ); ?>">Dickson County</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/bedford-county/') ); ?>">Bedford County</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/coffee-county/') ); ?>">Coffee County</a></li>
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/putnam-county/') ); ?>">Putnam County</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav__col footer-nav__col--explore">
+          <p class="footer-nav__col-title">Explore</p>
+          <ul class="footer-nav__list">
+            <li><a href="<?php echo esc_url( home_url('/where-we-buy/') ); ?>">Where We Buy</a></li>
+            <li><a href="<?php echo esc_url( home_url('/how-it-works/') ); ?>">How It Works</a></li>
+            <li><a href="<?php echo esc_url( home_url('/facing-foreclosure/') ); ?>">Facing Foreclosure</a></li>
+            <li><a href="<?php echo esc_url( home_url('/sell-your-land-1/') ); ?>">Sell Your Land</a></li>
+            <li><a href="<?php echo esc_url( home_url('/about/') ); ?>">About Us</a></li>
+            <li><a href="<?php echo esc_url( home_url('/faq/') ); ?>">FAQ</a></li>
+            <li><a href="<?php echo esc_url( home_url('/blog-home/') ); ?>">Blog</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-divider"></div>
+
   <!-- Main 3-column grid -->
   <div class="footer-main">
     <div class="container">
