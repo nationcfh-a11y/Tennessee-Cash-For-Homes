@@ -673,7 +673,7 @@ function tcfh_build_localbusiness_schema( $args = array() ) {
         'area_served'    => 'Tennessee',
         'price_range'    => 'Free cash offer',
         'include_rating' => true,
-        'review_count'   => 50,
+        'review_count'   => 82,
     );
     $a = array_merge( $defaults, $args );
 
@@ -690,8 +690,10 @@ function tcfh_build_localbusiness_schema( $args = array() ) {
         'logo'        => get_template_directory_uri() . '/brand_assets/Tennessee%20Cash%20For%20Homes%20Logo.png',
         'address'     => array(
             '@type'           => 'PostalAddress',
+            'streetAddress'   => '4183 Franklin Rd',
             'addressLocality' => 'Murfreesboro',
             'addressRegion'   => 'TN',
+            'postalCode'      => '37128',
             'addressCountry'  => 'US',
         ),
         'geo' => array(
