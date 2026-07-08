@@ -80,6 +80,7 @@
               // Foundation / Structural (before 'damage' to prevent wrong match)
               'foundation'        => 'C8TnMxC2Qc4',  // Selling Your House With Foundation Problems
               'structural'        => 'C8TnMxC2Qc4',
+              'sinkhole'          => 'C8TnMxC2Qc4',  // Foundation Problems (closest match for ground/subsidence)
 
               // Inherited / Probate
               'inherit'           => 'W7_w-8opgd4',  // Inherited Property: Sell, Rent, or Keep?
@@ -166,6 +167,8 @@
               'financial hardship'=> '9z7igZ_EXOI',
               'divorce'           => 'lG64DriT_PU',  // Do You Need to Sell Fast?
               'relocat'           => 'lG64DriT_PU',  // matches relocate, relocating, relocation
+              'military'          => 'lG64DriT_PU',  // PCS / military orders = need to sell fast
+              'pcs'               => 'lG64DriT_PU',
               'downsizing'        => 'lG64DriT_PU',
 
               // Damage types (tenant damage before generic 'damage')

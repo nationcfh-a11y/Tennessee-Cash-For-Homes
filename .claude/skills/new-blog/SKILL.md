@@ -32,6 +32,18 @@ DO THIS:
      "Understanding What {Topic} Means"). Do NOT let "Understanding" appear only in a
      later heading like "Final Thoughts on Understanding {Topic}", or the video gets
      pushed to the bottom of the post.
+   - WHICH video gets injected: the theme picks the video by matching KEYWORDS IN THE
+     POST TITLE against the $video_map array in tn-cash-for-homes/single.php (it walks
+     the array top-to-bottom and stops at the FIRST keyword found in the title; if none
+     match it falls back to the generic 'selling'/default video, which is why unrelated
+     posts otherwise all get the same clip). BEFORE finalizing the title, open
+     single.php, find $video_map, and confirm the title contains a keyword that maps to a
+     TOPICALLY RELEVANT video. If the topic is not represented (e.g., a brand-new subject
+     like "sinkhole" or "military/PCS"), ADD a new keyword => video_id entry in the
+     "Specific topics" region near the top of the map (above the broad 'selling' catch-all
+     so it wins), pointing to the closest existing video in the library. Then simulate the
+     match to verify the intended video is chosen. This is a theme file change and must be
+     deployed to the live site to take effect.
    - Final two H2s are "Final Thoughts on {Topic}" and "Ready to Sell Without the Stress?"
      — the CTA section includes 1–2 internal links to real existing posts on the site
      (look up the URLs via /wp-json/wp/v2/posts?slug=...)
