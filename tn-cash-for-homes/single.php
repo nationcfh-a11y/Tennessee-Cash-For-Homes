@@ -171,6 +171,10 @@
               'pcs'               => 'lG64DriT_PU',
               'downsizing'        => 'lG64DriT_PU',
 
+              // Flood zone (before 'damage' and the broad 'selling' catch-all)
+              'flood zone'        => 'lG64DriT_PU',  // Do You Need to Sell Fast?
+              'flood'             => 'lG64DriT_PU',
+
               // Damage types (tenant damage before generic 'damage')
               'tenant damage'     => 'u20Simtyhzg',  // 3 Most Important Things for Your Property
               'tenant'            => 'u20Simtyhzg',
