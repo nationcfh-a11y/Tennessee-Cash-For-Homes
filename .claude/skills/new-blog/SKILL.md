@@ -20,6 +20,8 @@ DO THIS:
 
 2. Write the post following the site's blog scheme:
    - ~1,000–1,500 words, 7–10 <h2> sections (no h3s, no bullet lists, no emojis)
+   - NO em dashes (—) or en dashes (–) anywhere in the post. Use periods, commas,
+     colons, or parentheses instead. This is a hard rule on every post.
    - Opens with <figure><img ...></figure>, then a <p><strong>Short Answer:</strong> ...</p>
      paragraph (1–3 sentences, featured-snippet style)
    - Intro paragraph with Tennessee context and one mention of
@@ -232,3 +234,4 @@ Sell My House Fast in Columbia, TN: A Guide for Local Homeowners	https://tenness
 Why Are Interest Rates So High? Tennessee Cash For Homes' 2027 Mortgage Rate Predictions for Home Sellers	https://tennesseecashforhomes.com/why-are-interest-rates-so-high-tennessee-cash-for-homes-2027-mortgage-rate-predictions/
 Selling a House with a Sinkhole in Tennessee: A Guide for Homeowners	https://tennesseecashforhomes.com/selling-a-house-with-a-sinkhole-in-tennessee/
 Selling Your House Fast on Military Orders (PCS) in Tennessee	https://tennesseecashforhomes.com/selling-your-house-fast-on-military-orders-pcs-in-tennessee/
+Selling a House in a Flood Zone in Tennessee: What Homeowners Need to Know	https://tennesseecashforhomes.com/selling-a-house-in-a-flood-zone-in-tennessee/
