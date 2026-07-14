@@ -235,3 +235,4 @@ Why Are Interest Rates So High? Tennessee Cash For Homes' 2027 Mortgage Rate Pre
 Selling a House with a Sinkhole in Tennessee: A Guide for Homeowners	https://tennesseecashforhomes.com/selling-a-house-with-a-sinkhole-in-tennessee/
 Selling Your House Fast on Military Orders (PCS) in Tennessee	https://tennesseecashforhomes.com/selling-your-house-fast-on-military-orders-pcs-in-tennessee/
 Selling a House in a Flood Zone in Tennessee: What Homeowners Need to Know	https://tennesseecashforhomes.com/selling-a-house-in-a-flood-zone-in-tennessee/
+What Real Estate Investors Look For in a Property Walkthrough	https://tennesseecashforhomes.com/what-real-estate-investors-look-for-in-a-property-walkthrough/
