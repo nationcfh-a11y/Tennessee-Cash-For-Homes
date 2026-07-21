@@ -82,6 +82,9 @@
               'structural'        => 'C8TnMxC2Qc4',
               'sinkhole'          => 'C8TnMxC2Qc4',  // Foundation Problems (closest match for ground/subsidence)
 
+              // Roof
+              'roof'              => 'YgRuGOhM8zk',  // Sell Your House As-Is (condition/major repair)
+
               // Inherited / Probate
               'inherit'           => 'W7_w-8opgd4',  // Inherited Property: Sell, Rent, or Keep?
               'probate'           => 'W7_w-8opgd4',
