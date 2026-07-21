@@ -323,7 +323,7 @@ add_action( 'wp_head', function() {
     } elseif ( is_page( 'sell-your-land-1' ) || is_page( 'sell-your-land' ) || is_page( 'sell-my-land' ) ) {
         $images = array( 'Tennessee_Cash_For_Land.webp', 'Tennessee_Cash_For_Land-800w.webp' );
     } elseif ( is_page( 'about' ) ) {
-        $images = array( 'Company%20Photo.webp', 'Company%20Photo-800w.webp' );
+        $images = array( 'team-photo.webp', 'team-photo-800w.webp' );
     } elseif ( is_page( 'where-we-buy' ) ) {
         $images = array( 'Where%20we%20buy%20background%20image.webp', 'Where%20we%20buy%20background%20image-800w.webp' );
     } elseif ( is_home() || is_archive() ) {
@@ -610,7 +610,7 @@ add_action( 'wp_ajax_nopriv_tcfh_submit_lender', 'tcfh_handle_submit_lender' );
 add_action( 'wp_head', 'tcfh_seo_meta_tags', 1 );
 function tcfh_seo_meta_tags() {
     $site_name   = 'Tennessee Cash For Homes';
-    $default_img = get_template_directory_uri() . '/brand_assets/Company%20Photo.webp';
+    $default_img = get_template_directory_uri() . '/brand_assets/team-photo.webp';
     $phone       = '(615) 801-8126';
 
     if ( is_front_page() ) {
@@ -686,7 +686,7 @@ function tcfh_build_localbusiness_schema( $args = array() ) {
         'telephone'   => '+1-615-801-8126',
         'email'       => 'info@tncashforhomes.com',
         'foundingDate'=> '2017',
-        'image'       => get_template_directory_uri() . '/brand_assets/Company%20Photo.webp',
+        'image'       => get_template_directory_uri() . '/brand_assets/team-photo.webp',
         'logo'        => get_template_directory_uri() . '/brand_assets/Tennessee%20Cash%20For%20Homes%20Logo.png',
         'address'     => array(
             '@type'           => 'PostalAddress',

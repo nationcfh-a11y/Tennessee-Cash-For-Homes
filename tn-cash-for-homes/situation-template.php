@@ -159,7 +159,7 @@ get_header();
 <!-- ── WHY CHOOSE US ── -->
 <section class="difference-section">
   <div class="difference__img-wrap">
-    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/Company%20Photo.webp" alt="Tennessee Cash For Homes team" width="2000" height="1000" loading="lazy" decoding="async" />
+    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/team-photo.webp" alt="Tennessee Cash For Homes team" width="1280" height="720" loading="lazy" decoding="async" />
   </div>
   <div class="difference__content-wrap">
     <div class="difference__content">
