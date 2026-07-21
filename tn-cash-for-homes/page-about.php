@@ -25,7 +25,7 @@ add_action( 'wp_head', function() {
         'url'         => home_url( '/about/' ),
         'telephone'   => '+1-615-801-8126',
         'email'       => 'info@tncashforhomes.com',
-        'image'       => get_template_directory_uri() . '/brand_assets/Company%20Photo.webp',
+        'image'       => get_template_directory_uri() . '/brand_assets/team-photo.webp',
         'logo'        => get_template_directory_uri() . '/brand_assets/Tennessee%20Cash%20For%20Homes%20Logo.png',
         'foundingDate' => '2017',
         'address'     => array(

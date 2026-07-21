@@ -4806,7 +4806,7 @@ div.related-posts,
 /* ── 1. Hero ── */
 .about-hero {
   position: relative;
-  background: url('brand_assets/Company%20Photo.webp') center center / cover no-repeat;
+  background: url('brand_assets/team-photo.webp') center center / cover no-repeat;
   padding: 120px 0 80px;
   text-align: center;
   overflow: hidden;
@@ -5889,7 +5889,7 @@ div.related-posts,
     background-image: url('brand_assets/Tennessee_Cash_For_Land-800w.webp');
   }
   .about-hero {
-    background-image: url('brand_assets/Company%20Photo-800w.webp');
+    background-image: url('brand_assets/team-photo-800w.webp');
   }
   /* .wwb-hero gets its background via an inline style attribute in
      page-where-we-buy.php, so use !important to win the cascade. */

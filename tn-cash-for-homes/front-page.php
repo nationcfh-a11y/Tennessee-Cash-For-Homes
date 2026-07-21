@@ -246,12 +246,12 @@
 <section class="difference-section">
   <div class="difference__img-wrap">
     <img
-      src="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/Company%20Photo.webp"
-      srcset="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/Company%20Photo-800w.webp 800w,
-              <?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/Company%20Photo.webp 2000w"
+      src="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/team-photo.webp"
+      srcset="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/team-photo-800w.webp 800w,
+              <?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/team-photo.webp 1280w"
       sizes="(max-width: 768px) 100vw, 50vw"
       alt="Tennessee Cash For Homes team"
-      width="2000" height="1000" loading="lazy" decoding="async" />
+      width="1280" height="720" loading="lazy" decoding="async" />
   </div>
   <div class="difference__content-wrap">
     <div class="difference__content">
