@@ -61,6 +61,21 @@ function tcfh_enqueue_assets() {
             true
         );
     }
+
+    // Funnel instrumentation for GA4 + Clarity. Listens for the
+    // tcfh:lead-success / tcfh:lead-error events dispatched by main.js,
+    // so it must load alongside it.
+    $analytics_path = get_template_directory() . '/js/analytics.js';
+    $analytics_uri  = get_template_directory_uri() . '/js/analytics.js';
+    if ( file_exists( $analytics_path ) ) {
+        wp_enqueue_script(
+            'tcfh-analytics',
+            $analytics_uri,
+            array(),
+            (string) filemtime( $analytics_path ),
+            true
+        );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'tcfh_enqueue_assets' );
 
@@ -296,6 +311,31 @@ add_action( 'wp_head', function() {
 }, 1 );
 
 /**
+ * Microsoft Clarity — session recordings, scroll maps, click heatmaps and
+ * rage/dead-click detection. Fires site-wide via wp_head.
+ *
+ * Dashboard: https://clarity.microsoft.com  (project "xuse8faz8t")
+ *
+ * Recordings can be filtered by traffic source, so paid Google Ads sessions
+ * can be isolated from organic. js/analytics.js additionally stamps custom
+ * Clarity tags (form_reached, form_abandoned_at, deepest_section) so sessions
+ * that dropped at a specific form field can be pulled up directly.
+ */
+add_action( 'wp_head', function() {
+    $clarity_project_id = 'xuse8faz8t';
+    ?>
+    <!-- Microsoft Clarity -->
+    <script>
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "<?php echo esc_js( $clarity_project_id ); ?>");
+    </script>
+    <?php
+}, 1 );
+
+/**
  * Preload the hero background image for each page template.
  * Most pages reference the hero via CSS url(); without a preload hint the
  * browser can't discover them until CSSOM is built, which delays LCP by
@@ -492,6 +532,7 @@ function tcfh_handle_submit_lead() {
             'Phone Number' => $phone,
             'Address'      => $address,
             'Lead Source'  => $lead_source,
+            'Lead Status'  => "Haven't Called",
         ),
     );
 

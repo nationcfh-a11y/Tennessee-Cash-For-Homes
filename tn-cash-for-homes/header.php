@@ -9,12 +9,16 @@
   <link rel="preload" href="<?php echo esc_url( get_template_directory_uri() ); ?>/fonts/poppins-700.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <link rel="preconnect" href="https://www.clarity.ms" crossorigin />
+  <link rel="dns-prefetch" href="https://www.clarity.ms" />
   <link rel="preconnect" href="https://seal-nashville.bbb.org" crossorigin />
   <link rel="dns-prefetch" href="https://seal-nashville.bbb.org" />
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+
+<a class="skip-link" href="#site-main">Skip to content</a>
 
 <!-- ── NAVBAR ── -->
 <nav class="nav">
@@ -43,7 +47,7 @@
         </li>
         <li class="nav__cta-item"><a href="tel:+16158018126" class="nav__cta">(615) 801-8126</a></li>
       </ul>
-      <div class="nav__hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+      <div class="nav__hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </div>
     </div>
