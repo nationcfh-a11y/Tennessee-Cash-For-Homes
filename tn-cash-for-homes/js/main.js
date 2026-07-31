@@ -7,12 +7,13 @@
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('navLinks');
   if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    const syncExpanded = () => hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open') ? 'true' : 'false');
+    hamburger.addEventListener('click', () => { navLinks.classList.toggle('open'); syncExpanded(); });
     hamburger.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') navLinks.classList.toggle('open');
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); navLinks.classList.toggle('open'); syncExpanded(); }
     });
     navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('open'));
+      link.addEventListener('click', () => { navLinks.classList.remove('open'); syncExpanded(); });
     });
   }
 
@@ -215,9 +216,14 @@
     const outcome = await TCFH.submit('tcfh_submit_lead', fields);
 
     if (outcome.ok) {
+      // Let analytics.js record the conversion before we navigate away.
+      // gtag uses sendBeacon, so the event survives the redirect.
+      document.dispatchEvent(new CustomEvent('tcfh:lead-success'));
       window.location.href = (ajaxConfig().thank_you_url) || '/thank-you/';
       return;
     }
+
+    document.dispatchEvent(new CustomEvent('tcfh:lead-error'));
 
     showInlineError(form, btn, originalLabel,
       'We couldn’t confirm your submission. Please check your connection and tap Send again — your information has been saved on this device and will retry automatically.');

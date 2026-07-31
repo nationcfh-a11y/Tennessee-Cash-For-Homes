@@ -90,6 +90,7 @@ get_header();
           <li>We use Google Analytics (GA4) to track website usage.</li>
           <li>GA4 collects anonymous data about page views, session duration, and traffic sources.</li>
           <li>We use Google Ads conversion tracking to measure the performance of our advertising.</li>
+          <li>We use Microsoft Clarity to understand how visitors interact with our pages. Clarity records general page interactions such as scrolling, clicks, and mouse movement so we can improve the site. Text you type into form fields is masked and is not captured by Clarity.</li>
           <li>You can opt out of Google Analytics by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics opt-out browser add-on</a>.</li>
           <li>We also use standard WordPress cookies for site functionality.</li>
         </ul>
@@ -99,6 +100,7 @@ get_header();
         <ul>
           <li><strong>Google Analytics</strong> — website analytics.</li>
           <li><strong>Google Ads</strong> — advertising and conversion tracking.</li>
+          <li><strong>Microsoft Clarity</strong> — website behavior analytics and session replay.</li>
           <li><strong>Airtable</strong> — CRM and lead management.</li>
           <li><strong>Twilio</strong> — SMS text message delivery.</li>
           <li><strong>Calendly</strong> — appointment booking.</li>
