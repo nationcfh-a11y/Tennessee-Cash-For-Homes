@@ -77,6 +77,12 @@
               // Liens
               'lien'              => '9HHtMiOHO6A',  // Can I Sell My House With a Lien?
 
+              // Title defects (liens are the most common cloud on title)
+              'cloudy title'      => '9HHtMiOHO6A',
+              'clouded title'     => '9HHtMiOHO6A',
+              'title issue'       => '9HHtMiOHO6A',
+              'title defect'      => '9HHtMiOHO6A',
+
               // Foundation / Structural (before 'damage' to prevent wrong match)
               'foundation'        => 'C8TnMxC2Qc4',  // Selling Your House With Foundation Problems
               'structural'        => 'C8TnMxC2Qc4',
