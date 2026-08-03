@@ -239,3 +239,5 @@ What Real Estate Investors Look For in a Property Walkthrough	https://tennesseec
 Sell Your House Fast in Spring Hill, Tennessee	https://tennesseecashforhomes.com/sell-your-house-fast-in-spring-hill-tennessee/
 Selling a House with a Bad Roof in Tennessee: What Homeowners Need to Know	https://tennesseecashforhomes.com/selling-a-house-with-a-bad-roof-in-tennessee/
 Selling a House with Squatters in Tennessee: What Homeowners Need to Know	https://tennesseecashforhomes.com/selling-a-house-with-squatters-in-tennessee/
+Selling a House with a Cloudy Title in Tennessee: What Homeowners Need to Know	https://tennesseecashforhomes.com/selling-a-house-with-a-cloudy-title-in-tennessee/
+Sell My House Fast in Clarksville, TN: A Guide for Local Homeowners	https://tennesseecashforhomes.com/sell-my-house-fast-in-clarksville-tn-a-guide-for-local-homeowners/
