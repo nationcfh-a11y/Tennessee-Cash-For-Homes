@@ -202,6 +202,9 @@
               'squatter'          => 'BYgds4l58_c',  // Squatters Rights in Tennessee
 
               // Offers / Fair / Lowball
+              'calculate their offer' => 'PzFyt0EbKsE',  // how the offer number is built
+              'calculate your offer'  => 'PzFyt0EbKsE',
+              'offer calculated'      => 'PzFyt0EbKsE',
               'lowball'           => 'PzFyt0EbKsE',  // Tired of Lowball Offers?
               'fair offer'        => 'PzFyt0EbKsE',
               'fair cash'         => 'PzFyt0EbKsE',
