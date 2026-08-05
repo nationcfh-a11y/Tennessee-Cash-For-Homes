@@ -241,3 +241,4 @@ Selling a House with a Bad Roof in Tennessee: What Homeowners Need to Know	https
 Selling a House with Squatters in Tennessee: What Homeowners Need to Know	https://tennesseecashforhomes.com/selling-a-house-with-squatters-in-tennessee/
 Selling a House with a Cloudy Title in Tennessee: What Homeowners Need to Know	https://tennesseecashforhomes.com/selling-a-house-with-a-cloudy-title-in-tennessee/
 Sell My House Fast in Clarksville, TN: A Guide for Local Homeowners	https://tennesseecashforhomes.com/sell-my-house-fast-in-clarksville-tn-a-guide-for-local-homeowners/
+How Do Cash Home Buyers Calculate Their Offer in Tennessee?	https://tennesseecashforhomes.com/how-do-cash-home-buyers-calculate-their-offer-in-tennessee/
