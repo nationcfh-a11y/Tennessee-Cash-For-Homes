@@ -108,7 +108,8 @@
               'manufactured'      => 'ygFO12fzqKQ',
 
               // Land (use specific phrases to avoid matching "landscape")
-              'sell land'         => 'F11zLCR3l2M',  // Sell Your Land for Cash
+              'acreage'           => 'F11zLCR3l2M',  // Sell Your Land for Cash
+              'sell land'         => 'F11zLCR3l2M',
               'buy land'          => 'F11zLCR3l2M',
               'your land'         => 'F11zLCR3l2M',
 
