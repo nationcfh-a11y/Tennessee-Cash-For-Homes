@@ -74,6 +74,10 @@
               // Foreclosure
               'foreclosure'       => 'IDxGsjY08N0',  // Top 3 Things If You're Facing Foreclosure
 
+              // Closing costs / Seller fees (before the broad 'for cash' catch-all)
+              'closing cost'      => '6ryN8tqQ5r4',  // What's the Process to Sell for Cash?
+              'closing fee'       => '6ryN8tqQ5r4',
+
               // Liens
               'lien'              => '9HHtMiOHO6A',  // Can I Sell My House With a Lien?
 
