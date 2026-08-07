@@ -243,3 +243,4 @@ Selling a House with a Cloudy Title in Tennessee: What Homeowners Need to Know	h
 Sell My House Fast in Clarksville, TN: A Guide for Local Homeowners	https://tennesseecashforhomes.com/sell-my-house-fast-in-clarksville-tn-a-guide-for-local-homeowners/
 How Do Cash Home Buyers Calculate Their Offer in Tennessee?	https://tennesseecashforhomes.com/how-do-cash-home-buyers-calculate-their-offer-in-tennessee/
 Selling a House on Acreage in Tennessee: What Your Land Is Really Worth	https://tennesseecashforhomes.com/selling-a-house-on-acreage-in-tennessee/
+Do You Pay Closing Costs When You Sell Your House for Cash in Tennessee?	https://tennesseecashforhomes.com/do-you-pay-closing-costs-when-you-sell-your-house-for-cash-in-tennessee/
