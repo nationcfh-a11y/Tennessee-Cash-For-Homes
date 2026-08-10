@@ -1231,6 +1231,10 @@ function tcfh_handle_legacy_redirects() {
         'privacy-policy-ppc'    => '/privacy-policy/',
         'terms-of-service-ppc'  => '/privacy-policy/',
         'our-solutions'         => '/how-it-works/',
+        // Empty leftover Page from before the blog index moved to /blog/.
+        // It still resolves (so it never 404s on its own) and was linked
+        // from the nav, so send it on rather than leaving a blank page.
+        'blog-home'             => '/blog/',
     );
 
     $path = trim( wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ) ?? '', '/' );

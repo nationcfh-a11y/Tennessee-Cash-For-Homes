@@ -88,7 +88,7 @@ $build_page_url = function( $n ) use ( $active_category ) {
 // Helper: URL for a category filter tab (resets paged to 1).
 $build_cat_url = function( $slug ) {
     $base = get_permalink( get_option( 'page_for_posts' ) );
-    if ( ! $base ) $base = home_url( '/blog-home/' );
+    if ( ! $base ) $base = home_url( '/blog/' );
     if ( $slug === 'all' ) return $base;
     return add_query_arg( 'category_name', $slug, $base );
 };
