@@ -5,7 +5,7 @@
   // Get categories
   $categories = get_the_category();
   $cat_name   = ! empty( $categories ) ? $categories[0]->name : 'Blog';
-  $cat_link   = ! empty( $categories ) ? get_category_link( $categories[0]->term_id ) : home_url( '/blog-home/' );
+  $cat_link   = ! empty( $categories ) ? get_category_link( $categories[0]->term_id ) : home_url( '/blog/' );
 
   // Reading time estimate
   $content    = get_the_content();
@@ -18,7 +18,7 @@
   <!-- ── HEADER ── -->
   <header class="single-post__header">
     <div class="container">
-      <a href="<?php echo esc_url( home_url( '/blog-home/' ) ); ?>" class="single-post__back">&larr; Back to Blog</a>
+      <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="single-post__back">&larr; Back to Blog</a>
       <span class="single-post__cat"><?php echo esc_html( strtoupper( $cat_name ) ); ?></span>
       <h1 class="single-post__title"><?php the_title(); ?></h1>
       <?php if ( has_excerpt() ) : ?>
