@@ -33,9 +33,18 @@ def authenticate():
     if TOKEN_FILE.exists():
         creds = Credentials.from_authorized_user_file(str(TOKEN_FILE), SCOPES)
     if not creds or not creds.valid:
+        # A saved token can be not just expired but revoked — Google returns
+        # invalid_grant, and refresh() raises. That used to crash the script;
+        # fall back to a fresh sign-in instead.
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
+            try:
+                creds.refresh(Request())
+            except Exception as e:
+                print(f"Saved sign-in is no longer valid ({e}). Opening a browser to sign in again...")
+                creds = None
+        if not creds or not creds.valid:
+            if not CLIENT_SECRET.exists():
+                raise SystemExit(f"Need {CLIENT_SECRET} to sign in. Download it from Google Cloud Console.")
             flow = InstalledAppFlow.from_client_secrets_file(str(CLIENT_SECRET), SCOPES)
             creds = flow.run_local_server(port=0)
         TOKEN_FILE.write_text(creds.to_json())
