@@ -1,0 +1,1010 @@
+{
+ "https://www.tennesseecashforhomes.com/": {
+  "title": "Tennessee Cash For Homes | Sell Your House Fast for Cash",
+  "canonical": "https://tennesseecashforhomes.com/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House Fast For Cash! | We Buy Houses As-Is for Cash"
+  ],
+  "h2_count": 13,
+  "words": 2246,
+  "internal_links": 44,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 13,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "Audience",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "LocalBusiness",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "Rating",
+   "Review",
+   "SearchAction",
+   "Service",
+   "State",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 148082
+ },
+ "https://www.tennesseecashforhomes.com/about/": {
+  "title": "About Tennessee Cash For Homes | Family Owned Tennessee Cash Home Buyers",
+  "canonical": "https://tennesseecashforhomes.com/about/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "A Tennessee Company Built on Trust, Faith, and Family"
+  ],
+  "h2_count": 8,
+  "words": 1454,
+  "internal_links": 18,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 0,
+  "tel": 3,
+  "jsonld": 7,
+  "schema_types": [
+   "AggregateRating",
+   "Article",
+   "BreadcrumbList",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Organization",
+   "Person",
+   "PostalAddress",
+   "State",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 101625
+ },
+ "https://www.tennesseecashforhomes.com/faq/": {
+  "title": "FAQ - Tennessee Cash For Homes",
+  "canonical": "https://tennesseecashforhomes.com/faq/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Frequently Asked Questions"
+  ],
+  "h2_count": 2,
+  "words": 1152,
+  "internal_links": 16,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 1,
+  "tel": 4,
+  "jsonld": 3,
+  "schema_types": [
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "ImageObject",
+   "ListItem",
+   "Person",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 95107
+ },
+ "https://www.tennesseecashforhomes.com/how-it-works/": {
+  "title": "How It Works - Tennessee Cash For Homes",
+  "canonical": "https://tennesseecashforhomes.com/how-it-works/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "How It Works to Sell Your House As-Is for Cash in Tennessee"
+  ],
+  "h2_count": 11,
+  "words": 2467,
+  "internal_links": 25,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 1,
+  "tel": 4,
+  "jsonld": 4,
+  "schema_types": [
+   "AggregateRating",
+   "Article",
+   "BreadcrumbList",
+   "GeoCoordinates",
+   "HowTo",
+   "HowToStep",
+   "ImageObject",
+   "ListItem",
+   "MonetaryAmount",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 126486
+ },
+ "https://www.tennesseecashforhomes.com/sell-your-house-with-repairs-tennessee/": {
+  "title": "Page Not Found - Tennessee Cash For Homes",
+  "canonical": "",
+  "robots": "follow, noindex",
+  "h1": [],
+  "h2_count": 1,
+  "words": 131,
+  "internal_links": 14,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 1,
+  "tel": 3,
+  "jsonld": 1,
+  "schema_types": [
+   "ImageObject",
+   "LocalBusiness",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 68630
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/": {
+  "title": "Where We Buy - Tennessee Cash For Homes",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Where We BuyHouses in Tennessee"
+  ],
+  "h2_count": 6,
+  "words": 1593,
+  "internal_links": 37,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 0,
+  "tel": 3,
+  "jsonld": 3,
+  "schema_types": [
+   "AggregateRating",
+   "Article",
+   "BreadcrumbList",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 156186
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/chattanooga/": {
+  "title": "We Buy Houses in Tennessee TN | Get a Fast Cash Offer Today",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/tennessee/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House For Cash In Tennessee"
+  ],
+  "h2_count": 10,
+  "words": 2374,
+  "internal_links": 44,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 137486
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/clarksville/": {
+  "title": "We Buy Houses in Clarksville TN | Get a Fast Cash Offer Today",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/clarksville/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House For Cash In Clarksville, TN"
+  ],
+  "h2_count": 11,
+  "words": 2773,
+  "internal_links": 43,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 153636
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/columbia/": {
+  "title": "We Buy Houses in Columbia TN | Get a Fast Cash Offer Today",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/columbia/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House For Cash In Columbia, TN"
+  ],
+  "h2_count": 11,
+  "words": 2768,
+  "internal_links": 43,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 153226
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/davidson-county/": {
+  "title": "We Buy Houses in Davidson County TN | Fast Cash Offers",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/davidson-county/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House Fast For Cash in Davidson County"
+  ],
+  "h2_count": 12,
+  "words": 2877,
+  "internal_links": 45,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 156666
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/franklin/": {
+  "title": "We Buy Houses in Franklin TN | Get a Fast Cash Offer Today",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/franklin/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House For Cash In Franklin, TN"
+  ],
+  "h2_count": 11,
+  "words": 2770,
+  "internal_links": 43,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 153346
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/gallatin/": {
+  "title": "We Buy Houses in Gallatin TN | Get a Fast Cash Offer Today",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/gallatin/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House For Cash In Gallatin, TN"
+  ],
+  "h2_count": 11,
+  "words": 2759,
+  "internal_links": 43,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 152983
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/hendersonville/": {
+  "title": "We Buy Houses in Hendersonville TN | Get a Fast Cash Offer Today",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/hendersonville/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House For Cash In Hendersonville, TN"
+  ],
+  "h2_count": 11,
+  "words": 2727,
+  "internal_links": 43,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 153610
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/jackson/": {
+  "title": "We Buy Houses in Tennessee TN | Get a Fast Cash Offer Today",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/tennessee/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House For Cash In Tennessee"
+  ],
+  "h2_count": 10,
+  "words": 2374,
+  "internal_links": 44,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 137486
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/knoxville/": {
+  "title": "We Buy Houses in Tennessee TN | Get a Fast Cash Offer Today",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/tennessee/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House For Cash In Tennessee"
+  ],
+  "h2_count": 10,
+  "words": 2374,
+  "internal_links": 44,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 137486
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/la-vergne/": {
+  "title": "We Buy Houses in La Vergne TN | Get a Fast Cash Offer Today",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/la-vergne/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House For Cash In La Vergne, TN"
+  ],
+  "h2_count": 11,
+  "words": 2804,
+  "internal_links": 43,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 152794
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/lebanon/": {
+  "title": "We Buy Houses in Lebanon TN | Get a Fast Cash Offer Today",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/lebanon/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House For Cash In Lebanon, TN"
+  ],
+  "h2_count": 11,
+  "words": 2712,
+  "internal_links": 43,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 152720
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/memphis/": {
+  "title": "We Buy Houses in Tennessee TN | Get a Fast Cash Offer Today",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/tennessee/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House For Cash In Tennessee"
+  ],
+  "h2_count": 10,
+  "words": 2374,
+  "internal_links": 44,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 137486
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/murfreesboro/": {
+  "title": "We Buy Houses in Murfreesboro TN | Get a Fast Cash Offer Today",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/murfreesboro/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House For Cash In Murfreesboro, TN"
+  ],
+  "h2_count": 11,
+  "words": 2768,
+  "internal_links": 43,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 153739
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/nashville/": {
+  "title": "We Buy Houses in Nashville TN | Get a Fast Cash Offer Today",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/nashville/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House For Cash In Nashville, TN"
+  ],
+  "h2_count": 11,
+  "words": 2764,
+  "internal_links": 43,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 153486
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/old-hickory/": {
+  "title": "We Buy Houses in Nashville TN | Get a Fast Cash Offer Today",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/nashville/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House For Cash In Nashville, TN"
+  ],
+  "h2_count": 11,
+  "words": 2764,
+  "internal_links": 43,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 153486
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/rutherford-county/": {
+  "title": "We Buy Houses in Rutherford County TN | Fast Cash Offers",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/rutherford-county/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House Fast For Cash in Rutherford County"
+  ],
+  "h2_count": 12,
+  "words": 2811,
+  "internal_links": 45,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 157282
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/shelbyville/": {
+  "title": "We Buy Houses in Shelbyville TN | Get a Fast Cash Offer Today",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/shelbyville/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House For Cash In Shelbyville, TN"
+  ],
+  "h2_count": 11,
+  "words": 2803,
+  "internal_links": 43,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 153933
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/smyrna/": {
+  "title": "We Buy Houses in Smyrna TN | Get a Fast Cash Offer Today",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/smyrna/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House For Cash In Smyrna, TN"
+  ],
+  "h2_count": 11,
+  "words": 2740,
+  "internal_links": 43,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 152734
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/spring-hill/": {
+  "title": "We Buy Houses in Spring Hill TN | Get a Fast Cash Offer Today",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/spring-hill/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House For Cash In Spring Hill, TN"
+  ],
+  "h2_count": 11,
+  "words": 2868,
+  "internal_links": 43,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 153976
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/tennessee/": {
+  "title": "We Buy Houses in Tennessee TN | Get a Fast Cash Offer Today",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/tennessee/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House For Cash In Tennessee"
+  ],
+  "h2_count": 10,
+  "words": 2374,
+  "internal_links": 44,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 137486
+ },
+ "https://www.tennesseecashforhomes.com/where-we-buy/williamson-county/": {
+  "title": "We Buy Houses in Williamson County TN | Fast Cash Offers",
+  "canonical": "https://tennesseecashforhomes.com/where-we-buy/williamson-county/",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "h1": [
+   "Sell Your House Fast For Cash in Williamson County"
+  ],
+  "h2_count": 12,
+  "words": 2853,
+  "internal_links": 45,
+  "ga4": 2,
+  "gtm": 2,
+  "gtm_ids": [
+   "GTM-NNJNRWFR"
+  ],
+  "gads": [],
+  "forms": 2,
+  "tel": 4,
+  "jsonld": 5,
+  "schema_types": [
+   "AggregateRating",
+   "Answer",
+   "Article",
+   "BreadcrumbList",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "LocalBusiness",
+   "OpeningHoursSpecification",
+   "Person",
+   "PostalAddress",
+   "Question",
+   "WebPage",
+   "WebSite"
+  ],
+  "bytes": 157988
+ }
+}
