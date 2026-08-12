@@ -1,5 +1,26 @@
 # SEO Changelog — tennesseecashforhomes.com
 
+---
+
+# 🚩 DEPLOYMENT MARKER — SEO Internal Linking — Batch 1
+
+| | |
+|---|---|
+| **Label** | **SEO Internal Linking — Batch 1** |
+| **Content changes went live** | **2026-08-12, 15:47 CDT (20:47 UTC)** — blog link repairs, applied via WP REST API |
+| **Theme code pushed to `main`** | **2026-08-12, 16:29:04 CDT (21:29:04 UTC)** — commit `7b045e7` |
+| **Theme code live on production** | ⚠️ **NOT YET — WP Pusher auto-deploy is failing (HTTP 400)** |
+| **GSC before/after boundary** | **2026-08-12** for the blog link work. The theme portion needs its own boundary once it actually deploys. |
+
+> **Two boundaries, not one.** Items 1–3 (the 242 blog link changes) are live as of
+> 12 Aug and can be measured from that date. Items 4–8 (theme templates) are
+> committed to `main` but have **not** reached production — WP Pusher's
+> push-to-deploy webhook has been returning HTTP 400 since at least 10 Aug.
+> Record the real deploy date here once it lands, and measure that separately.
+
+---
+
+
 Every entry records date, URLs affected, files changed, the exact change, reason,
 target opportunity, risk level, and expected result, so deployments can be
 correlated with Search Console movement.
@@ -170,3 +191,99 @@ Baseline captured before any change (27 URLs, raw HTML) and re-captured after.
 
 Blog posts additionally verified: HTTP 200, self-canonical, single H1, no `noindex`,
 GA4 + GTM present, forms and phone links intact.
+
+---
+
+## 2026-08-12 — Batch C: Theme deployment attempt (PUSHED, NOT LIVE)
+
+| Field | Value |
+|---|---|
+| **Date/time** | 2026-08-12 16:29:04 CDT / 21:29:04 UTC |
+| **Commit** | `7b045e7` on `main` (fast-forward from `696978f`) |
+| **URLs affected** | Sitewide once deployed; **currently none — not live** |
+| **Files changed** | `footer.php`, `location-template.php`, `county-template.php`, `page-where-we-buy.php`, `situation-template.php` (5 files, +151 / −4) |
+| **Exact change** | Footer nav hub (12 cities, 12 counties, 8 situations, Explore); 12 county chips added to the city/county/where-we-buy "Areas We Serve" blocks; situation-template city list corrected to 18 self-canonical cities plus 12 county chips. |
+| **Reason** | Approved Batch 1 internal-linking deployment. |
+| **Risk level** | **Low.** No titles, meta descriptions, H1s, canonicals, redirects, robots rules, or URLs touched — verified by diff scan before push. |
+| **Expected result** | 12 county pages un-orphaned; situation pages receive sitewide links; ~81 redirect-hop internal links eliminated. |
+| **Status** | ⚠️ **Pushed to `main` but not deployed.** WP Pusher push-to-deploy returns HTTP 400. |
+
+### Deliberately excluded from this deployment
+
+| File | Why held |
+|---|---|
+| `page-location-tennessee.php` | Contains the state-hub title change (`Tennessee TN` → `Tennessee \| Statewide Cash Home Buyers`). **Explicitly not approved.** Verified unchanged vs `main` before push. |
+| `functions.php` | LocalBusiness schema (reviewCount 50→82, streetAddress, postalCode). Held — see Batch D below. |
+| `single.php`, `critical.css`, `critical.min.css` | Unrelated to this batch, and `main` already carries the newer versions. Excluded to avoid regressing the `.skip-link` accessibility CSS added in `696978f`. |
+
+### Why the theme is not live
+
+WP Pusher (active plugin, deploys the `tn-cash-for-homes` theme from
+`github.com/nationcfh-a11y/Tennessee-Cash-For-Homes`) has three push webhooks
+configured. All three fired on this push at 21:29:07 UTC and returned
+**HTTP 400 with an empty body**. The same 400 appears on deliveries dating back
+to 2026-08-10, so this is a pre-existing breakage, not something this push caused.
+
+Direct GET and POST to the webhook URL (with a GitHub-shaped payload and
+`X-GitHub-Event: push`) also return 400. There is no REST endpoint on this host
+that writes theme files — `/wp/v2/themes` is read-only, and the
+`wp-abilities/v1` roster exposes no file-write ability.
+
+**To finish the deployment:** WP Admin → WP Pusher → Themes → `tn-cash-for-homes`
+→ **Update theme**. That pulls `main` at `7b045e7`. Then re-run the
+post-deployment checks below.
+
+---
+
+## 2026-08-12 — Batch D: LocalBusiness schema — HELD, conditions not met
+
+Approval was conditional on four tests. Results:
+
+| Condition | Result |
+|---|---|
+| Review count of 82 is accurate | ⚠️ **Could not verify.** Last owner confirmation was 2026-06-05, two months ago. The real count has likely changed. |
+| Address information is accurate | ⚠️ **Could not verify.** The BBB profile (the source used in the June audit for `4183 Franklin Rd, Murfreesboro, TN 37128`) returns HTTP 403 to automated requests. |
+| Complies with current Google structured-data requirements | ❌ **Fails.** See below. |
+| Schema validates | ✅ Passes structurally — 12 JSON-LD blocks on the homepage, 0 parse errors, `aggregateRating` has `ratingValue`, `reviewCount`, and `bestRating`. |
+
+**The compliance problem is the `aggregateRating` block itself, not the number in it.**
+Google's Review snippet guidelines prohibit *self-serving* reviews: a rating about
+entity A published on entity A's own website is not eligible for review rich
+results on `LocalBusiness` or `Organization`. Production currently emits
+`aggregateRating` on the `LocalBusiness` + `RealEstateAgent` graph on the homepage
+and on every city page, plus nine standalone `Review` blocks on the homepage.
+Changing `reviewCount` from 50 to 82 makes the number more accurate but leaves the
+block non-compliant, so the "only if it complies" condition is not satisfied.
+
+**Held. Nothing was deployed.** Production still emits `reviewCount: 50` and a
+`PostalAddress` with no `streetAddress` or `postalCode`.
+
+**Recommended for a later batch, once you confirm the facts:**
+1. Confirm the current Google review count and the exact street address/ZIP.
+2. Deploy the `streetAddress` + `postalCode` addition on its own — it is accurate-once-confirmed, compliant, and strengthens the local entity.
+3. Decide separately whether to keep `aggregateRating` on `LocalBusiness`. It is not earning rich results today. The compliant alternative is to keep showing real reviews as visible on-page content without marking them up as `AggregateRating` on the business entity.
+
+---
+
+## Post-deployment verification — 2026-08-12 21:35 UTC
+
+Run against production after the push. Theme items read "pending" because the
+theme has not deployed yet.
+
+| # | Check | Result |
+|---|---|---|
+| 1 | All intended internal links live | ⚠️ Blog links (242) **live**; theme links **pending deploy** |
+| 2 | No internal links unexpectedly redirect | ✅ 48 blog targets + 40 footer targets + 30 situation slugs all 200, no redirects |
+| 3 | Destination URLs return 200 | ✅ 27/27 |
+| 4 | No accidental noindex | ✅ 27/27 unchanged |
+| 5 | Canonicals correct | ✅ 27/27 identical to baseline |
+| 6 | Titles and H1s unchanged | ✅ 27/27 identical — including the Tennessee state hub, still `We Buy Houses in Tennessee TN \| Get a Fast Cash Offer Today` |
+| 7 | Forms work | ✅ Form + submit button counts unchanged sitewide |
+| 8 | Phone links work | ✅ `tel:+16158018126` present |
+| 9 | GA4 / GTM / tracking present | ✅ `G-ZP0J78KBTE` and `GTM-NNJNRWFR` on every page |
+| 10 | Structured data validates | ✅ 0 parse errors; see Batch D for the policy caveat |
+
+**Production drift vs the original pre-change baseline: 0 across 27 URLs.**
+
+Sitemap, mobile nav, desktop nav, footer links, county links and situation-page
+links were all re-checked; sitemap holds 302 URLs and is unchanged.
