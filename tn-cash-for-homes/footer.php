@@ -20,23 +20,110 @@
 
   <!-- Sitewide nav hub (cities / counties / key pages) -->
   <style>
-    .footer-nav { padding: 40px 0 8px; }
-    .footer-nav__grid { display: grid; grid-template-columns: 1.4fr 1.4fr 1.2fr 1fr; gap: 36px; align-items: start; }
-    .footer-nav__col-title { font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 14px; letter-spacing: 0.01em; }
-    .footer-nav__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px; }
+    /* ── Footer nav hub ──
+       Desktop: 4 columns. Cities and Counties run two link columns each so all
+       four blocks finish at a similar height; Situations and Explore stay single.
+       Tablet: 2x2. Mobile: every list goes two-up so the block is about half as
+       tall as it would be stacked single-file. */
+    .footer-nav { padding: 38px 0 30px; }
+    .footer-nav__grid {
+      display: grid;
+      grid-template-columns: 1.45fr 1.5fr 1.15fr 0.9fr;
+      gap: 32px 40px;
+      align-items: start;
+    }
+    .footer-nav__col { min-width: 0; }
+    .footer-nav__col-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #ffffff;
+      margin: 0 0 14px;
+      padding-bottom: 9px;
+      border-bottom: 1px solid rgba(255,255,255,0.14);
+      list-style: none;          /* hides the default disclosure triangle */
+      cursor: default;
+    }
+    .footer-nav__col-title::-webkit-details-marker { display: none; }
+    .footer-nav__col-title::marker { content: ''; }
+    .footer-nav__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px 18px;
+    }
     .footer-nav__col--situations .footer-nav__list,
     .footer-nav__col--explore .footer-nav__list { grid-template-columns: 1fr; }
-    .footer-nav__list a { font-size: 14px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color .15s ease; }
-    .footer-nav__list a:hover { color: #ffffff; }
-    @media (max-width: 1024px) { .footer-nav__grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
-    @media (max-width: 768px) { .footer-nav__grid { grid-template-columns: 1fr; gap: 28px; } }
+    .footer-nav__list a {
+      display: block;
+      font-size: 14px;
+      line-height: 1.45;
+      color: rgba(255,255,255,0.62);
+      text-decoration: none;
+      transition: color .15s ease;
+    }
+    .footer-nav__list a:hover,
+    .footer-nav__list a:focus-visible { color: #84CC9C; }
+
+    /* Tablet: 2x2. All four lists run two-up so the second row stays short. */
+    @media (max-width: 1024px) {
+      .footer-nav__grid { grid-template-columns: 1fr 1fr; gap: 28px 40px; }
+      .footer-nav__col--situations .footer-nav__list,
+      .footer-nav__col--explore .footer-nav__list { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Phone: each section collapses to a single tappable row. The markup ships
+       with `open`, so with JS unavailable everything is simply expanded — the
+       links are always in the HTML and always crawlable either way. */
+    @media (max-width: 768px) {
+      .footer-nav { padding: 8px 0 4px; }
+      .footer-nav__grid { grid-template-columns: 1fr; gap: 0; }
+      .footer-nav__col { border-bottom: 1px solid rgba(255,255,255,0.10); }
+      .footer-nav__col-title {
+        position: relative;
+        margin: 0;
+        padding: 15px 28px 15px 0;
+        border-bottom: 0;
+        font-size: 12.5px;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .footer-nav__col-title::after {
+        content: '';
+        position: absolute;
+        right: 6px; top: 50%;
+        width: 8px; height: 8px;
+        margin-top: -6px;
+        border-right: 2px solid rgba(255,255,255,0.55);
+        border-bottom: 2px solid rgba(255,255,255,0.55);
+        transform: rotate(45deg);
+        transition: transform .2s ease;
+      }
+      .footer-nav__col[open] > .footer-nav__col-title::after {
+        transform: rotate(-135deg);
+        margin-top: -2px;
+      }
+      .footer-nav__list {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 14px;
+        padding: 2px 0 16px;
+      }
+      .footer-nav__list a { font-size: 13px; line-height: 1.4; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .footer-nav__col-title::after { transition: none; }
+    }
   </style>
-  <div class="footer-nav">
+  <nav class="footer-nav" aria-label="Areas we serve and site sections">
     <div class="container">
       <div class="footer-nav__grid">
 
-        <div class="footer-nav__col">
-          <p class="footer-nav__col-title">Cities We Buy Houses In</p>
+        <details class="footer-nav__col footer-nav__col--cities" open>
+          <summary class="footer-nav__col-title">Cities We Buy Houses In</summary>
           <ul class="footer-nav__list">
             <li><a href="<?php echo esc_url( home_url('/where-we-buy/nashville/') ); ?>">Nashville</a></li>
             <li><a href="<?php echo esc_url( home_url('/where-we-buy/murfreesboro/') ); ?>">Murfreesboro</a></li>
@@ -51,10 +138,10 @@
             <li><a href="<?php echo esc_url( home_url('/where-we-buy/shelbyville/') ); ?>">Shelbyville</a></li>
             <li><a href="<?php echo esc_url( home_url('/where-we-buy/la-vergne/') ); ?>">La Vergne</a></li>
           </ul>
-        </div>
+        </details>
 
-        <div class="footer-nav__col">
-          <p class="footer-nav__col-title">Counties We Serve</p>
+        <details class="footer-nav__col footer-nav__col--counties" open>
+          <summary class="footer-nav__col-title">Counties We Serve</summary>
           <ul class="footer-nav__list">
             <li><a href="<?php echo esc_url( home_url('/where-we-buy/davidson-county/') ); ?>">Davidson County</a></li>
             <li><a href="<?php echo esc_url( home_url('/where-we-buy/rutherford-county/') ); ?>">Rutherford County</a></li>
@@ -69,10 +156,10 @@
             <li><a href="<?php echo esc_url( home_url('/where-we-buy/coffee-county/') ); ?>">Coffee County</a></li>
             <li><a href="<?php echo esc_url( home_url('/where-we-buy/putnam-county/') ); ?>">Putnam County</a></li>
           </ul>
-        </div>
+        </details>
 
-        <div class="footer-nav__col footer-nav__col--situations">
-          <p class="footer-nav__col-title">Situations We Help With</p>
+        <details class="footer-nav__col footer-nav__col--situations" open>
+          <summary class="footer-nav__col-title">Situations We Help With</summary>
           <ul class="footer-nav__list">
             <li><a href="<?php echo esc_url( home_url('/sell-house-as-is-tennessee/') ); ?>">Selling a house as-is</a></li>
             <li><a href="<?php echo esc_url( home_url('/sell-inherited-house-tennessee/') ); ?>">Inherited property</a></li>
@@ -83,10 +170,10 @@
             <li><a href="<?php echo esc_url( home_url('/sell-my-house-divorce-tennessee/') ); ?>">Divorce</a></li>
             <li><a href="<?php echo esc_url( home_url('/sell-my-house-relocating-tennessee/') ); ?>">Relocating</a></li>
           </ul>
-        </div>
+        </details>
 
-        <div class="footer-nav__col footer-nav__col--explore">
-          <p class="footer-nav__col-title">Explore</p>
+        <details class="footer-nav__col footer-nav__col--explore" open>
+          <summary class="footer-nav__col-title">Explore</summary>
           <ul class="footer-nav__list">
             <li><a href="<?php echo esc_url( home_url('/where-we-buy/') ); ?>">Where We Buy</a></li>
             <li><a href="<?php echo esc_url( home_url('/how-it-works/') ); ?>">How It Works</a></li>
@@ -96,11 +183,31 @@
             <li><a href="<?php echo esc_url( home_url('/faq/') ); ?>">FAQ</a></li>
             <li><a href="<?php echo esc_url( home_url('/blog/') ); ?>">Blog</a></li>
           </ul>
-        </div>
+        </details>
 
       </div>
     </div>
-  </div>
+  </nav>
+  <script>
+  /* Collapse the footer sections on phones only. Sections ship expanded, so if
+     this never runs the footer just stays open — same as before. */
+  (function () {
+    var mq = window.matchMedia('(max-width: 768px)');
+    var cols = document.querySelectorAll('.footer-nav .footer-nav__col');
+    if (!cols.length) return;
+    var touched = false;
+    function sync() {
+      if (touched) return;
+      for (var i = 0; i < cols.length; i++) cols[i].open = !mq.matches;
+    }
+    for (var i = 0; i < cols.length; i++) {
+      cols[i].addEventListener('toggle', function () { if (mq.matches) touched = true; });
+    }
+    sync();
+    if (mq.addEventListener) mq.addEventListener('change', function () { touched = false; sync(); });
+    else if (mq.addListener) mq.addListener(function () { touched = false; sync(); });
+  })();
+  </script>
 
   <div class="footer-divider"></div>
 
