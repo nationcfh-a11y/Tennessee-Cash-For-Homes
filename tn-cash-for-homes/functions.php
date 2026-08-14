@@ -676,8 +676,15 @@ function tcfh_seo_meta_tags() {
         echo '<meta name="description" content="' . esc_attr( $desc ) . '" />' . "\n";
     }
 
-    // Canonical
-    echo '<link rel="canonical" href="' . esc_url( $url ) . '" />' . "\n";
+    // Canonical: intentionally NOT emitted here. Rank Math owns the canonical
+    // tag sitewide and is correct on every indexable URL (verified 212/212 on
+    // 2026-08-14). This function used to echo a second canonical built from
+    // $url, which is wrong on archives: on the posts page is_page() is false,
+    // so $url fell through to a bare get_permalink() and returned the FIRST
+    // POST IN THE LOOP rather than the archive. That made /blog/ declare the
+    // newest blog post as its canonical, conflicting with Rank Math.
+    // $url is still used for og:url / twitter below and carries that same
+    // archive bug there; harmless for indexing, tracked separately.
 
     // Open Graph
     echo '<meta property="og:type" content="website" />' . "\n";
