@@ -248,3 +248,4 @@ Sell My House Fast in Nashville, TN: A Guide for Local Homeowners	https://tennes
 What Happens to Your Mortgage When You Sell Your House in Tennessee?	https://tennesseecashforhomes.com/what-happens-to-your-mortgage-when-you-sell-your-house-in-tennessee/
 Sell My House Fast in Murfreesboro, TN: A Guide for Local Homeowners	https://tennesseecashforhomes.com/sell-my-house-fast-in-murfreesboro-tn/
 What Happens When the Appraisal Comes in Low on Your Tennessee Home?	https://tennesseecashforhomes.com/what-happens-when-the-appraisal-comes-in-low-on-your-tennessee-home/
+How Long Does It Take to Sell a House in Tennessee?	https://tennesseecashforhomes.com/how-long-does-it-take-to-sell-a-house-in-tennessee/
