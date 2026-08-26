@@ -1831,6 +1831,77 @@ div.related-posts,
   display: none !important;
 }
 
+/* ── Google Preferred Sources (end of article) ── */
+.preferred-source {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 48px;
+  padding: 24px 26px;
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--green);
+  border-radius: 12px;
+}
+.preferred-source__text {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+.preferred-source__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin: 0 0 6px;
+  line-height: 1.4;
+}
+.preferred-source__copy {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--charcoal-light);
+  margin: 0;
+}
+.preferred-source__action {
+  /* publisher.js forces width:100%; min-height:60px onto the button element it
+     iframes into, so this parent must carry a definite width or the button
+     collapses. Reserving the height also stops the async iframe shifting layout. */
+  flex: 0 0 280px;
+  max-width: 100%;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+}
+/* Revealed by google-preferred-source.php only if publisher.js never rendered. */
+.preferred-source__fallback {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green-dark);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.preferred-source__fallback:hover {
+  background: var(--green-light);
+  border-color: var(--green);
+}
+
+@media (max-width: 640px) {
+  .preferred-source {
+    gap: 18px;
+    padding: 20px;
+  }
+  .preferred-source__action {
+    flex: 1 1 100%;
+  }
+}
+
 /* ── Related Posts (bottom of article) ── */
 .related-posts-bottom {
   margin-top: 48px;

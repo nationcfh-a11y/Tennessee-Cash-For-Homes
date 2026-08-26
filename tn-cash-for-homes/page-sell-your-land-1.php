@@ -364,39 +364,12 @@ echo wp_json_encode( array(
 ?>
 </script>
 
-<!-- LocalBusiness Schema -->
-<script type="application/ld+json">
 <?php
-echo wp_json_encode( array(
-    '@context'    => 'https://schema.org',
-    '@type'       => 'LocalBusiness',
-    'name'        => 'Tennessee Cash For Homes',
-    'description' => $meta_description,
-    'url'         => home_url( '/sell-your-land-1' ),
-    'telephone'   => '+1-615-801-8126',
-    'email'       => 'info@tncashforhomes.com',
-    'address'     => array(
-        '@type'           => 'PostalAddress',
-        'addressLocality' => 'Murfreesboro',
-        'addressRegion'   => 'TN',
-        'addressCountry'  => 'US',
-    ),
-    'areaServed'  => array(
-        '@type' => 'State',
-        'name'  => 'Tennessee',
-    ),
-    'aggregateRating' => array(
-        '@type'       => 'AggregateRating',
-        'ratingValue' => '5.0',
-        'reviewCount' => '50',
-    ),
-    'sameAs' => array(
-        'https://www.facebook.com/tennesseecashforhomes',
-        'https://www.instagram.com/tennesseecashforhomes/',
-    ),
-), JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT );
+// LocalBusiness schema is emitted centrally by tcfh_schema_localbusiness() in
+// functions.php, which already fires on this page via the 'sell-your-land-1'
+// slug. The bespoke copy that used to sit here duplicated it — two
+// LocalBusiness objects, each with its own aggregateRating.
 ?>
-</script>
 
 <!-- Service Schema -->
 <script type="application/ld+json">

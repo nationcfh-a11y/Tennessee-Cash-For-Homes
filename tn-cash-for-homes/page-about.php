@@ -15,45 +15,13 @@ if ( ! empty( $meta_description ) ) {
     update_post_meta( get_the_ID(), '_tcfh_meta_desc', $meta_description );
 }
 
-// LocalBusiness schema
-add_action( 'wp_head', function() {
-    $schema = array(
-        '@context'    => 'https://schema.org',
-        '@type'       => 'LocalBusiness',
-        'name'        => 'Tennessee Cash For Homes',
-        'description' => 'Family-owned, Christian based Tennessee cash home buyers with 9+ years of experience. We buy houses in any condition for a fair cash price. No repairs, no fees, no commissions.',
-        'url'         => home_url( '/about/' ),
-        'telephone'   => '+1-615-801-8126',
-        'email'       => 'info@tncashforhomes.com',
-        'image'       => get_template_directory_uri() . '/brand_assets/team-photo.webp',
-        'logo'        => get_template_directory_uri() . '/brand_assets/Tennessee%20Cash%20For%20Homes%20Logo.png',
-        'foundingDate' => '2017',
-        'address'     => array(
-            '@type'           => 'PostalAddress',
-            'addressLocality' => 'Murfreesboro',
-            'addressRegion'   => 'TN',
-            'addressCountry'  => 'US',
-        ),
-        'areaServed' => array(
-            '@type' => 'State',
-            'name'  => 'Tennessee',
-        ),
-        'aggregateRating' => array(
-            '@type'       => 'AggregateRating',
-            'ratingValue' => '5.0',
-            'reviewCount' => '50',
-            'bestRating'  => '5',
-        ),
-        'sameAs' => array(
-            'https://www.instagram.com/tennesseecashforhomes/',
-            'https://www.facebook.com/profile.php?id=61557645432215',
-            'https://www.youtube.com/@TennesseeCashForHomes',
-            'https://www.tiktok.com/@tennesseecashforhomes',
-            'https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815',
-        ),
-    );
-    echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) . '</script>' . "\n";
-} );
+// LocalBusiness schema is emitted centrally by tcfh_schema_localbusiness()
+// in functions.php, which already fires on this page via the 'about' slug.
+// The bespoke copy that used to live here duplicated it — two LocalBusiness
+// objects, each with its own aggregateRating, on every /about/ render.
+// The shared builder is a strict superset (adds streetAddress, postalCode,
+// geo, openingHoursSpecification, priceRange and the full sameAs list) and
+// takes this page's description from the $descriptions map in that function.
 
 get_header();
 

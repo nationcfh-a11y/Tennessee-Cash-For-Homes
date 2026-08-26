@@ -326,6 +326,8 @@
             </ol>
           </div>
 
+          <?php get_template_part( 'google-preferred-source' ); ?>
+
           <!-- Related Posts with Thumbnails -->
           <div class="related-posts-bottom">
             <h3 class="related-posts-bottom__title">Related Posts</h3>

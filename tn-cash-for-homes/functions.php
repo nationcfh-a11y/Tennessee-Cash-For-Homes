@@ -336,6 +336,35 @@ add_action( 'wp_head', function() {
 }, 1 );
 
 /**
+ * Google Preferred Sources — publisher.js library.
+ *
+ * Powers the opt-in button rendered by google-preferred-source.php at the end
+ * of every blog post. Readers who click it mark this domain as a preferred
+ * source on their own Google account, which surfaces our posts more often in
+ * Top Stories, AI Mode and AI Overviews for them.
+ *
+ * Docs: https://developers.google.com/search/docs/appearance/preferred-sources
+ *
+ * Loaded on single blog posts only — the button lives nowhere else, and this
+ * is a third-party request we don't want on landing pages tuned for LCP.
+ *
+ * The condition MUST stay identical to the guard at the top of
+ * google-preferred-source.php. If the two ever diverge you get a script with
+ * no button, or a button with no script. is_singular('post') rather than
+ * is_single() on purpose: is_single() is also true for attachments and for
+ * any future custom post type, both of which route through single.php.
+ */
+add_action( 'wp_head', function() {
+    if ( ! is_singular( 'post' ) ) {
+        return;
+    }
+    ?>
+    <!-- Google Preferred Sources -->
+    <script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
+    <?php
+}, 1 );
+
+/**
  * Preload the hero background image for each page template.
  * Most pages reference the hero via CSS url(); without a preload hint the
  * browser can't discover them until CSSOM is built, which delays LCP by
@@ -701,6 +730,30 @@ function tcfh_seo_meta_tags() {
 }
 
 /**
+ * ── Google Business Profile rating: single source of truth ──
+ *
+ * Every aggregateRating on the site reads from here. Do not hardcode the
+ * rating or the review count anywhere else — if this number appears in a
+ * second place it will drift, which is exactly what happened when the
+ * count sat at 82 in three separate files while production served 50.
+ *
+ * Verify against the live Google Business Profile before changing:
+ * https://www.google.com/search?q=Tennessee+Cash+For+Homes
+ *
+ * Last verified: 2026-08-26 — 5.0 across 87 reviews.
+ *
+ * Note this is the AGGREGATE only. The individual Review entities in
+ * tcfh_get_reviews() carry their own per-review ratings and are unrelated.
+ */
+function tcfh_google_rating() {
+    return array(
+        'rating' => '5.0',
+        'count'  => '87',
+        'best'   => '5',
+    );
+}
+
+/**
  * ── SEO: Shared LocalBusiness JSON-LD builder ──
  * Produces a consistent LocalBusiness schema object used across the site.
  * Callers override only what differs per page (type, name, description, url, areaServed, rating).
@@ -714,7 +767,6 @@ function tcfh_build_localbusiness_schema( $args = array() ) {
         'area_served'    => 'Tennessee',
         'price_range'    => 'Free cash offer',
         'include_rating' => true,
-        'review_count'   => 82,
     );
     $a = array_merge( $defaults, $args );
 
@@ -761,11 +813,12 @@ function tcfh_build_localbusiness_schema( $args = array() ) {
     );
 
     if ( $a['include_rating'] ) {
+        $rating = tcfh_google_rating();
         $schema['aggregateRating'] = array(
             '@type'       => 'AggregateRating',
-            'ratingValue' => '5.0',
-            'reviewCount' => (string) $a['review_count'],
-            'bestRating'  => '5',
+            'ratingValue' => $rating['rating'],
+            'reviewCount' => $rating['count'],
+            'bestRating'  => $rating['best'],
         );
     }
 
@@ -820,10 +873,24 @@ function tcfh_schema_localbusiness() {
         || in_array( get_page_template_slug(), $interior_templates, true );
 
     if ( $is_interior ) {
-        tcfh_print_jsonld( tcfh_build_localbusiness_schema( array(
+        $args = array(
             'url'  => get_permalink(),
             'type' => array( 'LocalBusiness', 'RealEstateAgent' ),
-        ) ) );
+        );
+
+        // /about/ and /sell-your-land-1/ used to emit their own LocalBusiness
+        // block with a page-specific description. Those blocks were removed
+        // (they duplicated this one); their descriptions are preserved here.
+        $descriptions = array(
+            'about'            => 'Family-owned, Christian based Tennessee cash home buyers with 9+ years of experience. We buy houses in any condition for a fair cash price. No repairs, no fees, no commissions.',
+            'sell-your-land-1' => 'We buy land in Tennessee for cash. Vacant lots, rural acreage, farm land, inherited land - any size, any condition. Get a fair cash offer in 24 hours. No fees or commissions.',
+        );
+        $slug = get_post_field( 'post_name', get_the_ID() );
+        if ( isset( $descriptions[ $slug ] ) ) {
+            $args['description'] = $descriptions[ $slug ];
+        }
+
+        tcfh_print_jsonld( tcfh_build_localbusiness_schema( $args ) );
     }
 }
 
