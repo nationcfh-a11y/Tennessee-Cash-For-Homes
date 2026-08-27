@@ -74,13 +74,26 @@
               // Foreclosure
               'foreclosure'       => 'IDxGsjY08N0',  // Top 3 Things If You're Facing Foreclosure
 
+              // Closing costs / Seller fees (before the broad 'for cash' catch-all)
+              'closing cost'      => '6ryN8tqQ5r4',  // What's the Process to Sell for Cash?
+              'closing fee'       => '6ryN8tqQ5r4',
+
               // Liens
               'lien'              => '9HHtMiOHO6A',  // Can I Sell My House With a Lien?
+
+              // Title defects (liens are the most common cloud on title)
+              'cloudy title'      => '9HHtMiOHO6A',
+              'clouded title'     => '9HHtMiOHO6A',
+              'title issue'       => '9HHtMiOHO6A',
+              'title defect'      => '9HHtMiOHO6A',
 
               // Foundation / Structural (before 'damage' to prevent wrong match)
               'foundation'        => 'C8TnMxC2Qc4',  // Selling Your House With Foundation Problems
               'structural'        => 'C8TnMxC2Qc4',
               'sinkhole'          => 'C8TnMxC2Qc4',  // Foundation Problems (closest match for ground/subsidence)
+
+              // Roof
+              'roof'              => 'YgRuGOhM8zk',  // Sell Your House As-Is (condition/major repair)
 
               // Inherited / Probate
               'inherit'           => 'W7_w-8opgd4',  // Inherited Property: Sell, Rent, or Keep?
@@ -99,7 +112,8 @@
               'manufactured'      => 'ygFO12fzqKQ',
 
               // Land (use specific phrases to avoid matching "landscape")
-              'sell land'         => 'F11zLCR3l2M',  // Sell Your Land for Cash
+              'acreage'           => 'F11zLCR3l2M',  // Sell Your Land for Cash
+              'sell land'         => 'F11zLCR3l2M',
               'buy land'          => 'F11zLCR3l2M',
               'your land'         => 'F11zLCR3l2M',
 
@@ -193,6 +207,9 @@
               'squatter'          => 'BYgds4l58_c',  // Squatters Rights in Tennessee
 
               // Offers / Fair / Lowball
+              'calculate their offer' => 'PzFyt0EbKsE',  // how the offer number is built
+              'calculate your offer'  => 'PzFyt0EbKsE',
+              'offer calculated'      => 'PzFyt0EbKsE',
               'lowball'           => 'PzFyt0EbKsE',  // Tired of Lowball Offers?
               'fair offer'        => 'PzFyt0EbKsE',
               'fair cash'         => 'PzFyt0EbKsE',
@@ -308,6 +325,8 @@
               </li>
             </ol>
           </div>
+
+          <?php get_template_part( 'google-preferred-source' ); ?>
 
           <!-- Related Posts with Thumbnails -->
           <div class="related-posts-bottom">

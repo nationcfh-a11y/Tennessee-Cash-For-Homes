@@ -336,6 +336,25 @@ add_action( 'wp_head', function() {
 }, 1 );
 
 /**
+ * Google Preferred Sources — publisher.js library.
+ *
+ * Powers the opt-in button rendered by google-preferred-source.php at the end
+ * of every blog post. Loaded on single blog posts only.
+ *
+ * The condition MUST stay identical to the guard at the top of
+ * google-preferred-source.php.
+ */
+add_action( 'wp_head', function() {
+    if ( ! is_singular( 'post' ) ) {
+        return;
+    }
+    ?>
+    <!-- Google Preferred Sources -->
+    <script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
+    <?php
+}, 1 );
+
+/**
  * Preload the hero background image for each page template.
  * Most pages reference the hero via CSS url(); without a preload hint the
  * browser can't discover them until CSSOM is built, which delays LCP by
