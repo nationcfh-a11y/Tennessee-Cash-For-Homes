@@ -26,10 +26,9 @@
  * exposes stable hooks for GTM to bind click triggers to:
  *
  *   #preferred-source-block        wrapper  [data-track="preferred-source"]
- *   .preferred-source__fallback    anchor   [data-track="preferred-source-fallback"]
  *
- * Only the fallback anchor is actually observable by a GTM click trigger. The
- * primary button is inside Google's iframe and cannot be measured from here.
+ * The button itself is inside Google's iframe and cannot be measured from the
+ * parent page, so only impressions of the wrapper are observable here.
  */
 
 // Explicit guard rather than relying on the template hierarchy. single.php is
@@ -41,8 +40,6 @@ if ( ! is_singular( 'post' ) ) {
     return;
 }
 
-// Domain-level only — Google ignores paths on the deeplink fallback.
-$tcfh_ps_domain = wp_parse_url( home_url(), PHP_URL_HOST );
 ?>
 <!-- ── GOOGLE PREFERRED SOURCES ── -->
 <aside class="preferred-source"
@@ -61,32 +58,20 @@ $tcfh_ps_domain = wp_parse_url( home_url(), PHP_URL_HOST );
       .preferred-source__action is sized in CSS to accommodate that.
     -->
     <div google-add-preferred-source-btn data-theme="light" data-lang="en"></div>
-
-    <!--
-      Fallback deeplink. Hidden by default and revealed only if publisher.js
-      never ran at all (script blocked by an extension or the network), so
-      readers never see two competing buttons.
-    -->
-    <a class="preferred-source__fallback"
-       data-track="preferred-source-fallback"
-       href="https://www.google.com/preferences/source?q=<?php echo rawurlencode( $tcfh_ps_domain ); ?>"
-       target="_blank" rel="noopener">Add us on Google</a>
   </div>
 </aside>
 
 <script>
 (function () {
-  var host = document.querySelector('.preferred-source__action');
-  if ( ! host ) return;
-  var slot = host.querySelector('[google-add-preferred-source-btn]');
-  var fallback = host.querySelector('.preferred-source__fallback');
+  var block = document.getElementById('preferred-source-block');
+  if ( ! block ) return;
+  var slot = block.querySelector('[google-add-preferred-source-btn]');
   // publisher.js is async; give it room to land before deciding it failed.
-  // It appends its iframe synchronously once it runs, so an empty slot at this
-  // point means the library never executed — not that the button failed to paint.
+  // An empty slot after this point means the library never executed, so hide
+  // the whole card rather than leaving an empty grey box at the end of the post.
   setTimeout(function () {
-    if ( slot && fallback && slot.children.length === 0 ) {
-      slot.style.display = 'none';
-      fallback.style.display = 'inline-flex';
+    if ( slot && slot.children.length === 0 ) {
+      block.style.display = 'none';
     }
   }, 3000);
 })();
