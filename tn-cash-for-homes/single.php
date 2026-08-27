@@ -361,6 +361,14 @@
             <a href="<?php echo esc_url( home_url( '/#hero-form' ) ); ?>" class="sidebar-cta__btn">Get My Cash Offer &rarr;</a>
           </div>
 
+          <!-- Table of Contents -->
+          <div class="sidebar-toc">
+            <h4 class="sidebar-toc__title">IN THIS ARTICLE</h4>
+            <nav class="sidebar-toc__nav" id="tocNav">
+              <!-- Populated by JS from h2 headings -->
+            </nav>
+          </div>
+
           <!-- Related Articles -->
           <div class="sidebar-related">
             <h4 class="sidebar-related__title">RELATED ARTICLES</h4>
@@ -396,14 +404,6 @@
             </ul>
           </div>
 
-          <!-- Table of Contents -->
-          <div class="sidebar-toc">
-            <h4 class="sidebar-toc__title">IN THIS ARTICLE</h4>
-            <nav class="sidebar-toc__nav" id="tocNav">
-              <!-- Populated by JS from h2 headings -->
-            </nav>
-          </div>
-
         </aside>
       </div>
     </div>
@@ -421,6 +421,12 @@
   if (!content || !tocNav) return;
 
   const headings = content.querySelectorAll('h2');
+
+  // Hide the whole "In This Article" card when there is nothing to list
+  if (headings.length < 2) {
+    var tocBox = tocNav.closest('.sidebar-toc');
+    if (tocBox) tocBox.style.display = 'none';
+  }
 
   headings.forEach(function(h, i) {
     const id = 'section-' + i;
