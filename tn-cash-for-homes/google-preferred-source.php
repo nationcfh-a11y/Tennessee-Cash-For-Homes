@@ -47,8 +47,8 @@ if ( ! is_singular( 'post' ) ) {
        data-track="preferred-source"
        aria-labelledby="preferred-source-title">
   <div class="preferred-source__text">
-    <p class="preferred-source__title" id="preferred-source-title">Want more Tennessee home-selling guides like this?</p>
-    <p class="preferred-source__copy">Add us as a preferred source and Google will show our articles more often when you search. It takes one click and you stay right on this page.</p>
+    <p class="preferred-source__title" id="preferred-source-title">Want more Tennessee home-selling guides?</p>
+    <p class="preferred-source__copy">Add us as a preferred source and Google will show our articles more often when you search. One click, and you stay on this page.</p>
   </div>
 
   <div class="preferred-source__action">
