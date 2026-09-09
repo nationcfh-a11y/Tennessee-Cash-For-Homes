@@ -743,6 +743,13 @@
     <div class="faq-list">
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFaq(this)">
+          Who can buy my house fast in Tennessee?
+          <div class="faq-icon"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer">Three kinds of buyers can actually close quickly, and they are not equally fast. A cash home buying company like Tennessee Cash For Homes buys with its own funds, so there is no lender, no appraisal contingency, and nothing to fall through at underwriting. An individual investor can also pay cash, though the timeline depends on whether their money is liquid and whether they intend to assign the contract to someone else. A traditional buyer using a mortgage is the slowest, usually 30 to 45 days, and that sale can still collapse late. We are a Middle Tennessee family owned business, we buy directly, and we can close in as little as 7 days on the date you choose.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
           Is the cash offer really free with no obligation?
           <div class="faq-icon"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
         </div>
