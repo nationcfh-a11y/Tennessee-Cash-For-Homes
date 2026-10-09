@@ -9,11 +9,12 @@
  *
  * Docs: https://developers.google.com/search/docs/appearance/preferred-sources
  *
- * The button itself is rendered by Google's publisher.js, which appends a
- * CROSS-ORIGIN IFRAME (news.google.com/swg/ui/v1/addpreferredsourcebuttoniframe)
- * inside the element carrying the `google-add-preferred-source-btn` attribute.
- * The real click therefore lands inside Google's document, not ours — nothing
- * in the parent page can observe it. See the analytics note below.
+ * The button itself is rendered by Google's publisher.js into an OPEN SHADOW
+ * ROOT attached to the element carrying the `google-add-preferred-source-btn`
+ * attribute: a <publisher-md-outlined-button> custom element, roughly 218x40.
+ * Nothing is added to the light DOM, so slot.children is always empty even
+ * when the button is on screen. (Older versions of publisher.js appended a
+ * cross-origin iframe instead; the script below still accepts that.)
  *
  * publisher.js is loaded in <head> under the identical is_singular('post')
  * condition — see functions.php.
@@ -28,38 +29,24 @@
  *   #preferred-source-block        wrapper  [data-track="preferred-source"]
  *   .preferred-source__fallback    anchor   [data-track="preferred-source-fallback"]
  *
- * Only the fallback anchor is actually observable by a GTM click trigger. The
- * primary button is inside Google's iframe and cannot be measured from here.
+ * Clicks inside the shadow root are retargeted to the slot element, so a GTM
+ * click trigger sees them on [google-add-preferred-source-btn], not on
+ * Google's inner button.
  *
- * ── WHY THE SCRIPT BELOW IS NOT JUST A TIMEOUT ──
- * It used to be: after 3s, if the slot had no children, hide the slot and show
- * the fallback, permanently. That produced an intermittently missing button two
- * ways. If publisher.js landed after the 3s mark it rendered into a slot that
- * was already display:none, so nothing was visible at all. And a slot with a
- * child was assumed healthy, so an iframe Google rendered and then collapsed to
- * zero height (which happens when it re-measures, e.g. on the resize a mobile
- * URL-bar show/hide fires while scrolling to the bottom of a post) left an
- * empty box with the fallback still hidden.
+ * ── WHY THE BUTTON KEPT DISAPPEARING ──
+ * Every earlier version of the script below decided whether Google's button
+ * existed by looking at the slot's light-DOM children (or for an iframe in
+ * them). Because the button lives in a shadow root, that check always said
+ * "missing". The first version hid the whole card after 3s; the next one
+ * parked Google's working button off-screen after 3s and swapped in the
+ * fallback link, which readers saw as the button changing while they scrolled.
  *
- * Judging the slot by rendered height fixed the detection. It did not fix the
- * two ways the block could still end up showing NOTHING for the rest of the
- * page's life:
- *
- *   1. Nothing re-checked after the first few seconds. The listeners were
- *      resize / orientationchange / load / pageshow plus a poll that stopped
- *      after 12 ticks. Scrolling fires none of those on desktop, so a button
- *      that collapsed as the reader scrolled past it was never re-evaluated.
- *   2. The settle timer could clear itself into a dead end. If isHealthy() went
- *      momentarily true at the instant the timer fired, the timer exited
- *      without setting a state and without rearming, leaving an empty slot and
- *      a hidden fallback until some other event happened to fire.
- *
- * The rule now is that the block is never allowed to show nothing. After a
- * short initial grace for publisher.js to load, the state is always exactly one
- * of "Google's button is confirmed painted" or "the fallback link is visible",
- * and every timer path ends by committing to one of them. Detection is
- * scroll-aware and keeps a slow heartbeat for the life of the page, so a late
- * render or a recovery still hands the space back to the real button.
+ * The rule now: Google's button is the button. Once it has been seen painted
+ * at a real size it is locked in for the life of the page and the script
+ * stops watching. The fallback link appears only if Google's button has not
+ * painted by the end of the grace period (script blocked, network failure),
+ * and even then a late render takes the space back. There is never a swap
+ * away from Google's button.
  */
 
 // Explicit guard rather than relying on the template hierarchy. single.php is
@@ -86,16 +73,16 @@ $tcfh_ps_domain = wp_parse_url( home_url(), PHP_URL_HOST );
 
   <div class="preferred-source__action" id="preferred-source-action">
     <!--
-      Google appends its iframe into this element and overwrites its inline
-      styles with position:relative; width:100%; min-height:60px — the parent
-      .preferred-source__action is sized in CSS to accommodate that.
+      Google attaches a shadow root to this element and renders its button
+      inside it. The parent .preferred-source__action reserves the height so
+      the async render does not shift layout.
     -->
     <div class="preferred-source__slot" google-add-preferred-source-btn data-theme="light" data-lang="en"></div>
 
     <!--
-      Fallback deeplink. Hidden by default and revealed only while Google's
-      button is absent or collapsed, so readers never see two competing
-      buttons and never see an empty box. See the script below.
+      Fallback deeplink. Hidden by default and revealed only if Google's
+      button has not painted by the end of the grace period, so readers never
+      see two competing buttons and never see an empty box. See the script.
     -->
     <a class="preferred-source__fallback"
        data-track="preferred-source-fallback"
@@ -112,153 +99,73 @@ $tcfh_ps_domain = wp_parse_url( home_url(), PHP_URL_HOST );
   var fallback = host.querySelector('.preferred-source__fallback');
   if ( ! slot || ! fallback ) return;
 
-  // A rendered Google button is an iframe roughly 40-60px tall. Anything
-  // shorter than this is a slot that is empty, still loading, or one Google
-  // rendered into and then collapsed.
+  // Google's button is ~40px tall. Anything shorter has not painted yet.
   var MIN_HEIGHT = 24;
   // Grace for the async publisher.js load. Until it expires the block shows
-  // neither control and just holds its reserved height, which is what keeps a
-  // normal page load from flashing the fallback before Google's button lands.
+  // neither control and just holds its reserved height, so a normal page load
+  // never flashes the fallback before Google's button lands.
   var GRACE_MS = 3000;
-  // Once grace is over an unhealthy slot must surface the fallback. This delay
-  // exists only to ride out the frame or two Google blanks its iframe for while
-  // re-measuring; it is deliberately short, because every millisecond of it is
-  // a millisecond the reader sees an empty box.
-  var SHOW_FALLBACK_MS = 250;
 
-  var started = Date.now();
-  var timer = null;
-  var scheduled = false;
-  var graceOver = false;
+  var locked = false;
+  var observer = null;
+  var poll = null;
 
-  function isHealthy() {
-    // Measure the injected iframe, NOT the slot: publisher.js writes an inline
-    // min-height:60px onto the slot, so the slot looks tall even when the
-    // iframe inside it has collapsed to nothing.
-    var el = slot.querySelector('iframe') || slot.firstElementChild;
+  function googleButton() {
+    // Current publisher.js: a custom element inside an open shadow root.
+    if ( slot.shadowRoot ) {
+      var inner = slot.shadowRoot.querySelector('publisher-md-outlined-button') ||
+                  slot.shadowRoot.querySelector('button, [role="button"]');
+      if ( inner ) return inner;
+    }
+    // Older publisher.js: a cross-origin iframe in the light DOM.
+    return slot.querySelector('iframe') || slot.firstElementChild;
+  }
+
+  function isPainted() {
+    var el = googleButton();
     if ( ! el ) return false;
     // In fallback state the slot is parked off-screen at a real width, so the
-    // iframe still lays out and still reports a height. That is what lets the
-    // button come back if Google renders late or recovers from a collapse.
+    // button still lays out and reports a size. That is what lets a late
+    // render take the space back.
     var box = el.getBoundingClientRect();
     return box.width > 0 && box.height >= MIN_HEIGHT;
   }
 
-  // The single place the visible state changes. Every path that can end a timer
-  // goes through here, so the block cannot come to rest showing nothing.
-  function commit( healthy ) {
-    if ( timer ) { clearTimeout( timer ); timer = null; }
-    host.classList.toggle( 'is-fallback', ! healthy );
-  }
-
-  function apply() {
-    scheduled = false;
-
-    if ( isHealthy() ) {
-      // Reclaim the space for the real button immediately. There is no gap to
-      // cover here: the fallback is only replaced by something else visible.
-      graceOver = true;
-      commit( true );
-      return;
-    }
-
-    if ( ! graceOver && Date.now() - started < GRACE_MS ) {
-      // Still inside the initial load window. Show neither, but guarantee a
-      // re-check at the moment grace ends so this cannot stall here.
-      if ( ! timer ) {
-        timer = setTimeout(function () {
-          timer = null;
-          graceOver = true;
-          apply();
-        }, Math.max( 0, GRACE_MS - ( Date.now() - started ) ) + 50 );
-      }
-      return;
-    }
-
-    graceOver = true;
-
-    if ( host.classList.contains('is-fallback') || timer ) return;
-
-    timer = setTimeout(function () {
-      timer = null;
-      // Commit either way. The old code returned without setting a state when
-      // the slot looked healthy at this instant, which is how the block got
-      // stuck blank.
-      commit( isHealthy() );
-    }, SHOW_FALLBACK_MS );
+  // Google's button has painted: show it and never look again. Re-measuring
+  // after this point is what used to swap a working button for the fallback.
+  function lockToGoogle() {
+    locked = true;
+    host.classList.remove('is-fallback');
+    if ( observer ) observer.disconnect();
+    if ( poll ) clearInterval( poll );
   }
 
   function check() {
-    if ( scheduled ) return;
-    scheduled = true;
-    requestAnimationFrame( apply );
+    if ( ! locked && isPainted() ) lockToGoogle();
   }
 
-  // The slot's own height is pinned by publisher.js (inline min-height:60px),
-  // so it does not move when the iframe inside it collapses. Observe the iframe
-  // itself as soon as one shows up.
-  var sizeObserver = window.ResizeObserver ? new ResizeObserver( check ) : null;
-  var watchedFrame = null;
-  function watchFrame() {
-    var frame = slot.querySelector('iframe');
-    if ( ! frame || frame === watchedFrame ) return;
-    if ( sizeObserver && watchedFrame ) sizeObserver.unobserve( watchedFrame );
-    watchedFrame = frame;
-    if ( sizeObserver ) sizeObserver.observe( frame );
-    // A cross-origin iframe still fires load/error on the parent side.
-    frame.addEventListener('load', check);
-  }
-
-  // publisher.js injects its iframe whenever it finishes loading, which may be
-  // well after this script parses. attributes:true matters as much as
-  // childList: Google resizes the iframe by rewriting its style attribute, and
-  // a collapse to zero height is exactly that and nothing else.
+  // publisher.js marks the slot data-initialized and attaches its shadow root
+  // whenever it finishes loading, which may be after this script parses.
   if ( window.MutationObserver ) {
-    new MutationObserver(function () {
-      watchFrame();
-      check();
-    }).observe( slot, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: ['style', 'height', 'width', 'hidden']
-    });
+    observer = new MutationObserver( check );
+    observer.observe( slot, { attributes: true, childList: true } );
   }
-  if ( sizeObserver ) sizeObserver.observe( slot );
-  watchFrame();
-
-  // Scrolling is the interaction that actually exposed the bug: on desktop it
-  // fires no resize, so without this the button could collapse as the reader
-  // moved past it and nothing would ever look again.
-  window.addEventListener('scroll', check, { passive: true });
-  window.addEventListener('resize', check, { passive: true });
-  window.addEventListener('orientationchange', check, { passive: true });
-  window.addEventListener('load', check);
-  // Back/forward cache restores can resurrect a stale collapsed iframe.
-  window.addEventListener('pageshow', check);
-  document.addEventListener('visibilitychange', function () {
-    if ( ! document.hidden ) check();
-  });
-
-  // Heartbeat. Fast while the page settles, then slow but never cancelled:
-  // without a standing check, a browser with no ResizeObserver, or a collapse
-  // that fires no observable mutation, would leave the block stranded. The work
-  // is one getBoundingClientRect, and it is skipped while the tab is hidden.
+  // A shadow root's contents fire no mutations on the host, so poll as well:
+  // quickly while the page settles, then slowly in case the library is late.
   var ticks = 0;
-  var heartbeat = setInterval(function () {
+  poll = setInterval(function () {
     ticks++;
-    if ( document.hidden ) return;
-    watchFrame();
     check();
-    if ( ticks === 15 ) {
-      clearInterval( heartbeat );
-      heartbeat = setInterval(function () {
-        if ( document.hidden ) return;
-        watchFrame();
-        check();
-      }, 5000 );
+    if ( ticks === 20 && ! locked ) {
+      clearInterval( poll );
+      poll = setInterval( check, 5000 );
     }
-  }, 1000 );
+  }, 250 );
+
+  setTimeout(function () {
+    check();
+    if ( ! locked ) host.classList.add('is-fallback');
+  }, GRACE_MS );
 
   check();
 })();
