@@ -1853,6 +1853,7 @@ div.related-posts,
   min-height: 60px;
   display: flex;
   align-items: center;
+  position: relative; /* containing block for the parked slot below */
 }
 /* Wide basis so the copy wraps to few lines: the card's height is driven by
    this column, and every extra line becomes dead space beside the button. */
@@ -1873,6 +1874,45 @@ div.related-posts,
   line-height: 1.55;
   color: var(--charcoal-light);
   margin: 0;
+}
+.preferred-source__slot {
+  width: 100%;
+}
+/* Fallback state, set by google-preferred-source.php when Google's button is
+   missing or has collapsed. The slot is parked off-screen rather than set to
+   display:none: it keeps laying out at a real width, so a late or recovered
+   publisher.js render still reports a height and the script can hand the space
+   back to the real button. */
+.preferred-source__action.is-fallback .preferred-source__slot {
+  /* !important is load-bearing: publisher.js writes position:relative and
+     width:100% as INLINE styles on this element, and an inline style beats a
+     class rule. */
+  position: absolute !important;
+  top: 0;
+  left: -9999px;
+  width: 260px;
+  pointer-events: none;
+}
+.preferred-source__action.is-fallback .preferred-source__fallback {
+  display: inline-flex;
+}
+.preferred-source__fallback {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green-dark);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.preferred-source__fallback:hover {
+  background: var(--green-light);
+  border-color: var(--green);
 }
 
 @media (max-width: 640px) {
