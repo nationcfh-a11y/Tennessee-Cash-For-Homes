@@ -1326,7 +1326,14 @@ add_filter( 'jetpack_sitemap_skip_post', function( $skip, $post ) {
 }, 10, 2 );
 
 function tcfh_sitemap_skip_orphan_media( $skip, $post ) {
-    if ( empty( $post->post_parent ) || 'publish' !== get_post_status( $post->post_parent ) ) {
+    if ( empty( $post->post_parent ) ) {
+        return true;
+    }
+    // Customizer crops (site icon, logo) are parented to the original upload,
+    // whose attachment page Rank Math also 301s. get_post_status() reports an
+    // unattached attachment as 'publish', so check the type explicitly.
+    $parent = get_post( $post->post_parent );
+    if ( ! $parent || 'attachment' === $parent->post_type || 'publish' !== get_post_status( $parent ) ) {
         return true;
     }
     return $skip;
