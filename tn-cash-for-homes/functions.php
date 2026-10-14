@@ -1300,6 +1300,41 @@ function tcfh_render_sitemap() {
 }
 
 /**
+ * ── SEO: keep Jetpack's sitemap to final, indexable URLs ──
+ *
+ * Jetpack, not the tcfh_sitemap route above, is what actually answers
+ * /sitemap.xml. Left alone it lists:
+ *   - Every upload with no parent post in image-sitemap-1.xml. Jetpack falls
+ *     back to the attachment page as the <loc>, and Rank Math 301s attachment
+ *     pages to the homepage, so each one shows in Search Console as a redirect.
+ *   - Pages that only exist to redirect (see tcfh_handle_legacy_redirects)
+ *     or are noindex (/thank-you/).
+ */
+function tcfh_sitemap_excluded_slugs() {
+    return array( 'blog-home', 'thank-you' );
+}
+
+add_filter( 'jetpack_sitemap_skip_post', function( $skip, $post ) {
+    if ( in_array( $post->post_name, tcfh_sitemap_excluded_slugs(), true ) ) {
+        return true;
+    }
+    $robots = get_post_meta( $post->ID, 'rank_math_robots', true );
+    if ( is_array( $robots ) && in_array( 'noindex', $robots, true ) ) {
+        return true;
+    }
+    return $skip;
+}, 10, 2 );
+
+function tcfh_sitemap_skip_orphan_media( $skip, $post ) {
+    if ( empty( $post->post_parent ) || 'publish' !== get_post_status( $post->post_parent ) ) {
+        return true;
+    }
+    return $skip;
+}
+add_filter( 'jetpack_sitemap_image_skip_post', 'tcfh_sitemap_skip_orphan_media', 10, 2 );
+add_filter( 'jetpack_sitemap_video_skip_post', 'tcfh_sitemap_skip_orphan_media', 10, 2 );
+
+/**
  * ── SEO: robots.txt ──
  */
 add_filter( 'robots_txt', function( $output, $public ) {
