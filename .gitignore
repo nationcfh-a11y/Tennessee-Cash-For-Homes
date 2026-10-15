@@ -1,5 +1,6 @@
 .env
 .DS_Store
+gsc-exports/
 node_modules/
 gsc-dashboard/client_secret*.json
 gsc-dashboard/token.json
