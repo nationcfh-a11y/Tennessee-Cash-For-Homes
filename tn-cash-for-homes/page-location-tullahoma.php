@@ -3,8 +3,8 @@
  * Template Name: Location - Tullahoma
  *
  * SEO - enter in Yoast / RankMath:
- *   Meta Title:       We Buy Houses in Tullahoma TN | Get a Fast Cash Offer Today
- *   Meta Description: We buy houses in Tullahoma for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today, with offers built around Tullahoma\'s Arnold Air Force Base market.
+ *   Meta Title:       Sell My House Fast in Tullahoma TN | Cash Offer in 24 Hours
+ *   Meta Description: Selling a house in Tullahoma or anywhere in Coffee County? Get a fair cash offer in 24 hours, sell as-is, pay no fees, and close on your date.
  */
 
 $city = [
@@ -13,8 +13,8 @@ $city = [
     'name'          => 'Tullahoma',
     'image_file'    => 'Tullahoma.webp',
     'h1'            => 'Sell Your House For Cash In Tullahoma, TN',
-    'meta_title'    => 'We Buy Houses in Tullahoma TN | Get a Fast Cash Offer Today',
-    'meta_desc'     => 'We buy houses in Tullahoma for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today, with offers built around Tullahoma\'s Arnold Air Force Base market.',
+    'meta_title'    => 'Sell My House Fast in Tullahoma TN | Cash Offer in 24 Hours',
+    'meta_desc'     => 'Selling a house in Tullahoma or anywhere in Coffee County? Get a fair cash offer in 24 hours, sell as-is, pay no fees, and close on your date.',
     'median_price'  => '$315,000',
     'homes_sold'    => '85',
     'avg_days'      => '68',
