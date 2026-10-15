@@ -112,7 +112,12 @@ def main():
         sys.exit("Refusing to run:\n  " + "\n  ".join(problems))
 
     env = load_env(ROOT / ".env")
-    base = env["WP_URL"].rstrip("/")
+    # WP_URL is the wpcomstaging address, which 301s to the primary domain. urllib
+    # re-sends a redirected POST as a bodyless GET, so resolve the final host first.
+    with urllib.request.urlopen(urllib.request.Request(
+            env["WP_URL"].rstrip("/") + "/wp-json/", headers={"User-Agent": "tcfh-seo-meta/1.0"}), timeout=30) as r:
+        base = r.geturl().rstrip("/").removesuffix("/wp-json")
+    time.sleep(PAUSE)
     auth = base64.b64encode(f"{env['WP_USERNAME']}:{env['WP_APP_PASSWORD'].replace(' ', '')}".encode()).decode()
 
     print(("APPLYING" if args.apply else "DRY RUN (nothing will be written)") + (" / REVERT" if args.revert else ""))
