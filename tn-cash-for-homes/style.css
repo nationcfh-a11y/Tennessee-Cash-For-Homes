@@ -1121,6 +1121,59 @@ img { display: block; max-width: 100%; }
   text-decoration: underline;
 }
 
+/* ── CITIES BY COUNTY (homepage) / NEARBY AREAS (city pages) ── */
+.county-cities {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.county-cities__group {
+  background: var(--white);
+  border: 1.5px solid rgba(132, 204, 156, 0.35);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.county-cities__county {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--charcoal-light);
+  margin: 0 0 10px;
+}
+
+.county-cities__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.county-cities__list li + li { margin-top: 8px; }
+
+.county-cities__list a {
+  color: var(--green-dark);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.county-cities__list a:hover { text-decoration: underline; }
+
+.nearby-areas__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nearby-areas__list .city-chip { padding: 13px 18px; font-size: 14px; }
+
 /* ── CTA BAND ── */
 .cta-band {
   background: #ffffff;

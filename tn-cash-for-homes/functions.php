@@ -674,9 +674,10 @@ function tcfh_seo_meta_tags() {
     $phone       = '(615) 801-8126';
 
     if ( is_front_page() ) {
-        $title = 'Tennessee Cash For Homes | Sell Your House Fast for Cash';
-        $desc  = 'Sell your Tennessee house fast for cash. No repairs, no fees, no commissions. Get a fair all-cash offer in 24 hours. Close in as little as 7 days. Family-owned Tennessee home buyers.';
-        $url   = home_url( '/' );
+        // Rank Math prints the homepage description, og: and twitter: tags
+        // (filtered to TCFH_HOME_TITLE / TCFH_HOME_DESC below). Printing them
+        // here too gave the homepage two of each.
+        return;
     } elseif ( is_page() ) {
         $title = wp_get_document_title();
         $desc  = get_post_meta( get_the_ID(), '_tcfh_meta_desc', true );
@@ -740,7 +741,8 @@ function tcfh_build_localbusiness_schema( $args = array() ) {
         'area_served'    => 'Tennessee',
         'price_range'    => 'Free cash offer',
         'include_rating' => true,
-        'review_count'   => 50,
+        'review_count'   => tcfh_review_count(),
+        'id'             => '',
     );
     $a = array_merge( $defaults, $args );
 
@@ -784,6 +786,10 @@ function tcfh_build_localbusiness_schema( $args = array() ) {
         ),
     );
 
+    if ( $a['id'] ) {
+        $schema = array( '@id' => $a['id'] ) + $schema;
+    }
+
     if ( $a['include_rating'] ) {
         $schema['aggregateRating'] = array(
             '@type'       => 'AggregateRating',
@@ -810,7 +816,11 @@ function tcfh_print_jsonld( $schema ) {
 add_action( 'wp_head', 'tcfh_schema_localbusiness' );
 function tcfh_schema_localbusiness() {
     if ( is_front_page() ) {
-        tcfh_print_jsonld( tcfh_build_localbusiness_schema() );
+        // Same @id as Rank Math's Organization node, so search engines read
+        // the two blocks as one business rather than two.
+        tcfh_print_jsonld( tcfh_build_localbusiness_schema( array(
+            'id' => home_url( '/#organization' ),
+        ) ) );
         return;
     }
 
@@ -1076,6 +1086,12 @@ function tcfh_get_reviews() {
         array( 'author' => 'Christopher Payne', 'rating' => 5, 'date' => '2025-07-22', 'body' => 'Great experience working with these guys. The whole process went super fast, and easy. Both Davis and Dowling were true to their word which is very important when doing business. I would work with them again any day.' ),
         array( 'author' => 'Chris Iannotti',    'rating' => 5, 'date' => '2025-09-03', 'body' => 'Nothing but a great experience start to finish. All of my questions were answered and they were quick to respond when needed.' ),
     );
+}
+
+// aggregateRating counts the reviews actually marked up, so it can't drift
+// from the Review entities printed below.
+function tcfh_review_count() {
+    return count( tcfh_get_reviews() );
 }
 
 add_action( 'wp_head', 'tcfh_schema_reviews' );
@@ -1354,13 +1370,39 @@ add_filter( 'robots_txt', function( $output, $public ) {
 }, 10, 2 );
 
 /**
- * ── SEO: Set homepage title tag ──
+ * ── SEO: Homepage title, description, and social tags ──
+ * One source for every homepage title/description Rank Math prints
+ * (<title>, meta description, og:, twitter:). Title stays under 60
+ * characters and description under 155.
  */
+const TCFH_HOME_TITLE = 'Sell My House Fast Tennessee | Tennessee Cash For Homes';
+const TCFH_HOME_DESC  = 'Cash home buyers in Tennessee. We buy houses in any condition, pay closing costs, and close in as little as 7 days. Get your free cash offer today.';
+
 add_filter( 'pre_get_document_title', function( $title ) {
-    if ( is_front_page() ) {
-        return 'Tennessee Cash For Homes | Sell Your House Fast for Cash';
+    return is_front_page() ? TCFH_HOME_TITLE : $title;
+}, 99 );
+
+foreach ( array( 'rank_math/frontend/title', 'rank_math/opengraph/facebook/og_title', 'rank_math/opengraph/twitter/twitter_title' ) as $tcfh_hook ) {
+    add_filter( $tcfh_hook, function( $title ) {
+        return is_front_page() ? TCFH_HOME_TITLE : $title;
+    }, 99 );
+}
+foreach ( array( 'rank_math/frontend/description', 'rank_math/opengraph/facebook/og_description', 'rank_math/opengraph/twitter/twitter_description' ) as $tcfh_hook ) {
+    add_filter( $tcfh_hook, function( $desc ) {
+        return is_front_page() ? TCFH_HOME_DESC : $desc;
+    }, 99 );
+}
+
+// Rank Math's Organization node printed the phone as "(615) 801-8126" and the
+// URL without a trailing slash; match the theme's LocalBusiness exactly.
+add_filter( 'rank_math/json_ld', function( $data ) {
+    foreach ( $data as $key => $entity ) {
+        if ( is_array( $entity ) && ( $entity['@id'] ?? '' ) === home_url( '/#organization' ) ) {
+            $data[ $key ]['telephone'] = '+1-615-801-8126';
+            $data[ $key ]['url']       = home_url( '/' );
+        }
     }
-    return $title;
+    return $data;
 }, 99 );
 
 /**

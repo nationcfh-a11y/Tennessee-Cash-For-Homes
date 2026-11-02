@@ -98,7 +98,6 @@
       "Bash(git -C \"/Users/karsoncarmichael/Claude Code Website Creator\" add tn-cash-for-homes/page-investors-lenders.php)",
       "Bash(git -C \"/Users/karsoncarmichael/Claude Code Website Creator\" commit -m \"Remove Ready to Talk section from Investors and Lenders page\")",
       "Bash(git -C \"/Users/karsoncarmichael/Claude Code Website Creator\" push)",
-      "Bash(curl -s -u \"nationcfh:46Vb FCVr 2N44 BqkP hBF8 e7T0\" \"https://nationcfh.wpcomstaging.com/wp-json/wp/v2/pages?slug=anderson-county&per_page=1\")",
       "Bash(curl -s -A \"Mozilla/5.0\" \"https://tennesseecashforhomes.com/\" -o /tmp/tncfh_home.html -w \"HTTP_CODE:%{http_code}\\\\nTIME:%{time_total}\\\\nSIZE:%{size_download}\\\\n\")"
     ],
     "additionalDirectories": [

@@ -41,7 +41,7 @@ add_action( 'wp_head', function() {
         'aggregateRating' => array(
             '@type'       => 'AggregateRating',
             'ratingValue' => '5.0',
-            'reviewCount' => '50',
+            'reviewCount' => (string) tcfh_review_count(),
             'bestRating'  => '5',
         ),
         'sameAs' => array(

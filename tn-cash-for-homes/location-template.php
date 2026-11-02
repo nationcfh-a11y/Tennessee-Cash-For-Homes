@@ -309,7 +309,59 @@ $gov_name       = $name;
 $gov_county_key = ! empty( $city['county'] ) ? $city['county'] : '';
 $gov_type       = 'city';
 include get_template_directory() . '/gov-resources-section.php';
+
+// ── Nearby areas: 3 to 5 geographically close city pages, keyed by $city['slug'].
+// Values are URL slugs (Mt. Juliet's page lives at /mount-juliet/).
+$nearby_names = array(
+    'nashville' => 'Nashville', 'franklin' => 'Franklin', 'brentwood' => 'Brentwood',
+    'spring-hill' => 'Spring Hill', 'columbia' => 'Columbia', 'murfreesboro' => 'Murfreesboro',
+    'smyrna' => 'Smyrna', 'la-vergne' => 'La Vergne', 'clarksville' => 'Clarksville',
+    'hendersonville' => 'Hendersonville', 'gallatin' => 'Gallatin', 'lebanon' => 'Lebanon',
+    'mount-juliet' => 'Mt. Juliet', 'springfield' => 'Springfield', 'dickson' => 'Dickson',
+    'shelbyville' => 'Shelbyville', 'tullahoma' => 'Tullahoma', 'cookeville' => 'Cookeville',
+);
+$nearby_map = array(
+    'nashville'      => array( 'brentwood', 'la-vergne', 'hendersonville', 'mount-juliet', 'franklin' ),
+    'franklin'       => array( 'brentwood', 'spring-hill', 'nashville', 'columbia' ),
+    'brentwood'      => array( 'franklin', 'nashville', 'spring-hill', 'smyrna' ),
+    'spring-hill'    => array( 'columbia', 'franklin', 'brentwood', 'shelbyville' ),
+    'columbia'       => array( 'spring-hill', 'franklin', 'shelbyville', 'dickson' ),
+    'murfreesboro'   => array( 'smyrna', 'la-vergne', 'shelbyville', 'tullahoma', 'lebanon' ),
+    'smyrna'         => array( 'la-vergne', 'murfreesboro', 'nashville', 'brentwood' ),
+    'la-vergne'      => array( 'smyrna', 'murfreesboro', 'nashville', 'mount-juliet' ),
+    'clarksville'    => array( 'springfield', 'dickson', 'nashville' ),
+    'hendersonville' => array( 'gallatin', 'nashville', 'mount-juliet', 'springfield' ),
+    'gallatin'       => array( 'hendersonville', 'lebanon', 'springfield', 'mount-juliet' ),
+    'lebanon'        => array( 'mount-juliet', 'gallatin', 'murfreesboro', 'cookeville' ),
+    'mt-juliet'      => array( 'lebanon', 'hendersonville', 'la-vergne', 'nashville' ),
+    'springfield'    => array( 'clarksville', 'hendersonville', 'gallatin', 'nashville' ),
+    'dickson'        => array( 'clarksville', 'franklin', 'columbia', 'nashville' ),
+    'shelbyville'    => array( 'tullahoma', 'murfreesboro', 'columbia' ),
+    'tullahoma'      => array( 'shelbyville', 'murfreesboro', 'columbia' ),
+    'cookeville'     => array( 'lebanon', 'mount-juliet', 'murfreesboro' ),
+);
+$nearby = ! empty( $nearby_map[ $slug ] ) ? $nearby_map[ $slug ] : array();
 ?>
+
+<?php if ( $nearby ) : ?>
+<!-- ── NEARBY AREAS ── -->
+<section class="section nearby-areas">
+  <div class="container">
+    <div class="section__header section__header--center">
+      <p class="section__eyebrow">Near <?php echo esc_html( $name ); ?></p>
+      <h2 class="section__title">Nearby Areas We Buy In</h2>
+    </div>
+    <ul class="nearby-areas__list">
+      <?php foreach ( $nearby as $i => $nearby_slug ) :
+        $nearby_name = $nearby_names[ $nearby_slug ];
+        $anchor      = ( $i % 2 ) ? $nearby_name . ' cash home buyers' : 'Sell my house fast in ' . $nearby_name;
+      ?>
+        <li><a href="<?php echo esc_url( home_url( '/where-we-buy/' . $nearby_slug . '/' ) ); ?>" class="city-chip"><?php echo esc_html( $anchor ); ?></a></li>
+      <?php endforeach; ?>
+    </ul>
+  </div>
+</section>
+<?php endif; ?>
 
 <!-- ── AREAS WE SERVE ── -->
 <section class="section section--alt">

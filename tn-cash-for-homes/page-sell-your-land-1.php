@@ -388,7 +388,7 @@ echo wp_json_encode( array(
     'aggregateRating' => array(
         '@type'       => 'AggregateRating',
         'ratingValue' => '5.0',
-        'reviewCount' => '50',
+        'reviewCount' => (string) tcfh_review_count(),
     ),
     'sameAs' => array(
         'https://www.facebook.com/tennesseecashforhomes',
