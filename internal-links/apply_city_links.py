@@ -11,7 +11,7 @@ Rows with "find"/"replace" change an existing link instead. The find text must
 appear exactly once in the post (or at least once when the row sets "all"),
 or the row is skipped.
 
-usage: python3 apply_city_links.py [--apply] [--only POST_ID ...]
+usage: python3 apply_city_links.py [--apply] [--only POST_ID ...] [--plan FILE]
 """
 import argparse, base64, json, os, re, urllib.error, urllib.request
 
@@ -65,6 +65,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--apply', action='store_true')
     ap.add_argument('--only', nargs='*', type=int)
+    ap.add_argument('--plan', default='city-links.json')
     args = ap.parse_args()
 
     env = load_env()
@@ -73,7 +74,7 @@ def main():
     base = base.rstrip('/').removesuffix('/wp-json')
     auth = base64.b64encode(f"{env['WP_USERNAME']}:{env['WP_APP_PASSWORD']}".encode()).decode()
 
-    plan = json.load(open(os.path.join(HERE, 'city-links.json')))
+    plan = json.load(open(os.path.join(HERE, args.plan)))
     by_post = {}
     for row in plan:
         if not args.only or row['post_id'] in args.only:
@@ -110,7 +111,12 @@ def main():
             print(f'  link  #{pid} "{row["anchor"]}" -> {row["href"]}')
             done += 1
         if new != raw and args.apply:
-            with open(os.path.join(HERE, 'backups', f'{pid}.html'), 'w') as f:
+            # Never overwrite an earlier backup: it holds the pre-edit original.
+            backup, n = os.path.join(HERE, 'backups', f'{pid}.html'), 1
+            while os.path.exists(backup):
+                n += 1
+                backup = os.path.join(HERE, 'backups', f'{pid}.{n}.html')
+            with open(backup, 'w') as f:
                 f.write(raw)
             api(base, auth, f'/wp-json/wp/v2/posts/{pid}', {'content': new})
             print(f'  saved #{pid} {post["link"]}')
