@@ -28,16 +28,8 @@ add_action( 'wp_head', function() {
         'image'       => get_template_directory_uri() . '/brand_assets/team-photo.webp',
         'logo'        => get_template_directory_uri() . '/brand_assets/Tennessee%20Cash%20For%20Homes%20Logo.png',
         'foundingDate' => '2017',
-        'address'     => array(
-            '@type'           => 'PostalAddress',
-            'addressLocality' => 'Murfreesboro',
-            'addressRegion'   => 'TN',
-            'addressCountry'  => 'US',
-        ),
-        'areaServed' => array(
-            '@type' => 'State',
-            'name'  => 'Tennessee',
-        ),
+        'address'     => tcfh_schema_address(),
+        'areaServed'  => tcfh_area_served( 'Tennessee' ),
         'aggregateRating' => array(
             '@type'       => 'AggregateRating',
             'ratingValue' => '5.0',
@@ -140,9 +132,9 @@ $cities = [
       </div>
       <div class="about-who__credentials" style="align-self:stretch;height:100%;justify-content:space-between;">
         <div class="about-cred-card" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
-          <span class="about-cred-card__number">5-Star</span>
-          <span class="about-cred-card__label">Rated</span>
-          <span class="about-cred-card__desc">On Google Reviews</span>
+          <span class="about-cred-card__number"><?php echo (int) TCFH_GOOGLE_REVIEW_TOTAL; ?></span>
+          <span class="about-cred-card__label">Five-Star</span>
+          <span class="about-cred-card__desc"><?php echo tcfh_google_reviews_link( 'Google Reviews' ); ?></span>
         </div>
         <div class="about-cred-card" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
           <span class="about-cred-card__number">A+</span>

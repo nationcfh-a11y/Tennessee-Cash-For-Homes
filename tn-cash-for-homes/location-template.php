@@ -7,6 +7,10 @@
  *   slug, name, image_file, h1, meta_title, meta_desc,
  *   median_price, homes_sold, avg_days,
  *   desc1, desc2, land_para
+ *
+ * Optional:
+ *   hero_subtitle  plain text, replaces the default hero subtitle
+ *   hero_link      [ 'url' => ..., 'text' => ... ], a text link under the subtitle
  */
 
 $meta_title = ! empty( $city['meta_title'] ) ? $city['meta_title'] : '';
@@ -71,7 +75,14 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
         </nav>
         <div class="hero__badge county-hero__badge"><?php echo esc_html( $name ); ?> Cash Home Buyers</div>
         <h1 class="county-hero__title"><?php echo esc_html( $h1 ); ?></h1>
+        <?php if ( ! empty( $city['hero_subtitle'] ) ) : ?>
+        <p class="county-hero__subtitle"><?php echo esc_html( $city['hero_subtitle'] ); ?></p>
+        <?php else : ?>
         <p class="county-hero__subtitle">No repairs. No commissions. No fees. Get a fair cash offer for your <?php echo esc_html( $name ); ?> home in as little as 24 hours. We close on your timeline.</p>
+        <?php endif; ?>
+        <?php if ( ! empty( $city['hero_link'] ) ) : ?>
+        <p class="county-hero__link"><a href="<?php echo esc_url( $city['hero_link']['url'] ); ?>"><?php echo esc_html( $city['hero_link']['text'] ); ?> &rarr;</a></p>
+        <?php endif; ?>
         <div class="hero__trust county-hero__trust">
           <div class="hero__trust-item">
             <?php echo $check18; ?>
@@ -445,6 +456,15 @@ $nearby = ! empty( $nearby_map[ $slug ] ) ? $nearby_map[ $slug ] : array();
   color: #1a1a1a;
   line-height: 1.15;
   margin: 0 0 20px;
+}
+.county-hero__link {
+  margin: -16px 0 28px;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.county-hero__link a {
+  color: #2F855A;
+  text-decoration: underline;
 }
 .county-hero__subtitle {
   font-size: 1.05rem;

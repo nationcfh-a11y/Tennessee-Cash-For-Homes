@@ -631,16 +631,8 @@ echo wp_json_encode( [
     'url'         => home_url( '/facing-foreclosure/' ),
     'telephone'   => '+1-615-801-8126',
     'email'       => 'info@tncashforhomes.com',
-    'address'     => [
-        '@type'           => 'PostalAddress',
-        'addressLocality' => 'Murfreesboro',
-        'addressRegion'   => 'TN',
-        'addressCountry'  => 'US',
-    ],
-    'areaServed' => [
-        '@type' => 'State',
-        'name'  => 'Tennessee',
-    ],
+    'address'     => tcfh_schema_address(),
+    'areaServed'  => tcfh_area_served( 'Tennessee' ),
 ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT );
 ?>
 </script>

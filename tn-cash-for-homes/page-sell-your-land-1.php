@@ -375,16 +375,8 @@ echo wp_json_encode( array(
     'url'         => home_url( '/sell-your-land-1' ),
     'telephone'   => '+1-615-801-8126',
     'email'       => 'info@tncashforhomes.com',
-    'address'     => array(
-        '@type'           => 'PostalAddress',
-        'addressLocality' => 'Murfreesboro',
-        'addressRegion'   => 'TN',
-        'addressCountry'  => 'US',
-    ),
-    'areaServed'  => array(
-        '@type' => 'State',
-        'name'  => 'Tennessee',
-    ),
+    'address'     => tcfh_schema_address(),
+    'areaServed'  => tcfh_area_served( 'Tennessee' ),
     'aggregateRating' => array(
         '@type'       => 'AggregateRating',
         'ratingValue' => '5.0',

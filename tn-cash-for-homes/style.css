@@ -1174,6 +1174,22 @@ img { display: block; max-width: 100%; }
 
 .nearby-areas__list .city-chip { padding: 13px 18px; font-size: 14px; }
 
+/* ── GOOGLE REVIEW TOTAL LINKS (TCFH_GOOGLE_REVIEW_TOTAL) ── */
+.reviews-footnote {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 15px;
+  color: var(--charcoal-light);
+}
+
+.reviews-footnote a,
+.difference__stars-label a,
+.about-cred-card__desc a {
+  color: var(--green-dark);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 /* ── CTA BAND ── */
 .cta-band {
   background: #ffffff;
