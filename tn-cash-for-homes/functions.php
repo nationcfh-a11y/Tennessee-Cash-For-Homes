@@ -728,6 +728,68 @@ function tcfh_seo_meta_tags() {
 }
 
 /**
+ * ── Areas we serve: every city and county page under /where-we-buy/ ──
+ * Shared by the areas-we-serve.php component and the "Nearby Areas We Buy In"
+ * block, so a new area page is added in one place. Each anchor uses the
+ * phrasing with the most search volume for that place ("We buy houses in X",
+ * "Sell my house fast in X", or "X cash home buyers"); places with no data
+ * get a mix.
+ */
+function tcfh_area_pages() {
+    return array(
+        'cities'   => array(
+            'nashville'      => array( 'name' => 'Nashville', 'anchor' => 'We buy houses in Nashville' ),
+            'franklin'       => array( 'name' => 'Franklin', 'anchor' => 'Sell my house fast in Franklin' ),
+            'brentwood'      => array( 'name' => 'Brentwood', 'anchor' => 'We buy houses in Brentwood' ),
+            'spring-hill'    => array( 'name' => 'Spring Hill', 'anchor' => 'Spring Hill cash home buyers' ),
+            'columbia'       => array( 'name' => 'Columbia', 'anchor' => 'Sell my house fast in Columbia' ),
+            'murfreesboro'   => array( 'name' => 'Murfreesboro', 'anchor' => 'Sell my house fast in Murfreesboro' ),
+            'smyrna'         => array( 'name' => 'Smyrna', 'anchor' => 'Sell my house fast in Smyrna' ),
+            'la-vergne'      => array( 'name' => 'La Vergne', 'anchor' => 'We buy houses in La Vergne' ),
+            'clarksville'    => array( 'name' => 'Clarksville', 'anchor' => 'Sell my house fast in Clarksville' ),
+            'hendersonville' => array( 'name' => 'Hendersonville', 'anchor' => 'We buy houses in Hendersonville' ),
+            'gallatin'       => array( 'name' => 'Gallatin', 'anchor' => 'Sell my house fast in Gallatin' ),
+            'lebanon'        => array( 'name' => 'Lebanon', 'anchor' => 'Sell my house fast in Lebanon' ),
+            'mount-juliet'   => array( 'name' => 'Mt. Juliet', 'anchor' => 'Sell my house fast in Mt. Juliet' ),
+            'springfield'    => array( 'name' => 'Springfield', 'anchor' => 'Sell my house fast in Springfield' ),
+            'dickson'        => array( 'name' => 'Dickson', 'anchor' => 'Dickson cash home buyers' ),
+            'shelbyville'    => array( 'name' => 'Shelbyville', 'anchor' => 'Sell my house fast in Shelbyville' ),
+            'tullahoma'      => array( 'name' => 'Tullahoma', 'anchor' => 'Sell my house fast in Tullahoma' ),
+            'cookeville'     => array( 'name' => 'Cookeville', 'anchor' => 'We buy houses in Cookeville' ),
+        ),
+        'counties' => array(
+            'davidson-county'   => 'We buy houses in Davidson County',
+            'williamson-county' => 'Sell my house fast in Williamson County',
+            'maury-county'      => 'Maury County cash home buyers',
+            'rutherford-county' => 'Sell my house fast in Rutherford County',
+            'montgomery-county' => 'We buy houses in Montgomery County',
+            'sumner-county'     => 'Sell my house fast in Sumner County',
+            'wilson-county'     => 'Wilson County cash home buyers',
+            'robertson-county'  => 'We buy houses in Robertson County',
+            'dickson-county'    => 'Sell my house fast in Dickson County',
+            'bedford-county'    => 'Bedford County cash home buyers',
+            'coffee-county'     => 'We buy houses in Coffee County',
+            'putnam-county'     => 'Sell my house fast in Putnam County',
+        ),
+    );
+}
+
+/** Map-pin icon used on every area chip. */
+function tcfh_pin_icon() {
+    return '<svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>';
+}
+
+/** One area chip: pin plus the full anchor phrase, linking to /where-we-buy/{slug}/. */
+function tcfh_area_chip( $slug, $anchor ) {
+    return sprintf(
+        '<a href="%s" class="city-chip">%s<span>%s</span></a>',
+        esc_url( home_url( '/where-we-buy/' . $slug . '/' ) ),
+        tcfh_pin_icon(),
+        esc_html( $anchor )
+    );
+}
+
+/**
  * ── SEO: Service-area business address ──
  * We have no storefront or office and the Google Business Profile hides the
  * address, so schema carries only the city, never a street address or geo.
