@@ -33,9 +33,6 @@ $city_name_for_schema = $city['name'];
 add_action( 'wp_head', function() use ( $city_name_for_schema ) {
     if ( ! function_exists( 'tcfh_build_localbusiness_schema' ) ) return;
     $schema = tcfh_build_localbusiness_schema( array(
-        'type'        => 'LocalBusiness',
-        'description' => 'We buy houses in ' . $city_name_for_schema . ' Tennessee for cash. No repairs, no agents, no fees.',
-        'url'         => get_permalink(),
         'area_served' => array( $city_name_for_schema, 'Tennessee' ),
     ) );
     tcfh_print_jsonld( $schema );

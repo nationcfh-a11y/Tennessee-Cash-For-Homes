@@ -364,31 +364,6 @@ echo wp_json_encode( array(
 ?>
 </script>
 
-<!-- LocalBusiness Schema -->
-<script type="application/ld+json">
-<?php
-echo wp_json_encode( array(
-    '@context'    => 'https://schema.org',
-    '@type'       => 'LocalBusiness',
-    'name'        => 'Tennessee Cash For Homes',
-    'description' => $meta_description,
-    'url'         => home_url( '/sell-your-land-1' ),
-    'telephone'   => '+1-615-801-8126',
-    'email'       => 'info@tncashforhomes.com',
-    'address'     => tcfh_schema_address(),
-    'areaServed'  => tcfh_area_served( 'Tennessee' ),
-    'aggregateRating' => array(
-        '@type'       => 'AggregateRating',
-        'ratingValue' => '5.0',
-        'reviewCount' => (string) tcfh_review_count(),
-    ),
-    'sameAs' => array(
-        'https://www.facebook.com/tennesseecashforhomes',
-        'https://www.instagram.com/tennesseecashforhomes/',
-    ),
-), JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT );
-?>
-</script>
 
 <!-- Service Schema -->
 <script type="application/ld+json">
@@ -397,13 +372,7 @@ echo wp_json_encode( array(
     '@context'    => 'https://schema.org',
     '@type'       => 'Service',
     'name'        => 'Sell Your Land for Cash in Tennessee',
-    'provider'    => array(
-        '@type'     => 'RealEstateAgent',
-        'name'      => 'Tennessee Cash For Homes',
-        'telephone' => '+1-615-801-8126',
-        'url'       => home_url( '/' ),
-        'areaServed'=> 'Tennessee',
-    ),
+    'provider'    => array( '@id' => home_url( '/#organization' ) ),
     'description' => $meta_description,
     'url'         => home_url( '/sell-your-land-1' ),
 ), JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT );

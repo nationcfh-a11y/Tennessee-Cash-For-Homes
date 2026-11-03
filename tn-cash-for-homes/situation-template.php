@@ -16,15 +16,10 @@ if ( ! empty( $meta_description ) ) {
     update_post_meta( get_the_ID(), '_tcfh_meta_desc', $meta_description );
 }
 
-// LocalBusiness JSON-LD for this situation page — name reflects the situation.
-$situation_schema_name = ! empty( $situation_title ) ? $situation_title : ( ! empty( $situation_h1 ) ? $situation_h1 : 'Tennessee Cash For Homes' );
-add_action( 'wp_head', function() use ( $situation_schema_name ) {
+// LocalBusiness JSON-LD for this situation page.
+add_action( 'wp_head', function() {
     if ( ! function_exists( 'tcfh_build_localbusiness_schema' ) ) return;
     $schema = tcfh_build_localbusiness_schema( array(
-        'type'        => 'LocalBusiness',
-        'name'        => 'Tennessee Cash For Homes — ' . $situation_schema_name,
-        'description' => $situation_schema_name . '. We buy houses across Tennessee for cash. No repairs, no agents, no fees.',
-        'url'         => get_permalink(),
         'area_served' => 'Tennessee',
     ) );
     tcfh_print_jsonld( $schema );
@@ -252,13 +247,7 @@ echo wp_json_encode( array(
     '@context'    => 'https://schema.org',
     '@type'       => 'Service',
     'name'        => $situation_title,
-    'provider'    => array(
-        '@type'     => 'RealEstateAgent',
-        'name'      => 'Tennessee Cash For Homes',
-        'telephone' => '+1-615-801-8126',
-        'url'       => home_url( '/' ),
-        'areaServed'=> 'Tennessee',
-    ),
+    'provider'    => array( '@id' => home_url( '/#organization' ) ),
     'description' => $meta_description,
     'url'         => home_url( '/' . $situation_slug . '/' ),
 ), JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT );

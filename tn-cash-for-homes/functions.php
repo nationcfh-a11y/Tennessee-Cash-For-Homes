@@ -762,29 +762,25 @@ function tcfh_area_served( $extra = array() ) {
 
 /**
  * ── SEO: Shared LocalBusiness JSON-LD builder ──
- * Produces a consistent LocalBusiness schema object used across the site.
- * Callers override only what differs per page (type, name, description, url, areaServed, rating).
+ * Every page describes the same business as Rank Math's Organization node:
+ * same @id, name, url, and address, so search engines see one business, not
+ * one per page. Callers override only areaServed and the rating.
  */
 function tcfh_build_localbusiness_schema( $args = array() ) {
     $defaults = array(
-        'type'           => array( 'LocalBusiness', 'RealEstateAgent' ),
-        'name'           => 'Tennessee Cash For Homes',
-        'description'    => 'Tennessee\'s trusted cash home buyer. We buy houses fast for cash across all 95 Tennessee counties. No repairs, no fees, no commissions.',
-        'url'            => home_url( '/' ),
         'area_served'    => 'Tennessee',
-        'price_range'    => 'Free cash offer',
         'include_rating' => true,
         'review_count'   => tcfh_review_count(),
-        'id'             => '',
     );
     $a = array_merge( $defaults, $args );
 
     $schema = array(
         '@context'    => 'https://schema.org',
-        '@type'       => $a['type'],
-        'name'        => $a['name'],
-        'description' => $a['description'],
-        'url'         => $a['url'],
+        '@type'       => array( 'LocalBusiness', 'RealEstateAgent' ),
+        '@id'         => home_url( '/#organization' ),
+        'name'        => 'Tennessee Cash For Homes',
+        'description' => 'Tennessee\'s trusted cash home buyer. We buy houses fast for cash across all 95 Tennessee counties. No repairs, no fees, no commissions.',
+        'url'         => home_url( '/' ),
         'telephone'   => '+1-615-801-8126',
         'email'       => 'info@tncashforhomes.com',
         'foundingDate'=> '2017',
@@ -792,7 +788,7 @@ function tcfh_build_localbusiness_schema( $args = array() ) {
         'logo'        => get_template_directory_uri() . '/brand_assets/Tennessee%20Cash%20For%20Homes%20Logo.png',
         'address'     => tcfh_schema_address(),
         'areaServed'  => tcfh_area_served( $a['area_served'] ),
-        'priceRange' => $a['price_range'],
+        'priceRange'  => 'Free cash offer',
         'openingHoursSpecification' => array(
             '@type'     => 'OpeningHoursSpecification',
             'dayOfWeek' => array( 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ),
@@ -808,10 +804,6 @@ function tcfh_build_localbusiness_schema( $args = array() ) {
             'https://www.tiktok.com/@tennesseecashforhomes',
         ),
     );
-
-    if ( $a['id'] ) {
-        $schema = array( '@id' => $a['id'] ) + $schema;
-    }
 
     if ( $a['include_rating'] ) {
         $schema['aggregateRating'] = array(
@@ -839,10 +831,7 @@ function tcfh_print_jsonld( $schema ) {
 add_action( 'wp_head', 'tcfh_schema_localbusiness' );
 function tcfh_schema_localbusiness() {
     if ( is_front_page() ) {
-        // Same @id as Rank Math's Organization node, so search engines read
-        // the two blocks as one business rather than two.
         tcfh_print_jsonld( tcfh_build_localbusiness_schema( array(
-            'id'           => home_url( '/#organization' ),
             'review_count' => tcfh_review_count( 'home' ),
         ) ) );
         return;
@@ -887,8 +876,6 @@ function tcfh_schema_localbusiness() {
             $carousel = 'section';
         }
         tcfh_print_jsonld( tcfh_build_localbusiness_schema( array(
-            'url'            => get_permalink(),
-            'type'           => array( 'LocalBusiness', 'RealEstateAgent' ),
             'include_rating' => (bool) $carousel,
             'review_count'   => $carousel ? tcfh_review_count( $carousel ) : 0,
         ) ) );
@@ -1194,10 +1181,7 @@ function tcfh_schema_reviews() {
                 'ratingValue' => (string) $r['rating'],
                 'bestRating'  => '5',
             ),
-            'itemReviewed'  => array(
-                '@type' => 'LocalBusiness',
-                'name'  => 'Tennessee Cash For Homes',
-            ),
+            'itemReviewed'  => array( '@id' => home_url( '/#organization' ) ),
         ) );
     }
 
@@ -1222,12 +1206,7 @@ function tcfh_schema_service() {
         'name'            => 'Cash Home Buying in Tennessee',
         'serviceType'     => 'Cash Home Buyer',
         'description'     => 'Tennessee Cash For Homes buys houses directly from homeowners across all 95 Tennessee counties for cash. We make a no-obligation offer within 24 hours, buy houses in any condition with no repairs required, charge no agent commissions or closing costs, and can close in as little as 7 days.',
-        'provider'        => array(
-            '@type'     => 'LocalBusiness',
-            'name'      => 'Tennessee Cash For Homes',
-            'telephone' => '+1-615-801-8126',
-            'url'       => home_url( '/' ),
-        ),
+        'provider'        => array( '@id' => home_url( '/#organization' ) ),
         'areaServed'      => array(
             '@type' => 'State',
             'name'  => 'Tennessee',
@@ -1270,11 +1249,7 @@ add_action( 'wp_head', 'tcfh_schema_persons' );
 function tcfh_schema_persons() {
     if ( ! is_page( 'about' ) && get_page_template_slug() !== 'page-about.php' ) return;
 
-    $org = array(
-        '@type' => 'Organization',
-        'name'  => 'Tennessee Cash For Homes',
-        'url'   => home_url( '/' ),
-    );
+    $org = array( '@id' => home_url( '/#organization' ) );
 
     $people = array(
         array(
@@ -1483,6 +1458,7 @@ add_filter( 'rank_math/json_ld', function( $data ) {
         if ( is_array( $entity ) && ( $entity['@id'] ?? '' ) === home_url( '/#organization' ) ) {
             $data[ $key ]['telephone'] = '+1-615-801-8126';
             $data[ $key ]['url']       = home_url( '/' );
+            $data[ $key ]['address']   = tcfh_schema_address();
         }
     }
     return $data;

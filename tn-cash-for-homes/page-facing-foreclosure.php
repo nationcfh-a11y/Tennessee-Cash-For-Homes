@@ -620,22 +620,6 @@ echo wp_json_encode( [
 ?>
 </script>
 
-<!-- LocalBusiness Schema -->
-<script type="application/ld+json">
-<?php
-echo wp_json_encode( [
-    '@context'    => 'https://schema.org',
-    '@type'       => 'LocalBusiness',
-    'name'        => 'Tennessee Cash For Homes',
-    'description' => 'Tennessee Cash For Homes helps homeowners facing foreclosure by buying houses fast for cash. Stop foreclosure, protect your credit, and walk away with cash in hand.',
-    'url'         => home_url( '/facing-foreclosure/' ),
-    'telephone'   => '+1-615-801-8126',
-    'email'       => 'info@tncashforhomes.com',
-    'address'     => tcfh_schema_address(),
-    'areaServed'  => tcfh_area_served( 'Tennessee' ),
-], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT );
-?>
-</script>
 
 <!-- ══════════════════════════════════════════════
      INLINE STYLES
