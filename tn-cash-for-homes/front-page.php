@@ -618,46 +618,46 @@
 // buyers" so the links read naturally and don't repeat one phrase 21 times.
 // County headings link only where a county page exists in this list.
 $tcfh_city_groups = array(
-  array( 'county' => 'Davidson County', 'links' => array(
+  array( 'county' => 'Davidson County', 'county_link' => array( 'davidson-county', 'Davidson County cash home buyers' ), 'links' => array(
     array( 'nashville', 'Sell my house fast in Nashville' ),
   ) ),
   array( 'county' => 'Williamson County', 'county_link' => array( 'williamson-county', 'Williamson County cash home buyers' ), 'links' => array(
     array( 'franklin', 'Franklin cash home buyers' ),
     array( 'brentwood', 'Sell my house fast in Brentwood' ),
   ) ),
-  array( 'county' => 'Maury County', 'links' => array(
+  array( 'county' => 'Maury County', 'county_link' => array( 'maury-county', 'Sell my house fast in Maury County' ), 'links' => array(
     array( 'spring-hill', 'Sell my house fast in Spring Hill' ),
     array( 'columbia', 'Columbia cash home buyers' ),
   ) ),
-  array( 'county' => 'Rutherford County', 'links' => array(
+  array( 'county' => 'Rutherford County', 'county_link' => array( 'rutherford-county', 'Rutherford County cash home buyers' ), 'links' => array(
     array( 'murfreesboro', 'Murfreesboro cash home buyers' ),
     array( 'smyrna', 'Sell my house fast in Smyrna' ),
     array( 'la-vergne', 'La Vergne cash home buyers' ),
   ) ),
-  array( 'county' => 'Montgomery County', 'links' => array(
+  array( 'county' => 'Montgomery County', 'county_link' => array( 'montgomery-county', 'Sell my house fast in Montgomery County' ), 'links' => array(
     array( 'clarksville', 'Sell my house fast in Clarksville' ),
   ) ),
   array( 'county' => 'Sumner County', 'county_link' => array( 'sumner-county', 'Sell my house fast in Sumner County' ), 'links' => array(
     array( 'hendersonville', 'Hendersonville cash home buyers' ),
     array( 'gallatin', 'Sell my house fast in Gallatin' ),
   ) ),
-  array( 'county' => 'Wilson County', 'links' => array(
+  array( 'county' => 'Wilson County', 'county_link' => array( 'wilson-county', 'Wilson County cash home buyers' ), 'links' => array(
     array( 'lebanon', 'Lebanon cash home buyers' ),
     array( 'mount-juliet', 'Sell my house fast in Mt. Juliet' ),
   ) ),
-  array( 'county' => 'Robertson County', 'links' => array(
+  array( 'county' => 'Robertson County', 'county_link' => array( 'robertson-county', 'Sell my house fast in Robertson County' ), 'links' => array(
     array( 'springfield', 'Springfield cash home buyers' ),
   ) ),
-  array( 'county' => 'Dickson County', 'links' => array(
+  array( 'county' => 'Dickson County', 'county_link' => array( 'dickson-county', 'Dickson County cash home buyers' ), 'links' => array(
     array( 'dickson', 'Sell my house fast in Dickson' ),
   ) ),
   array( 'county' => 'Bedford County', 'county_link' => array( 'bedford-county', 'Sell my house fast in Bedford County' ), 'links' => array(
     array( 'shelbyville', 'Shelbyville cash home buyers' ),
   ) ),
-  array( 'county' => 'Coffee County', 'links' => array(
+  array( 'county' => 'Coffee County', 'county_link' => array( 'coffee-county', 'Sell my house fast in Coffee County' ), 'links' => array(
     array( 'tullahoma', 'Tullahoma cash home buyers' ),
   ) ),
-  array( 'county' => 'Putnam County', 'links' => array(
+  array( 'county' => 'Putnam County', 'county_link' => array( 'putnam-county', 'Putnam County cash home buyers' ), 'links' => array(
     array( 'cookeville', 'Sell my house fast in Cookeville' ),
   ) ),
 );
