@@ -9,9 +9,21 @@ import urllib.request
 import urllib.error
 import base64
 
-WP_URL = "https://nationcfh.wpcomstaging.com"
-WP_USER = "nationcfh"
-WP_APP_PASSWORD = "46Vb FCVr 2N44 BqkP hBF8 e7T0"
+# Credentials live in the repo-root .env (gitignored), never in this file.
+def load_env(path=os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".env")):
+    env = {}
+    with open(path) as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                env[k.strip()] = v.strip().strip('"').strip("'")
+    return env
+
+_env = load_env()
+WP_URL = _env.get("WP_URL", "https://nationcfh.wpcomstaging.com").rstrip("/")
+WP_USER = _env["WP_USERNAME"]
+WP_APP_PASSWORD = _env["WP_APP_PASSWORD"]
 PARENT_ID = 1742
 
 CITIES = [
