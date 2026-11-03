@@ -30,9 +30,6 @@ $county_name_for_schema = $county['name'];
 add_action( 'wp_head', function() use ( $county_name_for_schema ) {
     if ( ! function_exists( 'tcfh_build_localbusiness_schema' ) ) return;
     $schema = tcfh_build_localbusiness_schema( array(
-        'type'        => 'LocalBusiness',
-        'description' => 'We buy houses in ' . $county_name_for_schema . ' County Tennessee for cash. No repairs, no agents, no fees.',
-        'url'         => get_permalink(),
         'area_served' => array( $county_name_for_schema . ' County', 'Tennessee' ),
     ) );
     tcfh_print_jsonld( $schema );

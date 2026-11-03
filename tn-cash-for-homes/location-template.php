@@ -7,6 +7,10 @@
  *   slug, name, image_file, h1, meta_title, meta_desc,
  *   median_price, homes_sold, avg_days,
  *   desc1, desc2, land_para
+ *
+ * Optional:
+ *   hero_subtitle  plain text, replaces the default hero subtitle
+ *   hero_link      [ 'url' => ..., 'text' => ... ], a text link under the subtitle
  */
 
 $meta_title = ! empty( $city['meta_title'] ) ? $city['meta_title'] : '';
@@ -29,9 +33,6 @@ $city_name_for_schema = $city['name'];
 add_action( 'wp_head', function() use ( $city_name_for_schema ) {
     if ( ! function_exists( 'tcfh_build_localbusiness_schema' ) ) return;
     $schema = tcfh_build_localbusiness_schema( array(
-        'type'        => 'LocalBusiness',
-        'description' => 'We buy houses in ' . $city_name_for_schema . ' Tennessee for cash. No repairs, no agents, no fees.',
-        'url'         => get_permalink(),
         'area_served' => array( $city_name_for_schema, 'Tennessee' ),
     ) );
     tcfh_print_jsonld( $schema );
@@ -71,7 +72,14 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
         </nav>
         <div class="hero__badge county-hero__badge"><?php echo esc_html( $name ); ?> Cash Home Buyers</div>
         <h1 class="county-hero__title"><?php echo esc_html( $h1 ); ?></h1>
+        <?php if ( ! empty( $city['hero_subtitle'] ) ) : ?>
+        <p class="county-hero__subtitle"><?php echo esc_html( $city['hero_subtitle'] ); ?></p>
+        <?php else : ?>
         <p class="county-hero__subtitle">No repairs. No commissions. No fees. Get a fair cash offer for your <?php echo esc_html( $name ); ?> home in as little as 24 hours. We close on your timeline.</p>
+        <?php endif; ?>
+        <?php if ( ! empty( $city['hero_link'] ) ) : ?>
+        <p class="county-hero__link"><a href="<?php echo esc_url( $city['hero_link']['url'] ); ?>"><?php echo esc_html( $city['hero_link']['text'] ); ?> &rarr;</a></p>
+        <?php endif; ?>
         <div class="hero__trust county-hero__trust">
           <div class="hero__trust-item">
             <?php echo $check18; ?>
@@ -309,7 +317,59 @@ $gov_name       = $name;
 $gov_county_key = ! empty( $city['county'] ) ? $city['county'] : '';
 $gov_type       = 'city';
 include get_template_directory() . '/gov-resources-section.php';
+
+// ── Nearby areas: 3 to 5 geographically close city pages, keyed by $city['slug'].
+// Values are URL slugs (Mt. Juliet's page lives at /mount-juliet/).
+$nearby_names = array(
+    'nashville' => 'Nashville', 'franklin' => 'Franklin', 'brentwood' => 'Brentwood',
+    'spring-hill' => 'Spring Hill', 'columbia' => 'Columbia', 'murfreesboro' => 'Murfreesboro',
+    'smyrna' => 'Smyrna', 'la-vergne' => 'La Vergne', 'clarksville' => 'Clarksville',
+    'hendersonville' => 'Hendersonville', 'gallatin' => 'Gallatin', 'lebanon' => 'Lebanon',
+    'mount-juliet' => 'Mt. Juliet', 'springfield' => 'Springfield', 'dickson' => 'Dickson',
+    'shelbyville' => 'Shelbyville', 'tullahoma' => 'Tullahoma', 'cookeville' => 'Cookeville',
+);
+$nearby_map = array(
+    'nashville'      => array( 'brentwood', 'la-vergne', 'hendersonville', 'mount-juliet', 'franklin' ),
+    'franklin'       => array( 'brentwood', 'spring-hill', 'nashville', 'columbia' ),
+    'brentwood'      => array( 'franklin', 'nashville', 'spring-hill', 'smyrna' ),
+    'spring-hill'    => array( 'columbia', 'franklin', 'brentwood', 'shelbyville' ),
+    'columbia'       => array( 'spring-hill', 'franklin', 'shelbyville', 'dickson' ),
+    'murfreesboro'   => array( 'smyrna', 'la-vergne', 'shelbyville', 'tullahoma', 'lebanon' ),
+    'smyrna'         => array( 'la-vergne', 'murfreesboro', 'nashville', 'brentwood' ),
+    'la-vergne'      => array( 'smyrna', 'murfreesboro', 'nashville', 'mount-juliet' ),
+    'clarksville'    => array( 'springfield', 'dickson', 'nashville' ),
+    'hendersonville' => array( 'gallatin', 'nashville', 'mount-juliet', 'springfield' ),
+    'gallatin'       => array( 'hendersonville', 'lebanon', 'springfield', 'mount-juliet' ),
+    'lebanon'        => array( 'mount-juliet', 'gallatin', 'murfreesboro', 'cookeville' ),
+    'mt-juliet'      => array( 'lebanon', 'hendersonville', 'la-vergne', 'nashville' ),
+    'springfield'    => array( 'clarksville', 'hendersonville', 'gallatin', 'nashville' ),
+    'dickson'        => array( 'clarksville', 'franklin', 'columbia', 'nashville' ),
+    'shelbyville'    => array( 'tullahoma', 'murfreesboro', 'columbia' ),
+    'tullahoma'      => array( 'shelbyville', 'murfreesboro', 'columbia' ),
+    'cookeville'     => array( 'lebanon', 'mount-juliet', 'murfreesboro' ),
+);
+$nearby = ! empty( $nearby_map[ $slug ] ) ? $nearby_map[ $slug ] : array();
 ?>
+
+<?php if ( $nearby ) : ?>
+<!-- ── NEARBY AREAS ── -->
+<section class="section nearby-areas">
+  <div class="container">
+    <div class="section__header section__header--center">
+      <p class="section__eyebrow">Near <?php echo esc_html( $name ); ?></p>
+      <h2 class="section__title">Nearby Areas We Buy In</h2>
+    </div>
+    <ul class="nearby-areas__list">
+      <?php foreach ( $nearby as $i => $nearby_slug ) :
+        $nearby_name = $nearby_names[ $nearby_slug ];
+        $anchor      = ( $i % 2 ) ? $nearby_name . ' cash home buyers' : 'Sell my house fast in ' . $nearby_name;
+      ?>
+        <li><a href="<?php echo esc_url( home_url( '/where-we-buy/' . $nearby_slug . '/' ) ); ?>" class="city-chip"><?php echo esc_html( $anchor ); ?></a></li>
+      <?php endforeach; ?>
+    </ul>
+  </div>
+</section>
+<?php endif; ?>
 
 <!-- ── AREAS WE SERVE ── -->
 <section class="section section--alt">
@@ -393,6 +453,15 @@ include get_template_directory() . '/gov-resources-section.php';
   color: #1a1a1a;
   line-height: 1.15;
   margin: 0 0 20px;
+}
+.county-hero__link {
+  margin: -16px 0 28px;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.county-hero__link a {
+  color: #2F855A;
+  text-decoration: underline;
 }
 .county-hero__subtitle {
   font-size: 1.05rem;
