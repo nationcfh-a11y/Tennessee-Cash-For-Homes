@@ -1515,12 +1515,18 @@ foreach ( array( 'rank_math/frontend/description', 'rank_math/opengraph/facebook
 
 // Rank Math's Organization node printed the phone as "(615) 801-8126" and the
 // URL without a trailing slash; match the theme's LocalBusiness exactly.
+// Rank Math also adds an Article to every page; pages already have a WebPage
+// node, so the Article stays only on blog posts.
 add_filter( 'rank_math/json_ld', function( $data ) {
     foreach ( $data as $key => $entity ) {
-        if ( is_array( $entity ) && ( $entity['@id'] ?? '' ) === home_url( '/#organization' ) ) {
+        if ( ! is_array( $entity ) ) continue;
+        if ( ( $entity['@id'] ?? '' ) === home_url( '/#organization' ) ) {
             $data[ $key ]['telephone'] = '+1-615-801-8126';
             $data[ $key ]['url']       = home_url( '/' );
             $data[ $key ]['address']   = tcfh_schema_address();
+        }
+        if ( is_page() && ( $entity['@type'] ?? '' ) === 'Article' ) {
+            unset( $data[ $key ] );
         }
     }
     return $data;
