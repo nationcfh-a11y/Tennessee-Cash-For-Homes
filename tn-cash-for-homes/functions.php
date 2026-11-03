@@ -838,7 +838,7 @@ function tcfh_build_localbusiness_schema( $args = array() ) {
 
     $schema = array(
         '@context'    => 'https://schema.org',
-        '@type'       => array( 'LocalBusiness', 'RealEstateAgent' ),
+        '@type'       => array( 'LocalBusiness', 'Organization' ),
         '@id'         => home_url( '/#organization' ),
         'name'        => 'Tennessee Cash For Homes',
         'description' => 'Tennessee\'s trusted cash home buyer. We buy houses fast for cash across all 95 Tennessee counties. No repairs, no fees, no commissions.',
@@ -885,7 +885,7 @@ function tcfh_print_jsonld( $schema ) {
 
 /**
  * ── SEO: LocalBusiness JSON-LD Schema ──
- * Homepage gets the canonical org schema (LocalBusiness + RealEstateAgent).
+ * Homepage gets the canonical org schema (LocalBusiness + Organization).
  * Listed interior pages also get LocalBusiness so every major landing has it.
  * County, city, foreclosure, and situation templates register their own
  * context-specific wp_head callback before get_header() runs — see those files.
