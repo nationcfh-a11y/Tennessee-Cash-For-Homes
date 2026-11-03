@@ -254,53 +254,7 @@ echo wp_json_encode( array(
 ?>
 </script>
 
-<!-- ── AREAS WE SERVE ── -->
-<section class="section section--alt">
-  <div class="container">
-    <div class="section__header section__header--center">
-      <p class="section__eyebrow">Statewide Coverage</p>
-      <h2 class="section__title">Areas We Serve Across Tennessee</h2>
-      <p class="section__subtitle">We buy houses throughout the entire state of Tennessee. Whether you are in a major metro or a small town, we can make you a cash offer.</p>
-    </div>
-    <div class="cities-grid">
-      <?php
-      // Only cities with a real, self-canonical /where-we-buy/ page. Slugs that
-      // 301 elsewhere (Antioch, Knoxville, Memphis, Jackson, Chattanooga,
-      // Crossville, McMinnville, Old Hickory, Woodbury) were removed so these
-      // chips no longer point at redirects under a mismatched anchor.
-      $cities = array(
-          'Nashville','Murfreesboro','Clarksville','Franklin','Smyrna','La Vergne',
-          'Gallatin','Hendersonville','Lebanon','Mount Juliet','Columbia','Spring Hill',
-          'Shelbyville','Brentwood','Springfield','Dickson','Cookeville','Tullahoma'
-      );
-      $situation_counties = array(
-          'Davidson County','Rutherford County','Williamson County','Montgomery County',
-          'Sumner County','Wilson County','Maury County','Robertson County',
-          'Dickson County','Bedford County','Coffee County','Putnam County'
-      );
-      foreach ( $cities as $c ):
-          $slug = strtolower( str_replace( ' ', '-', $c ) );
-      ?>
-      <a href="<?php echo esc_url( home_url( '/where-we-buy/' . $slug . '/' ) ); ?>" class="city-chip">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-        <span><?php echo esc_html( $c ); ?></span>
-      </a>
-      <?php endforeach; ?>
-      <?php foreach ( $situation_counties as $sc ):
-          $sc_slug = strtolower( str_replace( ' ', '-', $sc ) );
-      ?>
-      <a href="<?php echo esc_url( home_url( '/where-we-buy/' . $sc_slug . '/' ) ); ?>" class="city-chip">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-        <span><?php echo esc_html( $sc ); ?></span>
-      </a>
-      <?php endforeach; ?>
-      <a href="<?php echo esc_url( home_url( '/where-we-buy/tennessee/' ) ); ?>" class="city-chip city-chip--full">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-        <span>Anywhere in Tennessee &mdash; We Serve All Areas</span>
-      </a>
-    </div>
-  </div>
-</section>
+<?php get_template_part( 'areas-we-serve' ); ?>
 
 
 
