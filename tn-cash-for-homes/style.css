@@ -6050,3 +6050,49 @@ div.related-posts,
     background-image: url('brand_assets/Where%20we%20buy%20background%20image-800w.webp') !important;
   }
 }
+
+/* ── 404 page ── */
+.not-found {
+  background: var(--bg-light);
+  padding: 96px 0;
+}
+.not-found__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+.not-found__title {
+  font-size: 44px;
+  margin: 8px 0 16px;
+}
+.not-found__text {
+  font-size: 18px;
+  color: var(--charcoal-light);
+  margin: 0 0 32px;
+}
+.not-found__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+.btn-outline--dark {
+  border-color: var(--green-dark);
+  color: var(--green-dark);
+}
+.btn-outline--dark:hover {
+  background: var(--green-dark);
+  color: var(--white);
+}
+.not-found__home {
+  margin: 28px 0 0;
+}
+.not-found__home a {
+  color: var(--green-dark);
+  font-weight: 600;
+}
+@media (max-width: 600px) {
+  .not-found { padding: 64px 0; }
+  .not-found__title { font-size: 34px; }
+  .not-found__actions a { width: 100%; text-align: center; }
+}
