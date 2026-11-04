@@ -11,6 +11,10 @@
 # a minimal payload naming main, the commit, and the repository, which WP
 # Pusher accepts the same way (tested Nov 4, 2026).
 #
+# WP Pusher sometimes rejects a request from GitHub's runners with an instant,
+# empty HTTP 400 and accepts the identical request a minute later (seen Nov 4,
+# 2026), so any answer other than 200 is retried after a minute, up to 3 times.
+#
 # Needs the repo secret WPPUSHER_HOOK_URL: the WP Pusher push-to-deploy URL
 # (https://tennesseecashforhomes.com/?wppusher-hook&token=...&package=...).
 
@@ -37,11 +41,13 @@ permissions: {}
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 25  # up to 4 attempts of 5 minutes, plus the waits
     steps:
       - name: Trigger WP Pusher
         env:
           HOOK_URL: ${{ secrets.WPPUSHER_HOOK_URL }}
+          RETRIES: 3
+          RETRY_WAIT: 60
         run: |
           if [ "$GITHUB_EVENT_NAME" = push ]; then
             cp "$GITHUB_EVENT_PATH" payload.json
@@ -53,14 +59,19 @@ jobs:
                            html_url: ("https://github.com/" + $repo), default_branch: "main"}
             }' > payload.json
           fi
-          code=$(curl -sS -o response.txt -w '%{http_code}' --max-time 300 \
-            -X POST "$HOOK_URL" \
-            -H 'X-GitHub-Event: push' \
-            -H 'User-Agent: GitHub-Hookshot/deploy-theme-action' \
-            --data-urlencode "payload@payload.json")
-          echo "WP Pusher answered HTTP $code"
-          head -c 500 response.txt; echo
-          test "$code" = 200
+          for attempt in $(seq 1 $((RETRIES + 1))); do
+            code=$(curl -sS -o response.txt -w '%{http_code}' --max-time 300 \
+              -X POST "$HOOK_URL" \
+              -H 'X-GitHub-Event: push' \
+              -H 'User-Agent: GitHub-Hookshot/deploy-theme-action' \
+              --data-urlencode "payload@payload.json") || code=000
+            echo "Attempt $attempt: WP Pusher answered HTTP $code"
+            head -c 500 response.txt 2>/dev/null; echo
+            [ "$code" = 200 ] && exit 0
+            [ "$attempt" -le "$RETRIES" ] && { echo "Retrying in ${RETRY_WAIT}s"; sleep "$RETRY_WAIT"; }
+          done
+          echo "WP Pusher did not accept the deploy after $((RETRIES + 1)) attempts"
+          exit 1
 
       - name: Check the live theme was updated
         run: |
