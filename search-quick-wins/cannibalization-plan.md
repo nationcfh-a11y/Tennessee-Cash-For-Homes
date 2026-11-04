@@ -2,6 +2,8 @@
 
 Nothing has been merged or redirected. This is the plan to approve.
 
+**Updated Nov 3, 2026:** the statewide "sell fast" posts no longer all go to the homepage. One guide stays (`/how-to-sell-your-house-fast-in-tennessee/`, post #2004) and takes the best content from the other two, which 301 to it. See "Statewide sell fast posts" below. All eight posts are still published, and the city page files have not changed since this plan was written. Search Console figures in the table are from Oct 15; the Nov 3 figures are in the README.
+
 **Order for every merge:**
 1. Move the listed content into the money page (a theme file edit, deployed).
 2. Check the money page is live with the new content.
@@ -20,9 +22,9 @@ Search Console figures are the last 3 months, cleaned of bot traffic.
 | sell-my-house-fast-in-murfreesboro-tn | 50 | 0 | 10.3 | /where-we-buy/murfreesboro/ (pos 18 to 27) | **Merge, 301 to /where-we-buy/murfreesboro/** |
 | how-to-identify-the-top-cash-home-buyers-in-murfreesboro-tn | 2 | 0 | 10 | same | **301 to /where-we-buy/murfreesboro/** (one FAQ worth keeping) |
 | sell-my-house-fast-in-columbia-tn-a-guide-for-local-homeowners | 37 | 0 | 9.3 | /where-we-buy/columbia/ (pos 14 to 20; homepage at 9 to 16) | **Merge, 301 to /where-we-buy/columbia/** |
-| how-to-sell-your-house-fast-in-tennessee | 334 | 0 | 68.5 | Homepage (pos 8.8 on "sell house fast tennessee") | **301 to homepage**, nothing to move |
-| sell-my-house-fast-in-tn | 27 | 0 | 72.2 | Homepage | **Move 3 pieces to homepage, then 301 to homepage** |
-| how-to-sell-your-house-fast-in-tennessee-insider-tips-for-a-quick-hassle-free-sale | 32 | 0 | 67.5 | Homepage | **301 to homepage**, nothing to move |
+| how-to-sell-your-house-fast-in-tennessee | 334 | 0 | 68.5 | Homepage (pos 8.8 on "sell house fast tennessee") | **Keep as the one statewide guide.** New body from sell-my-house-fast-in-tn, new title |
+| sell-my-house-fast-in-tn | 27 | 0 | 72.2 | Homepage | **Move its content into the kept guide, then 301 to the guide** |
+| how-to-sell-your-house-fast-in-tennessee-insider-tips-for-a-quick-hassle-free-sale | 32 | 0 | 67.5 | Homepage | **301 to the kept guide**, nothing to move |
 
 **One trade-off to accept:**
 - Nashville and Murfreesboro are the only posts that currently rank better than their city page (16.8 vs 29, and 10.3 vs 24.8). Expect a short dip on those few searches after the 301 while Google moves the signals over.
@@ -146,29 +148,40 @@ Search Console figures are the last 3 months, cleaned of bot traffic.
 
 ---
 
-## Statewide "sell fast" posts: into the homepage
+## Statewide "sell fast" posts: keep one guide
 
-**how-to-sell-your-house-fast-in-tennessee:** 301 to the homepage. It's a generic 7-step listicle and nothing in it is unique.
+**Keep:** `/how-to-sell-your-house-fast-in-tennessee/` (post #2004).
+- It has the most impressions of the three (361 in the 90 days to Nov 3), the oldest URL, and 5 internal links.
+- Its "how to" slug suits an informational guide, so it doesn't compete head on with the homepage's commercial "sell my house fast Tennessee".
 
-**how-to-sell-your-house-fast-in-tennessee-insider-tips-for-a-quick-hassle-free-sale:** 301 to the homepage. It's mostly agent-listing advice (staging, curb appeal). Do not reuse its "staged homes sell 88% faster" claim; it has no source.
+**Its new body:** the content of `sell-my-house-fast-in-tn` (#3601, published Oct 2), the best written of the three. #2004's current 7 generic steps go.
+- Keep: the Short Answer, "What Fast Actually Means" (cash 1 to 3 weeks, financed 2 to 4 months), "Why Most Tennessee Sales Take Longer", listing vs cash buyer, "Comparing the Two on Net, Not on Price", "What Reliably Slows a Tennessee Sale Down", "Selling Fast Where You Live" (links to the city pages), and "Situations Where Speed Is Worth Paying For".
+- From #1984, add only "Avoiding Common Mistakes That Slow Down a Home Sale", where it adds something #3601 doesn't have.
+- Drop: #1984's staging and curb-appeal sections, and its "staged homes sell 88% faster" claim (no source).
+- Make closing times match the site: "as little as 7 days, most in 1 to 3 weeks".
+- No em or en dashes. Don't set the excerpt.
 
-**sell-my-house-fast-in-tn** (published Oct 2): move these three pieces, then 301 to the homepage. Doing it now is cheap, because the post hasn't built up any ranking strength yet. Its title is the homepage's exact target phrase.
+**New SEO fields** (set with Rank Math's `updateMeta`, as on Nov 1):
+- Title: `How to Sell Your House Fast in Tennessee: Cash vs Listing` (57 characters)
+- Description: `How long a Tennessee sale really takes, what slows it down, and how a cash sale compares with listing on what you actually net.` (127 characters)
 
-| From the post | Where it goes on the homepage (`front-page.php`) |
-|---|---|
-| Short Answer plus "Understanding What Fast Actually Means": cash takes 1 to 3 weeks, a financed sale 2 to 4 months; decision to contract is yours, contract to close belongs to the lender | One compact section, "How fast can you sell a house in Tennessee?", two short paragraphs above the comparison table |
-| "What Reliably Slows a Tennessee Sale Down": unreleased lien from an old loan, estate never probated, easement or boundary issue, misspelled name on the deed, unfinanceable condition, occupancy | New visible FAQ: "What can slow down a sale?" |
-| "Comparing the Two on Net" plus "the tradeoff is real" | New visible FAQ: "Will a cash offer be less than listing?" (honest answer: below retail, so compare what you net) |
-| Final Thoughts: "ask for proof of funds" and "will they assign the contract?" | One line added to the existing "Who can buy my house fast" FAQ |
-| "What remains is a title search, a closing date, and a wire" | /how-it-works/ Step 4 |
+**Then:**
+- 301 `/sell-my-house-fast-in-tn/` and `/how-to-sell-your-house-fast-in-tennessee-insider-tips-for-a-quick-hassle-free-sale/` to the kept guide.
+- Repoint internal links: 3 posts link to #3601 (#3612, #3625, #3640) and 1 to #1984 (#1944). The 5 posts already linking to #2004 stay as they are.
+- Link the kept guide from the homepage FAQ "How fast can I sell…" answer, with the anchor "how to sell your house fast in Tennessee".
 
-**Found while comparing; not fixed on this branch:**
-- **The homepage's FAQ schema doesn't match the visible FAQ.** `tcfh_schema_faq` in functions.php lists "How fast can I sell", "pros and cons" and "Is TCFH legitimate", but only 3 of its 6 questions appear on the page. Google may ignore FAQ schema that doesn't match the page. Adding the visible FAQs above fixes most of it. The schema text also contains em dashes.
-- **Closing time is stated four ways.** The homepage hero says "Close in 7 Days", the stats strip says "14 Days average", the comparison table says "7 Days", and the posts say 1 to 3 weeks. Pick one and use it site-wide.
-- **The traditional-sale timeline is double counted.** The schema says "60 to 90+ days plus another 30 to 45". Use the post's "2 to 4 months total".
-- **Commission rate:** "5 to 6% commission" in the comparison table may be outdated after the 2024 NAR settlement.
+**No longer needed:** the homepage content moves from the October plan. The homepage FAQ schema mismatch was fixed on Nov 3 (all 6 schema questions are now visible, with no dashes).
 
----
+**Also folded into the kept guide (approved Nov 3):** four generic "sell fast" posts with no Search Console impressions in the 90 days to Nov 3. Each 301s to the kept guide, and anything useful it has that the guide lacks moves in.
+
+| Post | Words | Linked from | Unique content worth keeping |
+|---|---:|---|---|
+| #1994 `how-to-sell-a-home-in-tennessee-fast-tips-for-2025` | 960 | none | none (pricing, curb appeal and staging tips the guide drops on purpose) |
+| #2034 `navigating-the-tennessee-real-estate-market-a-guide-to-selling-your-home-fast` | 650 | #1994 | none |
+| #2134 `how-to-sell-your-house-fast` | 371 | none | none |
+| #2138 `sell-your-house-fast-for-cash-a-step-by-step-guide-for-success` | 756 | #1996, #2026, #2104, #2108, #2122, #2130 | the cash-buyer scam warning, folded into the guide's "how to vet a cash buyer" checklist |
+
+The 6 posts linking to #2138 get their links repointed to the kept guide.
 
 ## After the merges
 

@@ -3,17 +3,23 @@
  * Template Name: Location - Tennessee
  *
  * SEO - enter in Yoast / RankMath:
- *   Meta Title:       We Buy Houses in Tennessee TN | Get a Fast Cash Offer Today
- *   Meta Description: We buy houses in Tennessee for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.
+ *   Meta Title:       Areas We Buy Houses in Tennessee | Cities and Counties
+ *   Meta Description: See every Tennessee city and county where we buy houses for cash, from Nashville and Murfreesboro to Clarksville and Cookeville. Find your local page.
+ *
+ * This page is the hub for every area we serve. "Sell my house fast Tennessee"
+ * and "we buy houses Tennessee" belong to the homepage, so this page links
+ * there instead of targeting them (see hero_link).
  */
 
 $city = [
     'slug'          => 'tennessee',
     'name'          => 'Tennessee',
     'image_file'    => 'Tennessee.webp',
-    'h1'            => 'Sell Your House For Cash In Tennessee',
-    'meta_title'    => 'We Buy Houses in Tennessee TN | Get a Fast Cash Offer Today',
-    'meta_desc'     => 'We buy houses in Tennessee for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.',
+    'h1'            => 'Every Tennessee City and County We Buy In',
+    'meta_title'    => 'Areas We Buy Houses in Tennessee | Cities and Counties',
+    'meta_desc'     => 'See every Tennessee city and county where we buy houses for cash, from Nashville and Murfreesboro to Clarksville and Cookeville. Find your local page.',
+    'hero_subtitle' => 'We buy houses for cash in every city and county on this page, in any condition, with no repairs, commissions, or fees. Find your area below.',
+    'hero_link'     => [ 'url' => home_url( '/' ), 'text' => 'Sell my house fast in Tennessee' ],
     'median_price'  => '$350,000',
     'homes_sold'    => '4,200',
     'avg_days'      => '55',

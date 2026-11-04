@@ -6,3 +6,6 @@ gsc-dashboard/client_secret*.json
 gsc-dashboard/token.json
 gsc-dashboard/venv/
 gsc-dashboard/data/
+
+# Post content backups written by internal-links/apply_city_links.py
+internal-links/backups/

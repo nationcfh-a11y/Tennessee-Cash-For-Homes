@@ -20,29 +20,32 @@ if ( ! empty( $meta_description ) ) {
 
 get_header();
 
-/* ── City list for the preview section ── */
+/* ── City chips: slug under /facing-foreclosure/ => seller-intent link text.
+   The three phrasings rotate row by row (three chips per desktop row) so no
+   column repeats; the long "Sell your house before foreclosure" one goes only
+   on narrow names so it fits one line on desktop. ── */
 $fc_cities = [
-    ['name' => 'Nashville',      'slug' => 'nashville'],
-    ['name' => 'Murfreesboro',   'slug' => 'murfreesboro'],
-    ['name' => 'Knoxville',      'slug' => 'knoxville'],
-    ['name' => 'Memphis',        'slug' => 'memphis'],
-    ['name' => 'Clarksville',    'slug' => 'clarksville'],
-    ['name' => 'Chattanooga',    'slug' => 'chattanooga'],
-    ['name' => 'Franklin',       'slug' => 'franklin'],
-    ['name' => 'Shelbyville',    'slug' => 'shelbyville'],
-    ['name' => 'Antioch',        'slug' => 'antioch'],
-    ['name' => 'Smyrna',         'slug' => 'smyrna'],
-    ['name' => 'La Vergne',      'slug' => 'la-vergne'],
-    ['name' => 'Gallatin',       'slug' => 'gallatin'],
-    ['name' => 'Columbia',       'slug' => 'columbia'],
-    ['name' => 'Spring Hill',    'slug' => 'spring-hill'],
-    ['name' => 'Lebanon',        'slug' => 'lebanon'],
-    ['name' => 'Jackson',        'slug' => 'jackson'],
-    ['name' => 'Hendersonville', 'slug' => 'hendersonville'],
-    ['name' => 'Crossville',     'slug' => 'crossville'],
-    ['name' => 'McMinnville',    'slug' => 'mcminnville'],
-    ['name' => 'Old Hickory',    'slug' => 'old-hickory'],
-    ['name' => 'Woodbury',       'slug' => 'woodbury'],
+    'columbia'       => 'Stop foreclosure in Columbia',
+    'spring-hill'    => 'Avoid foreclosure in Spring Hill',
+    'smyrna'         => 'Sell your house before foreclosure in Smyrna',
+    'nashville'      => 'Avoid foreclosure in Nashville',
+    'gallatin'       => 'Sell your house before foreclosure in Gallatin',
+    'murfreesboro'   => 'Stop foreclosure in Murfreesboro',
+    'lebanon'        => 'Sell your house before foreclosure in Lebanon',
+    'franklin'       => 'Stop foreclosure in Franklin',
+    'clarksville'    => 'Avoid foreclosure in Clarksville',
+    'hendersonville' => 'Stop foreclosure in Hendersonville',
+    'la-vergne'      => 'Avoid foreclosure in La Vergne',
+    'antioch'        => 'Sell your house before foreclosure in Antioch',
+    'shelbyville'    => 'Avoid foreclosure in Shelbyville',
+    'memphis'        => 'Sell your house before foreclosure in Memphis',
+    'knoxville'      => 'Stop foreclosure in Knoxville',
+    'jackson'        => 'Sell your house before foreclosure in Jackson',
+    'old-hickory'    => 'Stop foreclosure in Old Hickory',
+    'chattanooga'    => 'Avoid foreclosure in Chattanooga',
+    'woodbury'       => 'Stop foreclosure in Woodbury',
+    'crossville'     => 'Avoid foreclosure in Crossville',
+    'mcminnville'    => 'Stop foreclosure in McMinnville',
 ];
 ?>
 
@@ -522,23 +525,28 @@ $fc_cities = [
 </section>
 
 <!-- ══════════════════════════════════════════════
-     8. CITY PAGES PREVIEW (matches homepage Areas We Serve layout)
+     8. CITY PAGES PREVIEW (same chips and phone toggle as areas-we-serve.php)
      ══════════════════════════════════════════════ -->
-<section class="section section--alt">
+<section class="section section--alt fc-areas">
   <div class="container">
     <div class="section__header section__header--center">
       <p class="section__eyebrow">Statewide Coverage</p>
       <h2 class="section__title">Facing Foreclosure? We Help Homeowners Across Tennessee</h2>
       <p class="section__subtitle">Select your city below to find local foreclosure resources and get help specific to your area.</p>
     </div>
-    <div class="cities-grid cities-grid--fc">
-      <?php foreach ( $fc_cities as $c ) : ?>
-      <a href="<?php echo esc_url( home_url( '/facing-foreclosure/' . $c['slug'] . '/' ) ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span><?php echo esc_html( $c['name'] ); ?></span></a>
+    <input type="checkbox" id="fc-areas-toggle" class="areas-serve__toggle">
+
+    <div class="area-chips area-chips--cities">
+      <?php foreach ( $fc_cities as $slug => $anchor ) : ?>
+        <?php echo tcfh_area_chip( $slug, $anchor, '/facing-foreclosure/' ); ?>
       <?php endforeach; ?>
     </div>
-    <div class="cities-cta-wrap">
-      <a href="<?php echo esc_url( home_url( '/facing-foreclosure/' ) ); ?>" class="city-chip city-chip--full"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Anywhere in Tennessee &mdash; We Serve All Areas</span></a>
-    </div>
+
+    <label for="fc-areas-toggle" class="areas-serve__more">
+      <span class="areas-serve__more-open">Show all cities</span>
+      <span class="areas-serve__more-close">Show fewer</span>
+    </label>
+
     <p class="areas-footnote">Don't see your city? We serve <a href="#fc-form">all of Tennessee</a>. Contact us for your cash offer today.</p>
   </div>
 </section>
@@ -620,30 +628,6 @@ echo wp_json_encode( [
 ?>
 </script>
 
-<!-- LocalBusiness Schema -->
-<script type="application/ld+json">
-<?php
-echo wp_json_encode( [
-    '@context'    => 'https://schema.org',
-    '@type'       => 'LocalBusiness',
-    'name'        => 'Tennessee Cash For Homes',
-    'description' => 'Tennessee Cash For Homes helps homeowners facing foreclosure by buying houses fast for cash. Stop foreclosure, protect your credit, and walk away with cash in hand.',
-    'url'         => home_url( '/facing-foreclosure/' ),
-    'telephone'   => '+1-615-801-8126',
-    'email'       => 'info@tncashforhomes.com',
-    'address'     => [
-        '@type'           => 'PostalAddress',
-        'addressLocality' => 'Murfreesboro',
-        'addressRegion'   => 'TN',
-        'addressCountry'  => 'US',
-    ],
-    'areaServed' => [
-        '@type' => 'State',
-        'name'  => 'Tennessee',
-    ],
-], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT );
-?>
-</script>
 
 <!-- ══════════════════════════════════════════════
      INLINE STYLES

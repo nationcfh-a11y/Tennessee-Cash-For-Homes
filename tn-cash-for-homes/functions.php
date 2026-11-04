@@ -674,9 +674,10 @@ function tcfh_seo_meta_tags() {
     $phone       = '(615) 801-8126';
 
     if ( is_front_page() ) {
-        $title = 'Tennessee Cash For Homes | Sell Your House Fast for Cash';
-        $desc  = 'Sell your Tennessee house fast for cash. No repairs, no fees, no commissions. Get a fair all-cash offer in 24 hours. Close in as little as 7 days. Family-owned Tennessee home buyers.';
-        $url   = home_url( '/' );
+        // Rank Math prints the homepage description, og: and twitter: tags
+        // (filtered to TCFH_HOME_TITLE / TCFH_HOME_DESC below). Printing them
+        // here too gave the homepage two of each.
+        return;
     } elseif ( is_page() ) {
         $title = wp_get_document_title();
         $desc  = get_post_meta( get_the_ID(), '_tcfh_meta_desc', true );
@@ -754,6 +755,9 @@ function tcfh_plain_text( $html ) {
     $text = wp_strip_all_tags( str_replace( '<', ' <', strip_shortcodes( $html ) ) );
     $text = html_entity_decode( $text, ENT_QUOTES, 'UTF-8' );
     $text = preg_replace( '/[\s\x{00A0}]+/u', ' ', $text );
+    // No en or em dashes in titles or descriptions; a post that still has one
+    // in its opening paragraph gets a comma instead.
+    $text = preg_replace( '/\s*[\x{2013}\x{2014}]\s*/u', ', ', $text );
     // Closing inline tags (</a>, </strong>) before punctuation left "Columbia , TN".
     return trim( preg_replace( '/\s+([,.;:!?])/', '$1', $text ) );
 }
@@ -842,47 +846,129 @@ add_filter( 'rank_math/frontend/description', function( $desc ) {
 }, 20 );
 
 /**
+ * ── Areas we serve: every city and county page under /where-we-buy/ ──
+ * Shared by the areas-we-serve.php component and the "Nearby Areas We Buy In"
+ * block, so a new area page is added in one place. Each anchor uses the
+ * phrasing with the most search volume for that place ("We buy houses in X",
+ * "Sell my house fast in X", or "X cash home buyers"); places with no data
+ * get a mix.
+ */
+function tcfh_area_pages() {
+    return array(
+        'cities'   => array(
+            'nashville'      => array( 'name' => 'Nashville', 'anchor' => 'We buy houses in Nashville' ),
+            'franklin'       => array( 'name' => 'Franklin', 'anchor' => 'Sell my house fast in Franklin' ),
+            'brentwood'      => array( 'name' => 'Brentwood', 'anchor' => 'We buy houses in Brentwood' ),
+            'spring-hill'    => array( 'name' => 'Spring Hill', 'anchor' => 'Spring Hill cash home buyers' ),
+            'columbia'       => array( 'name' => 'Columbia', 'anchor' => 'Sell my house fast in Columbia' ),
+            'murfreesboro'   => array( 'name' => 'Murfreesboro', 'anchor' => 'Sell my house fast in Murfreesboro' ),
+            'smyrna'         => array( 'name' => 'Smyrna', 'anchor' => 'Sell my house fast in Smyrna' ),
+            'la-vergne'      => array( 'name' => 'La Vergne', 'anchor' => 'We buy houses in La Vergne' ),
+            'clarksville'    => array( 'name' => 'Clarksville', 'anchor' => 'Sell my house fast in Clarksville' ),
+            'hendersonville' => array( 'name' => 'Hendersonville', 'anchor' => 'We buy houses in Hendersonville' ),
+            'gallatin'       => array( 'name' => 'Gallatin', 'anchor' => 'Sell my house fast in Gallatin' ),
+            'lebanon'        => array( 'name' => 'Lebanon', 'anchor' => 'Sell my house fast in Lebanon' ),
+            'mount-juliet'   => array( 'name' => 'Mt. Juliet', 'anchor' => 'Sell my house fast in Mt. Juliet' ),
+            'springfield'    => array( 'name' => 'Springfield', 'anchor' => 'Sell my house fast in Springfield' ),
+            'dickson'        => array( 'name' => 'Dickson', 'anchor' => 'Dickson cash home buyers' ),
+            'shelbyville'    => array( 'name' => 'Shelbyville', 'anchor' => 'Sell my house fast in Shelbyville' ),
+            'tullahoma'      => array( 'name' => 'Tullahoma', 'anchor' => 'Sell my house fast in Tullahoma' ),
+            'cookeville'     => array( 'name' => 'Cookeville', 'anchor' => 'We buy houses in Cookeville' ),
+        ),
+        'counties' => array(
+            'davidson-county'   => 'We buy houses in Davidson County',
+            'williamson-county' => 'Sell my house fast in Williamson County',
+            'maury-county'      => 'Maury County cash home buyers',
+            'rutherford-county' => 'Sell my house fast in Rutherford County',
+            'montgomery-county' => 'We buy houses in Montgomery County',
+            'sumner-county'     => 'Sell my house fast in Sumner County',
+            'wilson-county'     => 'Wilson County cash home buyers',
+            'robertson-county'  => 'We buy houses in Robertson County',
+            'dickson-county'    => 'Sell my house fast in Dickson County',
+            'bedford-county'    => 'Bedford County cash home buyers',
+            'coffee-county'     => 'We buy houses in Coffee County',
+            'putnam-county'     => 'Sell my house fast in Putnam County',
+        ),
+    );
+}
+
+/** Map-pin icon used on every area chip. */
+function tcfh_pin_icon() {
+    return '<svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>';
+}
+
+/** One area chip: pin plus the full anchor phrase, linking to {$base}{slug}/ (default /where-we-buy/). */
+function tcfh_area_chip( $slug, $anchor, $base = '/where-we-buy/' ) {
+    return sprintf(
+        '<a href="%s" class="city-chip">%s<span>%s</span></a>',
+        esc_url( home_url( $base . $slug . '/' ) ),
+        tcfh_pin_icon(),
+        esc_html( $anchor )
+    );
+}
+
+/**
+ * ── SEO: Service-area business address ──
+ * We have no storefront or office and the Google Business Profile hides the
+ * address, so schema carries only the city, never a street address or geo.
+ */
+const TCFH_SERVICE_COUNTIES = array( 'Maury', 'Williamson', 'Davidson', 'Rutherford', 'Wilson', 'Sumner', 'Montgomery', 'Marshall', 'Bedford' );
+
+function tcfh_schema_address() {
+    return array(
+        '@type'           => 'PostalAddress',
+        'addressLocality' => 'Spring Hill',
+        'addressRegion'   => 'TN',
+        'addressCountry'  => 'US',
+    );
+}
+
+/**
+ * areaServed: any page-specific areas first (a city, "Tennessee"), then the
+ * service counties. A county the page already names is not repeated.
+ */
+function tcfh_area_served( $extra = array() ) {
+    $areas = array();
+    foreach ( (array) $extra as $name ) {
+        $areas[ $name ] = $name;
+    }
+    foreach ( TCFH_SERVICE_COUNTIES as $county ) {
+        if ( ! isset( $areas[ $county . ' County' ] ) ) {
+            $areas[ $county . ' County' ] = array( '@type' => 'AdministrativeArea', 'name' => $county . ' County, TN' );
+        }
+    }
+    return array_values( $areas );
+}
+
+/**
  * ── SEO: Shared LocalBusiness JSON-LD builder ──
- * Produces a consistent LocalBusiness schema object used across the site.
- * Callers override only what differs per page (type, name, description, url, areaServed, rating).
+ * Every page describes the same business as Rank Math's Organization node:
+ * same @id, name, url, and address, so search engines see one business, not
+ * one per page. Callers override only areaServed and the rating.
  */
 function tcfh_build_localbusiness_schema( $args = array() ) {
     $defaults = array(
-        'type'           => array( 'LocalBusiness', 'RealEstateAgent' ),
-        'name'           => 'Tennessee Cash For Homes',
-        'description'    => 'Tennessee\'s trusted cash home buyer. We buy houses fast for cash across all 95 Tennessee counties. No repairs, no fees, no commissions.',
-        'url'            => home_url( '/' ),
         'area_served'    => 'Tennessee',
-        'price_range'    => 'Free cash offer',
         'include_rating' => true,
-        'review_count'   => 50,
+        'review_count'   => tcfh_review_count(),
     );
     $a = array_merge( $defaults, $args );
 
     $schema = array(
         '@context'    => 'https://schema.org',
-        '@type'       => $a['type'],
-        'name'        => $a['name'],
-        'description' => $a['description'],
-        'url'         => $a['url'],
+        '@type'       => array( 'LocalBusiness', 'Organization' ),
+        '@id'         => home_url( '/#organization' ),
+        'name'        => 'Tennessee Cash For Homes',
+        'description' => 'Tennessee\'s trusted cash home buyer. We buy houses fast for cash across all 95 Tennessee counties. No repairs, no fees, no commissions.',
+        'url'         => home_url( '/' ),
         'telephone'   => '+1-615-801-8126',
         'email'       => 'info@tncashforhomes.com',
         'foundingDate'=> '2017',
         'image'       => get_template_directory_uri() . '/brand_assets/team-photo.webp',
         'logo'        => get_template_directory_uri() . '/brand_assets/Tennessee%20Cash%20For%20Homes%20Logo.png',
-        'address'     => array(
-            '@type'           => 'PostalAddress',
-            'addressLocality' => 'Murfreesboro',
-            'addressRegion'   => 'TN',
-            'addressCountry'  => 'US',
-        ),
-        'geo' => array(
-            '@type'     => 'GeoCoordinates',
-            'latitude'  => '35.8456',
-            'longitude' => '-86.3903',
-        ),
-        'areaServed' => $a['area_served'],
-        'priceRange' => $a['price_range'],
+        'address'     => tcfh_schema_address(),
+        'areaServed'  => tcfh_area_served( $a['area_served'] ),
+        'priceRange'  => 'Free cash offer',
         'openingHoursSpecification' => array(
             '@type'     => 'OpeningHoursSpecification',
             'dayOfWeek' => array( 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ),
@@ -917,7 +1003,7 @@ function tcfh_print_jsonld( $schema ) {
 
 /**
  * ── SEO: LocalBusiness JSON-LD Schema ──
- * Homepage gets the canonical org schema (LocalBusiness + RealEstateAgent).
+ * Homepage gets the canonical org schema (LocalBusiness + Organization).
  * Listed interior pages also get LocalBusiness so every major landing has it.
  * County, city, foreclosure, and situation templates register their own
  * context-specific wp_head callback before get_header() runs — see those files.
@@ -925,7 +1011,9 @@ function tcfh_print_jsonld( $schema ) {
 add_action( 'wp_head', 'tcfh_schema_localbusiness' );
 function tcfh_schema_localbusiness() {
     if ( is_front_page() ) {
-        tcfh_print_jsonld( tcfh_build_localbusiness_schema() );
+        tcfh_print_jsonld( tcfh_build_localbusiness_schema( array(
+            'review_count' => tcfh_review_count( 'home' ),
+        ) ) );
         return;
     }
 
@@ -959,9 +1047,17 @@ function tcfh_schema_localbusiness() {
         || in_array( get_page_template_slug(), $interior_templates, true );
 
     if ( $is_interior ) {
+        // Rate only pages that show a review carousel, counting that carousel.
+        $template = get_page_template_slug();
+        $carousel = '';
+        if ( is_page( array( 'how-it-works', 'where-we-buy' ) ) || in_array( $template, array( 'page-how-it-works.php', 'page-where-we-buy.php' ), true ) ) {
+            $carousel = 'home';
+        } elseif ( is_page( array( 'about', 'sell-your-land-1', 'sell-your-land', 'sell-my-land' ) ) || in_array( $template, array( 'page-about.php', 'page-sell-your-land-1.php' ), true ) ) {
+            $carousel = 'section';
+        }
         tcfh_print_jsonld( tcfh_build_localbusiness_schema( array(
-            'url'  => get_permalink(),
-            'type' => array( 'LocalBusiness', 'RealEstateAgent' ),
+            'include_rating' => (bool) $carousel,
+            'review_count'   => $carousel ? tcfh_review_count( $carousel ) : 0,
         ) ) );
     }
 }
@@ -987,7 +1083,7 @@ function tcfh_get_faq_page_items() {
         ),
         array(
             'q' => 'Is Tennessee Cash For Homes legitimate?',
-            'a' => 'Yes. Tennessee Cash For Homes is an A+ Better Business Bureau Accredited business based in Murfreesboro, Tennessee, founded in 2017. The company has a 5-star Google rating from verified Tennessee homeowners, is family-owned and operated, and the team is named publicly: Karson Carmichael (Founder), Dowling Armstrong (licensed Tennessee real estate agent with over 1,000 transactions), and Davis Armstrong (Lipscomb University Finance graduate). All closings are handled through licensed Tennessee title companies. The BBB profile can be verified at bbb.org and reviews are public on Google.',
+            'a' => 'Yes. Tennessee Cash For Homes is an A+ Better Business Bureau Accredited business based in Spring Hill and buying houses across Middle Tennessee, founded in 2017. The company has a 5-star Google rating from verified Tennessee homeowners, is family-owned and operated, and the team is named publicly: Karson Carmichael (Founder), Dowling Armstrong (licensed Tennessee real estate agent with over 1,000 transactions), and Davis Armstrong (Lipscomb University Finance graduate). All closings are handled through licensed Tennessee title companies. The BBB profile can be verified at bbb.org and reviews are public on Google.',
         ),
         array(
             'q' => 'How does the process work?',
@@ -1077,7 +1173,7 @@ function tcfh_schema_faq() {
             ),
             array(
                 'q' => 'Is Tennessee Cash For Homes legitimate?',
-                'a' => 'Yes. Tennessee Cash For Homes is a Better Business Bureau Accredited business with an A+ rating, located in Murfreesboro, Tennessee, and founded in 2017. The company has a 5-star Google review average from real verified Tennessee homeowners, is family-owned and operated, and is run by a named, public team — Karson Carmichael (Founder), Dowling Armstrong (licensed Tennessee real estate agent with 1,000+ transactions), and Davis Armstrong. All transactions close through licensed Tennessee title companies. You can verify the BBB profile at bbb.org and read reviews on Google.',
+                'a' => 'Yes. Tennessee Cash For Homes is a Better Business Bureau Accredited business with an A+ rating, based in Spring Hill and buying houses across Middle Tennessee, and founded in 2017. The company has a 5-star Google review average from real verified Tennessee homeowners, is family-owned and operated, and is run by a named, public team — Karson Carmichael (Founder), Dowling Armstrong (licensed Tennessee real estate agent with 1,000+ transactions), and Davis Armstrong. All transactions close through licensed Tennessee title companies. You can verify the BBB profile at bbb.org and read reviews on Google.',
             ),
             array(
                 'q' => 'What types of homes do you buy?',
@@ -1173,23 +1269,78 @@ function tcfh_schema_breadcrumbs() {
 }
 
 /**
- * ── SEO/AEO: Review schema ──
- * Emits individual Review entities on the homepage so that AI engines and
- * search engines see real customer testimonials (not just an aggregate rating).
- * Source of truth is reviews-section.php; keep this list in sync if you edit
- * that file. Names and bodies are real customers from public Google reviews.
+ * ── Reviews: one list for every carousel and every Review schema ──
+ * Real customers from public Google reviews. 'shown_on' says which carousel
+ * shows each one: 'home' is the 15-card carousel on the homepage, How It
+ * Works and Where We Buy; 'section' is reviews-section.php, the 9-card
+ * carousel on About, the land page, and the city, county, situation and
+ * foreclosure templates. Both carousels render from this list, so schema
+ * counts can't drift from what a visitor sees.
  */
 function tcfh_get_reviews() {
     return array(
-        array( 'author' => 'Nathan Krager',     'rating' => 5, 'date' => '2024-08-12', 'body' => 'Great company to work with, these guys actually care about you and will take care of you. Great character as well!' ),
-        array( 'author' => 'Trish Haberman',    'rating' => 5, 'date' => '2024-09-04', 'body' => 'Such a great group to work with. They were able to give me a fair deal with no hassles. Thank you Karson for going above and beyond.' ),
-        array( 'author' => 'Clayton Daniels',   'rating' => 5, 'date' => '2024-10-21', 'body' => 'These guys were absolutely amazing. I sold my house without having to do a single repair and they even helped me find my next place to live!' ),
-        array( 'author' => 'Lisa Daniels',      'rating' => 5, 'date' => '2024-11-02', 'body' => "If you need to sell a home quickly, they're professional, fair, and truly care about making things easy for the seller. Highly recommend." ),
-        array( 'author' => 'Nancy Hughes',      'rating' => 5, 'date' => '2025-01-17', 'body' => 'The team at TN Cash for Homes were outstanding! I was in a bad situation with my home loan and after one call with this company they created a custom solution that resolved my issues. They were professional, efficient and understanding. I highly recommend this company.' ),
-        array( 'author' => 'John Peterson',     'rating' => 5, 'date' => '2025-03-08', 'body' => 'Really enjoyed working with Tennessee Cash For Homes. They helped me sell my house in Clarksville fast for cash! Highly recommend working with them.' ),
-        array( 'author' => 'Dowling Armstrong', 'rating' => 5, 'date' => '2025-05-14', 'body' => "They bought my father's rental portfolio! Paid cash and closed on multiple homes in less than 3 weeks! They also took them with the tenants which is really tough to find someone willing to buy a rental with leases in place. Would highly recommend this company to anyone who doesn't want to deal with listing a home!" ),
-        array( 'author' => 'Christopher Payne', 'rating' => 5, 'date' => '2025-07-22', 'body' => 'Great experience working with these guys. The whole process went super fast, and easy. Both Davis and Dowling were true to their word which is very important when doing business. I would work with them again any day.' ),
-        array( 'author' => 'Chris Iannotti',    'rating' => 5, 'date' => '2025-09-03', 'body' => 'Nothing but a great experience start to finish. All of my questions were answered and they were quick to respond when needed.' ),
+        array( 'author' => 'Nathan Krager', 'initials' => 'NK', 'rating' => 5, 'date' => '2024-08-12', 'shown_on' => array( 'home', 'section' ),
+               'body' => 'Great company to work with, these guys actually care about you and will take care of you. Great character as well!' ),
+        array( 'author' => 'JP JP', 'initials' => 'JP', 'rating' => 5, 'shown_on' => array( 'home' ),
+               'body' => 'We couldn\'t recommend Karson any higher! We contacted him when we were preparing to sell our home and he was so honest to tell us that in our particular case, it would make more sense to sell with a traditional agent. He set us up with Chris, who we really like, and decided to go that route. Thanks for the honest assessment and referral! I\'ll definitely recommend Tennessee Cash for Homes to anyone that needs to get a property sold quickly.' ),
+        array( 'author' => 'Trish Haberman', 'initials' => 'TH', 'rating' => 5, 'date' => '2024-09-04', 'shown_on' => array( 'home', 'section' ),
+               'body' => 'Such a great group to work with. They were able to give me a fair deal with no hassles. Thank you Karson for going above and beyond.' ),
+        array( 'author' => 'Clayton Daniels', 'initials' => 'CD', 'rating' => 5, 'date' => '2024-10-21', 'shown_on' => array( 'home', 'section' ),
+               'body' => 'These guys were absolutely amazing. I sold my house without having to do a single repair and they even helped me find my next place to live!' ),
+        array( 'author' => 'Joe Hafner', 'initials' => 'JH', 'rating' => 5, 'shown_on' => array( 'home' ),
+               'body' => 'I\'ve known and worked with TN Cash for Homes and the people behind it for many years. I greatly appreciate their integrity and attention to detail. They genuinely want to help the homeowners they work with and always do everything in their power to create win-win situations for their investors. Best of all, they consistently think outside the box to come up with innovative solutions for those whom they serve. I cannot recommend them highly enough.' ),
+        array( 'author' => 'Lisa Daniels', 'initials' => 'LD', 'rating' => 5, 'date' => '2024-11-02', 'shown_on' => array( 'home', 'section' ),
+               'body' => 'If you need to sell a home quickly, they\'re professional, fair, and truly care about making things easy for the seller. Highly recommend.' ),
+        array( 'author' => 'Nancy Hughes', 'initials' => 'NH', 'rating' => 5, 'date' => '2025-01-17', 'shown_on' => array( 'home', 'section' ),
+               'body' => 'The team at TN Cash for Homes were outstanding! I was in a bad situation with my home loan and after one call with this company they created a custom solution that resolved my issues. They were professional, efficient and understanding. I highly recommend this company.' ),
+        array( 'author' => 'John Peterson', 'initials' => 'JP', 'rating' => 5, 'date' => '2025-03-08', 'shown_on' => array( 'home', 'section' ),
+               'body' => 'Really enjoyed working with Tennessee Cash For Homes. They helped me sell my house in Clarksville fast for cash! Highly recommend working with them.' ),
+        array( 'author' => 'Dowling Armstrong', 'initials' => 'DA', 'rating' => 5, 'date' => '2025-05-14', 'shown_on' => array( 'home', 'section' ),
+               'body' => 'They bought my father\'s rental portfolio! Paid cash and closed on multiple homes in less than 3 weeks! They also took them with the tenants which is really tough to find someone willing to buy a rental with leases in place. Would highly recommend this company to anyone who doesn\'t want to deal with listing a home!' ),
+        array( 'author' => 'Christopher Payne', 'initials' => 'CP', 'rating' => 5, 'date' => '2025-07-22', 'shown_on' => array( 'home', 'section' ),
+               'body' => 'Great experience working with these guys. The whole process went super fast, and easy. Both Davis and Dowling were true to their word which is very important when doing business. I would work with them again any day.' ),
+        array( 'author' => 'Taylor Broyles', 'initials' => 'TB', 'rating' => 5, 'shown_on' => array( 'home' ),
+               'body' => 'Working with Karson at Tennessee Cash for Homes has been an absolute pleasure. From the very beginning, he was professional, honest, and genuinely cared about helping me find the best solution for selling my house. He made the entire process simple and stress-free, explaining everything clearly and being there every step of the way. It\'s rare to find someone in this business who is not only knowledgeable but also truly compassionate. I highly recommend Karson and his team to anyone looking to sell their home quickly and with confidence.' ),
+        array( 'author' => 'Josh Tully', 'initials' => 'JT', 'rating' => 5, 'shown_on' => array( 'home' ),
+               'body' => 'I inherited a property that needed a lot of work and didn\'t know what to do with it. Karson walked me through all my options and made a fair cash offer that saved me time and stress. He handled everything and made the process incredibly smooth. Super grateful I found him.' ),
+        array( 'author' => 'Kayla Wright', 'initials' => 'KW', 'rating' => 5, 'shown_on' => array( 'home' ),
+               'body' => 'I had an amazing experience with this company. My sisters and I were selling our mother\'s home who had passed. They made it very easy, we got a fair offer and they even allowed us to get a few of our mother\'s belongings we forgot after the closing. I highly recommend this company. The folks there are great to work with, unlike a lot of the scammy companies we had tried to sell to before.' ),
+        array( 'author' => 'Tsms Official', 'initials' => 'TO', 'rating' => 5, 'shown_on' => array( 'home' ),
+               'body' => 'Very professional. Karson was absolutely amazing to work with and helped me and my family out tremendously! We were able to get a cash offer and move to our new residence without having to do any repairs to our old house! He closed in less than two weeks and was honest and open about the process the entire time. He was also extremely communicative throughout the entire process.' ),
+        array( 'author' => 'Kylie', 'initials' => 'K', 'rating' => 5, 'shown_on' => array( 'home' ),
+               'body' => 'Karson is wonderful! Honest and up front about the offer he gave. I got quotes from other companies and they all came back to renegotiate the numbers. Highly recommend Tennessee Cash For Homes!' ),
+        array( 'author' => 'Chris Iannotti', 'initials' => 'CI', 'rating' => 5, 'date' => '2025-09-03', 'shown_on' => array( 'section' ),
+               'body' => 'Nothing but a great experience start to finish. All of my questions were answered and they were quick to respond when needed.' ),
+    );
+}
+
+// The reviews one carousel shows ('home' or 'section'), in display order.
+function tcfh_reviews_for( $carousel ) {
+    return array_values( array_filter( tcfh_get_reviews(), function( $r ) use ( $carousel ) {
+        return in_array( $carousel, $r['shown_on'], true );
+    } ) );
+}
+
+// Schema reviewCount for a page: the reviews its carousel shows, never the
+// Google total. See TCFH_GOOGLE_REVIEW_TOTAL for the visible number.
+function tcfh_review_count( $carousel = 'section' ) {
+    return count( tcfh_reviews_for( $carousel ) );
+}
+
+/**
+ * ── Google review total shown in visible text ──
+ * Update the number here and every "N five-star Google reviews" link on the
+ * site changes with it. Kept out of schema on purpose: schema counts only
+ * the reviews printed on the page (tcfh_review_count).
+ */
+const TCFH_GOOGLE_REVIEW_TOTAL = 102;
+const TCFH_GOOGLE_REVIEWS_URL  = 'https://www.google.com/maps/search/?api=1&query=Tennessee+Cash+For+Homes';
+
+function tcfh_google_reviews_link( $label = '%d five-star Google reviews' ) {
+    return sprintf(
+        '<a href="%s" target="_blank" rel="noopener">%s</a>',
+        esc_url( TCFH_GOOGLE_REVIEWS_URL ),
+        esc_html( sprintf( $label, TCFH_GOOGLE_REVIEW_TOTAL ) )
     );
 }
 
@@ -1197,24 +1348,21 @@ add_action( 'wp_head', 'tcfh_schema_reviews' );
 function tcfh_schema_reviews() {
     if ( ! is_front_page() ) return;
 
-    $reviews = tcfh_get_reviews();
+    $reviews = tcfh_reviews_for( 'home' );
     $review_entities = array();
     foreach ( $reviews as $r ) {
-        $review_entities[] = array(
+        $review_entities[] = array_filter( array(
             '@type'         => 'Review',
             'author'        => array( '@type' => 'Person', 'name' => $r['author'] ),
-            'datePublished' => $r['date'],
+            'datePublished' => isset( $r['date'] ) ? $r['date'] : null,
             'reviewBody'    => $r['body'],
             'reviewRating'  => array(
                 '@type'       => 'Rating',
                 'ratingValue' => (string) $r['rating'],
                 'bestRating'  => '5',
             ),
-            'itemReviewed'  => array(
-                '@type' => 'LocalBusiness',
-                'name'  => 'Tennessee Cash For Homes',
-            ),
-        );
+            'itemReviewed'  => array( '@id' => home_url( '/#organization' ) ),
+        ) );
     }
 
     foreach ( $review_entities as $entity ) {
@@ -1238,12 +1386,7 @@ function tcfh_schema_service() {
         'name'            => 'Cash Home Buying in Tennessee',
         'serviceType'     => 'Cash Home Buyer',
         'description'     => 'Tennessee Cash For Homes buys houses directly from homeowners across all 95 Tennessee counties for cash. We make a no-obligation offer within 24 hours, buy houses in any condition with no repairs required, charge no agent commissions or closing costs, and can close in as little as 7 days.',
-        'provider'        => array(
-            '@type'     => 'LocalBusiness',
-            'name'      => 'Tennessee Cash For Homes',
-            'telephone' => '+1-615-801-8126',
-            'url'       => home_url( '/' ),
-        ),
+        'provider'        => array( '@id' => home_url( '/#organization' ) ),
         'areaServed'      => array(
             '@type' => 'State',
             'name'  => 'Tennessee',
@@ -1286,11 +1429,7 @@ add_action( 'wp_head', 'tcfh_schema_persons' );
 function tcfh_schema_persons() {
     if ( ! is_page( 'about' ) && get_page_template_slug() !== 'page-about.php' ) return;
 
-    $org = array(
-        '@type' => 'Organization',
-        'name'  => 'Tennessee Cash For Homes',
-        'url'   => home_url( '/' ),
-    );
+    $org = array( '@id' => home_url( '/#organization' ) );
 
     $people = array(
         array(
@@ -1469,13 +1608,46 @@ add_filter( 'robots_txt', function( $output, $public ) {
 }, 10, 2 );
 
 /**
- * ── SEO: Set homepage title tag ──
+ * ── SEO: Homepage title, description, and social tags ──
+ * One source for every homepage title/description Rank Math prints
+ * (<title>, meta description, og:, twitter:). Title stays under 60
+ * characters and description under 155.
  */
+const TCFH_HOME_TITLE = 'Sell My House Fast Tennessee | Tennessee Cash For Homes';
+const TCFH_HOME_DESC  = 'Cash home buyers in Tennessee. We buy houses in any condition, pay closing costs, and close in as little as 7 days. Get your free cash offer today.';
+
 add_filter( 'pre_get_document_title', function( $title ) {
-    if ( is_front_page() ) {
-        return 'Tennessee Cash For Homes | Sell Your House Fast for Cash';
+    return is_front_page() ? TCFH_HOME_TITLE : $title;
+}, 99 );
+
+foreach ( array( 'rank_math/frontend/title', 'rank_math/opengraph/facebook/og_title', 'rank_math/opengraph/twitter/twitter_title' ) as $tcfh_hook ) {
+    add_filter( $tcfh_hook, function( $title ) {
+        return is_front_page() ? TCFH_HOME_TITLE : $title;
+    }, 99 );
+}
+foreach ( array( 'rank_math/frontend/description', 'rank_math/opengraph/facebook/og_description', 'rank_math/opengraph/twitter/twitter_description' ) as $tcfh_hook ) {
+    add_filter( $tcfh_hook, function( $desc ) {
+        return is_front_page() ? TCFH_HOME_DESC : $desc;
+    }, 99 );
+}
+
+// Rank Math's Organization node printed the phone as "(615) 801-8126" and the
+// URL without a trailing slash; match the theme's LocalBusiness exactly.
+// Rank Math also adds an Article to every page; pages already have a WebPage
+// node, so the Article stays only on blog posts.
+add_filter( 'rank_math/json_ld', function( $data ) {
+    foreach ( $data as $key => $entity ) {
+        if ( ! is_array( $entity ) ) continue;
+        if ( ( $entity['@id'] ?? '' ) === home_url( '/#organization' ) ) {
+            $data[ $key ]['telephone'] = '+1-615-801-8126';
+            $data[ $key ]['url']       = home_url( '/' );
+            $data[ $key ]['address']   = tcfh_schema_address();
+        }
+        if ( is_page() && ( $entity['@type'] ?? '' ) === 'Article' ) {
+            unset( $data[ $key ] );
+        }
     }
-    return $title;
+    return $data;
 }, 99 );
 
 /**

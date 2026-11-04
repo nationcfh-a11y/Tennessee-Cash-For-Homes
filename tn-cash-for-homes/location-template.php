@@ -7,6 +7,10 @@
  *   slug, name, image_file, h1, meta_title, meta_desc,
  *   median_price, homes_sold, avg_days,
  *   desc1, desc2, land_para
+ *
+ * Optional:
+ *   hero_subtitle  plain text, replaces the default hero subtitle
+ *   hero_link      [ 'url' => ..., 'text' => ... ], a text link under the subtitle
  */
 
 $meta_title = ! empty( $city['meta_title'] ) ? $city['meta_title'] : '';
@@ -29,9 +33,6 @@ $city_name_for_schema = $city['name'];
 add_action( 'wp_head', function() use ( $city_name_for_schema ) {
     if ( ! function_exists( 'tcfh_build_localbusiness_schema' ) ) return;
     $schema = tcfh_build_localbusiness_schema( array(
-        'type'        => 'LocalBusiness',
-        'description' => 'We buy houses in ' . $city_name_for_schema . ' Tennessee for cash. No repairs, no agents, no fees.',
-        'url'         => get_permalink(),
         'area_served' => array( $city_name_for_schema, 'Tennessee' ),
     ) );
     tcfh_print_jsonld( $schema );
@@ -71,7 +72,14 @@ $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
         </nav>
         <div class="hero__badge county-hero__badge"><?php echo esc_html( $name ); ?> Cash Home Buyers</div>
         <h1 class="county-hero__title"><?php echo esc_html( $h1 ); ?></h1>
+        <?php if ( ! empty( $city['hero_subtitle'] ) ) : ?>
+        <p class="county-hero__subtitle"><?php echo esc_html( $city['hero_subtitle'] ); ?></p>
+        <?php else : ?>
         <p class="county-hero__subtitle">No repairs. No commissions. No fees. Get a fair cash offer for your <?php echo esc_html( $name ); ?> home in as little as 24 hours. We close on your timeline.</p>
+        <?php endif; ?>
+        <?php if ( ! empty( $city['hero_link'] ) ) : ?>
+        <p class="county-hero__link"><a href="<?php echo esc_url( $city['hero_link']['url'] ); ?>"><?php echo esc_html( $city['hero_link']['text'] ); ?> &rarr;</a></p>
+        <?php endif; ?>
         <div class="hero__trust county-hero__trust">
           <div class="hero__trust-item">
             <?php echo $check18; ?>
@@ -309,54 +317,52 @@ $gov_name       = $name;
 $gov_county_key = ! empty( $city['county'] ) ? $city['county'] : '';
 $gov_type       = 'city';
 include get_template_directory() . '/gov-resources-section.php';
+
+// ── Nearby areas: 3 to 5 geographically close city pages, keyed by $city['slug'].
+// Values are URL slugs (Mt. Juliet's page lives at /mount-juliet/).
+$nearby_cities = tcfh_area_pages()['cities'];
+$nearby_map = array(
+    'nashville'      => array( 'brentwood', 'la-vergne', 'hendersonville', 'mount-juliet', 'franklin' ),
+    'franklin'       => array( 'brentwood', 'spring-hill', 'nashville', 'columbia' ),
+    'brentwood'      => array( 'franklin', 'nashville', 'spring-hill', 'smyrna' ),
+    'spring-hill'    => array( 'columbia', 'franklin', 'brentwood', 'shelbyville' ),
+    'columbia'       => array( 'spring-hill', 'franklin', 'shelbyville', 'dickson' ),
+    'murfreesboro'   => array( 'smyrna', 'la-vergne', 'shelbyville', 'tullahoma', 'lebanon' ),
+    'smyrna'         => array( 'la-vergne', 'murfreesboro', 'nashville', 'brentwood' ),
+    'la-vergne'      => array( 'smyrna', 'murfreesboro', 'nashville', 'mount-juliet' ),
+    'clarksville'    => array( 'springfield', 'dickson', 'nashville' ),
+    'hendersonville' => array( 'gallatin', 'nashville', 'mount-juliet', 'springfield' ),
+    'gallatin'       => array( 'hendersonville', 'lebanon', 'springfield', 'mount-juliet' ),
+    'lebanon'        => array( 'mount-juliet', 'gallatin', 'murfreesboro', 'cookeville' ),
+    'mt-juliet'      => array( 'lebanon', 'hendersonville', 'la-vergne', 'nashville' ),
+    'springfield'    => array( 'clarksville', 'hendersonville', 'gallatin', 'nashville' ),
+    'dickson'        => array( 'clarksville', 'franklin', 'columbia', 'nashville' ),
+    'shelbyville'    => array( 'tullahoma', 'murfreesboro', 'columbia' ),
+    'tullahoma'      => array( 'shelbyville', 'murfreesboro', 'columbia' ),
+    'cookeville'     => array( 'lebanon', 'mount-juliet', 'murfreesboro' ),
+);
+$nearby = ! empty( $nearby_map[ $slug ] ) ? $nearby_map[ $slug ] : array();
 ?>
 
-<!-- ── AREAS WE SERVE ── -->
-<section class="section section--alt">
+<?php if ( $nearby ) : ?>
+<!-- ── NEARBY AREAS ── -->
+<section class="section nearby-areas">
   <div class="container">
     <div class="section__header section__header--center">
-      <p class="section__eyebrow">Statewide Coverage</p>
-      <h2 class="section__title">Areas We Serve Across Tennessee</h2>
-      <p class="section__subtitle">We buy houses throughout the entire state of Tennessee. Whether you are in a major metro or a small town, we can make you a cash offer.</p>
+      <p class="section__eyebrow">Near <?php echo esc_html( $name ); ?></p>
+      <h2 class="section__title">Nearby Areas We Buy In</h2>
+      <p class="section__subtitle">We also buy houses for cash in these communities near <?php echo esc_html( $name ); ?>.</p>
     </div>
-    <div class="cities-grid">
-      <a href="<?php echo esc_url( home_url('/where-we-buy/nashville/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Nashville</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/murfreesboro/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Murfreesboro</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/clarksville/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Clarksville</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/franklin/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Franklin</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/shelbyville/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Shelbyville</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/smyrna/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Smyrna</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/la-vergne/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>La Vergne</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/gallatin/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Gallatin</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/columbia/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Columbia</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/spring-hill/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Spring Hill</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/lebanon/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Lebanon</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/hendersonville/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Hendersonville</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/brentwood/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Brentwood</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/mount-juliet/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Mt. Juliet</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/dickson/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Dickson</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/tullahoma/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Tullahoma</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/cookeville/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Cookeville</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/springfield/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Springfield</span></a>
-    </div>
-    <p class="areas-footnote">Don&rsquo;t see your city? We serve <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>">all of Tennessee</a>. Contact us for your cash offer today.</p>
-    <h3 class="section__title" style="font-size:1.5rem; margin-top:48px; margin-bottom:8px;">Counties We Serve</h3>
-    <div class="cities-grid">
-      <a href="<?php echo esc_url( home_url('/where-we-buy/davidson-county/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Davidson County</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/rutherford-county/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Rutherford County</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/williamson-county/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Williamson County</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/montgomery-county/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Montgomery County</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/sumner-county/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Sumner County</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/wilson-county/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Wilson County</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/maury-county/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Maury County</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/robertson-county/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Robertson County</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/dickson-county/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Dickson County</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/bedford-county/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Bedford County</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/coffee-county/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Coffee County</span></a>
-      <a href="<?php echo esc_url( home_url('/where-we-buy/putnam-county/') ); ?>" class="city-chip"><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Putnam County</span></a>
+    <div class="area-chips<?php echo 4 === count( $nearby ) ? ' area-chips--pairs' : ''; ?>">
+      <?php foreach ( $nearby as $nearby_slug ) : ?>
+        <?php echo tcfh_area_chip( $nearby_slug, $nearby_cities[ $nearby_slug ]['anchor'] ); ?>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
+<?php endif; ?>
+
+<?php get_template_part( 'areas-we-serve' ); ?>
 
 
 <style>
@@ -393,6 +399,15 @@ include get_template_directory() . '/gov-resources-section.php';
   color: #1a1a1a;
   line-height: 1.15;
   margin: 0 0 20px;
+}
+.county-hero__link {
+  margin: -16px 0 28px;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.county-hero__link a {
+  color: #2F855A;
+  text-decoration: underline;
 }
 .county-hero__subtitle {
   font-size: 1.05rem;

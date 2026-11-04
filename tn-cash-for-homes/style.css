@@ -1121,6 +1121,143 @@ img { display: block; max-width: 100%; }
   text-decoration: underline;
 }
 
+/* ── AREAS WE SERVE (areas-we-serve.php) / NEARBY AREAS (city pages) ── */
+.areas-serve__subhead {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin: 0 0 16px;
+}
+
+.area-chips + .areas-serve__subhead { margin-top: 40px; }
+
+/* Full anchor phrase on one line: three across on desktop, one per row on phones. */
+.area-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.area-chips .city-chip {
+  flex: 0 0 calc((100% - 28px) / 3);
+  min-width: 0;
+  padding: 14px 16px;
+  font-size: 14px;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.nearby-areas .area-chips { margin-bottom: 0; }
+
+@media (max-width: 1099px) {
+  .area-chips .city-chip { flex-basis: calc((100% - 14px) / 2); }
+}
+
+/* Nearby Areas: no chip alone on the last row. Four chips sit 2 by 2 at the
+   3-across chip width; on tablets an odd last chip fills its row. */
+@media (min-width: 1100px) {
+  .area-chips--pairs { max-width: calc((100% - 28px) / 3 * 2 + 14px); margin-left: auto; margin-right: auto; }
+  .area-chips--pairs .city-chip { flex-basis: calc((100% - 14px) / 2); }
+}
+
+@media (min-width: 761px) and (max-width: 1099px) {
+  .nearby-areas .area-chips .city-chip:last-child:nth-child(odd) { flex-basis: 100%; }
+}
+
+/* Facing Foreclosure: the long "Sell your house before foreclosure in X" chips
+   need the full 3-across width, so this section stays 2 across until 1280px. */
+@media (min-width: 761px) and (max-width: 1279px) {
+  .fc-areas .area-chips .city-chip { flex-basis: calc((100% - 14px) / 2); }
+  .fc-areas .area-chips .city-chip:last-child:nth-child(odd) { flex-basis: 100%; }
+}
+
+@media (max-width: 760px) {
+  .area-chips { gap: 10px; }
+  .area-chips .city-chip { flex-basis: 100%; }
+}
+
+/* Phones: first 6 cities and 4 counties, the rest behind "Show all areas we
+   serve". The checkbox sits before the grids so ~ can reach them. */
+.areas-serve__toggle {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.areas-serve__more { display: none; }
+
+@media (max-width: 760px) {
+  .area-chips .city-chip { padding: 10px 12px; }
+
+  .areas-serve__toggle:not(:checked) ~ .area-chips--cities .city-chip:nth-child(n+7),
+  .areas-serve__toggle:not(:checked) ~ .area-chips--counties .city-chip:nth-child(n+5) { display: none; }
+
+  .areas-serve__more {
+    display: block;
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 12px 20px;
+    border: 2px solid var(--green-dark);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--green-dark);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+  .areas-serve__toggle:focus-visible ~ .areas-serve__more { outline: 3px solid rgba(47,133,90,.4); outline-offset: 2px; }
+
+  .areas-serve__more-close,
+  .areas-serve__toggle:checked ~ .areas-serve__more .areas-serve__more-open { display: none; }
+  .areas-serve__toggle:checked ~ .areas-serve__more .areas-serve__more-close { display: inline; }
+}
+
+/* Hover fill only where there is a real pointer; on phones it would stick after a tap. */
+@media (max-width: 760px) and (hover: hover) {
+  .areas-serve__more:hover { background: var(--green-dark); color: var(--white); }
+}
+
+@media (max-width: 400px) {
+  .area-chips .city-chip { padding: 10px 10px; font-size: 13px; gap: 6px; }
+  .area-chips .city-chip svg { width: 14px; height: 14px; }
+}
+
+@media (max-width: 350px) {
+  .area-chips .city-chip { padding: 10px 8px; font-size: 12px; gap: 5px; }
+}
+
+/* Facing Foreclosure: "Sell your house before foreclosure in X" can't fit one
+   line under ~390px, so chips in that section may wrap to two there, with the
+   pin flowing inline so it stays beside the first word. */
+@media (max-width: 400px) {
+  .fc-areas .area-chips .city-chip { display: block; white-space: normal; text-wrap: balance; text-align: center; line-height: 1.35; }
+  .fc-areas .area-chips .city-chip svg { display: inline-block; vertical-align: -2px; margin-right: 6px; }
+}
+
+/* ── GOOGLE REVIEW TOTAL LINKS (TCFH_GOOGLE_REVIEW_TOTAL) ── */
+.reviews-footnote {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 15px;
+  color: var(--charcoal-light);
+}
+
+.reviews-footnote a,
+.difference__stars-label a,
+.about-cred-card__desc a {
+  color: var(--green-dark);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 /* ── CTA BAND ── */
 .cta-band {
   background: #ffffff;
@@ -3251,90 +3388,6 @@ div.related-posts,
 /* ════════════════════════════════════════
    CUSTOM ADDITIONS
 ════════════════════════════════════════ */
-
-/* ── Full-width Tennessee city chip ── */
-.city-chip--full {
-  grid-column: 1 / -1;
-  width: 100%;
-  justify-content: center;
-  background: rgba(132, 204, 156, 0.25);
-  border-color: rgba(132, 204, 156, 0.55);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-/* ── Facing Foreclosure city grid (scoped, doesn't affect homepage/other pages) ──
-   Flex layout with justify-content: center so any partial last row
-   (e.g. 3 orphan chips) centers under the full rows above. */
-.cities-grid--fc {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 0;
-}
-
-.cities-grid--fc .city-chip {
-  flex: 0 0 calc((100% - 70px) / 6);
-}
-
-@media (max-width: 1023px) {
-  .cities-grid--fc .city-chip { flex: 0 0 calc((100% - 28px) / 3); }
-}
-
-@media (max-width: 480px) {
-  .cities-grid--fc .city-chip { flex: 0 0 calc((100% - 14px) / 2); }
-}
-
-@media (max-width: 480px) {
-  .cities-grid--fc .city-chip:last-child:nth-child(2n+1) {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: calc(50% - 7px);
-  }
-}
-
-/* ── Full-width "Anywhere in Tennessee" CTA below the grid (scoped) ── */
-.cities-cta-wrap {
-  margin-top: 20px;
-  margin-bottom: 32px;
-}
-
-.cities-cta-wrap .city-chip--full {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  width: 100%;
-  background: var(--green-dark);
-  border: 1.5px solid var(--green-dark);
-  color: #ffffff;
-  padding: 18px 20px;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(47, 133, 90, 0.22);
-  transition: all 0.25s ease;
-}
-
-.cities-cta-wrap .city-chip--full svg {
-  color: #ffffff;
-  width: 18px;
-  height: 18px;
-}
-
-.cities-cta-wrap .city-chip--full:hover {
-  background: #246a48;
-  border-color: #246a48;
-  color: #ffffff;
-  box-shadow: 0 8px 22px rgba(47, 133, 90, 0.35);
-  transform: translateY(-2px);
-}
-
-.cities-cta-wrap .city-chip--full:hover svg {
-  color: #ffffff;
-}
 
 /* ── Front-page steps: scroll-triggered fade + slide-up ── */
 .step-pre {
@@ -5996,4 +6049,50 @@ div.related-posts,
   .wwb-hero {
     background-image: url('brand_assets/Where%20we%20buy%20background%20image-800w.webp') !important;
   }
+}
+
+/* ── 404 page ── */
+.not-found {
+  background: var(--bg-light);
+  padding: 96px 0;
+}
+.not-found__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+.not-found__title {
+  font-size: 44px;
+  margin: 8px 0 16px;
+}
+.not-found__text {
+  font-size: 18px;
+  color: var(--charcoal-light);
+  margin: 0 0 32px;
+}
+.not-found__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+.btn-outline--dark {
+  border-color: var(--green-dark);
+  color: var(--green-dark);
+}
+.btn-outline--dark:hover {
+  background: var(--green-dark);
+  color: var(--white);
+}
+.not-found__home {
+  margin: 28px 0 0;
+}
+.not-found__home a {
+  color: var(--green-dark);
+  font-weight: 600;
+}
+@media (max-width: 600px) {
+  .not-found { padding: 64px 0; }
+  .not-found__title { font-size: 34px; }
+  .not-found__actions a { width: 100%; text-align: center; }
 }

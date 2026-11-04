@@ -2,6 +2,18 @@
 
 Prepared Oct 15, 2026 from `search-opportunities.md`. Nothing has been deployed, merged, or changed on the live site. Every action below needs your approval.
 
+## Status on Nov 3, 2026
+
+| Item | Status |
+|---|---|
+| 1. Blog title/description fallback (`functions.php`) | **Not live.** Merged onto today's main (no other changes to main's code) and retested on all 152 posts: titles 26 to 60 characters, descriptions 92 to 155, no dashes. It now also turns any en or em dash in a post's opening paragraph into a comma. |
+| 2. Six blog titles and descriptions | **Done.** Five are live as planned. The mortgage post has a newer title from the Nov 1 blog upgrade, which stays. |
+| 2. Tullahoma title and description | **Not live.** It ships with the theme deploy. |
+| 3. Dated-URL redirects (104) | **Not imported.** All 104 rechecked today: each old URL is still a 404, and each target returns 200. Rows 24 and 85 now point at the final destinations instead of posts being retired. |
+| 4. Merges | **None done.** All 8 posts are still published. Statewide plan changed: one guide is kept, and four more zero-impression "sell fast" posts 301 into it (see `cannibalization-plan.md`). |
+| 5. Tullahoma on-page plan | **Not started.** It needs real local deals and numbers from you. |
+| Homepage FAQ schema mismatch | **Fixed on Nov 3** by the homepage work. |
+
 ## What's on this branch
 
 | File | What it is | Goes live by |
@@ -102,10 +114,10 @@ Rules:
   1. Go to Tools > Redirection > Import/Export.
   2. Import the file into the "Redirections" group.
   3. Open the first source URL in a private window and confirm it lands on the post.
-- **Three rows point at posts the merge plan would retire.** If you approve those merges, change these targets so visitors don't take two hops:
-  - row 24, `/2024/02/29/how-to-identify-the-top-cash-home-buyers-in-murfreesboro-tn/`: change the target to `/where-we-buy/murfreesboro/`
-  - row 76, `/2024/12/19/how-to-sell-your-house-fast-in-tennessee/`: change the target to `/`
-  - row 85, `/2025/01/29/how-to-sell-your-house-fast-in-tennessee-insider-tips-for-a-quick-hassle-free-sale/`: change the target to `/`
+- **Rows that pointed at posts the merge plan retires** (fixed so visitors don't take two hops):
+  - row 24, `/2024/02/29/how-to-identify-the-top-cash-home-buyers-in-murfreesboro-tn/`: now points at `/where-we-buy/murfreesboro/` (updated Nov 3)
+  - row 76, `/2024/12/19/how-to-sell-your-house-fast-in-tennessee/`: no change, because this post is now the kept guide
+  - row 85, `/2025/01/29/how-to-sell-your-house-fast-in-tennessee-insider-tips-for-a-quick-hassle-free-sale/`: now points at `/how-to-sell-your-house-fast-in-tennessee/` (updated Nov 3)
 - **Alternative:** one regex rule instead of 104 rows. Source `^/20\d{2}/\d{2}/\d{2}/([^/]+)/?$`, target `/$1/`, regex on. It also catches dated URLs not on this list. The catch is that it would also redirect dated URLs for posts that no longer exist (those would land on a 404 instead of the old 404).
 
 ## Items 4 and 5

@@ -1,0 +1,38 @@
+[
+ {
+  "post_id": 2130,
+  "note": "intro: based in Spring Hill",
+  "find": "<a href=\"https://tennesseecashforhomes.com/\" target=\"_top\">Tennessee Cash For Homes</a>, based in Murfreesboro, provides",
+  "replace": "<a href=\"https://tennesseecashforhomes.com/\" target=\"_top\">Tennessee Cash For Homes</a>, based in Spring Hill and buying houses across Murfreesboro and Middle Tennessee, provides"
+ },
+ {
+  "post_id": 2130,
+  "note": "heading",
+  "find": "<h2>Choosing Tennessee Cash For Homes in Murfreesboro</h2>",
+  "replace": "<h2>Choosing Tennessee Cash For Homes for Your Murfreesboro Sale</h2>"
+ },
+ {
+  "post_id": 2130,
+  "note": "closing line",
+  "find": "with <a href=\"https://tennesseecashforhomes.com/\" target=\"_blank\">Tennessee Cash For Homes</a> in Murfreesboro.</p>",
+  "replace": "with <a href=\"https://tennesseecashforhomes.com/\" target=\"_blank\">Tennessee Cash For Homes</a>, serving Murfreesboro and all of Middle Tennessee.</p>"
+ },
+ {
+  "post_id": 2132,
+  "note": "intro: buys throughout Murfreesboro",
+  "find": "such as <a href=\"https://tennesseecashforhomes.com/\" target=\"_top\">Tennessee Cash For Homes</a> in <a href=\"https://tennesseecashforhomes.com/where-we-buy/murfreesboro/\">Murfreesboro</a>.",
+  "replace": "such as <a href=\"https://tennesseecashforhomes.com/\" target=\"_top\">Tennessee Cash For Homes</a>, which buys houses throughout <a href=\"https://tennesseecashforhomes.com/where-we-buy/murfreesboro/\">Murfreesboro</a>."
+ },
+ {
+  "post_id": 2132,
+  "note": "conclusion",
+  "find": "Companies like Tennessee Cash For Homes in Murfreesboro strive to",
+  "replace": "Companies like Tennessee Cash For Homes, which buys throughout Murfreesboro, strive to"
+ },
+ {
+  "post_id": 2138,
+  "note": "conclusion",
+  "find": "Companies like Tennessee Cash For Homes in Murfreesboro, Tennessee, are ready",
+  "replace": "Companies like Tennessee Cash For Homes, which buys houses throughout Murfreesboro, are ready"
+ }
+]

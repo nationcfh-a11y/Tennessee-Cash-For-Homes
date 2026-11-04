@@ -24,9 +24,6 @@ $fc_name_for_schema = ! empty( $fc_is_statewide ) ? 'Tennessee' : $fc_city_name;
 add_action( 'wp_head', function() use ( $fc_name_for_schema ) {
     if ( ! function_exists( 'tcfh_build_localbusiness_schema' ) ) return;
     $schema = tcfh_build_localbusiness_schema( array(
-        'type'        => 'LocalBusiness',
-        'description' => 'We buy houses in ' . $fc_name_for_schema . ' Tennessee for cash. Stop foreclosure with a fast cash offer. No repairs, no agents, no fees.',
-        'url'         => get_permalink(),
         'area_served' => array( $fc_name_for_schema, 'Tennessee' ),
     ) );
     tcfh_print_jsonld( $schema );
@@ -588,30 +585,6 @@ echo wp_json_encode( [
 ?>
 </script>
 
-<!-- LocalBusiness Schema -->
-<script type="application/ld+json">
-<?php
-echo wp_json_encode( [
-    '@context'    => 'https://schema.org',
-    '@type'       => 'LocalBusiness',
-    'name'        => 'Tennessee Cash For Homes',
-    'description' => 'Tennessee Cash For Homes helps ' . $fc_city_name . ' homeowners facing foreclosure by buying houses fast for cash.',
-    'url'         => home_url( '/facing-foreclosure/' . $fc_city_slug . '/' ),
-    'telephone'   => '+1-615-801-8126',
-    'email'       => 'info@tncashforhomes.com',
-    'address'     => [
-        '@type'           => 'PostalAddress',
-        'addressLocality' => $fc_city_name,
-        'addressRegion'   => 'TN',
-        'addressCountry'  => 'US',
-    ],
-    'areaServed' => [
-        '@type' => 'City',
-        'name'  => $fc_city_name . ', TN',
-    ],
-], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT );
-?>
-</script>
 
 <!-- ══════════════════════════════════════════════
      7. INTERNAL LINKS
