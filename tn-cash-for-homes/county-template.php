@@ -6,7 +6,6 @@
  * Required $county keys:
  *   slug, name, county_id (SVG path id), h1, meta_title, meta_desc,
  *   cities (array of ['name'=>'...','slug'=>'...','has_page'=>true/false]),
- *   median_price, homes_sold, avg_days,
  *   desc1, desc2, land_para
  */
 
@@ -42,9 +41,6 @@ $name         = $county['name'];
 $county_id    = $county['county_id'];
 $h1           = $county['h1'];
 $cities       = $county['cities'];
-$median_price = $county['median_price'];
-$homes_sold   = $county['homes_sold'];
-$avg_days     = $county['avg_days'];
 $desc1        = $county['desc1'];
 $desc2        = $county['desc2'];
 $desc3        = ! empty( $county['desc3'] ) ? $county['desc3'] : '';
@@ -220,20 +216,32 @@ $market_insight = isset( $_parts[0] ) ? $_parts[0] : '';
           <p class="loc-about__insight-text"><?php echo esc_html( $market_insight ); ?></p>
         </div>
 
+        <?php
+        // Same figures as the Market Stats section (market-stats-data.php).
+        $ms_price = tcfh_market_card( $slug, 'median_sale_price' );
+        $ms_dom   = tcfh_market_card( $slug, 'median_dom' );
+        $ms_sold  = tcfh_market_card( $slug, 'homes_sold' );
+        ?>
+        <?php if ( $ms_price ) : ?>
         <div class="loc-about__hero-stat">
-          <span class="loc-about__hero-stat-value"><?php echo esc_html( $median_price ); ?></span>
-          <span class="loc-about__hero-stat-label">Median Home Price</span>
+          <span class="loc-about__hero-stat-value"><?php echo esc_html( $ms_price['value'] ); ?></span>
+          <span class="loc-about__hero-stat-label">Median Sale Price</span>
         </div>
+        <?php endif; ?>
 
         <div class="loc-about__mini-stats">
+          <?php if ( $ms_dom ) : ?>
           <div class="loc-about__mini-card">
-            <span class="loc-about__mini-value"><?php echo esc_html( $avg_days ); ?></span>
-            <span class="loc-about__mini-label">Avg. Days on Market</span>
+            <span class="loc-about__mini-value"><?php echo esc_html( (int) $ms_dom['value'] ); ?></span>
+            <span class="loc-about__mini-label">Median Days on Market</span>
           </div>
+          <?php endif; ?>
+          <?php if ( $ms_sold ) : ?>
           <div class="loc-about__mini-card">
-            <span class="loc-about__mini-value"><?php echo esc_html( $homes_sold ); ?></span>
-            <span class="loc-about__mini-label">Homes Sold (12 Mo.)</span>
+            <span class="loc-about__mini-value"><?php echo esc_html( $ms_sold['value'] ); ?></span>
+            <span class="loc-about__mini-label">Homes Sold</span>
           </div>
+          <?php endif; ?>
           <div class="loc-about__mini-card">
             <span class="loc-about__mini-value">7</span>
             <span class="loc-about__mini-label">Days to Close With Us</span>
@@ -243,6 +251,9 @@ $market_insight = isset( $_parts[0] ) ? $_parts[0] : '';
             <span class="loc-about__mini-label">Fees &amp; Commissions</span>
           </div>
         </div>
+        <?php if ( $ms_price || $ms_dom || $ms_sold ) : ?>
+        <p class="loc-about__stat-source"><?php echo esc_html( tcfh_market_card_source( $ms_price ?: ( $ms_dom ?: $ms_sold ) ) ); ?></p>
+        <?php endif; ?>
       </div>
 
     </div>

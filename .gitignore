@@ -13,3 +13,6 @@ internal-links/backups/
 # Post content backups and run logs from search-quick-wins/same_day.py
 search-quick-wins/backups/
 search-quick-wins/*.log
+
+# Python bytecode from importing the market stats builder
+market-stats/__pycache__/

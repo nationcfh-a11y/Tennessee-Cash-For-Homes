@@ -231,15 +231,8 @@ $fc_pills = isset( $fc_pills_map[ $fc_city_slug ] ) ? $fc_pills_map[ $fc_city_sl
 $fc_pq_sentences = preg_split( '/(?<=[\.!\?])\s+/', trim( $fc_desc1 ) );
 $fc_pull_quote = trim( end( $fc_pq_sentences ) );
 
-/* Median home price for this city (pulled from the same market-stats data file). */
-$fc_median_price = '';
-$fc_ms_file = get_template_directory() . '/market-stats-data.php';
-if ( file_exists( $fc_ms_file ) ) {
-    $fc_ms_all = include $fc_ms_file;
-    if ( isset( $fc_ms_all[ $fc_city_slug ]['median_price'] ) ) {
-        $fc_median_price = $fc_ms_all[ $fc_city_slug ]['median_price'];
-    }
-}
+/* Median sale price for this city, from the same data as the Market Stats section. */
+$fc_price_card = tcfh_market_card( $fc_city_slug, 'median_sale_price' );
 ?>
 <section class="fc-local">
   <div class="container">
@@ -266,8 +259,11 @@ if ( file_exists( $fc_ms_file ) ) {
         <div class="fc-local__stat-label"><?php echo $fc_is_statewide ? 'From Notice to Sale (Tennessee Minimum)' : 'From Notice to Sale in ' . esc_html( $fc_county ) . ' County'; ?></div>
       </div>
       <div class="fc-local__stat">
-        <div class="fc-local__stat-value"><?php echo $fc_median_price ? esc_html( $fc_median_price ) : '&mdash;'; ?></div>
-        <div class="fc-local__stat-label">Median Home Price in <?php echo $fc_is_statewide ? 'Tennessee' : esc_html( $fc_city_name ); ?></div>
+        <div class="fc-local__stat-value"><?php echo $fc_price_card ? esc_html( $fc_price_card['value'] ) : '&mdash;'; ?></div>
+        <div class="fc-local__stat-label">Median Sale Price in <?php echo $fc_is_statewide ? 'Tennessee' : esc_html( $fc_city_name ); ?></div>
+        <?php if ( $fc_price_card ) : ?>
+        <div class="fc-local__stat-source"><?php echo esc_html( tcfh_market_card_source( $fc_price_card ) ); ?></div>
+        <?php endif; ?>
       </div>
       <div class="fc-local__stat">
         <div class="fc-local__stat-value">7 Days</div>
@@ -927,6 +923,12 @@ echo wp_json_encode( [
   letter-spacing: 0.06em;
   color: var(--fc-text-muted);
   line-height: 1.45;
+}
+.fc-local__stat-source {
+  margin-top: 6px;
+  font-size: 0.72rem;
+  color: var(--fc-text-muted);
+  line-height: 1.4;
 }
 .fc-local__columns {
   display: grid;
