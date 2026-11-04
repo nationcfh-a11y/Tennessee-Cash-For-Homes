@@ -2,8 +2,14 @@
 #
 # Replaces the GitHub webhook to WP Pusher. WP Pusher downloads the whole repo
 # on every deploy (~45s), but GitHub webhooks give up after 10s, and the deploy
-# is cut off when they disconnect. This sends WP Pusher the same push payload
-# the webhook did, from a runner that waits up to 5 minutes for the answer.
+# is cut off when they disconnect. This sends WP Pusher a push payload from a
+# runner that waits up to 5 minutes for the answer.
+#
+# Runs on a push to main that changes the theme, and is also called by the
+# monthly market stats refresh (a commit made by a workflow does not trigger
+# other workflows on its own). When there is no push event, it sends WP Pusher
+# a minimal payload naming main, the commit, and the repository, which WP
+# Pusher accepts the same way (tested Nov 4, 2026).
 #
 # Needs the repo secret WPPUSHER_HOOK_URL: the WP Pusher push-to-deploy URL
 # (https://tennesseecashforhomes.com/?wppusher-hook&token=...&package=...).
@@ -15,6 +21,11 @@ on:
     branches: [main]
     paths:
       - 'tn-cash-for-homes/**'
+  workflow_call:
+    secrets:
+      WPPUSHER_HOOK_URL:
+        required: true
+  workflow_dispatch:
 
 # One deploy at a time; a newer push waits for the one in progress.
 concurrency:
@@ -32,16 +43,26 @@ jobs:
         env:
           HOOK_URL: ${{ secrets.WPPUSHER_HOOK_URL }}
         run: |
+          if [ "$GITHUB_EVENT_NAME" = push ]; then
+            cp "$GITHUB_EVENT_PATH" payload.json
+          else
+            sha=$(git ls-remote "https://github.com/$GITHUB_REPOSITORY" refs/heads/main | cut -f1)
+            jq -n --arg sha "$sha" --arg repo "$GITHUB_REPOSITORY" '{
+              ref: "refs/heads/main", after: $sha,
+              repository: {name: ($repo | split("/")[1]), full_name: $repo,
+                           html_url: ("https://github.com/" + $repo), default_branch: "main"}
+            }' > payload.json
+          fi
           code=$(curl -sS -o response.txt -w '%{http_code}' --max-time 300 \
             -X POST "$HOOK_URL" \
             -H 'X-GitHub-Event: push' \
             -H 'User-Agent: GitHub-Hookshot/deploy-theme-action' \
-            --data-urlencode "payload@$GITHUB_EVENT_PATH")
+            --data-urlencode "payload@payload.json")
           echo "WP Pusher answered HTTP $code"
           head -c 500 response.txt; echo
           test "$code" = 200
 
       - name: Check the live theme was updated
         run: |
-          curl -sSI "https://tennesseecashforhomes.com/wp-content/themes/tn-cash-for-homes/style.min.css?deploy=$GITHUB_SHA" \
+          curl -sSI "https://tennesseecashforhomes.com/wp-content/themes/tn-cash-for-homes/style.min.css?deploy=$GITHUB_RUN_ID" \
             | grep -i '^last-modified' || true
