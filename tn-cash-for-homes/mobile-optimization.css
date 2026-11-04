@@ -373,13 +373,10 @@
 /* =========================================================================
    7. CITY CHIP GRIDS — readable on small screens
    --------------------------------------------------------------------
-   .cities-grid is already 2-col at ≤480px (line 2011). On the smallest
-   phones the chips become very narrow. Tighten padding so labels fit.
+   On the smallest phones the chips become very narrow. Tighten padding
+   so labels fit.
    ========================================================================= */
 @media (max-width: 390px) {
-  .cities-grid {
-    gap: 10px;
-  }
   .city-chip {
     padding: 11px 6px;
     font-size: 12.5px;
@@ -1075,9 +1072,6 @@
   }
 
   /* Areas/cities section */
-  .cities-grid {
-    margin-bottom: 16px !important;
-  }
   .areas-footnote {
     margin-top: 12px !important;
   }

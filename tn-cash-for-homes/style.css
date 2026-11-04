@@ -1065,13 +1065,6 @@ img { display: block; max-width: 100%; }
 .difference__stars-label strong { color: var(--charcoal); font-size: 18px; }
 
 /* ── AREAS / CITY CHIPS ── */
-.cities-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 14px;
-  margin-bottom: 32px;
-}
-
 .city-chip {
   display: flex;
   align-items: center;
@@ -2212,7 +2205,6 @@ div.related-posts,
   .difference__img-wrap { height: 400px; }
   .difference__content-wrap { padding: 48px 32px; }
   .blog-grid { grid-template-columns: repeat(2, 1fr); }
-  .cities-grid { grid-template-columns: repeat(3, 1fr); }
   .reviews-slide { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -2250,7 +2242,6 @@ div.related-posts,
   .footer__grid { grid-template-columns: 1fr; }
   .footer__bottom { flex-direction: column; text-align: center; }
   .blog-grid { grid-template-columns: 1fr; }
-  .cities-grid { grid-template-columns: repeat(2, 1fr); }
   .difference__img-wrap { height: 300px; }
   .difference__content-wrap { padding: 40px 24px; }
   .reviews-slide { grid-template-columns: 1fr; }
