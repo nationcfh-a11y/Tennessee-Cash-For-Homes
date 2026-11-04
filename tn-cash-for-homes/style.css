@@ -2957,6 +2957,14 @@ div.related-posts,
   gap: 12px;
 }
 
+/* Source and period for the About boxes (market-stats-data.php). */
+.loc-about__stat-source {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: #6B7280;
+  line-height: 1.5;
+}
+
 .loc-about__mini-card {
   background: var(--bg-light);
   border-radius: 10px;
