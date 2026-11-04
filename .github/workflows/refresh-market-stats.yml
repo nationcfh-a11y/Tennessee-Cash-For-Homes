@@ -111,3 +111,4 @@ jobs:
     uses: ./.github/workflows/deploy-theme.yml
     secrets:
       WPPUSHER_HOOK_URL: ${{ secrets.WPPUSHER_HOOK_URL }}
+      WPCOM_TOKEN: ${{ secrets.WPCOM_TOKEN }}

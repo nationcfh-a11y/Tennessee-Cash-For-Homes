@@ -15,6 +15,14 @@
 # empty HTTP 400 and accepts the identical request a minute later (seen Nov 4,
 # 2026), so any answer other than 200 is retried after a minute, up to 3 times.
 #
+# After a successful deploy it clears the WordPress.com edge cache, the same
+# as Hosting > Performance > Clear cache. Without that, a page nobody has
+# visited since the deploy is served once from its old cached copy. This uses
+# the endpoint the WordPress.com dashboard calls
+# (POST public-api.wordpress.com/wpcom/v2/sites/SITE_ID/hosting/edge-cache/purge)
+# and needs the repo secret WPCOM_TOKEN, a WordPress.com OAuth token for this
+# site. If the secret is not set, the step is skipped with a warning.
+#
 # Needs the repo secret WPPUSHER_HOOK_URL: the WP Pusher push-to-deploy URL
 # (https://tennesseecashforhomes.com/?wppusher-hook&token=...&package=...).
 
@@ -29,6 +37,8 @@ on:
     secrets:
       WPPUSHER_HOOK_URL:
         required: true
+      WPCOM_TOKEN:
+        required: false
   workflow_dispatch:
 
 # One deploy at a time; a newer push waits for the one in progress.
@@ -71,6 +81,28 @@ jobs:
             [ "$attempt" -le "$RETRIES" ] && { echo "Retrying in ${RETRY_WAIT}s"; sleep "$RETRY_WAIT"; }
           done
           echo "WP Pusher did not accept the deploy after $((RETRIES + 1)) attempts"
+          exit 1
+
+      - name: Clear the WordPress.com cache
+        env:
+          WPCOM_TOKEN: ${{ secrets.WPCOM_TOKEN }}
+          SITE_ID: '238589512'  # tennesseecashforhomes.com on WordPress.com
+          RETRIES: 3
+          RETRY_WAIT: 30
+        run: |
+          if [ -z "$WPCOM_TOKEN" ]; then
+            echo "::warning::WPCOM_TOKEN is not set, so the WordPress.com cache was not cleared. Clear it in Hosting > Performance."
+            exit 0
+          fi
+          for attempt in $(seq 1 $((RETRIES + 1))); do
+            code=$(curl -sS -o purge.txt -w '%{http_code}' --max-time 60 -X POST \
+              -H "Authorization: Bearer $WPCOM_TOKEN" \
+              "https://public-api.wordpress.com/wpcom/v2/sites/$SITE_ID/hosting/edge-cache/purge") || code=000
+            echo "Attempt $attempt: cache clear answered HTTP $code: $(head -c 300 purge.txt)"
+            [ "$code" = 200 ] && exit 0
+            [ "$attempt" -le "$RETRIES" ] && { echo "Retrying in ${RETRY_WAIT}s"; sleep "$RETRY_WAIT"; }
+          done
+          echo "::error::The theme deployed, but the WordPress.com cache could not be cleared. Clear it in Hosting > Performance."
           exit 1
 
       - name: Check the live theme was updated
