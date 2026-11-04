@@ -728,6 +728,124 @@ function tcfh_seo_meta_tags() {
 }
 
 /**
+ * ── SEO: Blog post title + description fallbacks ──
+ *
+ * Rank Math renders blog posts from its global Posts templates: the title is
+ * "%title% %sep% %sitename%" and the description is the auto excerpt. Posts
+ * published without hand-written SEO fields therefore got 100+ character
+ * titles and descriptions cut mid-sentence out of the "Short Answer:" block
+ * (every post as of 2026-10-15).
+ *
+ * Hand-written fields always win: if rank_math_title / rank_math_description
+ * is set on the post (Rank Math editor, or POST /wp-json/rankmath/v1/updateMeta)
+ * these filters leave it alone. Otherwise they keep the title to 60 characters
+ * and build a description of whole sentences, 155 characters or fewer.
+ */
+const TCFH_SEO_TITLE_MAX = 60;
+const TCFH_SEO_DESC_MAX  = 155;
+
+function tcfh_post_lacks_seo_field( $meta_key ) {
+    if ( ! is_singular( 'post' ) ) {
+        return false;
+    }
+    return '' === trim( (string) get_post_meta( get_queried_object_id(), $meta_key, true ) );
+}
+
+function tcfh_plain_text( $html ) {
+    $text = wp_strip_all_tags( str_replace( '<', ' <', strip_shortcodes( $html ) ) );
+    $text = html_entity_decode( $text, ENT_QUOTES, 'UTF-8' );
+    $text = preg_replace( '/[\s\x{00A0}]+/u', ' ', $text );
+    // No en or em dashes in titles or descriptions; a post that still has one
+    // in its opening paragraph gets a comma instead.
+    $text = preg_replace( '/\s*[\x{2013}\x{2014}]\s*/u', ', ', $text );
+    // Closing inline tags (</a>, </strong>) before punctuation left "Columbia , TN".
+    return trim( preg_replace( '/\s+([,.;:!?])/', '$1', $text ) );
+}
+
+// Cut to whole words within $max, without leaving a dangling connector word.
+function tcfh_trim_words_to( $text, $max ) {
+    if ( mb_strlen( $text ) <= $max ) {
+        return $text;
+    }
+    $out = '';
+    foreach ( explode( ' ', $text ) as $word ) {
+        $next = '' === $out ? $word : $out . ' ' . $word;
+        if ( mb_strlen( $next ) > $max ) {
+            break;
+        }
+        $out = $next;
+    }
+    $out = preg_replace( '/\s+(a|an|the|and|or|for|of|to|in|on|with|your|my|&)$/i', '', $out );
+    return rtrim( $out, " ,;:-" );
+}
+
+function tcfh_short_post_title( $title ) {
+    if ( mb_strlen( $title ) <= TCFH_SEO_TITLE_MAX ) {
+        return $title;
+    }
+    // "Topic in Tennessee: A Complete Guide for Homeowners" -> "Topic in Tennessee"
+    $head = trim( strstr( $title, ':', true ) ?: '' );
+    if ( mb_strlen( $head ) >= 25 && mb_strlen( $head ) <= TCFH_SEO_TITLE_MAX ) {
+        return $head;
+    }
+    // Keep the state in the title rather than cutting it off the end.
+    $abbrev = str_replace( ' Tennessee', ' TN', $title );
+    if ( mb_strlen( $abbrev ) <= TCFH_SEO_TITLE_MAX ) {
+        return $abbrev;
+    }
+    return tcfh_trim_words_to( $title, TCFH_SEO_TITLE_MAX );
+}
+
+function tcfh_post_fallback_description( $post_id ) {
+    $content = (string) get_post_field( 'post_content', $post_id );
+    preg_match_all( '#<p[^>]*>(.*?)</p>#is', $content, $paras );
+
+    // First real paragraph (posts open with a hero <figure>, and older ones with a heading).
+    $text = '';
+    foreach ( $paras[1] as $para ) {
+        $candidate = tcfh_plain_text( $para );
+        if ( mb_strlen( $candidate ) >= 60 ) {
+            $text = $candidate;
+            break;
+        }
+    }
+    $text = preg_replace( '/^(short answer|quick answer|the short answer)\s*:\s*/i', '', $text );
+    if ( '' === $text ) {
+        return '';
+    }
+
+    $desc = '';
+    foreach ( preg_split( '/(?<=[.!?])\s+/', $text ) as $sentence ) {
+        $next = '' === $desc ? $sentence : $desc . ' ' . $sentence;
+        if ( mb_strlen( $next ) > TCFH_SEO_DESC_MAX ) {
+            break;
+        }
+        $desc = $next;
+    }
+    // Whole sentences came out too short ("In most cases, yes."): fill to the
+    // limit on a word boundary and mark the cut.
+    if ( mb_strlen( $desc ) < 100 && mb_strlen( $text ) > mb_strlen( $desc ) ) {
+        $desc = tcfh_trim_words_to( $text, TCFH_SEO_DESC_MAX - 3 ) . '...';
+    }
+    return $desc;
+}
+
+add_filter( 'rank_math/frontend/title', function( $title ) {
+    if ( ! tcfh_post_lacks_seo_field( 'rank_math_title' ) || mb_strlen( $title ) <= TCFH_SEO_TITLE_MAX ) {
+        return $title;
+    }
+    $post_title = html_entity_decode( get_the_title( get_queried_object_id() ), ENT_QUOTES, 'UTF-8' );
+    return tcfh_short_post_title( $post_title );
+}, 20 );
+
+add_filter( 'rank_math/frontend/description', function( $desc ) {
+    if ( ! tcfh_post_lacks_seo_field( 'rank_math_description' ) ) {
+        return $desc;
+    }
+    return tcfh_post_fallback_description( get_queried_object_id() ) ?: $desc;
+}, 20 );
+
+/**
  * ── Areas we serve: every city and county page under /where-we-buy/ ──
  * Shared by the areas-we-serve.php component and the "Nearby Areas We Buy In"
  * block, so a new area page is added in one place. Each anchor uses the
