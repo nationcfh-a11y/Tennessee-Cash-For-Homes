@@ -212,12 +212,13 @@ def money(v): return f'${v:,.0f}'
 
 
 def signed(v, unit, places=1):
+    """(text, trend) for a year-over-year change. The page shows the direction as
+    an arrow and a color, so the text carries the size of the change only."""
     if v is None:
-        return ''
+        return '', ''
     if round(v, places) == 0:
-        return 'No change from a year earlier'
-    sign = '+' if v > 0 else '-'
-    return f"{sign}{abs(v):,.{places}f}{unit} vs a year earlier"
+        return 'No change from a year earlier', 'flat'
+    return f"{abs(v):,.{places}f}{unit} vs a year earlier", 'up' if v > 0 else 'down'
 
 
 def cards(entry):
@@ -227,7 +228,9 @@ def cards(entry):
     def card(key, label, fmt, change, fig):
         if not fig or fig.get('value') is None:
             return None
-        c = {'key': key, 'label': label, 'value': fmt(fig['value']), 'change': change, 'source': f"Source: {fig['source']}"}
+        text, trend = change
+        c = {'key': key, 'label': label, 'value': fmt(fig['value']), 'change': text, 'trend': trend,
+             'source': f"Source: {fig['source']}"}
         if fig['where'] != entry['name']:
             c['scope'] = f'{county} data'
         return c
@@ -239,9 +242,9 @@ def cards(entry):
         card('median_dom', 'Median Days on Market', lambda v: f'{v:.0f} days', signed(s['median_dom']['yoy_days'], ' days', 0), s['median_dom']),
         card('homes_sold', f"Homes Sold ({hs['period']})", lambda v: f'{v:,.0f}', signed(hs['yoy_pct'], '%'), hs),
         card('sale_to_list', 'Average Sale-to-List Price', lambda v: f'{v:.1f}%', signed(s['sale_to_list']['yoy_ppts'], ' pts'), s['sale_to_list']),
-        card('population', 'Population', lambda v: f'{v:,.0f}', '', s['population']),
-        card('median_income', 'Median Household Income', money, '', s['median_income']),
-        card('median_year_built', 'Median Year Homes Were Built', lambda v: f'{v:.0f}', '', s['median_year_built']),
+        card('population', 'Population', lambda v: f'{v:,.0f}', ('', ''), s['population']),
+        card('median_income', 'Median Household Income', money, ('', ''), s['median_income']),
+        card('median_year_built', 'Median Year Homes Were Built', lambda v: f'{v:.0f}', ('', ''), s['median_year_built']),
     ]
     return [c for c in out if c]
 

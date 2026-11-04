@@ -26,6 +26,17 @@ $ms_by    = array_column( $ms_cards, null, 'key' );
 // heading instead of on all eight cards.
 $ms_scopes    = array_unique( array_map( function( $c ) { return isset( $c['scope'] ) ? $c['scope'] : ''; }, $ms_cards ) );
 $ms_all_scope = ( 1 === count( $ms_scopes ) && '' !== reset( $ms_scopes ) ) ? reset( $ms_scopes ) : '';
+
+// Change bubbles, colored by what is good for a home seller: price, home value,
+// homes sold and sale-to-list going up are green; days on market going up is
+// red. The arrow shows the direction, so the meaning doesn't rely on color.
+$ms_tone = function( $card ) {
+    if ( empty( $card['trend'] ) || 'flat' === $card['trend'] ) {
+        return 'flat';
+    }
+    $up = 'up' === $card['trend'];
+    return ( 'median_dom' === $card['key'] ? ! $up : $up ) ? 'good' : 'bad';
+};
 ?>
 
 <!-- ── MARKET STATS ── -->
@@ -47,7 +58,12 @@ $ms_all_scope = ( 1 === count( $ms_scopes ) && '' !== reset( $ms_scopes ) ) ? re
         <div class="market-card__value"><?php echo esc_html( $ms_card['value'] ); ?></div>
         <div class="market-card__label"><?php echo esc_html( $ms_card['label'] ); ?></div>
         <?php if ( ! empty( $ms_card['change'] ) ) : ?>
-        <div class="market-card__change"><?php echo esc_html( $ms_card['change'] ); ?></div>
+        <div class="market-card__change market-card__change--<?php echo esc_attr( $ms_tone( $ms_card ) ); ?>">
+          <?php if ( in_array( $ms_card['trend'] ?? '', array( 'up', 'down' ), true ) ) : ?>
+          <span class="market-card__arrow" aria-hidden="true"><?php echo 'up' === $ms_card['trend'] ? '&#9650;' : '&#9660;'; ?></span><span class="market-card__sr"><?php echo 'up' === $ms_card['trend'] ? 'Up ' : 'Down '; ?></span>
+          <?php endif; ?>
+          <?php echo esc_html( $ms_card['change'] ); ?>
+        </div>
         <?php endif; ?>
         <?php if ( ! empty( $ms_card['scope'] ) && ! $ms_all_scope ) : ?>
         <div class="market-card__scope"><?php echo esc_html( $ms_card['scope'] ); ?></div>
@@ -161,6 +177,27 @@ $ms_schema = array(
   border-radius: 12px;
   padding: 3px 10px;
   margin-bottom: 8px;
+}
+.market-card__change--good {
+  color: #1E5E3B;
+  background: #E3F4EA;
+}
+.market-card__change--bad {
+  color: #9B1C1C;
+  background: #FDE8E8;
+}
+.market-card__arrow {
+  font-size: 10px;
+  margin-right: 4px;
+  vertical-align: 1px;
+}
+.market-card__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 .market-card__scope {
   font-size: 12px;
