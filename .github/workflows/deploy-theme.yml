@@ -1,0 +1,47 @@
+# Deploy the theme to the live site when main changes.
+#
+# Replaces the GitHub webhook to WP Pusher. WP Pusher downloads the whole repo
+# on every deploy (~45s), but GitHub webhooks give up after 10s, and the deploy
+# is cut off when they disconnect. This sends WP Pusher the same push payload
+# the webhook did, from a runner that waits up to 5 minutes for the answer.
+#
+# Needs the repo secret WPPUSHER_HOOK_URL: the WP Pusher push-to-deploy URL
+# (https://tennesseecashforhomes.com/?wppusher-hook&token=...&package=...).
+
+name: Deploy theme
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tn-cash-for-homes/**'
+
+# One deploy at a time; a newer push waits for the one in progress.
+concurrency:
+  group: deploy-theme
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Trigger WP Pusher
+        env:
+          HOOK_URL: ${{ secrets.WPPUSHER_HOOK_URL }}
+        run: |
+          code=$(curl -sS -o response.txt -w '%{http_code}' --max-time 300 \
+            -X POST "$HOOK_URL" \
+            -H 'X-GitHub-Event: push' \
+            -H 'User-Agent: GitHub-Hookshot/deploy-theme-action' \
+            --data-urlencode "payload@$GITHUB_EVENT_PATH")
+          echo "WP Pusher answered HTTP $code"
+          head -c 500 response.txt; echo
+          test "$code" = 200
+
+      - name: Check the live theme was updated
+        run: |
+          curl -sSI "https://tennesseecashforhomes.com/wp-content/themes/tn-cash-for-homes/style.min.css?deploy=$GITHUB_SHA" \
+            | grep -i '^last-modified' || true
