@@ -779,11 +779,11 @@ function tcfh_pin_icon() {
     return '<svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>';
 }
 
-/** One area chip: pin plus the full anchor phrase, linking to /where-we-buy/{slug}/. */
-function tcfh_area_chip( $slug, $anchor ) {
+/** One area chip: pin plus the full anchor phrase, linking to {$base}{slug}/ (default /where-we-buy/). */
+function tcfh_area_chip( $slug, $anchor, $base = '/where-we-buy/' ) {
     return sprintf(
         '<a href="%s" class="city-chip">%s<span>%s</span></a>',
-        esc_url( home_url( '/where-we-buy/' . $slug . '/' ) ),
+        esc_url( home_url( $base . $slug . '/' ) ),
         tcfh_pin_icon(),
         esc_html( $anchor )
     );

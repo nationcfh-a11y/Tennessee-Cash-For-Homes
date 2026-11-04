@@ -1167,6 +1167,13 @@ img { display: block; max-width: 100%; }
   .nearby-areas .area-chips .city-chip:last-child:nth-child(odd) { flex-basis: 100%; }
 }
 
+/* Facing Foreclosure: the long "Sell your house before foreclosure in X" chips
+   need the full 3-across width, so this section stays 2 across until 1280px. */
+@media (min-width: 761px) and (max-width: 1279px) {
+  .fc-areas .area-chips .city-chip { flex-basis: calc((100% - 14px) / 2); }
+  .fc-areas .area-chips .city-chip:last-child:nth-child(odd) { flex-basis: 100%; }
+}
+
 @media (max-width: 760px) {
   .area-chips { gap: 10px; }
   .area-chips .city-chip { flex-basis: 100%; }
@@ -1225,6 +1232,14 @@ img { display: block; max-width: 100%; }
 
 @media (max-width: 350px) {
   .area-chips .city-chip { padding: 10px 8px; font-size: 12px; gap: 5px; }
+}
+
+/* Facing Foreclosure: "Sell your house before foreclosure in X" can't fit one
+   line under ~390px, so chips in that section may wrap to two there, with the
+   pin flowing inline so it stays beside the first word. */
+@media (max-width: 400px) {
+  .fc-areas .area-chips .city-chip { display: block; white-space: normal; text-wrap: balance; text-align: center; line-height: 1.35; }
+  .fc-areas .area-chips .city-chip svg { display: inline-block; vertical-align: -2px; margin-right: 6px; }
 }
 
 /* ── GOOGLE REVIEW TOTAL LINKS (TCFH_GOOGLE_REVIEW_TOTAL) ── */
@@ -3373,90 +3388,6 @@ div.related-posts,
 /* ════════════════════════════════════════
    CUSTOM ADDITIONS
 ════════════════════════════════════════ */
-
-/* ── Full-width Tennessee city chip ── */
-.city-chip--full {
-  grid-column: 1 / -1;
-  width: 100%;
-  justify-content: center;
-  background: rgba(132, 204, 156, 0.25);
-  border-color: rgba(132, 204, 156, 0.55);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-/* ── Facing Foreclosure city grid (scoped, doesn't affect homepage/other pages) ──
-   Flex layout with justify-content: center so any partial last row
-   (e.g. 3 orphan chips) centers under the full rows above. */
-.cities-grid--fc {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 0;
-}
-
-.cities-grid--fc .city-chip {
-  flex: 0 0 calc((100% - 70px) / 6);
-}
-
-@media (max-width: 1023px) {
-  .cities-grid--fc .city-chip { flex: 0 0 calc((100% - 28px) / 3); }
-}
-
-@media (max-width: 480px) {
-  .cities-grid--fc .city-chip { flex: 0 0 calc((100% - 14px) / 2); }
-}
-
-@media (max-width: 480px) {
-  .cities-grid--fc .city-chip:last-child:nth-child(2n+1) {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: calc(50% - 7px);
-  }
-}
-
-/* ── Full-width "Anywhere in Tennessee" CTA below the grid (scoped) ── */
-.cities-cta-wrap {
-  margin-top: 20px;
-  margin-bottom: 32px;
-}
-
-.cities-cta-wrap .city-chip--full {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  width: 100%;
-  background: var(--green-dark);
-  border: 1.5px solid var(--green-dark);
-  color: #ffffff;
-  padding: 18px 20px;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(47, 133, 90, 0.22);
-  transition: all 0.25s ease;
-}
-
-.cities-cta-wrap .city-chip--full svg {
-  color: #ffffff;
-  width: 18px;
-  height: 18px;
-}
-
-.cities-cta-wrap .city-chip--full:hover {
-  background: #246a48;
-  border-color: #246a48;
-  color: #ffffff;
-  box-shadow: 0 8px 22px rgba(47, 133, 90, 0.35);
-  transform: translateY(-2px);
-}
-
-.cities-cta-wrap .city-chip--full:hover svg {
-  color: #ffffff;
-}
 
 /* ── Front-page steps: scroll-triggered fade + slide-up ── */
 .step-pre {
