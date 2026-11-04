@@ -9,3 +9,7 @@ gsc-dashboard/data/
 
 # Post content backups written by internal-links/apply_city_links.py
 internal-links/backups/
+
+# Post content backups and run logs from search-quick-wins/same_day.py
+search-quick-wins/backups/
+search-quick-wins/*.log
