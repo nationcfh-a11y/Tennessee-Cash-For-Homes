@@ -300,6 +300,13 @@ $market_insight = isset( $_parts[0] ) ? $_parts[0] : '';
   </div>
 </section>
 
+<?php
+// ── Recent Homes We've Bought (only on pages listed in recent-homes-data.php)
+$rh_slug = $slug;
+$rh_name = $name;
+include get_template_directory() . '/recent-homes-section.php';
+?>
+
 <!-- ── SELL YOUR LAND ── -->
 <section class="land-section">
   <div class="land-section__overlay"></div>
