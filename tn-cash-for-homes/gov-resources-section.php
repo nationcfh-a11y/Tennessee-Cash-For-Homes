@@ -264,10 +264,13 @@ if ( $gov_type === 'statewide' ) {
   }
   .gov-resource-row__tag {
     order: 0;
+    max-width: 100%;
+    white-space: normal;
   }
   .gov-resource-row__cta {
     order: 0;
     align-self: flex-start;
+    margin-left: 0;
   }
 }
 </style>

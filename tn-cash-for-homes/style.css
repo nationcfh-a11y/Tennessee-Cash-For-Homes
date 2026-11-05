@@ -1059,8 +1059,8 @@ img { display: block; max-width: 100%; }
   flex-wrap: wrap;
 }
 
-.difference__stars { display: flex; align-items: center; gap: 10px; }
-.difference__stars-icons { color: #84CC9C; font-size: 32px; letter-spacing: 3px; line-height: 1; }
+.difference__stars { display: flex; align-items: center; gap: 6px 10px; flex-wrap: wrap; }
+.difference__stars-icons { flex-shrink: 0; color: #84CC9C; font-size: 32px; letter-spacing: 3px; line-height: 1; }
 .difference__stars-label { font-size: 17px; color: var(--charcoal-light); white-space: nowrap; }
 .difference__stars-label strong { color: var(--charcoal); font-size: 18px; }
 
@@ -1142,6 +1142,8 @@ img { display: block; max-width: 100%; }
   gap: 8px;
   white-space: nowrap;
 }
+/* A phrase too long for its chip (e.g. at tablet width) wraps rather than spilling out. */
+.area-chips .city-chip > span { min-width: 0; white-space: normal; text-align: center; }
 
 .nearby-areas .area-chips { margin-bottom: 0; }
 
@@ -2279,6 +2281,10 @@ div.related-posts,
 }
 
 .video-section__title--green { color: var(--green-dark); }
+/* "Tennessee Homeowners" stays on one line; at 26px it is wider than a 320px phone. */
+@media (max-width: 359px) {
+  .video-section__title { font-size: 23px; }
+}
 
 .video-section__body {
   font-size: 16px;
@@ -4656,6 +4662,7 @@ div.related-posts,
     font-size: 12px;
     flex-shrink: 0;
   }
+  .blog-pagination__dots { flex-shrink: 0; }
 }
 
 /* ══════════════════════════════════════
@@ -6198,4 +6205,65 @@ div.related-posts,
   .recent-homes__fact { min-width: 0; flex: 1 1 140px; padding: 14px 12px; }
   .recent-homes__fact-value { font-size: 1.35rem; }
   .recent-homes__card { padding: 20px; }
+}
+
+/* ── CHAMBER MEMBER BADGES (chamber-badges.php) ── */
+.chamber-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.chamber-badges--small { margin-top: 18px; gap: 10px; }
+.chamber-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px 10px 10px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  color: var(--charcoal);
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.chamber-badge:hover { border-color: var(--green); transform: translateY(-1px); }
+.chamber-badge:focus-visible { outline: 2px solid var(--green-dark); outline-offset: 2px; }
+.chamber-badge:active { transform: translateY(0); }
+.chamber-badge__logo {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+.chamber-badge__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+  line-height: 1.3;
+}
+.chamber-badge__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--green-dark);
+}
+.chamber-badge__name {
+  max-width: 200px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+.chamber-badge--small { gap: 10px; padding: 6px 14px 6px 6px; border-radius: 10px; }
+.chamber-badge--small .chamber-badge__logo { width: 40px; height: 40px; }
+.chamber-badge--small .chamber-badge__eyebrow { font-size: 10px; }
+.chamber-badge--small .chamber-badge__name { max-width: 170px; font-size: 12.5px; }
+.about-badges .chamber-badges { justify-content: center; gap: 16px; margin-bottom: 24px; }
+.loc-about__right .chamber-badges { margin-top: 24px; }
+.loc-about__right .chamber-badge { flex: 1 1 240px; }
+.loc-about__right .chamber-badge__name { max-width: none; }
+@media (max-width: 760px) {
+  .chamber-badges--small .chamber-badge { flex: 1 1 100%; }
+  .chamber-badges--small .chamber-badge__name { max-width: none; }
 }
