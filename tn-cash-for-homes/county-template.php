@@ -254,6 +254,8 @@ $market_insight = isset( $_parts[0] ) ? $_parts[0] : '';
         <?php if ( $ms_price || $ms_dom || $ms_sold ) : ?>
         <p class="loc-about__stat-source"><?php echo esc_html( tcfh_market_card_source( $ms_price ?: ( $ms_dom ?: $ms_sold ) ) ); ?></p>
         <?php endif; ?>
+
+        <?php get_template_part( 'chamber-badges', null, array( 'page' => $slug ) ); ?>
       </div>
 
     </div>

@@ -255,6 +255,7 @@ $cities = [
         </span>
       </div>
     </div>
+    <?php get_template_part( 'chamber-badges', null, array( 'chambers' => array( 'spring-hill', 'maury' ) ) ); ?>
     <p class="about-badges__sub">Accredited, rated, and trusted by Tennessee homeowners since 2017.</p>
   </div>
 </section>

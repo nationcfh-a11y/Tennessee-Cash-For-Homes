@@ -367,6 +367,10 @@
     .compare-mobile tbody th[scope="row"] { font-size: 12px; padding: 12px 8px; }
     .compare-mobile tbody td { font-size: 13.5px; padding: 12px 6px; }
   }
+  /* 320px phones: "CONTINGENCIES" is one long word; fit it inside the label column */
+  @media (max-width: 340px) {
+    .compare-mobile tbody th[scope="row"] { font-size: 10.5px; letter-spacing: 0; padding: 12px 6px; }
+  }
 }
 
 
@@ -1342,8 +1346,9 @@
     justify-content: center !important;
     gap: 8px 14px !important;
   }
-  .hero__content--center .hero__trust-item,
-  .hero__inner--center .hero__trust-item {
+  /* div/span in the selector: must outrank div.hero__trust-row span.hero__trust-item */
+  div.hero__content--center div.hero__trust-row span.hero__trust-item,
+  div.hero__inner--center div.hero__trust-row span.hero__trust-item {
     flex: 0 0 auto !important;     /* shrink to content, don't force equal slots */
     white-space: normal !important; /* allow inside wrap if a single item is long */
     font-size: 12px !important;
