@@ -1629,6 +1629,14 @@ add_filter( 'jetpack_sitemap_video_skip_post', 'tcfh_sitemap_skip_orphan_media',
 
 /**
  * ── SEO: robots.txt ──
+ * Every search and AI crawler is allowed, including GPTBot, OAI-SearchBot,
+ * ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended and
+ * Applebot-Extended (owner's decision, Nov 6, 2026: we want to show up in AI
+ * search answers). Do not add rules that block any of them.
+ *
+ * Runs last so nothing else (a WordPress.com privacy setting, Jetpack, or a
+ * plugin) can append disallow rules for AI crawlers; it also lists Jetpack's
+ * sitemaps itself, each once.
  */
 add_filter( 'robots_txt', function( $output, $public ) {
     $output  = "User-agent: *\n";
@@ -1636,8 +1644,9 @@ add_filter( 'robots_txt', function( $output, $public ) {
     $output .= "Disallow: /wp-admin/\n";
     $output .= "Allow: /wp-admin/admin-ajax.php\n\n";
     $output .= "Sitemap: " . home_url( '/sitemap.xml' ) . "\n";
+    $output .= "Sitemap: " . home_url( '/news-sitemap.xml' ) . "\n";
     return $output;
-}, 10, 2 );
+}, PHP_INT_MAX, 2 );
 
 /**
  * ── SEO: Homepage title, description, and social tags ──
