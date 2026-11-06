@@ -1635,16 +1635,15 @@ add_filter( 'jetpack_sitemap_video_skip_post', 'tcfh_sitemap_skip_orphan_media',
  * search answers). Do not add rules that block any of them.
  *
  * Runs last so nothing else (a WordPress.com privacy setting, Jetpack, or a
- * plugin) can append disallow rules for AI crawlers; it also lists Jetpack's
- * sitemaps itself, each once.
+ * plugin) can append disallow rules for AI crawlers. The Sitemap lines come
+ * from Jetpack, which prints them above this output (do_robotstxt), so they
+ * are not repeated here.
  */
 add_filter( 'robots_txt', function( $output, $public ) {
     $output  = "User-agent: *\n";
     $output .= "Allow: /\n";
     $output .= "Disallow: /wp-admin/\n";
-    $output .= "Allow: /wp-admin/admin-ajax.php\n\n";
-    $output .= "Sitemap: " . home_url( '/sitemap.xml' ) . "\n";
-    $output .= "Sitemap: " . home_url( '/news-sitemap.xml' ) . "\n";
+    $output .= "Allow: /wp-admin/admin-ajax.php\n";
     return $output;
 }, PHP_INT_MAX, 2 );
 
