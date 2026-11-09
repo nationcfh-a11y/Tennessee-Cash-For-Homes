@@ -3,7 +3,7 @@
  * Template Name: Location - Columbia
  *
  * SEO - enter in Yoast / RankMath:
- *   Meta Title:       We Buy Houses in Columbia TN | Get a Fast Cash Offer Today
+ *   Meta Title:       Sell My House Fast in Columbia TN | Cash Offer in 24 Hours
  *   Meta Description: We buy houses in Columbia for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.
  */
 
@@ -12,8 +12,8 @@ $city = [
     'county'        => 'Maury',
     'name'          => 'Columbia',
     'image_file'    => 'Columbia.webp',
-    'h1'            => 'Sell Your House For Cash In Columbia, TN',
-    'meta_title'    => 'We Buy Houses in Columbia TN | Get a Fast Cash Offer Today',
+    'h1'            => 'Sell My House Fast in Columbia TN',
+    'meta_title'    => 'Sell My House Fast in Columbia TN | Cash Offer in 24 Hours',
     'meta_desc'     => 'We buy houses in Columbia for cash. No repairs, no agents, no fees. Just a fast, hassle-free sale. Get a cash offer on your home today.',
     'desc1'         => 'Columbia is the seat of Maury County and one of Middle Tennessee\'s most compelling growth stories. Sitting about 45 minutes south of Nashville along the I-65 corridor, Columbia offers a beautifully preserved downtown square lined with local shops and restaurants, a strong sense of community, and home prices that are generally lower than Nashville\'s. The city\'s economy is anchored by Maury Regional Medical Center, one of the region\'s largest healthcare employers, and benefits from its proximity to the General Motors assembly plant in nearby Spring Hill. As it grows, Columbia has attracted new subdivisions and commercial development while still holding onto the small-city character that makes it special.',
     'desc2'         => 'Columbia home values have risen alongside the broader Middle Tennessee market, but selling a home here the traditional way is not always quick. The mix of historic homes near the downtown square and newer construction on the outskirts means buyers have plenty of options to choose from. Older homes in particular can face steep inspection demands and repair negotiations that stall or kill deals. If you want to sell your house in Columbia without the drawn-out listing process, cash home buyers in Columbia like Tennessee Cash For Homes provide a straightforward alternative. We make a fair offer based on current Maury County market conditions, cover closing costs, and let you pick the timeline.',
