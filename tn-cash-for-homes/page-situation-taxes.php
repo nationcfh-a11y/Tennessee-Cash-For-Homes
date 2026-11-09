@@ -23,4 +23,8 @@ $situation_faq = [
 $situation_cta_headline = 'Do Not Let Delinquent Taxes Cost You Your Home';
 $meta_title = 'Sell House Behind on Property Taxes Tennessee | Tennessee Cash For Homes';
 $meta_description = 'Behind on property taxes in Tennessee? Sell fast for cash and pay off your tax debt at closing. We close in as little as 14 days. Call (615) 801-8126.';
+$situation_difference = [
+    'audience' => 'Homeowners Behind on Property Taxes',
+    'lead'     => 'When you are behind on property taxes, you work with real people who can help you move quickly, not a big out-of-state corporation or an automated system.',
+];
 include(get_template_directory() . '/situation-template.php');

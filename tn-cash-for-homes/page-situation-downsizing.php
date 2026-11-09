@@ -23,4 +23,8 @@ $situation_faq = [
 $situation_cta_headline = 'Ready to Simplify? Let Us Make the Sale Simple Too.';
 $meta_title = 'Sell House When Downsizing Tennessee | Fast Cash Sale | Tennessee Cash For Homes';
 $meta_description = 'Downsizing in Tennessee? Sell your home fast for cash with no repairs and flexible closing dates. We close in as little as 14 days. Call (615) 801-8126.';
+$situation_difference = [
+    'audience' => 'Downsizing Homeowners',
+    'lead'     => 'When you are ready to downsize, you work with real people who take the time to listen, not a big out-of-state corporation or an automated system.',
+];
 include(get_template_directory() . '/situation-template.php');

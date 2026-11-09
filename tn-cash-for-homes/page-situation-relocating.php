@@ -23,4 +23,8 @@ $situation_faq = [
 $situation_cta_headline = 'Move Forward Without Your Tennessee Home Slowing You Down';
 $meta_title = 'Sell House Fast When Relocating Tennessee | Tennessee Cash For Homes';
 $meta_description = 'Relocating from Tennessee? Sell your house fast for cash with no repairs and flexible closing dates. We close in as little as 14 days. Call (615) 801-8126.';
+$situation_difference = [
+    'audience' => 'Homeowners Who Are Relocating',
+    'lead'     => 'When you need to sell before a move, you work with real people who work around your schedule, not a big out-of-state corporation or an automated system.',
+];
 include(get_template_directory() . '/situation-template.php');

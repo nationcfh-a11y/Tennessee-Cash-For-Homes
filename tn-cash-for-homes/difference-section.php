@@ -3,15 +3,24 @@
  * "The Tennessee Cash For Homes Difference": team photo on the left, then the
  * checklist, the Google reviews link, the BBB seal and the chamber badges.
  *
- * Shared by the homepage and every city and county page, so a change here
- * shows up everywhere.
+ * Shared by the homepage and every city, county and situation page, so a
+ * change here shows up everywhere.
  *
- * Args (get_template_part( 'difference-section', null, $args )):
- *   place  a city or county name (optional). The heading and first sentence
- *          then name that place, so the section is not word for word the
- *          same on every page. Without it, the homepage wording is used.
+ * Args (get_template_part( 'difference-section', null, $args )), all optional.
+ * Without any, the homepage wording is used. The heading and first sentence
+ * change per page so the section is not word for word the same everywhere.
+ *   place     a city or county name: "Why Columbia Homeowners Choose ...",
+ *             "When you sell your Columbia house to us, ..."
+ *   audience  who the page is for (situation pages): "Why <audience> Choose ..."
+ *   lead      first sentence of the intro, used with audience
  */
-$tcfh_place = ! empty( $args['place'] ) ? $args['place'] : '';
+$tcfh_place    = ! empty( $args['place'] ) ? $args['place'] : '';
+$tcfh_audience = ! empty( $args['audience'] ) ? $args['audience'] : '';
+$tcfh_lead     = ! empty( $args['lead'] ) ? $args['lead'] : '';
+if ( $tcfh_place ) {
+    $tcfh_audience = $tcfh_place . ' Homeowners';
+    $tcfh_lead     = 'When you sell your ' . $tcfh_place . ' house to us, you work with real people, not a big out-of-state corporation or an automated system.';
+}
 $tcfh_theme = get_template_directory_uri();
 $tcfh_check = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>';
 $tcfh_items = array(
@@ -29,15 +38,15 @@ $tcfh_items = array(
       src="<?php echo esc_url( $tcfh_theme ); ?>/brand_assets/team-photo.webp"
       srcset="<?php echo esc_url( $tcfh_theme ); ?>/brand_assets/team-photo-800w.webp 800w,
               <?php echo esc_url( $tcfh_theme ); ?>/brand_assets/team-photo.webp 1280w"
-      sizes="(max-width: 768px) 100vw, 50vw"
+      sizes="(max-width: 768px) 100vw, 1280px"
       alt="Tennessee Cash For Homes team"
       width="1280" height="720" loading="lazy" decoding="async" />
   </div>
   <div class="difference__content-wrap">
     <div class="difference__content">
-      <?php if ( $tcfh_place ) : ?>
-      <h2 class="difference__title">Why <?php echo esc_html( $tcfh_place ); ?> Homeowners Choose <span>Tennessee Cash For Homes</span></h2>
-      <p class="difference__intro">When you sell your <?php echo esc_html( $tcfh_place ); ?> house to us, you work with real people, not a big out-of-state corporation or an automated system. We are a Middle Tennessee family owned business that believes in doing business the right way.</p>
+      <?php if ( $tcfh_audience ) : ?>
+      <h2 class="difference__title">Why <?php echo esc_html( $tcfh_audience ); ?> Choose <span>Tennessee Cash For Homes</span></h2>
+      <p class="difference__intro"><?php echo esc_html( trim( $tcfh_lead . ' We are a Middle Tennessee family owned business that believes in doing business the right way.' ) ); ?></p>
       <?php else : ?>
       <h2 class="difference__title">The <span>Tennessee Cash For Homes</span> Difference</h2>
       <p class="difference__intro">We are not a big out-of-state corporation or an automated system. We are a Middle Tennessee family owned business that believes in doing business the right way.</p>

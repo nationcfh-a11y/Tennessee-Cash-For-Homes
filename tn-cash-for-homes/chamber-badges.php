@@ -9,7 +9,6 @@
  *
  * Args (get_template_part( 'chamber-badges', null, $args )):
  *   chambers  keys from the list below, in display order
- *   page      a city/county slug instead of chambers: uses $tcfh_chamber_pages
  *   size      'small' for the compact homepage version (optional)
  */
 $tcfh_chambers = array(
@@ -25,17 +24,7 @@ $tcfh_chambers = array(
     ),
 );
 
-// City and county pages that show badges, beside their market stats.
-$tcfh_chamber_pages = array(
-    'columbia'     => array( 'maury' ),
-    'spring-hill'  => array( 'spring-hill', 'maury' ),
-    'maury-county' => array( 'spring-hill', 'maury' ),
-);
-
 $tcfh_want = isset( $args['chambers'] ) ? (array) $args['chambers'] : array();
-if ( ! empty( $args['page'] ) && isset( $tcfh_chamber_pages[ $args['page'] ] ) ) {
-    $tcfh_want = $tcfh_chamber_pages[ $args['page'] ];
-}
 $tcfh_keys = array_values( array_intersect( $tcfh_want, array_keys( $tcfh_chambers ) ) );
 if ( ! $tcfh_keys ) return;
 

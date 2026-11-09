@@ -160,6 +160,12 @@ img{display:block;max-width:100%}
   .county-hero__inner{grid-template-columns:1fr;gap:32px;max-width:720px;margin:0 auto}
 }
 @media (max-width:768px){
-  .county-hero.county-hero--photo{padding:32px 0 40px}
+  .county-hero.county-hero--photo{padding:32px 0 40px;background:#1d201e}
   .county-hero__cta-row{flex-direction:column;align-items:stretch}
+  /* Phones: the hero is ~1,250px tall, so a full-height cover zooms the
+     photo to a sliver of roof. Show it at a normal zoom across the top
+     (the whole house), then fade the overlay into a dark background
+     behind the buttons and form. Text keeps 45-55% black behind it. */
+  .county-hero__bg{height:560px;bottom:auto}
+  .county-hero--photo .hero__overlay{background:linear-gradient(180deg,rgba(0,0,0,.55) 0,rgba(0,0,0,.45) 360px,#1d201e 560px)}
 }

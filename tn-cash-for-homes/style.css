@@ -6254,9 +6254,6 @@ div.related-posts,
 .chamber-badge--small .chamber-badge__eyebrow { font-size: 10px; }
 .chamber-badge--small .chamber-badge__name { max-width: 170px; font-size: 12.5px; }
 .about-badges .chamber-badges { justify-content: center; gap: 16px; margin-bottom: 24px; }
-.loc-about__right .chamber-badges { margin-top: 24px; }
-.loc-about__right .chamber-badge { flex: 1 1 240px; }
-.loc-about__right .chamber-badge__name { max-width: none; }
 @media (max-width: 760px) {
   .chamber-badges--small .chamber-badge { flex: 1 1 100%; }
   .chamber-badges--small .chamber-badge__name { max-width: none; }

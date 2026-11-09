@@ -23,4 +23,8 @@ $situation_faq = [
 $situation_cta_headline = 'Stop Stressing About the Repairs: We Will Handle It';
 $meta_title = 'Sell House As-Is Tennessee | Any Condition Cash Buyer | Tennessee Cash For Homes';
 $meta_description = 'Sell your house as-is in Tennessee with no repairs needed. We buy homes in any condition for cash. Fair offer, fast closing, zero fees. Call (615) 801-8126.';
+$situation_difference = [
+    'audience' => 'Owners of Houses That Need Repairs',
+    'lead'     => 'When your house needs work, you deal with real people who buy it as-is, not a big out-of-state corporation or an automated system.',
+];
 include(get_template_directory() . '/situation-template.php');

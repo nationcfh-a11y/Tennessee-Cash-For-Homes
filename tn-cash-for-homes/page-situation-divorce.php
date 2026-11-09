@@ -23,4 +23,8 @@ $situation_faq = [
 $situation_cta_headline = 'Ready to Close This Chapter and Move Forward?';
 $meta_title = 'Sell House During Divorce Tennessee | Fast Cash Sale | Tennessee Cash For Homes';
 $meta_description = 'Selling your house during a divorce in Tennessee? Get a fast fair cash offer with no repairs and no agent fees. Close in as little as 14 days. Call (615) 801-8126.';
+$situation_difference = [
+    'audience' => 'Homeowners Going Through Divorce',
+    'lead'     => 'When you are selling a house during a divorce, you work with real people who keep it simple for both sides, not a big out-of-state corporation or an automated system.',
+];
 include(get_template_directory() . '/situation-template.php');
