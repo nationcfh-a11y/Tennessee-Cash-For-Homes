@@ -48,90 +48,20 @@ $desc3        = ! empty( $city['desc3'] ) ? $city['desc3'] : '';
 $land_para      = $city['land_para'];
 $neighborhoods  = ! empty( $city['neighborhoods'] ) ? $city['neighborhoods'] : [];
 
-$check18 = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>';
 $check20 = '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>';
 ?>
 
-<!-- ── LOCATION HERO ── -->
-<section class="county-hero city-page">
-  <div class="container">
-    <div class="county-hero__inner">
-
-      <!-- LEFT: Content + Trust -->
-      <div class="county-hero__content">
-        <nav class="breadcrumb">
-          <a href="<?php echo esc_url( home_url('/') ); ?>">Home</a>
-          <span>&rsaquo;</span>
-          <a href="<?php echo esc_url( home_url('/where-we-buy/') ); ?>">Where We Buy</a>
-          <span>&rsaquo;</span>
-          <span><?php echo esc_html( $name ); ?></span>
-        </nav>
-        <div class="hero__badge county-hero__badge"><?php echo esc_html( $name ); ?> Cash Home Buyers</div>
-        <h1 class="county-hero__title"><?php echo esc_html( $h1 ); ?></h1>
-        <?php if ( ! empty( $city['hero_subtitle'] ) ) : ?>
-        <p class="county-hero__subtitle"><?php echo esc_html( $city['hero_subtitle'] ); ?></p>
-        <?php else : ?>
-        <p class="county-hero__subtitle">No repairs. No commissions. No fees. Get a fair cash offer for your <?php echo esc_html( $name ); ?> home in as little as 24 hours. We close on your timeline.</p>
-        <?php endif; ?>
-        <?php if ( ! empty( $city['hero_link'] ) ) : ?>
-        <p class="county-hero__link"><a href="<?php echo esc_url( $city['hero_link']['url'] ); ?>"><?php echo esc_html( $city['hero_link']['text'] ); ?> &rarr;</a></p>
-        <?php endif; ?>
-        <div class="hero__trust county-hero__trust">
-          <div class="hero__trust-item">
-            <?php echo $check18; ?>
-            Zero fees or commissions
-          </div>
-          <div class="hero__trust-item">
-            <?php echo $check18; ?>
-            Close in 7 days
-          </div>
-          <div class="hero__trust-item">
-            <?php echo $check18; ?>
-            Buy as-is, any condition
-          </div>
-          <div class="hero__trust-item">
-            <svg width="18" height="18" fill="#FBBC05" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            5-Star Rated on Google
-          </div>
-          <div class="hero__trust-item">
-            <a href='https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick' target='_blank' rel='nofollow noopener noreferrer' class='bbb-seal'><img src='https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png' style='border: 0;' alt='Tennessee Cash For Homes BBB Business Review' width='200' height='42' loading='lazy' decoding='async' /></a>
-          </div>
-        </div>
-        <div class="county-hero__cta-row">
-          <a href="<?php echo esc_url( home_url('/#hero-form') ); ?>" class="btn-primary">Get My Free Cash Offer &rarr;</a>
-          <a href="tel:+16158018126" class="btn-outline">Call Us Today - (615) 801-8126</a>
-        </div>
-      </div>
-
-      <!-- RIGHT: Form -->
-      <div class="county-hero__map-col">
-        <!-- LEAD FORM -->
-        <div class="hero__form-card county-hero__form" id="get-offer">
-          <h2 class="form-card__title">Get Your Free Cash Offer</h2>
-          <p class="form-card__sub">Takes less than 60 seconds. No obligation.</p>
-          <form onsubmit="handleSubmit(event)">
-            <input type="hidden" name="lead_source" value="<?php echo esc_attr( $name ); ?>" />
-            <div class="form-group">
-              <label for="loc-address-<?php echo esc_attr( $slug ); ?>">Property Address</label>
-              <input type="text" id="loc-address-<?php echo esc_attr( $slug ); ?>" name="address" placeholder="123 Main St, <?php echo esc_attr( $name ); ?>, TN" required />
-            </div>
-            <div class="form-group">
-              <label for="loc-name-<?php echo esc_attr( $slug ); ?>">Your Name</label>
-              <input type="text" id="loc-name-<?php echo esc_attr( $slug ); ?>" name="name" placeholder="John Smith" required />
-            </div>
-            <div class="form-group">
-              <label for="loc-phone-<?php echo esc_attr( $slug ); ?>">Phone Number</label>
-              <input type="tel" id="loc-phone-<?php echo esc_attr( $slug ); ?>" name="phone" placeholder="(615) 555-0123" required />
-            </div>
-            <button type="submit" class="btn-primary btn-primary--block">Get My Cash Offer &rarr;</button>
-          </form>
-          <p class="form-disclaimer">&#128274; Your info is private and never shared.</p>
-        </div>
-
-      </div><!-- /.county-hero__map-col -->
-    </div><!-- /.county-hero__inner -->
-  </div>
-</section>
+<?php
+get_template_part( 'location-hero', null, array(
+    'type'     => 'city',
+    'slug'     => $slug,
+    'name'     => $name,
+    'h1'       => $h1,
+    'subtitle' => ! empty( $city['hero_subtitle'] ) ? $city['hero_subtitle'] : '',
+    'link'     => ! empty( $city['hero_link'] ) ? $city['hero_link'] : null,
+    'id_prefix'=> 'loc',
+) );
+?>
 
 <?php get_template_part('stats-strip'); ?>
 
@@ -141,6 +71,10 @@ $ms_name = $name;
 $ms_slug = $slug;
 $ms_type = 'city';
 include get_template_directory() . '/market-stats-section.php';
+
+// ── The Tennessee Cash For Homes Difference (shared with the homepage)
+get_template_part( 'difference-section', null, array( 'place' => $name ) );
+
 include get_template_directory() . '/who-we-help-section.php';
 ?>
 
@@ -386,111 +320,7 @@ $nearby = ! empty( $nearby_map[ $slug ] ) ? $nearby_map[ $slug ] : array();
 
 
 <style>
-/* ── City/Location Hero (matches county hero layout) ── */
-.county-hero {
-  background: #FFFFFF;
-  padding: 120px 0 80px;
-}
-.county-hero__inner {
-  display: grid;
-  grid-template-columns: 1fr 460px;
-  gap: 48px;
-  align-items: end;
-}
-.county-hero__content {
-  display: flex;
-  flex-direction: column;
-}
-.county-hero__badge {
-  display: inline-block;
-  background: rgba(132, 204, 156, 0.2);
-  color: #2D6A4F;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-}
-.county-hero__title {
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 700;
-  color: #1a1a1a;
-  line-height: 1.15;
-  margin: 0 0 20px;
-}
-.county-hero__link {
-  margin: -16px 0 28px;
-  font-size: 1.05rem;
-  font-weight: 600;
-}
-.county-hero__link a {
-  color: #2F855A;
-  text-decoration: underline;
-}
-.county-hero__subtitle {
-  font-size: 1.05rem;
-  color: #555;
-  margin: 0 0 28px;
-  line-height: 1.6;
-}
-.county-hero__trust {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 32px;
-}
-.county-hero__cta-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: nowrap;
-}
-.county-hero__cta-row .btn-primary,
-.county-hero__cta-row .btn-outline {
-  white-space: nowrap;
-}
-.county-hero__map-col {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.county-hero__form {
-  margin-top: 0;
-}
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  color: #888;
-  margin-bottom: 16px;
-}
-.breadcrumb a {
-  color: #2D6A4F;
-  text-decoration: none;
-}
-.breadcrumb a:hover { text-decoration: underline; }
-
-/* ── Hero text overrides (light bg) ── */
-.county-hero .hero__trust-item {
-  color: #3D3D3D;
-}
-.county-hero .hero__trust-item svg {
-  color: #84CC9C;
-}
-.county-hero .btn-outline {
-  border: 2px solid #3D3D3D;
-  color: #3D3D3D;
-  background: transparent;
-}
-.county-hero .btn-outline:hover {
-  background: #3D3D3D;
-  color: #fff;
-  border-color: #3D3D3D;
-}
+/* Hero styles: critical.css (above the fold, inlined in <head>). */
 
 /* ── Land Section Overrides ── */
 .land-section__overlay {
@@ -522,24 +352,6 @@ $nearby = ! empty( $nearby_map[ $slug ] ) ? $nearby_map[ $slug ] : array();
   flex-shrink: 0;
 }
 
-/* ── Responsive ── */
-@media (max-width: 1024px) {
-  .county-hero__inner {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-}
-@media (max-width: 768px) {
-  .county-hero {
-    padding: 92px 0 56px;
-  }
-  .county-hero__cta-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
 </style>
 
 <?php get_footer(); ?>

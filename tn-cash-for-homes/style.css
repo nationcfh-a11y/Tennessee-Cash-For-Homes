@@ -5628,13 +5628,7 @@ div.related-posts,
 /* Form disclaimer: 12px gray needed more contrast on white (was #999, 2.84). */
 .form-disclaimer { color: #6B6B6B; }
 
-/* Breadcrumb sitting on the light county/city hero background (#F2F2F2).
-   The base .breadcrumb uses white text for dark hero pages, which is
-   nearly invisible on the light city/county hero. Scope a dark variant. */
-.county-hero .breadcrumb,
-.county-hero .breadcrumb a { color: var(--charcoal-light); }
-.county-hero .breadcrumb span { color: #8a8a8a; }
-.county-hero .breadcrumb a:hover { color: var(--green-dark); }
+/* City/county hero breadcrumb: on a dark photo now, styled in critical.css. */
 
 /* Section eyebrow inherits var(--green-dark) which is now WCAG-compliant
    (#2F855A, 5.1:1 on #F2F2F2). No override needed — kept for clarity. */

@@ -126,3 +126,40 @@ img{display:block;max-width:100%}
    link rendering as plain text at the top of every page. */
 .skip-link{position:absolute;left:0;top:-48px;z-index:100000;background:var(--green-dark);color:#fff;padding:10px 16px;font-family:'Poppins',sans-serif;font-weight:600;text-decoration:none;border-radius:0 0 6px 0;transition:top .15s}
 .skip-link:focus{top:0}
+
+/* City and county hero (location-hero.php): a photo of a house we bought,
+   behind the same dark overlay as the homepage hero, with light text.
+   .county-hero--photo doubles the class so these win over the older
+   .county-hero rules in style.css (min-height + centering) that left a
+   large empty gap under the header. */
+.county-hero.county-hero--photo{position:relative;overflow:hidden;background:#2b2f2c;padding:44px 0 72px;min-height:0;display:block}
+.county-hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+.county-hero--photo .hero__overlay{z-index:1;background:linear-gradient(135deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.40) 100%)}
+.county-hero--photo>.container{position:relative;z-index:2}
+.county-hero__inner{display:grid;grid-template-columns:1fr 460px;gap:48px;align-items:center}
+.county-hero__content{display:flex;flex-direction:column}
+.county-hero--photo .breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:13px;margin-bottom:16px;color:rgba(255,255,255,.75)}
+.county-hero--photo.county-hero .breadcrumb a{color:rgba(255,255,255,.85);text-decoration:none}
+.county-hero--photo.county-hero .breadcrumb span{color:rgba(255,255,255,.7)}
+.county-hero--photo.county-hero .breadcrumb a:hover{color:#84CC9C;text-decoration:underline}
+.county-hero--photo .county-hero__badge{align-self:flex-start;margin-bottom:20px;text-transform:uppercase;letter-spacing:.06em;font-size:12px;font-weight:700}
+.county-hero--photo .county-hero__title{font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:700;color:#fff;line-height:1.15;margin:0 0 20px;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.county-hero--photo .county-hero__subtitle{font-size:1.05rem;color:rgba(255,255,255,.92);margin:0 0 28px;line-height:1.6;text-shadow:0 1px 8px rgba(0,0,0,.3)}
+.county-hero--photo .county-hero__link{margin:-16px 0 28px;font-size:1.05rem;font-weight:600}
+.county-hero--photo .county-hero__link a{color:#84CC9C;text-decoration:underline}
+.county-hero__trust{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.county-hero--photo .hero__trust-item{color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.3)}
+.county-hero--photo .hero__trust-item svg{color:#84CC9C}
+.county-hero--photo .bbb-seal{display:inline-flex;background:#fff;border-radius:6px;padding:4px 8px}
+.county-hero__cta-row{display:flex;align-items:center;gap:16px;flex-wrap:nowrap}
+.county-hero__cta-row .btn-primary,.county-hero__cta-row .btn-outline{white-space:nowrap;text-align:center}
+.county-hero--photo .btn-outline{border:2px solid #fff;color:#fff;background:transparent}
+.county-hero--photo .btn-outline:hover{background:#fff;color:#3D3D3D;border-color:#fff}
+.county-hero__map-col{display:flex;flex-direction:column;gap:24px}
+@media (max-width:1024px){
+  .county-hero__inner{grid-template-columns:1fr;gap:32px;max-width:720px;margin:0 auto}
+}
+@media (max-width:768px){
+  .county-hero.county-hero--photo{padding:32px 0 40px}
+  .county-hero__cta-row{flex-direction:column;align-items:stretch}
+}
