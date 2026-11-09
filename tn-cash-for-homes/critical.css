@@ -200,3 +200,5 @@ img{display:block;max-width:100%}
   /* Both hero buttons: same padding, text centered both ways. */
   .county-hero__cta-row .btn-primary,.county-hero__cta-row .btn-outline{display:flex;align-items:center;justify-content:center;padding:13px 20px;min-height:50px}.county-hero__cta-row .btn-outline{padding:11px 20px}
 }
+/* Land section photo waits until main.js sees the section coming up. */
+.land-section.land-section--lazy{background-image:none;background-color:#2b2f2c}
