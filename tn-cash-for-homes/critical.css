@@ -134,7 +134,7 @@ img{display:block;max-width:100%}
    large empty gap under the header. */
 .county-hero.county-hero--photo{position:relative;overflow:hidden;background:#2b2f2c;padding:44px 0 72px;min-height:0;display:block}
 .county-hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
-.county-hero--photo .hero__overlay{z-index:1;background:linear-gradient(135deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.40) 100%)}
+.county-hero--photo .hero__overlay{z-index:1;background:linear-gradient(135deg,rgba(0,0,0,.66) 0%,rgba(0,0,0,.52) 100%)}
 .county-hero--photo>.container{position:relative;z-index:2}
 .county-hero__inner{display:grid;grid-template-columns:1fr 460px;gap:48px;align-items:center}
 .county-hero__content{display:flex;flex-direction:column}
@@ -157,6 +157,14 @@ img{display:block;max-width:100%}
 .county-hero--photo .btn-outline{border:2px solid #fff;color:#fff;background:transparent}
 .county-hero--photo .btn-outline:hover{background:#fff;color:#3D3D3D;border-color:#fff}
 .county-hero__map-col{display:flex;flex-direction:column;gap:24px}
+/* Desktop: the text column stretches to the form's height and the
+   checklist sits in the middle of the free space, so the bottom of the
+   buttons lines up with the bottom of the form. */
+@media (min-width:1025px){
+  .county-hero.county-hero--photo .county-hero__inner{align-items:stretch}
+  .county-hero--photo .county-hero__subtitle{margin-bottom:0}
+  .county-hero--photo .county-hero__trust{margin:auto 0;padding:28px 0}
+}
 @media (max-width:1024px){
   .county-hero__inner{grid-template-columns:1fr;gap:32px;max-width:720px;margin:0 auto}
 }
@@ -168,12 +176,12 @@ img{display:block;max-width:100%}
      (the whole house), then fade the overlay into a dark background
      behind the buttons and form. Text keeps 45-55% black behind it. */
   .county-hero__bg{height:560px;bottom:auto}
-  .county-hero--photo .hero__overlay{background:linear-gradient(180deg,rgba(0,0,0,.55) 0,rgba(0,0,0,.45) 360px,#1d201e 560px)}
+  .county-hero--photo .hero__overlay{background:linear-gradient(180deg,rgba(0,0,0,.66) 0,rgba(0,0,0,.56) 360px,#1d201e 560px)}
   /* Phones: two equal columns. Items wrap to two lines here, so the icon
      sits on the first line and the five stars go above their text. */
   .county-hero__trust{grid-template-columns:1fr 1fr;gap:14px 14px}
   .county-hero--photo .hero__trust-item{font-size:14px;line-height:1.35;gap:7px;align-items:flex-start}
   .county-hero--photo .hero__trust-item svg{margin-top:1px}
-  .county-hero--photo .hero__trust-item--stars{flex-direction:column;gap:4px}
-  .county-hero__stars svg{width:14px;height:14px;margin-top:0}
+  .county-hero__stars svg{width:18px;height:18px}
+  .county-hero__stars svg+svg,.county-hero__on-google{display:none}
 }
