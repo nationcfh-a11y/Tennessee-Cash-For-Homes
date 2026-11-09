@@ -89,6 +89,16 @@ get_header(); ?>
           $a = $item['a'];
           // Render the phone number as a clickable tel: link where it appears.
           $a_html = str_replace( '(615) 801-8126', '<a href="tel:+16158018126">(615) 801-8126</a>', esc_html( $a ) );
+          // Link these phrases to their city pages. Runs after escaping, so the
+          // answer text (and the FAQPage schema built from it) stays plain text.
+          $faq_city_links = array(
+            'cash home buyers in Hendersonville' => '/where-we-buy/hendersonville/',
+            'sell a house for cash in Smyrna'    => '/where-we-buy/smyrna/',
+            'fast cash offer in Shelbyville'     => '/where-we-buy/shelbyville/',
+          );
+          foreach ( $faq_city_links as $phrase => $path ) {
+            $a_html = str_replace( esc_html( $phrase ), '<a href="' . esc_url( home_url( $path ) ) . '">' . esc_html( $phrase ) . '</a>', $a_html );
+          }
         ?>
         <div class="faq-item">
           <button class="faq-item__question" aria-expanded="false">

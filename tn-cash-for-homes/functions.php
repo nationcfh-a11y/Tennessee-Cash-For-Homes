@@ -1167,7 +1167,7 @@ function tcfh_get_faq_page_items() {
         ),
         array(
             'q' => 'What areas of Tennessee do you buy in?',
-            'a' => 'We buy across all of Middle Tennessee including Nashville, Clarksville, Murfreesboro, Franklin, Spring Hill, Columbia, Cookeville, and surrounding areas.',
+            'a' => 'We buy across all of Middle Tennessee including Nashville, Clarksville, Murfreesboro, Franklin, Spring Hill, Columbia, Cookeville, and surrounding areas. The smaller cities are covered too, so whether you are looking for cash home buyers in Hendersonville, want to sell a house for cash in Smyrna, or need a fast cash offer in Shelbyville, we can help.',
         ),
         array(
             'q' => 'What if my house needs a lot of work?',
