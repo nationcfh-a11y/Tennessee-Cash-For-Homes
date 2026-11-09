@@ -134,7 +134,7 @@ img{display:block;max-width:100%}
    large empty gap under the header. */
 .county-hero.county-hero--photo{position:relative;overflow:hidden;background:#2b2f2c;padding:44px 0 72px;min-height:0;display:block}
 .county-hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
-.county-hero--photo .hero__overlay{z-index:1;background:linear-gradient(135deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.40) 100%)}
+.county-hero--photo .hero__overlay{z-index:1;background:linear-gradient(135deg,rgba(0,0,0,.66) 0%,rgba(0,0,0,.52) 100%)}
 .county-hero--photo>.container{position:relative;z-index:2}
 .county-hero__inner{display:grid;grid-template-columns:1fr 460px;gap:48px;align-items:center}
 .county-hero__content{display:flex;flex-direction:column}
@@ -147,15 +147,37 @@ img{display:block;max-width:100%}
 .county-hero--photo .county-hero__subtitle{font-size:1.05rem;color:rgba(255,255,255,.92);margin:0 0 28px;line-height:1.6;text-shadow:0 1px 8px rgba(0,0,0,.3)}
 .county-hero--photo .county-hero__link{margin:-16px 0 28px;font-size:1.05rem;font-weight:600}
 .county-hero--photo .county-hero__link a{color:#84CC9C;text-decoration:underline}
-.county-hero__trust{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.county-hero__trust{display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:12px 36px;margin-bottom:32px}
+.county-hero__stars{display:inline-flex;gap:1px;flex-shrink:0}
+.county-hero__stars svg{width:15px;height:15px}
 .county-hero--photo .hero__trust-item{color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.3)}
 .county-hero--photo .hero__trust-item svg{color:#84CC9C}
-.county-hero--photo .bbb-seal{display:inline-flex;background:#fff;border-radius:6px;padding:4px 8px}
 .county-hero__cta-row{display:flex;align-items:center;gap:16px;flex-wrap:nowrap}
 .county-hero__cta-row .btn-primary,.county-hero__cta-row .btn-outline{white-space:nowrap;text-align:center}
 .county-hero--photo .btn-outline{border:2px solid #fff;color:#fff;background:transparent}
 .county-hero--photo .btn-outline:hover{background:#fff;color:#3D3D3D;border-color:#fff}
 .county-hero__map-col{display:flex;flex-direction:column;gap:24px}
+/* Desktop: the text column stretches to the form's height and the
+   checklist sits in the middle of the free space, so the bottom of the
+   buttons lines up with the bottom of the form. */
+@media (min-width:1025px){
+  .county-hero.county-hero--photo .county-hero__inner{align-items:stretch}
+  .county-hero--photo .county-hero__subtitle{margin-bottom:0}
+  .county-hero--photo .county-hero__trust{margin:auto 0;padding:28px 0}
+}
+/* Wide screens: larger checklist text to fill the column. */
+@media (min-width:1200px){
+  .county-hero--photo .county-hero__trust{gap:16px 32px}
+  .county-hero--photo .hero__trust-item{font-size:17px;gap:10px}
+  .county-hero--photo .hero__trust-item svg{width:20px;height:20px}
+  .county-hero--photo .county-hero__stars svg{width:17px;height:17px}
+}
+/* Small laptops: narrower form, and the buttons may wrap, so nothing is
+   pushed off the right edge. */
+@media (min-width:1025px) and (max-width:1199px){
+  .county-hero.county-hero--photo .county-hero__inner{grid-template-columns:minmax(0,1fr) 400px;gap:40px}
+  .county-hero__cta-row{flex-wrap:wrap}
+}
 @media (max-width:1024px){
   .county-hero__inner{grid-template-columns:1fr;gap:32px;max-width:720px;margin:0 auto}
 }
@@ -167,5 +189,14 @@ img{display:block;max-width:100%}
      (the whole house), then fade the overlay into a dark background
      behind the buttons and form. Text keeps 45-55% black behind it. */
   .county-hero__bg{height:560px;bottom:auto}
-  .county-hero--photo .hero__overlay{background:linear-gradient(180deg,rgba(0,0,0,.55) 0,rgba(0,0,0,.45) 360px,#1d201e 560px)}
+  .county-hero--photo .hero__overlay{background:linear-gradient(180deg,rgba(0,0,0,.66) 0,rgba(0,0,0,.56) 360px,#1d201e 560px)}
+  /* Phones: two equal columns. Items wrap to two lines here, so the icon
+     sits on the first line and the five stars go above their text. */
+  .county-hero__trust{grid-template-columns:1fr 1fr;gap:14px 14px}
+  .county-hero--photo .hero__trust-item{font-size:14px;line-height:1.35;gap:7px;align-items:flex-start}
+  .county-hero--photo .hero__trust-item svg{margin-top:1px}
+  .county-hero__stars svg{width:18px;height:18px}
+  .county-hero__stars svg+svg,.county-hero__on-google{display:none}
+  /* Both hero buttons: same padding, text centered both ways. */
+  .county-hero__cta-row .btn-primary,.county-hero__cta-row .btn-outline{display:flex;align-items:center;justify-content:center;padding:13px 20px;min-height:50px}.county-hero__cta-row .btn-outline{padding:11px 20px}
 }
