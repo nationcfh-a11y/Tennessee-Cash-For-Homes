@@ -5,7 +5,9 @@
  * intro, checklist, BBB seal, buttons and the cash offer form on top.
  *
  * The photo is a real <img> (not a CSS background) so it has alt text and the
- * browser finds it in the HTML right away. It is the first thing on the page,
+ * browser finds it in the HTML right away. On phones the photo is drawn
+ * about 900px wide (560px tall, cropped to the screen), so sizes says 800px
+ * there; "100vw" would make phones pick a file too small and look soft. It is the first thing on the page,
  * so it is never lazy loaded. Styles live in critical.css.
  *
  * Args (get_template_part( 'location-hero', null, $args )):
@@ -25,9 +27,10 @@ $tcfh_subtitle = ! empty( $args['subtitle'] )
     ? $args['subtitle']
     : 'No repairs. No commissions. No fees. Get a fair cash offer for your ' . $tcfh_name . ' home in as little as 24 hours. We close on your timeline.';
 
-// [file, width, height] for the large and 800w versions of each photo.
+// [file, width, height] of the 1600w file. Each photo also has -800w and
+// -2048w versions with the same shape.
 $tcfh_photos = array(
-    'city'   => array( 'city-hero-house', 1600, 932 ),
+    'city'   => array( 'city-hero-house', 1600, 969 ),
     'county' => array( 'county-hero-house', 1600, 839 ),
 );
 $tcfh_photo = $tcfh_photos[ $tcfh_type ];
@@ -40,8 +43,8 @@ $tcfh_id    = $tcfh_prefix . '-%s-' . $tcfh_slug;
 <section class="county-hero county-hero--photo<?php echo 'city' === $tcfh_type ? ' city-page' : ''; ?>">
   <img class="county-hero__bg"
     src="<?php echo esc_url( $tcfh_base . '.webp' ); ?>"
-    srcset="<?php echo esc_url( $tcfh_base . '-800w.webp' ); ?> 800w, <?php echo esc_url( $tcfh_base . '.webp' ); ?> 1600w"
-    sizes="100vw"
+    srcset="<?php echo esc_url( $tcfh_base . '-800w.webp' ); ?> 800w, <?php echo esc_url( $tcfh_base . '.webp' ); ?> 1600w, <?php echo esc_url( $tcfh_base . '-2048w.webp' ); ?> 2048w"
+    sizes="(max-width: 768px) 800px, 100vw"
     width="<?php echo (int) $tcfh_photo[1]; ?>" height="<?php echo (int) $tcfh_photo[2]; ?>"
     alt="A house Tennessee Cash For Homes bought in Middle Tennessee"
     fetchpriority="high" decoding="async" />
