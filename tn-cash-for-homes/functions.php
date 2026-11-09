@@ -1671,6 +1671,25 @@ foreach ( array( 'rank_math/frontend/description', 'rank_math/opengraph/facebook
     }, 99 );
 }
 
+/**
+ * ── SEO: City and county page social titles ──
+ * Rank Math builds og:title and twitter:title from the WordPress page name
+ * ("Where We Buy Columbia TN - Tennessee Cash For Homes"), while the real
+ * <title> comes from each template's meta_title. On every page under
+ * /where-we-buy/ (not the index itself), copy the real title into both
+ * social tags so they always match.
+ */
+function tcfh_is_area_page() {
+    if ( ! is_page() ) return false;
+    $uri = get_page_uri( get_queried_object_id() );
+    return 0 === strpos( $uri, 'where-we-buy/' );
+}
+foreach ( array( 'rank_math/opengraph/facebook/og_title', 'rank_math/opengraph/twitter/twitter_title' ) as $tcfh_hook ) {
+    add_filter( $tcfh_hook, function( $title ) {
+        return tcfh_is_area_page() ? html_entity_decode( wp_get_document_title(), ENT_QUOTES, 'UTF-8' ) : $title;
+    }, 99 );
+}
+
 // Rank Math's Organization node printed the phone as "(615) 801-8126" and the
 // URL without a trailing slash; match the theme's LocalBusiness exactly.
 // Rank Math also adds an Article to every page; pages already have a WebPage
