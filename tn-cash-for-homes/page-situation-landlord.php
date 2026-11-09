@@ -23,4 +23,8 @@ $situation_faq = [
 $situation_cta_headline = 'Ready to Be Done With the Landlord Life?';
 $meta_title = 'Sell Rental Property Tennessee | Tenant Occupied Cash Buyer | Tennessee Cash For Homes';
 $meta_description = 'Sell your Tennessee rental property fast for cash. We buy with tenants in place, no repairs needed. Tired landlord? We have a fast fair solution. Call (615) 801-8126.';
+$situation_difference = [
+    'audience' => 'Landlords Ready to Sell',
+    'lead'     => 'When you are ready to sell a rental property, tenants and all, you work with real people, not a big out-of-state corporation or an automated system.',
+];
 include(get_template_directory() . '/situation-template.php');

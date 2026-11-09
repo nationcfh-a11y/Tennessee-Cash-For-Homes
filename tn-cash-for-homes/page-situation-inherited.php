@@ -23,4 +23,8 @@ $situation_faq = [
 $situation_cta_headline = 'Let Us Take the Burden of the Inherited Property Off Your Shoulders';
 $meta_title = 'Sell Inherited House Tennessee | Fast Cash Sale | Tennessee Cash For Homes';
 $meta_description = 'Inherited a house in Tennessee? Sell fast for cash with no repairs and no cleanup needed. We work with estates and probate attorneys. Call (615) 801-8126.';
+$situation_difference = [
+    'audience' => 'Families Selling an Inherited House',
+    'lead'     => 'When you are selling a house you inherited, you work with real people who handle it with care, not a big out-of-state corporation or an automated system.',
+];
 include(get_template_directory() . '/situation-template.php');

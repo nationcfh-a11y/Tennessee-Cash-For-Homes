@@ -23,4 +23,8 @@ $situation_faq = [
 $situation_cta_headline = 'Do Not Wait: Every Day Matters in Foreclosure';
 $meta_title = 'Sell My House Before Foreclosure in Tennessee | Tennessee Cash For Homes';
 $meta_description = 'Facing foreclosure in Tennessee? Tennessee Cash For Homes buys houses fast for cash. We can close before your auction date. No repairs, no fees, no stress. Call (615) 801-8126.';
+$situation_difference = [
+    'audience' => 'Homeowners Facing Foreclosure',
+    'lead'     => 'When you are facing foreclosure, you work with real people who move fast, not a big out-of-state corporation or an automated system.',
+];
 include(get_template_directory() . '/situation-template.php');

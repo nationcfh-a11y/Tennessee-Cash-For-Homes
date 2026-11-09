@@ -23,4 +23,8 @@ $situation_faq = [
 $situation_cta_headline = 'Let Us Help You Settle the Estate Quickly and Compassionately';
 $meta_title = 'Sell Probate Property Tennessee | Fast Cash Sale | Tennessee Cash For Homes';
 $meta_description = 'Selling a house in probate in Tennessee? We work with probate attorneys and close fast once approved. No repairs needed. Call (615) 801-8126.';
+$situation_difference = [
+    'audience' => 'Families Selling a House in Probate',
+    'lead'     => 'When you are selling a house through probate, you work with real people who know the process, not a big out-of-state corporation or an automated system.',
+];
 include(get_template_directory() . '/situation-template.php');

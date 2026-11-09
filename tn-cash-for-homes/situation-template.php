@@ -151,32 +151,11 @@ get_header();
   </div>
 </section>
 
-<!-- ── WHY CHOOSE US ── -->
-<section class="difference-section">
-  <div class="difference__img-wrap">
-    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/brand_assets/team-photo.webp" alt="Tennessee Cash For Homes team" width="1280" height="720" loading="lazy" decoding="async" />
-  </div>
-  <div class="difference__content-wrap">
-    <div class="difference__content">
-      <h2 class="difference__title">The <span>Tennessee Cash For Homes</span> Difference</h2>
-      <p class="difference__intro">We are not a big out-of-state corporation or an automated system. We are a Middle Tennessee family owned business that believes in doing business the right way.</p>
-      <ul class="difference__list">
-        <li class="diff-item"><svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> Based Right Here in Middle Tennessee</li>
-        <li class="diff-item"><svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> Family Owned and Relationship Focused</li>
-        <li class="diff-item"><svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> Fair and Straightforward Cash Offers</li>
-        <li class="diff-item"><svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> No Cleaning, No Repairs, No Hidden Fees</li>
-        <li class="diff-item"><svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> Flexible Closing on Your Timeline</li>
-      </ul>
-      <div class="difference__trust-row">
-        <div class="difference__stars">
-          <div class="difference__stars-icons">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <div class="difference__stars-label"><strong>5 out of 5</strong> on Google</div>
-        </div>
-        <a href='https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick' target='_blank' rel='nofollow noopener noreferrer' class='bbb-seal'><img src='https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png' style='border: 0;' alt='Tennessee Cash For Homes BBB Business Review' width='200' height='42' loading='lazy' decoding='async' /></a>
-      </div>
-    </div>
-  </div>
-</section>
+<?php
+// ── The Tennessee Cash For Homes Difference (shared with the homepage, city and
+// county pages). Each situation page sets $situation_difference: audience + lead.
+get_template_part( 'difference-section', null, isset( $situation_difference ) ? $situation_difference : array() );
+?>
 
 <?php
 /* ── Market Stats (situation pages use statewide Tennessee data since they are not city-specific) ── */
