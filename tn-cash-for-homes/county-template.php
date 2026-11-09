@@ -248,7 +248,7 @@ include get_template_directory() . '/recent-homes-section.php';
 ?>
 
 <!-- ── SELL YOUR LAND ── -->
-<section class="land-section">
+<section class="land-section land-section--lazy">
   <div class="land-section__overlay"></div>
   <div class="container land-section__inner">
     <div class="land-section__content">
