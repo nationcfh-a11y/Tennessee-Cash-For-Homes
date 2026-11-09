@@ -184,4 +184,6 @@ img{display:block;max-width:100%}
   .county-hero--photo .hero__trust-item svg{margin-top:1px}
   .county-hero__stars svg{width:18px;height:18px}
   .county-hero__stars svg+svg,.county-hero__on-google{display:none}
+  /* Both hero buttons: same padding, text centered both ways. */
+  .county-hero__cta-row .btn-primary,.county-hero__cta-row .btn-outline{display:flex;align-items:center;justify-content:center;padding:13px 20px;min-height:50px}.county-hero__cta-row .btn-outline{padding:11px 20px}
 }
