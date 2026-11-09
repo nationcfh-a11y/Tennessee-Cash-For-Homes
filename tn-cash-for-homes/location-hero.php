@@ -2,7 +2,7 @@
 /**
  * Hero for the city and county pages: a photo of a house we bought behind
  * the same dark overlay as the homepage hero, with the breadcrumb, label, H1,
- * intro, checklist, BBB seal, buttons and the cash offer form on top.
+ * intro, a 2x2 checklist, buttons and the cash offer form on top.
  *
  * The photo is a real <img> (not a CSS background) so it has alt text and the
  * browser finds it in the HTML right away. Phones get their own crop of the
@@ -66,6 +66,7 @@ $tcfh_photo = $tcfh_hero_photos[ $tcfh_n ];
 $tcfh_base  = get_template_directory_uri() . '/brand_assets/hero-house-' . $tcfh_n;
 
 $tcfh_check = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>';
+$tcfh_star  = '<svg width="16" height="16" fill="#FBBC05" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
 $tcfh_id    = $tcfh_prefix . '-%s-' . $tcfh_slug;
 ?>
 <!-- ── LOCATION HERO ── -->
@@ -100,25 +101,14 @@ $tcfh_id    = $tcfh_prefix . '-%s-' . $tcfh_slug;
         <?php if ( ! empty( $args['link'] ) ) : ?>
         <p class="county-hero__link"><a href="<?php echo esc_url( $args['link']['url'] ); ?>"><?php echo esc_html( $args['link']['text'] ); ?> &rarr;</a></p>
         <?php endif; ?>
+        <!-- 2x2: left column fees / 7 days, right column as-is / 5 stars -->
         <div class="hero__trust county-hero__trust">
-          <div class="hero__trust-item">
-            <?php echo $tcfh_check; ?>
-            Zero fees or commissions
-          </div>
-          <div class="hero__trust-item">
-            <?php echo $tcfh_check; ?>
-            Close in 7 days
-          </div>
-          <div class="hero__trust-item">
-            <?php echo $tcfh_check; ?>
-            Buy as-is, any condition
-          </div>
-          <div class="hero__trust-item">
-            <svg width="18" height="18" fill="#FBBC05" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <div class="hero__trust-item"><?php echo $tcfh_check; ?>Zero fees or commissions</div>
+          <div class="hero__trust-item"><?php echo $tcfh_check; ?>Buy as-is, any condition</div>
+          <div class="hero__trust-item"><?php echo $tcfh_check; ?>Close in 7 days</div>
+          <div class="hero__trust-item hero__trust-item--stars">
+            <span class="county-hero__stars" aria-hidden="true"><?php echo str_repeat( $tcfh_star, 5 ); ?></span>
             5-Star Rated on Google
-          </div>
-          <div class="hero__trust-item">
-            <a href='https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick' target='_blank' rel='nofollow noopener noreferrer' class='bbb-seal'><img src='https://seal-nashville.bbb.org/seals/darkgray-seal-200-42-bbb-37373815.png' style='border: 0;' alt='Tennessee Cash For Homes BBB Business Review' width='200' height='42' loading='lazy' decoding='async' /></a>
           </div>
         </div>
         <div class="county-hero__cta-row">
