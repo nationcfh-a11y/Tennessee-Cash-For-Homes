@@ -147,7 +147,7 @@ img{display:block;max-width:100%}
 .county-hero--photo .county-hero__subtitle{font-size:1.05rem;color:rgba(255,255,255,.92);margin:0 0 28px;line-height:1.6;text-shadow:0 1px 8px rgba(0,0,0,.3)}
 .county-hero--photo .county-hero__link{margin:-16px 0 28px;font-size:1.05rem;font-weight:600}
 .county-hero--photo .county-hero__link a{color:#84CC9C;text-decoration:underline}
-.county-hero__trust{display:grid;grid-template-columns:repeat(2,max-content);gap:12px 36px;margin-bottom:32px}
+.county-hero__trust{display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:12px 36px;margin-bottom:32px}
 .county-hero__stars{display:inline-flex;gap:1px;flex-shrink:0}
 .county-hero__stars svg{width:15px;height:15px}
 .county-hero--photo .hero__trust-item{color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.3)}
@@ -164,6 +164,19 @@ img{display:block;max-width:100%}
   .county-hero.county-hero--photo .county-hero__inner{align-items:stretch}
   .county-hero--photo .county-hero__subtitle{margin-bottom:0}
   .county-hero--photo .county-hero__trust{margin:auto 0;padding:28px 0}
+}
+/* Wide screens: larger checklist text to fill the column. */
+@media (min-width:1200px){
+  .county-hero--photo .county-hero__trust{gap:16px 32px}
+  .county-hero--photo .hero__trust-item{font-size:17px;gap:10px}
+  .county-hero--photo .hero__trust-item svg{width:20px;height:20px}
+  .county-hero--photo .county-hero__stars svg{width:17px;height:17px}
+}
+/* Small laptops: narrower form, and the buttons may wrap, so nothing is
+   pushed off the right edge. */
+@media (min-width:1025px) and (max-width:1199px){
+  .county-hero.county-hero--photo .county-hero__inner{grid-template-columns:minmax(0,1fr) 400px;gap:40px}
+  .county-hero__cta-row{flex-wrap:wrap}
 }
 @media (max-width:1024px){
   .county-hero__inner{grid-template-columns:1fr;gap:32px;max-width:720px;margin:0 auto}
