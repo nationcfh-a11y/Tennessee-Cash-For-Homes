@@ -427,6 +427,22 @@
     });
   })();
 
+  // ── Land section photo: load it only when the section is close ──
+  // .land-section--lazy hides the background photo (critical.css) so it
+  // does not compete with the hero photo while the page opens.
+  (function () {
+    const lazy = document.querySelectorAll('.land-section--lazy');
+    if (!lazy.length) return;
+    const show = el => el.classList.remove('land-section--lazy');
+    if (!('IntersectionObserver' in window)) { lazy.forEach(show); return; }
+    const landObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { show(entry.target); landObserver.unobserve(entry.target); }
+      });
+    }, { rootMargin: '800px 0px' });
+    lazy.forEach(el => landObserver.observe(el));
+  })();
+
   // ── Back-to-top button (mobile) ──
   // Shows after the user scrolls 300px from the top, smooth-scrolls to 0
   // when tapped. CSS handles the fade transitions and desktop hiding.

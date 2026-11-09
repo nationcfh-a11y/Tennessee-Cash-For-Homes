@@ -64,6 +64,7 @@ $tcfh_hero_photos = array(
 $tcfh_n     = isset( $tcfh_hero_by_slug[ $tcfh_slug ] ) ? $tcfh_hero_by_slug[ $tcfh_slug ] : 10;
 $tcfh_photo = $tcfh_hero_photos[ $tcfh_n ];
 $tcfh_base  = get_template_directory_uri() . '/brand_assets/hero-house-' . $tcfh_n;
+$tcfh_ph    = include get_template_directory() . '/hero-placeholders.php';
 
 $tcfh_check = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>';
 $tcfh_star  = '<svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
@@ -78,7 +79,7 @@ $tcfh_id    = $tcfh_prefix . '-%s-' . $tcfh_slug;
       srcset="<?php echo esc_url( $tcfh_base . '-800w.webp' ); ?> 800w, <?php echo esc_url( $tcfh_base . '.webp' ); ?> 1600w, <?php echo esc_url( $tcfh_base . '-2048w.webp' ); ?> 2048w"
       sizes="100vw"
       width="1600" height="<?php echo (int) $tcfh_photo[0]; ?>"
-      style="object-position: <?php echo (int) $tcfh_photo[1]; ?>% <?php echo (int) $tcfh_photo[2]; ?>%"
+      style="object-position: <?php echo (int) $tcfh_photo[1]; ?>% <?php echo (int) $tcfh_photo[2]; ?>%; background: url(data:image/webp;base64,<?php echo esc_attr( $tcfh_ph[ $tcfh_n ] ); ?>) <?php echo (int) $tcfh_photo[1]; ?>% <?php echo (int) $tcfh_photo[2]; ?>% / cover no-repeat"
       alt="A house Tennessee Cash For Homes bought in Middle Tennessee"
       fetchpriority="high" decoding="async" />
   </picture>
