@@ -16,14 +16,8 @@ if ( ! empty( $meta_description ) ) {
     update_post_meta( get_the_ID(), '_tcfh_meta_desc', $meta_description );
 }
 
-// LocalBusiness JSON-LD for this situation page.
-add_action( 'wp_head', function() {
-    if ( ! function_exists( 'tcfh_build_localbusiness_schema' ) ) return;
-    $schema = tcfh_build_localbusiness_schema( array(
-        'area_served' => 'Tennessee',
-    ) );
-    tcfh_print_jsonld( $schema );
-} );
+// Situation pages use the default areaServed (Tennessee); the business node
+// is printed once, in Rank Math's graph.
 
 get_header();
 ?>

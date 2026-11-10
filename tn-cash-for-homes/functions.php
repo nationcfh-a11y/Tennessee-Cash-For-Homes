@@ -703,28 +703,26 @@ function tcfh_seo_meta_tags() {
     // so $url fell through to a bare get_permalink() and returned the FIRST
     // POST IN THE LOOP rather than the archive. That made /blog/ declare the
     // newest blog post as its canonical, conflicting with Rank Math.
-    // $url is still used for og:url / twitter below and carries that same
-    // archive bug there; harmless for indexing, tracked separately.
+    // Open Graph and Twitter tags: intentionally NOT emitted here. Rank Math
+    // prints one full set on every page; printing a second set here gave
+    // every page two og:image, og:title and twitter: tags that disagreed.
+    // The filters below feed this page's real title and description into
+    // Rank Math's tags instead.
+}
 
-    // Open Graph
-    echo '<meta property="og:type" content="website" />' . "\n";
-    echo '<meta property="og:site_name" content="' . esc_attr( $site_name ) . '" />' . "\n";
-    echo '<meta property="og:title" content="' . esc_attr( $title ) . '" />' . "\n";
-    if ( $desc ) {
-        echo '<meta property="og:description" content="' . esc_attr( $desc ) . '" />' . "\n";
-    }
-    echo '<meta property="og:url" content="' . esc_url( $url ) . '" />' . "\n";
-    echo '<meta property="og:image" content="' . esc_url( $default_img ) . '" />' . "\n";
-    echo '<meta property="og:image:width" content="2000" />' . "\n";
-    echo '<meta property="og:image:height" content="1000" />' . "\n";
-
-    // Twitter Card
-    echo '<meta name="twitter:card" content="summary_large_image" />' . "\n";
-    echo '<meta name="twitter:title" content="' . esc_attr( $title ) . '" />' . "\n";
-    if ( $desc ) {
-        echo '<meta name="twitter:description" content="' . esc_attr( $desc ) . '" />' . "\n";
-    }
-    echo '<meta name="twitter:image" content="' . esc_url( $default_img ) . '" />' . "\n";
+// The description this theme uses for a page's meta tag, for Rank Math's
+// og:description and twitter:description when Rank Math has none.
+function tcfh_page_meta_desc() {
+    if ( ! is_page() || is_front_page() ) return '';
+    $desc = get_post_meta( get_the_ID(), '_tcfh_meta_desc', true );
+    return $desc ? $desc : wp_trim_words( get_the_excerpt(), 30, '...' );
+}
+foreach ( array( 'rank_math/opengraph/facebook/og_description', 'rank_math/opengraph/twitter/twitter_description' ) as $tcfh_hook ) {
+    add_filter( $tcfh_hook, function( $desc ) {
+        if ( ! empty( $desc ) ) return $desc;
+        $page_desc = tcfh_page_meta_desc();
+        return $page_desc ? $page_desc : $desc;
+    }, 99 );
 }
 
 /**
@@ -956,13 +954,21 @@ function tcfh_schema_address() {
 }
 
 /**
- * areaServed: any page-specific areas first (a city, "Tennessee"), then the
- * service counties. A county the page already names is not repeated.
+ * areaServed: any page-specific areas first, then the service counties.
+ * A page area is typed so AI tools can't mistake it for a same-named place
+ * elsewhere ("Columbia" becomes the City "Columbia, TN"). A county the page
+ * already names is not repeated.
  */
 function tcfh_area_served( $extra = array() ) {
     $areas = array();
     foreach ( (array) $extra as $name ) {
-        $areas[ $name ] = $name;
+        if ( 'Tennessee' === $name ) {
+            $areas[ $name ] = array( '@type' => 'State', 'name' => 'Tennessee' );
+        } elseif ( preg_match( '/ County$/', $name ) ) {
+            $areas[ $name ] = array( '@type' => 'AdministrativeArea', 'name' => $name . ', TN' );
+        } else {
+            $areas[ $name ] = array( '@type' => 'City', 'name' => $name . ', TN' );
+        }
     }
     foreach ( TCFH_SERVICE_COUNTIES as $county ) {
         if ( ! isset( $areas[ $county . ' County' ] ) ) {
@@ -973,60 +979,91 @@ function tcfh_area_served( $extra = array() ) {
 }
 
 /**
- * ── SEO: Shared LocalBusiness JSON-LD builder ──
- * Every page describes the same business as Rank Math's Organization node:
- * same @id, name, url, and address, so search engines see one business, not
- * one per page. Callers override only areaServed and the rating.
+ * Page-specific areaServed. City, county, foreclosure and situation templates
+ * call tcfh_set_page_area_served() before get_header(); every other page
+ * describes the business as serving Tennessee.
+ */
+function tcfh_set_page_area_served( $areas ) {
+    $GLOBALS['tcfh_page_area_served'] = (array) $areas;
+}
+function tcfh_page_area_served() {
+    return isset( $GLOBALS['tcfh_page_area_served'] ) ? $GLOBALS['tcfh_page_area_served'] : array( 'Tennessee' );
+}
+
+/**
+ * Founder. The About page prints the full Person node with this @id; the
+ * business node points to it so AI tools connect the owner to the company.
+ */
+function tcfh_founder_id() {
+    return home_url( '/about/#karson-carmichael' );
+}
+
+/**
+ * Profiles that are ours, checked live Nov 9, 2026. Only real profile pages
+ * belong here: no search result URLs, no personal accounts.
+ */
+const TCFH_SAME_AS = array(
+    'https://www.bbb.org/us/tn/murfreesboro/profile/home-buyers/tennessee-cash-for-homes-0573-37373815',
+    'https://www.provenexpert.com/en-us/tennessee-cash-for-homes/',
+    'https://springhillchambertn.chambermaster.com/list/member/tennessee-cash-for-homes-1659366',
+    'https://mauryalliance.chambermaster.com/list/member/tennessee-cash-for-homes-14926',
+    'https://www.facebook.com/p/Tennessee-Cash-For-Homes-61557645432215/',
+    'https://www.instagram.com/tennesseecashforhomes/',
+    'https://www.youtube.com/@TennesseeCashForHomes',
+    'https://www.tiktok.com/@tennesseecashforhomes',
+);
+
+/**
+ * ── SEO: The one business node ──
+ * The site describes one business with one @id, and it is printed once per
+ * page: tcfh_rank_math_business_node() swaps it into Rank Math's graph in
+ * place of Rank Math's own Organization node (tcfh_schema_business_fallback()
+ * prints it if Rank Math's graph ever doesn't run).
+ *
+ * No AggregateRating or Review markup: ratings we publish about ourselves are
+ * self-serving, and Google ignores them for LocalBusiness. Visible review
+ * carousels stay; they just aren't marked up.
  */
 function tcfh_build_localbusiness_schema( $args = array() ) {
     $defaults = array(
-        'area_served'    => 'Tennessee',
-        'include_rating' => true,
-        'review_count'   => tcfh_review_count(),
+        'area_served' => 'Tennessee',
     );
     $a = array_merge( $defaults, $args );
 
-    $schema = array(
-        '@context'    => 'https://schema.org',
-        '@type'       => array( 'LocalBusiness', 'Organization' ),
-        '@id'         => home_url( '/#organization' ),
-        'name'        => 'Tennessee Cash For Homes',
-        'description' => 'Tennessee\'s trusted cash home buyer. We buy houses fast for cash across all 95 Tennessee counties. No repairs, no fees, no commissions.',
-        'url'         => home_url( '/' ),
-        'telephone'   => '+1-615-801-8126',
-        'email'       => 'info@tncashforhomes.com',
-        'foundingDate'=> '2017',
-        'image'       => get_template_directory_uri() . '/brand_assets/team-photo.webp',
-        'logo'        => get_template_directory_uri() . '/brand_assets/Tennessee%20Cash%20For%20Homes%20Logo.png',
-        'address'     => tcfh_schema_address(),
-        'areaServed'  => tcfh_area_served( $a['area_served'] ),
-        'priceRange'  => 'Free cash offer',
-        'openingHoursSpecification' => array(
-            '@type'     => 'OpeningHoursSpecification',
-            'dayOfWeek' => array( 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ),
-            'opens'     => '00:00',
-            'closes'    => '23:59',
+    $logo_url = get_template_directory_uri() . '/brand_assets/Tennessee%20Cash%20For%20Homes%20Logo.png';
+
+    return array(
+        '@context'     => 'https://schema.org',
+        '@type'        => array( 'LocalBusiness', 'Organization' ),
+        '@id'          => home_url( '/#organization' ),
+        'name'         => 'Tennessee Cash For Homes',
+        'legalName'    => 'Tennessee Cash For Homes',
+        'alternateName'=> 'TN Cash For Homes',
+        'description'  => 'Tennessee Cash For Homes is a family-owned cash home buyer based in Spring Hill, Tennessee, buying houses in Middle Tennessee since 2017. We make cash offers on houses in any condition, with no repairs, agent commissions or fees.',
+        'url'          => home_url( '/' ),
+        'telephone'    => '+1-615-801-8126',
+        'email'        => 'info@tncashforhomes.com',
+        'foundingDate' => '2017-12-06',
+        'founder'      => array(
+            '@type' => 'Person',
+            '@id'   => tcfh_founder_id(),
+            'name'  => 'Karson Carmichael',
         ),
-        'sameAs' => array(
-            'https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815',
-            'https://www.google.com/search?q=Tennessee+Cash+For+Homes',
-            'https://www.instagram.com/tennesseecashforhomes/',
-            'https://www.facebook.com/profile.php?id=61557645432215',
-            'https://www.youtube.com/@TennesseeCashForHomes',
-            'https://www.tiktok.com/@tennesseecashforhomes',
+        'image'        => get_template_directory_uri() . '/brand_assets/team-photo.webp',
+        'logo'         => array(
+            '@type'      => 'ImageObject',
+            '@id'        => home_url( '/#logo' ),
+            'url'        => $logo_url,
+            'contentUrl' => $logo_url,
+            'width'      => 1024,
+            'height'     => 1024,
+            'caption'    => 'Tennessee Cash For Homes',
         ),
+        'address'      => tcfh_schema_address(),
+        'areaServed'   => tcfh_area_served( $a['area_served'] ),
+        'priceRange'   => 'Free cash offer',
+        'sameAs'       => TCFH_SAME_AS,
     );
-
-    if ( $a['include_rating'] ) {
-        $schema['aggregateRating'] = array(
-            '@type'       => 'AggregateRating',
-            'ratingValue' => '5.0',
-            'reviewCount' => (string) $a['review_count'],
-            'bestRating'  => '5',
-        );
-    }
-
-    return $schema;
 }
 
 function tcfh_print_jsonld( $schema ) {
@@ -1034,64 +1071,28 @@ function tcfh_print_jsonld( $schema ) {
 }
 
 /**
- * ── SEO: LocalBusiness JSON-LD Schema ──
- * Homepage gets the canonical org schema (LocalBusiness + Organization).
- * Listed interior pages also get LocalBusiness so every major landing has it.
- * County, city, foreclosure, and situation templates register their own
- * context-specific wp_head callback before get_header() runs — see those files.
+ * Replace Rank Math's Organization node with ours, so the business is
+ * described once per page. Other Rank Math nodes (WebSite publisher, WebPage)
+ * point at the same @id and keep working.
  */
-add_action( 'wp_head', 'tcfh_schema_localbusiness' );
-function tcfh_schema_localbusiness() {
-    if ( is_front_page() ) {
-        tcfh_print_jsonld( tcfh_build_localbusiness_schema( array(
-            'review_count' => tcfh_review_count( 'home' ),
-        ) ) );
-        return;
-    }
-
-    if ( ! is_page() ) return;
-
-    // Slug-based match covers the common WP case where page-{slug}.php renders
-    // automatically without an assigned template. The template-slug check
-    // catches cases where the template is assigned to a page with a different slug.
-    $interior_slugs = array(
-        'how-it-works',
-        'where-we-buy',
-        'sell-your-land-1',
-        'sell-your-land',
-        'sell-my-land',
-        'investors',
-        'investors-lenders',
-        'investors-and-lenders',
-        'about',
-        'facing-foreclosure',
-    );
-    $interior_templates = array(
-        'page-how-it-works.php',
-        'page-where-we-buy.php',
-        'page-sell-your-land-1.php',
-        'page-investors-lenders.php',
-        'page-about.php',
-        'page-facing-foreclosure.php',
-    );
-
-    $is_interior = is_page( $interior_slugs )
-        || in_array( get_page_template_slug(), $interior_templates, true );
-
-    if ( $is_interior ) {
-        // Rate only pages that show a review carousel, counting that carousel.
-        $template = get_page_template_slug();
-        $carousel = '';
-        if ( is_page( array( 'how-it-works', 'where-we-buy' ) ) || in_array( $template, array( 'page-how-it-works.php', 'page-where-we-buy.php' ), true ) ) {
-            $carousel = 'home';
-        } elseif ( is_page( array( 'about', 'sell-your-land-1', 'sell-your-land', 'sell-my-land' ) ) || in_array( $template, array( 'page-about.php', 'page-sell-your-land-1.php' ), true ) ) {
-            $carousel = 'section';
+function tcfh_rank_math_business_node( $data ) {
+    foreach ( $data as $key => $entity ) {
+        if ( is_array( $entity ) && ( $entity['@id'] ?? '' ) === home_url( '/#organization' ) ) {
+            $node = tcfh_build_localbusiness_schema( array( 'area_served' => tcfh_page_area_served() ) );
+            unset( $node['@context'] );
+            $data[ $key ] = $node;
+            $GLOBALS['tcfh_business_node_printed'] = true;
         }
-        tcfh_print_jsonld( tcfh_build_localbusiness_schema( array(
-            'include_rating' => (bool) $carousel,
-            'review_count'   => $carousel ? tcfh_review_count( $carousel ) : 0,
-        ) ) );
     }
+    return $data;
+}
+
+// Rank Math prints its graph early in wp_head; this runs last and prints the
+// business node only if that graph didn't carry it.
+add_action( 'wp_head', 'tcfh_schema_business_fallback', 999 );
+function tcfh_schema_business_fallback() {
+    if ( ! empty( $GLOBALS['tcfh_business_node_printed'] ) ) return;
+    tcfh_print_jsonld( tcfh_build_localbusiness_schema( array( 'area_served' => tcfh_page_area_served() ) ) );
 }
 
 /**
@@ -1301,13 +1302,13 @@ function tcfh_schema_breadcrumbs() {
 }
 
 /**
- * ── Reviews: one list for every carousel and every Review schema ──
+ * ── Reviews: one list for every carousel ──
  * Real customers from public Google reviews. 'shown_on' says which carousel
  * shows each one: 'home' is the 15-card carousel on the homepage, How It
  * Works and Where We Buy; 'section' is reviews-section.php, the 9-card
  * carousel on About, the land page, and the city, county, situation and
- * foreclosure templates. Both carousels render from this list, so schema
- * counts can't drift from what a visitor sees.
+ * foreclosure templates. Both carousels render from this list. None of it
+ * is marked up as Review schema (removed Nov 10, 2026).
  */
 function tcfh_get_reviews() {
     return array(
@@ -1353,17 +1354,11 @@ function tcfh_reviews_for( $carousel ) {
     } ) );
 }
 
-// Schema reviewCount for a page: the reviews its carousel shows, never the
-// Google total. See TCFH_GOOGLE_REVIEW_TOTAL for the visible number.
-function tcfh_review_count( $carousel = 'section' ) {
-    return count( tcfh_reviews_for( $carousel ) );
-}
-
 /**
  * ── Google review total shown in visible text ──
  * Update the number here and every "N five-star Google reviews" link on the
- * site changes with it. Kept out of schema on purpose: schema counts only
- * the reviews printed on the page (tcfh_review_count).
+ * site changes with it. Not used in schema: the site publishes no rating
+ * markup about itself.
  */
 const TCFH_GOOGLE_REVIEW_TOTAL = 102;
 const TCFH_GOOGLE_REVIEWS_URL  = 'https://www.google.com/maps/search/?api=1&query=Tennessee+Cash+For+Homes';
@@ -1376,32 +1371,8 @@ function tcfh_google_reviews_link( $label = '%d five-star Google reviews' ) {
     );
 }
 
-add_action( 'wp_head', 'tcfh_schema_reviews' );
-function tcfh_schema_reviews() {
-    if ( ! is_front_page() ) return;
-
-    $reviews = tcfh_reviews_for( 'home' );
-    $review_entities = array();
-    foreach ( $reviews as $r ) {
-        $review_entities[] = array_filter( array(
-            '@type'         => 'Review',
-            'author'        => array( '@type' => 'Person', 'name' => $r['author'] ),
-            'datePublished' => isset( $r['date'] ) ? $r['date'] : null,
-            'reviewBody'    => $r['body'],
-            'reviewRating'  => array(
-                '@type'       => 'Rating',
-                'ratingValue' => (string) $r['rating'],
-                'bestRating'  => '5',
-            ),
-            'itemReviewed'  => array( '@id' => home_url( '/#organization' ) ),
-        ) );
-    }
-
-    foreach ( $review_entities as $entity ) {
-        $entity['@context'] = 'https://schema.org';
-        tcfh_print_jsonld( $entity );
-    }
-}
+// Review markup was removed Nov 10, 2026 (see tcfh_build_localbusiness_schema).
+// The carousels still show these reviews as plain text.
 
 /**
  * ── SEO/AEO: Service schema ──
@@ -1417,12 +1388,9 @@ function tcfh_schema_service() {
         '@type'           => 'Service',
         'name'            => 'Cash Home Buying in Tennessee',
         'serviceType'     => 'Cash Home Buyer',
-        'description'     => 'Tennessee Cash For Homes buys houses directly from homeowners across all 95 Tennessee counties for cash. We make a no-obligation offer within 24 hours, buy houses in any condition with no repairs required, charge no agent commissions or closing costs, and can close in as little as 7 days.',
+        'description'     => 'Tennessee Cash For Homes buys houses for cash from homeowners in Middle Tennessee. We make a no-obligation offer within 24 hours, buy houses in any condition with no repairs required, charge no agent commissions or closing costs, and can close in as little as 7 days.',
         'provider'        => array( '@id' => home_url( '/#organization' ) ),
-        'areaServed'      => array(
-            '@type' => 'State',
-            'name'  => 'Tennessee',
-        ),
+        'areaServed'      => tcfh_area_served(),
         'audience'        => array(
             '@type'        => 'Audience',
             'audienceType' => 'Tennessee homeowners selling a house for cash',
@@ -1469,8 +1437,9 @@ function tcfh_schema_persons() {
             'jobTitle'    => 'Founder',
             'description' => 'Founder of Tennessee Cash For Homes. Bachelor\'s degree in Business Management. Nearly 3 years of hands-on Tennessee real estate experience focused on direct cash purchases of homes in any condition.',
             'image'       => get_template_directory_uri() . '/brand_assets/Karson%20Tennessee%20Cash%20For%20Homes.webp',
+            'id'          => tcfh_founder_id(),
             'sameAs'      => array(
-                'https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815',
+                'https://www.bbb.org/us/tn/murfreesboro/profile/home-buyers/tennessee-cash-for-homes-0573-37373815',
             ),
         ),
         array(
@@ -1497,6 +1466,9 @@ function tcfh_schema_persons() {
             'image'       => $p['image'],
             'worksFor'    => $org,
         );
+        if ( ! empty( $p['id'] ) ) {
+            $schema = array_merge( array( '@context' => 'https://schema.org', '@id' => $p['id'] ), $schema );
+        }
         if ( ! empty( $p['sameAs'] ) ) {
             $schema['sameAs'] = $p['sameAs'];
         }
@@ -1684,24 +1656,25 @@ function tcfh_is_area_page() {
     $uri = get_page_uri( get_queried_object_id() );
     return 0 === strpos( $uri, 'where-we-buy/' );
 }
+// Since Nov 10, 2026 the same holds on every page (situation, foreclosure,
+// about, FAQ and the rest): the theme used to print its own og:title from the
+// real title, and that was the one social sites read. Now Rank Math's single
+// set carries it.
 foreach ( array( 'rank_math/opengraph/facebook/og_title', 'rank_math/opengraph/twitter/twitter_title' ) as $tcfh_hook ) {
     add_filter( $tcfh_hook, function( $title ) {
-        return tcfh_is_area_page() ? html_entity_decode( wp_get_document_title(), ENT_QUOTES, 'UTF-8' ) : $title;
+        $is_inner_page = is_page() && ! is_front_page();
+        return ( $is_inner_page || tcfh_is_area_page() ) ? html_entity_decode( wp_get_document_title(), ENT_QUOTES, 'UTF-8' ) : $title;
     }, 99 );
 }
 
-// Rank Math's Organization node printed the phone as "(615) 801-8126" and the
-// URL without a trailing slash; match the theme's LocalBusiness exactly.
-// Rank Math also adds an Article to every page; pages already have a WebPage
-// node, so the Article stays only on blog posts.
+// Rank Math's Organization node is replaced by the theme's one business node
+// (tcfh_rank_math_business_node). Rank Math also adds an Article to every
+// page; pages already have a WebPage node, so the Article stays only on blog
+// posts.
 add_filter( 'rank_math/json_ld', function( $data ) {
+    $data = tcfh_rank_math_business_node( $data );
     foreach ( $data as $key => $entity ) {
         if ( ! is_array( $entity ) ) continue;
-        if ( ( $entity['@id'] ?? '' ) === home_url( '/#organization' ) ) {
-            $data[ $key ]['telephone'] = '+1-615-801-8126';
-            $data[ $key ]['url']       = home_url( '/' );
-            $data[ $key ]['address']   = tcfh_schema_address();
-        }
         if ( is_page() && ( $entity['@type'] ?? '' ) === 'Article' ) {
             unset( $data[ $key ] );
         }
