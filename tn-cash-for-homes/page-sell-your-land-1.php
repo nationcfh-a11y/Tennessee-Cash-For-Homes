@@ -58,7 +58,7 @@ get_header();
               <circle cx="12" cy="12" r="10" stroke="#84CC9C" stroke-width="2"/>
               <path d="M8 12l3 3 5-5" stroke="#84CC9C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            Close in 7 Days
+            Close as Fast as 7 Days
           </span>
           <span class="hero__trust-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">

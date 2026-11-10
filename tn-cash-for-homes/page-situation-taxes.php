@@ -17,12 +17,12 @@ $situation_faq = [
     ['q' => 'Can I sell my house if I have delinquent property taxes?', 'a' => 'Yes. Delinquent taxes are paid off from the sale proceeds at closing. This is a very common situation and does not prevent the sale.'],
     ['q' => 'What happens if I do not pay my property taxes in Tennessee?', 'a' => 'Tennessee counties can place a lien on your property and eventually pursue a tax lien sale. At that point you may lose the home with little or no proceeds.'],
     ['q' => 'Will the sale proceeds cover my tax debt?', 'a' => 'In most cases yes. As long as the home has equity the tax balance plus penalties can be paid from proceeds at closing.'],
-    ['q' => 'How fast can you close?', 'a' => 'We can close in as little as 14 days which is often fast enough to get ahead of a pending tax lien action.'],
+    ['q' => 'How fast can you close?', 'a' => 'We can close in as little as 7 days which is often fast enough to get ahead of a pending tax lien action.'],
     ['q' => 'Do I need to make repairs before selling?', 'a' => 'No. We buy houses in any condition. You do not need to invest any more money into the property.'],
 ];
 $situation_cta_headline = 'Do Not Let Delinquent Taxes Cost You Your Home';
 $meta_title = 'Sell House Behind on Property Taxes Tennessee | Tennessee Cash For Homes';
-$meta_description = 'Behind on property taxes in Tennessee? Sell fast for cash and pay off your tax debt at closing. We close in as little as 14 days. Call (615) 801-8126.';
+$meta_description = 'Behind on property taxes in Tennessee? Sell fast for cash and pay off your tax debt at closing. We close in as little as 7 days. Call (615) 801-8126.';
 $situation_difference = [
     'audience' => 'Homeowners Behind on Property Taxes',
     'lead'     => 'When you are behind on property taxes, you work with real people who can help you move quickly, not a big out-of-state corporation or an automated system.',

@@ -5,7 +5,7 @@ Template Name: About
 
 // SEO meta
 $meta_title = 'About Tennessee Cash For Homes | Family Owned Tennessee Cash Home Buyers';
-$meta_description = 'Tennessee Cash For Homes is a Christian based, family owned cash home buying company with 9+ years of experience, a 5-Star Google rating, and an A+ BBB accreditation. Serving all of Tennessee.';
+$meta_description = 'Tennessee Cash For Homes is a Christian based, family owned cash home buyer in business since 2017, with a 5-Star Google rating and an A+ BBB accreditation. Serving all of Tennessee.';
 
 add_filter( 'pre_get_document_title', function( $title ) use ( $meta_title ) {
     return $meta_title;
@@ -66,7 +66,7 @@ $cities = [
     <div class="about-hero__inner">
       <span class="about-hero__eyebrow">ABOUT US</span>
       <h1 class="about-hero__h1">A Tennessee Company Built on Trust, Faith, and Family</h1>
-      <p class="about-hero__sub">For over 9 years, Tennessee Cash For Homes has helped homeowners across the state sell their houses fast, fairly, and without the stress of the traditional market.</p>
+      <p class="about-hero__sub">Since 2017, Tennessee Cash For Homes has helped homeowners across the state sell their houses fast, fairly, and without the stress of the traditional market.</p>
     </div>
   </div>
 </section>
@@ -96,7 +96,7 @@ $cities = [
     <h2 class="about-who__h2">Who We Are</h2>
     <div class="about-who__grid">
       <div class="about-who__copy">
-        <p>Tennessee Cash For Homes is a <strong>family owned and operated business</strong> that has been serving Tennessee homeowners for over 9 years. What started as a passion for helping people in difficult situations has grown into one of the most trusted <a href="<?php echo esc_url( home_url('/how-it-works/') ); ?>">cash home buying companies</a> in the state. We have purchased hundreds of homes and helped countless families move forward with their lives.</p>
+        <p>Tennessee Cash For Homes is a <strong>family owned and operated business</strong> that has been serving Tennessee homeowners since 2017. What started as a passion for helping people in difficult situations has grown into one of the most trusted <a href="<?php echo esc_url( home_url('/how-it-works/') ); ?>">cash home buying companies</a> in the state. We have purchased hundreds of homes and helped countless families move forward with their lives.</p>
         <p>We are a <strong>Christian based company</strong> whose values of honesty, fairness, and compassion are at the core of every offer we make. We do not believe in high-pressure tactics or lowball offers. We believe in treating people the way we would want to be treated, and that starts with a fair cash offer and a transparent process from start to finish.</p>
         <p>As a <strong>locally owned Tennessee business</strong>, we understand the Tennessee real estate market, the communities, and the real situations homeowners face. Whether you are <a href="<?php echo esc_url( home_url('/facing-foreclosure/') ); ?>">facing foreclosure</a>, dealing with an inherited property, going through a divorce, or simply need to sell your house fast, we have seen it all and we know how to help.</p>
       </div>
@@ -183,7 +183,7 @@ $cities = [
       <div class="about-why__item">
         <div class="about-why__accent"></div>
         <div>
-          <h3 class="about-why__item-title">9+ Years of Experience</h3>
+          <h3 class="about-why__item-title">Buying Houses Since 2017</h3>
           <p class="about-why__item-desc">We have seen every situation and we know how to help.</p>
         </div>
       </div>
@@ -241,7 +241,7 @@ $cities = [
   <div class="container">
     <div class="section__header section__header--center">
       <h2 class="section__title">Independently Verified and Trusted</h2>
-      <p class="section__subtitle">Our A+ Better Business Bureau accreditation and 5-Star Google rating are not just badges. They are the result of 9 years of treating Tennessee homeowners with fairness and respect.</p>
+      <p class="section__subtitle">Our A+ Better Business Bureau accreditation and 5-Star Google rating are not just badges. They are the result of treating Tennessee homeowners with fairness and respect since 2017.</p>
     </div>
     <div class="about-badges__row">
       <a href="https://www.bbb.org/us/tn/murfreesboro/profile/real-estate/tennessee-cash-for-homes-0573-37373815/#sealclick" target="_blank" rel="nofollow noopener noreferrer" class="about-badges__badge">

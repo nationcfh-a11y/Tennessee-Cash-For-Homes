@@ -17,7 +17,7 @@ $situation_faq = [
     ['q' => 'Can I sell my rental property with tenants still living there?', 'a' => 'Yes. We buy tenant-occupied properties all the time. You do not need to evict anyone before selling to us.'],
     ['q' => 'Do I need to make the property rent-ready before selling?', 'a' => 'No. We buy rental properties in whatever condition they are in. No repairs, no paint, no updates needed.'],
     ['q' => 'What types of rental properties do you buy?', 'a' => 'We buy single family rentals, duplexes, triplexes, and small multi-family properties across Tennessee.'],
-    ['q' => 'How quickly can you close on a rental property?', 'a' => 'We can typically close in 14 to 21 days on rental properties. Tenant-occupied properties may take a few extra days for proper notice.'],
+    ['q' => 'How quickly can you close on a rental property?', 'a' => 'We can close in as little as 7 days on rental properties, and most of our sales close in about 30 days. Tenant-occupied properties may take a few extra days for proper notice.'],
     ['q' => 'What if my tenants are behind on rent?', 'a' => 'That is a common situation and it does not stop the sale. We factor the tenant situation into our offer and take it from there.'],
 ];
 $situation_cta_headline = 'Ready to Be Done With the Landlord Life?';

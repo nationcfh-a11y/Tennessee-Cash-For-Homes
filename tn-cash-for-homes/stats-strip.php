@@ -15,8 +15,8 @@
       </div>
       <div class="proof-divider"></div>
       <div class="proof-stat">
-        <div class="proof-stat__num">14 Days</div>
-        <div class="proof-stat__label">Average Close Time</div>
+        <div class="proof-stat__num">30 Days</div>
+        <div class="proof-stat__label">Typical Close Time</div>
       </div>
       <div class="proof-divider"></div>
       <div class="proof-stat">

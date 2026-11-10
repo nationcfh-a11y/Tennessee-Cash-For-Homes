@@ -40,7 +40,7 @@
               <circle cx="12" cy="12" r="10" stroke="#84CC9C" stroke-width="2"/>
               <path d="M8 12l3 3 5-5" stroke="#84CC9C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            Close in 7 Days
+            Close as Fast as 7 Days
           </span>
           <span class="hero__trust-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -429,8 +429,8 @@
             <td class="compare-mobile__trad">2–3%</td>
           </tr>
           <tr>
-            <th scope="row">Avg. Days to Close</th>
-            <td class="compare-mobile__brand">7 Days</td>
+            <th scope="row">Typical Days to Close</th>
+            <td class="compare-mobile__brand">About 30 Days (as few as 7)</td>
             <td class="compare-mobile__trad">60–90 Days</td>
           </tr>
           <tr>
