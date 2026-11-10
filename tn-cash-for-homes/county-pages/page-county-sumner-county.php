@@ -30,8 +30,5 @@ $county = [
 
 ];
 
-add_action( 'wp_head', function() use ( $county ) {
-    echo '<meta name="description" content="' . esc_attr( $county['meta_desc'] ) . '">' . "\n";
-} );
 
 include get_template_directory() . '/county-template.php';

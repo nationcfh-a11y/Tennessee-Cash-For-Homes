@@ -15,7 +15,7 @@ if ( ! empty( $meta_description ) ) {
     update_post_meta( get_the_ID(), '_tcfh_meta_desc', $meta_description );
 }
 
-// LocalBusiness schema comes from tcfh_schema_localbusiness() in functions.php.
+// The business schema node comes from tcfh_build_localbusiness_schema() in functions.php.
 
 get_header();
 

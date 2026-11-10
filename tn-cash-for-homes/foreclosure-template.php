@@ -19,15 +19,8 @@ if ( ! empty( $fc_meta_desc ) ) {
     }, 0 );
 }
 
-// LocalBusiness JSON-LD for this foreclosure page.
-$fc_name_for_schema = ! empty( $fc_is_statewide ) ? 'Tennessee' : $fc_city_name;
-add_action( 'wp_head', function() use ( $fc_name_for_schema ) {
-    if ( ! function_exists( 'tcfh_build_localbusiness_schema' ) ) return;
-    $schema = tcfh_build_localbusiness_schema( array(
-        'area_served' => array( $fc_name_for_schema, 'Tennessee' ),
-    ) );
-    tcfh_print_jsonld( $schema );
-} );
+// This city leads the business node's areaServed (printed once, in Rank Math's graph).
+tcfh_set_page_area_served( ! empty( $fc_is_statewide ) ? array( 'Tennessee' ) : array( $fc_city_name, 'Tennessee' ) );
 
 get_header();
 

@@ -24,15 +24,9 @@ if ( $meta_desc ) {
     update_post_meta( get_the_ID(), '_tcfh_meta_desc', $meta_desc );
 }
 
-// LocalBusiness JSON-LD for this county page.
-$county_name_for_schema = $county['name'];
-add_action( 'wp_head', function() use ( $county_name_for_schema ) {
-    if ( ! function_exists( 'tcfh_build_localbusiness_schema' ) ) return;
-    $schema = tcfh_build_localbusiness_schema( array(
-        'area_served' => array( $county_name_for_schema . ' County', 'Tennessee' ),
-    ) );
-    tcfh_print_jsonld( $schema );
-} );
+// This county leads the business node's areaServed (printed once, in Rank
+// Math's graph). $county['name'] already ends in "County".
+tcfh_set_page_area_served( array( $county['name'], 'Tennessee' ) );
 
 get_header();
 

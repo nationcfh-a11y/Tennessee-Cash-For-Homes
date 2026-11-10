@@ -27,15 +27,8 @@ if ( $meta_desc ) {
     update_post_meta( get_the_ID(), '_tcfh_meta_desc', $meta_desc );
 }
 
-// LocalBusiness JSON-LD for this city page.
-$city_name_for_schema = $city['name'];
-add_action( 'wp_head', function() use ( $city_name_for_schema ) {
-    if ( ! function_exists( 'tcfh_build_localbusiness_schema' ) ) return;
-    $schema = tcfh_build_localbusiness_schema( array(
-        'area_served' => array( $city_name_for_schema, 'Tennessee' ),
-    ) );
-    tcfh_print_jsonld( $schema );
-} );
+// This city leads the business node's areaServed (printed once, in Rank Math's graph).
+tcfh_set_page_area_served( array( $city['name'], 'Tennessee' ) );
 
 get_header();
 

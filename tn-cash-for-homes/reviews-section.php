@@ -2,8 +2,7 @@
 /**
  * Google reviews carousel. Cards come from tcfh_get_reviews().
  * Pass array( 'carousel' => 'home' ) for the 15-review carousel; the default
- * is the 9-review 'section' set. Keep this in step with the schema counts in
- * functions.php (tcfh_review_count), which assume these two sets.
+ * is the 9-review 'section' set.
  */
 $tcfh_reviews = tcfh_reviews_for( ! empty( $args['carousel'] ) ? $args['carousel'] : 'section' );
 ?>
