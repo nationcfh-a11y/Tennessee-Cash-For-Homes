@@ -11,7 +11,7 @@ $situation_description_2 = 'We work directly with probate attorneys and estate a
 $situation_bullets = [
     ['title' => 'We Work With Probate Attorneys', 'desc' => 'We are experienced working alongside attorneys and court-appointed administrators to ensure a legally compliant sale.'],
     ['title' => 'Buy As-Is Including Contents', 'desc' => 'The estate does not need to clean out or repair the property before selling. We handle everything after closing.'],
-    ['title' => 'Fast Close Once Court Approves', 'desc' => 'Once the court grants permission to sell we can close in as little as 14 days and distribute proceeds to heirs quickly.'],
+    ['title' => 'Fast Close Once Court Approves', 'desc' => 'Once the court grants permission to sell we can close in as little as 7 days and distribute proceeds to heirs quickly.'],
 ];
 $situation_faq = [
     ['q' => 'Can I sell a house that is in probate in Tennessee?', 'a' => 'Yes but you typically need court approval first. As the executor or administrator you have the authority to sell once probate is opened and the court approves.'],

@@ -496,7 +496,7 @@ $img_base    = get_template_directory_uri() . '/brand_assets/Where%20We%20Buy%20
           <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         </div>
         <h3 class="wwb-why__title">Fast Closings</h3>
-        <p class="wwb-why__body">Close in as little as 14 days, on your schedule. We work around your timeline and move at whatever pace works best for you.</p>
+        <p class="wwb-why__body">Close in as little as 7 days, on your schedule. We work around your timeline and move at whatever pace works best for you.</p>
       </div>
 
       <div class="wwb-why__card wwb-fade">

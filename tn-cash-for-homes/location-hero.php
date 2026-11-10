@@ -107,7 +107,7 @@ $tcfh_id    = $tcfh_prefix . '-%s-' . $tcfh_slug;
         <div class="hero__trust county-hero__trust">
           <div class="hero__trust-item"><?php echo $tcfh_check; ?>Zero fees or commissions</div>
           <div class="hero__trust-item"><?php echo $tcfh_check; ?>Buy as-is, any condition</div>
-          <div class="hero__trust-item"><?php echo $tcfh_check; ?>Close in 7 days</div>
+          <div class="hero__trust-item"><?php echo $tcfh_check; ?>Close as fast as 7 days</div>
           <div class="hero__trust-item hero__trust-item--stars">
             <span class="county-hero__stars" aria-hidden="true"><?php echo str_repeat( $tcfh_star, 5 ); ?></span>
             <span>5-Star Rated<span class="county-hero__on-google"> on Google</span></span>

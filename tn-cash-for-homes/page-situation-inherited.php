@@ -18,7 +18,7 @@ $situation_faq = [
     ['q' => 'Can I sell if there are multiple heirs?', 'a' => 'Yes but all heirs typically need to agree to the sale. We work with all parties and their attorneys to coordinate a smooth transaction.'],
     ['q' => 'Do I need to clean out the house before selling?', 'a' => 'No. We buy homes as-is including with furniture, personal belongings, and contents inside. You take what you want and leave the rest.'],
     ['q' => 'What if the house needs major repairs?', 'a' => 'That is perfectly fine. We buy inherited properties in any condition, including roof issues, foundation problems, outdated systems, or whatever the situation.'],
-    ['q' => 'How long does it take to close on an inherited property?', 'a' => 'Once probate is clear we can close in as little as 14 days. We move as fast as the legal process allows.'],
+    ['q' => 'How long does it take to close on an inherited property?', 'a' => 'Once probate is clear we can close in as little as 7 days. We move as fast as the legal process allows.'],
 ];
 $situation_cta_headline = 'Let Us Take the Burden of the Inherited Property Off Your Shoulders';
 $meta_title = 'Sell Inherited House Tennessee | Fast Cash Sale | Tennessee Cash For Homes';
