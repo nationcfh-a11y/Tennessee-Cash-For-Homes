@@ -95,6 +95,7 @@ get_header(); ?>
             'cash home buyers in Hendersonville' => '/where-we-buy/hendersonville/',
             'sell a house for cash in Smyrna'    => '/where-we-buy/smyrna/',
             'fast cash offer in Shelbyville'     => '/where-we-buy/shelbyville/',
+            'cash buyer vs agent comparison'     => '/cash-buyer-vs-agent-tennessee/',
           );
           foreach ( $faq_city_links as $phrase => $path ) {
             $a_html = str_replace( esc_html( $phrase ), '<a href="' . esc_url( home_url( $path ) ) . '">' . esc_html( $phrase ) . '</a>', $a_html );

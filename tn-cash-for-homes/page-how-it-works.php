@@ -328,6 +328,7 @@ get_header(); ?>
         </tbody>
       </table>
     </div>
+    <p class="hiw-compare-more" style="max-width:760px;margin:24px auto 0;text-align:center;font-size:16px;color:var(--charcoal-light);">Want the full picture, including when listing actually nets you more? Read our <a href="<?php echo esc_url( home_url( '/cash-buyer-vs-agent-tennessee/' ) ); ?>" style="color:var(--green-dark);font-weight:600;text-decoration:underline;">cash buyer vs agent comparison for Tennessee</a>.</p>
   </div>
 </section>
 

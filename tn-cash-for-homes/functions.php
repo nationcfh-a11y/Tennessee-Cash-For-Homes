@@ -1160,7 +1160,7 @@ function tcfh_get_faq_page_items() {
         ),
         array(
             'q' => 'How is this different from listing with a real estate agent?',
-            'a' => 'When you list with an agent you typically wait months for a buyer, pay 5 to 6 percent in commissions, make repairs, deal with showings, and risk the buyer backing out at the last minute. With us, you get a cash offer in 24 hours, no repairs, no fees, and a guaranteed closing on your timeline.',
+            'a' => 'When you list with an agent you typically wait months for a buyer, pay 5 to 6 percent in commissions, make repairs, deal with showings, and risk the buyer backing out at the last minute. With us, you get a cash offer in 24 hours, no repairs, no fees, and a guaranteed closing on your timeline. For costs, timelines and when each option makes sense, see our full cash buyer vs agent comparison.',
         ),
         array(
             'q' => 'Are you local?',
@@ -1519,6 +1519,10 @@ function tcfh_handle_legacy_redirects() {
         // It still resolves (so it never 404s on its own) and was linked
         // from the nav, so send it on rather than leaving a blank page.
         'blog-home'             => '/blog/',
+        // Old agent-vs-cash post, retired into the comparison page.
+        'the-difference-between-selling-your-house-with-an-agent-vs-selling-to-a-cash-buyer' => '/cash-buyer-vs-agent-tennessee/',
+        // Its old dated permalink still drew search impressions; it was a 404.
+        '2024/03/16/the-difference-between-selling-your-house-with-an-agent-vs-selling-to-a-cash-buyer' => '/cash-buyer-vs-agent-tennessee/',
     );
 
     $path = trim( wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ) ?? '', '/' );
@@ -1677,6 +1681,11 @@ add_filter( 'rank_math/json_ld', function( $data ) {
         if ( ! is_array( $entity ) ) continue;
         if ( is_page() && ( $entity['@type'] ?? '' ) === 'Article' ) {
             unset( $data[ $key ] );
+        }
+        // The cash buyer vs agent page is written by the company, not a
+        // person: name the business node as its author.
+        if ( is_page_template( 'page-cash-buyer-vs-agent-tennessee.php' ) && ( $entity['@type'] ?? '' ) === 'WebPage' ) {
+            $data[ $key ]['author'] = array( '@id' => home_url( '/#organization' ) );
         }
     }
     return $data;
