@@ -171,6 +171,12 @@ $cva_check    = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 20
             <li>Compare what you'd walk away with, not the sale price.</li>
           </ul>
         </div>
+        <div class="cva-offer-card">
+          <p class="cva-offer-card__title">Get Your Cash Offer</p>
+          <p class="cva-offer-card__text">Free, no obligation, usually within 24 hours. Put it next to any agent's net sheet.</p>
+          <a href="#get-offer" class="btn-primary btn-primary--block">Get My Cash Offer &rarr;</a>
+          <a href="tel:+16158018126" class="cva-offer-card__phone">Or call (615) 801-8126</a>
+        </div>
       </aside>
     </div>
   </div>
@@ -228,37 +234,60 @@ $cva_check    = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 20
   </div>
 </section>
 
-<!-- ── WHAT EACH ROUTE COSTS (the one sticky offer card lives here) ── -->
-<section class="section cva-section">
+<!-- ── WHAT EACH ROUTE COSTS: full-width card grid + matching "what we take off" panel ── -->
+<?php
+$cva_ico = array(
+	'percent'  => '<path d="M19 5L5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/>',
+	'wrench'   => '<path d="M14.7 6.3a4 4 0 00-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 005.4-5.4l-2.6 2.6-2.4-.6-.6-2.4 2.6-2.6z"/>',
+	'receipt'  => '<path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6"/>',
+	'document' => '<path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8l-5-5z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>',
+	'calendar' => '<rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/>',
+);
+$cva_costs = array(
+	array( 'percent',  'Commission',     'Negotiable, and no Tennessee law sets the rate. Since August 2024, what you pay a buyer\'s agent is negotiated separately instead of posted on the MLS.' ),
+	array( 'wrench',   'Repairs',        'Paint, cleaning and small fixes so the house shows well. A bad roof or a dead HVAC system can hold up a buyer\'s loan until it\'s fixed.' ),
+	array( 'receipt',  'Repair credits', 'After the inspection, buyers usually ask for repairs or a credit at closing. It comes off after the price feels settled.' ),
+	array( 'document', 'Closing costs',  'Your share of closing costs, plus your payoff and prorated taxes. Tennessee\'s transfer tax falls on the buyer by statute (TCA 67-4-409).' ),
+	array( 'calendar', 'Holding costs',  'Mortgage, taxes, insurance and utilities keep running every month the house sits. None of it shows on the settlement statement.' ),
+);
+?>
+<section class="section cva-section" id="costs">
   <div class="container">
-    <div class="cva-layout">
-      <div class="cva-main">
-        <p class="section__eyebrow">Where the Money Goes</p>
-        <h2 class="section__title">What Listing With an Agent Costs You</h2>
-        <p>A good agent earns their fee. They price the house from real sales, get it in front of every buyer on the MLS and handle the negotiating. On the right house, that gets you a higher price.</p>
-        <p>Here's what comes out of that price before you see a check.</p>
-        <p><strong>Commission.</strong> It's negotiable, and no Tennessee law sets the rate. Since August 2024, what you pay a buyer's agent is negotiated separately instead of posted on the MLS, so get both sides in writing.</p>
-        <p><strong>Repairs.</strong> Most houses need paint, cleaning and small fixes to show well. A bad roof, foundation movement or a dead HVAC system can hold up a buyer's loan until it's fixed.</p>
-        <p><strong>Repair credits.</strong> After the inspection, buyers usually ask for repairs or a credit at closing. That comes off your number after you thought the price was settled.</p>
-        <p><strong>Closing costs.</strong> You pay your share, plus your payoff and prorated property taxes. Tennessee's transfer tax (37 cents per $100, TCA 67-4-409) falls on the buyer unless the contract says otherwise. Our <a href="<?php echo $cva_url( '/do-you-pay-closing-costs-when-you-sell-your-house-for-cash-in-tennessee/' ); ?>">closing costs guide</a> has the full list.</p>
-        <p><strong>Holding costs.</strong> Every month the house sits, you keep paying the mortgage, taxes, insurance and utilities. None of that shows up on the settlement statement.</p>
-        <p>One thing is the same either way: Tennessee's disclosure law (TCA 66-5-201 and following) applies whether or not you use an agent.</p>
-
-        <h2 class="section__title cva-subtitle">What We Take Off the Price Instead</h2>
-        <p>We don't charge commission, but our offer is below retail for real reasons. It covers the repairs, the months we carry the house while we fix it, the cost of reselling it and the risk. Here's <a href="<?php echo $cva_url( '/how-do-cash-home-buyers-calculate-their-offer-in-tennessee/' ); ?>">how cash buyers calculate an offer</a>, step by step.</p>
-        <p>What you get back is speed and certainty. With no lender, a loan denial or a low appraisal can't sink the deal late. You do give up the chance of a bidding war.</p>
-        <p>We buy as-is, charge no fees and pay all closing costs. We can close in as little as 7 days, and about 30 is typical. You can see each step on our <a href="<?php echo $cva_url( '/how-it-works/' ); ?>">how it works</a> page.</p>
+    <div class="section__header section__header--center">
+      <p class="section__eyebrow">Where the Money Goes</p>
+      <h2 class="section__title">What Listing With an Agent Costs You</h2>
+      <p class="section__subtitle">A good agent earns their fee: pricing from real sales, MLS exposure and negotiating. On the right house that brings a higher price. Here's what comes out of it before you see a check.</p>
+    </div>
+    <div class="cva-costs">
+      <?php foreach ( $cva_costs as $cva_c ) : ?>
+      <div class="cva-cost">
+        <span class="cva-cost__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><?php echo $cva_ico[ $cva_c[0] ]; ?></svg></span>
+        <h3 class="cva-cost__title"><?php echo esc_html( $cva_c[1] ); ?></h3>
+        <p class="cva-cost__text"><?php echo esc_html( $cva_c[2] ); ?></p>
       </div>
-      <aside class="cva-side">
-        <div class="cva-sticky">
-          <div class="cva-offer-card">
-            <p class="cva-offer-card__title">Get Your Cash Offer</p>
-            <p class="cva-offer-card__text">Free, no obligation, usually within 24 hours. Put it next to any agent's net sheet.</p>
-            <a href="#get-offer" class="btn-primary btn-primary--block">Get My Cash Offer &rarr;</a>
-            <a href="tel:+16158018126" class="cva-offer-card__phone">Or call (615) 801-8126</a>
-          </div>
+      <?php endforeach; ?>
+      <div class="cva-cost cva-cost--note">
+        <h3 class="cva-cost__title">Same either way</h3>
+        <p class="cva-cost__text">Tennessee's disclosure law (TCA 66-5-201 and following) applies with or without an agent. Our <a href="<?php echo $cva_url( '/do-you-pay-closing-costs-when-you-sell-your-house-for-cash-in-tennessee/' ); ?>">closing costs guide</a> has the full list of seller costs.</p>
+      </div>
+    </div>
+
+    <div class="cva-takeoff">
+      <h2 class="cva-takeoff__title">What We Take Off the Price Instead</h2>
+      <div class="cva-takeoff__grid">
+        <div class="cva-takeoff__item">
+          <h3>What our price covers</h3>
+          <p>The repairs, the months we carry the house while we fix it, the cost of reselling it and the risk. Here's <a href="<?php echo $cva_url( '/how-do-cash-home-buyers-calculate-their-offer-in-tennessee/' ); ?>">how cash buyers calculate an offer</a>.</p>
         </div>
-      </aside>
+        <div class="cva-takeoff__item">
+          <h3>What you get back</h3>
+          <p>Speed and certainty. With no lender, a loan denial or a low appraisal can't sink the deal late. You do give up the chance of a bidding war.</p>
+        </div>
+        <div class="cva-takeoff__item">
+          <h3>What we pay</h3>
+          <p>All closing costs, with no fees and no commission. We <a href="<?php echo $cva_url( '/sell-house-as-is-tennessee/' ); ?>">buy as-is</a> and can close in as little as 7 days, about 30 typical. See <a href="<?php echo $cva_url( '/how-it-works/' ); ?>">how it works</a>.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -273,72 +302,77 @@ get_template_part( 'difference-section', null, array(
 ?>
 </div>
 
-<!-- ── WHICH ROUTE FITS + 3 STEPS ── -->
+<!-- ── WHICH ROUTE FITS: two mirrored cards on one shared grid, then the 3 steps ── -->
 <?php
 $cva_tick = '<svg class="cva-tick" width="18" height="18" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>';
-$cva_fit_list = array(
-	'The house is move-in ready, with no major roof, foundation or system problems.',
-	'Similar homes near you sell quickly to buyers using mortgages.',
-	'You have a few months and can cover the payments while it\'s listed.',
-	'You want the top price and don\'t mind showings and negotiating.',
-	'The title is clean, with no liens, estate questions or tenants.',
-);
-$cva_fit_cash = array(
-	'The house needs repairs you can\'t afford or don\'t want to manage.',
-	'You need to close by a certain date.',
-	'You\'re carrying two payments, or the house is inherited or vacant.',
-	'There are tenants in place.',
-	'A listing already fell through or isn\'t getting the price you need.',
+$cva_cards = array(
+	array(
+		'mod'   => '',
+		'icon'  => '<path d="M5 21V3"/><path d="M5 5h14v9H5"/><path d="M9 9.5h6"/>',
+		'title' => 'Listing with an agent is usually better when',
+		'items' => array(
+			'The house is move-in ready, with no major roof, foundation or system problems.',
+			'Similar homes near you sell quickly to buyers using mortgages.',
+			'You have a few months and can cover the payments while it\'s listed.',
+			'You want the top price and don\'t mind showings and negotiating.',
+			'The title is clean, with no liens, estate questions or tenants.',
+		),
+		'quote' => '&ldquo;&hellip;he was so honest to tell us that in our particular case, it would make more sense to sell with a traditional agent. He set us up with Chris, who we really like, and decided to go that route.&rdquo;',
+		'by'    => 'JP J., Google review',
+		'note'  => 'In a hot market with multiple offers, listing tends to win by more.',
+		'links' => 'Listing guides: <a href="' . $cva_url( '/how-to-get-the-most-money-when-you-sell-your-house-in-tennessee/' ) . '">get the most money</a> &middot; <a href="' . $cva_url( '/how-long-does-it-take-to-sell-a-house-in-tennessee/' ) . '">how long it takes</a>',
+	),
+	array(
+		'mod'   => ' cva-fit__card--us',
+		'icon'  => '<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 15l2 2 4-4"/>',
+		'title' => 'A cash sale usually makes more sense when',
+		'items' => array(
+			'The house needs repairs you can\'t afford or don\'t want to manage.',
+			'You need to close by a certain date.',
+			'You\'re carrying two payments, or the house is inherited or vacant.',
+			'There are tenants in place.',
+			'A listing already fell through or isn\'t getting the price you need.',
+		),
+		'quote' => '&ldquo;An elderly Columbia homeowner had lost her husband, and the house needed more repairs than she could afford. We worked closely with her son, handled the title still being in her late husband\'s name, and closed in about a month, as-is.&rdquo;',
+		'by'    => 'One of our purchases in Columbia, September 2026',
+		'note'  => 'In a slow market, or when time matters more than price, cash tends to win.',
+		'links' => 'We buy in <a href="' . $cva_url( '/where-we-buy/nashville/' ) . '">Nashville</a> &middot; <a href="' . $cva_url( '/where-we-buy/murfreesboro/' ) . '">Murfreesboro</a> &middot; <a href="' . $cva_url( '/where-we-buy/clarksville/' ) . '">Clarksville</a> &middot; <a href="' . $cva_url( '/where-we-buy/' ) . '">all areas</a>',
+	),
 );
 $cva_steps = array(
-	array( 'Get an agent\'s net sheet', 'Commission, closing costs, likely repairs and time on market, in writing.' ),
-	array( 'Get a written cash offer', 'One that says who pays closing costs and whether there are any fees.' ),
-	array( 'Compare what you\'d walk away with', 'The number you keep at closing, not the sale price.' ),
+	array( 'Get an agent\'s net sheet', 'Ask two or three agents with a track record in your area for commission, closing costs, likely repairs and time on market, in writing.' ),
+	array( 'Get a written cash offer', 'Make sure it says who pays closing costs and lists any fees or contingencies. Check the buyer\'s reviews.' ),
+	array( 'Compare what you\'d walk away with', 'Put the two numbers side by side and go with what you keep, not the bigger sale price.' ),
+);
+$cva_guides = array(
+	array( '/how-to-compare-two-cash-offers-tennessee/', 'How to Compare Two Cash Offers', 'What to check besides the price.' ),
+	array( '/should-i-accept-a-cash-offer-for-my-house/', 'Should I Accept a Cash Offer for My House?', 'How to weigh an offer you already have.' ),
 );
 ?>
-<section class="section cva-section">
+<section class="section cva-section" id="which-fits">
   <div class="container">
     <div class="section__header section__header--center">
       <p class="section__eyebrow">Which One Fits</p>
       <h2 class="section__title">When Each Option Is the Better Choice</h2>
     </div>
     <div class="cva-fit">
-      <div class="cva-fit__card">
+      <?php foreach ( $cva_cards as $cva_card ) : ?>
+      <div class="cva-fit__card<?php echo $cva_card['mod']; ?>">
         <div class="cva-fit__head">
-          <span class="cva-fit__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V3"/><path d="M5 5h14v9H5"/><path d="M9 9.5h6"/></svg></span>
-          <h3 class="cva-fit__title">Listing with an agent is usually better when</h3>
+          <span class="cva-fit__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><?php echo $cva_card['icon']; ?></svg></span>
+          <h3 class="cva-fit__title"><?php echo esc_html( $cva_card['title'] ); ?></h3>
         </div>
-        <div class="cva-fit__body">
-          <ul class="cva-checks">
-            <?php foreach ( $cva_fit_list as $cva_li ) : ?><li><?php echo $cva_tick; ?><span><?php echo esc_html( $cva_li ); ?></span></li><?php endforeach; ?>
-          </ul>
-          <blockquote class="cva-quote">
-            <p>&ldquo;&hellip;he was so honest to tell us that in our particular case, it would make more sense to sell with a traditional agent. He set us up with Chris, who we really like, and decided to go that route.&rdquo;</p>
-            <footer>JP J., Google review</footer>
-          </blockquote>
-          <p>If that's you, interview two or three agents and ask each for a written net sheet. Our guide on <a href="<?php echo $cva_url( '/how-to-get-the-most-money-when-you-sell-your-house-in-tennessee/' ); ?>">getting the most money for your house</a> is a good place to start.</p>
-        </div>
+        <ul class="cva-checks">
+          <?php foreach ( $cva_card['items'] as $cva_li ) : ?><li><?php echo $cva_tick; ?><span><?php echo esc_html( $cva_li ); ?></span></li><?php endforeach; ?>
+        </ul>
+        <blockquote class="cva-quote">
+          <p><?php echo $cva_card['quote']; ?></p>
+          <footer><?php echo esc_html( $cva_card['by'] ); ?></footer>
+        </blockquote>
+        <p class="cva-fit__note"><?php echo esc_html( $cva_card['note'] ); ?></p>
+        <p class="cva-fit__links"><?php echo $cva_card['links']; ?></p>
       </div>
-      <div class="cva-fit__card cva-fit__card--us">
-        <div class="cva-fit__head">
-          <span class="cva-fit__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 15l2 2 4-4"/></svg></span>
-          <h3 class="cva-fit__title">A cash sale usually makes more sense when</h3>
-        </div>
-        <div class="cva-fit__body">
-          <ul class="cva-checks">
-            <?php foreach ( $cva_fit_cash as $cva_li ) : ?><li><?php echo $cva_tick; ?><span><?php echo esc_html( $cva_li ); ?></span></li><?php endforeach; ?>
-          </ul>
-          <figure class="cva-story">
-            <img src="<?php echo esc_url( get_template_directory_uri() . '/brand_assets/hero-house-9-800w.webp' ); ?>"
-              width="800" height="460" alt="A house Tennessee Cash For Homes bought in Middle Tennessee" loading="lazy" decoding="async" />
-            <blockquote>
-              <p>An elderly Columbia homeowner had lost her husband, and the house needed more repairs than she could afford. We worked closely with her son, handled the title still being in her late husband's name, and closed in about a month, as-is.</p>
-              <footer>One of our recent purchases in Columbia, September 2026</footer>
-            </blockquote>
-          </figure>
-          <p>See how we <a href="<?php echo $cva_url( '/sell-house-as-is-tennessee/' ); ?>">buy houses as-is</a> in <a href="<?php echo $cva_url( '/where-we-buy/nashville/' ); ?>">Nashville</a>, <a href="<?php echo $cva_url( '/where-we-buy/murfreesboro/' ); ?>">Murfreesboro</a>, <a href="<?php echo $cva_url( '/where-we-buy/clarksville/' ); ?>">Clarksville</a> and the rest of the <a href="<?php echo $cva_url( '/where-we-buy/' ); ?>">areas we serve</a>.</p>
-        </div>
-      </div>
+      <?php endforeach; ?>
     </div>
 
     <div class="cva-steps">
@@ -347,13 +381,31 @@ $cva_steps = array(
         <?php foreach ( $cva_steps as $n => $cva_step ) : ?>
         <li class="cva-step">
           <span class="cva-step__num" aria-hidden="true"><?php echo (int) $n + 1; ?></span>
-          <span class="cva-step__title"><?php echo esc_html( $cva_step[0] ); ?></span>
-          <span class="cva-step__text"><?php echo esc_html( $cva_step[1] ); ?></span>
+          <div class="cva-step__card">
+            <span class="cva-step__title"><?php echo esc_html( $cva_step[0] ); ?></span>
+            <span class="cva-step__text"><?php echo esc_html( $cva_step[1] ); ?></span>
+          </div>
         </li>
         <?php endforeach; ?>
       </ol>
-      <p class="cva-steps__note">It doesn't have to be one or the other. In April 2026, a Columbia seller with a family emergency reached out to us together with her agent, because the listing wasn't getting the price she needed. We closed in under three weeks.</p>
-      <p class="cva-steps__links">Holding more than one cash offer? Here's <a href="<?php echo $cva_url( '/how-to-compare-two-cash-offers-tennessee/' ); ?>">how to compare two cash offers</a>. Weighing one now? Read <a href="<?php echo $cva_url( '/should-i-accept-a-cash-offer-for-my-house/' ); ?>">should I accept a cash offer</a>. For an estate, divorce or tax question, talk to a Tennessee attorney or CPA. This page is general information, not legal or tax advice.</p>
+
+      <div class="cva-callout">
+        <p class="cva-callout__title">It doesn't have to be one or the other</p>
+        <p>In April 2026, a Columbia seller with a family emergency reached out to us together with her agent, because the listing wasn't getting the price she needed. We closed in under three weeks.</p>
+      </div>
+
+      <p class="cva-guides__label">Related guides</p>
+      <div class="cva-guides">
+        <?php foreach ( $cva_guides as $cva_g ) : ?>
+        <a class="cva-guide" href="<?php echo $cva_url( $cva_g[0] ); ?>">
+          <span class="cva-guide__title"><?php echo esc_html( $cva_g[1] ); ?></span>
+          <span class="cva-guide__text"><?php echo esc_html( $cva_g[2] ); ?></span>
+          <span class="cva-guide__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        <?php endforeach; ?>
+      </div>
+
+      <p class="cva-disclaimer">This page is general information, not legal or tax advice. For an estate, divorce or tax question, talk to a Tennessee attorney or CPA.</p>
     </div>
   </div>
 </section>
@@ -438,13 +490,12 @@ $cva_short_name = function ( $name ) {
   /* ── Two column layout: readable text column + sidebar ── */
   .cva-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 56px; max-width: 1080px; margin: 0 auto; align-items: start; }
   .cva-main { max-width: 700px; }
-  .cva-main p:not(.section__eyebrow) { font-size: 17px; line-height: 1.75; margin-bottom: 18px; color: var(--charcoal); }
+  .cva-main p:not(.section__eyebrow) { font-size: 16px; line-height: 1.75; margin-bottom: 18px; color: var(--charcoal); }
   .cva-main a, .cva-table-note a, .cva-fit a, .cva-section .faq-answer a { color: var(--green-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
   .cva-subtitle { margin-top: 48px; }
   .cva-answer { background: var(--green-light); border-left: 4px solid var(--green-dark); border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 8px 0 24px; }
   .cva-answer p { margin: 0; font-weight: 500; }
   .cva-side { height: 100%; }
-  .cva-sticky { position: sticky; top: 110px; }
   .cva-takeaways { background: var(--white); border: 1px solid var(--border); border-top: 4px solid var(--green-dark); border-radius: 12px; padding: 24px; box-shadow: var(--shadow); }
   .cva-takeaways__title, .cva-offer-card__title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 12px; color: var(--charcoal); }
   .cva-takeaways ul { margin: 0; padding: 0; list-style: none; }
@@ -492,41 +543,65 @@ $cva_short_name = function ( $name ) {
   /* ── Reviews on white: give the cards an edge ── */
   .cva-reviews .testimonial-card { border: 1px solid var(--border); box-shadow: var(--shadow); }
 
-  /* ── Fit cards ── */
-  .cva-fit { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 1080px; margin: 0 auto; align-items: stretch; }
-  .cva-fit__card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+  /* ── Listing costs: full-width card grid ── */
+  .cva-costs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; max-width: 1080px; margin: 0 auto; }
+  .cva-cost { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 24px; box-shadow: var(--shadow); }
+  .cva-cost__icon { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--bg-light); color: var(--charcoal); margin-bottom: 14px; }
+  .cva-cost__title { font-size: 18px; font-weight: 700; margin: 0 0 8px; }
+  .cva-cost__text { margin: 0; color: var(--charcoal-light); line-height: 1.6; }
+  .cva-cost--note { background: var(--bg-light); box-shadow: none; display: flex; flex-direction: column; justify-content: center; }
+  .cva-cost a, .cva-takeoff a { color: var(--green-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+  .cva-takeoff { max-width: 1080px; margin: 28px auto 0; background: var(--green-light); border: 1px solid var(--green); border-radius: 12px; padding: 32px; }
+  .cva-takeoff__title { font-size: clamp(22px, 2.6vw, 28px); font-weight: 700; margin: 0 0 20px; }
+  .cva-takeoff__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .cva-takeoff__item { background: var(--white); border-radius: 12px; padding: 22px; }
+  .cva-takeoff__item h3 { font-size: 17px; font-weight: 700; margin: 0 0 8px; color: var(--green-dark); }
+  .cva-takeoff__item p { margin: 0; color: var(--charcoal); line-height: 1.6; }
+
+  /* ── Fit cards: one shared grid so every row lines up across both cards ── */
+  .cva-fit { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(9, auto); column-gap: 28px; max-width: 1080px; margin: 0 auto; }
+  .cva-fit__card { grid-row: span 9; display: grid; grid-template-rows: subgrid; row-gap: 0; background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
   .cva-fit__head { display: flex; align-items: center; gap: 12px; padding: 18px 24px; background: var(--bg-light); border-bottom: 1px solid var(--border); }
   .cva-fit__card--us .cva-fit__head { background: var(--green-dark); border-bottom-color: var(--green-dark); }
   .cva-fit__icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--white); color: var(--charcoal-light); flex-shrink: 0; }
   .cva-fit__card--us .cva-fit__icon { color: var(--green-dark); }
   .cva-fit__title { font-size: 18px; font-weight: 700; margin: 0; color: var(--charcoal); line-height: 1.3; }
   .cva-fit__card--us .cva-fit__title { color: var(--white); }
-  .cva-fit__body { padding: 24px; }
-  .cva-checks { list-style: none; margin: 0 0 20px; padding: 0; }
-  .cva-checks li { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; line-height: 1.55; color: var(--charcoal); }
+  .cva-checks { grid-row: span 5; display: grid; grid-template-rows: subgrid; list-style: none; margin: 0; padding: 20px 24px 8px; }
+  .cva-checks li { display: flex; gap: 10px; align-items: flex-start; padding-bottom: 12px; line-height: 1.55; color: var(--charcoal); }
   .cva-tick { flex-shrink: 0; margin-top: 3px; color: var(--charcoal-light); }
   .cva-fit__card--us .cva-tick { color: var(--green-dark); }
-  .cva-fit__body p { line-height: 1.7; color: var(--charcoal-light); margin: 0; }
-  .cva-fit a, .cva-steps a { color: var(--green-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
-  .cva-quote { margin: 0 0 20px; padding: 18px 20px; background: var(--bg-light); border-left: 4px solid var(--charcoal-light); border-radius: 0 12px 12px 0; }
-  .cva-quote p { margin: 0 0 10px !important; font-size: 16px; line-height: 1.65; color: var(--charcoal) !important; font-style: italic; }
+  .cva-quote { margin: 0 24px; padding: 18px 20px; background: var(--bg-light); border-left: 4px solid var(--charcoal-light); border-radius: 0 12px 12px 0; display: flex; flex-direction: column; justify-content: space-between; }
+  .cva-fit__card--us .cva-quote { border-left-color: var(--green-dark); }
+  .cva-quote p { margin: 0 0 10px; line-height: 1.65; color: var(--charcoal); font-style: italic; }
   .cva-quote footer { font-size: 13px; font-weight: 600; color: var(--charcoal-light); }
-  .cva-story { margin: 0 0 20px; background: var(--bg-light); border-left: 4px solid var(--green-dark); border-radius: 0 12px 12px 0; overflow: hidden; }
-  .cva-story img { display: block; width: 100%; height: 170px; object-fit: cover; object-position: 50% 55%; }
-  .cva-story blockquote { margin: 0; padding: 18px 20px; }
-  .cva-story blockquote p { margin: 0 0 10px; font-size: 16px; line-height: 1.65; color: var(--charcoal); font-style: italic; }
-  .cva-story footer { font-size: 13px; font-weight: 600; color: var(--charcoal-light); }
+  .cva-fit__note { margin: 0; padding: 18px 24px 0; line-height: 1.6; color: var(--charcoal); }
+  .cva-fit__links { margin: 0; padding: 12px 24px 22px; align-self: end; font-size: 15px; color: var(--charcoal-light); }
+  .cva-fit a, .cva-steps a { color: var(--green-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
 
-  /* ── 3 steps ── */
-  .cva-steps { max-width: 1080px; margin: 32px auto 0; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 32px; box-shadow: var(--shadow); }
-  .cva-steps__title { font-size: 20px; font-weight: 700; margin-bottom: 22px; text-align: center; }
-  .cva-steps__list { list-style: none; margin: 0 0 24px; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; counter-reset: none; }
-  .cva-step { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; }
-  .cva-step__num { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--green-dark); color: var(--white); font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 18px; }
-  .cva-step__title { font-family: 'Poppins', sans-serif; font-weight: 700; color: var(--charcoal); }
-  .cva-step__text { font-size: 15px; line-height: 1.55; color: var(--charcoal-light); max-width: 280px; }
-  .cva-steps__note, .cva-steps__links { max-width: 820px; margin: 0 auto 12px; text-align: center; line-height: 1.7; color: var(--charcoal); }
-  .cva-steps__links { margin-bottom: 0; color: var(--charcoal-light); font-size: 15px; }
+  /* ── 3 steps, story callout, related guides ── */
+  .cva-steps { max-width: 1080px; margin: 40px auto 0; }
+  .cva-steps__title { font-size: clamp(22px, 2.6vw, 28px); font-weight: 700; margin: 0 0 24px; text-align: center; }
+  .cva-steps__list { position: relative; list-style: none; margin: 0 0 28px; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .cva-steps__list::before { content: ""; position: absolute; top: 22px; left: calc(100% / 6); right: calc(100% / 6); height: 2px; background: var(--green); z-index: 0; }
+  .cva-step { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
+  .cva-step__num { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--green-dark); color: var(--white); font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 18px; box-shadow: 0 0 0 6px var(--white); margin-bottom: 16px; }
+  .cva-step__card { flex: 1; width: 100%; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 22px; text-align: center; box-shadow: var(--shadow); }
+  .cva-step__title { display: block; font-family: 'Poppins', sans-serif; font-weight: 700; color: var(--charcoal); margin-bottom: 8px; }
+  .cva-step__text { display: block; line-height: 1.6; color: var(--charcoal-light); }
+  .cva-callout { background: var(--bg-light); border-left: 4px solid var(--green-dark); border-radius: 0 12px 12px 0; padding: 18px 22px; margin-bottom: 28px; }
+  .cva-callout p { margin: 0; line-height: 1.65; color: var(--charcoal); }
+  .cva-callout .cva-callout__title { font-family: 'Poppins', sans-serif; font-weight: 700; margin-bottom: 6px; }
+  .cva-guides__label { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--green-dark); margin: 0 0 12px; }
+  .cva-guides { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+  .cva-steps a.cva-guide { position: relative; display: block; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 20px 52px 20px 22px; text-decoration: none; box-shadow: var(--shadow); transition: border-color .2s; }
+  .cva-steps a.cva-guide:hover { border-color: var(--green); }
+  .cva-guide__title { display: block; font-family: 'Poppins', sans-serif; font-weight: 700; color: var(--charcoal); margin-bottom: 4px; }
+  .cva-guide__text { display: block; font-weight: 400; color: var(--charcoal-light); }
+  .cva-guide__arrow { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 20px; color: var(--green-dark); }
+  .cva-disclaimer { margin: 0; font-size: 13px; color: var(--charcoal-light); text-align: left; }
+
+  .cva-side .cva-offer-card { margin-top: 20px; }
 
   /* ── Byline in the hero ── */
   .cva-byline { margin: 14px 0 0; font-size: 14px; color: rgba(255,255,255,.85); text-shadow: 0 1px 8px rgba(0,0,0,.3); }
@@ -534,7 +609,6 @@ $cva_short_name = function ( $name ) {
   @media (max-width: 1024px) {
     .cva-layout { grid-template-columns: 1fr; gap: 28px; }
     .cva-main { max-width: none; }
-    .cva-side .cva-sticky { display: none; }
   }
 
   /* ── Phones: each row becomes a stacked card ── */
@@ -550,10 +624,16 @@ $cva_short_name = function ( $name ) {
     .cva-table tbody td.cva-us::before { color: var(--green-dark); }
     .cva-table tbody tr.cva-total th { background: var(--green-dark) !important; color: var(--white); }
     .cva-table tbody tr.cva-total td { font-weight: 700; }
-    .cva-fit { grid-template-columns: 1fr; }
-    .cva-steps { padding: 24px 20px; }
-    .cva-steps__list { grid-template-columns: 1fr; gap: 18px; }
-    .cva-main p:not(.section__eyebrow) { font-size: 16px; }
+    .cva-costs, .cva-takeoff__grid, .cva-guides { grid-template-columns: 1fr; }
+    .cva-takeoff { padding: 22px; }
+    .cva-fit { grid-template-columns: 1fr; grid-template-rows: none; row-gap: 20px; }
+    .cva-fit__card { grid-row: auto; display: flex; flex-direction: column; }
+    .cva-checks { display: block; }
+    .cva-steps__list { grid-template-columns: 1fr; gap: 16px; }
+    .cva-steps__list::before { top: 22px; bottom: 22px; left: 21px; right: auto; width: 2px; height: auto; }
+    .cva-step { flex-direction: row; align-items: flex-start; gap: 16px; }
+    .cva-step__num { flex-shrink: 0; margin-bottom: 0; }
+    .cva-step__card { text-align: left; padding: 18px; }
     .cva-table tbody tr:last-child td.cva-us { border-bottom: 0; }
     .cva-photo img { height: 240px; }
   }
