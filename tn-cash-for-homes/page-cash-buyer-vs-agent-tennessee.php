@@ -55,70 +55,62 @@ $cva_rows = array(
 		array( 'neutral', 'Higher price, many costs taken out', '' ) ),
 );
 
-/* Worked examples. EXAMPLE NUMBERS ONLY. Our column never states a price. */
+/* Worked examples: EXAMPLE NUMBERS ONLY. A listing net sheet, then the cash
+   offer it would take to match it (listing net plus one month of holding
+   costs while a cash sale closes). We never state what we would offer. */
 $cva_examples = array(
 	array(
 		'id'    => 'example-1',
-		'title' => 'Example 1: A House in Good Condition',
-		'intro' => 'A move-in ready house that would sell for $300,000 on the open market after light preparation. Holding costs are $1,500 a month.',
+		'title' => 'Example 1: A Move-In Ready House',
+		'intro' => 'A house that would sell for $300,000 on the open market, with $1,500 a month in payments while it is listed.',
 		'rows'  => array(
-			array( 'Sale price',                       'Your written offer',     '$300,000' ),
-			array( 'Repairs and preparation',          '$0',                     'minus $8,000' ),
-			array( 'Commission (example 5 percent)',   '$0',                     'minus $15,000' ),
-			array( 'Seller closing costs',             '$0 (we pay them)',       'minus $2,500' ),
-			array( 'Repair credit after inspection',   '$0',                     'minus $4,000' ),
-			array( 'Holding costs',                    'minus $1,500 (1 month)', 'minus $6,000 (4 months)' ),
+			array( 'Sale price',                          '$300,000' ),
+			array( 'Repairs and prep',                    'minus $8,000' ),
+			array( 'Agent commission (5 percent here)',   'minus $15,000' ),
+			array( 'Your closing costs',                  'minus $2,500' ),
+			array( 'Repair credit after inspection',      'minus $4,000' ),
+			array( 'Holding costs (4 months)',            'minus $6,000' ),
 		),
-		'net'   => array( 'Your offer minus $1,500', '$264,500' ),
+		'net'   => '$264,500',
 		'even'  => '$266,000',
-		'after' => 'On a house in this shape, a cash offer will often come in below that number, which is why listing usually comes out ahead here. If your house is move-in ready and you can wait, an agent is likely the better route.',
+		'means' => 'Anything above that beats the listing, after the one month of payments you would still make while a cash sale closes.',
+		'after' => 'On a move-in ready house where you have time to wait, listing usually wins. If that is your house, I will tell you so.',
 	),
 	array(
 		'id'    => 'example-2',
 		'title' => 'Example 2: A House That Needs Major Repairs',
-		'intro' => 'The same $300,000 house, but it is only worth that after an example $40,000 in repairs, such as a roof and HVAC system. Fixing it takes 2 months before it can be listed, then 4 months to sell and close. An inherited house sitting vacant often looks like this too.',
+		'intro' => 'The same house, but it is only worth $300,000 after a $40,000 roof and HVAC replacement. That takes about 2 months, then 4 more to sell and close. Inherited houses that sit empty often look like this.',
 		'rows'  => array(
-			array( 'Sale price',                       'Your written offer (as-is)', '$300,000 (after repairs)' ),
-			array( 'Repairs before listing',           '$0',                         'minus $40,000' ),
-			array( 'Commission (example 5 percent)',   '$0',                         'minus $15,000' ),
-			array( 'Seller closing costs',             '$0 (we pay them)',           'minus $2,500' ),
-			array( 'Repair credit after inspection',   '$0',                         'minus $4,000' ),
-			array( 'Holding costs',                    'minus $1,500 (1 month)',     'minus $9,000 (6 months)' ),
+			array( 'Sale price after repairs',            '$300,000' ),
+			array( 'Roof and HVAC before listing',        'minus $40,000' ),
+			array( 'Agent commission (5 percent here)',   'minus $15,000' ),
+			array( 'Your closing costs',                  'minus $2,500' ),
+			array( 'Repair credit after inspection',      'minus $4,000' ),
+			array( 'Holding costs (6 months)',            'minus $9,000' ),
 		),
-		'net'   => array( 'Your offer minus $1,500', '$229,500' ),
+		'net'   => '$229,500',
 		'even'  => '$231,000',
-		'after' => 'The bar a cash offer has to clear is $35,000 lower than in example 1, and that is before the risks no table can price: repair bids that run over, a contractor who falls behind, months of paying for a house nobody lives in, or a buyer who walks after inspection.',
+		'means' => 'Anything above that beats fixing it up and listing, after the one month of payments you would still make while a cash sale closes.',
+		'after' => 'Even when the numbers are close, a lot of sellers choose cash here. Listing means paying $40,000 out of pocket before the house hits the market, carrying six months of payments, and counting on a contractor to finish on time and on budget. A cash sale skips all of that and closes on a date you pick.',
 	),
 );
 
 $cva_faqs = array(
 	array( 'Is it better to sell my house for cash or list it with a realtor in Tennessee?',
-		'It depends on your house and your timeline. If the home is in good condition and you can wait a few months, listing with an agent usually nets more. If it needs major repairs, you need a firm closing date, or you cannot carry the costs of a long sale, a cash sale often leaves you with as much or more once every cost is counted.' ),
+		'It depends on the house and your timeline. A move-in ready house with time to wait usually nets more with an agent. A house that needs major work, a hard deadline, or payments you can\'t keep making usually tips it toward cash.' ),
 	array( 'How much less is a cash offer than market value?',
-		'There is no fixed percentage. A cash offer reflects the house\'s value after repairs, minus the repair costs, holding costs, resale costs, and the buyer\'s margin. The worse the condition, the larger the gap. The useful comparison is your net from the cash offer against your net from a listing, not the offer against the list price.' ),
+		'There\'s no set percentage. A cash offer starts from what the house is worth fixed up, then subtracts repairs, carrying costs, resale costs and the buyer\'s margin. Compare what you\'d walk away with from each option, not the offer against the list price.' ),
 	array( 'How long does it take to sell a house with an agent compared to a cash buyer?',
-		'A listing takes however long it takes to find a buyer, plus the buyer\'s loan closing period, which often adds up to a few months. We can close in as little as 7 days, and about 30 days is typical, because there is no loan to approve. Our guide on <a href="' . $cva_url( '/how-long-does-it-take-to-sell-a-house-in-tennessee/' ) . '">how long it takes to sell a house in Tennessee</a> breaks down each stage.' ),
+		'A listing takes as long as it takes to find a buyer, plus their loan closing, which often adds up to a few months. We can close in as little as 7 days, and about 30 is typical. Here\'s <a href="' . $cva_url( '/how-long-does-it-take-to-sell-a-house-in-tennessee/' ) . '">how long it takes to sell a house in Tennessee</a>, stage by stage.' ),
 	array( 'Who pays the transfer tax when I sell my house in Tennessee?',
-		'Tennessee\'s statute (TCA Section 67-4-409) places the realty transfer tax, 37 cents per $100 of the price or value, whichever is greater, on the buyer. That is the same whether you list or sell for cash, though a contract can assign costs differently, so read yours closely.' ),
+		'The buyer, by statute. Tennessee\'s transfer tax is 37 cents per $100 of the price or value, whichever is greater (TCA 67-4-409). A contract can shift it, so read yours.' ),
 	array( 'Do I still have to fill out a disclosure form if I sell to a cash buyer?',
-		'Usually, yes. Tennessee\'s disclosure law applies whether or not an agent is involved. You give the buyer the residential property disclosure unless an exemption applies or the buyer waives it in writing and accepts a disclaimer statement. See our guide to <a href="' . $cva_url( '/selling-as-is-in-tennessee-disclosure-requirements/' ) . '">Tennessee disclosure rules when selling as-is</a>.' ),
+		'Usually, yes. Tennessee\'s disclosure law applies with or without an agent. You give the buyer the property disclosure unless an exemption applies or the buyer waives it in writing. More in our <a href="' . $cva_url( '/selling-as-is-in-tennessee-disclosure-requirements/' ) . '">as-is disclosure guide</a>.' ),
 	array( 'Can I get a cash offer and still list my house with an agent?',
-		'Yes. Our cash offer is free and does not commit you to anything. Many sellers get one first so they have a real number to compare against an agent\'s net sheet. If you have already signed a listing agreement, check its terms with your agent before selling to anyone directly.' ),
+		'Yes. Our offer is free and doesn\'t commit you to anything, so plenty of sellers get one to compare against an agent\'s net sheet. If you\'ve already signed a listing agreement, check its terms with your agent first.' ),
 	array( 'Will I pay Tennessee state tax on the profit from selling my house?',
-		'No. Tennessee does not tax the profit from a home sale. Federal capital gains rules can still apply whichever way you sell. Our guide on <a href="' . $cva_url( '/do-i-have-to-pay-taxes-on-money-made-from-selling-my-home-a-guide-for-tennessee-homeowners/' ) . '">taxes when you sell a home in Tennessee</a> explains the federal exclusion. Confirm your own situation with a CPA.' ),
+		'No. Tennessee doesn\'t tax the profit from a home sale. Federal capital gains rules can still apply either way, so check with a CPA. Our <a href="' . $cva_url( '/do-i-have-to-pay-taxes-on-money-made-from-selling-my-home-a-guide-for-tennessee-homeowners/' ) . '">home sale tax guide</a> covers the federal exclusion.' ),
 );
-
-/* Sidebar cash offer card (sticky on desktop, hidden on phones where the hero form and final CTA cover it). */
-$cva_offer_card = function () {
-	?>
-	<div class="cva-offer-card">
-	  <p class="cva-offer-card__title">Get Your Cash Offer</p>
-	  <p class="cva-offer-card__text">Free, no obligation, usually within 24 hours. Compare it against any listing.</p>
-	  <a href="#get-offer" class="btn-primary btn-primary--block">Get My Cash Offer &rarr;</a>
-	  <a href="tel:+16158018126" class="cva-offer-card__phone">Or call (615) 801-8126</a>
-	</div>
-	<?php
-};
 
 get_header(); ?>
 
@@ -149,9 +141,9 @@ $cva_check    = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 20
           <span>&rsaquo;</span>
           <span>Cash Buyer vs Agent</span>
         </nav>
-        <div class="hero__badge county-hero__badge">An Honest Side by Side Comparison</div>
+        <div class="hero__badge county-hero__badge">Cash Sale or Listing?</div>
         <h1 class="county-hero__title">Cash Buyer vs Agent in Tennessee</h1>
-        <p class="county-hero__subtitle">Costs, repairs, timeline, certainty, and what you actually keep, including when listing with an agent is the better choice.</p>
+        <p class="county-hero__subtitle">What each option costs, how long it takes and what you'd walk away with, including when listing is the better call.</p>
         <div class="hero__trust county-hero__trust">
           <div class="hero__trust-item"><?php echo $cva_check; ?>Zero fees or commissions</div>
           <div class="hero__trust-item"><?php echo $cva_check; ?>Buy as-is, any condition</div>
@@ -202,19 +194,20 @@ $cva_check    = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 20
         <p class="section__eyebrow">The Short Answer</p>
         <h2 class="section__title">Should You Sell for Cash or List With an Agent?</h2>
         <div class="cva-answer">
-          <p>Selling to a cash buyer usually means a lower price, but no commission, no repairs, no showings, and a closing in days or weeks instead of months. Listing with an agent usually brings a higher price for a house in good condition, but commission, repairs, concessions, and months of holding costs come out of that price, and a financed deal can still fall through. Compare the net amount you keep, not the headline price.</p>
+          <p>If your house is in good shape and you can wait a few months, listing with an agent will usually put more money in your pocket. If it needs major repairs, you're on a deadline, or you can't keep paying for it while it sits, a cash sale often comes out close or ahead once every cost is counted. Compare what you'd walk away with, not the sale price.</p>
         </div>
-        <p>If you own a house in Tennessee and need to sell, you have two main paths: list it on the open market with a real estate agent, or sell it directly to a cash buyer. Both are legitimate, and both are the right answer for some homeowners. We are <a href="<?php echo $cva_url( '/' ); ?>">Tennessee Cash For Homes</a>, a cash buyer, so you know where we stand. We will still tell you when an agent will net you more.</p>
-        <p>When you list, you are selling to a retail buyer, usually someone who will live in the house and pay with a mortgage. That sale depends on the buyer's loan approval, a home inspection, and an appraisal that supports the price. When you sell to us, we pay with our own funds, so there is no lender, no loan approval, and no lender appraisal. A retail buyer pays more because they are buying a finished home. A cash buyer pays less because they take on the repairs, holding costs, resale costs, and risk. What matters is what is left for you at the closing table.</p>
+        <p>I'm Karson, and <a href="<?php echo $cva_url( '/' ); ?>">Tennessee Cash For Homes</a> buys houses for cash, so you know where I stand. We still tell people to list when that's the better move. One of those sellers left a review further down this page.</p>
+        <p>The difference comes down to who's buying. A retail buyer is usually a family with a mortgage, so the sale depends on their loan, an inspection and an appraisal. We pay cash, so none of that applies.</p>
+        <p>They pay more because they're buying a finished home. We pay less because we take on the repairs, the carrying costs and the risk of reselling it.</p>
       </div>
       <aside class="cva-side">
         <div class="cva-takeaways">
           <p class="cva-takeaways__title">Key Takeaways</p>
           <ul>
-            <li>Listing usually brings a higher price on a move-in ready house.</li>
-            <li>A cash sale skips commission, repairs, showings, and closing costs.</li>
-            <li>The more repairs and months a listing needs, the better a cash sale looks.</li>
-            <li>Compare what you keep, not the headline price.</li>
+            <li>A move-in ready house usually nets more with an agent.</li>
+            <li>A cash sale skips commission, repairs, showings and closing costs.</li>
+            <li>The more repairs and months a listing needs, the better cash looks.</li>
+            <li>Compare what you'd walk away with, not the sale price.</li>
           </ul>
         </div>
       </aside>
@@ -228,7 +221,7 @@ $cva_check    = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 20
     <figure class="cva-photo">
       <img src="<?php echo esc_url( get_template_directory_uri() . '/brand_assets/hero-house-6-800w.webp' ); ?>"
         srcset="<?php echo esc_url( get_template_directory_uri() . '/brand_assets/hero-house-6-800w.webp' ); ?> 800w, <?php echo esc_url( get_template_directory_uri() . '/brand_assets/hero-house-6.webp' ); ?> 1600w"
-        sizes="(max-width: 1100px) 100vw, 1080px" width="1600" height="1067"
+        sizes="(max-width: 1128px) 100vw, 1080px" width="1600" height="1067"
         alt="A house Tennessee Cash For Homes bought in Middle Tennessee"
         loading="lazy" decoding="async" />
       <figcaption>We buy houses as-is across Middle Tennessee.</figcaption>
@@ -270,151 +263,143 @@ $cva_check    = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 20
         </tbody>
       </table>
     </div>
-    <p class="cva-table-note">Your mortgage payoff and any liens are paid from the sale either way. Which route nets more depends on condition, repairs, and time, as the <a href="#examples">worked examples</a> show.</p>
+    <p class="cva-table-note">Your mortgage payoff and any liens come out of the sale either way. The <a href="#examples">examples below</a> show how the rest adds up.</p>
   </div>
 </section>
 
-<!-- ── WHAT EACH ROUTE COSTS ── -->
+<!-- ── WHAT EACH ROUTE COSTS (the one sticky offer card lives here) ── -->
 <section class="section cva-section">
   <div class="container">
     <div class="cva-layout">
       <div class="cva-main">
         <p class="section__eyebrow">Where the Money Goes</p>
-        <h2 class="section__title">What Listing With an Agent Really Costs in Tennessee</h2>
-        <p>A good agent earns their fee. They price from recent comparable sales, put your home in front of every buyer searching the MLS, handle negotiation, and know the paperwork. For the right house, that work produces a higher price. But several costs come out of that price before you see it.</p>
-        <p><strong>Commission.</strong> Commission is negotiable, and no Tennessee law sets a rate. Since August 2024, under the national rule changes that followed the National Association of Realtors settlement, offers to pay the buyer's agent are no longer posted on the MLS and are negotiated separately, so ask any listing agent to explain in writing what you will pay on both sides.</p>
-        <p><strong>Repairs and preparation.</strong> Most listed homes need cleaning, paint, and small fixes to show well. Bigger problems such as a failing roof, foundation movement, or a dead HVAC system can block a buyer's financing until they are fixed.</p>
-        <p><strong>Concessions after inspection.</strong> Once you are under contract, the buyer's inspection often leads to a request for repairs or a credit at closing. That money comes off your net even after you thought the price was settled.</p>
-        <p><strong>Closing costs.</strong> You will usually pay your share of closing costs along with your mortgage payoff and prorated property taxes. Under Tennessee Code Annotated Section 67-4-409(a), the state realty transfer tax of 37 cents per $100 is placed on the buyer, though a contract can shift costs. Our guide to <a href="<?php echo $cva_url( '/do-you-pay-closing-costs-when-you-sell-your-house-for-cash-in-tennessee/' ); ?>">closing costs when you sell for cash in Tennessee</a> covers the full list.</p>
-        <p><strong>Holding costs.</strong> Every month the house sits, you keep paying mortgage interest, property taxes, insurance, utilities, and upkeep. These never show up on the settlement statement, but they come out of your pocket just the same.</p>
-        <p>One thing does not change between the two routes: Tennessee's disclosure law. The Tennessee Residential Property Disclosure Act (TCA Section 66-5-201 and the sections after it) applies to the sale of a one to four unit home whether or not an agent is involved.</p>
+        <h2 class="section__title">What Listing With an Agent Costs You</h2>
+        <p>A good agent earns their fee. They price the house from real sales, get it in front of every buyer on the MLS and handle the negotiating. On the right house, that gets you a higher price.</p>
+        <p>Here's what comes out of that price before you see a check.</p>
+        <p><strong>Commission.</strong> It's negotiable, and no Tennessee law sets the rate. Since August 2024, what you pay a buyer's agent is negotiated separately instead of posted on the MLS, so get both sides in writing.</p>
+        <p><strong>Repairs.</strong> Most houses need paint, cleaning and small fixes to show well. A bad roof, foundation movement or a dead HVAC system can hold up a buyer's loan until it's fixed.</p>
+        <p><strong>Repair credits.</strong> After the inspection, buyers usually ask for repairs or a credit at closing. That comes off your number after you thought the price was settled.</p>
+        <p><strong>Closing costs.</strong> You pay your share, plus your payoff and prorated property taxes. Tennessee's transfer tax (37 cents per $100, TCA 67-4-409) falls on the buyer unless the contract says otherwise. Our <a href="<?php echo $cva_url( '/do-you-pay-closing-costs-when-you-sell-your-house-for-cash-in-tennessee/' ); ?>">closing costs guide</a> has the full list.</p>
+        <p><strong>Holding costs.</strong> Every month the house sits, you keep paying the mortgage, taxes, insurance and utilities. None of that shows up on the settlement statement.</p>
+        <p>One thing is the same either way: Tennessee's disclosure law (TCA 66-5-201 and following) applies whether or not you use an agent.</p>
 
-        <h2 class="section__title cva-subtitle">What a Cash Buyer Takes Off the Price Instead</h2>
-        <p>A cash buyer does not charge commission, but the offer is lower than retail for real reasons: it covers the repairs you are not making, the months of holding costs while the house is renovated and resold, the resale costs, and a margin for the risk. To see that math step by step, read <a href="<?php echo $cva_url( '/how-do-cash-home-buyers-calculate-their-offer-in-tennessee/' ); ?>">how cash home buyers calculate their offer in Tennessee</a>.</p>
-        <p>In exchange, you get speed, simplicity, and certainty. There is no staging, no open house, and no waiting on a buyer's lender, which removes the two most common ways a listed sale dies late: a loan that is not approved and an appraisal that comes in low. The trade off is real, too. You are not exposing the house to every buyer on the open market, so you give up the chance of a bidding war.</p>
-        <p>We buy houses as-is, charge no commissions or fees, pay all closing costs, and can close in as little as 7 days, with about 30 days being typical. You can see each step on our <a href="<?php echo $cva_url( '/how-it-works/' ); ?>">how it works</a> page.</p>
+        <h2 class="section__title cva-subtitle">What We Take Off the Price Instead</h2>
+        <p>We don't charge commission, but our offer is below retail for real reasons. It covers the repairs, the months we carry the house while we fix it, the cost of reselling it and the risk. Here's <a href="<?php echo $cva_url( '/how-do-cash-home-buyers-calculate-their-offer-in-tennessee/' ); ?>">how cash buyers calculate an offer</a>, step by step.</p>
+        <p>What you get back is speed and certainty. With no lender, a loan denial or a low appraisal can't sink the deal late. You do give up the chance of a bidding war.</p>
+        <p>We buy as-is, charge no fees and pay all closing costs. We can close in as little as 7 days, and about 30 is typical. You can see each step on our <a href="<?php echo $cva_url( '/how-it-works/' ); ?>">how it works</a> page.</p>
       </div>
       <aside class="cva-side">
-        <div class="cva-sticky"><?php $cva_offer_card(); ?></div>
+        <div class="cva-sticky">
+          <div class="cva-offer-card">
+            <p class="cva-offer-card__title">Get Your Cash Offer</p>
+            <p class="cva-offer-card__text">Free, no obligation, usually within 24 hours. Put it next to any agent's net sheet.</p>
+            <a href="#get-offer" class="btn-primary btn-primary--block">Get My Cash Offer &rarr;</a>
+            <a href="tel:+16158018126" class="cva-offer-card__phone">Or call (615) 801-8126</a>
+          </div>
+        </div>
       </aside>
     </div>
   </div>
 </section>
 
-<!-- ── WORKED EXAMPLES ── -->
+<!-- ── WORKED EXAMPLES: listing net sheet + what a cash offer would need to be ── -->
 <section class="section section--alt cva-section" id="examples">
   <div class="container">
     <div class="section__header section__header--center">
       <p class="section__eyebrow">Run the Numbers</p>
-      <h2 class="section__title">Two Worked Examples With Example Numbers</h2>
-      <p class="section__subtitle">These are example numbers only. They are not real deals, not quotes, and not Tennessee averages. Each one shows what a listing costs and the break-even point: the cash offer at which both routes leave you with the same amount.</p>
+      <h2 class="section__title">What You'd Actually Walk Away With</h2>
+      <p class="section__subtitle">Example numbers to show the math, not a quote or Tennessee averages.</p>
     </div>
 
     <?php foreach ( $cva_examples as $ex ) : ?>
     <div class="cva-example" id="<?php echo esc_attr( $ex['id'] ); ?>">
-      <div class="cva-example__head">
-        <span class="cva-example__tag">Example numbers</span>
-        <h3 class="cva-example__title"><?php echo esc_html( $ex['title'] ); ?></h3>
-        <p class="cva-example__intro"><?php echo esc_html( $ex['intro'] ); ?></p>
-      </div>
-      <div class="cva-table-wrap">
-        <table class="cva-table cva-table--example">
-          <colgroup><col class="cva-col-factor"><col class="cva-col-option"><col class="cva-col-option"></colgroup>
-          <thead>
-            <tr>
-              <th scope="col">Example line item</th>
-              <th scope="col" class="cva-us">Selling to <?php echo esc_html( $cva_col_us ); ?></th>
-              <th scope="col"><?php echo esc_html( $cva_col_agent ); ?></th>
-            </tr>
-          </thead>
+      <h3 class="cva-example__title"><?php echo esc_html( $ex['title'] ); ?></h3>
+      <p class="cva-example__intro"><?php echo esc_html( $ex['intro'] ); ?></p>
+      <div class="cva-example__grid">
+        <table class="cva-net">
+          <caption>Listing with an agent</caption>
           <tbody>
-            <?php foreach ( $ex['rows'] as $r ) : ?>
-            <tr>
+            <?php foreach ( $ex['rows'] as $i => $r ) : ?>
+            <tr<?php echo 0 === $i ? ' class="cva-net__start"' : ''; ?>>
               <th scope="row"><?php echo esc_html( $r[0] ); ?></th>
-              <td class="cva-us" data-label="<?php echo esc_attr( $cva_col_us ); ?>"><?php echo esc_html( $r[1] ); ?></td>
-              <td data-label="<?php echo esc_attr( $cva_col_agent ); ?>"><?php echo esc_html( $r[2] ); ?></td>
+              <td><?php echo esc_html( $r[1] ); ?></td>
             </tr>
             <?php endforeach; ?>
-            <tr class="cva-total">
-              <th scope="row">Example net before mortgage payoff</th>
-              <td class="cva-us" data-label="<?php echo esc_attr( $cva_col_us ); ?>"><?php echo esc_html( $ex['net'][0] ); ?></td>
-              <td data-label="<?php echo esc_attr( $cva_col_agent ); ?>"><?php echo esc_html( $ex['net'][1] ); ?></td>
+            <tr class="cva-net__total">
+              <th scope="row">What you'd walk away with by listing</th>
+              <td><?php echo esc_html( $ex['net'] ); ?></td>
             </tr>
           </tbody>
         </table>
+        <div class="cva-result">
+          <p class="cva-result__label">To match this, a cash offer would need to be about</p>
+          <p class="cva-result__number"><?php echo esc_html( $ex['even'] ); ?></p>
+          <p class="cva-result__text"><?php echo esc_html( $ex['means'] ); ?></p>
+        </div>
       </div>
-      <div class="cva-breakeven">
-        <p class="cva-breakeven__line">Break-even: a cash offer above about <strong><?php echo esc_html( $ex['even'] ); ?></strong> nets you more than this listing. Below that, the listing comes out ahead.</p>
-        <p><?php echo esc_html( $ex['after'] ); ?></p>
-      </div>
+      <p class="cva-example__after"><?php echo esc_html( $ex['after'] ); ?></p>
     </div>
     <?php endforeach; ?>
-
-    <p class="cva-table-note">The mortgage payoff and prorated property taxes are left out of both examples because they are the same either way. Run the same math with an agent's written net sheet and a written cash offer for your own house.</p>
   </div>
 </section>
 
-<?php
-get_template_part( 'difference-section', null, array(
-	'audience' => 'Homeowners',
-	'lead'     => 'Whether you list or sell for cash, you deserve straight answers from real people, not a big out-of-state corporation or an automated system.',
-) );
-?>
+<!-- ── WHY HOMEOWNERS CHOOSE (shared section), framed to the content width ── -->
+<section class="section cva-section cva-diff">
+  <div class="container">
+    <div class="cva-diff__frame">
+      <?php
+      get_template_part( 'difference-section', null, array(
+          'audience' => 'Homeowners',
+          'lead'     => 'When you call, you talk to us, not a call center or an out-of-state company. We have been buying houses in Maury County for 7+ years and have bought over 100 homes there.',
+      ) );
+      ?>
+    </div>
+  </div>
+</section>
 
-<!-- ── WHICH ROUTE FITS ── -->
+<!-- ── WHICH ROUTE FITS + HOW TO COMPARE ── -->
 <section class="section section--alt cva-section">
   <div class="container">
     <div class="section__header section__header--center">
-      <p class="section__eyebrow">An Honest Answer</p>
+      <p class="section__eyebrow">Which One Fits</p>
       <h2 class="section__title">When Each Option Is the Better Choice</h2>
     </div>
     <div class="cva-fit">
       <div class="cva-fit__card">
         <h3 class="cva-fit__title">Listing with an agent is usually better when</h3>
         <ul>
-          <li>The house is move-in ready or close to it, with no major roof, foundation, or system problems.</li>
-          <li>Similar homes in your neighborhood sell quickly to buyers using mortgages.</li>
-          <li>You have several months and can comfortably cover the payments while it is listed.</li>
-          <li>Your top priority is the highest possible price, and you are fine with showings and negotiation.</li>
-          <li>The title is clean, with no liens, estate questions, or tenants to work around.</li>
+          <li>The house is move-in ready, with no major roof, foundation or system problems.</li>
+          <li>Similar homes near you sell quickly to buyers using mortgages.</li>
+          <li>You have a few months and can cover the payments while it's listed.</li>
+          <li>You want the top price and don't mind showings and negotiating.</li>
+          <li>The title is clean, with no liens, estate questions or tenants.</li>
         </ul>
-        <p>If that describes you, interview two or three agents, ask each for a written net sheet, and negotiate the commission. If we look at your house and think a listing will net you more, we will tell you. Start with our guide on <a href="<?php echo $cva_url( '/how-to-get-the-most-money-when-you-sell-your-house-in-tennessee/' ); ?>">how to get the most money when you sell your house in Tennessee</a>.</p>
+        <p>If that's you, interview two or three agents and ask each for a written net sheet. Our guide on <a href="<?php echo $cva_url( '/how-to-get-the-most-money-when-you-sell-your-house-in-tennessee/' ); ?>">getting the most money for your house</a> is a good place to start.</p>
       </div>
       <div class="cva-fit__card cva-fit__card--us">
         <h3 class="cva-fit__title">A cash sale usually makes more sense when</h3>
         <ul>
-          <li>The house needs repairs you cannot afford or do not want to manage.</li>
-          <li>You need to close by a specific date.</li>
-          <li>You are carrying two house payments, or the home is inherited or vacant.</li>
+          <li>The house needs repairs you can't afford or don't want to manage.</li>
+          <li>You need to close by a certain date.</li>
+          <li>You're carrying two payments, or the house is inherited or vacant.</li>
           <li>There are tenants in place.</li>
-          <li>A previous listing already fell through.</li>
+          <li>A listing already fell through or isn't getting the price you need.</li>
         </ul>
-        <p>In those cases the commission is not the biggest cost. Time, repairs, and uncertainty are. See how we <a href="<?php echo $cva_url( '/sell-house-as-is-tennessee/' ); ?>">buy houses as-is in Tennessee</a>, including in <a href="<?php echo $cva_url( '/where-we-buy/nashville/' ); ?>">Nashville</a>, <a href="<?php echo $cva_url( '/where-we-buy/murfreesboro/' ); ?>">Murfreesboro</a>, and <a href="<?php echo $cva_url( '/where-we-buy/clarksville/' ); ?>">Clarksville</a>, or see every area on our <a href="<?php echo $cva_url( '/where-we-buy/' ); ?>">where we buy</a> page.</p>
+        <p>In September 2026 we bought a house in Columbia from a widow whose home needed more repairs than she could afford. We worked with her son, handled the title still being in her late husband's name, and closed in about a month, as-is.</p>
+        <p>See how we <a href="<?php echo $cva_url( '/sell-house-as-is-tennessee/' ); ?>">buy houses as-is</a> in <a href="<?php echo $cva_url( '/where-we-buy/nashville/' ); ?>">Nashville</a>, <a href="<?php echo $cva_url( '/where-we-buy/murfreesboro/' ); ?>">Murfreesboro</a>, <a href="<?php echo $cva_url( '/where-we-buy/clarksville/' ); ?>">Clarksville</a> and the rest of the <a href="<?php echo $cva_url( '/where-we-buy/' ); ?>">areas we serve</a>.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ── HOW TO DECIDE ── -->
-<section class="section cva-section">
-  <div class="container">
-    <div class="cva-layout">
-      <div class="cva-main">
-        <p class="section__eyebrow">Making the Call</p>
-        <h2 class="section__title">How to Decide Between an Agent and a Cash Buyer</h2>
-        <p>Four questions settle most decisions. First, your timeline: do you need to be done by a certain date, or can you wait for the market? Second, your finances: can you cover payments, repairs, and concessions for several months? Third, the condition of the house: will it pass a buyer's inspection and a lender's appraisal as it is? Fourth, the local market: are similar homes near you selling quickly, or sitting?</p>
-        <p>Then get real numbers for both routes. Ask an agent for a written net sheet that includes commission, closing costs, and a realistic estimate of repairs and time on market. Ask any cash buyer for a written offer that states who pays closing costs and whether there are fees. Research any buyer before you sign, and if you get more than one cash offer, our guide on <a href="<?php echo $cva_url( '/how-to-compare-two-cash-offers-tennessee/' ); ?>">how to compare two cash offers</a> shows what to look for. If you are weighing an offer you already have, read <a href="<?php echo $cva_url( '/should-i-accept-a-cash-offer-for-my-house/' ); ?>">should I accept a cash offer for my house</a>.</p>
-        <p>Talk with a Tennessee real estate attorney or your CPA if your situation involves an estate, a divorce, or tax questions. This page is general information, not legal or tax advice.</p>
-      </div>
-      <aside class="cva-side">
-        <div class="cva-sticky"><?php $cva_offer_card(); ?></div>
-      </aside>
+    <div class="cva-compare-how">
+      <h3 class="cva-fit__title">Get Both Numbers in Writing</h3>
+      <p>Ask an agent for a net sheet that includes commission, closing costs, likely repairs and time on market. Ask any cash buyer for a written offer that says who pays closing costs. Then compare what you'd walk away with.</p>
+      <p>It doesn't have to be one or the other. In April 2026, a Columbia seller with a family emergency called us together with her agent, because the listing wasn't getting the price she needed. We closed in under three weeks.</p>
+      <p>Holding more than one cash offer? Here's <a href="<?php echo $cva_url( '/how-to-compare-two-cash-offers-tennessee/' ); ?>">how to compare two cash offers</a>. Weighing one now? Read <a href="<?php echo $cva_url( '/should-i-accept-a-cash-offer-for-my-house/' ); ?>">should I accept a cash offer</a>. For an estate, divorce or tax question, talk to a Tennessee attorney or CPA. This page is general information, not legal or tax advice.</p>
     </div>
   </div>
 </section>
 
 <!-- ── FAQ ── -->
-<section class="section section--alt cva-section" id="faq">
+<section class="section cva-section" id="faq">
   <div class="container">
     <div class="section__header section__header--center">
       <p class="section__eyebrow">Common Questions</p>
@@ -448,11 +433,11 @@ $cva_short_name = function ( $name ) {
 	return count( $parts ) > 1 ? $parts[0] . ' ' . strtoupper( substr( end( $parts ), 0, 1 ) ) . '.' : $parts[0];
 };
 ?>
-<section class="section cva-section cva-reviews" id="testimonials">
+<section class="section section--alt cva-section cva-reviews" id="testimonials">
   <div class="container">
     <div class="section__header section__header--center">
       <p class="section__eyebrow">5-Star Google Reviews</p>
-      <h2 class="section__title">What Tennessee Homeowners Say About Working With Us</h2>
+      <h2 class="section__title">What Sellers Say About Working With Us</h2>
     </div>
     <div class="reviews-outer" id="reviewsOuter">
       <div class="reviews-track" id="reviewsTrack">
@@ -532,16 +517,31 @@ $cva_short_name = function ( $name ) {
   .cva-table tbody tr.cva-total th, .cva-table tbody tr.cva-total td { background: var(--green-light); font-weight: 700; color: var(--charcoal); border-top: 2px solid var(--green-dark); }
   .cva-table-note { max-width: 1080px; margin: 20px auto 0; text-align: center; color: var(--charcoal-light); font-size: 15px; }
 
-  /* ── Worked examples ── */
-  .cva-example { max-width: 1080px; margin: 0 auto 56px; }
-  .cva-example__head { max-width: 760px; margin-bottom: 20px; }
-  .cva-example__tag { display: inline-block; background: var(--white); color: var(--charcoal-light); border: 1px solid var(--border); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 6px; margin-bottom: 10px; }
+  /* ── Worked examples: listing net sheet + result card ── */
+  .cva-example { max-width: 1080px; margin: 0 auto 48px; }
+  .cva-example:last-child { margin-bottom: 0; }
   .cva-example__title { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
-  .cva-example__intro { color: var(--charcoal-light); font-size: 16px; line-height: 1.65; }
-  .cva-breakeven { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--green-dark); border-radius: 0 12px 12px 0; padding: 18px 22px; margin-top: 18px; }
-  .cva-breakeven p { font-size: 15px; line-height: 1.65; color: var(--charcoal-light); margin: 0; }
-  .cva-breakeven .cva-breakeven__line { font-size: 17px; color: var(--charcoal); margin-bottom: 8px; }
-  .cva-breakeven strong { color: var(--green-dark); }
+  .cva-example__intro { max-width: 760px; color: var(--charcoal-light); font-size: 16px; line-height: 1.65; margin-bottom: 20px; }
+  .cva-example__grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 24px; align-items: center; }
+  .cva-net { width: 100%; border-collapse: collapse; background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); font-size: 16px; font-variant-numeric: tabular-nums; }
+  .cva-net caption { caption-side: top; text-align: left; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px; color: var(--charcoal); background: var(--bg-light); border: 1px solid var(--border); border-bottom: 0; border-radius: 12px 12px 0 0; padding: 14px 22px; }
+  .cva-net { border-radius: 0 0 12px 12px; }
+  .cva-net th, .cva-net td { padding: 13px 22px; border-top: 1px solid var(--border); text-align: left; font-weight: 400; color: var(--charcoal); }
+  .cva-net td { text-align: right; white-space: nowrap; }
+  .cva-net tr:first-child th, .cva-net tr:first-child td { border-top: 0; font-weight: 700; }
+  .cva-net .cva-net__total th, .cva-net .cva-net__total td { font-family: 'Poppins', sans-serif; font-weight: 700; background: var(--bg-light); border-top: 2px solid var(--charcoal); }
+  .cva-result { display: flex; flex-direction: column; justify-content: center; background: var(--green-light); border: 2px solid var(--green-dark); border-radius: 12px; padding: 28px 26px; }
+  .cva-result p { margin: 0; }
+  .cva-result__label { font-size: 16px; font-weight: 600; color: var(--charcoal); }
+  .cva-result__number { font-family: 'Poppins', sans-serif; font-size: 44px; font-weight: 700; color: var(--green-dark); line-height: 1.1; margin: 8px 0 12px !important; }
+  .cva-result__text { font-size: 15px; line-height: 1.6; color: var(--charcoal); }
+  .cva-example__after { max-width: 760px; margin-top: 20px; font-size: 17px; line-height: 1.7; color: var(--charcoal); }
+
+  /* ── Get both numbers in writing ── */
+  .cva-compare-how { max-width: 1080px; margin: 28px auto 0; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 32px; }
+  .cva-compare-how p { max-width: 820px; line-height: 1.7; color: var(--charcoal); margin-bottom: 14px; }
+  .cva-compare-how p:last-child { margin-bottom: 0; }
+  .cva-compare-how a { color: var(--green-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
 
   /* ── Photo after the short answer ── */
   .cva-photo-section { padding-top: 0; }
@@ -549,8 +549,21 @@ $cva_short_name = function ( $name ) {
   .cva-photo img { display: block; width: 100%; height: 420px; object-fit: cover; object-position: 50% 55%; border-radius: 12px; box-shadow: var(--shadow); background: var(--bg-light); }
   .cva-photo figcaption { margin-top: 12px; text-align: center; font-size: 15px; color: var(--charcoal-light); }
 
-  /* ── Reviews on a white section: give the cards an edge ── */
-  .cva-reviews .testimonial-card { border: 1px solid var(--border); box-shadow: var(--shadow); }
+  /* ── Reviews: line up with the content width ── */
+  .cva-reviews .reviews-outer, .cva-reviews .carousel-controls, .cva-reviews .reviews-footnote { max-width: 1080px; margin-left: auto; margin-right: auto; }
+
+  /* ── Shared "Why Homeowners Choose" section, framed to the content width ── */
+  .cva-diff__frame { max-width: 1080px; margin: 0 auto; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+  .cva-diff .difference-section { display: block; min-height: 0; padding-top: 0 !important; }
+  .cva-diff .difference__img-wrap { margin: 0 !important; }
+  .cva-diff .difference__img-wrap img { width: 100%; height: 420px; object-fit: cover; object-position: 50% 22%; }
+  .cva-diff .difference__content-wrap { display: block; padding: 40px 44px; }
+  .cva-diff .difference__content { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 48px; align-items: start; max-width: none; }
+  .cva-diff .difference__title { grid-column: 1; grid-row: 1; }
+  .cva-diff .difference__intro { grid-column: 1; grid-row: 2; }
+  .cva-diff .difference__trust-row { grid-column: 1; grid-row: 3; }
+  .cva-diff .difference__list { grid-column: 2; grid-row: 1 / span 2; margin-top: 8px; }
+  .cva-diff .chamber-badges { grid-column: 2; grid-row: 3; }
 
   /* ── Fit cards ── */
   .cva-fit { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 1080px; margin: 0 auto; }
@@ -560,6 +573,7 @@ $cva_short_name = function ( $name ) {
   .cva-fit ul { margin: 0 0 18px 20px; padding: 0; }
   .cva-fit li { margin-bottom: 10px; line-height: 1.6; list-style: disc; }
   .cva-fit p { line-height: 1.7; color: var(--charcoal-light); margin: 0; }
+  .cva-fit p + p { margin-top: 12px; }
 
   @media (max-width: 1024px) {
     .cva-layout { grid-template-columns: 1fr; gap: 28px; }
@@ -585,6 +599,16 @@ $cva_short_name = function ( $name ) {
     .cva-main p:not(.section__eyebrow) { font-size: 16px; }
     .cva-table tbody tr:last-child td.cva-us { border-bottom: 0; }
     .cva-example__title { font-size: 21px; }
+    .cva-example__grid { grid-template-columns: 1fr; }
+    .cva-net, .cva-net tbody, .cva-net tr { display: table; width: 100%; }
+    .cva-net tbody { display: table-row-group; }
+    .cva-net tr { display: table-row; }
+    .cva-net th, .cva-net td { padding: 12px 16px; font-size: 15px; }
+    .cva-result__number { font-size: 38px; }
+    .cva-compare-how { padding: 24px; }
+    .cva-diff .difference__content-wrap { padding: 28px 22px; }
+    .cva-diff .difference__img-wrap img { height: 240px; }
+    .cva-diff .difference__content { display: block; }
     .cva-photo img { height: 240px; }
   }
 </style>
