@@ -389,11 +389,6 @@ $cva_guides = array(
         <?php endforeach; ?>
       </ol>
 
-      <div class="cva-callout">
-        <p class="cva-callout__title">It doesn't have to be one or the other</p>
-        <p>In April 2026, a Columbia seller with a family emergency reached out to us together with her agent, because the listing wasn't getting the price she needed. We closed in under three weeks.</p>
-      </div>
-
       <p class="cva-guides__label">Related guides</p>
       <div class="cva-guides">
         <?php foreach ( $cva_guides as $cva_g ) : ?>
@@ -589,9 +584,6 @@ $cva_short_name = function ( $name ) {
   .cva-step__card { flex: 1; width: 100%; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 22px; text-align: center; box-shadow: var(--shadow); }
   .cva-step__title { display: block; font-family: 'Poppins', sans-serif; font-weight: 700; color: var(--charcoal); margin-bottom: 8px; }
   .cva-step__text { display: block; line-height: 1.6; color: var(--charcoal-light); }
-  .cva-callout { background: var(--bg-light); border-left: 4px solid var(--green-dark); border-radius: 0 12px 12px 0; padding: 18px 22px; margin-bottom: 28px; }
-  .cva-callout p { margin: 0; line-height: 1.65; color: var(--charcoal); }
-  .cva-callout .cva-callout__title { font-family: 'Poppins', sans-serif; font-weight: 700; margin-bottom: 6px; }
   .cva-guides__label { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--green-dark); margin: 0 0 12px; }
   .cva-guides { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
   .cva-steps a.cva-guide { position: relative; display: block; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 20px 52px 20px 22px; text-decoration: none; box-shadow: var(--shadow); transition: border-color .2s; }
