@@ -122,61 +122,71 @@ $cva_offer_card = function () {
 
 get_header(); ?>
 
-<!-- ── HERO ── -->
-<section class="hero" id="hero-form">
+<!-- ── HERO: same photo hero and overlay as the city pages (house photo 8) ── -->
+<?php
+$cva_hero_n   = 8;
+$cva_hero_ph  = include get_template_directory() . '/hero-placeholders.php';
+$cva_hero_url = get_template_directory_uri() . '/brand_assets/hero-house-' . $cva_hero_n;
+$cva_check    = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>';
+?>
+<section class="county-hero county-hero--photo" id="hero-form">
+  <picture>
+    <source media="(max-width: 768px)" srcset="<?php echo esc_url( $cva_hero_url . '-mobile.webp' ); ?>" width="1232" height="1120" />
+    <img class="county-hero__bg"
+      src="<?php echo esc_url( $cva_hero_url . '.webp' ); ?>"
+      srcset="<?php echo esc_url( $cva_hero_url . '-800w.webp' ); ?> 800w, <?php echo esc_url( $cva_hero_url . '.webp' ); ?> 1600w, <?php echo esc_url( $cva_hero_url . '-2048w.webp' ); ?> 2048w"
+      sizes="100vw" width="1600" height="882"
+      style="object-position: 48% 47%; background: url(data:image/webp;base64,<?php echo esc_attr( $cva_hero_ph[ $cva_hero_n ] ); ?>) 48% 47% / cover no-repeat"
+      alt="A house Tennessee Cash For Homes bought in Middle Tennessee"
+      fetchpriority="high" decoding="async" />
+  </picture>
   <div class="hero__overlay"></div>
   <div class="container">
-    <div class="hero__inner">
-      <div class="hero__content">
+    <div class="county-hero__inner">
+      <div class="county-hero__content">
         <nav class="breadcrumb">
           <a href="<?php echo $cva_url( '/' ); ?>">Home</a>
           <span>&rsaquo;</span>
           <span>Cash Buyer vs Agent</span>
         </nav>
-        <h1 class="hero__title">
-          <span class="hero__title--white">Cash Buyer vs Agent</span>
-          <span class="hero__title--green"> in Tennessee</span>
-        </h1>
-        <p class="hero__subtitle">An honest side by side look at costs, repairs, timeline, certainty, and what you actually keep, including when listing with an agent is the better choice.</p>
-        <div class="hero__cta-row">
-          <a href="#get-offer" class="hero__btn-primary">Get My Cash Offer</a>
-          <a href="#compare" class="hero__btn-outline">See the Comparison</a>
+        <div class="hero__badge county-hero__badge">An Honest Side by Side Comparison</div>
+        <h1 class="county-hero__title">Cash Buyer vs Agent in Tennessee</h1>
+        <p class="county-hero__subtitle">Costs, repairs, timeline, certainty, and what you actually keep, including when listing with an agent is the better choice.</p>
+        <div class="hero__trust county-hero__trust">
+          <div class="hero__trust-item"><?php echo $cva_check; ?>Zero fees or commissions</div>
+          <div class="hero__trust-item"><?php echo $cva_check; ?>Buy as-is, any condition</div>
+          <div class="hero__trust-item"><?php echo $cva_check; ?>Close as fast as 7 days</div>
+          <div class="hero__trust-item"><?php echo $cva_check; ?>We pay closing costs</div>
         </div>
-        <div class="hero__trust-row">
-          <?php foreach ( array( 'No Agent Fees', 'We Pay Closing Costs', 'Any Condition' ) as $cva_trust ) : ?>
-          <span class="hero__trust-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="#84CC9C" stroke-width="2"/>
-              <path d="M8 12l3 3 5-5" stroke="#84CC9C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <?php echo esc_html( $cva_trust ); ?>
-          </span>
-          <?php endforeach; ?>
+        <div class="county-hero__cta-row">
+          <a href="#get-offer" class="btn-primary">Get My Free Cash Offer &rarr;</a>
+          <a href="#compare" class="btn-outline">See the Comparison</a>
         </div>
       </div>
-
-      <div class="hero__form-card" id="get-offer">
-        <h2 class="form-card__title">Get Your Free Cash Offer</h2>
-        <p class="form-card__sub">Takes less than 60 seconds. No obligation.</p>
-        <form id="leadForm" onsubmit="handleSubmit(event)">
-          <input type="hidden" name="lead_source" value="Cash Buyer vs Agent" />
-          <div class="form-group">
-            <label for="cva-address">Property Address</label>
-            <input type="text" id="cva-address" name="address" placeholder="123 Main St, Nashville, TN" required />
-          </div>
-          <div class="form-group">
-            <label for="cva-name">Your Name</label>
-            <input type="text" id="cva-name" name="name" placeholder="John Smith" required />
-          </div>
-          <div class="form-group">
-            <label for="cva-phone">Phone Number</label>
-            <input type="tel" id="cva-phone" name="phone" placeholder="(615) 555-0123" required />
-          </div>
-          <button type="submit" class="btn-primary btn-primary--block">
-            Get My Cash Offer &rarr;
-          </button>
-        </form>
-        <p class="form-disclaimer">&#128274; Your info is private and never shared.</p>
+      <div class="county-hero__map-col">
+        <div class="hero__form-card county-hero__form" id="get-offer">
+          <h2 class="form-card__title">Get Your Free Cash Offer</h2>
+          <p class="form-card__sub">Takes less than 60 seconds. No obligation.</p>
+          <form id="leadForm" onsubmit="handleSubmit(event)">
+            <input type="hidden" name="lead_source" value="Cash Buyer vs Agent" />
+            <div class="form-group">
+              <label for="cva-address">Property Address</label>
+              <input type="text" id="cva-address" name="address" placeholder="123 Main St, Nashville, TN" required />
+            </div>
+            <div class="form-group">
+              <label for="cva-name">Your Name</label>
+              <input type="text" id="cva-name" name="name" placeholder="John Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="cva-phone">Phone Number</label>
+              <input type="tel" id="cva-phone" name="phone" placeholder="(615) 555-0123" required />
+            </div>
+            <button type="submit" class="btn-primary btn-primary--block">
+              Get My Cash Offer &rarr;
+            </button>
+          </form>
+          <p class="form-disclaimer">&#128274; Your info is private and never shared.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -209,6 +219,20 @@ get_header(); ?>
         </div>
       </aside>
     </div>
+  </div>
+</section>
+
+<!-- ── PHOTO: house photo 6 (white house used on the county pages), lazy loaded ── -->
+<section class="section cva-section cva-photo-section">
+  <div class="container">
+    <figure class="cva-photo">
+      <img src="<?php echo esc_url( get_template_directory_uri() . '/brand_assets/hero-house-6-800w.webp' ); ?>"
+        srcset="<?php echo esc_url( get_template_directory_uri() . '/brand_assets/hero-house-6-800w.webp' ); ?> 800w, <?php echo esc_url( get_template_directory_uri() . '/brand_assets/hero-house-6.webp' ); ?> 1600w"
+        sizes="(max-width: 1100px) 100vw, 1080px" width="1600" height="1067"
+        alt="A house Tennessee Cash For Homes bought in Middle Tennessee"
+        loading="lazy" decoding="async" />
+      <figcaption>We buy houses as-is across Middle Tennessee.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -330,8 +354,15 @@ get_header(); ?>
   </div>
 </section>
 
+<?php
+get_template_part( 'difference-section', null, array(
+	'audience' => 'Homeowners',
+	'lead'     => 'Whether you list or sell for cash, you deserve straight answers from real people, not a big out-of-state corporation or an automated system.',
+) );
+?>
+
 <!-- ── WHICH ROUTE FITS ── -->
-<section class="section cva-section">
+<section class="section section--alt cva-section">
   <div class="container">
     <div class="section__header section__header--center">
       <p class="section__eyebrow">An Honest Answer</p>
@@ -365,7 +396,7 @@ get_header(); ?>
 </section>
 
 <!-- ── HOW TO DECIDE ── -->
-<section class="section section--alt cva-section">
+<section class="section cva-section">
   <div class="container">
     <div class="cva-layout">
       <div class="cva-main">
@@ -383,7 +414,7 @@ get_header(); ?>
 </section>
 
 <!-- ── FAQ ── -->
-<section class="section cva-section" id="faq">
+<section class="section section--alt cva-section" id="faq">
   <div class="container">
     <div class="section__header section__header--center">
       <p class="section__eyebrow">Common Questions</p>
@@ -403,15 +434,58 @@ get_header(); ?>
   </div>
 </section>
 
-<!-- ── CTA ── -->
-<section class="section section--alt cva-section">
+<!-- ── GOOGLE REVIEWS: real reviews word for word from tcfh_get_reviews(), first name and last initial only ── -->
+<?php
+$cva_review_authors = array( 'JP JP', 'Josh Tully', 'Clayton Daniels', 'Kylie', 'Kayla Wright', 'Trish Haberman' );
+$cva_reviews = array();
+foreach ( $cva_review_authors as $cva_a ) {
+	foreach ( tcfh_get_reviews() as $cva_r ) {
+		if ( $cva_r['author'] === $cva_a ) { $cva_reviews[] = $cva_r; break; }
+	}
+}
+$cva_short_name = function ( $name ) {
+	$parts = preg_split( '/\s+/', trim( $name ) );
+	return count( $parts ) > 1 ? $parts[0] . ' ' . strtoupper( substr( end( $parts ), 0, 1 ) ) . '.' : $parts[0];
+};
+?>
+<section class="section cva-section cva-reviews" id="testimonials">
   <div class="container">
-    <div class="section__header section__header--center cva-cta">
-      <p class="section__eyebrow">Ready to Compare?</p>
-      <h2 class="section__title">Get a Real Number to Put Next to a Listing</h2>
-      <p class="section__subtitle">We will look at your property and give you a fair, no obligation cash offer, usually within 24 hours. No commissions, no repairs, no fees, and you pick the closing date.</p>
-      <a href="#get-offer" class="btn-primary">Get My Cash Offer &rarr;</a>
+    <div class="section__header section__header--center">
+      <p class="section__eyebrow">5-Star Google Reviews</p>
+      <h2 class="section__title">What Tennessee Homeowners Say About Working With Us</h2>
     </div>
+    <div class="reviews-outer" id="reviewsOuter">
+      <div class="reviews-track" id="reviewsTrack">
+        <?php foreach ( array_chunk( $cva_reviews, 3 ) as $cva_slide ) : ?>
+        <div class="reviews-slide">
+          <?php foreach ( $cva_slide as $cva_r ) : $cva_n = $cva_short_name( $cva_r['author'] ); ?>
+          <div class="testimonial-card">
+            <div class="testimonial-stars"><?php echo str_repeat( '&#9733;', (int) $cva_r['rating'] ); ?></div>
+            <p class="testimonial-body"><?php echo esc_html( $cva_r['body'] ); ?></p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"><?php echo esc_html( $cva_r['initials'] ); ?></div>
+              <div>
+                <div class="testimonial-name"><?php echo esc_html( $cva_n ); ?></div>
+                <div class="testimonial-location">Tennessee</div>
+              </div>
+              <div class="testimonial-google"><svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>Google</div>
+            </div>
+          </div>
+          <?php endforeach; ?>
+        </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="revPrev" aria-label="Previous reviews">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="carousel-dots" id="revDots"></div>
+      <button class="carousel-btn" id="revNext" aria-label="Next reviews">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+    <p class="reviews-footnote">Read all <?php echo tcfh_google_reviews_link(); ?>.</p>
   </div>
 </section>
 
@@ -426,37 +500,34 @@ get_header(); ?>
   .cva-answer p { margin: 0; font-weight: 500; }
   .cva-side { height: 100%; }
   .cva-sticky { position: sticky; top: 110px; }
-  .cva-takeaways { background: var(--white); border: 1px solid var(--border); border-top: 4px solid var(--green-dark); border-radius: 12px; padding: 24px; box-shadow: 0 4px 16px rgba(0,0,0,.06); }
+  .cva-takeaways { background: var(--white); border: 1px solid var(--border); border-top: 4px solid var(--green-dark); border-radius: 12px; padding: 24px; box-shadow: var(--shadow); }
   .cva-takeaways__title, .cva-offer-card__title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 12px; color: var(--charcoal); }
   .cva-takeaways ul { margin: 0; padding: 0; list-style: none; }
   .cva-takeaways li { position: relative; padding-left: 26px; margin-bottom: 12px; font-size: 15px; line-height: 1.55; }
   .cva-takeaways li::before { content: ""; position: absolute; left: 0; top: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--green-dark) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4L18 8.5' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat; }
-  .cva-offer-card { background: var(--charcoal); color: var(--white); border-radius: 14px; padding: 26px 24px; box-shadow: 0 8px 24px rgba(0,0,0,.15); }
-  .cva-offer-card__title { color: var(--white); }
-  .cva-offer-card__text { font-size: 15px; line-height: 1.55; color: #e5e5e5; margin-bottom: 18px; }
-  .cva-offer-card__phone { display: block; text-align: center; margin-top: 14px; color: var(--green); font-weight: 600; font-size: 15px; }
-  .cva-cta .btn-primary { display: inline-block; }
+  .cva-offer-card { background: var(--white); color: var(--charcoal); border: 1px solid var(--border); border-top: 4px solid var(--green-dark); border-radius: 12px; padding: 26px 24px; box-shadow: var(--shadow); }
+  .cva-offer-card__text { font-size: 15px; line-height: 1.55; color: var(--charcoal-light); margin-bottom: 18px; }
+  .cva-offer-card__phone { display: block; text-align: center; margin-top: 14px; color: var(--green-dark); font-weight: 600; font-size: 15px; }
 
   /* ── Tables ── */
-  .cva-table-wrap { max-width: 1080px; margin: 0 auto; background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,.06); }
+  .cva-table-wrap { max-width: 1080px; margin: 0 auto; background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
   .cva-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 15px; line-height: 1.45; }
   .cva-col-factor { width: 24%; }
   .cva-col-option { width: 38%; }
-  .cva-table thead th { background: #4B5563; color: var(--white); font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 16px; text-align: left; padding: 18px 24px; vertical-align: middle; }
-  .cva-table thead th:first-child { background: var(--charcoal); }
-  .cva-table thead th.cva-us { background: var(--green-dark); }
+  .cva-table thead th { background: var(--bg-light); color: var(--charcoal); font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 16px; text-align: left; padding: 18px 24px; vertical-align: middle; }
+  .cva-table thead th.cva-us { background: var(--green-dark); color: var(--white); }
   .cva-badge { display: block; width: max-content; margin-top: 6px; background: var(--white); color: var(--green-dark); font-size: 12px; font-weight: 700; letter-spacing: .02em; padding: 3px 10px; border-radius: 999px; }
   .cva-table tbody th, .cva-table tbody td { padding: 16px 24px; border-top: 1px solid var(--border); text-align: left; vertical-align: middle; }
   .cva-table tbody th { font-family: 'Poppins', sans-serif; font-weight: 700; color: var(--charcoal); }
-  .cva-table tbody tr:nth-child(even) th, .cva-table tbody tr:nth-child(even) td { background: #f7f7f7; }
-  .cva-table tbody td.cva-us { background: #EFF8F2; border-left: 2px solid var(--green); border-right: 2px solid var(--green); }
-  .cva-table tbody tr:nth-child(even) td.cva-us { background: #E5F3EA; }
+  .cva-table tbody tr:nth-child(even) th, .cva-table tbody tr:nth-child(even) td { background: var(--bg-light); }
+  .cva-table tbody td.cva-us { background: color-mix(in srgb, var(--green-light) 40%, var(--white)); border-left: 2px solid var(--green); border-right: 2px solid var(--green); }
+  .cva-table tbody tr:nth-child(even) td.cva-us { background: color-mix(in srgb, var(--green-light) 65%, var(--white)); }
   .cva-table tbody tr:last-child td.cva-us { border-bottom: 2px solid var(--green); }
   .cva-pill { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px; line-height: 1.3; }
-  .cva-pill--good { background: #D6EFDF; color: #1F6B43; }
+  .cva-pill--good { background: var(--green-light); color: var(--green-dark); }
   .cva-pill--bad { background: #F7E9E7; color: #8F3B32; }
-  .cva-pill--neutral { background: #E9EDF2; color: #374151; }
-  .cva-cell__text { display: block; margin-top: 6px; font-size: 13px; color: #6B7280; }
+  .cva-pill--neutral { background: var(--bg-light); color: var(--charcoal); border: 1px solid var(--border); }
+  .cva-cell__text { display: block; margin-top: 6px; font-size: 13px; color: var(--charcoal-light); }
   .cva-table--example td { font-variant-numeric: tabular-nums; }
   .cva-table tbody tr.cva-total th, .cva-table tbody tr.cva-total td { background: var(--green-light); font-weight: 700; color: var(--charcoal); border-top: 2px solid var(--green-dark); }
   .cva-table-note { max-width: 1080px; margin: 20px auto 0; text-align: center; color: var(--charcoal-light); font-size: 15px; }
@@ -464,7 +535,7 @@ get_header(); ?>
   /* ── Worked examples ── */
   .cva-example { max-width: 1080px; margin: 0 auto 56px; }
   .cva-example__head { max-width: 760px; margin-bottom: 20px; }
-  .cva-example__tag { display: inline-block; background: #FFF4D6; color: #7A5A00; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 6px; margin-bottom: 10px; }
+  .cva-example__tag { display: inline-block; background: var(--white); color: var(--charcoal-light); border: 1px solid var(--border); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 6px; margin-bottom: 10px; }
   .cva-example__title { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
   .cva-example__intro { color: var(--charcoal-light); font-size: 16px; line-height: 1.65; }
   .cva-breakeven { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--green-dark); border-radius: 0 12px 12px 0; padding: 18px 22px; margin-top: 18px; }
@@ -472,10 +543,19 @@ get_header(); ?>
   .cva-breakeven .cva-breakeven__line { font-size: 17px; color: var(--charcoal); margin-bottom: 8px; }
   .cva-breakeven strong { color: var(--green-dark); }
 
+  /* ── Photo after the short answer ── */
+  .cva-photo-section { padding-top: 0; }
+  .cva-photo { max-width: 1080px; margin: 0 auto; }
+  .cva-photo img { display: block; width: 100%; height: 420px; object-fit: cover; object-position: 50% 55%; border-radius: 12px; box-shadow: var(--shadow); background: var(--bg-light); }
+  .cva-photo figcaption { margin-top: 12px; text-align: center; font-size: 15px; color: var(--charcoal-light); }
+
+  /* ── Reviews on a white section: give the cards an edge ── */
+  .cva-reviews .testimonial-card { border: 1px solid var(--border); box-shadow: var(--shadow); }
+
   /* ── Fit cards ── */
   .cva-fit { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 1080px; margin: 0 auto; }
-  .cva-fit__card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 32px; }
-  .cva-fit__card--us { border-color: var(--green); box-shadow: 0 4px 16px rgba(47,133,90,.10); }
+  .cva-fit__card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 32px; }
+  .cva-fit__card--us { border-color: var(--green); box-shadow: var(--shadow); }
   .cva-fit__title { font-size: 20px; font-weight: 700; margin-bottom: 16px; }
   .cva-fit ul { margin: 0 0 18px 20px; padding: 0; }
   .cva-fit li { margin-bottom: 10px; line-height: 1.6; list-style: disc; }
@@ -492,19 +572,20 @@ get_header(); ?>
     .cva-table-wrap { background: none; border: 0; border-radius: 0; box-shadow: none; overflow: visible; }
     .cva-table, .cva-table tbody, .cva-table tr, .cva-table th, .cva-table td { display: block; width: 100%; }
     .cva-table colgroup, .cva-table thead { display: none; }
-    .cva-table tbody tr { background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 14px; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
-    .cva-table tbody tr th { background: var(--charcoal) !important; color: var(--white); border-top: 0; padding: 12px 18px; font-size: 16px; }
+    .cva-table tbody tr { background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 14px; box-shadow: var(--shadow); }
+    .cva-table tbody tr th { background: var(--bg-light) !important; color: var(--charcoal); border-top: 0; padding: 12px 18px; font-size: 16px; }
     .cva-table tbody tr td { background: var(--white) !important; padding: 14px 18px; border-top: 1px solid var(--border); border-left: 0; border-right: 0; }
-    .cva-table tbody tr td.cva-us { background: #EFF8F2 !important; border: 0; border-left: 4px solid var(--green-dark); }
-    .cva-table tbody td::before { content: attr(data-label); display: block; font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #6B7280; margin-bottom: 8px; }
+    .cva-table tbody tr td.cva-us { background: color-mix(in srgb, var(--green-light) 40%, var(--white)) !important; border: 0; border-left: 4px solid var(--green-dark); }
+    .cva-table tbody td::before { content: attr(data-label); display: block; font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--charcoal-light); margin-bottom: 8px; }
     .cva-table tbody td.cva-us::before { color: var(--green-dark); }
-    .cva-table tbody tr.cva-total th { background: var(--green-dark) !important; }
+    .cva-table tbody tr.cva-total th { background: var(--green-dark) !important; color: var(--white); }
     .cva-table tbody tr.cva-total td { font-weight: 700; }
     .cva-fit { grid-template-columns: 1fr; }
     .cva-fit__card { padding: 24px; }
     .cva-main p:not(.section__eyebrow) { font-size: 16px; }
     .cva-table tbody tr:last-child td.cva-us { border-bottom: 0; }
     .cva-example__title { font-size: 21px; }
+    .cva-photo img { height: 240px; }
   }
 </style>
 
