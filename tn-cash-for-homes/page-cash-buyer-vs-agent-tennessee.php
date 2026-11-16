@@ -1,6 +1,7 @@
 <?php
 /**
- * Template for /cash-buyer-vs-agent-tennessee/ (picked up by slug).
+ * Template Name: Cash Buyer vs Agent
+ * Template for /cash-buyer-vs-agent-tennessee/ (also assigned to the page directly).
  * Standalone comparison page: selling to Tennessee Cash For Homes vs
  * listing with an agent. Copy rule: no em or en dashes anywhere.
  * Table and FAQ content live in the arrays below so the desktop table,
