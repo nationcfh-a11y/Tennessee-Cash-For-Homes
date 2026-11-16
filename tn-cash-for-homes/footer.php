@@ -14,6 +14,24 @@
       <p class="footer-dark-cta__phone">Or call us now: <a href="tel:+16158018126">(615) 801-8126</a></p>
     </div>
   </div>
+  <script>
+  /* Bottom CTA: scroll to this page's own cash offer form when it has one
+     (every seller form submits through handleSubmit; the investor and lender
+     forms do not). Pages without one keep the link to the homepage form. */
+  (function () {
+    var btn = document.querySelector('.btn-footer-cta');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+      var form = document.querySelector('form[onsubmit^="handleSubmit"]');
+      if (!form) return;
+      e.preventDefault();
+      var target = form.closest('.hero__form-card') || form;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      var field = form.querySelector('input:not([type="hidden"])');
+      if (field) setTimeout(function () { field.focus({ preventScroll: true }); }, 700);
+    });
+  })();
+  </script>
   <?php endif; ?>
 
   <div class="footer-divider"></div>
