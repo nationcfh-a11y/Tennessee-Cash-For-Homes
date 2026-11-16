@@ -1523,6 +1523,9 @@ function tcfh_handle_legacy_redirects() {
         'the-difference-between-selling-your-house-with-an-agent-vs-selling-to-a-cash-buyer' => '/cash-buyer-vs-agent-tennessee/',
         // Its old dated permalink still drew search impressions; it was a 404.
         '2024/03/16/the-difference-between-selling-your-house-with-an-agent-vs-selling-to-a-cash-buyer' => '/cash-buyer-vs-agent-tennessee/',
+        // Old Wix URL. WordPress used to guess its way to the post; with the
+        // post retired it 404'd, so send it straight to the new page.
+        'post/the-difference-between-selling-your-house-with-an-agent-vs-selling-to-a-cash-buyer' => '/cash-buyer-vs-agent-tennessee/',
     );
 
     $path = trim( wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ) ?? '', '/' );
