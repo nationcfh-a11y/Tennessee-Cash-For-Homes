@@ -162,6 +162,7 @@ $cva_check    = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 20
         </div>
         <p><a href="<?php echo $cva_url( '/' ); ?>">Tennessee Cash For Homes</a> buys houses for cash, so you know where we stand. We still tell people to list when that's the better move, and <a href="#jp-review">one of those sellers said so in a review</a>.</p>
         <p>The difference comes down to who's buying. A retail buyer is usually a family with a mortgage, so the sale depends on their loan, an inspection and an appraisal. We pay cash, so none of that applies.</p>
+        <p>Once a listing has an accepted offer, the house still has to clear the buyer's inspection, a round of repair requests, the lender's appraisal and final loan approval. That stretch is where most deals slip, and it's a big reason sellers call us: not every house, or every moving date, can ride out weeks of renegotiating.</p>
       </div>
       <aside class="cva-side">
         <div class="cva-takeaways">
@@ -194,6 +195,7 @@ $cva_check    = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 20
         alt="A house Tennessee Cash For Homes bought in Middle Tennessee"
         loading="lazy" decoding="async" />
       <figcaption>We buy houses as-is across Middle Tennessee.</figcaption>
+      <p class="cva-photo__blurb">That includes dated, damaged, inherited and vacant houses, and rentals with tenants still living in them. We buy in Columbia, Spring Hill, Franklin, Murfreesboro, Nashville and the towns around them. See every city and county on our <a href="<?php echo $cva_url( '/where-we-buy/' ); ?>">where we buy</a> page.</p>
     </figure>
   </div>
 </section>
@@ -547,6 +549,27 @@ $cva_short_name = function ( $name ) {
   .cva-photo img { display: block; width: 100%; height: 280px; object-fit: cover; object-position: 50% 55%; border-radius: 12px; box-shadow: var(--shadow); background: var(--bg-light); }
   .cva-photo figcaption { margin-top: 12px; text-align: center; font-size: 15px; color: var(--charcoal-light); }
 
+  /* ── Photo blurb ── */
+  .cva-photo__blurb { max-width: 760px; margin: 10px auto 0; text-align: center; font-size: 16px; line-height: 1.7; color: var(--charcoal); }
+  .cva-photo__blurb a { color: var(--green-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+
+  /* ── Side by side: whole section fits one desktop screen after "See the Comparison".
+        html has scroll-padding-top: 120px; the fixed header is 73px, so pull the
+        target up by 47px and it lands right under the header. ── */
+  @media (min-width: 769px) {
+    #compare { scroll-margin-top: -47px; padding-top: 40px; }
+    #compare .section__header { margin-bottom: 20px; }
+    #compare .section__eyebrow { margin-bottom: 6px; }
+    #compare .section__title { margin-bottom: 6px; }
+    #compare .section__subtitle { margin: 0 auto; }
+    #compare .cva-table thead th { padding: 12px 24px; }
+    #compare .cva-badge { margin-top: 4px; }
+    #compare .cva-table tbody th, #compare .cva-table tbody td { padding: 9px 24px; }
+    #compare .cva-pill { padding: 3px 10px; }
+    #compare .cva-cell__text { margin-top: 2px; }
+    #compare .cva-table-note { margin-top: 12px; }
+  }
+
   /* ── Reviews: line up with the content width ── */
   .cva-reviews .reviews-outer, .cva-reviews .carousel-controls, .cva-reviews .reviews-footnote { max-width: 1080px; margin-left: auto; margin-right: auto; }
 
@@ -616,7 +639,7 @@ $cva_short_name = function ( $name ) {
   .cva-byline { margin: 14px 0 0; font-size: 14px; color: rgba(255,255,255,.85); text-shadow: 0 1px 8px rgba(0,0,0,.3); }
   .cva-byline__short { display: none; }
 
-  #short-answer, #compare, #costs, #which-fits, #faq, #jp-review { scroll-margin-top: 110px; }
+  #short-answer, #costs, #which-fits, #faq, #jp-review { scroll-margin-top: 110px; }
 
   /* ── What about selling it yourself? ── */
   .cva-fsbo { background: var(--bg-light); padding: 48px 0; }
