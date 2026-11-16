@@ -149,17 +149,6 @@ $cva_check    = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 20
 
 <?php get_template_part( 'stats-strip' ); ?>
 
-<!-- ── ON THIS PAGE ── -->
-<nav class="cva-toc" aria-label="On this page">
-  <div class="container">
-    <span class="cva-toc__label">On this page:</span>
-    <a href="#short-answer">Short answer</a>
-    <a href="#compare">Side by side</a>
-    <a href="#costs">Costs</a>
-    <a href="#which-fits">Which one fits</a>
-    <a href="#faq">FAQ</a>
-  </div>
-</nav>
 
 <!-- ── SHORT ANSWER + KEY TAKEAWAYS ── -->
 <section class="section cva-section" id="short-answer">
@@ -387,7 +376,12 @@ $cva_guides = array(
       </div>
       <?php endforeach; ?>
     </div>
+  </div>
+</section>
 
+<!-- ── GET BOTH NUMBERS IN WRITING (gray band; step and guide cards stay white) ── -->
+<section class="section section--alt cva-section" id="steps">
+  <div class="container">
     <div class="cva-steps">
       <h3 class="cva-steps__title">Get Both Numbers in Writing</h3>
       <ol class="cva-steps__list">
@@ -420,7 +414,7 @@ $cva_guides = array(
   </div>
 </section>
 
-<!-- ── WHY HOMEOWNERS CHOOSE (shared section), on a gray band on this page ── -->
+<!-- ── WHY HOMEOWNERS CHOOSE (shared section) ── -->
 <div class="cva-diff">
 <?php
 get_template_part( 'difference-section', null, array(
@@ -431,7 +425,7 @@ get_template_part( 'difference-section', null, array(
 </div>
 
 <!-- ── FAQ ── -->
-<section class="section cva-section" id="faq">
+<section class="section section--alt cva-section" id="faq">
   <div class="container">
     <div class="section__header section__header--center">
       <p class="section__eyebrow">Common Questions</p>
@@ -465,7 +459,7 @@ $cva_short_name = function ( $name ) {
 	return count( $parts ) > 1 ? $parts[0] . ' ' . strtoupper( substr( end( $parts ), 0, 1 ) ) . '.' : $parts[0];
 };
 ?>
-<section class="section section--alt cva-section cva-reviews" id="testimonials">
+<section class="section cva-section cva-reviews" id="testimonials">
   <div class="container">
     <div class="section__header section__header--center">
       <p class="section__eyebrow">5-Star Google Reviews</p>
@@ -557,8 +551,6 @@ $cva_short_name = function ( $name ) {
   .cva-reviews .reviews-outer, .cva-reviews .carousel-controls, .cva-reviews .reviews-footnote { max-width: 1080px; margin-left: auto; margin-right: auto; }
 
   /* ── Shared "Why Homeowners Choose" section on a gray band ── */
-  .cva-diff .difference-section--grid { background: var(--bg-light); }
-  .cva-diff .difference-section--grid .difference__list li { background: var(--white); }
 
   /* ── Reviews on white: give the cards an edge ── */
   .cva-reviews .testimonial-card { border: 1px solid var(--border); box-shadow: var(--shadow); }
@@ -600,12 +592,12 @@ $cva_short_name = function ( $name ) {
   .cva-fit a, .cva-steps a { color: var(--green-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
 
   /* ── 3 steps, story callout, related guides ── */
-  .cva-steps { max-width: 1080px; margin: 40px auto 0; }
+  .cva-steps { max-width: 1080px; margin: 0 auto; }
   .cva-steps__title { font-size: clamp(22px, 2.6vw, 28px); font-weight: 700; margin: 0 0 24px; text-align: center; }
   .cva-steps__list { position: relative; list-style: none; margin: 0 0 28px; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
   .cva-steps__list::before { content: ""; position: absolute; top: 22px; left: calc(100% / 6); right: calc(100% / 6); height: 2px; background: var(--green); z-index: 0; }
   .cva-step { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
-  .cva-step__num { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--green-dark); color: var(--white); font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 18px; box-shadow: 0 0 0 6px var(--white); margin-bottom: 16px; }
+  .cva-step__num { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--green-dark); color: var(--white); font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 18px; box-shadow: 0 0 0 6px var(--bg-light); margin-bottom: 16px; }
   .cva-step__card { flex: 1; width: 100%; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 22px; text-align: center; box-shadow: var(--shadow); }
   .cva-step__title { display: block; font-family: 'Poppins', sans-serif; font-weight: 700; color: var(--charcoal); margin-bottom: 8px; }
   .cva-step__text { display: block; line-height: 1.6; color: var(--charcoal-light); }
@@ -624,12 +616,6 @@ $cva_short_name = function ( $name ) {
   .cva-byline { margin: 14px 0 0; font-size: 14px; color: rgba(255,255,255,.85); text-shadow: 0 1px 8px rgba(0,0,0,.3); }
   .cva-byline__short { display: none; }
 
-  /* ── On this page ── */
-  .cva-toc { background: var(--white); border-bottom: 1px solid var(--border); }
-  .cva-toc .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 10px; padding-top: 14px; padding-bottom: 14px; }
-  .cva-toc__label { font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600; color: var(--charcoal); margin-right: 4px; }
-  .cva-toc a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border: 1px solid var(--border); border-radius: 999px; font-size: 15px; font-weight: 600; color: var(--green-dark); text-decoration: none; background: var(--white); }
-  .cva-toc a:hover { border-color: var(--green); background: var(--bg-light); }
   #short-answer, #compare, #costs, #which-fits, #faq, #jp-review { scroll-margin-top: 110px; }
 
   /* ── What about selling it yourself? ── */
@@ -676,9 +662,6 @@ $cva_short_name = function ( $name ) {
     .cva-byline { margin-bottom: 16px; }
     .cva-byline__long { display: none; }
     .cva-byline__short { display: inline; }
-    .cva-toc .container { justify-content: flex-start; gap: 8px; }
-    .cva-toc__label { width: 100%; }
-    .cva-toc a { min-height: 44px; padding: 0 14px; font-size: 14px; }
     .cva-fsbo { padding: 32px 0; }
     .cva-fsbo__box { padding: 20px; }
     .cva-takeoff { padding: 22px; }
