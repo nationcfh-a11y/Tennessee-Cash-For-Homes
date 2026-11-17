@@ -136,8 +136,16 @@ add_action( 'wp_head', function() {
  * Critical above-the-fold CSS is inlined by tcfh_inline_critical_css()
  * so first paint never has to wait on this download.
  */
+// Nov 17 2026: async loading is OFF. When the page painted before this file
+// arrived, the stats strip, situation heroes and other sections the critical
+// CSS doesn't cover jumped into place (CLS up to 0.4). Loading it normally
+// measured CLS 0.000 on home, Columbia, Sell As-Is and cash buyer vs agent,
+// with LCP the same or faster. Set to true to restore the async swap.
+if ( ! defined( 'TCFH_ASYNC_MAIN_CSS' ) ) {
+    define( 'TCFH_ASYNC_MAIN_CSS', false );
+}
 add_filter( 'style_loader_tag', function( $tag, $handle ) {
-    if ( 'tcfh-style' !== $handle ) {
+    if ( 'tcfh-style' !== $handle || ! TCFH_ASYNC_MAIN_CSS ) {
         return $tag;
     }
     if ( ! preg_match( '/href=([\'\"])([^\'\"]+)\1/', $tag, $m ) ) {
