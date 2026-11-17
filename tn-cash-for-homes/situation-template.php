@@ -75,6 +75,9 @@ get_header();
     <div class="sit-understand__body">
       <p><?php echo esc_html( $situation_description_1 ); ?></p>
       <p><?php echo esc_html( $situation_description_2 ); ?></p>
+      <?php if ( ! empty( $situation_compare_link ) ) : // Optional sentence with one link, set per page. ?>
+      <p><?php echo esc_html( $situation_compare_link['before'] ); ?><a href="<?php echo esc_url( home_url( $situation_compare_link['href'] ) ); ?>" style="color:var(--green-dark);font-weight:600;text-decoration:underline;"><?php echo esc_html( $situation_compare_link['text'] ); ?></a><?php echo esc_html( $situation_compare_link['after'] ); ?></p>
+      <?php endif; ?>
     </div>
     <div class="sit-features">
       <div class="sit-feature-card">

@@ -8,6 +8,12 @@ $situation_h1 = 'Sell Your House As-Is For Cash in Tennessee: No Repairs Needed'
 $situation_subheadline = 'Your house needs work and you do not want to deal with contractors, costs, and delays. We buy Tennessee homes in any condition, with no repairs, no cleanup, and no hassle.';
 $situation_description_1 = 'Maybe the roof needs replacing. Maybe the foundation has issues. Maybe the home is outdated, has water damage, or has been sitting vacant for years. Whatever condition your Tennessee home is in we want to buy it. At Tennessee Cash For Homes we have purchased homes with every kind of issue imaginable and we never ask sellers to fix anything before closing.';
 $situation_description_2 = 'Traditional buyers using mortgage financing often cannot purchase homes that need major work because lenders require the home to be in livable condition. That means your pool of buyers is limited and those who do make offers often demand steep repair credits or price reductions. When you sell to us you get a fair cash offer based on the home as it sits right now, with no negotiations over repairs, no contractor delays, and no uncertainty.';
+$situation_compare_link = [
+    'before' => 'Weighing whether to fix it up and list it instead? Our ',
+    'text'   => 'cash buyer vs agent comparison',
+    'href'   => '/cash-buyer-vs-agent-tennessee/',
+    'after'  => ' shows what each route costs and when listing nets more.',
+];
 $situation_bullets = [
     ['title' => 'We Buy in Any Condition', 'desc' => 'Fire damage, foundation issues, roof problems, hoarder homes. We have seen it all and we buy it all.'],
     ['title' => 'No Repairs or Cleanup Required', 'desc' => 'Do not spend a single dollar fixing up the home. We handle everything after closing.'],
