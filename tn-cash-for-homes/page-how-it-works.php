@@ -256,8 +256,8 @@ get_header(); ?>
         <div class="hiw-diff-icon">
           <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
-        <h3 class="hiw-diff-title">Guaranteed Sale</h3>
-        <p class="hiw-diff-body">No financing contingencies, no buyer backing out at the last minute. When we make an offer and you accept, the sale is happening.</p>
+        <h3 class="hiw-diff-title">No Financing Risk</h3>
+        <p class="hiw-diff-body">No lender, no appraisal, no buyer backing out over a loan. Once you accept our offer, the usual reasons sales fall apart are off the table.</p>
       </div>
 
       <div class="hiw-diff-card">
@@ -292,8 +292,8 @@ get_header(); ?>
         <tbody>
           <tr>
             <td>Closing timeline</td>
-            <td><span class="check">&check;</span> As fast as 7 days</td>
-            <td><span class="cross">60 to 90+ days</span></td>
+            <td><span class="check">&check;</span> As fast as 7 days, about 30 typical</td>
+            <td><span class="cross">Often months</span></td>
           </tr>
           <tr>
             <td>Repairs required</td>
@@ -303,27 +303,27 @@ get_header(); ?>
           <tr>
             <td>Agent commissions</td>
             <td><span class="check">&check;</span> $0</td>
-            <td><span class="cross">5 to 6% of sale price</span></td>
+            <td><span class="cross">Negotiable, often the biggest cost</span></td>
           </tr>
           <tr>
             <td>Closing costs</td>
-            <td><span class="check">&check;</span> We cover them</td>
-            <td><span class="cross">2 to 3% of sale price</span></td>
+            <td><span class="check">&check;</span> We pay them all</td>
+            <td><span class="cross">You pay your share</span></td>
           </tr>
           <tr>
             <td>Showings &amp; open houses</td>
-            <td><span class="check">&check;</span> None</td>
+            <td><span class="check">&check;</span> One walkthrough</td>
             <td><span class="cross">Many required</span></td>
           </tr>
           <tr>
             <td>Financing contingencies</td>
             <td><span class="check">&check;</span> No, all cash</td>
-            <td><span class="cross">Deals can fall through</span></td>
+            <td><span class="cross">Common, most buyers use a loan</span></td>
           </tr>
           <tr>
             <td>Certainty of sale</td>
-            <td><span class="check">&check;</span> Guaranteed</td>
-            <td><span class="cross">Not guaranteed</span></td>
+            <td><span class="check">&check;</span> No financing risk</td>
+            <td><span class="cross">Can fall through</span></td>
           </tr>
         </tbody>
       </table>

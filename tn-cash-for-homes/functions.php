@@ -1108,11 +1108,11 @@ function tcfh_get_faq_page_items() {
         ),
         array(
             'q' => 'How fast can I sell my house in Tennessee?',
-            'a' => 'A traditional Tennessee listing takes 60 to 90+ days on average from listing to closing, plus 30 to 45 more days if the buyer is using a mortgage. A direct cash sale skips the lender, appraisal, and inspection-driven repair negotiation, so it can close in as little as 7 days. Tennessee Cash For Homes delivers a cash offer within 24 hours and most sellers choose to close between 7 and 30 days, depending on what works best for their timeline.',
+            'a' => 'A traditional Tennessee listing takes as long as it takes to find a buyer, plus the buyer\'s loan closing, which often adds up to a few months; timing varies with the house, the price and the market. A direct cash sale skips the lender, appraisal, and inspection-driven repair negotiation, so it can close in as little as 7 days. Tennessee Cash For Homes delivers a cash offer within 24 hours and most sellers choose to close between 7 and 30 days, depending on what works best for their timeline.',
         ),
         array(
             'q' => 'What are the pros and cons of selling to a cash buyer?',
-            'a' => 'Pros: closes in as little as 7 days, no repairs or cleanup needed, no real estate agent commissions (saves 5–6% of the sale price), no closing costs, no buyer financing or appraisal risk, and certainty of sale. Cons: the offer is below full retail market value because the cash buyer takes on the repair, holding, and resale risk. A cash sale is the right move when speed, certainty, or property condition matters more than maximizing the last dollar of retail price.',
+            'a' => 'Pros: closes in as little as 7 days, no repairs or cleanup needed, no real estate agent commission (a negotiable fee that is often the biggest cost of listing), no closing costs, no buyer financing or appraisal risk, and a closing date you pick. Cons: the offer is below full retail market value because the cash buyer takes on the repair, holding, and resale risk. A cash sale is the right move when speed, certainty, or property condition matters more than maximizing the last dollar of retail price.',
         ),
         array(
             'q' => 'Is Tennessee Cash For Homes legitimate?',
@@ -1160,7 +1160,7 @@ function tcfh_get_faq_page_items() {
         ),
         array(
             'q' => 'How is this different from listing with a real estate agent?',
-            'a' => 'When you list with an agent you typically wait months for a buyer, pay 5 to 6 percent in commissions, make repairs, deal with showings, and risk the buyer backing out at the last minute. With us, you get a cash offer in 24 hours, no repairs, no fees, and a guaranteed closing on your timeline. For costs, timelines and when each option makes sense, see our full cash buyer vs agent comparison.',
+            'a' => 'When you list with an agent, the sale usually takes months once you count the time to find a buyer and the buyer\'s loan closing, though timing varies with the house and the market. You pay the listing commission, which is negotiable, plus your share of closing costs, and you may make repairs, host showings and risk the buyer\'s financing falling through. With us, you get a cash offer usually within 24 hours, no repairs, no fees or commission, and a closing date you pick, with no loan or appraisal that can sink the deal. For costs, timelines and when each option makes sense, see our full cash buyer vs agent comparison.',
         ),
         array(
             'q' => 'Are you local?',
@@ -1198,11 +1198,11 @@ function tcfh_schema_faq() {
             ),
             array(
                 'q' => 'How fast can I sell my house in Tennessee?',
-                'a' => 'A traditional listing in Tennessee takes 60 to 90+ days on average from listing to closing, plus another 30 to 45 days if the buyer needs a mortgage. A direct cash sale can close in as little as 7 days because there is no lender, no appraisal, and no inspection-driven repair negotiation. Tennessee Cash For Homes typically delivers a cash offer within 24 hours and closes on the homeowner\'s preferred date — most sellers choose between 7 and 30 days.',
+                'a' => 'A traditional listing in Tennessee takes as long as it takes to find a buyer, plus the buyer\'s loan closing, which often adds up to a few months; timing varies with the house, the price and the market. A direct cash sale can close in as little as 7 days because there is no lender, no appraisal, and no inspection-driven repair negotiation. Tennessee Cash For Homes typically delivers a cash offer within 24 hours and closes on the homeowner\'s preferred date. Most sellers choose between 7 and 30 days.',
             ),
             array(
                 'q' => 'What are the pros and cons of selling to a cash buyer?',
-                'a' => 'Pros of selling to a cash home buyer in Tennessee: (1) closes in as little as 7 days, (2) no repairs or cleanup needed, (3) no agent commissions (saves 5–6% of the sale price), (4) no closing costs, (5) no buyer financing or appraisal that can fall through, and (6) certainty of sale. Cons: the offer will be below full retail market value because the buyer takes on the repair, holding, and resale risk. A cash sale is the right choice when speed, certainty, or condition of the home matters more than squeezing out the last dollar of retail price.',
+                'a' => 'Pros of selling to a cash home buyer in Tennessee: (1) closes in as little as 7 days, (2) no repairs or cleanup needed, (3) no agent commission (a negotiable fee that is often the biggest cost of listing), (4) no closing costs, (5) no buyer financing or appraisal that can fall through, and (6) a closing date you pick. Cons: the offer will be below full retail market value because the buyer takes on the repair, holding, and resale risk. A cash sale is the right choice when speed, certainty, or condition of the home matters more than squeezing out the last dollar of retail price.',
             ),
             array(
                 'q' => 'Is Tennessee Cash For Homes legitimate?',

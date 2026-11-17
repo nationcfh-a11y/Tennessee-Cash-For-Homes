@@ -351,7 +351,7 @@
     <div class="section__header section__header--center">
       <p class="section__eyebrow">See the Difference</p>
       <h2 class="section__title">Selling to a Cash Buyer vs. Listing with a Tennessee Real Estate Agent</h2>
-      <p class="section__subtitle">The traditional listing route works for some people. But if speed, certainty, and zero out-of-pocket costs matter to you, we are the smarter choice.</p>
+      <p class="section__subtitle">The traditional listing route works for some people. On a move-in ready house, listing often nets more. If speed, certainty, and zero out-of-pocket costs matter more to you, here is how the two options compare.</p>
     </div>
     <div class="compare-wrap">
       <table class="compare-table">
@@ -365,8 +365,8 @@
         <tbody>
           <tr>
             <th scope="row">Closing timeline</th>
-            <td><span class="check">✔</span> As fast as 7 days</td>
-            <td><span class="cross">60 to 90+ days</span></td>
+            <td><span class="check">✔</span> As fast as 7 days, about 30 typical</td>
+            <td><span class="cross">Often months</span></td>
           </tr>
           <tr>
             <th scope="row">Repairs required</th>
@@ -376,27 +376,27 @@
           <tr>
             <th scope="row">Agent commissions</th>
             <td><span class="check">✔</span> $0</td>
-            <td><span class="cross">5 to 6% of sale price</span></td>
+            <td><span class="cross">Negotiable, often the biggest cost</span></td>
           </tr>
           <tr>
             <th scope="row">Closing costs</th>
-            <td><span class="check">✔</span> We cover them</td>
-            <td><span class="cross">2 to 3% of sale price</span></td>
+            <td><span class="check">✔</span> We pay them all</td>
+            <td><span class="cross">You pay your share</span></td>
           </tr>
           <tr>
             <th scope="row">Showings &amp; open houses</th>
-            <td><span class="check">✔</span> None</td>
+            <td><span class="check">✔</span> One walkthrough</td>
             <td><span class="cross">Many required</span></td>
           </tr>
           <tr>
             <th scope="row">Financing contingencies</th>
             <td><span class="check">✔</span> No, all cash</td>
-            <td><span class="cross">Deals can fall through</span></td>
+            <td><span class="cross">Common, most buyers use a loan</span></td>
           </tr>
           <tr>
             <th scope="row">Certainty of sale</th>
-            <td><span class="check">✔</span> Guaranteed</td>
-            <td><span class="cross">Not guaranteed</span></td>
+            <td><span class="check">✔</span> No financing risk</td>
+            <td><span class="cross">Can fall through</span></td>
           </tr>
         </tbody>
       </table>
@@ -416,7 +416,7 @@
           <tr>
             <th scope="row">Commissions</th>
             <td class="compare-mobile__brand">$0</td>
-            <td class="compare-mobile__trad">5–6%</td>
+            <td class="compare-mobile__trad">Negotiable</td>
           </tr>
           <tr>
             <th scope="row">Repair Costs</th>
@@ -425,28 +425,28 @@
           </tr>
           <tr>
             <th scope="row">Closing Costs</th>
-            <td class="compare-mobile__brand">We Cover Them</td>
-            <td class="compare-mobile__trad">2–3%</td>
+            <td class="compare-mobile__brand">We Pay Them All</td>
+            <td class="compare-mobile__trad">Your Share</td>
           </tr>
           <tr>
             <th scope="row">Typical Days to Close</th>
             <td class="compare-mobile__brand">About 30 Days (as few as 7)</td>
-            <td class="compare-mobile__trad">60–90 Days</td>
+            <td class="compare-mobile__trad">Often Months</td>
           </tr>
           <tr>
             <th scope="row">Showings</th>
-            <td class="compare-mobile__brand">None</td>
+            <td class="compare-mobile__brand">One Walkthrough</td>
             <td class="compare-mobile__trad">Multiple</td>
           </tr>
           <tr>
             <th scope="row">As-Is Sale</th>
             <td class="compare-mobile__brand">Yes</td>
-            <td class="compare-mobile__trad">No</td>
+            <td class="compare-mobile__trad">Rarely</td>
           </tr>
           <tr>
             <th scope="row">Certainty of Sale</th>
-            <td class="compare-mobile__brand">Guaranteed</td>
-            <td class="compare-mobile__trad">Not Guaranteed</td>
+            <td class="compare-mobile__brand">No Financing Risk</td>
+            <td class="compare-mobile__trad">Can Fall Through</td>
           </tr>
           <tr>
             <th scope="row">Financing Contingencies</th>
@@ -456,6 +456,7 @@
         </tbody>
       </table>
     </div>
+    <p class="compare-more" style="max-width:760px;margin:24px auto 0;text-align:center;font-size:16px;color:var(--charcoal-light);">Want the full picture, including when listing actually nets you more? Read our <a href="<?php echo esc_url( home_url( '/cash-buyer-vs-agent-tennessee/' ) ); ?>" style="color:var(--green-dark);font-weight:600;text-decoration:underline;">cash buyer vs agent comparison for Tennessee</a>.</p>
   </div>
 </section>
 
