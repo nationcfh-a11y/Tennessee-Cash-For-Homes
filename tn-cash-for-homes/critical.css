@@ -23,6 +23,8 @@
 :root{--green:#84CC9C;--green-dark:#2F855A;--green-light:#d4ede0;--charcoal:#3D3D3D;--charcoal-light:#5a5a5a;--white:#FFFFFF;--bg-light:#F2F2F2;--border:#e0e0e0;--shadow:0 4px 24px rgba(0,0,0,.08);--shadow-lg:0 12px 48px rgba(0,0,0,.12)}
 html{scroll-behavior:smooth;scroll-padding-top:120px;margin:0;padding:0}
 body{font-family:Tahoma,Geneva,Verdana,sans-serif;color:var(--charcoal);background:var(--white);line-height:1.6;font-size:16px;margin:0;padding:0;padding-top:73px}
+/* html body beats WordPress global-styles body{padding-top:0}, which prints after this block and caused a 73px layout jump before style.min.css loaded */
+html body{padding-top:73px}
 .admin-bar body{padding-top:105px}
 .admin-bar .nav{top:32px}
 h1,h2,h3,h4,h5{font-family:'Poppins',sans-serif;font-weight:600;line-height:1.25;color:var(--charcoal)}
