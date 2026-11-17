@@ -385,7 +385,7 @@ $cva_guides = array(
 <section class="section section--alt cva-section" id="steps">
   <div class="container">
     <div class="cva-steps">
-      <h3 class="cva-steps__title">Get Both Numbers in Writing</h3>
+      <h2 class="cva-steps__title">Get Both Numbers in Writing</h2>
       <ol class="cva-steps__list">
         <?php foreach ( $cva_steps as $n => $cva_step ) : ?>
         <li class="cva-step">
@@ -602,7 +602,8 @@ $cva_short_name = function ( $name ) {
   .cva-fit__card--us .cva-fit__icon { color: var(--green-dark); }
   .cva-fit__title { font-size: 18px; font-weight: 700; margin: 0; color: var(--charcoal); line-height: 1.3; }
   .cva-fit__card--us .cva-fit__title { color: var(--white); }
-  .cva-checks { grid-row: span 5; display: grid; grid-template-rows: subgrid; list-style: none; margin: 0; padding: 20px 24px 8px; }
+  /* Each checklist stacks on its own (no per-item shared rows), so a short item never leaves a gap; the quote, note and links rows below still line up. */
+  .cva-checks { grid-row: span 5; display: flex; flex-direction: column; list-style: none; margin: 0; padding: 20px 24px 8px; }
   .cva-checks li { display: flex; gap: 10px; align-items: flex-start; padding-bottom: 12px; line-height: 1.55; color: var(--charcoal); }
   .cva-tick { flex-shrink: 0; margin-top: 3px; color: var(--charcoal-light); }
   .cva-fit__card--us .cva-tick { color: var(--green-dark); }
