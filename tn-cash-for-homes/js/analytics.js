@@ -191,7 +191,7 @@
   }, true);
 
   function nearestSectionLabel(el) {
-    var section = el.closest && el.closest('section');
+    var section = el.closest && (el.closest('[data-analytics-section]') || el.closest('section'));
     if (section && section.getAttribute('data-analytics-section')) {
       return section.getAttribute('data-analytics-section');
     }

@@ -313,6 +313,57 @@
   </svg>
 </button>
 
+<!-- Sticky call bar (phones only, site-wide). Hidden on desktop by the inline
+     style plus mobile-optimization.css. JS below shows it after the first
+     screen, hides it while an offer form is on screen or a field has focus,
+     and sends "Get My Cash Offer" to this page's own form (falls back to the
+     homepage form). Phone taps fire analytics.js's existing phone_click event. -->
+<div class="mobile-callbar" data-analytics-section="mobile-call-bar" style="display:none;">
+  <a href="tel:+16158018126" class="mobile-callbar__btn mobile-callbar__btn--call">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Call (615) 801-8126
+  </a>
+  <a href="<?php echo esc_url( home_url( '/#hero-form' ) ); ?>" class="mobile-callbar__btn mobile-callbar__btn--offer">Get My Cash Offer</a>
+</div>
+<script>
+(function () {
+  var bar = document.querySelector('.mobile-callbar');
+  if (!bar) return;
+  var mq = window.matchMedia('(max-width: 768px)');
+  var form = document.querySelector('form[onsubmit^="handleSubmit"]');
+  var formOnScreen = false, fieldFocused = false, ticking = false;
+
+  function update() {
+    ticking = false;
+    var show = mq.matches && window.scrollY > window.innerHeight * 0.6 && !formOnScreen && !fieldFocused;
+    bar.classList.toggle('is-visible', show);
+    document.body.classList.toggle('callbar-visible', show);
+  }
+  function queue() { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } }
+
+  if (form && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      formOnScreen = entries[0].isIntersecting;
+      queue();
+    }, { threshold: 0.15 }).observe(form.closest('.hero__form-card') || form);
+  }
+  document.addEventListener('focusin', function (e) { if (e.target.matches && e.target.matches('input, textarea, select')) { fieldFocused = true; queue(); } });
+  document.addEventListener('focusout', function () { fieldFocused = false; queue(); });
+  window.addEventListener('scroll', queue, { passive: true });
+  window.addEventListener('resize', queue);
+  queue();
+
+  bar.querySelector('.mobile-callbar__btn--offer').addEventListener('click', function (e) {
+    if (!form) return; // no form on this page: follow the link to the homepage form
+    e.preventDefault();
+    var target = form.closest('.hero__form-card') || form;
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var field = form.querySelector('input:not([type="hidden"])');
+    if (field) setTimeout(function () { field.focus({ preventScroll: true }); }, 700);
+  });
+})();
+</script>
+
 <?php wp_footer(); ?>
 </body>
 </html>
