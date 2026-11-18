@@ -74,6 +74,45 @@ $cva_faqs = array(
 		'No. Tennessee doesn\'t tax the profit from a home sale. Federal capital gains rules can still apply either way, so check with a CPA. Our <a href="' . $cva_url( '/do-i-have-to-pay-taxes-on-money-made-from-selling-my-home-a-guide-for-tennessee-homeowners/' ) . '">home sale tax guide</a> covers the federal exclusion.' ),
 );
 
+/* By the Numbers: two Tennessee figures from the monthly Market Stats file
+ * (market-stats-data.php, rebuilt and sanity-checked on the 20th by
+ * .github/workflows/refresh-market-stats.yml), plus two Nashville figures from
+ * cva-market-numbers.json (updated by hand; the same workflow flags newer
+ * Redfin reports). A figure that is missing is left out, never guessed. */
+$cva_numbers = array();
+$cva_ms_file = get_template_directory() . '/market-stats-data.php';
+$cva_ms      = file_exists( $cva_ms_file ) ? include $cva_ms_file : array();
+$cva_tn      = isset( $cva_ms['pages']['tennessee']['cards'] ) ? $cva_ms['pages']['tennessee']['cards'] : array();
+$cva_tn_text = array(
+	'median_dom'   => 'Median days a Tennessee home was listed before going under contract. Closing on the buyer\'s loan comes after that.',
+	'sale_to_list' => 'Average sale price as a share of the asking price in Tennessee.',
+);
+foreach ( $cva_tn_text as $cva_key => $cva_label ) {
+	foreach ( $cva_tn as $cva_card ) {
+		if ( isset( $cva_card['key'], $cva_card['value'], $cva_card['source'] ) && $cva_card['key'] === $cva_key ) {
+			$cva_numbers[] = array(
+				'value'  => $cva_card['value'],
+				'label'  => $cva_label,
+				'source' => preg_replace( '/^Source:\s*/', '', $cva_card['source'] ),
+				'url'    => 'https://www.redfin.com/state/Tennessee/housing-market',
+			);
+		}
+	}
+}
+$cva_nash_file = get_template_directory() . '/cva-market-numbers.json';
+$cva_nash      = file_exists( $cva_nash_file ) ? json_decode( file_get_contents( $cva_nash_file ), true ) : array();
+if ( ! empty( $cva_nash['nashville'] ) ) {
+	foreach ( $cva_nash['nashville'] as $cva_n ) {
+		if ( empty( $cva_n['value'] ) || empty( $cva_n['label'] ) ) continue;
+		$cva_numbers[] = array(
+			'value'  => $cva_n['value'],
+			'label'  => $cva_n['label'],
+			'source' => $cva_n['publisher'] . ', ' . $cva_n['data_period'] . ' (published ' . date( 'F j, Y', strtotime( $cva_n['published'] ) ) . ')',
+			'url'    => $cva_n['url'],
+		);
+	}
+}
+
 get_header(); ?>
 
 <!-- ── HERO: same photo hero and overlay as the city pages (house photo 8) ── -->
@@ -199,6 +238,28 @@ $cva_check    = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 20
     </figure>
   </div>
 </section>
+
+<!-- ── BY THE NUMBERS: sourced market figures (not a locked section) ── -->
+<?php if ( count( $cva_numbers ) >= 2 ) : ?>
+<section class="section cva-section cva-numbers" id="by-the-numbers" aria-labelledby="cva-numbers-title">
+  <div class="container">
+    <div class="section__header section__header--center">
+      <p class="section__eyebrow">By the Numbers</p>
+      <h2 class="section__title" id="cva-numbers-title">What the Tennessee Market Looks Like Right Now</h2>
+      <p class="section__subtitle">Recent figures that affect which option nets you more. Each one shows its source and the period it covers.</p>
+    </div>
+    <ul class="cva-numbers__grid">
+      <?php foreach ( $cva_numbers as $cva_num ) : ?>
+      <li class="cva-numbers__card">
+        <span class="cva-numbers__value"><?php echo esc_html( $cva_num['value'] ); ?></span>
+        <p class="cva-numbers__label"><?php echo esc_html( $cva_num['label'] ); ?></p>
+        <p class="cva-numbers__source">Source: <a href="<?php echo esc_url( $cva_num['url'] ); ?>" target="_blank" rel="noopener"><?php echo esc_html( $cva_num['source'] ); ?></a></p>
+      </li>
+      <?php endforeach; ?>
+    </ul>
+  </div>
+</section>
+<?php endif; ?>
 
 <!-- ── COMPARISON TABLE ── -->
 <section class="section section--alt cva-section" id="compare">
@@ -545,6 +606,16 @@ $cva_short_name = function ( $name ) {
 
   /* ── Photo after the short answer ── */
   .cva-photo-section { padding-top: 0; }
+  /* ── By the Numbers ── */
+  .cva-numbers { padding-top: 8px; }
+  .cva-numbers__grid { list-style: none; margin: 0 auto; padding: 0; max-width: 1080px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+  .cva-numbers__card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--border); border-top: 4px solid var(--green-dark); border-radius: 12px; padding: 22px 20px 18px; box-shadow: var(--shadow); }
+  .cva-numbers__value { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.1; color: var(--green-dark); }
+  .cva-numbers__label { margin: 10px 0 14px; font-size: 15px; line-height: 1.55; color: var(--charcoal); }
+  .cva-numbers__source { margin: auto 0 0; padding-top: 12px; border-top: 1px solid var(--border); font-size: 13px; line-height: 1.5; color: var(--charcoal-light); }
+  .cva-numbers__source a { color: var(--charcoal-light); text-decoration: underline; text-underline-offset: 2px; }
+  @media (max-width: 1024px) { .cva-numbers__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) { .cva-numbers__grid { grid-template-columns: 1fr; gap: 14px; } .cva-numbers__card { padding: 18px 16px 14px; } .cva-numbers__value { font-size: 28px; } }
   .cva-photo { max-width: 1080px; margin: 0 auto; }
   .cva-photo img { display: block; width: 100%; height: 280px; object-fit: cover; object-position: 50% 55%; border-radius: 12px; box-shadow: var(--shadow); background: var(--bg-light); }
   .cva-photo figcaption { margin-top: 12px; text-align: center; font-size: 15px; color: var(--charcoal-light); }

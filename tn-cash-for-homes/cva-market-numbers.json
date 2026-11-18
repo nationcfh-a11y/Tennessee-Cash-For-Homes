@@ -1,0 +1,23 @@
+{
+  "_note": "Nashville figures for the By the Numbers block on /cash-buyer-vs-agent-tennessee/. Updated by hand only. market-stats/check_redfin_reports.py runs with the monthly Market Stats refresh (the 20th) and opens a GitHub issue when Redfin publishes a newer report in either series. The two Tennessee figures in the block come from market-stats-data.php instead, so they refresh automatically.",
+  "nashville": [
+    {
+      "series": "concessions",
+      "value": "63.1%",
+      "label": "Share of Nashville-area home sales where the seller gave the buyer a concession, like paying closing costs or repairs.",
+      "data_period": "3 months ending August 2026",
+      "published": "2026-09-18",
+      "publisher": "Redfin",
+      "url": "https://www.redfin.com/news/home-seller-concessions-august-2026/"
+    },
+    {
+      "series": "all-cash",
+      "value": "29.9%",
+      "label": "Share of Nashville-area home purchases paid all in cash.",
+      "data_period": "March 2026",
+      "published": "2026-05-27",
+      "publisher": "Redfin",
+      "url": "https://www.redfin.com/news/all-cash-homebuyers-march-2026/"
+    }
+  ]
+}
