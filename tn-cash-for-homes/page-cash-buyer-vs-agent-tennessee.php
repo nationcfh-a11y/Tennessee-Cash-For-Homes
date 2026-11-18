@@ -234,7 +234,7 @@ $cva_check    = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 20
         alt="A house Tennessee Cash For Homes bought in Middle Tennessee"
         loading="lazy" decoding="async" />
       <figcaption>We buy houses as-is across Middle Tennessee.</figcaption>
-      <p class="cva-photo__blurb">That includes dated, damaged, inherited and vacant houses, and rentals with tenants still living in them. We buy in Columbia, Spring Hill, Franklin, Murfreesboro, Nashville and the towns around them. See every city and county on our <a href="<?php echo $cva_url( '/where-we-buy/' ); ?>">where we buy</a> page.</p>
+      <p class="cva-photo__blurb">That includes dated, damaged, inherited and vacant houses, and rentals with tenants still living in them. We buy in Columbia, Spring Hill, Franklin, Murfreesboro, Nashville and the towns around them. See every city and county on our <a href="<?php echo $cva_url( '/where-we-buy/' ); ?>">where we buy</a> page. Wondering whether to make repairs first? See our <a href="<?php echo $cva_url( '/sell-as-is-vs-fix-up-tennessee/' ); ?>">sell as-is vs fix up comparison</a>.</p>
     </figure>
   </div>
 </section>

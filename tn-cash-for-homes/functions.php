@@ -1534,6 +1534,24 @@ function tcfh_handle_legacy_redirects() {
         // Old Wix URL. WordPress used to guess its way to the post; with the
         // post retired it 404'd, so send it straight to the new page.
         'post/the-difference-between-selling-your-house-with-an-agent-vs-selling-to-a-cash-buyer' => '/cash-buyer-vs-agent-tennessee/',
+        // Nov 2026: three repair and as-is posts merged into the sell as-is vs fix up page,
+        // and two as-is sales posts retired into the Sell As-Is page. Each has its
+        // current slug, its old dated permalink and its old Wix /post/ URL.
+        'selling-a-house-in-poor-condition-unlocking-the-value-of-as-is-sales' => '/sell-as-is-vs-fix-up-tennessee/',
+        '2024/12/31/selling-a-house-in-poor-condition-unlocking-the-value-of-as-is-sales' => '/sell-as-is-vs-fix-up-tennessee/',
+        'post/selling-a-house-in-poor-condition-unlocking-the-value-of-as-is-sales' => '/sell-as-is-vs-fix-up-tennessee/',
+        'top-10-home-improvements-to-boost-your-property-s-value-before-selling' => '/sell-as-is-vs-fix-up-tennessee/',
+        '2024/03/12/top-10-home-improvements-to-boost-your-property-s-value-before-selling' => '/sell-as-is-vs-fix-up-tennessee/',
+        'post/top-10-home-improvements-to-boost-your-property-s-value-before-selling' => '/sell-as-is-vs-fix-up-tennessee/',
+        'how-to-prepare-for-a-quick-home-sale-in-tennessee' => '/sell-as-is-vs-fix-up-tennessee/',
+        '2024/04/28/how-to-prepare-for-a-quick-home-sale-in-tennessee' => '/sell-as-is-vs-fix-up-tennessee/',
+        'post/how-to-prepare-for-a-quick-home-sale-in-tennessee' => '/sell-as-is-vs-fix-up-tennessee/',
+        'selling-homes-as-is-condition' => '/sell-house-as-is-tennessee/',
+        '2024/02/29/selling-homes-as-is-condition' => '/sell-house-as-is-tennessee/',
+        'post/selling-homes-as-is-condition' => '/sell-house-as-is-tennessee/',
+        'why-tennessee-cash-for-homes-is-your-best-choice-for-selling-ugly-houses' => '/sell-house-as-is-tennessee/',
+        '2024/03/08/why-tennessee-cash-for-homes-is-your-best-choice-for-selling-ugly-houses' => '/sell-house-as-is-tennessee/',
+        'post/why-tennessee-cash-for-homes-is-your-best-choice-for-selling-ugly-houses' => '/sell-house-as-is-tennessee/',
     );
 
     $path = trim( wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ) ?? '', '/' );
@@ -1693,9 +1711,9 @@ add_filter( 'rank_math/json_ld', function( $data ) {
         if ( is_page() && ( $entity['@type'] ?? '' ) === 'Article' ) {
             unset( $data[ $key ] );
         }
-        // The cash buyer vs agent page is written by the company, not a
-        // person: name the business node as its author.
-        if ( is_page_template( 'page-cash-buyer-vs-agent-tennessee.php' ) && ( $entity['@type'] ?? '' ) === 'WebPage' ) {
+        // The comparison pages are written by the company, not a person:
+        // name the business node as their author.
+        if ( ( is_page_template( 'page-cash-buyer-vs-agent-tennessee.php' ) || is_page_template( 'page-sell-as-is-vs-fix-up-tennessee.php' ) ) && ( $entity['@type'] ?? '' ) === 'WebPage' ) {
             $data[ $key ]['author'] = array( '@id' => home_url( '/#organization' ) );
         }
     }
