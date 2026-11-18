@@ -27,7 +27,7 @@ jobs:
     timeout-minutes: 60
     permissions:
       contents: write
-      issues: write   # check_redfin_reports.py opens an issue when a Nashville figure has a newer Redfin report
+      issues: write   # check_redfin_reports.py opens an issue when a By the Numbers figure has a newer source report
     outputs:
       changed: ${{ steps.result.outputs.changed }}
     steps:
@@ -38,6 +38,7 @@ jobs:
             market-stats
             tn-cash-for-homes/market-stats-data.php
             tn-cash-for-homes/cva-market-numbers.json
+            tn-cash-for-homes/asis-market-numbers.json
             .github
 
       - name: Fetch public data
@@ -93,19 +94,20 @@ jobs:
           fi
           cat market-stats/REFRESH_STATUS.md
 
-      # The hand-updated Nashville figures on /cash-buyer-vs-agent-tennessee/
-      # (all-cash share, seller concessions). Never changes the site and never
-      # fails the run: adds a section to REFRESH_STATUS.md, and opens one issue
-      # (emails the owner) when Redfin has published a newer report.
-      - name: Check Redfin reports for the Nashville figures
+      # The hand-updated By the Numbers figures on /cash-buyer-vs-agent-tennessee/
+      # and /sell-as-is-vs-fix-up-tennessee/ (Redfin reports every month; Cost vs
+      # Value from September to December). Never changes the site and never fails
+      # the run: adds a section to REFRESH_STATUS.md, and opens one issue (emails
+      # the owner) when a newer report exists.
+      - name: Check for newer reports behind the By the Numbers figures
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          python3 -I market-stats/check_redfin_reports.py tn-cash-for-homes/cva-market-numbers.json \
+          python3 -I market-stats/check_redfin_reports.py tn-cash-for-homes/cva-market-numbers.json tn-cash-for-homes/asis-market-numbers.json \
             --issue "$RUNNER_TEMP/redfin-issue.md" | tee -a market-stats/REFRESH_STATUS.md
           if [ -s "$RUNNER_TEMP/redfin-issue.md" ]; then
-            title="Newer Redfin report for a Nashville figure on the cash buyer vs agent page"
+            title="Newer source report for a By the Numbers figure"
             if gh issue list --state open --search "in:title \"$title\"" --json number --jq 'length' | grep -qx 0; then
               gh issue create --title "$title" --body-file "$RUNNER_TEMP/redfin-issue.md"
             else

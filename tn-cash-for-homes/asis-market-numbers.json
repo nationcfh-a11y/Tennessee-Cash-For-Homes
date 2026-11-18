@@ -1,0 +1,41 @@
+{
+  "_note": "Figures for the By the Numbers block on /sell-as-is-vs-fix-up-tennessee/. Updated by hand only. market-stats/check_redfin_reports.py runs with the monthly Market Stats refresh (the 20th): it flags newer Redfin reports for the two Redfin series every month, and checks for a new Cost vs Value edition from September through December. It opens a GitHub issue when it finds one and never changes the site.",
+  "page": "https://tennesseecashforhomes.com/sell-as-is-vs-fix-up-tennessee/",
+  "figures": [
+    {
+      "series": "cost-vs-value",
+      "edition": 2025,
+      "value": "106.5%",
+      "label": "Share of the cost a midrange minor kitchen remodel ($27,280) adds back at resale in Nashville.",
+      "source": "Cost vs Value 2025, Nashville (Zonda, published September 18, 2025)",
+      "published": "2025-09-18",
+      "url": "https://www.jlconline.com/cost-vs-value/2025/east-south-central/nashville-tn/"
+    },
+    {
+      "series": "cost-vs-value",
+      "edition": 2025,
+      "value": "50.8%",
+      "label": "Share of the cost a midrange major kitchen remodel ($78,867) adds back at resale in Nashville.",
+      "source": "Cost vs Value 2025, Nashville (Zonda, published September 18, 2025)",
+      "published": "2025-09-18",
+      "url": "https://www.jlconline.com/cost-vs-value/2025/east-south-central/nashville-tn/"
+    },
+    {
+      "series": "price-drops",
+      "value": "20%",
+      "label": "Share of active Nashville-area listings that cut their price.",
+      "source": "Redfin, 4 weeks ending September 20, 2026 (published September 30, 2026)",
+      "published": "2026-09-30",
+      "url": "https://www.redfin.com/news/price-drop-rate-ticks-up/"
+    },
+    {
+      "series": "buyers-vs-sellers",
+      "value": "About 2.6",
+      "label": "Sellers for every buyer in the Nashville area.",
+      "source": "159.5% more sellers than buyers, Redfin, October 2026 (published November 12, 2026)",
+      "published": "2026-11-12",
+      "url": "https://www.redfin.com/news/buyers-vs-sellers-october-2026/"
+    }
+  ],
+  "footnote": "The Cost vs Value figures are estimates from a 2025 survey of real estate professionals, not actual sale prices."
+}
