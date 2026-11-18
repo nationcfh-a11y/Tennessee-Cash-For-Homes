@@ -1517,7 +1517,9 @@ function tcfh_demote_inline_h1( $content ) {
  * here. Runs early on template_redirect so a 404'd request can be rewritten
  * before WP renders the 404 template.
  */
-add_action( 'template_redirect', 'tcfh_handle_legacy_redirects', 1 );
+// parse_request runs before Rank Math's redirector (which hooks later and had
+// homepage rules for some old Wix /post/ URLs), so this map always wins.
+add_action( 'parse_request', 'tcfh_handle_legacy_redirects', 1 );
 function tcfh_handle_legacy_redirects() {
     static $map = array(
         'privacy-policy-ppc'    => '/privacy-policy/',
