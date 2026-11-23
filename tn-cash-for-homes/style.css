@@ -6254,6 +6254,19 @@ div.related-posts,
 .chamber-badge--small .chamber-badge__eyebrow { font-size: 10px; }
 .chamber-badge--small .chamber-badge__name { max-width: 170px; font-size: 12.5px; }
 .about-badges .chamber-badges { justify-content: center; gap: 16px; margin-bottom: 24px; }
+/* "As featured in" press badge on the About page, same card as the chamber badges */
+.about-badges .about-featured { margin-top: -8px; }
+.about-featured__icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--green-light);
+  color: var(--green-dark);
+}
 @media (max-width: 760px) {
   .chamber-badges--small .chamber-badge { flex: 1 1 100%; }
   .chamber-badges--small .chamber-badge__name { max-width: none; }

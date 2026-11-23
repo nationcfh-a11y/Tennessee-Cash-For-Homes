@@ -256,6 +256,15 @@ $cities = [
       </div>
     </div>
     <?php get_template_part( 'chamber-badges', null, array( 'chambers' => array( 'spring-hill', 'maury' ) ) ); ?>
+    <div class="chamber-badges about-featured">
+      <a class="chamber-badge about-featured__badge" href="https://nashvillevoyager.com/interview/exploring-life-business-with-karson-carmichael-of-tennessee-cash-for-homes" target="_blank" rel="noopener">
+        <span class="about-featured__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></svg></span>
+        <span class="chamber-badge__text">
+          <span class="chamber-badge__eyebrow">As Featured In</span>
+          <span class="chamber-badge__name">Nashville Voyager</span>
+        </span>
+      </a>
+    </div>
     <p class="about-badges__sub">Accredited, rated, and trusted by Tennessee homeowners since 2017.</p>
   </div>
 </section>
